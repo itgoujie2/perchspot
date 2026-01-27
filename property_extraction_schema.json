@@ -1,0 +1,168 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Redfin Property Extraction Schema",
+  "description": "Standard schema for extracting property data from Redfin screenshots for LLM analysis",
+  "version": "1.0.0",
+  "extraction_categories": [
+    {
+      "category": "extraction_metadata",
+      "required": true,
+      "fields": ["source", "extraction_date", "screenshots_analyzed", "data_last_updated"]
+    },
+    {
+      "category": "property",
+      "required": true,
+      "fields": ["address", "listing_status", "description"],
+      "notes": "Description comes from 'About this home' section"
+    },
+    {
+      "category": "pricing",
+      "required": true,
+      "fields": ["sale_history", "current_estimates", "price_per_sqft", "rental_estimate_monthly"]
+    },
+    {
+      "category": "property_details",
+      "required": true,
+      "fields": ["type", "year_built", "bedrooms", "bathrooms", "living_area_sqft", "lot_size_sqft", "levels"]
+    },
+    {
+      "category": "construction",
+      "required": false,
+      "fields": ["builder_name", "building_type", "construction_method", "roof_type", "exterior_material", "foundation"]
+    },
+    {
+      "category": "parking",
+      "required": true,
+      "fields": ["garage_spaces", "parking_total", "has_garage", "garage_attached"]
+    },
+    {
+      "category": "interior",
+      "required": true,
+      "fields": ["rooms", "features", "flooring", "appliances_included"]
+    },
+    {
+      "category": "heating_cooling",
+      "required": true,
+      "fields": ["has_heating", "has_cooling"]
+    },
+    {
+      "category": "utilities",
+      "required": false,
+      "fields": ["water_company", "power_company", "sewer", "utilities_available"]
+    },
+    {
+      "category": "green_features",
+      "required": false,
+      "fields": ["energy_efficient", "efficiency_rating"]
+    },
+    {
+      "category": "exterior_features",
+      "required": false,
+      "fields": ["features", "has_view", "lot_features"]
+    },
+    {
+      "category": "hoa",
+      "required": true,
+      "fields": ["has_hoa", "hoa_fee", "hoa_fee_frequency"]
+    },
+    {
+      "category": "taxes",
+      "required": true,
+      "fields": ["annual_amount", "tax_year", "history"]
+    },
+    {
+      "category": "schools",
+      "required": true,
+      "fields": ["district", "elementary", "middle", "high"],
+      "notes": "Include rating, distance, and assigned status"
+    },
+    {
+      "category": "location",
+      "required": false,
+      "fields": ["zoning_jurisdiction", "community_name", "community_features"]
+    },
+    {
+      "category": "lifestyle_scores",
+      "required": true,
+      "fields": ["walkability", "bikeability", "transit", "noise"],
+      "notes": "From Walk Score section"
+    },
+    {
+      "category": "climate_risks",
+      "required": true,
+      "fields": ["flood", "fire", "heat", "wind", "air_quality"],
+      "notes": "From First Street climate data"
+    },
+    {
+      "category": "sun_exposure",
+      "required": false,
+      "fields": ["june_hours", "december_hours"]
+    },
+    {
+      "category": "market_trends",
+      "required": true,
+      "fields": ["market_type", "sale_to_list_ratio", "median_sale_price", "avg_days_on_market"]
+    },
+    {
+      "category": "comparable_sales",
+      "required": false,
+      "fields": ["address", "sold_date", "price", "beds", "baths", "sqft"]
+    },
+    {
+      "category": "listing_info",
+      "required": false,
+      "fields": ["listing_agent", "listing_brokerage", "buyers_agent", "data_source"]
+    },
+    {
+      "category": "financial_analysis",
+      "required": false,
+      "fields": ["estimated_profit_if_sold", "remaining_mortgage", "estimated_closing_costs"]
+    }
+  ],
+  "redfin_screenshot_sections": {
+    "overview_top": {
+      "scroll_position": "0-700",
+      "contains": ["photos", "address", "price", "beds/baths/sqft", "status badge"]
+    },
+    "about_this_home": {
+      "scroll_position": "700-1400",
+      "contains": ["description", "property_type", "year_built", "lot_size", "price_per_sqft", "parking"]
+    },
+    "redfin_estimate": {
+      "scroll_position": "1400-2100",
+      "contains": ["current_estimate", "appreciation", "recently_sold_homes"]
+    },
+    "estimated_sale_earnings": {
+      "scroll_position": "2100-2800",
+      "contains": ["selling_price", "remaining_mortgage", "closing_costs", "estimated_profit"]
+    },
+    "market_trends": {
+      "scroll_position": "2800-3500",
+      "contains": ["market_type", "sale_to_list", "median_price", "days_on_market"]
+    },
+    "sale_tax_history": {
+      "scroll_position": "3500-4200",
+      "contains": ["rental_estimate", "sale_history", "tax_history"]
+    },
+    "property_details": {
+      "scroll_position": "4200-7000",
+      "contains": ["parking", "interior", "exterior", "financial", "utilities", "location", "schools", "public_facts"]
+    },
+    "neighborhood": {
+      "scroll_position": "7000-8400",
+      "contains": ["map", "schools_detail", "lifestyle_scores"]
+    },
+    "climate": {
+      "scroll_position": "8400-9800",
+      "contains": ["flood_factor", "fire_factor", "heat_factor", "wind_factor", "air_factor", "sun_exposure"]
+    },
+    "similar_homes": {
+      "scroll_position": "9800-12000",
+      "contains": ["nearby_similar", "new_listings", "home_values_table"]
+    },
+    "footer": {
+      "scroll_position": "12000+",
+      "contains": ["listing_info", "disclaimer", "mls_data"]
+    }
+  }
+}
