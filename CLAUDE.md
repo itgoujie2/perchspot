@@ -38,6 +38,12 @@ git pull origin main
 sudo docker compose -f docker-compose.prod.yml up -d --build
 ```
 
+**IMPORTANT: Always restart nginx after rebuilding backend!**
+```bash
+sudo docker compose -f docker-compose.prod.yml restart nginx
+```
+Nginx caches the backend container IP. When backend restarts with a new IP, nginx can't find it (502 error / login fails). Always restart nginx after any backend rebuild.
+
 ### Stripe Testing
 - Test mode keys start with `sk_test_` and `pk_test_`
 - Live mode keys start with `sk_live_` and `pk_live_`
