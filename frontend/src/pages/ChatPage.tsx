@@ -284,6 +284,7 @@ const ChatPage: React.FC = () => {
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const analysisStarted = useRef(false);
+  const analysisCompleted = useRef(false);
 
   const handleDocumentAnalysisComplete = (result: DocumentStatusResponse) => {
     setDocumentAnalyses(prev => [...prev, result]);
@@ -357,6 +358,7 @@ const ChatPage: React.FC = () => {
 
   const startStreamingAnalysis = async (propertyAddress: string) => {
     setAnalyzing(true);
+    analysisCompleted.current = false;
     setMessages([{
       role: 'assistant',
       content: `Starting property analysis for **${propertyAddress}**...`,
@@ -429,6 +431,7 @@ const ChatPage: React.FC = () => {
 
     es.addEventListener('summary', (e) => {
       const data = JSON.parse(e.data);
+      analysisCompleted.current = true;
       setAnalyzing(false);
       setCurrentStep('');
 
@@ -502,6 +505,12 @@ const ChatPage: React.FC = () => {
     es.addEventListener('error', async (e: any) => {
       es.close();
 
+      // If analysis already completed successfully, ignore the error event
+      // (EventSource fires error when connection closes, even after success)
+      if (analysisCompleted.current) {
+        return;
+      }
+
       if (e.data) {
         // Server-sent error event with data payload
         const data = JSON.parse(e.data);
@@ -555,6 +564,7 @@ const ChatPage: React.FC = () => {
     setFinalData(null);
     setCompletedSteps(new Set());
     analysisStarted.current = false;
+    analysisCompleted.current = false;
     navigate('/');
   };
 
