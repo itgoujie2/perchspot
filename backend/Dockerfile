@@ -21,8 +21,8 @@ RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/wh
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install Playwright browser only (deps installed above)
-RUN playwright install chromium
+# Install Playwright system dependencies and browser
+RUN playwright install-deps chromium && playwright install chromium
 
 # Copy application code
 COPY . .
