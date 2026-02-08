@@ -87,14 +87,37 @@ async def stream_property_analysis(
             # Create async iterator from the orchestrator
             analysis_iter = orchestrator.analyze_streaming(address).__aiter__()
 
+            # Create initial task for getting next event
+            next_event_task = asyncio.create_task(analysis_iter.__anext__())
+
             while not analysis_complete:
                 try:
-                    # Try to get next event with a timeout
-                    # This allows us to send heartbeats between long-running operations
-                    event = await asyncio.wait_for(
-                        analysis_iter.__anext__(),
-                        timeout=heartbeat_interval
+                    # Wait for either the event or timeout, WITHOUT cancelling the task
+                    done, pending = await asyncio.wait(
+                        [next_event_task],
+                        timeout=heartbeat_interval,
+                        return_when=asyncio.FIRST_COMPLETED
                     )
+
+                    if next_event_task in done:
+                        # Event received - get result and create new task for next event
+                        try:
+                            event = next_event_task.result()
+                        except StopAsyncIteration:
+                            analysis_complete = True
+                            continue
+
+                        # Create task for next event
+                        next_event_task = asyncio.create_task(analysis_iter.__anext__())
+                    else:
+                        # Timeout - send heartbeat but keep the task running
+                        yield {
+                            "event": "heartbeat",
+                            "data": json.dumps({"type": "heartbeat", "timestamp": time.time()})
+                        }
+                        logger.debug("SSE heartbeat sent")
+                        last_heartbeat = time.time()
+                        continue
 
                     event_type = event.get("type", "message")
 
@@ -171,18 +194,21 @@ async def stream_property_analysis(
                     last_heartbeat = time.time()
                     logger.debug(f"SSE event sent: {event_type}")
 
-                except asyncio.TimeoutError:
-                    # No event received within timeout - send heartbeat to keep connection alive
+                except Exception as e:
+                    logger.error(f"Error processing event: {e}", exc_info=True)
                     yield {
-                        "event": "heartbeat",
-                        "data": json.dumps({"type": "heartbeat", "timestamp": time.time()})
+                        "event": "error",
+                        "data": json.dumps({"type": "error", "error": str(e)})
                     }
-                    logger.debug("SSE heartbeat sent")
-                    last_heartbeat = time.time()
-
-                except StopAsyncIteration:
-                    # Analysis stream completed
                     analysis_complete = True
+
+            # Clean up any pending task
+            if not next_event_task.done():
+                next_event_task.cancel()
+                try:
+                    await next_event_task
+                except (asyncio.CancelledError, StopAsyncIteration):
+                    pass
 
         except Exception as e:
             logger.error(f"Error in streaming analysis: {e}", exc_info=True)
