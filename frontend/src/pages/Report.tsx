@@ -89,8 +89,8 @@ export default function Report() {
         <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
           <Chip
             label={`Grade: ${report.overall_grade}`}
-            sx={{ bgcolor: 'white', color: 'primary.main', fontSize: '1.2rem', fontWeight: 'bold' }}
-            size="large"
+            sx={{ bgcolor: 'white', color: 'primary.main', fontSize: '1.2rem', fontWeight: 'bold', height: 40, '& .MuiChip-label': { px: 2 } }}
+            size="medium"
           />
           <Chip
             label={`Confidence: ${report.confidence}`}
