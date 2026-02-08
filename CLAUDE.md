@@ -8,7 +8,18 @@
 ## Development Notes
 
 ### After Making Changes
-**Always restart services after code changes without waiting for user to ask:**
+**Always do BOTH steps after code changes without waiting for user to ask:**
+
+#### Step 1: Commit and Push to GitHub
+```bash
+git add -A
+git commit -m "Description of changes
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+git push origin main
+```
+
+#### Step 2: Restart Local Docker Services
 
 | Change Type | Command |
 |-------------|---------|
@@ -17,6 +28,15 @@
 | `.env` file changes | `docker compose up -d backend` (must recreate, not restart) |
 | requirements.txt | `docker compose up -d --build backend` |
 | package.json | `docker compose up -d --build frontend` |
+
+### Production Deployment (EC2)
+After pushing changes, remind user to update production:
+```bash
+# On EC2:
+cd /opt/perchspot
+git pull origin main
+sudo docker compose -f docker-compose.prod.yml up -d --build
+```
 
 ### Stripe Testing
 - Test mode keys start with `sk_test_` and `pk_test_`
