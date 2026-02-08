@@ -8,6 +8,10 @@ to a markdown notes file. This enables:
 - Resumability (continue from checkpoint if analysis fails)
 - Caching (reuse previous analysis for same address)
 - Auditability (keep history in S3)
+
+Storage:
+- Production: S3 (MinIO) as primary storage
+- Development: Local files
 """
 
 import os
@@ -17,6 +21,10 @@ from pathlib import Path
 from typing import Dict, Any, Optional
 from datetime import datetime
 import json
+import boto3
+from botocore.exceptions import ClientError
+
+from app.config import settings
 
 logger = logging.getLogger(__name__)
 
@@ -25,8 +33,8 @@ class NotesManager:
     """
     Manages markdown notes files for property analysis.
 
-    Development mode: Keep notes in temp folder for debugging
-    Production mode: Upload to S3 and delete local file after report generation
+    Development mode: Keep notes in local folder
+    Production mode: Use S3 (MinIO) as primary storage
     """
 
     def __init__(
@@ -42,10 +50,10 @@ class NotesManager:
             environment: "development" or "production"
         """
         self.environment = environment
+        self.use_s3 = not settings.DEBUG  # Use S3 in production
 
-        # Set notes directory
+        # Set notes directory (used as local cache in production)
         if notes_dir is None:
-            # Default to backend/analysis_notes/
             backend_dir = Path(__file__).parent.parent.parent.parent
             self.notes_dir = backend_dir / "analysis_notes"
         else:
@@ -54,7 +62,30 @@ class NotesManager:
         # Create directory if it doesn't exist
         self.notes_dir.mkdir(parents=True, exist_ok=True)
 
-        logger.info(f"NotesManager initialized. Dir: {self.notes_dir}, Env: {environment}")
+        # Initialize S3 client for production
+        self.s3_client = None
+        self.s3_bucket = settings.S3_BUCKET
+        self.s3_prefix = "analysis_notes"
+
+        if self.use_s3:
+            try:
+                self.s3_client = boto3.client(
+                    's3',
+                    endpoint_url=settings.S3_ENDPOINT,
+                    aws_access_key_id=settings.S3_ACCESS_KEY,
+                    aws_secret_access_key=settings.S3_SECRET_KEY
+                )
+                # Ensure bucket exists
+                try:
+                    self.s3_client.head_bucket(Bucket=self.s3_bucket)
+                except ClientError:
+                    self.s3_client.create_bucket(Bucket=self.s3_bucket)
+                logger.info(f"NotesManager using S3: {settings.S3_ENDPOINT}/{self.s3_bucket}")
+            except Exception as e:
+                logger.warning(f"Failed to initialize S3, falling back to local: {e}")
+                self.use_s3 = False
+
+        logger.info(f"NotesManager initialized. Dir: {self.notes_dir}, S3: {self.use_s3}")
 
     def normalize_address(self, address: str) -> str:
         """
@@ -82,21 +113,60 @@ class NotesManager:
         return normalized
 
     def get_notes_path(self, address: str) -> Path:
-        """Get full path to notes file for an address."""
+        """Get full local path to notes file for an address."""
         filename = f"{self.normalize_address(address)}.md"
         return self.notes_dir / filename
 
+    def get_s3_key(self, address: str) -> str:
+        """Get S3 key for notes file."""
+        filename = f"{self.normalize_address(address)}.md"
+        return f"{self.s3_prefix}/{filename}"
+
     def notes_exist(self, address: str) -> bool:
         """Check if notes file exists for this address."""
-        notes_path = self.get_notes_path(address)
-        exists = notes_path.exists()
-
-        if exists:
-            logger.info(f"Found existing notes for: {address} at {notes_path}")
+        if self.use_s3:
+            try:
+                self.s3_client.head_object(Bucket=self.s3_bucket, Key=self.get_s3_key(address))
+                logger.info(f"Found existing notes in S3 for: {address}")
+                return True
+            except ClientError:
+                logger.info(f"No existing notes in S3 for: {address}")
+                return False
         else:
-            logger.info(f"No existing notes for: {address}")
+            notes_path = self.get_notes_path(address)
+            exists = notes_path.exists()
+            if exists:
+                logger.info(f"Found existing notes for: {address} at {notes_path}")
+            else:
+                logger.info(f"No existing notes for: {address}")
+            return exists
 
-        return exists
+    def _write_to_s3(self, address: str, content: str):
+        """Write content to S3."""
+        try:
+            self.s3_client.put_object(
+                Bucket=self.s3_bucket,
+                Key=self.get_s3_key(address),
+                Body=content.encode('utf-8'),
+                ContentType='text/markdown'
+            )
+            logger.debug(f"Wrote notes to S3: {self.get_s3_key(address)}")
+        except Exception as e:
+            logger.error(f"Failed to write to S3: {e}")
+            raise
+
+    def _read_from_s3(self, address: str) -> Optional[str]:
+        """Read content from S3."""
+        try:
+            response = self.s3_client.get_object(
+                Bucket=self.s3_bucket,
+                Key=self.get_s3_key(address)
+            )
+            return response['Body'].read().decode('utf-8')
+        except ClientError as e:
+            if e.response['Error']['Code'] == 'NoSuchKey':
+                return None
+            raise
 
     def create_notes(self, address: str, property_info: Dict[str, Any]) -> Path:
         """
@@ -131,11 +201,14 @@ class NotesManager:
 
         header += "\n---\n\n"
 
-        # Write header
-        with open(notes_path, 'w', encoding='utf-8') as f:
-            f.write(header)
-
-        logger.info(f"Created notes file: {notes_path}")
+        # Write to S3 or local file
+        if self.use_s3:
+            self._write_to_s3(address, header)
+            logger.info(f"Created notes in S3: {self.get_s3_key(address)}")
+        else:
+            with open(notes_path, 'w', encoding='utf-8') as f:
+                f.write(header)
+            logger.info(f"Created notes file: {notes_path}")
 
         return notes_path
 
@@ -155,10 +228,9 @@ class NotesManager:
             content: Content to append
             metadata: Optional metadata to include (timestamps, scores, etc.)
         """
-        notes_path = self.get_notes_path(address)
-
-        if not notes_path.exists():
-            logger.warning(f"Notes file doesn't exist, creating: {notes_path}")
+        # Check if notes exist, create if not
+        if not self.notes_exist(address):
+            logger.warning(f"Notes don't exist, creating for: {address}")
             self.create_notes(address, {})
 
         # Build section
@@ -174,11 +246,16 @@ class NotesManager:
         # Add content
         section += content + "\n\n---\n\n"
 
-        # Append to file
-        with open(notes_path, 'a', encoding='utf-8') as f:
-            f.write(section)
-
-        logger.debug(f"Appended section '{section_title}' to {notes_path}")
+        # Read existing content, append, and write back
+        if self.use_s3:
+            existing = self._read_from_s3(address) or ""
+            self._write_to_s3(address, existing + section)
+            logger.debug(f"Appended section '{section_title}' to S3")
+        else:
+            notes_path = self.get_notes_path(address)
+            with open(notes_path, 'a', encoding='utf-8') as f:
+                f.write(section)
+            logger.debug(f"Appended section '{section_title}' to {notes_path}")
 
     def append_tool_result(
         self,
@@ -311,18 +388,24 @@ class NotesManager:
         Returns:
             Notes content as string, or None if file doesn't exist
         """
-        notes_path = self.get_notes_path(address)
+        if self.use_s3:
+            content = self._read_from_s3(address)
+            if content:
+                logger.info(f"Read notes from S3: {self.get_s3_key(address)} ({len(content)} chars)")
+            else:
+                logger.warning(f"Notes not found in S3: {self.get_s3_key(address)}")
+            return content
+        else:
+            notes_path = self.get_notes_path(address)
+            if not notes_path.exists():
+                logger.warning(f"Notes file not found: {notes_path}")
+                return None
 
-        if not notes_path.exists():
-            logger.warning(f"Notes file not found: {notes_path}")
-            return None
+            with open(notes_path, 'r', encoding='utf-8') as f:
+                content = f.read()
 
-        with open(notes_path, 'r', encoding='utf-8') as f:
-            content = f.read()
-
-        logger.info(f"Read notes file: {notes_path} ({len(content)} chars)")
-
-        return content
+            logger.info(f"Read notes file: {notes_path} ({len(content)} chars)")
+            return content
 
     def parse_notes_for_report(self, address: str) -> Optional[Dict[str, Any]]:
         """
