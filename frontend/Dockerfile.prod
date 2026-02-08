@@ -22,14 +22,11 @@ ENV VITE_API_URL=${VITE_API_URL}
 # Build the application
 RUN npm run build
 
-# Stage 2: Production - just copy the built files
-# This stage exits after copying, used by docker-compose volume
+# Stage 2: Production - copy built files to volume
 FROM alpine:latest
 
-WORKDIR /app
+# Copy built files to /build (not /app/dist, since that's the volume mount point)
+COPY --from=builder /app/dist /build
 
-# Copy built files from builder
-COPY --from=builder /app/dist ./dist
-
-# Keep container running briefly to allow volume mount
-CMD ["sh", "-c", "cp -r /app/dist/* /app/dist/ && echo 'Build complete' && sleep 5"]
+# Copy files from /build to the mounted volume at /app/dist
+CMD ["sh", "-c", "cp -r /build/* /app/dist/ && echo 'Build complete' && ls -la /app/dist/"]
