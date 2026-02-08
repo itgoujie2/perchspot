@@ -1,16 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import {
-  Box,
-  Typography,
-  TextField,
-  Button,
-  Paper,
-  Container,
-  Alert,
-} from '@mui/material'
-import { Search } from '@mui/icons-material'
-import api from '../services/api'
+import Logo from '../assets/logo.svg'
+import './Home.css'
 
 export default function Home() {
   const [address, setAddress] = useState('')
@@ -18,82 +9,63 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null)
   const navigate = useNavigate()
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    if (!address.trim()) return
     setLoading(true)
-    setError(null)
-
-    try {
-      // Navigate to chat page with address as query parameter for streaming analysis
-      navigate(`/chat?address=${encodeURIComponent(address)}`)
-    } catch (err: any) {
-      console.error('Error starting analysis:', err)
-      setError(err.response?.data?.detail || 'Failed to start analysis. Please try again.')
-      setLoading(false)
-    }
+    navigate(`/chat?address=${encodeURIComponent(address)}`)
   }
 
   return (
-    <Container maxWidth="md">
-      <Box sx={{ mt: 8, mb: 4 }}>
-        <Typography variant="h2" component="h1" gutterBottom align="center">
-          Housing Analysis
-        </Typography>
-        <Typography variant="h5" component="h2" gutterBottom align="center" color="text.secondary">
-          AI-Powered Property Analysis
-        </Typography>
-      </Box>
+    <div className="landing-page">
+      <div className="landing-card">
+        <img src={Logo} alt="Perchspot" className="logo" />
+        <p className="tagline">AI-powered property reports in minutes</p>
 
-      <Paper elevation={3} sx={{ p: 4, mt: 4 }}>
         {error && (
-          <Alert severity="error" sx={{ mb: 3 }} onClose={() => setError(null)}>
-            {error}
-          </Alert>
+          <div className="error-alert">
+            <span>{error}</span>
+            <button onClick={() => setError(null)}>&times;</button>
+          </div>
         )}
 
-        <form onSubmit={handleSubmit}>
-          <TextField
-            fullWidth
-            label="Property Address"
-            variant="outlined"
+        <form className="search-form" onSubmit={handleSubmit}>
+          <input
+            type="text"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
-            placeholder="123 Main St, San Francisco, CA 94102"
+            placeholder="Enter a property address..."
             required
-            sx={{ mb: 3 }}
             disabled={loading}
           />
-
-          <Button
-            type="submit"
-            variant="contained"
-            size="large"
-            fullWidth
-            disabled={loading || !address}
-            startIcon={<Search />}
-          >
-            {loading ? 'Starting Analysis...' : 'Analyze Property'}
-          </Button>
+          <button type="submit" disabled={loading || !address.trim()}>
+            {loading ? '...' : '\u2192'}
+          </button>
         </form>
+      </div>
 
-        <Box sx={{ mt: 4 }}>
-          <Typography variant="h6" gutterBottom>
-            What We Analyze:
-          </Typography>
-          <Typography variant="body2" paragraph>
-            • <strong>Property Condition (30%)</strong> - Detailed analysis of property state using AI vision
-          </Typography>
-          <Typography variant="body2" paragraph>
-            • <strong>Location Quality (25%)</strong> - Neighborhood, amenities, and transportation access
-          </Typography>
-          <Typography variant="body2" paragraph>
-            • <strong>Schools (20%)</strong> - Quality and proximity of educational institutions
-          </Typography>
-          <Typography variant="body2" paragraph>
-            • <strong>Investment Value (25%)</strong> - Market analysis and ROI potential
-          </Typography>
-        </Box>
-      </Paper>
-    </Container>
+      <div className="feature-grid">
+        <div className="feature-card">
+          <div className="feature-icon">🏠</div>
+          <h3>Property</h3>
+          <p>Condition scoring, features, and maintenance outlook</p>
+        </div>
+        <div className="feature-card">
+          <div className="feature-icon">📍</div>
+          <h3>Location</h3>
+          <p>Walkability, transit, and neighborhood quality</p>
+        </div>
+        <div className="feature-card">
+          <div className="feature-icon">🎓</div>
+          <h3>Schools</h3>
+          <p>Nearby school ratings, types, and distances</p>
+        </div>
+        <div className="feature-card">
+          <div className="feature-icon">💰</div>
+          <h3>Investment</h3>
+          <p>Market analysis, pricing, and appreciation potential</p>
+        </div>
+      </div>
+    </div>
   )
 }

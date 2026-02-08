@@ -1,0 +1,323 @@
+.document-upload {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.upload-header h4 {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.upload-header p {
+  margin: 0 0 16px 0;
+  font-size: 13px;
+  color: #666;
+}
+
+.upload-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.upload-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.upload-btn:hover:not(:disabled) {
+  border-color: #667eea;
+  color: #667eea;
+  background: #f5f7ff;
+}
+
+.upload-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.upload-btn.inspection:hover:not(:disabled) {
+  border-color: #4caf50;
+  color: #4caf50;
+  background: #f5fff5;
+}
+
+.upload-btn.hoa:hover:not(:disabled) {
+  border-color: #2196f3;
+  color: #2196f3;
+  background: #f5faff;
+}
+
+.upload-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 12px;
+  background: #f5f7ff;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #667eea;
+}
+
+.upload-error {
+  margin-top: 16px;
+  padding: 12px;
+  background: #fff5f5;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #dc3545;
+  border: 1px solid #f8d7da;
+}
+
+.document-result {
+  margin-top: 20px;
+  padding: 16px;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.result-header h4 {
+  margin: 0;
+  font-size: 15px;
+  color: #333;
+}
+
+.result-score {
+  display: flex;
+  align-items: baseline;
+}
+
+.score-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.score-max {
+  font-size: 14px;
+  color: #999;
+  margin-left: 2px;
+}
+
+.result-reasoning {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.result-list {
+  margin-bottom: 16px;
+}
+
+.result-list h5 {
+  margin: 0 0 8px 0;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.result-list.strengths h5 {
+  color: #4caf50;
+}
+
+.result-list.concerns h5 {
+  color: #ff9800;
+}
+
+.result-list ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.result-list li {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.issues-list {
+  margin-top: 16px;
+}
+
+.issues-list h5 {
+  margin: 0 0 12px 0;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #666;
+}
+
+.issue-item {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #eee;
+}
+
+.issue-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.severity-badge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.issue-system {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.issue-description {
+  font-size: 13px;
+  color: #555;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+.issue-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: #888;
+}
+
+.total-repairs {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #eee;
+  font-size: 14px;
+  color: #333;
+}
+
+.hoa-details {
+  margin-top: 16px;
+}
+
+.hoa-fee,
+.reserve-fund,
+.rental-restrictions {
+  margin-bottom: 16px;
+}
+
+.hoa-fee h5,
+.reserve-fund h5,
+.rental-restrictions h5 {
+  margin: 0 0 8px 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+}
+
+.fee-amount {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+}
+
+.fee-includes {
+  font-size: 12px;
+  color: #888;
+  margin: 4px 0 0 0;
+}
+
+.reserve-bar {
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.reserve-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.reserve-pct {
+  font-size: 13px;
+  color: #555;
+}
+
+.rental-restrictions p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.spinner-small {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #e5e7eb;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .upload-buttons {
+    flex-direction: column;
+  }
+
+  .upload-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

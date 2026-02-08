@@ -1,5 +1,5 @@
 /**
- * TypeScript type definitions for the Housing Analysis application
+ * TypeScript type definitions for the Perchspot application
  */
 
 export enum AnalysisStatus {
@@ -132,4 +132,167 @@ export interface AnalysisReportResponse {
   analyzed_at: string
   llm_model?: string
   processing_time_seconds?: number
+}
+
+// Document upload types
+export type DocumentType = 'inspection' | 'hoa' | 'unknown'
+
+export interface DocumentUploadResponse {
+  status: 'accepted' | 'error'
+  job_id: string
+  document_type: DocumentType
+  address: string
+  message?: string
+  credit_balance?: number
+}
+
+export interface DocumentStatusResponse {
+  job_id: string
+  status: 'pending' | 'running' | 'completed' | 'failed'
+  document_type: DocumentType
+  result?: DocumentAnalysisResult
+  error?: string
+  credit_balance?: number
+}
+
+export interface DocumentAnalysisResult {
+  score: number
+  confidence: string
+  reasoning: string
+  strengths: string[]
+  concerns: string[]
+  details: Record<string, any>
+}
+
+export interface PropertyDocument {
+  id: string
+  document_type: DocumentType
+  filename: string
+  uploaded_at: string
+  summary?: string
+  score?: number
+}
+
+export interface PropertyDocumentsResponse {
+  address: string
+  documents: PropertyDocument[]
+}
+
+// Inspection-specific types
+export interface InspectionIssue {
+  system: string
+  description: string
+  severity: 'safety' | 'major' | 'moderate' | 'minor' | 'cosmetic'
+  estimated_cost: string
+  urgency: string
+}
+
+export interface InspectionAnalysisDetails {
+  issues: InspectionIssue[]
+  total_estimated_repairs: string
+  immediate_repairs?: string
+  deferred_maintenance?: string
+  systems_summary?: Record<string, string>
+}
+
+// HOA-specific types
+export interface HOAAnalysisDetails {
+  monthly_fee?: number
+  fee_includes?: string[]
+  reserve_fund?: {
+    funded_percentage?: number
+    balance?: number
+    assessment?: string
+  }
+  rental_restrictions?: {
+    allowed?: boolean
+    minimum_lease?: string
+    cap?: string | null
+    waiting_period?: string | null
+  }
+  pet_restrictions?: {
+    allowed?: boolean
+    size_limit?: string
+    breed_restrictions?: boolean
+    max_pets?: number
+  }
+  special_assessments?: Array<{
+    year: number
+    amount: number
+    purpose: string
+  }>
+  litigation?: {
+    pending: boolean
+    history?: string | null
+  }
+}
+
+// Favorites types
+export interface Favorite {
+  id: string
+  address: string
+  nickname?: string
+  notes?: string
+  created_at: string
+}
+
+export interface FavoritesListResponse {
+  favorites: Favorite[]
+  total: number
+}
+
+export interface AddFavoriteRequest {
+  address: string
+  nickname?: string
+  notes?: string
+}
+
+export interface CheckFavoriteResponse {
+  is_favorite: boolean
+  favorite_id?: string
+}
+
+// History types
+export interface HistoryItem {
+  id: string
+  address: string
+  analyzed_at: string
+  cost: number
+}
+
+export interface HistoryListResponse {
+  items: HistoryItem[]
+  total: number
+}
+
+// Compare types
+export interface PropertyScores {
+  property?: number
+  location?: number
+  schools?: number
+  investment?: number
+  overall?: number
+}
+
+export interface PropertySummary {
+  address: string
+  price?: string
+  beds?: number
+  baths?: number
+  sqft?: number
+  year_built?: number
+  scores: PropertyScores
+  strengths: string[]
+  concerns: string[]
+  cached: boolean
+  needs_analysis?: boolean
+}
+
+export interface CompareRequest {
+  addresses: string[]
+}
+
+export interface CompareResponse {
+  properties: PropertySummary[]
+  comparison_notes?: string
 }

@@ -130,8 +130,22 @@ Return a JSON object with this structure:
   "images": {
     "photo_count": number,
     "main_photo_visible": boolean
-  }
+  },
+  "similar_homes": [
+    {
+      "address": "full street address, city, state",
+      "price": number or null,
+      "bedrooms": number or null,
+      "bathrooms": number or null,
+      "sqft": number or null,
+      "property_type": "string (e.g., 'House', 'Townhome') or null",
+      "redfin_url": "https://... or null"
+    }
+  ]
 }
+
+Look for the "Similar Homes" or "Nearby Homes" section near the bottom of the page.
+Extract up to 6 similar properties if visible. Include full address with city and state.
 
 Analyze all screenshots carefully and extract as much data as possible.
 Return ONLY valid JSON, no other text."""
@@ -161,10 +175,12 @@ class ScreenshotExtractorCollector:
         self.total_cost = 0.0
         self.api_calls = 0
         self.screenshots_taken = 0
+        self.api_call_details = []  # Track each call for debugging
 
-        # Cost per token (Claude Sonnet)
-        self.COST_PER_INPUT_TOKEN = 0.000003
-        self.COST_PER_OUTPUT_TOKEN = 0.000015
+        # Cost per 1M tokens (Claude Sonnet 4)
+        # Input: $3/1M, Output: $15/1M
+        self.COST_PER_INPUT_TOKEN = 3.0 / 1_000_000  # $0.000003
+        self.COST_PER_OUTPUT_TOKEN = 15.0 / 1_000_000  # $0.000015
 
         # For local development, use local paths
         if not os.path.exists("/app"):
@@ -249,29 +265,30 @@ class ScreenshotExtractorCollector:
         self.total_cost = 0.0
         self.api_calls = 0
         self.screenshots_taken = 0
+        self.api_call_details = []
 
-        yield {"type": "init", "status": "started", "address": address, "mode": "screenshot"}
-        yield {"type": "status", "message": "Launching Chromium browser..."}
+        yield {"type": "init", "status": "started", "address": address, "mode": "extraction"}
+        yield {"type": "status", "message": "Looking up property information..."}
 
         try:
-            # Step 1: Capture screenshots
-            yield {"type": "status", "message": "Taking screenshots of property page..."}
+            # Step 1: Capture property page data
+            yield {"type": "status", "message": "Gathering property listing data..."}
             screenshots = await self._capture_screenshots(address)
 
             if not screenshots:
-                yield {"type": "error", "error": "Failed to capture screenshots"}
+                yield {"type": "error", "error": "Failed to retrieve property data"}
                 return
 
             yield {
                 "type": "step_complete",
                 "step": 1,
-                "step_name": "Screenshots",
-                "data": {"screenshots_count": len(screenshots)},
+                "step_name": "Data Collection",
+                "data": {"pages_analyzed": len(screenshots)},
                 "cost_so_far": 0
             }
 
-            # Step 2: Extract data with Claude Vision
-            yield {"type": "status", "message": f"Analyzing {len(screenshots)} screenshots with Claude Vision..."}
+            # Step 2: Extract structured data
+            yield {"type": "status", "message": "Extracting property details..."}
             extracted_data = await self._extract_data_from_screenshots(screenshots, address)
 
             # Step 3: Save files
@@ -528,12 +545,20 @@ class ScreenshotExtractorCollector:
             self.api_calls += 1
             input_tokens = response.usage.input_tokens
             output_tokens = response.usage.output_tokens
-            self.total_cost += (
+            call_cost = (
                 input_tokens * self.COST_PER_INPUT_TOKEN +
                 output_tokens * self.COST_PER_OUTPUT_TOKEN
             )
+            self.total_cost += call_cost
 
-            logger.info(f"API call: {input_tokens} input, {output_tokens} output tokens")
+            self.api_call_details.append({
+                "model": "claude-sonnet-4-20250514",
+                "input_tokens": input_tokens,
+                "output_tokens": output_tokens,
+                "cost": round(call_cost, 6)
+            })
+
+            logger.info(f"Vision extraction API call: {input_tokens} input, {output_tokens} output tokens = ${call_cost:.6f}")
 
             # Extract JSON from response
             response_text = response.content[0].text
@@ -557,7 +582,11 @@ class ScreenshotExtractorCollector:
     async def _save_extracted_data(self, address: str, data: Dict[str, Any]):
         """
         Save extracted data to JSON and MD files.
+        Enriches data with region detection and commute times before saving.
         """
+        # Enrich with region & commute data
+        await self._enrich_with_region_data(address, data)
+
         address_slug = self._create_slug(address)
 
         # Save JSON
@@ -572,6 +601,36 @@ class ScreenshotExtractorCollector:
         with open(md_path, 'w') as f:
             f.write(md_content)
         logger.info(f"Saved Markdown: {md_path}")
+
+    async def _enrich_with_region_data(self, address: str, data: Dict[str, Any]):
+        """Detect region and fetch commute times, storing results in data['region_info']."""
+        try:
+            from app.services.agent.skills.location_skill import parse_hot_areas, detect_region, HOT_AREAS_PATH
+            from app.services.data_collectors.google_maps_service import google_maps_service
+
+            hot_areas = parse_hot_areas(os.path.normpath(HOT_AREAS_PATH))
+            region = detect_region(address, hot_areas)
+
+            # Collect all hot areas across all regions
+            all_destinations = []
+            for r, destinations in hot_areas.items():
+                for d in destinations:
+                    all_destinations.append({**d, "_region": r})
+
+            region_info: Dict[str, Any] = {"region": region or "Unknown", "commute_to_hot_areas": []}
+
+            if all_destinations:
+                logger.info(f"Detected region '{region}' for {address}, fetching commute times to {len(all_destinations)} hot areas")
+                commute_data = await google_maps_service.get_commute_times(address, all_destinations)
+                # Tag each result with its sub-region
+                for i, c in enumerate(commute_data):
+                    c["sub_region"] = all_destinations[i]["_region"]
+                region_info["commute_to_hot_areas"] = commute_data
+
+            data["region_info"] = region_info
+        except Exception as e:
+            logger.warning(f"Region enrichment failed for {address}: {e}")
+            data["region_info"] = {"region": "Unknown", "commute_to_hot_areas": []}
 
     @staticmethod
     def _fmt_price(value) -> str:
@@ -593,6 +652,7 @@ class ScreenshotExtractorCollector:
         location = data.get("location", {}) or {}
         climate = data.get("climate_risks", {}) or {}
         meta = data.get("_metadata", {}) or {}
+        region_info = data.get("region_info", {}) or {}
 
         fmt = self._fmt_price
 
@@ -654,6 +714,25 @@ class ScreenshotExtractorCollector:
 | Transit | {location.get('transit_score', 'N/A')}/10 |
 | Bike | {location.get('bike_score', 'N/A')}/10 |
 
+---
+
+## Region & Commute
+
+**Region:** {region_info.get('region', 'Unknown')}
+
+"""
+        commute_areas = region_info.get("commute_to_hot_areas", [])
+        if commute_areas:
+            md += "| Destination | Drive | Transit |\n"
+            md += "|-------------|-------|--------|\n"
+            for c in commute_areas:
+                drive = f"{c['drive_minutes']} min" if c.get('drive_minutes') is not None else "N/A"
+                transit = f"{c['transit_minutes']} min" if c.get('transit_minutes') is not None else "N/A"
+                md += f"| {c['name']} | {drive} | {transit} |\n"
+        else:
+            md += "*No commute data available (GOOGLE_MAPS_API_KEY not set or region not recognized)*\n"
+
+        md += f"""
 ---
 
 ## Climate Risks

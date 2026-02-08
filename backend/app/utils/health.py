@@ -53,4 +53,15 @@ async def check_services() -> Dict[str, str]:
         logger.error(f"S3/MinIO health check failed: {e}")
         services["s3"] = "error"
 
+    # Check Qdrant
+    try:
+        from qdrant_client import QdrantClient
+        from app.config import settings
+        qclient = QdrantClient(url=settings.QDRANT_URL, timeout=5)
+        qclient.get_collections()
+        services["qdrant"] = "ok"
+    except Exception as e:
+        logger.error(f"Qdrant health check failed: {e}")
+        services["qdrant"] = "error"
+
     return services

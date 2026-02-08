@@ -43,4 +43,6 @@ def init_db():
     Call this on application startup
     """
     from app.models import database  # Import all models
+    from app.models import user  # Import user models
+    from app.models import favorite  # Import favorite model
     Base.metadata.create_all(bind=engine)

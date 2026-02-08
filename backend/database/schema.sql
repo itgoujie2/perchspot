@@ -240,6 +240,67 @@ FROM property_analyses pa
 JOIN properties p ON pa.property_id = p.id
 ORDER BY pa.analyzed_at DESC;
 
+-- Users table - accounts with credit balance
+CREATE TABLE IF NOT EXISTS users (
+    id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
+    email VARCHAR(255) NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    credit_balance DECIMAL(10,4) DEFAULT 0.0000,
+    survey_completed VARCHAR(5) DEFAULT 'false',
+    first_purchase_bonus_claimed VARCHAR(5) DEFAULT 'false',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+    UNIQUE KEY unique_email (email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE INDEX idx_users_email ON users(email);
+
+-- Credit transactions - audit log of all credit changes
+CREATE TABLE IF NOT EXISTS credit_transactions (
+    id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
+    user_id CHAR(36) NOT NULL,
+    amount DECIMAL(10,4) NOT NULL,
+    balance_after DECIMAL(10,4) NOT NULL,
+    transaction_type VARCHAR(50) NOT NULL,
+    reference_id VARCHAR(500),
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE INDEX idx_credit_tx_user ON credit_transactions(user_id, created_at DESC);
+CREATE INDEX idx_credit_tx_type ON credit_transactions(transaction_type);
+CREATE INDEX idx_credit_tx_ref ON credit_transactions(user_id, transaction_type, reference_id(255));
+
+-- Purchases table - Stripe payment records
+CREATE TABLE IF NOT EXISTS purchases (
+    id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
+    user_id CHAR(36) NOT NULL,
+    amount DECIMAL(10,4) NOT NULL,
+    credits DECIMAL(10,4) NOT NULL,
+    stripe_checkout_session_id VARCHAR(255) UNIQUE,
+    stripe_payment_intent_id VARCHAR(255),
+    status VARCHAR(20) NOT NULL DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    completed_at TIMESTAMP NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE INDEX idx_purchases_user ON purchases(user_id);
+CREATE INDEX idx_purchases_status ON purchases(status);
+CREATE INDEX idx_purchases_session ON purchases(stripe_checkout_session_id);
+
+-- IP usage tracking for free tier
+CREATE TABLE IF NOT EXISTS ip_usage (
+    id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
+    ip_address VARCHAR(45) NOT NULL,
+    address VARCHAR(500) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_ip_usage_ip (ip_address)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- View for API cost summary
 CREATE OR REPLACE VIEW api_cost_summary AS
 SELECT
@@ -252,3 +313,93 @@ SELECT
 FROM api_usage_logs
 GROUP BY service, DATE(logged_at)
 ORDER BY date DESC, service;
+
+-- User memories/preferences - stores extracted user info from conversations
+CREATE TABLE IF NOT EXISTS user_memories (
+    id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
+    user_id CHAR(36) NOT NULL,
+    category VARCHAR(50) NOT NULL,    -- budget, property_preference, intent, family_situation, lifestyle
+    memory_key VARCHAR(100) NOT NULL, -- max_price, property_type, has_children, etc.
+    memory_value TEXT NOT NULL,
+    confidence VARCHAR(20) DEFAULT 'medium',
+    source VARCHAR(50) NOT NULL,      -- chat, analysis, explicit
+    source_context TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    UNIQUE KEY unique_user_memory (user_id, category, memory_key)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE INDEX idx_user_memories_user ON user_memories(user_id);
+CREATE INDEX idx_user_memories_category ON user_memories(user_id, category);
+
+-- City activity tracking - auto-captured from property analyses
+CREATE TABLE IF NOT EXISTS user_city_activity (
+    id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
+    user_id CHAR(36) NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    state VARCHAR(2) NOT NULL,
+    region VARCHAR(100),
+    activity_count INT DEFAULT 1,
+    last_activity TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    UNIQUE KEY unique_user_city (user_id, city, state)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE INDEX idx_user_city_activity_user ON user_city_activity(user_id);
+CREATE INDEX idx_user_city_activity_last ON user_city_activity(user_id, last_activity DESC);
+
+-- Similar homes found during property analysis - for recommendations
+CREATE TABLE IF NOT EXISTS user_similar_homes (
+    id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
+    user_id CHAR(36) NOT NULL,
+    source_address TEXT NOT NULL,          -- Property they analyzed
+    similar_address TEXT NOT NULL,         -- Similar home found
+    price DECIMAL(12,2),
+    bedrooms INT,
+    bathrooms DECIMAL(3,1),
+    sqft INT,
+    property_type VARCHAR(50),
+    redfin_url TEXT,
+    shown_to_user BOOLEAN DEFAULT FALSE,   -- Track if already recommended
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    UNIQUE KEY unique_user_similar (user_id, similar_address(255))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE INDEX idx_similar_homes_user ON user_similar_homes(user_id, shown_to_user);
+
+-- Referrals table - referral program tracking
+CREATE TABLE IF NOT EXISTS referrals (
+    id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
+    referrer_id CHAR(36) NOT NULL,
+    referred_id CHAR(36),
+    referral_code VARCHAR(20) NOT NULL,
+    status VARCHAR(20) DEFAULT 'pending',  -- pending, registered, rewarded
+    reward_amount DECIMAL(10,4) DEFAULT 1.00,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    registered_at TIMESTAMP NULL,
+    rewarded_at TIMESTAMP NULL,
+    FOREIGN KEY (referrer_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (referred_id) REFERENCES users(id) ON DELETE SET NULL,
+    UNIQUE KEY unique_referral_code (referral_code)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE INDEX idx_referrals_code ON referrals(referral_code);
+CREATE INDEX idx_referrals_referrer ON referrals(referrer_id);
+CREATE INDEX idx_referrals_referred ON referrals(referred_id);
+
+-- User favorites/watchlist - save properties for later
+CREATE TABLE IF NOT EXISTS user_favorites (
+    id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
+    user_id CHAR(36) NOT NULL,
+    address VARCHAR(500) NOT NULL,
+    nickname VARCHAR(100),
+    notes TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    UNIQUE KEY unique_user_favorite (user_id, address(255))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE INDEX idx_user_favorites_user ON user_favorites(user_id);
+CREATE INDEX idx_user_favorites_created ON user_favorites(user_id, created_at DESC);

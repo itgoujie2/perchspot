@@ -43,17 +43,29 @@ botocore==1.32.7
 # Report Generation
 reportlab==4.0.7
 matplotlib==3.8.2
-Pillow==10.1.0
+Pillow>=10.3.0
+
+# Vector Search & Embeddings
+qdrant-client>=1.7.0
+sentence-transformers>=3.0.0
+fastembed>=0.3.0
 
 # Utilities
 python-dotenv==1.0.0
 tenacity==8.2.3
 PyYAML==6.0.1
 
+# PDF Processing
+PyMuPDF>=1.23.0
+
+# Payments
+stripe>=13.0.0
+
 # Rate Limiting & Security
 slowapi==0.1.9
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
+email-validator>=2.0.0
 
 # Monitoring & Logging
 structlog==23.2.0

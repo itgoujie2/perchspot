@@ -192,7 +192,7 @@ const HybridAnalysisPage: React.FC = () => {
       {/* Header */}
       <div className="hybrid-header">
         <div>
-          <h1>🏠 Housing Analysis</h1>
+          <h1>Perchspot</h1>
           <p className="subtitle">AI-Powered Property Analysis & Interactive Chat</p>
         </div>
         {reportData && (

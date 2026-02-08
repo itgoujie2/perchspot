@@ -547,6 +547,120 @@ class NotesManager:
 
         return summary
 
+    def append_document_analysis(
+        self,
+        address: str,
+        document_type: str,
+        analysis: Dict[str, Any],
+        filename: str
+    ):
+        """
+        Append document analysis results (inspection or HOA) to notes.
+
+        Args:
+            address: Property address
+            document_type: "inspection" or "hoa"
+            analysis: Analysis result dictionary from skill
+            filename: Original filename of uploaded document
+        """
+        # Determine section title
+        if document_type == "inspection":
+            section_title = "Inspection Report Analysis"
+        elif document_type == "hoa":
+            section_title = "HOA Document Analysis"
+        else:
+            section_title = f"{document_type.title()} Document Analysis"
+
+        # Build content
+        content = f"**Source Document:** {filename}\n\n"
+        content += f"**Score:** {analysis.get('score', 'N/A')}/100\n"
+        content += f"**Confidence:** {analysis.get('confidence', 'N/A')}\n\n"
+
+        # Reasoning/summary
+        if analysis.get('reasoning'):
+            content += f"### Summary\n\n{analysis['reasoning']}\n\n"
+
+        # Strengths
+        if analysis.get('strengths'):
+            content += "### Strengths\n\n"
+            for strength in analysis['strengths']:
+                content += f"- ✓ {strength}\n"
+            content += "\n"
+
+        # Concerns
+        if analysis.get('concerns'):
+            content += "### Concerns\n\n"
+            for concern in analysis['concerns']:
+                content += f"- ⚠️ {concern}\n"
+            content += "\n"
+
+        # Document-type specific details
+        details = analysis.get('details', {})
+
+        if document_type == "inspection" and details.get('issues'):
+            content += "### Issues Found\n\n"
+            for issue in details['issues']:
+                severity = issue.get('severity', 'unknown').upper()
+                system = issue.get('system', 'Unknown')
+                desc = issue.get('description', '')
+                cost = issue.get('estimated_cost', 'N/A')
+                urgency = issue.get('urgency', 'N/A')
+                content += f"- **[{severity}] {system}**: {desc}\n"
+                content += f"  - Cost: {cost}, Urgency: {urgency}\n"
+            content += "\n"
+
+            if details.get('total_estimated_repairs'):
+                content += f"**Total Estimated Repairs:** {details['total_estimated_repairs']}\n\n"
+
+        elif document_type == "hoa":
+            if details.get('monthly_fee') is not None:
+                content += f"### Fees\n\n"
+                content += f"- **Monthly Fee:** ${details['monthly_fee']}\n"
+                if details.get('fee_includes'):
+                    content += f"- **Includes:** {', '.join(details['fee_includes'])}\n"
+                content += "\n"
+
+            reserve = details.get('reserve_fund', {})
+            if reserve:
+                content += "### Reserve Fund\n\n"
+                if reserve.get('funded_percentage') is not None:
+                    content += f"- **Funded:** {reserve['funded_percentage']}%\n"
+                if reserve.get('balance') is not None:
+                    content += f"- **Balance:** ${reserve['balance']:,}\n"
+                if reserve.get('assessment'):
+                    content += f"- **Assessment:** {reserve['assessment']}\n"
+                content += "\n"
+
+            rental = details.get('rental_restrictions', {})
+            if rental:
+                content += "### Rental Restrictions\n\n"
+                content += f"- **Allowed:** {'Yes' if rental.get('allowed') else 'No'}\n"
+                if rental.get('minimum_lease'):
+                    content += f"- **Minimum Lease:** {rental['minimum_lease']}\n"
+                if rental.get('cap'):
+                    content += f"- **Cap:** {rental['cap']}\n"
+                content += "\n"
+
+            if details.get('litigation', {}).get('pending'):
+                content += "### ⚠️ Litigation\n\n"
+                content += "- **Pending litigation reported**\n\n"
+
+        # Append raw JSON for reference
+        content += "### Raw Analysis Data\n\n"
+        content += "```json\n"
+        content += json.dumps(analysis, indent=2, default=str)
+        content += "\n```\n"
+
+        # Metadata
+        metadata = {
+            "Document Type": document_type,
+            "Filename": filename,
+            "Analyzed": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        }
+
+        self.append_section(address, section_title, content, metadata)
+        logger.info(f"Appended {document_type} analysis for {address} from {filename}")
+
 
 # Global instance
 _notes_manager = None

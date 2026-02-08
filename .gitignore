@@ -29,6 +29,8 @@ ENV/
 # Environment Variables
 .env
 .env.local
+.env.production
+.env.production.backup.*
 
 # IDE
 .vscode/
@@ -74,6 +76,9 @@ htmlcov/
 # Docker
 docker-compose.override.yml
 
+# SSL Certificates (Let's Encrypt)
+certbot/
+
 # MinIO / S3
 /minio_data/
 
@@ -87,6 +92,11 @@ celerybeat.pid
 # Temporary files
 *.tmp
 *.temp
+
+# Database backups
+backup-*.sql
+backup-*.sql.gz
+*.backup.sql
 
 # Runtime data (screenshots, extracted data, analysis notes)
 screenshots/

@@ -2,12 +2,16 @@
 Analysis Orchestrator - Phase 1: Runs skills in parallel
 
 This orchestrator:
-1. Runs all analysis skills in parallel
-2. Aggregates results
-3. Calculates overall score
-4. Returns structured results for Phase 2 (conversation)
+1. Loads pre-extracted property data from property_data/ JSON files
+2. Runs all analysis skills in parallel, sharing the loaded data
+3. Aggregates results
+4. Calculates overall score
+5. Returns structured results for Phase 2 (conversation)
 """
 import asyncio
+import json
+import re
+from pathlib import Path
 from typing import Dict, Any
 import logging
 
@@ -28,10 +32,9 @@ class AnalysisOrchestrator:
 
     def __init__(self):
         self.property_skill = PropertySkill()
-        # Temporarily disabled for testing
-        # self.school_skill = SchoolSkill()
+        self.school_skill = SchoolSkill()
         self.location_skill = LocationSkill()
-        # self.investment_skill = InvestmentSkill()
+        self.investment_skill = InvestmentSkill()
 
     async def analyze_property(self, address: str, **kwargs) -> Dict[str, Any]:
         """
@@ -57,30 +60,17 @@ class AnalysisOrchestrator:
         logger.info(f"Starting full property analysis for: {address}")
 
         try:
-            # Run only PropertySkill and LocationSkill (others disabled for testing)
-            property_result, location_result = await asyncio.gather(
-                self.property_skill.analyze(address, **kwargs),
-                self.location_skill.analyze(address, **kwargs),
+            # Load extracted property data once and share across skills
+            property_data = kwargs.pop('property_data', None) or self._load_property_data(address)
+
+            # Run all skills in parallel
+            property_result, school_result, location_result, investment_result = await asyncio.gather(
+                self.property_skill.analyze(address, property_data=property_data, **kwargs),
+                self.school_skill.analyze(address, property_data=property_data, **kwargs),
+                self.location_skill.analyze(address, property_data=property_data, **kwargs),
+                self.investment_skill.analyze(address, property_data=property_data, **kwargs),
                 return_exceptions=True
             )
-
-            # Placeholder results for disabled skills
-            school_result = {
-                'score': 0,
-                'confidence': 'low',
-                'reasoning': 'SchoolSkill temporarily disabled for testing',
-                'strengths': [],
-                'concerns': ['Not analyzed'],
-                'details': {}
-            }
-            investment_result = {
-                'score': 0,
-                'confidence': 'low',
-                'reasoning': 'InvestmentSkill temporarily disabled for testing',
-                'strengths': [],
-                'concerns': ['Not analyzed'],
-                'details': {}
-            }
 
             # Handle exceptions
             def handle_skill_result(result, skill_name):
@@ -98,9 +88,9 @@ class AnalysisOrchestrator:
                 return result
 
             property_result = handle_skill_result(property_result, 'PropertySkill')
-            # school_result already set above
+            school_result = handle_skill_result(school_result, 'SchoolSkill')
             location_result = handle_skill_result(location_result, 'LocationSkill')
-            # investment_result already set above
+            investment_result = handle_skill_result(investment_result, 'InvestmentSkill')
 
             # Calculate overall score with weights
             weights = {
@@ -141,6 +131,24 @@ class AnalysisOrchestrator:
         except Exception as e:
             logger.error(f"Analysis orchestration failed: {e}", exc_info=True)
             raise
+
+    @staticmethod
+    def _load_property_data(address: str) -> Dict[str, Any]:
+        """Load pre-extracted property data from JSON file."""
+        slug = re.sub(r'[^\w\s-]', '', address.lower())
+        slug = re.sub(r'[\s-]+', '_', slug)[:50]
+
+        data_dir = Path("/app/property_data")
+        if not data_dir.exists():
+            data_dir = Path("./property_data")
+
+        json_path = data_dir / f"{slug}.json"
+        if not json_path.exists():
+            logger.warning(f"Property data not found: {json_path}")
+            return {}
+
+        with open(json_path, 'r') as f:
+            return json.load(f)
 
     def _calculate_grade(self, score: int) -> str:
         """Convert score to letter grade."""

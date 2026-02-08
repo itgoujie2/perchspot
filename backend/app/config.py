@@ -1,29 +1,31 @@
 """
 Application configuration
 """
+import os
 from pydantic_settings import BaseSettings
-from typing import List
+from pydantic import field_validator
+from typing import List, Optional
 
 
 class Settings(BaseSettings):
     """Application settings loaded from environment variables"""
 
     # Application
-    APP_NAME: str = "Housing Analysis API"
+    APP_NAME: str = "Perchspot API"
     APP_VERSION: str = "1.0.0"
     DEBUG: bool = True
     LOG_LEVEL: str = "INFO"
 
-    # Database
+    # Database - no default in production
     DATABASE_URL: str = "postgresql://postgres:postgres@localhost:5432/housing_analysis"
 
     # Redis
     REDIS_URL: str = "redis://localhost:6379/0"
 
-    # S3/MinIO
+    # S3/MinIO - no hardcoded defaults for credentials
     S3_ENDPOINT: str = "http://localhost:9000"
-    S3_ACCESS_KEY: str = "minioadmin"
-    S3_SECRET_KEY: str = "minioadmin"
+    S3_ACCESS_KEY: str = ""
+    S3_SECRET_KEY: str = ""
     S3_BUCKET: str = "housing-analysis"
 
     # API Keys
@@ -31,6 +33,15 @@ class Settings(BaseSettings):
     ANTHROPIC_API_KEY: str = ""  # For Claude Vision extraction
     GEMINI_API_KEY: str = ""  # For analysis (cheaper than Claude)
     GREATSCHOOLS_API_KEY: str = ""  # Optional, will scrape if not available
+    GOOGLE_MAPS_API_KEY: str = ""  # For commute time calculations
+
+    @field_validator('S3_ACCESS_KEY', 'S3_SECRET_KEY')
+    @classmethod
+    def validate_s3_credentials(cls, v: str, info) -> str:
+        """Validate S3 credentials are set in production"""
+        if not os.getenv('DEBUG', 'True').lower() == 'true' and not v:
+            raise ValueError(f"{info.field_name} is required in production")
+        return v
 
     # LLM Provider Selection for Analysis
     ANALYSIS_LLM_PROVIDER: str = "gemini"  # "gemini" or "claude"
@@ -55,6 +66,26 @@ class Settings(BaseSettings):
     # Caching
     CACHE_TTL_HOURS: int = 24
 
+    # Admin - no default in production
+    ADMIN_PASSWORD: str = ""
+
+    @field_validator('ADMIN_PASSWORD')
+    @classmethod
+    def validate_admin_password(cls, v: str) -> str:
+        """Validate admin password is set and strong in production"""
+        if not os.getenv('DEBUG', 'True').lower() == 'true':
+            if not v:
+                raise ValueError("ADMIN_PASSWORD is required in production")
+            if len(v) < 16:
+                raise ValueError("ADMIN_PASSWORD must be at least 16 characters in production")
+        return v or "admin"  # Default for development only
+
+    # Qdrant
+    QDRANT_URL: str = "http://localhost:6333"
+    QDRANT_COLLECTION: str = "knowledge"
+    EMBEDDING_MODEL: str = "Qwen/Qwen3-Embedding-0.6B"
+    EMBEDDING_DIM: int = 1024
+
     # Celery
     CELERY_BROKER_URL: str = "redis://localhost:6379/0"
     CELERY_RESULT_BACKEND: str = "redis://localhost:6379/0"
@@ -71,6 +102,34 @@ class Settings(BaseSettings):
     # Image Processing
     MAX_IMAGES_PER_ANALYSIS: int = 15
     IMAGE_MAX_SIZE_PX: int = 1024
+
+    # Pricing
+    PRICING_MARGIN: float = 0.80  # 80% margin: user pays cost / (1 - margin)
+
+    # Stripe
+    STRIPE_SECRET_KEY: str = ""
+    STRIPE_PUBLISHABLE_KEY: str = ""
+    STRIPE_WEBHOOK_SECRET: str = ""
+
+    # JWT / Auth - no default in production
+    JWT_SECRET_KEY: str = ""
+    JWT_ALGORITHM: str = "HS256"
+    JWT_EXPIRE_HOURS: int = 24
+    STARTING_CREDIT: float = 0.00
+
+    @field_validator('JWT_SECRET_KEY')
+    @classmethod
+    def validate_jwt_secret(cls, v: str) -> str:
+        """Validate JWT secret is set and strong in production"""
+        if not os.getenv('DEBUG', 'True').lower() == 'true':
+            if not v:
+                raise ValueError("JWT_SECRET_KEY is required in production")
+            if len(v) < 32:
+                raise ValueError("JWT_SECRET_KEY must be at least 32 characters in production")
+        return v or "dev-secret-change-in-production"  # Default for development only
+
+    # Free Tier
+    FREE_ANALYSES_PER_IP: int = 1
 
     # Scoring Weights
     WEIGHT_PROPERTY_CONDITION: float = 0.30

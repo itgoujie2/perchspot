@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 125" width="32" height="40">
+  <defs>
+    <linearGradient id="pinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B4A"/>
+      <stop offset="100%" stop-color="#E8432A"/>
+    </linearGradient>
+    <linearGradient id="birdGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D3A4A"/>
+      <stop offset="100%" stop-color="#1A2533"/>
+    </linearGradient>
+    <linearGradient id="wingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3E5068"/>
+      <stop offset="100%" stop-color="#2D3A4A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Location Pin -->
+  <g transform="translate(50, 0) scale(0.5)">
+    <path d="M0 130
+             C0 130 -40 55 -40 20
+             C-40 -15 -22 -40 0 -40
+             C22 -40 40 -15 40 20
+             C40 55 0 130 0 130Z"
+          fill="url(#pinGrad)"/>
+    <circle cx="0" cy="18" r="19" fill="white" opacity="0.95"/>
+    <circle cx="0" cy="18" r="9" fill="url(#pinGrad)" opacity="0.7"/>
+  </g>
+
+  <!-- Bird -->
+  <g transform="translate(50, 30) scale(0.5)">
+    <!-- Tail -->
+    <path d="M15 -8 Q40 -20 52 -5 Q42 -10 30 -5 Q45 -18 58 -12 Q42 -14 28 -2Z"
+          fill="url(#wingGrad)" opacity="0.85"/>
+    <!-- Body -->
+    <ellipse cx="0" cy="-22" rx="28" ry="22" fill="url(#birdGrad)"/>
+    <!-- Wing -->
+    <path d="M-5 -30 Q20 -45 35 -25 Q25 -30 15 -22 Q22 -38 32 -30 Q18 -35 8 -18Z"
+          fill="url(#wingGrad)"/>
+    <!-- Head -->
+    <circle cx="-18" cy="-42" r="14" fill="url(#birdGrad)"/>
+    <!-- Eye -->
+    <circle cx="-22" cy="-44" r="5.5" fill="white"/>
+    <circle cx="-23" cy="-44" r="3" fill="#1A2533"/>
+    <circle cx="-24" cy="-45.5" r="1.2" fill="white"/>
+    <!-- Beak -->
+    <path d="M-32 -42 L-40 -39 L-32 -38Z" fill="#FFB74D"/>
+    <path d="M-32 -40 L-39 -38 L-32 -38Z" fill="#F09830"/>
+    <!-- Legs -->
+    <g stroke="#2D3A4A" stroke-width="2.2" fill="none" stroke-linecap="round">
+      <path d="M-8 -2 L-10 8"/>
+      <path d="M-14 8 L-10 8 L-6 8"/>
+      <path d="M5 -2 L7 8"/>
+      <path d="M3 8 L7 8 L11 8"/>
+    </g>
+  </g>
+</svg>

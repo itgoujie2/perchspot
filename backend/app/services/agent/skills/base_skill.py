@@ -5,14 +5,32 @@ Skills load their instructions from .claude/skills/[skill-name]/SKILL.md files.
 The .md files are the source of truth for skill behavior.
 """
 from abc import ABC, abstractmethod
-from typing import Dict, Any
+from typing import Dict, Any, Tuple
 import logging
+import json
 import anthropic
 import os
 
 from app.services.agent.skills.skill_loader import skill_loader
 
 logger = logging.getLogger(__name__)
+
+# Anthropic pricing per 1M tokens (as of 2024)
+# https://www.anthropic.com/pricing
+MODEL_PRICING = {
+    # Claude 4 Sonnet
+    "claude-sonnet-4-5-20250929": {"input": 3.00, "output": 15.00},
+    "claude-sonnet-4-20250514": {"input": 3.00, "output": 15.00},
+    # Claude 3.5 Sonnet
+    "claude-3-5-sonnet-20241022": {"input": 3.00, "output": 15.00},
+    "claude-3-5-sonnet-20240620": {"input": 3.00, "output": 15.00},
+    # Claude 4 Haiku
+    "claude-haiku-4-20250414": {"input": 0.80, "output": 4.00},
+    # Claude 3 Haiku
+    "claude-3-haiku-20240307": {"input": 0.25, "output": 1.25},
+    # Default fallback
+    "_default": {"input": 3.00, "output": 15.00},
+}
 
 
 class BaseSkill(ABC):
@@ -35,6 +53,48 @@ class BaseSkill(ABC):
         class_name = self.__class__.__name__.replace('Skill', '').lower()
         self.skill_name = f"{class_name}-analysis"
         self.skill_data = None
+
+        # Cost tracking
+        self.total_cost = 0.0
+        self.total_input_tokens = 0
+        self.total_output_tokens = 0
+        self.api_calls = []  # List of {model, input_tokens, output_tokens, cost}
+
+    def _reset_cost_tracking(self):
+        """Reset cost tracking for a new analysis."""
+        self.total_cost = 0.0
+        self.total_input_tokens = 0
+        self.total_output_tokens = 0
+        self.api_calls = []
+
+    def _calculate_cost(self, model: str, input_tokens: int, output_tokens: int) -> float:
+        """Calculate cost for an API call."""
+        pricing = MODEL_PRICING.get(model, MODEL_PRICING["_default"])
+        cost = (input_tokens * pricing["input"] / 1_000_000) + (output_tokens * pricing["output"] / 1_000_000)
+        return cost
+
+    def _track_api_call(self, model: str, input_tokens: int, output_tokens: int):
+        """Track an API call and its cost."""
+        cost = self._calculate_cost(model, input_tokens, output_tokens)
+        self.total_cost += cost
+        self.total_input_tokens += input_tokens
+        self.total_output_tokens += output_tokens
+        self.api_calls.append({
+            "model": model,
+            "input_tokens": input_tokens,
+            "output_tokens": output_tokens,
+            "cost": round(cost, 6)
+        })
+        logger.info(f"{self.skill_name}: API call - {model} - {input_tokens} in / {output_tokens} out = ${cost:.6f}")
+
+    def get_cost_summary(self) -> Dict[str, Any]:
+        """Get cost summary for the analysis."""
+        return {
+            "total_cost": round(self.total_cost, 6),
+            "total_input_tokens": self.total_input_tokens,
+            "total_output_tokens": self.total_output_tokens,
+            "api_calls": self.api_calls
+        }
 
     def _load_skill(self):
         """Load skill from SKILL.md file (lazy loading)."""
@@ -65,8 +125,8 @@ class BaseSkill(ABC):
         """
         pass
 
-    async def _call_claude(self, prompt: str, max_tokens: int = 2048, images: list = None) -> str:
-        """Helper to call Claude API."""
+    async def _call_claude(self, prompt: str, max_tokens: int = 2048, images: list = None, model: str = "claude-sonnet-4-5-20250929") -> str:
+        """Helper to call Claude API with cost tracking."""
         try:
             messages_content = []
 
@@ -88,7 +148,7 @@ class BaseSkill(ABC):
             })
 
             response = self.claude_client.messages.create(
-                model="claude-sonnet-4-5-20250929",
+                model=model,
                 max_tokens=max_tokens,
                 messages=[{
                     "role": "user",
@@ -96,11 +156,203 @@ class BaseSkill(ABC):
                 }]
             )
 
+            # Track cost
+            input_tokens = response.usage.input_tokens
+            output_tokens = response.usage.output_tokens
+            self._track_api_call(model, input_tokens, output_tokens)
+
             return response.content[0].text
 
         except Exception as e:
             logger.error(f"Claude API error in {self.skill_name} skill: {e}")
             raise
+
+    def _get_knowledge_context(self, query: str, limit: int = 5) -> str:
+        """
+        Retrieve relevant knowledge context for LLM augmentation.
+
+        Returns formatted context string, or empty string on error.
+        Errors are logged but never block analysis.
+        """
+        try:
+            from app.services.knowledge.search_service import get_search_service
+            service = get_search_service()
+            return service.search_for_context(query, limit=limit)
+        except Exception as e:
+            logger.warning(f"Knowledge search unavailable: {e}")
+            return ""
+
+    def _get_knowledge_results(self, query: str, limit: int = 5):
+        """
+        Retrieve raw search results for debugging/display.
+
+        Returns (formatted_context, list of {query, text, category, score, source_file}).
+        """
+        try:
+            from app.services.knowledge.search_service import get_search_service
+            service = get_search_service()
+            results = service.search(query, limit=limit)
+            context = service.search_for_context(query, limit=limit)
+            hits = [
+                {
+                    "text": r.text,
+                    "category": r.category,
+                    "score": round(r.score, 4),
+                    "source_file": r.source_file,
+                }
+                for r in results
+            ]
+            return context, {"query": query, "results": hits}
+        except Exception as e:
+            logger.warning(f"Knowledge search unavailable: {e}")
+            return "", {"query": query, "results": []}
+
+    def _run_multi_query_search(self, queries: list[str], limit_per_query: int = 3):
+        """
+        Run multiple targeted knowledge queries, deduplicate results.
+
+        Returns (combined_context_str, debug_list) where debug_list is a list of
+        {query, results: [{text, category, score, source_file}]}.
+        """
+        try:
+            from app.services.knowledge.search_service import get_search_service
+            from collections import defaultdict
+            service = get_search_service()
+        except Exception as e:
+            logger.warning(f"Knowledge search unavailable: {e}")
+            return "", [{"query": q, "results": []} for q in queries]
+
+        all_debug = []
+        seen_texts = set()
+        by_category = defaultdict(list)
+
+        for query in queries:
+            try:
+                results = service.search(query, limit=limit_per_query)
+                hits = []
+                for r in results:
+                    hits.append({
+                        "text": r.text,
+                        "category": r.category,
+                        "score": round(r.score, 4),
+                        "source_file": r.source_file,
+                    })
+                    if r.text not in seen_texts:
+                        seen_texts.add(r.text)
+                        by_category[r.category].append(r.text)
+                all_debug.append({"query": query, "results": hits})
+            except Exception as e:
+                logger.warning(f"Knowledge query failed for '{query}': {e}")
+                all_debug.append({"query": query, "results": []})
+
+        # Filter results for relevance using Haiku
+        all_debug, by_category = self._filter_results_for_relevance(
+            all_debug, by_category
+        )
+
+        # Build combined context string grouped by category
+        sections = []
+        for category, texts in by_category.items():
+            lines = [f"### {category}"]
+            for text in texts:
+                lines.append(f"- {text}")
+            sections.append("\n".join(lines))
+
+        combined = "\n\n".join(sections)
+        return combined, all_debug
+
+    def _filter_results_for_relevance(
+        self,
+        all_debug: list,
+        by_category: dict,
+    ) -> tuple:
+        """
+        Use Haiku to filter out search results that aren't semantically relevant.
+
+        Returns updated (all_debug, by_category) with irrelevant results marked
+        as filtered in debug and removed from by_category.
+        """
+        # Build flat list of (query, result_text) pairs to evaluate
+        items = []
+        for entry in all_debug:
+            query = entry["query"]
+            for hit in entry["results"]:
+                items.append((query, hit["text"]))
+
+        if not items:
+            return all_debug, by_category
+
+        # Build prompt
+        numbered = []
+        for i, (query, text) in enumerate(items, 1):
+            preview = text[:200].replace("\n", " ")
+            numbered.append(f'{i}. Query: "{query}" → Result: "{preview}"')
+
+        prompt = (
+            "Given these search queries and their results, determine which results are "
+            "actually relevant to the query intent. A result is relevant if it provides "
+            "useful information about the topic the query is asking about. Return ONLY a "
+            "JSON array of booleans (true=relevant, false=irrelevant), one per item.\n\n"
+            + "\n".join(numbered)
+        )
+
+        try:
+            haiku_model = "claude-haiku-4-20250414"
+            response = self.claude_client.messages.create(
+                model=haiku_model,
+                max_tokens=512,
+                messages=[{"role": "user", "content": prompt}],
+            )
+
+            # Track cost for Haiku call
+            input_tokens = response.usage.input_tokens
+            output_tokens = response.usage.output_tokens
+            self._track_api_call(haiku_model, input_tokens, output_tokens)
+
+            raw = response.content[0].text.strip()
+            # Strip markdown fences if present
+            if raw.startswith("```"):
+                raw = raw.split("```")[1]
+                if raw.startswith("json"):
+                    raw = raw[4:]
+                raw = raw.strip()
+            verdicts = json.loads(raw)
+
+            if not isinstance(verdicts, list) or len(verdicts) != len(items):
+                logger.warning(
+                    f"Relevance filter returned unexpected shape: {len(verdicts) if isinstance(verdicts, list) else type(verdicts)} vs {len(items)} items"
+                )
+                return all_debug, by_category
+
+        except Exception as e:
+            logger.warning(f"Relevance filtering failed, keeping all results: {e}")
+            return all_debug, by_category
+
+        # Apply verdicts: mark filtered in debug, rebuild by_category
+        idx = 0
+        filtered_texts = set()
+        for entry in all_debug:
+            for hit in entry["results"]:
+                relevant = bool(verdicts[idx])
+                hit["filtered"] = not relevant
+                if not relevant:
+                    filtered_texts.add(hit["text"])
+                idx += 1
+
+        # Rebuild by_category excluding filtered texts
+        new_by_category = {}
+        for category, texts in by_category.items():
+            kept = [t for t in texts if t not in filtered_texts]
+            if kept:
+                new_by_category[category] = kept
+
+        filtered_count = sum(1 for v in verdicts if not v)
+        if filtered_count:
+            logger.info(
+                f"Relevance filter removed {filtered_count}/{len(items)} results"
+            )
+
+        return all_debug, new_by_category
 
     def _parse_json_response(self, response_text: str) -> Dict[str, Any]:
         """Parse JSON response from Claude, handling markdown code blocks."""

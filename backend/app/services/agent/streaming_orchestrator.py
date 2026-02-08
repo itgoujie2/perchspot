@@ -13,6 +13,7 @@ Architecture:
 - Server-Sent Events: Progressive streaming to frontend
 - Notes Cache: Reuses existing notes to skip redundant extraction
 """
+import asyncio
 import logging
 import json
 import re
@@ -21,8 +22,20 @@ from datetime import datetime
 
 from app.services.data_collectors.screenshot_extractor_collector import ScreenshotExtractorCollector
 from app.services.agent.tools.notes_manager import get_notes_manager
+from app.services.agent.skills.property_skill import PropertySkill
+from app.services.agent.skills.location_skill import LocationSkill
+from app.services.agent.skills.school_skill import SchoolSkill
+from app.services.agent.skills.investment_skill import InvestmentSkill
+from app.config import settings
 
 logger = logging.getLogger(__name__)
+
+
+def _apply_margin(cost: float) -> float:
+    """Apply pricing margin to convert internal cost to user-facing price."""
+    if settings.PRICING_MARGIN >= 1.0:
+        return cost
+    return cost / (1.0 - settings.PRICING_MARGIN)
 
 
 class StreamingAnalysisOrchestrator:
@@ -42,6 +55,10 @@ class StreamingAnalysisOrchestrator:
 
         self.step_data = {}
         self.notes_manager = get_notes_manager()
+        self.property_skill = PropertySkill()
+        self.location_skill = LocationSkill()
+        self.school_skill = SchoolSkill()
+        self.investment_skill = InvestmentSkill()
 
     def _parse_cached_data(self, address: str) -> Optional[Dict[str, Any]]:
         """
@@ -93,13 +110,67 @@ class StreamingAnalysisOrchestrator:
         logger.info(f"Notes exist but could not parse extraction data for: {address}")
         return None
 
+    def _parse_cached_analysis(self, address: str) -> Optional[Dict[str, Any]]:
+        """
+        Parse cached analysis results from the notes file.
+
+        Looks for sections "Property Analysis", "Location Analysis",
+        "School Analysis", "Investment Analysis" — each containing a
+        ```json ... ``` block with the full skill result.
+
+        Returns {"property": {...}, "location": {...}, "schools": {...},
+        "investment": {...}} if all 4 found, else None.
+        """
+        if not self.notes_manager.notes_exist(address):
+            return None
+
+        notes_content = self.notes_manager.read_notes(address)
+        if not notes_content:
+            return None
+
+        section_map = {
+            "Property Analysis": "property",
+            "Location Analysis": "location",
+            "School Analysis": "schools",
+            "Investment Analysis": "investment",
+        }
+
+        cached_analysis = {}
+
+        for section_title, key in section_map.items():
+            # Find the section and extract its JSON block
+            pattern = rf'## {re.escape(section_title)}\n(.*?)(?=\n## |\Z)'
+            matches = re.findall(pattern, notes_content, re.DOTALL)
+            if not matches:
+                logger.info(f"Cached analysis missing section: {section_title}")
+                return None
+
+            # Use the last (most recent) match
+            section_content = matches[-1]
+            fenced = re.search(r'```json\s*\n(.+?)\n```', section_content, re.DOTALL)
+            if not fenced:
+                logger.info(f"Cached analysis section '{section_title}' has no JSON block")
+                return None
+
+            try:
+                cached_analysis[key] = json.loads(fenced.group(1))
+            except json.JSONDecodeError:
+                logger.warning(f"Failed to parse JSON in cached '{section_title}'")
+                return None
+
+        logger.info(f"Found all 4 cached analysis results for: {address}")
+        return cached_analysis
+
     async def _yield_cached_data(self, address: str, cached_data: Dict[str, Any]) -> AsyncGenerator[Dict[str, Any], None]:
         """
         Yield cached data as streaming events, matching the same format
         as a live extraction so the frontend renders identically.
         """
+        start_time = datetime.utcnow()
+
         yield {"type": "init", "status": "started", "address": address, "mode": "cached"}
-        yield {"type": "status", "message": "Using cached data from previous extraction..."}
+        yield {"type": "status", "message": "Loading property data..."}
+        await asyncio.sleep(0.8)
 
         # Reconstruct step events from cached data
         prop = cached_data.get("property", {})
@@ -136,20 +207,70 @@ class StreamingAnalysisOrchestrator:
                 "step_name": step_name,
                 "data": step_data,
                 "status": "scraped",
-                "message": f"Cached: {step_name}",
+                "message": f"Extracted: {step_name}",
                 "cost_so_far": 0
             }
+            await asyncio.sleep(0.8)
 
-        # Final summary
+        # Check for cached analysis results before running skills
+        cached_analysis = self._parse_cached_analysis(address)
+
+        if cached_analysis:
+            # All 4 analysis results are cached — replay them without calling LLM
+            # Stagger delivery so the user sees progressive loading
+
+            analysis_skill_map = [
+                (7, "Property Condition", "property", "Reviewing property condition..."),
+                (8, "Location & Commute", "location", "Evaluating location quality..."),
+                (9, "School Quality", "schools", "Analyzing nearby schools..."),
+                (10, "Investment Potential", "investment", "Calculating investment metrics..."),
+            ]
+
+            analysis_results = {}
+            for step_num, step_name, skill_key, status_msg in analysis_skill_map:
+                yield {"type": "status", "message": status_msg}
+                await asyncio.sleep(3.5)
+                result = cached_analysis[skill_key]
+                analysis_results[skill_key] = result
+                yield {
+                    "type": "analysis",
+                    "step": step_num,
+                    "step_name": step_name,
+                    "skill": skill_key,
+                    "analysis": self._format_analysis_markdown(result, step_name),
+                    "data": result,
+                }
+
+            # Recover original analysis cost from cached results
+            original_analysis_cost = sum(
+                r.get('cost_summary', {}).get('total_cost', 0)
+                for r in cached_analysis.values()
+            )
+            analysis_cost = original_analysis_cost
+
+        else:
+            # Some or all analysis missing — run all skills
+            analysis_results = {}
+            analysis_cost = 0
+            async for analysis_event in self._run_analysis_skills(address, cached_data):
+                if analysis_event["type"] == "analysis_complete":
+                    analysis_results = analysis_event.get("results", {})
+                    analysis_cost = analysis_event.get("analysis_cost", 0)
+                yield analysis_event
+
+        elapsed = (datetime.utcnow() - start_time).total_seconds()
+
+        # Cached replay: cost is 0 here. Per-user billing is handled by the endpoint.
         yield {
             "type": "summary",
             "content": json.dumps(cached_data, indent=2, default=str),
             "extracted_data": cached_data,
+            "analysis_results": analysis_results,
             "status": "complete",
             "total_scraping_cost": 0,
-            "total_analysis_cost": 0,
-            "total_cost": 0,
-            "total_time": 0,
+            "total_analysis_cost": _apply_margin(analysis_cost),
+            "total_cost": _apply_margin(analysis_cost),
+            "total_time": elapsed,
             "cached": True
         }
 
@@ -207,7 +328,7 @@ class StreamingAnalysisOrchestrator:
                         "data": step_data,
                         "status": "scraped",
                         "message": f"Extracted: {step_name}",
-                        "cost_so_far": scrape_event.get("cost_so_far", 0)
+                        "cost_so_far": _apply_margin(scrape_event.get("cost_so_far", 0))
                     }
 
                     # Save raw scraped data to notes
@@ -240,14 +361,25 @@ class StreamingAnalysisOrchestrator:
 
                     logger.info(f"Saved notes to: {self.notes_manager.get_notes_path(address)}")
 
+                    # Run skill-based analysis on the extracted data
+                    analysis_results = {}
+                    analysis_cost = 0
+                    async for analysis_event in self._run_analysis_skills(address, all_data):
+                        if analysis_event["type"] == "analysis_complete":
+                            analysis_results = analysis_event.get("results", {})
+                            analysis_cost = analysis_event.get("analysis_cost", 0)
+                        yield analysis_event
+
+                    total_raw = scrape_event["total_cost"] + analysis_cost
                     yield {
                         "type": "summary",
                         "content": json.dumps(all_data, indent=2, default=str),
                         "extracted_data": all_data,
+                        "analysis_results": analysis_results,
                         "status": "complete",
-                        "total_scraping_cost": scrape_event["total_cost"],
-                        "total_analysis_cost": 0,
-                        "total_cost": scrape_event["total_cost"],
+                        "total_scraping_cost": _apply_margin(scrape_event["total_cost"]),
+                        "total_analysis_cost": _apply_margin(analysis_cost),
+                        "total_cost": _apply_margin(total_raw),
                         "total_time": scrape_event["total_time"]
                     }
 
@@ -262,4 +394,249 @@ class StreamingAnalysisOrchestrator:
                 "type": "error",
                 "error": str(e)
             }
+
+    def _write_knowledge_debug_to_notes(self, address: str, skill_name: str, result: Dict[str, Any]):
+        """Write knowledge query debug info to the notes file."""
+        queries = result.get('knowledge_queries', [])
+        debug_entries = result.get('knowledge_debug', [])
+
+        lines = []
+        for entry in debug_entries:
+            query = entry.get('query', '')
+            results = entry.get('results', [])
+            lines.append(f"**Query:** `{query}`\n")
+            if not results:
+                lines.append("- _(no results)_\n")
+            else:
+                for r in results:
+                    score = r.get('score', 0)
+                    cat = r.get('category', '')
+                    src = r.get('source_file', '')
+                    text = r.get('text', '')
+                    lines.append(f"- [{cat}] (score: {score}, src: {src})")
+                    lines.append(f"  > {text}\n")
+
+        if not lines:
+            return
+
+        content = "\n".join(lines)
+        self.notes_manager.append_section(
+            address=address,
+            section_title=f"Knowledge Debug ({skill_name})",
+            content=content,
+            metadata={
+                "Queries": str(queries),
+                "Total Results": sum(len(e.get('results', [])) for e in debug_entries),
+            }
+        )
+
+    @staticmethod
+    def _format_analysis_markdown(result: Dict[str, Any], title: str) -> str:
+        """Format a skill analysis result as readable markdown for the frontend."""
+        score = result.get('score', 'N/A')
+        confidence = result.get('confidence', 'N/A')
+        reasoning = result.get('reasoning', '')
+
+        lines = [f"**Score: {score}/100** (Confidence: {confidence})\n"]
+        if reasoning:
+            lines.append(f"{reasoning}\n")
+
+        strengths = result.get('strengths', [])
+        if strengths:
+            lines.append("**Strengths:**")
+            for s in strengths:
+                lines.append(f"- {s}")
+            lines.append("")
+
+        concerns = result.get('concerns', [])
+        if concerns:
+            lines.append("**Concerns:**")
+            for c in concerns:
+                lines.append(f"- {c}")
+            lines.append("")
+
+        details = result.get('details', {})
+        # Keys to skip in markdown (complex nested data or debug-only)
+        skip_keys = {'commute_to_hot_areas', 'missing_data', 'raw_data'}
+        if details:
+            lines.append("**Details:**")
+            for key, val in details.items():
+                if key in skip_keys:
+                    continue
+                if isinstance(val, list) and val and isinstance(val[0], dict):
+                    continue  # skip lists of dicts
+                elif key == 'missing_data' and isinstance(val, list):
+                    lines.append(f"- Missing data: {', '.join(val)}")
+                elif isinstance(val, list):
+                    lines.append(f"- {key.replace('_', ' ').title()}: {', '.join(str(v) for v in val)}")
+                else:
+                    lines.append(f"- {key.replace('_', ' ').title()}: {val}")
+
+        return "\n".join(lines)
+
+    async def _run_analysis_skills(self, address: str, all_data: Dict[str, Any]) -> AsyncGenerator[Dict[str, Any], None]:
+        """
+        Run analysis skills on extracted data and yield streaming events.
+        """
+        results = {}
+        total_cost = 0.0
+
+        # Property analysis
+        yield {"type": "status", "message": "Running property analysis..."}
+        try:
+            property_result = await self.property_skill.analyze(address, property_data=all_data)
+            results["property"] = property_result
+            if property_result.get('cost_summary'):
+                total_cost += property_result['cost_summary'].get('total_cost', 0)
+            yield {
+                "type": "analysis",
+                "step": 7,
+                "step_name": "Property Condition",
+                "skill": "property",
+                "analysis": self._format_analysis_markdown(property_result, "Property Condition"),
+                "data": property_result,
+            }
+
+            # Save to notes
+            self.notes_manager.append_section(
+                address=address,
+                section_title="Property Analysis",
+                content="```json\n" + json.dumps(property_result, indent=2, default=str) + "\n```",
+                metadata={
+                    "Score": f"{property_result.get('score', 'N/A')}/100",
+                    "Confidence": property_result.get('confidence', 'N/A')
+                }
+            )
+
+            # Save knowledge debug to notes
+            if property_result.get('knowledge_debug'):
+                self._write_knowledge_debug_to_notes(address, "Property", property_result)
+
+        except Exception as e:
+            logger.error(f"Property analysis failed: {e}", exc_info=True)
+            yield {"type": "status", "message": f"Property analysis failed: {e}"}
+
+        # Location analysis
+        yield {"type": "status", "message": "Running location analysis..."}
+        try:
+            location_result = await self.location_skill.analyze(address, property_data=all_data)
+            results["location"] = location_result
+            if location_result.get('cost_summary'):
+                total_cost += location_result['cost_summary'].get('total_cost', 0)
+            yield {
+                "type": "analysis",
+                "step": 8,
+                "step_name": "Location & Commute",
+                "skill": "location",
+                "analysis": self._format_analysis_markdown(location_result, "Location & Commute"),
+                "data": location_result,
+            }
+
+            self.notes_manager.append_section(
+                address=address,
+                section_title="Location Analysis",
+                content="```json\n" + json.dumps(location_result, indent=2, default=str) + "\n```",
+                metadata={
+                    "Score": f"{location_result.get('score', 'N/A')}/100",
+                    "Confidence": location_result.get('confidence', 'N/A')
+                }
+            )
+
+            # Save knowledge debug to notes
+            if location_result.get('knowledge_debug'):
+                self._write_knowledge_debug_to_notes(address, "Location", location_result)
+        except Exception as e:
+            logger.error(f"Location analysis failed: {e}", exc_info=True)
+            yield {"type": "status", "message": f"Location analysis failed: {e}"}
+
+        # School analysis
+        yield {"type": "status", "message": "Running school analysis..."}
+        try:
+            school_result = await self.school_skill.analyze(address, property_data=all_data)
+            results["schools"] = school_result
+            if school_result.get('cost_summary'):
+                total_cost += school_result['cost_summary'].get('total_cost', 0)
+            yield {
+                "type": "analysis",
+                "step": 9,
+                "step_name": "School Quality",
+                "skill": "schools",
+                "analysis": self._format_analysis_markdown(school_result, "School Quality"),
+                "data": school_result,
+            }
+
+            self.notes_manager.append_section(
+                address=address,
+                section_title="School Analysis",
+                content="```json\n" + json.dumps(school_result, indent=2, default=str) + "\n```",
+                metadata={
+                    "Score": f"{school_result.get('score', 'N/A')}/100",
+                    "Confidence": school_result.get('confidence', 'N/A')
+                }
+            )
+
+            if school_result.get('knowledge_debug'):
+                self._write_knowledge_debug_to_notes(address, "Schools", school_result)
+
+            # Write GreatSchools enrichment data for debugging
+            raw_schools = school_result.get('raw_data', {}).get('schools', [])
+            gs_schools = [s for s in raw_schools if any(k.startswith('gs_') for k in s)]
+            if gs_schools:
+                gs_lines = []
+                for s in gs_schools:
+                    gs_lines.append(f"### {s.get('name', 'Unknown')}")
+                    for k, v in s.items():
+                        if k.startswith('gs_'):
+                            if isinstance(v, dict):
+                                gs_lines.append(f"- **{k}**: {json.dumps(v, default=str)}")
+                            else:
+                                gs_lines.append(f"- **{k}**: {v}")
+                    gs_lines.append("")
+                self.notes_manager.append_section(
+                    address=address,
+                    section_title="GreatSchools Enrichment Data",
+                    content="\n".join(gs_lines),
+                    metadata={"Schools Enriched": len(gs_schools)}
+                )
+        except Exception as e:
+            logger.error(f"School analysis failed: {e}", exc_info=True)
+            yield {"type": "status", "message": f"School analysis failed: {e}"}
+
+        # Investment analysis
+        yield {"type": "status", "message": "Running investment analysis..."}
+        try:
+            investment_result = await self.investment_skill.analyze(address, property_data=all_data)
+            results["investment"] = investment_result
+            if investment_result.get('cost_summary'):
+                total_cost += investment_result['cost_summary'].get('total_cost', 0)
+            yield {
+                "type": "analysis",
+                "step": 10,
+                "step_name": "Investment Potential",
+                "skill": "investment",
+                "analysis": self._format_analysis_markdown(investment_result, "Investment Potential"),
+                "data": investment_result,
+            }
+
+            self.notes_manager.append_section(
+                address=address,
+                section_title="Investment Analysis",
+                content="```json\n" + json.dumps(investment_result, indent=2, default=str) + "\n```",
+                metadata={
+                    "Score": f"{investment_result.get('score', 'N/A')}/100",
+                    "Confidence": investment_result.get('confidence', 'N/A')
+                }
+            )
+
+            if investment_result.get('knowledge_debug'):
+                self._write_knowledge_debug_to_notes(address, "Investment", investment_result)
+        except Exception as e:
+            logger.error(f"Investment analysis failed: {e}", exc_info=True)
+            yield {"type": "status", "message": f"Investment analysis failed: {e}"}
+
+        yield {
+            "type": "analysis_complete",
+            "results": results,
+            "analysis_cost": total_cost
+        }
 

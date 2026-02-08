@@ -1,0 +1,35 @@
+# ===========================================
+# Perchspot Frontend Production Dockerfile
+# Multi-stage build for optimized static files
+# ===========================================
+
+# Stage 1: Build the frontend
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Install dependencies first for better caching
+COPY package*.json ./
+RUN npm ci --only=production=false
+
+# Copy source code
+COPY . .
+
+# Build argument for API URL
+ARG VITE_API_URL=https://localhost
+ENV VITE_API_URL=${VITE_API_URL}
+
+# Build the application
+RUN npm run build
+
+# Stage 2: Production - just copy the built files
+# This stage exits after copying, used by docker-compose volume
+FROM alpine:latest
+
+WORKDIR /app
+
+# Copy built files from builder
+COPY --from=builder /app/dist ./dist
+
+# Keep container running briefly to allow volume mount
+CMD ["sh", "-c", "cp -r /app/dist/* /app/dist/ && echo 'Build complete' && sleep 5"]

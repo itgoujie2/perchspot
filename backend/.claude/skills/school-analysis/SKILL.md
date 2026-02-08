@@ -27,31 +27,30 @@ Use this skill when you need to:
 
 ### Step 1: Get School Data
 
-Schools are typically scraped along with property data from Redfin:
+Schools come from pre-extracted property data (passed as `property_data` kwarg).
+The skill then enriches each school with GreatSchools data via `GreatSchoolsService`.
 
-```python
-from app.services.data_collectors.screenshot_extractor_collector import ScreenshotExtractorCollector
-
-collector = ScreenshotExtractorCollector()
-result = await collector.collect_property_data(address)
-schools = result['schools']  # List of school dictionaries
-```
-
-Each school includes:
+Each school starts with Redfin fields:
 - `name`: School name
-- `rating`: Rating out of 10 (GreatSchools)
+- `rating`: Rating out of 10
 - `grades`: Grade levels (e.g., "K-5", "6-8", "9-12")
 - `distance_miles`: Distance from property
 - `type`: School type (elementary, middle, high)
 
+After enrichment, schools may also have:
+- `gs_rating`: GreatSchools summary rating (1-10)
+- `gs_test_scores_rating`: Test Scores sub-rating (1-10)
+- `gs_student_progress_rating`: Student Progress sub-rating (1-10)
+- `gs_equity_rating`: Equity sub-rating (1-10)
+- `gs_college_readiness_rating`: College Readiness (high schools only)
+- `gs_test_scores`: `{subject: {school_pct, state_avg_pct}}` breakdown
+- `gs_enrollment`: Student count
+- `gs_student_teacher_ratio`: Student-teacher ratio
+- `gs_review_count`: Number of parent reviews
+- `gs_review_avg`: Average review stars
+- `gs_url`: Link to GreatSchools page
+
 ### Step 2: Apply Analysis Framework
-
-Load analysis contexts:
-
-```python
-from app.context.context_manager import context_manager
-contexts = context_manager.get_contexts_for('school_skill')
-```
 
 Key contexts to reference:
 - [rating_interpretation.md](rating_interpretation.md) - How to interpret ratings
@@ -106,6 +105,14 @@ Return analysis in this format:
 }
 ```
 
+## Important Rules
+
+### Missing Data
+**NEVER list missing data as a concern.** "GreatSchools data unavailable", "distance not provided", or "private school not rated" are data limitations, NOT school quality issues. They affect confidence level, not score or concerns. Only list actual school quality issues as concerns.
+
+### Uneven Strengths/Concerns
+Strengths and concerns do NOT need to be balanced. Excellent schools might have 4 strengths and 0-1 concerns. Poor schools might have 1 strength and 4 concerns. Be honest — don't pad lists.
+
 ## Scoring Guidelines
 
 Calculate score based on weighted average:
@@ -130,7 +137,7 @@ Calculate score based on weighted average:
 
 ## Analysis Framework
 
-### Rating Interpretation
+### Rating Interpretation (Redfin / Summary Rating)
 - **9-10**: Top-tier school, highly competitive, excellent outcomes
 - **8**: Very good school, strong academics, above-average performance
 - **7**: Good school, solid academics, meets expectations
@@ -138,18 +145,36 @@ Calculate score based on weighted average:
 - **5**: Below average, significant improvement needed
 - **< 5**: Poor performance, serious concerns
 
+### GreatSchools Sub-Rating Interpretation
+
+When GreatSchools enrichment data is available, use sub-ratings for deeper analysis:
+
+- **Test Scores Rating (1-10)**: Measures absolute proficiency — what percentage of students are meeting grade-level standards on state assessments. A high score means most students are proficient. This is the most commonly cited metric.
+- **Student Progress Rating (1-10)**: Measures academic growth over time — how much students improve year-over-year regardless of starting point. A school with low test scores but high progress is actively improving. This is often more meaningful than raw test scores for assessing school quality.
+- **Equity Rating (1-10)**: Measures the achievement gap between student subgroups (income, race, disability status). Higher = smaller gaps = more equitable outcomes across all students.
+- **College Readiness Rating (1-10)**: High schools only. Based on AP course participation, SAT/ACT scores, graduation rates, and college enrollment. Missing for elementary/middle schools.
+
+**Important notes:**
+- GreatSchools data may be missing for private schools (they don't participate in state testing)
+- Test score breakdowns by subject (with state averages) are more informative than summary ratings
+- Student-teacher ratio below 20:1 is generally favorable; above 25:1 is a concern
+- When Redfin rating and GS rating differ, GS is usually more current and detailed
+
 ### Key Factors to Consider
 1. **Rating consistency**: Are all school levels similarly rated?
 2. **Distance**: How accessible are the schools?
 3. **School type**: Public vs private, magnet vs neighborhood
-4. **Trends**: Is performance improving or declining?
+4. **Trends**: Is performance improving or declining? (Student Progress rating is key here)
 5. **Capacity**: Are schools overcrowded or under-enrolled?
+6. **Test scores vs state averages**: Schools above state average are doing well even if summary rating is moderate
 
 ### Red Flags
 - All schools rated below 5
 - High school rated significantly lower than elementary/middle
 - No schools within 3 miles
 - Large rating inconsistencies (9 elementary, 4 high)
+- Low equity rating combined with low test scores
+- Very high student-teacher ratio (>28:1)
 
 ## Confidence Levels
 

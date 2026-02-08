@@ -1,6 +1,6 @@
 ---
 name: property-analysis
-description: Analyzes property condition from photos and listing data. Use when evaluating property quality, maintenance, updates, or visual condition. Requires Redfin data and property photos.
+description: Analyzes property condition from extracted listing data. Evaluates property type, age, lot, features, climate risks, and maintenance outlook using Redfin-extracted data and knowledge base context.
 allowed-tools: Read, Bash(python:*), Grep
 model: claude-sonnet-4-5-20250929
 ---
@@ -9,130 +9,105 @@ model: claude-sonnet-4-5-20250929
 
 ## Purpose
 
-Analyze residential property condition using:
-- Property photos (vision AI analysis)
-- Listing details (price, beds, baths, sqft)
-- Property description
-- Days on market
+Analyze residential property condition using pre-extracted Redfin data:
+- Property details (type, year built, bedrooms, bathrooms, sqft, lot size, parking)
+- Property description (from listing agent)
+- Pricing and market data (list price, price/sqft, days on market, market type)
+- Features (interior, exterior, appliances, heating/cooling)
+- HOA information
+- Climate risks
+- Photo count (as a confidence signal)
+- Knowledge base context (ingested expert knowledge about PNW housing)
+
+**Data source**: Pre-extracted JSON files in `property_data/` directory — no live scraping during analysis.
 
 ## When to Use
 
 Use this skill when you need to:
-- Evaluate property condition and maintenance
-- Identify visible issues or red flags
-- Assess renovation quality and updates
-- Score property condition (0-100 scale)
+- Evaluate property condition, age, and maintenance outlook
+- Assess property type trade-offs (SFH vs townhome vs condo)
+- Identify red flags from listing data
+- Score property quality (0-100 scale)
+- Flag missing critical information
 
 ## Instructions
 
-### Step 1: Gather Property Data
+### Step 1: Load Extracted Property Data
 
-Use the Redfin collector to scrape property data:
+Property data is provided as a pre-extracted JSON dict with these sections:
+- `property`: address, status, description, MLS number
+- `pricing`: list_price, redfin_estimate, price_per_sqft, rental_estimate
+- `details`: property_type, year_built, bedrooms, bathrooms, living_area_sqft, lot_size_sqft, parking
+- `features`: interior features, exterior features, appliances, heating_cooling
+- `hoa`: has_hoa, fee, frequency
+- `taxes`: annual_amount
+- `climate_risks`: flood, fire, heat, wind, air_quality
+- `market_trends`: market_type, days_on_market
+- `images`: photo_count
 
-```python
-from app.services.data_collectors.screenshot_extractor_collector import ScreenshotExtractorCollector
+### Step 2: Apply Scoring Rubric
 
-collector = ScreenshotExtractorCollector()
-result = await collector.collect_property_data(address)
-property_data = result['data']
-photos = property_data.get('image_urls', [])
-```
-
-### Step 2: Analyze with Context
-
-Load the analysis contexts:
-
-```python
-from app.context.context_manager import context_manager
-contexts = context_manager.get_contexts_for('property_skill')
-```
-
-Key contexts to reference:
-- [photo_analysis_guide.md](photo_analysis_guide.md) - How to evaluate photos
-- [condition_scoring_rubric.md](condition_scoring_rubric.md) - Scoring methodology
+Reference these supporting documents:
+- [condition_scoring_rubric.md](condition_scoring_rubric.md) - Detailed scoring rules for year built, property type, lot, parking, HOA, climate, DOM
+- [housing_styles.md](housing_styles.md) - Architectural style identification and quality by era
+- [photo_analysis_guide.md](photo_analysis_guide.md) - Photo-based condition signals
 - [scoring_philosophy.md](scoring_philosophy.md) - Overall scoring approach
 
-### Step 3: Provide Structured Analysis
+### Step 3: Incorporate Knowledge Base
 
-Return analysis in this format:
+Query the knowledge base for relevant context about:
+- Property characteristics mentioned in the listing (e.g., specific builder, materials, neighborhood)
+- Age-related concerns for the property's era
+- PNW-specific issues
+
+### Step 4: Provide Structured Analysis
 
 ```json
 {
-    "score": 85,
+    "score": 78,
     "confidence": "high",
-    "reasoning": "Well-maintained property with recent kitchen updates. Minor exterior maintenance needed.",
+    "reasoning": "Well-maintained 2002 custom build with generous lot. Approaching major system replacement age for roof and HVAC.",
     "strengths": [
-        "Recently updated kitchen (2022)",
-        "Well-maintained landscaping",
-        "New roof (2021)"
+        "Custom-built 4,980 sqft with premium finishes",
+        "Large 13,504 sqft lot in quiet enclave",
+        "5 bedrooms / 4.5 baths — excellent for families",
+        "3-car garage with attached access"
     ],
     "concerns": [
-        "Siding shows some weathering",
-        "Deck needs refinishing",
-        "HVAC system age unknown"
+        "Year 2002 build — original roof likely needs replacement ($15-25K)",
+        "Original water heater may need replacement"
     ],
     "details": {
-        "exterior_condition": "Good overall, minor maintenance items",
-        "interior_condition": "Excellent, recently updated",
-        "updates_renovations": "Kitchen remodel 2022, new roof 2021",
-        "maintenance_issues": ["Siding weathering", "Deck refinishing needed"]
+        "property_type_assessment": "Single family — best for long-term value and customization",
+        "age_assessment": "23 years old — approaching major system replacements (roof, HVAC, water heater)",
+        "lot_assessment": "13,504 sqft — above average for Sammamish, good privacy and potential",
+        "parking_assessment": "3-car garage — above market standard, desirable",
+        "hoa_assessment": "$42/month — minimal, likely common area maintenance only",
+        "maintenance_risk": "medium",
+        "missing_data": ["heating_cooling", "exterior_material", "roof_type", "foundation"]
     }
 }
 ```
 
+## Important Rules
+
+### Missing Data
+**NEVER list missing data as a concern.** Phrases like "heating/cooling info not extracted", "lot size unknown", or "features unavailable" are data extraction limitations, NOT property deficiencies. They affect confidence level, not the score or concerns list. Only list actual property issues as concerns.
+
+### Uneven Strengths/Concerns
+Strengths and concerns do NOT need to be balanced. A great property might have 4 strengths and 1 concern. A problematic property might have 1 strength and 4 concerns. Be honest about what you find — don't pad lists to make them equal.
+
 ## Scoring Guidelines
 
-- **90-100**: Exceptional condition, recent updates, no visible issues
-- **80-89**: Very good condition, well-maintained, minor cosmetic items
-- **70-79**: Good condition, some deferred maintenance visible
-- **60-69**: Fair condition, multiple maintenance items needed
-- **50-59**: Below average, significant repairs needed
-- **< 50**: Poor condition, major renovations required
-
-## Photo Analysis Checklist
-
-### Exterior
-- Roof condition (shingles, sagging, moss)
-- Siding/exterior walls (cracks, paint, warping)
-- Foundation (visible cracks, settling)
-- Landscaping maintenance level
-- Driveway/walkways condition
-
-### Interior
-- Kitchen: Appliances age, counters, cabinets
-- Bathrooms: Fixtures, tile, signs of water damage
-- Flooring: Type, condition, consistency
-- Walls/ceilings: Paint, cracks, water stains
-- Windows: Condition, style, age
-
-### Red Flags
-- Heavy staging hiding issues
-- Odd camera angles
-- Missing key rooms (bathrooms, kitchen)
-- Very few photos (< 10 for a house)
-- Visible water damage or structural issues
+- **90-100**: New/near-new construction, no concerns, complete data, excellent features
+- **80-89**: Well-maintained, modern systems, minor age-related items only
+- **70-79**: Good overall, some deferred maintenance or approaching system replacements
+- **60-69**: Fair condition, multiple maintenance concerns or significant data gaps
+- **50-59**: Below average, major system replacements overdue or significant issues
+- **< 50**: Poor condition, major renovations required or critical red flags
 
 ## Confidence Levels
 
-- **High**: 15+ photos, clear views, recent listing, consistent quality
-- **Medium**: 10-14 photos, some rooms missing, or older photos
-- **Low**: < 10 photos, poor quality, or significant data gaps
-
-## Additional Resources
-
-For detailed photo analysis techniques, see [photo_analysis_guide.md](photo_analysis_guide.md).
-
-For complete scoring rubric and examples, see [condition_scoring_rubric.md](condition_scoring_rubric.md).
-
-## Example Usage
-
-```python
-# Analyze property at given address
-address = "123 Main St, Seattle, WA 98101"
-
-# This skill will:
-# 1. Scrape Redfin for property data and photos
-# 2. Analyze photos using vision AI
-# 3. Evaluate condition against scoring rubric
-# 4. Return structured analysis with score and reasoning
-```
+- **High**: Complete extracted data, 25+ photos, clear listing description, modern property
+- **Medium**: Some data gaps (1-2 missing fields), 15-24 photos, adequate description
+- **Low**: Significant data gaps (3+ missing fields), < 15 photos, vague description

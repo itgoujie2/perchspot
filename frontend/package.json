@@ -1,7 +1,7 @@
 {
-  "name": "housing-analysis-frontend",
+  "name": "perchspot-frontend",
   "version": "1.0.0",
-  "description": "Frontend for Housing Analysis System",
+  "description": "Perchspot - AI-powered property analysis",
   "type": "module",
   "scripts": {
     "dev": "vite",
