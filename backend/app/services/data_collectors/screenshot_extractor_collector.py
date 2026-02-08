@@ -399,52 +399,31 @@ class ScreenshotExtractorCollector:
                 await page.goto("https://www.redfin.com", wait_until="domcontentloaded", timeout=60000)
                 await asyncio.sleep(3)
 
-                # Close any popups (like Google sign-in)
-                try:
-                    close_buttons = await page.query_selector_all('[aria-label="Close"], .close, [data-testid="close"]')
-                    for btn in close_buttons:
-                        await btn.click()
-                        await asyncio.sleep(0.5)
-                except:
-                    pass
+                # Close any popups (like Google sign-in) - with robust error handling
+                await self._dismiss_popups(page)
 
-                # Search for the address
+                # Search for the address with retry logic
                 logger.info(f"Searching for: {address}")
-                try:
-                    search_input = await page.wait_for_selector('input[placeholder*="City"], input[placeholder*="Address"], input[type="search"], #search-box-input', timeout=15000)
-                except:
-                    # Try alternate selector
-                    search_input = await page.query_selector('input[class*="search"]') or await page.query_selector('input[aria-label*="search"]')
-
-                if search_input:
-                    await search_input.click()
-                    await search_input.fill(address)
-                    await asyncio.sleep(2)
-                else:
-                    logger.error("Could not find search input")
+                search_success = await self._perform_search(page, address)
+                if not search_success:
+                    logger.error("Could not perform search")
                     await browser.close()
                     return screenshots
-
-                # Press Enter or click search
-                await page.keyboard.press("Enter")
-                await asyncio.sleep(3)
 
                 # Check if we're on a property page or search results
                 current_url = page.url
                 logger.info(f"Current URL: {current_url}")
 
-                # If on search results, click the first result
+                # If on search results, click the first result with retry
                 if "/redfin-search" in current_url or "searchResults" in current_url:
                     logger.info("On search results, clicking first result...")
-                    try:
-                        first_result = await page.wait_for_selector('.HomeCardContainer a, .HomeCard a, [data-rf-test-name="basic-card-photo"]', timeout=10000)
-                        await first_result.click()
-                        await asyncio.sleep(3)
-                    except:
-                        logger.warning("Could not find search result to click")
+                    await self._click_first_result(page)
 
                 # Wait for property page to load
-                await page.wait_for_load_state("domcontentloaded", timeout=30000)
+                try:
+                    await page.wait_for_load_state("domcontentloaded", timeout=30000)
+                except Exception as e:
+                    logger.warning(f"Page load state wait failed: {e}")
                 await asyncio.sleep(3)
 
                 # Create address slug for filenames
@@ -496,6 +475,139 @@ class ScreenshotExtractorCollector:
             logger.error(f"Error capturing screenshots: {e}", exc_info=True)
 
         return screenshots
+
+    async def _dismiss_popups(self, page: Page, max_attempts: int = 3):
+        """Dismiss any popups or overlays on the page."""
+        for attempt in range(max_attempts):
+            try:
+                # Common popup close selectors
+                close_selectors = [
+                    '[aria-label="Close"]',
+                    '[aria-label="close"]',
+                    'button.close',
+                    '[data-testid="close"]',
+                    '.modal-close',
+                    '[data-rf-test-name="closeButton"]',
+                    'button[aria-label*="dismiss"]',
+                ]
+
+                for selector in close_selectors:
+                    try:
+                        buttons = await page.query_selector_all(selector)
+                        for btn in buttons:
+                            if await btn.is_visible():
+                                await btn.click(timeout=2000)
+                                await asyncio.sleep(0.3)
+                    except Exception:
+                        continue
+
+                # Press Escape to close any modal
+                await page.keyboard.press("Escape")
+                await asyncio.sleep(0.3)
+                break
+
+            except Exception as e:
+                logger.debug(f"Popup dismiss attempt {attempt + 1} failed: {e}")
+                await asyncio.sleep(0.5)
+
+    async def _perform_search(self, page: Page, address: str, max_retries: int = 3) -> bool:
+        """Perform search with retry logic for dynamic DOM."""
+        for attempt in range(max_retries):
+            try:
+                # Wait a bit for page to stabilize
+                await asyncio.sleep(1)
+
+                # Try multiple search input selectors
+                search_selectors = [
+                    '#search-box-input',
+                    'input[placeholder*="City"]',
+                    'input[placeholder*="Address"]',
+                    'input[type="search"]',
+                    'input[class*="search"]',
+                    'input[aria-label*="search"]',
+                ]
+
+                search_input = None
+                for selector in search_selectors:
+                    try:
+                        search_input = await page.wait_for_selector(selector, timeout=5000)
+                        if search_input and await search_input.is_visible():
+                            break
+                    except Exception:
+                        continue
+
+                if not search_input:
+                    logger.warning(f"Search attempt {attempt + 1}: No search input found")
+                    await asyncio.sleep(2)
+                    continue
+
+                # Clear and fill with fresh element reference
+                await search_input.click(timeout=5000)
+                await asyncio.sleep(0.5)
+
+                # Use keyboard to clear and type (more reliable than fill)
+                await page.keyboard.press("Control+a")
+                await page.keyboard.type(address, delay=50)
+                await asyncio.sleep(2)
+
+                # Press Enter
+                await page.keyboard.press("Enter")
+                await asyncio.sleep(3)
+
+                return True
+
+            except Exception as e:
+                logger.warning(f"Search attempt {attempt + 1} failed: {e}")
+                # Dismiss any popups that might have appeared
+                await self._dismiss_popups(page)
+                await asyncio.sleep(2)
+
+        return False
+
+    async def _click_first_result(self, page: Page, max_retries: int = 3):
+        """Click the first search result with retry logic."""
+        result_selectors = [
+            '.HomeCardContainer a',
+            '.HomeCard a',
+            '[data-rf-test-name="basic-card-photo"]',
+            '.MapHomeCard a',
+            'a[href*="/home/"]',
+        ]
+
+        for attempt in range(max_retries):
+            try:
+                await asyncio.sleep(1)
+
+                for selector in result_selectors:
+                    try:
+                        # Wait for selector and verify it's still attached
+                        result = await page.wait_for_selector(selector, timeout=5000)
+                        if result and await result.is_visible():
+                            # Get href and navigate directly (more reliable than clicking)
+                            href = await result.get_attribute('href')
+                            if href:
+                                if not href.startswith('http'):
+                                    href = f"https://www.redfin.com{href}"
+                                logger.info(f"Navigating to property: {href}")
+                                await page.goto(href, wait_until="domcontentloaded", timeout=30000)
+                                return
+                            else:
+                                # Fallback to click
+                                await result.click(timeout=5000)
+                                await asyncio.sleep(3)
+                                return
+                    except Exception as e:
+                        logger.debug(f"Selector {selector} failed: {e}")
+                        continue
+
+                logger.warning(f"Click result attempt {attempt + 1}: No clickable result found")
+                await asyncio.sleep(2)
+
+            except Exception as e:
+                logger.warning(f"Click result attempt {attempt + 1} failed: {e}")
+                await asyncio.sleep(2)
+
+        logger.warning("Could not click any search result after all retries")
 
     async def _extract_data_from_screenshots(
         self,

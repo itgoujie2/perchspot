@@ -16,15 +16,16 @@ async def check_services() -> Dict[str, str]:
     """
     services = {}
 
-    # Check PostgreSQL
+    # Check MySQL database
     try:
+        from sqlalchemy import text
         from app.database.connection import engine
         with engine.connect() as conn:
-            conn.execute("SELECT 1")
-        services["postgresql"] = "ok"
+            conn.execute(text("SELECT 1"))
+        services["mysql"] = "ok"
     except Exception as e:
-        logger.error(f"PostgreSQL health check failed: {e}")
-        services["postgresql"] = "error"
+        logger.error(f"MySQL health check failed: {e}")
+        services["mysql"] = "error"
 
     # Check Redis
     try:
