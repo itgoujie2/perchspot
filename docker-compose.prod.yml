@@ -141,7 +141,7 @@ services:
   backend:
     build:
       context: ./backend
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
     container_name: perchspot_backend
     restart: unless-stopped
     environment:
@@ -203,7 +203,7 @@ services:
   celery_worker:
     build:
       context: ./backend
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
     container_name: perchspot_celery_worker
     restart: unless-stopped
     command: celery -A app.tasks.celery_app worker --loglevel=warning --concurrency=2
@@ -239,7 +239,7 @@ services:
   celery_beat:
     build:
       context: ./backend
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
     container_name: perchspot_celery_beat
     restart: unless-stopped
     command: celery -A app.tasks.celery_app beat --loglevel=warning
