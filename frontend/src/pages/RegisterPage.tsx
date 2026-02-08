@@ -11,21 +11,28 @@ export default function RegisterPage() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [referralCode, setReferralCode] = useState<string | null>(null);
+  const [promoCode, setPromoCode] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const { register } = useAuth();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
-  // Extract referral code from URL (?ref=ABC123)
+  // Extract referral code (?ref=ABC123) or promo code (?promo=XYZ) from URL
   useEffect(() => {
     const ref = searchParams.get('ref');
     if (ref) {
       setReferralCode(ref);
+    }
+    const promo = searchParams.get('promo');
+    if (promo) {
+      setPromoCode(promo);
     }
   }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+    setSuccessMessage(null);
 
     if (password !== confirm) {
       setError('Passwords do not match.');
@@ -38,8 +45,14 @@ export default function RegisterPage() {
 
     setLoading(true);
     try {
-      await register(email, password, referralCode || undefined);
-      navigate('/', { replace: true });
+      const result = await register(email, password, referralCode || undefined, promoCode || undefined);
+      if (result.promoMessage) {
+        // Show success message briefly, then navigate
+        setSuccessMessage(result.promoMessage);
+        setTimeout(() => navigate('/', { replace: true }), 2000);
+      } else {
+        navigate('/', { replace: true });
+      }
     } catch (err: any) {
       const detail = err.response?.data?.detail;
       setError(typeof detail === 'string' ? detail : 'Registration failed. Please try again.');
@@ -55,7 +68,21 @@ export default function RegisterPage() {
         <h2>Create Account</h2>
         <p className="tagline">Sign up to analyze properties with Perchspot</p>
 
-        {referralCode && (
+        {promoCode && (
+          <div style={{
+            background: 'rgba(76, 175, 80, 0.15)',
+            border: '1px solid rgba(76, 175, 80, 0.3)',
+            borderRadius: 8,
+            padding: '0.75rem 1rem',
+            marginBottom: '1rem',
+            color: '#81c784',
+            fontSize: '0.9rem',
+          }}>
+            Promo code applied: <strong>{promoCode}</strong>
+          </div>
+        )}
+
+        {referralCode && !promoCode && (
           <div style={{
             background: 'rgba(102, 126, 234, 0.15)',
             border: '1px solid rgba(102, 126, 234, 0.3)',
@@ -66,6 +93,24 @@ export default function RegisterPage() {
             fontSize: '0.9rem',
           }}>
             Referral code applied: <strong>{referralCode}</strong>
+          </div>
+        )}
+
+        {successMessage && (
+          <div style={{
+            background: 'rgba(76, 175, 80, 0.2)',
+            border: '1px solid rgba(76, 175, 80, 0.5)',
+            borderRadius: 8,
+            padding: '1rem',
+            marginBottom: '1rem',
+            color: '#a5d6a7',
+            fontSize: '1rem',
+            textAlign: 'center',
+          }}>
+            {successMessage}
+            <div style={{ marginTop: '0.5rem', fontSize: '0.85rem', opacity: 0.8 }}>
+              Redirecting to home...
+            </div>
           </div>
         )}
 

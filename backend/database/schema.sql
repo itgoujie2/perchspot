@@ -403,3 +403,19 @@ CREATE TABLE IF NOT EXISTS user_favorites (
 
 CREATE INDEX idx_user_favorites_user ON user_favorites(user_id);
 CREATE INDEX idx_user_favorites_created ON user_favorites(user_id, created_at DESC);
+
+-- Admin-generated promo codes with custom credit amounts
+CREATE TABLE IF NOT EXISTS promo_codes (
+    id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
+    code VARCHAR(20) NOT NULL UNIQUE,
+    credit_amount DECIMAL(10, 2) NOT NULL,
+    max_uses INT DEFAULT NULL,  -- NULL = unlimited
+    uses_count INT DEFAULT 0,
+    is_active BOOLEAN DEFAULT TRUE,
+    note VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    expires_at TIMESTAMP NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE INDEX idx_promo_codes_code ON promo_codes(code);
+CREATE INDEX idx_promo_codes_active ON promo_codes(is_active);

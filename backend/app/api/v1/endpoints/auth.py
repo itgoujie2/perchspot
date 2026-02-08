@@ -11,6 +11,7 @@ from app.models.user import User
 from app.services.auth.auth_service import hash_password, verify_password, create_access_token
 from app.api.v1.deps import get_current_user
 from app.services.promotions.referral_service import register_referral
+from app.services.promotions.promo_service import redeem_promo_code
 
 logger = logging.getLogger(__name__)
 
@@ -21,6 +22,7 @@ class RegisterRequest(BaseModel):
     email: EmailStr
     password: str
     referral_code: str | None = None
+    promo_code: str | None = None  # Admin-generated promo code
 
 
 class LoginRequest(BaseModel):
@@ -33,6 +35,7 @@ class AuthResponse(BaseModel):
     email: str
     credit_balance: float
     token: str
+    promo_message: str | None = None  # Message about promo code applied
 
 
 class MeResponse(BaseModel):
@@ -58,7 +61,19 @@ def register(req: RegisterRequest, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(user)
 
-    # Process referral code if provided
+    promo_message = None
+
+    # Process promo code if provided (admin-generated)
+    if req.promo_code:
+        success, message, credit_amount = redeem_promo_code(db, req.promo_code, user.id)
+        if success:
+            promo_message = message
+            logger.info(f"User {user.email} registered with promo code {req.promo_code}, ${credit_amount} credited")
+            db.refresh(user)  # Refresh to get updated credit balance
+        else:
+            logger.warning(f"Promo code issue for {user.email}: {message}")
+
+    # Process referral code if provided (user referrals)
     if req.referral_code:
         if register_referral(db, req.referral_code, user.id):
             logger.info(f"User {user.email} registered with referral code {req.referral_code}")
@@ -73,6 +88,7 @@ def register(req: RegisterRequest, db: Session = Depends(get_db)):
         email=user.email,
         credit_balance=float(user.credit_balance),
         token=token,
+        promo_message=promo_message,
     )
 
 

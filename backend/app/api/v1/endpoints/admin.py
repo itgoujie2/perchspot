@@ -6,14 +6,20 @@ All endpoints require admin authentication via X-Admin-Password header.
 """
 import logging
 import os
+from datetime import datetime
 from typing import List, Optional, Dict, Any
 from pathlib import Path
 
 from fastapi import APIRouter, Depends, HTTPException, Header
 from pydantic import BaseModel
+from sqlalchemy.orm import Session
 
 from app.config import settings
 from app.services.agent.tools.notes_manager import get_notes_manager
+from app.database.connection import get_db
+from app.services.promotions.promo_service import (
+    create_promo_code, list_promo_codes, deactivate_promo_code, get_promo_by_code
+)
 
 logger = logging.getLogger(__name__)
 
@@ -171,4 +177,125 @@ async def delete_cached_report(filename: str):
         raise
     except Exception as e:
         logger.error(f"Error deleting cached report {filename}: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# ============================================
+# Promo Code Management Endpoints
+# ============================================
+
+class CreatePromoRequest(BaseModel):
+    credit_amount: float
+    max_uses: Optional[int] = 1
+    note: Optional[str] = None
+    expires_days: Optional[int] = None  # Days until expiration
+
+
+class PromoCodeResponse(BaseModel):
+    code: str
+    credit_amount: float
+    max_uses: Optional[int]
+    uses_count: int
+    is_active: bool
+    note: Optional[str]
+    created_at: str
+    expires_at: Optional[str]
+    registration_url: str
+
+
+class PromoCodeListResponse(BaseModel):
+    total: int
+    promo_codes: List[PromoCodeResponse]
+
+
+@router.post("/promo-codes", response_model=PromoCodeResponse,
+             dependencies=[Depends(verify_admin)])
+async def create_promo(
+    request: CreatePromoRequest,
+    db: Session = Depends(get_db)
+):
+    """Create a new promo code with custom credit amount."""
+    try:
+        from datetime import timedelta
+
+        expires_at = None
+        if request.expires_days:
+            expires_at = datetime.utcnow() + timedelta(days=request.expires_days)
+
+        promo = create_promo_code(
+            db=db,
+            credit_amount=request.credit_amount,
+            max_uses=request.max_uses,
+            note=request.note,
+            expires_at=expires_at,
+        )
+
+        # Build registration URL
+        domain = os.getenv("DOMAIN", "perchspot.com")
+        registration_url = f"https://{domain}/register?promo={promo.code}"
+
+        return PromoCodeResponse(
+            code=promo.code,
+            credit_amount=float(promo.credit_amount),
+            max_uses=promo.max_uses,
+            uses_count=promo.uses_count,
+            is_active=promo.is_active,
+            note=promo.note,
+            created_at=promo.created_at.isoformat(),
+            expires_at=promo.expires_at.isoformat() if promo.expires_at else None,
+            registration_url=registration_url,
+        )
+    except Exception as e:
+        logger.error(f"Error creating promo code: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/promo-codes", response_model=PromoCodeListResponse,
+            dependencies=[Depends(verify_admin)])
+async def list_promos(
+    include_inactive: bool = False,
+    db: Session = Depends(get_db)
+):
+    """List all promo codes."""
+    try:
+        promos = list_promo_codes(db, include_inactive=include_inactive)
+        domain = os.getenv("DOMAIN", "perchspot.com")
+
+        promo_responses = [
+            PromoCodeResponse(
+                code=p.code,
+                credit_amount=float(p.credit_amount),
+                max_uses=p.max_uses,
+                uses_count=p.uses_count,
+                is_active=p.is_active,
+                note=p.note,
+                created_at=p.created_at.isoformat(),
+                expires_at=p.expires_at.isoformat() if p.expires_at else None,
+                registration_url=f"https://{domain}/register?promo={p.code}",
+            )
+            for p in promos
+        ]
+
+        return PromoCodeListResponse(
+            total=len(promo_responses),
+            promo_codes=promo_responses,
+        )
+    except Exception as e:
+        logger.error(f"Error listing promo codes: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.delete("/promo-codes/{code}",
+               dependencies=[Depends(verify_admin)])
+async def deactivate_promo(code: str, db: Session = Depends(get_db)):
+    """Deactivate a promo code."""
+    try:
+        success = deactivate_promo_code(db, code)
+        if not success:
+            raise HTTPException(status_code=404, detail=f"Promo code not found: {code}")
+        return {"status": "ok", "deactivated": code}
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error deactivating promo code {code}: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))

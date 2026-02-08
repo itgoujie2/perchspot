@@ -9,13 +9,17 @@ interface AuthUser {
   credit_balance: number;
 }
 
+interface RegisterResult {
+  promoMessage?: string;
+}
+
 interface AuthContextType {
   user: AuthUser | null;
   token: string | null;
   isAuthenticated: boolean;
   isLoading: boolean;
   login: (email: string, password: string) => Promise<void>;
-  register: (email: string, password: string, referralCode?: string) => Promise<void>;
+  register: (email: string, password: string, referralCode?: string, promoCode?: string) => Promise<RegisterResult>;
   logout: () => void;
   updateBalance: (newBalance: number) => void;
 }
@@ -72,16 +76,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setUser({ id: user_id, email: userEmail, credit_balance });
   };
 
-  const register = async (email: string, password: string, referralCode?: string) => {
-    const payload: { email: string; password: string; referral_code?: string } = { email, password };
+  const register = async (email: string, password: string, referralCode?: string, promoCode?: string): Promise<RegisterResult> => {
+    const payload: { email: string; password: string; referral_code?: string; promo_code?: string } = { email, password };
     if (referralCode) {
       payload.referral_code = referralCode;
     }
+    if (promoCode) {
+      payload.promo_code = promoCode;
+    }
     const res = await axios.post(`${API_BASE}/api/v1/auth/register`, payload);
-    const { user_id, email: userEmail, credit_balance, token: jwt } = res.data;
+    const { user_id, email: userEmail, credit_balance, token: jwt, promo_message } = res.data;
     localStorage.setItem('auth_token', jwt);
     setToken(jwt);
     setUser({ id: user_id, email: userEmail, credit_balance });
+    return { promoMessage: promo_message };
   };
 
   const logout = useCallback(() => {

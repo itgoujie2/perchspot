@@ -117,7 +117,7 @@ export default function AdminPortal() {
   const [authError, setAuthError] = useState('');
 
   // Navigation state
-  const [activeSection, setActiveSection] = useState<'knowledge' | 'reports'>('reports');
+  const [activeSection, setActiveSection] = useState<'knowledge' | 'reports' | 'promos'>('reports');
 
   // Knowledge base state
   const [tab, setTab] = useState(0);
@@ -157,6 +157,16 @@ export default function AdminPortal() {
   const [selectedPointIds, setSelectedPointIds] = useState<Set<string>>(new Set());
   const [bulkDeleteConfirmOpen, setBulkDeleteConfirmOpen] = useState(false);
   const [bulkDeleting, setBulkDeleting] = useState(false);
+
+  // Promo codes state
+  const [promoCodes, setPromoCodes] = useState<any[]>([]);
+  const [promosLoading, setPromosLoading] = useState(false);
+  const [promosError, setPromosError] = useState('');
+  const [newPromoAmount, setNewPromoAmount] = useState('5.00');
+  const [newPromoMaxUses, setNewPromoMaxUses] = useState('1');
+  const [newPromoNote, setNewPromoNote] = useState('');
+  const [creatingPromo, setCreatingPromo] = useState(false);
+  const [copiedCode, setCopiedCode] = useState<string | null>(null);
 
   const headers = useCallback(() => ({
     'X-Admin-Password': password,
@@ -209,6 +219,77 @@ export default function AdminPortal() {
       // silently fail
     }
   }, [headers]);
+
+  const fetchPromoCodes = useCallback(async () => {
+    setPromosLoading(true);
+    setPromosError('');
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/v1/admin/promo-codes?include_inactive=true`, {
+        headers: headers(),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setPromoCodes(data.promo_codes);
+      } else {
+        const err = await res.json();
+        setPromosError(err.detail || 'Failed to load promo codes');
+      }
+    } catch {
+      setPromosError('Cannot connect to backend');
+    } finally {
+      setPromosLoading(false);
+    }
+  }, [headers]);
+
+  const createPromoCode = async () => {
+    setCreatingPromo(true);
+    setPromosError('');
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/v1/admin/promo-codes`, {
+        method: 'POST',
+        headers: {
+          ...headers(),
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          credit_amount: parseFloat(newPromoAmount),
+          max_uses: newPromoMaxUses ? parseInt(newPromoMaxUses) : null,
+          note: newPromoNote || null,
+        }),
+      });
+      if (res.ok) {
+        setNewPromoNote('');
+        fetchPromoCodes();
+      } else {
+        const err = await res.json();
+        setPromosError(err.detail || 'Failed to create promo code');
+      }
+    } catch {
+      setPromosError('Cannot connect to backend');
+    } finally {
+      setCreatingPromo(false);
+    }
+  };
+
+  const deactivatePromoCode = async (code: string) => {
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/v1/admin/promo-codes/${code}`, {
+        method: 'DELETE',
+        headers: headers(),
+      });
+      if (res.ok) {
+        fetchPromoCodes();
+      }
+    } catch {
+      // silently fail
+    }
+  };
+
+  const copyToClipboard = (text: string, code: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedCode(code);
+    setTimeout(() => setCopiedCode(null), 2000);
+  };
 
   const fetchBrowsePoints = useCallback(async (reset: boolean = false) => {
     setBrowseLoading(true);
@@ -694,6 +775,22 @@ export default function AdminPortal() {
               )}
             </ListItemButton>
           </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton
+              selected={activeSection === 'promos'}
+              onClick={() => { setActiveSection('promos'); fetchPromoCodes(); }}
+              sx={{
+                '&.Mui-selected': { bgcolor: 'rgba(255,255,255,0.1)' },
+                '&:hover': { bgcolor: 'rgba(255,255,255,0.05)' },
+              }}
+            >
+              <ListItemIcon sx={{ color: 'inherit' }}>
+                <ContentPaste />
+              </ListItemIcon>
+              <ListItemText primary="Promo Links" />
+            </ListItemButton>
+          </ListItem>
         </List>
 
         <Box sx={{ p: 2, borderTop: '1px solid rgba(255,255,255,0.1)' }}>
@@ -1171,6 +1268,164 @@ export default function AdminPortal() {
                   {filteredReports.length} of {reports.length} reports
                 </Typography>
               </Box>
+            </Paper>
+          </Box>
+        )}
+
+        {/* Promo Codes Section */}
+        {activeSection === 'promos' && (
+          <Box sx={{ p: 3 }}>
+            <Typography variant="h5" gutterBottom sx={{ mb: 3 }}>
+              Promo Links
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
+              Generate registration links with bonus credits for friends.
+            </Typography>
+
+            {promosError && (
+              <Alert severity="error" sx={{ mb: 2 }} onClose={() => setPromosError('')}>
+                {promosError}
+              </Alert>
+            )}
+
+            {/* Create New Promo */}
+            <Paper sx={{ p: 3, mb: 3 }}>
+              <Typography variant="h6" gutterBottom>
+                Create New Promo Link
+              </Typography>
+              <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'flex-start' }}>
+                <TextField
+                  label="Credit Amount ($)"
+                  type="number"
+                  value={newPromoAmount}
+                  onChange={(e) => setNewPromoAmount(e.target.value)}
+                  size="small"
+                  sx={{ width: 130 }}
+                  InputProps={{
+                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                  }}
+                />
+                <TextField
+                  label="Max Uses"
+                  type="number"
+                  value={newPromoMaxUses}
+                  onChange={(e) => setNewPromoMaxUses(e.target.value)}
+                  size="small"
+                  sx={{ width: 100 }}
+                  helperText="Empty = unlimited"
+                />
+                <TextField
+                  label="Note (optional)"
+                  value={newPromoNote}
+                  onChange={(e) => setNewPromoNote(e.target.value)}
+                  size="small"
+                  sx={{ width: 200 }}
+                  placeholder="e.g., For John"
+                />
+                <Button
+                  variant="contained"
+                  onClick={createPromoCode}
+                  disabled={creatingPromo || !newPromoAmount}
+                  sx={{ height: 40 }}
+                >
+                  {creatingPromo ? 'Creating...' : 'Generate Link'}
+                </Button>
+              </Box>
+            </Paper>
+
+            {/* Promo Codes List */}
+            <Paper>
+              <Box sx={{ p: 2, borderBottom: 1, borderColor: 'divider', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <Typography variant="h6">
+                  Existing Promo Codes
+                </Typography>
+                <Button startIcon={<Refresh />} onClick={fetchPromoCodes} size="small">
+                  Refresh
+                </Button>
+              </Box>
+
+              {promosLoading ? (
+                <LinearProgress />
+              ) : promoCodes.length === 0 ? (
+                <Box sx={{ p: 4, textAlign: 'center' }}>
+                  <Typography color="text.secondary">
+                    No promo codes yet. Create one above!
+                  </Typography>
+                </Box>
+              ) : (
+                <TableContainer>
+                  <Table size="small">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Code</TableCell>
+                        <TableCell>Credit</TableCell>
+                        <TableCell>Uses</TableCell>
+                        <TableCell>Note</TableCell>
+                        <TableCell>Registration URL</TableCell>
+                        <TableCell>Status</TableCell>
+                        <TableCell>Actions</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {promoCodes.map((promo) => (
+                        <TableRow key={promo.code} sx={{ opacity: promo.is_active ? 1 : 0.5 }}>
+                          <TableCell>
+                            <Chip label={promo.code} size="small" sx={{ fontFamily: 'monospace' }} />
+                          </TableCell>
+                          <TableCell>${promo.credit_amount.toFixed(2)}</TableCell>
+                          <TableCell>
+                            {promo.uses_count} / {promo.max_uses ?? '∞'}
+                          </TableCell>
+                          <TableCell>{promo.note || '—'}</TableCell>
+                          <TableCell>
+                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                              <Typography
+                                variant="body2"
+                                sx={{
+                                  maxWidth: 250,
+                                  overflow: 'hidden',
+                                  textOverflow: 'ellipsis',
+                                  whiteSpace: 'nowrap',
+                                  fontFamily: 'monospace',
+                                  fontSize: '0.75rem',
+                                }}
+                              >
+                                {promo.registration_url}
+                              </Typography>
+                              <IconButton
+                                size="small"
+                                onClick={() => copyToClipboard(promo.registration_url, promo.code)}
+                                color={copiedCode === promo.code ? 'success' : 'default'}
+                              >
+                                {copiedCode === promo.code ? <CheckCircle fontSize="small" /> : <ContentPaste fontSize="small" />}
+                              </IconButton>
+                            </Box>
+                          </TableCell>
+                          <TableCell>
+                            {promo.is_active ? (
+                              <Chip label="Active" color="success" size="small" />
+                            ) : (
+                              <Chip label="Inactive" size="small" />
+                            )}
+                          </TableCell>
+                          <TableCell>
+                            {promo.is_active && (
+                              <IconButton
+                                size="small"
+                                color="error"
+                                onClick={() => deactivatePromoCode(promo.code)}
+                                title="Deactivate"
+                              >
+                                <Delete fontSize="small" />
+                              </IconButton>
+                            )}
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              )}
             </Paper>
           </Box>
         )}
