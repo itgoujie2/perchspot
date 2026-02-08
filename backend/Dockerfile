@@ -2,11 +2,14 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install minimal system dependencies
+# Install minimal system dependencies + fonts for Playwright
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
     curl \
     ca-certificates \
+    fonts-unifont \
+    fonts-liberation \
+    fonts-dejavu-core \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first for better caching
@@ -18,8 +21,8 @@ RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/wh
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install Playwright with all dependencies (this handles browser deps automatically)
-RUN playwright install --with-deps chromium
+# Install Playwright browser only (deps installed above)
+RUN playwright install chromium
 
 # Copy application code
 COPY . .
