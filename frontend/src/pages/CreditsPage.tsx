@@ -67,7 +67,11 @@ const CreditsPage: React.FC = () => {
     setClaimingSurvey(true);
     setError(null);
     try {
-      const result = await promotionsApi.completeSurvey();
+      const result = await promotionsApi.completeSurvey({
+        how_did_you_hear: surveyAnswers.howDidYouHear || undefined,
+        satisfaction: surveyAnswers.satisfaction || undefined,
+        improvements: surveyAnswers.improvements || undefined,
+      });
       setSurveyCompleted(true);
       setShowSurveyForm(false);
       setSuccess(result.message);

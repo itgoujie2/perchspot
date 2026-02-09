@@ -86,3 +86,21 @@ class CreditTransaction(Base):
         Index('idx_credit_tx_type', 'transaction_type'),
         Index('idx_credit_tx_ref', 'user_id', 'transaction_type', 'reference_id'),
     )
+
+
+class SurveyResponse(Base):
+    """User survey feedback responses"""
+    __tablename__ = "survey_responses"
+
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    user_id = Column(String(36), ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
+    how_did_you_hear = Column(String(100))  # search, social, friend, realtor, other
+    satisfaction = Column(String(10))  # 1-5 rating
+    improvements = Column(Text)  # Free text feedback
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    user = relationship("User")
+
+    __table_args__ = (
+        Index('idx_survey_user', 'user_id'),
+    )

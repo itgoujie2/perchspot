@@ -22,7 +22,7 @@ from app.database.connection import get_db
 from app.services.promotions.promo_service import (
     create_promo_code, list_promo_codes, deactivate_promo_code, get_promo_by_code
 )
-from app.models.user import User, Purchase, CreditTransaction
+from app.models.user import User, Purchase, CreditTransaction, SurveyResponse
 
 logger = logging.getLogger(__name__)
 
@@ -447,4 +447,79 @@ async def get_user_detail(user_id: str, db: Session = Depends(get_db)):
         raise
     except Exception as e:
         logger.error(f"Error getting user detail: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# ============================================
+# Survey Response Endpoints
+# ============================================
+
+class SurveyResponseItem(BaseModel):
+    id: str
+    user_email: str
+    how_did_you_hear: Optional[str] = None
+    satisfaction: Optional[str] = None
+    improvements: Optional[str] = None
+    created_at: str
+
+
+class SurveyListResponse(BaseModel):
+    total: int
+    surveys: List[SurveyResponseItem]
+    summary: Dict[str, Any]
+
+
+@router.get("/surveys", response_model=SurveyListResponse,
+            dependencies=[Depends(verify_admin)])
+async def list_surveys(db: Session = Depends(get_db)):
+    """List all survey responses."""
+    try:
+        # Query surveys with user info
+        surveys = db.query(SurveyResponse, User.email).join(
+            User, SurveyResponse.user_id == User.id
+        ).order_by(desc(SurveyResponse.created_at)).all()
+
+        # Calculate satisfaction stats
+        satisfaction_counts = {}
+        source_counts = {}
+
+        survey_items = []
+        for survey, email in surveys:
+            survey_items.append(SurveyResponseItem(
+                id=survey.id,
+                user_email=email,
+                how_did_you_hear=survey.how_did_you_hear,
+                satisfaction=survey.satisfaction,
+                improvements=survey.improvements,
+                created_at=survey.created_at.isoformat() if survey.created_at else "",
+            ))
+
+            # Count satisfaction ratings
+            if survey.satisfaction:
+                satisfaction_counts[survey.satisfaction] = satisfaction_counts.get(survey.satisfaction, 0) + 1
+
+            # Count sources
+            if survey.how_did_you_hear:
+                source_counts[survey.how_did_you_hear] = source_counts.get(survey.how_did_you_hear, 0) + 1
+
+        # Calculate average satisfaction
+        avg_satisfaction = None
+        if satisfaction_counts:
+            total_ratings = sum(int(k) * v for k, v in satisfaction_counts.items() if k.isdigit())
+            total_count = sum(v for k, v in satisfaction_counts.items() if k.isdigit())
+            if total_count > 0:
+                avg_satisfaction = round(total_ratings / total_count, 1)
+
+        return SurveyListResponse(
+            total=len(survey_items),
+            surveys=survey_items,
+            summary={
+                "total_responses": len(survey_items),
+                "average_satisfaction": avg_satisfaction,
+                "satisfaction_breakdown": satisfaction_counts,
+                "source_breakdown": source_counts,
+            }
+        )
+    except Exception as e:
+        logger.error(f"Error listing surveys: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))

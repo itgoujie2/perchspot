@@ -2,12 +2,13 @@
 Promotions API endpoints - feedback survey, promotion status
 """
 import logging
+from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
 from app.database.connection import get_db
-from app.models.user import User
+from app.models.user import User, SurveyResponse
 from app.api.v1.deps import get_current_user
 from app.services.auth.credit_service import add_credits
 
@@ -22,6 +23,12 @@ class PromotionStatusResponse(BaseModel):
     survey_completed: bool
     survey_reward_available: bool
     survey_reward_amount: float
+
+
+class SurveySubmitRequest(BaseModel):
+    how_did_you_hear: Optional[str] = None
+    satisfaction: Optional[str] = None
+    improvements: Optional[str] = None
 
 
 class SurveyCompleteResponse(BaseModel):
@@ -45,11 +52,12 @@ def get_promotion_status(
 
 @router.post("/survey-complete", response_model=SurveyCompleteResponse)
 def complete_survey(
+    request: SurveySubmitRequest = None,
     user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     """
-    Mark the user's survey as completed and award credits.
+    Mark the user's survey as completed, store responses, and award credits.
     This is a one-time reward.
     """
     if user.survey_completed == "true":
@@ -57,6 +65,16 @@ def complete_survey(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Survey reward already claimed",
         )
+
+    # Store survey response if provided
+    if request:
+        survey_response = SurveyResponse(
+            user_id=user.id,
+            how_did_you_hear=request.how_did_you_hear,
+            satisfaction=request.satisfaction,
+            improvements=request.improvements,
+        )
+        db.add(survey_response)
 
     # Mark survey as completed
     user.survey_completed = "true"

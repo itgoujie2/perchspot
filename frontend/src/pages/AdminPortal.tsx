@@ -55,6 +55,8 @@ import {
   FilterList,
   People,
   AttachMoney,
+  Feedback,
+  Star,
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import './AdminPortal.css';
@@ -119,7 +121,7 @@ export default function AdminPortal() {
   const [authError, setAuthError] = useState('');
 
   // Navigation state
-  const [activeSection, setActiveSection] = useState<'knowledge' | 'reports' | 'promos' | 'users'>('reports');
+  const [activeSection, setActiveSection] = useState<'knowledge' | 'reports' | 'promos' | 'users' | 'surveys'>('reports');
 
   // Knowledge base state
   const [tab, setTab] = useState(0);
@@ -176,6 +178,12 @@ export default function AdminPortal() {
   const [usersLoading, setUsersLoading] = useState(false);
   const [usersError, setUsersError] = useState('');
   const [userFilter, setUserFilter] = useState('');
+
+  // Surveys state
+  const [surveys, setSurveys] = useState<any[]>([]);
+  const [surveysSummary, setSurveysSummary] = useState<any>(null);
+  const [surveysLoading, setSurveysLoading] = useState(false);
+  const [surveysError, setSurveysError] = useState('');
 
   const headers = useCallback(() => ({
     'X-Admin-Password': password,
@@ -269,6 +277,28 @@ export default function AdminPortal() {
       setUsersError('Cannot connect to backend');
     } finally {
       setUsersLoading(false);
+    }
+  }, [headers]);
+
+  const fetchSurveys = useCallback(async () => {
+    setSurveysLoading(true);
+    setSurveysError('');
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/v1/admin/surveys`, {
+        headers: headers(),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setSurveys(data.surveys);
+        setSurveysSummary(data.summary);
+      } else {
+        const err = await res.json();
+        setSurveysError(err.detail || 'Failed to load surveys');
+      }
+    } catch {
+      setSurveysError('Cannot connect to backend');
+    } finally {
+      setSurveysLoading(false);
     }
   }, [headers]);
 
@@ -839,6 +869,29 @@ export default function AdminPortal() {
               {users.length > 0 && (
                 <Chip
                   label={users.length}
+                  size="small"
+                  sx={{ bgcolor: 'rgba(255,255,255,0.2)', color: 'white' }}
+                />
+              )}
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton
+              selected={activeSection === 'surveys'}
+              onClick={() => { setActiveSection('surveys'); fetchSurveys(); }}
+              sx={{
+                '&.Mui-selected': { bgcolor: 'rgba(255,255,255,0.1)' },
+                '&:hover': { bgcolor: 'rgba(255,255,255,0.05)' },
+              }}
+            >
+              <ListItemIcon sx={{ color: 'inherit' }}>
+                <Feedback />
+              </ListItemIcon>
+              <ListItemText primary="Surveys" />
+              {surveys.length > 0 && (
+                <Chip
+                  label={surveys.length}
                   size="small"
                   sx={{ bgcolor: 'rgba(255,255,255,0.2)', color: 'white' }}
                 />
@@ -1648,6 +1701,165 @@ export default function AdminPortal() {
                   {users.filter(u => u.email.toLowerCase().includes(userFilter.toLowerCase())).length} of {users.length} users
                 </Typography>
               </Box>
+            </Paper>
+          </Box>
+        )}
+
+        {/* Surveys Section */}
+        {activeSection === 'surveys' && (
+          <Box sx={{ p: 4 }}>
+            <Box sx={{ mb: 3, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <Box>
+                <Typography variant="h4">Survey Responses</Typography>
+                <Typography variant="body2" color="text.secondary">
+                  View user feedback from the credits page survey
+                </Typography>
+              </Box>
+              <Button
+                variant="outlined"
+                startIcon={<Refresh />}
+                onClick={fetchSurveys}
+                disabled={surveysLoading}
+              >
+                Refresh
+              </Button>
+            </Box>
+
+            {/* Summary Cards */}
+            {surveysSummary && (
+              <Box sx={{ display: 'flex', gap: 2, mb: 3, flexWrap: 'wrap' }}>
+                <Card sx={{ minWidth: 150 }}>
+                  <CardContent>
+                    <Typography color="text.secondary" variant="body2">Total Responses</Typography>
+                    <Typography variant="h4">{surveysSummary.total_responses}</Typography>
+                  </CardContent>
+                </Card>
+                {surveysSummary.average_satisfaction && (
+                  <Card sx={{ minWidth: 150 }}>
+                    <CardContent>
+                      <Typography color="text.secondary" variant="body2">Avg Satisfaction</Typography>
+                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                        <Typography variant="h4">{surveysSummary.average_satisfaction}</Typography>
+                        <Star sx={{ color: 'warning.main' }} />
+                      </Box>
+                    </CardContent>
+                  </Card>
+                )}
+                {surveysSummary.source_breakdown && Object.keys(surveysSummary.source_breakdown).length > 0 && (
+                  <Card sx={{ flex: 1, minWidth: 250 }}>
+                    <CardContent>
+                      <Typography color="text.secondary" variant="body2" gutterBottom>How Users Found Us</Typography>
+                      <Box sx={{ display: 'flex', gap: 0.5, flexWrap: 'wrap' }}>
+                        {Object.entries(surveysSummary.source_breakdown).map(([source, count]) => (
+                          <Chip
+                            key={source}
+                            label={`${source}: ${count}`}
+                            size="small"
+                            variant="outlined"
+                          />
+                        ))}
+                      </Box>
+                    </CardContent>
+                  </Card>
+                )}
+              </Box>
+            )}
+
+            {surveysError && (
+              <Alert severity="error" sx={{ mb: 2 }} onClose={() => setSurveysError('')}>
+                {surveysError}
+              </Alert>
+            )}
+
+            <Paper elevation={2}>
+              {surveysLoading ? (
+                <LinearProgress />
+              ) : surveys.length === 0 ? (
+                <Box sx={{ p: 4, textAlign: 'center' }}>
+                  <Feedback sx={{ fontSize: 48, color: 'text.secondary', mb: 2 }} />
+                  <Typography color="text.secondary">
+                    No survey responses yet
+                  </Typography>
+                </Box>
+              ) : (
+                <TableContainer sx={{ maxHeight: 'calc(100vh - 400px)' }}>
+                  <Table stickyHeader size="small">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>User</TableCell>
+                        <TableCell>How Found Us</TableCell>
+                        <TableCell align="center">Satisfaction</TableCell>
+                        <TableCell>Feedback</TableCell>
+                        <TableCell>Date</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {surveys.map((survey) => (
+                        <TableRow key={survey.id} hover>
+                          <TableCell>
+                            <Typography variant="body2" sx={{ fontWeight: 500 }}>
+                              {survey.user_email}
+                            </Typography>
+                          </TableCell>
+                          <TableCell>
+                            {survey.how_did_you_hear ? (
+                              <Chip
+                                label={survey.how_did_you_hear}
+                                size="small"
+                                variant="outlined"
+                              />
+                            ) : (
+                              <Typography variant="body2" color="text.secondary">—</Typography>
+                            )}
+                          </TableCell>
+                          <TableCell align="center">
+                            {survey.satisfaction ? (
+                              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 0.5 }}>
+                                <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                                  {survey.satisfaction}
+                                </Typography>
+                                <Star sx={{ fontSize: 16, color: 'warning.main' }} />
+                              </Box>
+                            ) : (
+                              <Typography variant="body2" color="text.secondary">—</Typography>
+                            )}
+                          </TableCell>
+                          <TableCell sx={{ maxWidth: 300 }}>
+                            {survey.improvements ? (
+                              <Typography
+                                variant="body2"
+                                sx={{
+                                  overflow: 'hidden',
+                                  textOverflow: 'ellipsis',
+                                  whiteSpace: 'nowrap',
+                                }}
+                                title={survey.improvements}
+                              >
+                                {survey.improvements}
+                              </Typography>
+                            ) : (
+                              <Typography variant="body2" color="text.secondary">—</Typography>
+                            )}
+                          </TableCell>
+                          <TableCell>
+                            <Typography variant="body2" color="text.secondary">
+                              {formatDate(survey.created_at)}
+                            </Typography>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              )}
+
+              {surveys.length > 0 && (
+                <Box sx={{ p: 2, borderTop: 1, borderColor: 'divider', bgcolor: 'grey.50' }}>
+                  <Typography variant="body2" color="text.secondary">
+                    {surveys.length} survey responses
+                  </Typography>
+                </Box>
+              )}
             </Paper>
           </Box>
         )}

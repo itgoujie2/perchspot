@@ -124,8 +124,12 @@ export const promotionsApi = {
   /**
    * Complete feedback survey and claim reward
    */
-  completeSurvey: async () => {
-    const response = await apiClient.post('/promotions/survey-complete')
+  completeSurvey: async (surveyData?: {
+    how_did_you_hear?: string;
+    satisfaction?: string;
+    improvements?: string;
+  }) => {
+    const response = await apiClient.post('/promotions/survey-complete', surveyData || {})
     return response.data
   },
 }
