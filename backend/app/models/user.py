@@ -103,4 +103,5 @@ class SurveyResponse(Base):
 
     __table_args__ = (
         Index('idx_survey_user', 'user_id'),
+        {'mysql_charset': 'utf8mb4', 'mysql_collate': 'utf8mb4_unicode_ci'}
     )
