@@ -25,27 +25,19 @@ import anthropic
 logger = logging.getLogger(__name__)
 
 
-# Scroll positions to capture (matches the extraction schema)
+# Scroll positions to capture (optimized for speed - reduced from 19 to 10)
+# Covers key sections: top, details, schools, location scores, climate, similar homes
 SCROLL_POSITIONS = [
-    (0, "property_top"),
-    (700, "scroll_700"),
-    (1400, "scroll_1400"),
-    (2100, "scroll_2100"),
-    (2800, "scroll_2800"),
-    (3500, "scroll_3500"),
-    (4200, "scroll_4200"),
-    (4900, "scroll_4900"),
-    (5600, "scroll_5600"),
-    (6300, "scroll_6300"),
-    (7000, "scroll_7000"),
-    (7700, "scroll_7700"),
-    (8400, "scroll_8400"),
-    (9100, "scroll_9100"),
-    (9800, "scroll_9800"),
-    (10500, "scroll_10500"),
-    (11200, "scroll_11200"),
-    (11900, "scroll_11900"),
-    (12600, "scroll_12600"),
+    (0, "property_top"),       # Header, price, main photo
+    (800, "scroll_800"),       # Property details
+    (1600, "scroll_1600"),     # Features/description
+    (2400, "scroll_2400"),     # More details
+    (3200, "scroll_3200"),     # Schools section
+    (4000, "scroll_4000"),     # Location scores
+    (5000, "scroll_5000"),     # Climate risks
+    (6000, "scroll_6000"),     # Market trends
+    (7500, "scroll_7500"),     # Similar homes
+    (9000, "scroll_9000"),     # More similar homes
 ]
 
 # Claude Vision extraction prompt
@@ -376,14 +368,22 @@ class ScreenshotExtractorCollector:
 
         try:
             async with async_playwright() as p:
-                # Launch Chromium
+                # Launch Chromium with performance optimizations for EC2
                 browser = await p.chromium.launch(
                     headless=True,
                     args=[
                         '--no-sandbox',
                         '--disable-setuid-sandbox',
                         '--disable-blink-features=AutomationControlled',
-                        '--disable-dev-shm-usage'
+                        '--disable-dev-shm-usage',
+                        '--disable-gpu',
+                        '--disable-extensions',
+                        '--disable-background-networking',
+                        '--disable-sync',
+                        '--disable-translate',
+                        '--no-first-run',
+                        '--single-process',  # Reduces memory usage on low-resource instances
+                        '--disable-features=site-per-process',
                     ]
                 )
 
@@ -397,7 +397,7 @@ class ScreenshotExtractorCollector:
                 # Navigate to Redfin and search
                 logger.info("Navigating to Redfin...")
                 await page.goto("https://www.redfin.com", wait_until="domcontentloaded", timeout=60000)
-                await asyncio.sleep(3)
+                await asyncio.sleep(1.5)  # Reduced from 3s
 
                 # Close any popups (like Google sign-in) - with robust error handling
                 await self._dismiss_popups(page)
@@ -424,7 +424,7 @@ class ScreenshotExtractorCollector:
                     await page.wait_for_load_state("domcontentloaded", timeout=30000)
                 except Exception as e:
                     logger.warning(f"Page load state wait failed: {e}")
-                await asyncio.sleep(3)
+                await asyncio.sleep(1.5)  # Reduced from 3s
 
                 # Create address slug for filenames
                 address_slug = self._create_slug(address)
@@ -436,7 +436,7 @@ class ScreenshotExtractorCollector:
                     try:
                         # Scroll to position
                         await page.evaluate(f"window.scrollTo(0, {scroll_pos})")
-                        await asyncio.sleep(0.5)
+                        await asyncio.sleep(0.3)  # Reduced from 0.5s
 
                         # Take screenshot
                         screenshot_path = screenshot_dir / f"screenshot_{i+1:02d}_{name}.png"
@@ -547,12 +547,12 @@ class ScreenshotExtractorCollector:
 
                 # Use keyboard to clear and type (more reliable than fill)
                 await page.keyboard.press("Control+a")
-                await page.keyboard.type(address, delay=50)
-                await asyncio.sleep(2)
+                await page.keyboard.type(address, delay=30)  # Reduced delay from 50ms
+                await asyncio.sleep(1.5)  # Reduced from 2s
 
                 # Press Enter
                 await page.keyboard.press("Enter")
-                await asyncio.sleep(3)
+                await asyncio.sleep(2)  # Reduced from 3s
 
                 return True
 
@@ -627,9 +627,9 @@ class ScreenshotExtractorCollector:
             }
         ]
 
-        # Add screenshots as images (limit to first 15 to manage costs)
+        # Add screenshots as images (we now have 10 optimized positions)
         # Filter out any screenshots with empty data
-        for screenshot in screenshots[:15]:
+        for screenshot in screenshots[:10]:
             if not screenshot.get("data"):
                 logger.warning(f"Skipping empty screenshot: {screenshot.get('name', 'unknown')}")
                 continue
