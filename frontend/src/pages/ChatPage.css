@@ -1139,17 +1139,44 @@
   }
 }
 
+/* ---- Print Header (hidden on screen) ---- */
+.print-header {
+  display: none;
+}
+
 /* ---- Print / PDF Export ---- */
 @media print {
+  /* Hide screen-only elements */
   .no-print,
   .chat-panel,
   .chat-header,
-  .export-btn {
+  .export-btn,
+  .favorite-btn,
+  .report-actions,
+  .skeleton,
+  .capturing-indicator,
+  .report-capturing,
+  .document-upload,
+  .report-empty {
     display: none !important;
+  }
+
+  /* Reset page */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: white !important;
+    font-size: 11pt;
   }
 
   .chat-container {
     height: auto;
+    background: white;
   }
 
   .chat-content-wrapper {
@@ -1159,24 +1186,291 @@
   .report-panel {
     width: 100%;
     background: white;
+    display: block;
   }
 
+  /* Show print header */
+  .print-header {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    border-bottom: 3px solid #667eea;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%) !important;
+  }
+
+  .print-header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .print-logo {
+    height: 48px;
+    width: auto;
+  }
+
+  .print-brand {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .print-brand-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #667eea;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  .print-brand-tagline {
+    font-size: 0.75rem;
+    color: #888;
+    margin: 0;
+  }
+
+  .print-header-right {
+    text-align: right;
+  }
+
+  .print-address {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 0.25rem 0;
+  }
+
+  .print-date {
+    font-size: 0.8rem;
+    color: #888;
+    margin: 0;
+  }
+
+  /* Hide screen report header */
   .report-header {
-    border-bottom: 2px solid #333;
-    padding: 1rem 0;
-  }
-
-  .report-header h3 {
-    font-size: 1.4rem;
-  }
-
-  .report-section {
-    break-inside: avoid;
-    border: 1px solid #ddd;
-    margin-bottom: 0.5rem;
-  }
-
-  .skeleton {
     display: none;
   }
+
+  /* Report content */
+  .report-content {
+    padding: 0 2rem 2rem;
+    overflow: visible;
+  }
+
+  /* Report sections */
+  .report-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1rem 1.25rem;
+    background: white !important;
+    box-shadow: none;
+  }
+
+  .report-section h4 {
+    font-size: 0.9rem;
+    color: #667eea;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Overall scores */
+  .report-overall {
+    background: linear-gradient(135deg, #f8f9ff 0%, #fdf8ff 100%) !important;
+    border: 2px solid #667eea;
+  }
+
+  .overall-score-row {
+    justify-content: space-around;
+    gap: 1rem;
+  }
+
+  .score-circle svg {
+    width: 70px;
+    height: 70px;
+  }
+
+  .score-circle svg circle:last-child {
+    stroke: #667eea !important;
+  }
+
+  .score-label {
+    font-size: 0.7rem;
+    color: #555;
+  }
+
+  /* Property overview */
+  .property-price {
+    font-size: 1.6rem;
+    color: #333;
+  }
+
+  .status-badge {
+    background: #e8f5e9 !important;
+    color: #2e7d32 !important;
+  }
+
+  .property-details-row {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  .property-description {
+    display: block;
+  }
+
+  .property-description summary {
+    display: none;
+  }
+
+  .property-description p {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  /* Tables */
+  .report-table {
+    width: 100%;
+    font-size: 0.85rem;
+  }
+
+  .report-table th {
+    background: #f8f9fb !important;
+    color: #555;
+  }
+
+  .report-table td {
+    padding: 0.6rem 0.75rem;
+  }
+
+  /* Schools table */
+  .schools-table .rating-bar {
+    background: #e0e0e0 !important;
+  }
+
+  .schools-table .rating-fill {
+    background: #667eea !important;
+  }
+
+  /* Location scores */
+  .scores-row {
+    gap: 2rem;
+  }
+
+  /* Risk chips */
+  .risk-chips {
+    gap: 0.5rem;
+  }
+
+  .risk-chip {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  /* Score bars */
+  .score-bar-container {
+    margin-bottom: 1rem;
+  }
+
+  .score-bar-track {
+    height: 10px;
+    background: #e0e0e0 !important;
+  }
+
+  .score-bar-fill {
+    background: #667eea !important;
+  }
+
+  .score-bar-value {
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+
+  /* Analysis lists */
+  .analysis-list {
+    margin-top: 0.75rem;
+  }
+
+  .analysis-list strong {
+    font-size: 0.8rem;
+    color: #555;
+  }
+
+  .analysis-list ul {
+    font-size: 0.85rem;
+    color: #333;
+    margin: 0.25rem 0;
+  }
+
+  .analysis-list li {
+    margin: 0.3rem 0;
+    line-height: 1.5;
+  }
+
+  /* Investment formulas */
+  .investment-formulas {
+    gap: 0.5rem;
+  }
+
+  .formula-card {
+    background: #f8f9fb !important;
+    border-left: 3px solid #667eea;
+    padding: 0.75rem 1rem;
+  }
+
+  .formula-name {
+    font-size: 0.85rem;
+  }
+
+  .formula-result {
+    font-size: 1rem;
+  }
+
+  .formula-steps {
+    background: white !important;
+    font-size: 0.75rem;
+  }
+
+  /* Footer */
+  .print-footer {
+    display: block !important;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    border-top: 2px solid #667eea;
+    text-align: center;
+  }
+
+  .print-footer p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #888;
+  }
+
+  .print-footer a {
+    color: #667eea;
+    text-decoration: none;
+  }
+
+  /* Page breaks */
+  .analysis-property,
+  .analysis-location,
+  .analysis-schools,
+  .analysis-investment {
+    break-before: auto;
+  }
+
+  /* Ensure colors print */
+  .formula-result.positive { color: #2e7d32 !important; }
+  .formula-result.negative { color: #c62828 !important; }
+  .formula-result.neutral { color: #ef6c00 !important; }
+}
+
+/* Print footer (hidden on screen) */
+.print-footer {
+  display: none;
 }
