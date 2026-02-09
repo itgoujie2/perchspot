@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { favoritesApi, historyApi, compareApi } from '../services/api';
+import { favoritesApi, historyApi, compareApi, referralsApi } from '../services/api';
 import type { Favorite, HistoryItem, CompareResponse } from '../types';
 import Logo from '../assets/logo.svg';
 import SEOHead from '../components/SEOHead';
 import './AccountPage.css';
 
-type TabType = 'profile' | 'favorites' | 'history';
+type TabType = 'profile' | 'favorites' | 'history' | 'referrals';
+
+interface ReferralData {
+  referral_code: string;
+  referral_link: string;
+}
+
+interface ReferralStats {
+  pending_rewards: number;
+  completed_referrals: number;
+  total_earned: number;
+}
 
 const AccountPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -30,9 +41,15 @@ const AccountPage: React.FC = () => {
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [historyLoading, setHistoryLoading] = useState(false);
 
+  // Referral state
+  const [referralData, setReferralData] = useState<ReferralData | null>(null);
+  const [referralStats, setReferralStats] = useState<ReferralStats | null>(null);
+  const [referralLoading, setReferralLoading] = useState(false);
+  const [referralCopied, setReferralCopied] = useState(false);
+
   useEffect(() => {
     const tab = searchParams.get('tab') as TabType;
-    if (tab && ['profile', 'favorites', 'history'].includes(tab)) {
+    if (tab && ['profile', 'favorites', 'history', 'referrals'].includes(tab)) {
       setActiveTab(tab);
     }
   }, [searchParams]);
@@ -42,8 +59,64 @@ const AccountPage: React.FC = () => {
       loadFavorites();
     } else if (activeTab === 'history') {
       loadHistory();
+    } else if (activeTab === 'referrals') {
+      loadReferrals();
     }
   }, [activeTab]);
+
+  const loadReferrals = async () => {
+    try {
+      setReferralLoading(true);
+      const [codeResponse, statsResponse] = await Promise.all([
+        referralsApi.getMyCode(),
+        referralsApi.getStats(),
+      ]);
+      setReferralData(codeResponse);
+      setReferralStats(statsResponse);
+    } catch (err) {
+      console.error('Failed to load referral data:', err);
+    } finally {
+      setReferralLoading(false);
+    }
+  };
+
+  const handleCopyReferralLink = async () => {
+    if (!referralData) return;
+    try {
+      await navigator.clipboard.writeText(referralData.referral_link);
+      setReferralCopied(true);
+      setTimeout(() => setReferralCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
+
+  const handleReferralShare = (platform: 'twitter' | 'facebook' | 'email') => {
+    if (!referralData) return;
+    const shareText = 'I just discovered an amazing AI property analysis tool! Get $1 credit when you sign up with my link:';
+
+    switch (platform) {
+      case 'twitter':
+        window.open(
+          `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(referralData.referral_link)}`,
+          '_blank',
+          'width=550,height=420'
+        );
+        break;
+      case 'facebook':
+        window.open(
+          `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(referralData.referral_link)}`,
+          '_blank',
+          'width=550,height=420'
+        );
+        break;
+      case 'email':
+        const subject = 'Check out Perchspot - AI Property Analysis';
+        const body = `${shareText}\n\n${referralData.referral_link}`;
+        window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        break;
+    }
+  };
 
   const handleTabChange = (tab: TabType) => {
     setActiveTab(tab);
@@ -215,6 +288,21 @@ const AccountPage: React.FC = () => {
                 <polyline points="12,6 12,12 16,14" />
               </svg>
               History
+            </button>
+            <button
+              className={`nav-item ${activeTab === 'referrals' ? 'active' : ''}`}
+              onClick={() => handleTabChange('referrals')}
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+              Referrals
+              {referralStats && referralStats.total_earned > 0 && (
+                <span className="badge earned">${referralStats.total_earned.toFixed(0)}</span>
+              )}
             </button>
           </nav>
         </div>
@@ -406,6 +494,133 @@ const AccountPage: React.FC = () => {
                     </div>
                   ))}
                 </div>
+              )}
+            </div>
+          )}
+
+          {/* Referrals Tab */}
+          {activeTab === 'referrals' && (
+            <div className="tab-content referrals-tab">
+              <h2>Refer Friends, Earn Credits</h2>
+
+              {referralLoading ? (
+                <div className="loading-state">
+                  <div className="spinner"></div>
+                  <p>Loading referral data...</p>
+                </div>
+              ) : (
+                <>
+                  <div className="referral-hero">
+                    <div className="referral-hero-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="32" height="32">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                      </svg>
+                    </div>
+                    <h3>Get $1 for every friend who signs up</h3>
+                    <p>Share your unique referral link and earn credits when your friends create an account.</p>
+                  </div>
+
+                  {referralStats && (
+                    <div className="referral-stats-grid">
+                      <div className="stat-card">
+                        <span className="stat-number">{referralStats.completed_referrals}</span>
+                        <span className="stat-label">Successful Referrals</span>
+                      </div>
+                      <div className="stat-card">
+                        <span className="stat-number">${referralStats.total_earned.toFixed(2)}</span>
+                        <span className="stat-label">Total Earned</span>
+                      </div>
+                      <div className="stat-card">
+                        <span className="stat-number">{referralStats.pending_rewards}</span>
+                        <span className="stat-label">Pending</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {referralData && (
+                    <div className="referral-link-section">
+                      <h4>Your Referral Link</h4>
+                      <div className="referral-link-container">
+                        <input
+                          type="text"
+                          value={referralData.referral_link}
+                          readOnly
+                          className="referral-link-input"
+                        />
+                        <button
+                          className={`copy-btn ${referralCopied ? 'copied' : ''}`}
+                          onClick={handleCopyReferralLink}
+                        >
+                          {referralCopied ? 'Copied!' : 'Copy Link'}
+                        </button>
+                      </div>
+
+                      <div className="referral-share-section">
+                        <span className="share-label">Share via:</span>
+                        <div className="share-buttons">
+                          <button
+                            className="share-btn twitter"
+                            onClick={() => handleReferralShare('twitter')}
+                          >
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                            Twitter
+                          </button>
+                          <button
+                            className="share-btn facebook"
+                            onClick={() => handleReferralShare('facebook')}
+                          >
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                            Facebook
+                          </button>
+                          <button
+                            className="share-btn email"
+                            onClick={() => handleReferralShare('email')}
+                          >
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18">
+                              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                              <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            Email
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="referral-how-it-works">
+                    <h4>How it works</h4>
+                    <div className="steps">
+                      <div className="step">
+                        <div className="step-number">1</div>
+                        <div className="step-content">
+                          <h5>Share your link</h5>
+                          <p>Send your unique referral link to friends</p>
+                        </div>
+                      </div>
+                      <div className="step">
+                        <div className="step-number">2</div>
+                        <div className="step-content">
+                          <h5>Friends sign up</h5>
+                          <p>They create an account using your link</p>
+                        </div>
+                      </div>
+                      <div className="step">
+                        <div className="step-number">3</div>
+                        <div className="step-content">
+                          <h5>You earn $1</h5>
+                          <p>Get $1 credit added to your account</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </>
               )}
             </div>
           )}

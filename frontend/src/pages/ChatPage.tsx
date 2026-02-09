@@ -5,6 +5,8 @@ import { useAuth } from '../contexts/AuthContext';
 import Logo from '../assets/logo.svg';
 import DocumentUpload from '../components/DocumentUpload';
 import SEOHead from '../components/SEOHead';
+import ShareButtons from '../components/ShareButtons';
+import ReferralPrompt from '../components/ReferralPrompt';
 import { favoritesApi } from '../services/api';
 import type { DocumentStatusResponse } from '../types';
 import './ChatPage.css';
@@ -843,6 +845,9 @@ const ChatPage: React.FC = () => {
               {address && <p className="report-address">{address}</p>}
             </div>
             <div className="report-actions">
+              {address && isComplete && (
+                <ShareButtons address={address} score={overallScore} />
+              )}
               {user && address && (
                 <button
                   className={`favorite-btn ${isFavorite ? 'is-favorite' : ''}`}
@@ -1135,6 +1140,11 @@ const ChatPage: React.FC = () => {
               />
             )}
 
+            {/* Referral prompt - shown after analysis for logged in users */}
+            {address && isComplete && user && (
+              <ReferralPrompt />
+            )}
+
             {/* Empty state */}
             {!hasAnyData && !analyzing && (
               <div className="report-empty">
@@ -1142,6 +1152,14 @@ const ChatPage: React.FC = () => {
               </div>
             )}
           </div>
+
+          {/* Powered by Perchspot badge - visible after analysis */}
+          {isComplete && (
+            <div className="powered-by-badge">
+              <img src={Logo} alt="Perchspot" className="badge-logo" />
+              <span>Powered by <a href="https://perchspot.com" target="_blank" rel="noopener noreferrer">Perchspot</a></span>
+            </div>
+          )}
 
           {/* Print-only footer */}
           <div className="print-footer">

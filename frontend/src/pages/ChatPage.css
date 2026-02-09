@@ -1470,6 +1470,36 @@
   .formula-result.neutral { color: #ef6c00 !important; }
 }
 
+/* Powered by Perchspot badge */
+.powered-by-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.powered-by-badge .badge-logo {
+  height: 20px;
+  width: auto;
+}
+
+.powered-by-badge a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.powered-by-badge a:hover {
+  text-decoration: underline;
+}
+
 /* Print footer (hidden on screen) */
 .print-footer {
   display: none;

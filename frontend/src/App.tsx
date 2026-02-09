@@ -4,6 +4,8 @@ import { AuthProvider } from './contexts/AuthContext'
 import ProtectedRoute from './components/ProtectedRoute'
 import UserMenu from './components/UserMenu'
 import StructuredData from './components/StructuredData'
+import PageTracker from './components/PageTracker'
+import ExitIntentPopup from './components/ExitIntentPopup'
 import HybridAnalysisPage from './pages/HybridAnalysisPage'
 import ChatPage from './pages/ChatPage'
 import Home from './pages/Home'
@@ -16,6 +18,7 @@ import AdminPortal from './pages/AdminPortal'
 import CreditsPage from './pages/CreditsPage'
 import AccountPage from './pages/AccountPage'
 import ComparePage from './pages/ComparePage'
+import BlogPage from './pages/BlogPage'
 
 function App() {
   return (
@@ -31,6 +34,8 @@ function App() {
           "sameAs": []
         }} />
         <Router>
+          <PageTracker />
+          <ExitIntentPopup />
           <UserMenu />
           <Routes>
             {/* Auth routes */}
@@ -47,6 +52,8 @@ function App() {
             <Route path="/credits" element={<ProtectedRoute><CreditsPage /></ProtectedRoute>} />
             <Route path="/account" element={<ProtectedRoute><AccountPage /></ProtectedRoute>} />
             <Route path="/compare" element={<ComparePage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:postId" element={<BlogPage />} />
 
             {/* Redirects for old routes */}
             <Route path="/favorites" element={<Navigate to="/account?tab=favorites" replace />} />

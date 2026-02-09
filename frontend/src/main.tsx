@@ -4,6 +4,10 @@ import App from './App'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { initializeGA } from './hooks/useAnalytics'
+
+// Initialize Google Analytics 4 (requires VITE_GA_MEASUREMENT_ID env var)
+initializeGA()
 
 const theme = createTheme({
   palette: {
