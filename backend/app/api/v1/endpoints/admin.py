@@ -14,12 +14,15 @@ from fastapi import APIRouter, Depends, HTTPException, Header
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
+from sqlalchemy import func, desc
+
 from app.config import settings
 from app.services.agent.tools.notes_manager import get_notes_manager
 from app.database.connection import get_db
 from app.services.promotions.promo_service import (
     create_promo_code, list_promo_codes, deactivate_promo_code, get_promo_by_code
 )
+from app.models.user import User, Purchase, CreditTransaction
 
 logger = logging.getLogger(__name__)
 
@@ -298,4 +301,150 @@ async def deactivate_promo(code: str, db: Session = Depends(get_db)):
         raise
     except Exception as e:
         logger.error(f"Error deactivating promo code {code}: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# ============================================
+# User Management Endpoints
+# ============================================
+
+class UserPurchaseInfo(BaseModel):
+    id: str
+    amount: float
+    credits: float
+    status: str
+    created_at: str
+    completed_at: Optional[str] = None
+
+
+class UserSummary(BaseModel):
+    id: str
+    email: str
+    credit_balance: float
+    total_purchased: float  # Total $ spent
+    total_credits_purchased: float  # Total credits bought
+    purchase_count: int
+    created_at: str
+    last_purchase_at: Optional[str] = None
+
+
+class UserDetail(BaseModel):
+    id: str
+    email: str
+    credit_balance: float
+    created_at: str
+    survey_completed: bool
+    first_purchase_bonus_claimed: bool
+    purchases: List[UserPurchaseInfo]
+    total_purchased: float
+    total_credits_purchased: float
+
+
+class UserListResponse(BaseModel):
+    total: int
+    users: List[UserSummary]
+    summary: Dict[str, Any]
+
+
+@router.get("/users", response_model=UserListResponse,
+            dependencies=[Depends(verify_admin)])
+async def list_users(db: Session = Depends(get_db)):
+    """List all registered users with purchase summary."""
+    try:
+        # Query users with purchase aggregation
+        users = db.query(User).order_by(desc(User.created_at)).all()
+
+        user_summaries = []
+        total_revenue = 0.0
+        total_users_with_purchases = 0
+
+        for user in users:
+            # Get completed purchases for this user
+            purchases = db.query(Purchase).filter(
+                Purchase.user_id == user.id,
+                Purchase.status == 'completed'
+            ).all()
+
+            total_purchased = sum(float(p.amount) for p in purchases)
+            total_credits = sum(float(p.credits) for p in purchases)
+            purchase_count = len(purchases)
+
+            if purchase_count > 0:
+                total_users_with_purchases += 1
+                total_revenue += total_purchased
+
+            # Get last purchase date
+            last_purchase = None
+            if purchases:
+                last_purchase = max(p.completed_at or p.created_at for p in purchases)
+
+            user_summaries.append(UserSummary(
+                id=user.id,
+                email=user.email,
+                credit_balance=float(user.credit_balance),
+                total_purchased=total_purchased,
+                total_credits_purchased=total_credits,
+                purchase_count=purchase_count,
+                created_at=user.created_at.isoformat() if user.created_at else "",
+                last_purchase_at=last_purchase.isoformat() if last_purchase else None,
+            ))
+
+        return UserListResponse(
+            total=len(users),
+            users=user_summaries,
+            summary={
+                "total_users": len(users),
+                "users_with_purchases": total_users_with_purchases,
+                "total_revenue": round(total_revenue, 2),
+            }
+        )
+    except Exception as e:
+        logger.error(f"Error listing users: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/users/{user_id}", response_model=UserDetail,
+            dependencies=[Depends(verify_admin)])
+async def get_user_detail(user_id: str, db: Session = Depends(get_db)):
+    """Get detailed user information including all purchases."""
+    try:
+        user = db.query(User).filter(User.id == user_id).first()
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+
+        purchases = db.query(Purchase).filter(
+            Purchase.user_id == user_id
+        ).order_by(desc(Purchase.created_at)).all()
+
+        purchase_infos = [
+            UserPurchaseInfo(
+                id=p.id,
+                amount=float(p.amount),
+                credits=float(p.credits),
+                status=p.status,
+                created_at=p.created_at.isoformat() if p.created_at else "",
+                completed_at=p.completed_at.isoformat() if p.completed_at else None,
+            )
+            for p in purchases
+        ]
+
+        completed_purchases = [p for p in purchases if p.status == 'completed']
+        total_purchased = sum(float(p.amount) for p in completed_purchases)
+        total_credits = sum(float(p.credits) for p in completed_purchases)
+
+        return UserDetail(
+            id=user.id,
+            email=user.email,
+            credit_balance=float(user.credit_balance),
+            created_at=user.created_at.isoformat() if user.created_at else "",
+            survey_completed=user.survey_completed == "true",
+            first_purchase_bonus_claimed=user.first_purchase_bonus_claimed == "true",
+            purchases=purchase_infos,
+            total_purchased=total_purchased,
+            total_credits_purchased=total_credits,
+        )
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error getting user detail: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))

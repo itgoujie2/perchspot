@@ -53,6 +53,8 @@ import {
   Home,
   List as ListIcon,
   FilterList,
+  People,
+  AttachMoney,
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import './AdminPortal.css';
@@ -117,7 +119,7 @@ export default function AdminPortal() {
   const [authError, setAuthError] = useState('');
 
   // Navigation state
-  const [activeSection, setActiveSection] = useState<'knowledge' | 'reports' | 'promos'>('reports');
+  const [activeSection, setActiveSection] = useState<'knowledge' | 'reports' | 'promos' | 'users'>('reports');
 
   // Knowledge base state
   const [tab, setTab] = useState(0);
@@ -167,6 +169,13 @@ export default function AdminPortal() {
   const [newPromoNote, setNewPromoNote] = useState('');
   const [creatingPromo, setCreatingPromo] = useState(false);
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
+
+  // Users state
+  const [users, setUsers] = useState<any[]>([]);
+  const [usersSummary, setUsersSummary] = useState<any>(null);
+  const [usersLoading, setUsersLoading] = useState(false);
+  const [usersError, setUsersError] = useState('');
+  const [userFilter, setUserFilter] = useState('');
 
   const headers = useCallback(() => ({
     'X-Admin-Password': password,
@@ -238,6 +247,28 @@ export default function AdminPortal() {
       setPromosError('Cannot connect to backend');
     } finally {
       setPromosLoading(false);
+    }
+  }, [headers]);
+
+  const fetchUsers = useCallback(async () => {
+    setUsersLoading(true);
+    setUsersError('');
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/v1/admin/users`, {
+        headers: headers(),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setUsers(data.users);
+        setUsersSummary(data.summary);
+      } else {
+        const err = await res.json();
+        setUsersError(err.detail || 'Failed to load users');
+      }
+    } catch {
+      setUsersError('Cannot connect to backend');
+    } finally {
+      setUsersLoading(false);
     }
   }, [headers]);
 
@@ -789,6 +820,29 @@ export default function AdminPortal() {
                 <ContentPaste />
               </ListItemIcon>
               <ListItemText primary="Promo Links" />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton
+              selected={activeSection === 'users'}
+              onClick={() => { setActiveSection('users'); fetchUsers(); }}
+              sx={{
+                '&.Mui-selected': { bgcolor: 'rgba(255,255,255,0.1)' },
+                '&:hover': { bgcolor: 'rgba(255,255,255,0.05)' },
+              }}
+            >
+              <ListItemIcon sx={{ color: 'inherit' }}>
+                <People />
+              </ListItemIcon>
+              <ListItemText primary="Users" />
+              {users.length > 0 && (
+                <Chip
+                  label={users.length}
+                  size="small"
+                  sx={{ bgcolor: 'rgba(255,255,255,0.2)', color: 'white' }}
+                />
+              )}
             </ListItemButton>
           </ListItem>
         </List>
@@ -1426,6 +1480,174 @@ export default function AdminPortal() {
                   </Table>
                 </TableContainer>
               )}
+            </Paper>
+          </Box>
+        )}
+
+        {/* Users Section */}
+        {activeSection === 'users' && (
+          <Box sx={{ p: 4 }}>
+            <Box sx={{ mb: 3, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <Box>
+                <Typography variant="h4">Registered Users</Typography>
+                <Typography variant="body2" color="text.secondary">
+                  View all users and their purchase history
+                </Typography>
+              </Box>
+              <Button
+                variant="outlined"
+                startIcon={<Refresh />}
+                onClick={fetchUsers}
+                disabled={usersLoading}
+              >
+                Refresh
+              </Button>
+            </Box>
+
+            {/* Summary Cards */}
+            {usersSummary && (
+              <Box sx={{ display: 'flex', gap: 2, mb: 3 }}>
+                <Card sx={{ flex: 1 }}>
+                  <CardContent>
+                    <Typography color="text.secondary" variant="body2">Total Users</Typography>
+                    <Typography variant="h4">{usersSummary.total_users}</Typography>
+                  </CardContent>
+                </Card>
+                <Card sx={{ flex: 1 }}>
+                  <CardContent>
+                    <Typography color="text.secondary" variant="body2">Users with Purchases</Typography>
+                    <Typography variant="h4">{usersSummary.users_with_purchases}</Typography>
+                  </CardContent>
+                </Card>
+                <Card sx={{ flex: 1, bgcolor: 'success.light' }}>
+                  <CardContent>
+                    <Typography color="success.contrastText" variant="body2">Total Revenue</Typography>
+                    <Typography variant="h4" color="success.contrastText">
+                      ${usersSummary.total_revenue.toFixed(2)}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Box>
+            )}
+
+            {usersError && (
+              <Alert severity="error" sx={{ mb: 2 }} onClose={() => setUsersError('')}>
+                {usersError}
+              </Alert>
+            )}
+
+            <Paper elevation={2}>
+              <Box sx={{ p: 2, borderBottom: 1, borderColor: 'divider' }}>
+                <TextField
+                  fullWidth
+                  size="small"
+                  placeholder="Filter by email..."
+                  value={userFilter}
+                  onChange={(e) => setUserFilter(e.target.value)}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <Search />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Box>
+
+              {usersLoading ? (
+                <LinearProgress />
+              ) : (
+                <TableContainer sx={{ maxHeight: 'calc(100vh - 400px)' }}>
+                  <Table stickyHeader size="small">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Email</TableCell>
+                        <TableCell align="right">Balance</TableCell>
+                        <TableCell align="right">Purchased</TableCell>
+                        <TableCell align="right">Credits Bought</TableCell>
+                        <TableCell align="center">Purchases</TableCell>
+                        <TableCell>Registered</TableCell>
+                        <TableCell>Last Purchase</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {users
+                        .filter(u => u.email.toLowerCase().includes(userFilter.toLowerCase()))
+                        .map((user) => (
+                          <TableRow key={user.id} hover>
+                            <TableCell>
+                              <Typography variant="body2" sx={{ fontWeight: 500 }}>
+                                {user.email}
+                              </Typography>
+                            </TableCell>
+                            <TableCell align="right">
+                              <Chip
+                                label={`$${user.credit_balance.toFixed(2)}`}
+                                size="small"
+                                color={user.credit_balance > 0 ? 'success' : 'default'}
+                                variant="outlined"
+                              />
+                            </TableCell>
+                            <TableCell align="right">
+                              {user.total_purchased > 0 ? (
+                                <Typography variant="body2" sx={{ fontWeight: 600, color: 'success.main' }}>
+                                  ${user.total_purchased.toFixed(2)}
+                                </Typography>
+                              ) : (
+                                <Typography variant="body2" color="text.secondary">—</Typography>
+                              )}
+                            </TableCell>
+                            <TableCell align="right">
+                              {user.total_credits_purchased > 0 ? (
+                                <Typography variant="body2">
+                                  {user.total_credits_purchased.toFixed(2)}
+                                </Typography>
+                              ) : (
+                                <Typography variant="body2" color="text.secondary">—</Typography>
+                              )}
+                            </TableCell>
+                            <TableCell align="center">
+                              {user.purchase_count > 0 ? (
+                                <Chip label={user.purchase_count} size="small" color="primary" />
+                              ) : (
+                                <Typography variant="body2" color="text.secondary">0</Typography>
+                              )}
+                            </TableCell>
+                            <TableCell>
+                              <Typography variant="body2" color="text.secondary">
+                                {formatDate(user.created_at)}
+                              </Typography>
+                            </TableCell>
+                            <TableCell>
+                              {user.last_purchase_at ? (
+                                <Typography variant="body2" color="text.secondary">
+                                  {formatDate(user.last_purchase_at)}
+                                </Typography>
+                              ) : (
+                                <Typography variant="body2" color="text.secondary">—</Typography>
+                              )}
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      {users.filter(u => u.email.toLowerCase().includes(userFilter.toLowerCase())).length === 0 && (
+                        <TableRow>
+                          <TableCell colSpan={7} align="center" sx={{ py: 4 }}>
+                            <Typography color="text.secondary">
+                              {userFilter ? 'No users match your filter' : 'No users found'}
+                            </Typography>
+                          </TableCell>
+                        </TableRow>
+                      )}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              )}
+
+              <Box sx={{ p: 2, borderTop: 1, borderColor: 'divider', bgcolor: 'grey.50' }}>
+                <Typography variant="body2" color="text.secondary">
+                  {users.filter(u => u.email.toLowerCase().includes(userFilter.toLowerCase())).length} of {users.length} users
+                </Typography>
+              </Box>
             </Paper>
           </Box>
         )}
