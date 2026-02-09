@@ -594,7 +594,7 @@ class NotesManager:
 
     def list_all_notes(self) -> list[Path]:
         """
-        List all notes files in the directory.
+        List all notes files in the local directory.
 
         Returns:
             List of Path objects for all .md files
@@ -603,6 +603,40 @@ class NotesManager:
         logger.info(f"Found {len(notes_files)} notes files in {self.notes_dir}")
         return notes_files
 
+    def list_s3_notes(self) -> list[Dict[str, Any]]:
+        """
+        List all notes files from S3.
+
+        Returns:
+            List of dicts with filename, size_bytes, modified info
+        """
+        if not self.use_s3 or not self.s3_client:
+            return []
+
+        try:
+            response = self.s3_client.list_objects_v2(
+                Bucket=self.s3_bucket,
+                Prefix=f"{self.s3_prefix}/"
+            )
+
+            files = []
+            for obj in response.get('Contents', []):
+                key = obj['Key']
+                if key.endswith('.md'):
+                    filename = key.split('/')[-1]
+                    files.append({
+                        "filename": filename,
+                        "size_bytes": obj['Size'],
+                        "modified": obj['LastModified'].isoformat(),
+                        "address": filename.replace('.md', '').replace('_', ' ').title()
+                    })
+
+            logger.info(f"Found {len(files)} notes files in S3")
+            return files
+        except Exception as e:
+            logger.error(f"Error listing S3 notes: {e}")
+            return []
+
     def get_notes_summary(self) -> Dict[str, Any]:
         """
         Get summary of all notes files.
@@ -610,23 +644,32 @@ class NotesManager:
         Returns:
             Dictionary with stats about notes files
         """
-        notes_files = self.list_all_notes()
-
         summary = {
-            "total_files": len(notes_files),
+            "total_files": 0,
             "notes_directory": str(self.notes_dir),
             "environment": self.environment,
+            "using_s3": self.use_s3,
             "files": []
         }
 
-        for notes_file in notes_files:
-            stat = notes_file.stat()
-            summary["files"].append({
-                "filename": notes_file.name,
-                "size_bytes": stat.st_size,
-                "modified": datetime.fromtimestamp(stat.st_mtime).isoformat(),
-                "address": notes_file.stem.replace('_', ' ').title()
-            })
+        # In production, list from S3
+        if self.use_s3:
+            s3_files = self.list_s3_notes()
+            summary["files"] = s3_files
+            summary["total_files"] = len(s3_files)
+        else:
+            # Development mode - list local files
+            notes_files = self.list_all_notes()
+            summary["total_files"] = len(notes_files)
+
+            for notes_file in notes_files:
+                stat = notes_file.stat()
+                summary["files"].append({
+                    "filename": notes_file.name,
+                    "size_bytes": stat.st_size,
+                    "modified": datetime.fromtimestamp(stat.st_mtime).isoformat(),
+                    "address": notes_file.stem.replace('_', ' ').title()
+                })
 
         return summary
 
