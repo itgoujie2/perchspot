@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Logo from '../assets/logo.svg'
+import SEOHead from '../components/SEOHead'
+import StructuredData from '../components/StructuredData'
 import './Home.css'
 
 export default function Home() {
@@ -18,6 +20,21 @@ export default function Home() {
 
   return (
     <div className="landing-page">
+      <SEOHead
+        title="Perchspot - AI-Powered Home Analysis"
+        description="Get instant AI analysis of any property. Evaluate condition, schools, investment potential, and location quality with Perchspot."
+        path="/"
+      />
+      <StructuredData data={{
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Perchspot",
+        "description": "AI-powered property analysis platform",
+        "url": "https://perchspot.com",
+        "applicationCategory": "RealEstateApplication",
+        "operatingSystem": "Web Browser"
+      }} />
+
       <div className="landing-card">
         <img src={Logo} alt="Perchspot" className="logo" />
         <p className="tagline">AI-powered property reports in minutes</p>

@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import { useAuth } from '../contexts/AuthContext';
 import Logo from '../assets/logo.svg';
 import DocumentUpload from '../components/DocumentUpload';
+import SEOHead from '../components/SEOHead';
 import { favoritesApi } from '../services/api';
 import type { DocumentStatusResponse } from '../types';
 import './ChatPage.css';
@@ -699,6 +700,11 @@ const ChatPage: React.FC = () => {
 
   return (
     <div className="chat-container">
+      <SEOHead
+        title={address ? `${address} Analysis - Perchspot` : "Property Analysis - Perchspot"}
+        description={address ? `AI analysis of ${address}. View condition, schools, investment potential, and location quality.` : "Analyze any property with AI-powered insights."}
+        path={`/chat${address ? `?address=${encodeURIComponent(address)}` : ''}`}
+      />
       <div className="chat-header no-print">
         <div className="header-left">
           <Link to="/" className="logo-link">

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import Logo from '../assets/logo.svg';
+import SEOHead from '../components/SEOHead';
 import './Home.css';
 
 export default function LoginPage() {
@@ -32,6 +33,12 @@ export default function LoginPage() {
 
   return (
     <div className="landing-page">
+      <SEOHead
+        title="Sign In - Perchspot"
+        description="Sign in to your Perchspot account to analyze properties with AI."
+        path="/login"
+      />
+
       <div className="landing-card">
         <img src={Logo} alt="Perchspot" className="logo logo-small" />
         <h2>Sign In</h2>

@@ -4,6 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { favoritesApi, historyApi, compareApi } from '../services/api';
 import type { Favorite, HistoryItem, CompareResponse } from '../types';
 import Logo from '../assets/logo.svg';
+import SEOHead from '../components/SEOHead';
 import './AccountPage.css';
 
 type TabType = 'profile' | 'favorites' | 'history';
@@ -161,6 +162,12 @@ const AccountPage: React.FC = () => {
 
   return (
     <div className="account-page">
+      <SEOHead
+        title="My Account - Perchspot"
+        description="Manage your Perchspot account, view saved properties, and access analysis history."
+        path="/account"
+        noindex={true}
+      />
       <header className="account-header">
         <Link to="/" className="logo-link">
           <img src={Logo} alt="Perchspot" className="header-logo" />

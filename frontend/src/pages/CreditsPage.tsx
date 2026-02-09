@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { promotionsApi, referralsApi } from '../services/api';
+import SEOHead from '../components/SEOHead';
 
 const PRESETS = [5, 10, 20];
 
@@ -140,6 +141,12 @@ const CreditsPage: React.FC = () => {
       fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif',
       padding: '2rem',
     }}>
+      <SEOHead
+        title="Buy Credits - Perchspot"
+        description="Purchase credits to analyze more properties with Perchspot AI."
+        path="/credits"
+        noindex={true}
+      />
       <div style={{ maxWidth: 500, margin: '0 auto' }}>
         <div style={{ marginBottom: '2rem' }}>
           <Link to="/" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: '0.9rem' }}>

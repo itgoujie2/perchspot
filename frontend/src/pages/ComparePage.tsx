@@ -4,6 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { compareApi } from '../services/api';
 import type { PropertySummary, CompareResponse } from '../types';
 import Logo from '../assets/logo.svg';
+import SEOHead from '../components/SEOHead';
 import './ComparePage.css';
 
 const ComparePage: React.FC = () => {
@@ -80,6 +81,11 @@ const ComparePage: React.FC = () => {
 
   return (
     <div className="compare-page">
+      <SEOHead
+        title="Compare Properties - Perchspot"
+        description="Compare multiple properties side-by-side with AI-powered analysis. Evaluate condition, schools, investment potential, and location quality."
+        path="/compare"
+      />
       <div className="compare-header">
         <div className="header-left">
           <Link to="/" className="logo-link">

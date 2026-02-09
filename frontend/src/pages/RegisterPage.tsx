@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import Logo from '../assets/logo.svg';
+import SEOHead from '../components/SEOHead';
 import './Home.css';
 
 export default function RegisterPage() {
@@ -63,6 +64,12 @@ export default function RegisterPage() {
 
   return (
     <div className="landing-page">
+      <SEOHead
+        title="Create Account - Perchspot"
+        description="Create a free Perchspot account to analyze homes with AI-powered insights."
+        path="/register"
+      />
+
       <div className="landing-card">
         <img src={Logo} alt="Perchspot" className="logo logo-small" />
         <h2>Create Account</h2>

@@ -1,0 +1,28 @@
+# Perchspot
+
+> AI-powered property analysis platform for home buyers
+
+Perchspot helps home buyers make informed decisions by providing AI analysis of any property listing. Simply paste a property address and get instant insights on:
+
+## Features
+
+- **Property Condition Analysis**: Evaluate age, materials, maintenance needs, and potential issues
+- **School Quality**: View nearby schools with ratings, distances, and school types
+- **Investment Potential**: Assess market value, rental yield, appreciation outlook
+- **Location Quality**: Analyze neighborhood, commute times, walkability, and amenities
+- **Property Comparison**: Compare up to 3 properties side-by-side
+
+## How It Works
+
+1. Go to https://perchspot.com
+2. Enter any property address
+3. Get comprehensive AI analysis in under 2 minutes
+
+## Pricing
+
+- Free tier: 1 analysis per IP address
+- Credits: Purchase additional analyses starting at $1 each
+
+## Contact
+
+Website: https://perchspot.com
