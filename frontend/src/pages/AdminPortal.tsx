@@ -1951,7 +1951,7 @@ export default function AdminPortal() {
 
         {/* Analytics Section */}
         {activeSection === 'analytics' && (
-          <Box sx={{ p: 4 }}>
+          <Box sx={{ p: 4, width: '100%', boxSizing: 'border-box' }}>
             <Box sx={{ mb: 3, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <Box>
                 <Typography variant="h4">Analysis Analytics</Typography>
@@ -2063,7 +2063,7 @@ export default function AdminPortal() {
             )}
 
             {/* Analyses Table */}
-            <Paper elevation={2} sx={{ width: '100%', overflow: 'hidden' }}>
+            <Paper elevation={2} sx={{ width: '100%' }}>
               <Box sx={{ p: 2, borderBottom: 1, borderColor: 'divider', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Typography variant="h6">Recent Analyses</Typography>
                 <Typography variant="body2" color="text.secondary">
@@ -2081,8 +2081,8 @@ export default function AdminPortal() {
                   </Typography>
                 </Box>
               ) : (
-                <TableContainer sx={{ maxHeight: 'calc(100vh - 400px)', overflowX: 'auto' }}>
-                  <Table stickyHeader size="small" sx={{ minWidth: 900 }}>
+                <TableContainer sx={{ maxHeight: 'calc(100vh - 350px)' }}>
+                  <Table stickyHeader size="small">
                     <TableHead>
                       <TableRow>
                         <TableCell>Address</TableCell>
@@ -2103,11 +2103,11 @@ export default function AdminPortal() {
                           sx={{ cursor: 'pointer' }}
                           onClick={() => fetchAnalysisDetail(analysis.id)}
                         >
-                          <TableCell sx={{ minWidth: 300 }}>
+                          <TableCell>
                             <Typography
                               variant="body2"
                               sx={{
-                                maxWidth: 400,
+                                maxWidth: 300,
                                 overflow: 'hidden',
                                 textOverflow: 'ellipsis',
                                 whiteSpace: 'nowrap',
