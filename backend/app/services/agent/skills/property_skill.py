@@ -314,14 +314,42 @@ Return ONLY valid JSON, no other text.
         if prop_type and region:
             queries.append(f"{prop_type} in {region}")
 
-        # 6. Specific neighborhood/community names from description
-        #    Look for phrases like "in [Name] community", "[Name] neighborhood", "[Name] subdivision"
+        # 6. City from address - useful for market context
+        address_info = prop.get('address', {})
+        city = address_info.get('city', '')
+        if city:
+            queries.append(f"{city} neighborhood")
+
+        # 7. Specific neighborhood/community names from description
+        #    Multiple patterns to catch various naming conventions
         community_patterns = [
-            r'(?:in|at|of)\s+(?:the\s+)?([A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+){0,3})\s+(?:community|neighborhood|subdivision|development|village|estates?|heights|ridge|park)',
+            # Pattern: "in/at/of [Name] community/neighborhood/etc"
+            r'(?:in|at|of|near)\s+(?:the\s+)?([A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+){0,3})\s+(?:community|neighborhood|subdivision|development|village|area)',
+            # Pattern: "[Name] Heights/Ridge/Park/Hills/Estates/etc" (common neighborhood naming)
+            r'\b([A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+)?\s+(?:Heights|Ridge|Park|Hills|Estates|Village|Glen|Woods|Creek|Meadows|Pointe|Landing|Crossing|Place|Court|Terrace))\b',
+            # Pattern: "Welcome to [Name]" or "Located in [Name]"
+            r'(?:welcome to|located in|situated in)\s+(?:the\s+)?([A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+){0,2})',
+            # Pattern: "the [Name] area" or "[Name] district"
+            r'(?:the\s+)?([A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+)?)\s+(?:area|district|section)',
         ]
+
+        communities_found = []
         for pat in community_patterns:
             for match in re.findall(pat, description):
-                queries.append(match.strip())
+                community_name = match.strip()
+                # Filter out false positives
+                false_positives = {'The Home', 'This Home', 'Your Home', 'New Home',
+                                   'Main Floor', 'Top Floor', 'First Floor', 'Second Floor',
+                                   'Great Room', 'Family Room', 'Living Room', 'Dining Room',
+                                   'Master Suite', 'Primary Suite', 'Guest Suite',
+                                   'Open Floor', 'Floor Plan', 'Square Feet'}
+                if community_name not in false_positives and len(community_name) > 3:
+                    communities_found.append(community_name)
+
+        # Add unique communities to queries
+        for community in communities_found:
+            if community.lower() not in [q.lower() for q in queries]:
+                queries.append(community)
 
         # Deduplicate while preserving order
         seen = set()
