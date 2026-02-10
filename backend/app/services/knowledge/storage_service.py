@@ -121,6 +121,39 @@ class StorageService:
 
         return results.points
 
+    def sparse_search(
+        self,
+        sparse_vector: SparseVector,
+        limit: int = 10,
+        category_filter: Optional[str] = None,
+    ) -> List[ScoredPoint]:
+        """
+        BM25-only search using sparse vectors.
+
+        Used for entity/proper noun queries where exact keyword matching
+        is more important than semantic similarity.
+        """
+        search_filter = None
+        if category_filter:
+            search_filter = Filter(
+                must=[
+                    FieldCondition(
+                        key="category",
+                        match=MatchValue(value=category_filter),
+                    )
+                ]
+            )
+
+        results = self.client.query_points(
+            collection_name=self.collection_name,
+            query=sparse_vector,
+            using="sparse",
+            limit=limit,
+            query_filter=search_filter,
+        )
+
+        return results.points
+
     def delete_by_source(self, source_id: str):
         """Delete all points from a specific source file."""
         self.client.delete(
