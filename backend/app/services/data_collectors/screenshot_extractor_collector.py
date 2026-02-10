@@ -661,51 +661,19 @@ class ScreenshotExtractorCollector:
         Check if the current property page is an active listing (For Sale).
 
         Returns False for off-market, sold, pending, or other inactive statuses.
+        Uses specific status elements first, then falls back to targeted page sections.
         """
         try:
-            # Look for status indicators on the page
-            page_content = await page.content()
-            page_content_lower = page_content.lower()
-
-            # Check for active listing indicators
-            active_indicators = [
-                'for sale',
-                'active listing',
-                'open house',
-                'price drop',
-                'new listing',
-                'coming soon',
-            ]
-
-            # Check for off-market/inactive indicators
-            inactive_indicators = [
-                'off market',
-                'off-market',
-                'sold on',
-                'sold for',
-                'no longer available',
-                'this home is not for sale',
-                'this property is not currently for sale',
-            ]
-
-            # Check for inactive indicators first (more specific)
-            for indicator in inactive_indicators:
-                if indicator in page_content_lower:
-                    logger.debug(f"Found inactive indicator: {indicator}")
-                    return False
-
-            # Check for active indicators
-            for indicator in active_indicators:
-                if indicator in page_content_lower:
-                    logger.debug(f"Found active indicator: {indicator}")
-                    return True
-
-            # Also check specific Redfin status elements
+            # FIRST: Check specific Redfin status elements (most reliable)
             status_selectors = [
                 '[data-rf-test-name="abp-status"]',
-                '.HomeInfoV2 .status',
-                '.PropertyPageStatus',
+                '[data-rf-test-name="homeStatus"]',
                 '.HomeStatus',
+                '.PropertyPageStatus',
+                '.HomeInfoV2 .status',
+                '.ListingStatusBannerSection',
+                '.above-the-fold .status',
+                '.propertyStatus',
             ]
 
             for selector in status_selectors:
@@ -713,20 +681,95 @@ class ScreenshotExtractorCollector:
                     element = await page.query_selector(selector)
                     if element:
                         text = await element.inner_text()
-                        text_lower = text.lower()
-                        if any(ind in text_lower for ind in ['off market', 'sold', 'not for sale']):
+                        text_lower = text.lower().strip()
+                        logger.debug(f"Status element '{selector}' text: {text_lower}")
+
+                        # Check for inactive
+                        if any(ind in text_lower for ind in ['off market', 'off-market', 'sold', 'not for sale', 'no longer']):
+                            logger.info(f"Status element shows inactive: {text_lower}")
                             return False
-                        if any(ind in text_lower for ind in ['for sale', 'active', 'coming soon']):
+                        # Check for active
+                        if any(ind in text_lower for ind in ['for sale', 'active', 'coming soon', 'pending', 'contingent']):
+                            logger.info(f"Status element shows active: {text_lower}")
                             return True
                 except Exception:
                     continue
 
-            # Default: assume active if we can't determine status
-            # (better to show something than nothing)
+            # SECOND: Check the main header/banner area only (not full page)
+            # Look for prominent status text near the top of the page
+            header_selectors = [
+                '.HomeMainStats',
+                '.HomeInfo',
+                '.above-the-fold',
+                'header',
+                '[class*="Banner"]',
+                '[class*="Status"]',
+            ]
+
+            for selector in header_selectors:
+                try:
+                    element = await page.query_selector(selector)
+                    if element:
+                        text = await element.inner_text()
+                        text_lower = text.lower()
+
+                        # Off-market indicators (specific phrases)
+                        if 'off market' in text_lower or 'off-market' in text_lower:
+                            # Make sure it's about THIS property, not a sidebar link
+                            if 'this home' in text_lower or 'this property' in text_lower or text_lower.startswith('off'):
+                                logger.info(f"Header indicates off-market")
+                                return False
+
+                        # For sale indicators
+                        if 'for sale' in text_lower:
+                            logger.info(f"Header indicates for sale")
+                            return True
+                except Exception:
+                    continue
+
+            # THIRD: Check page title which usually shows status
+            try:
+                title = await page.title()
+                title_lower = title.lower()
+                logger.debug(f"Page title: {title_lower}")
+
+                if 'off market' in title_lower or 'sold' in title_lower:
+                    logger.info(f"Page title indicates off-market: {title}")
+                    return False
+                if 'for sale' in title_lower:
+                    logger.info(f"Page title indicates for sale: {title}")
+                    return True
+            except Exception:
+                pass
+
+            # FOURTH: Check for a price element (active listings usually show price prominently)
+            try:
+                price_selectors = [
+                    '[data-rf-test-name="abp-price"]',
+                    '.price',
+                    '.HomeMainStats .price',
+                    '.statsValue',
+                ]
+                for selector in price_selectors:
+                    price_el = await page.query_selector(selector)
+                    if price_el:
+                        price_text = await price_el.inner_text()
+                        # If there's a clear price with $, likely active
+                        if '$' in price_text and any(c.isdigit() for c in price_text):
+                            # But also check it's not "Sold for $X"
+                            parent = await price_el.evaluate('el => el.parentElement?.innerText || ""')
+                            if 'sold' not in parent.lower():
+                                logger.info(f"Found active price: {price_text}")
+                                return True
+            except Exception:
+                pass
+
+            # Default: assume active if we can't determine
+            logger.info("Could not determine listing status, assuming active")
             return True
 
         except Exception as e:
-            logger.debug(f"Error checking listing status: {e}")
+            logger.warning(f"Error checking listing status: {e}")
             return True  # Default to active on error
 
     async def _click_first_result(self, page: Page, max_retries: int = 3):
