@@ -2063,7 +2063,7 @@ export default function AdminPortal() {
             )}
 
             {/* Analyses Table */}
-            <Paper elevation={2}>
+            <Paper elevation={2} sx={{ width: '100%', overflow: 'hidden' }}>
               <Box sx={{ p: 2, borderBottom: 1, borderColor: 'divider', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Typography variant="h6">Recent Analyses</Typography>
                 <Typography variant="body2" color="text.secondary">
@@ -2081,8 +2081,8 @@ export default function AdminPortal() {
                   </Typography>
                 </Box>
               ) : (
-                <TableContainer sx={{ maxHeight: 'calc(100vh - 500px)' }}>
-                  <Table stickyHeader size="small">
+                <TableContainer sx={{ maxHeight: 'calc(100vh - 400px)', overflowX: 'auto' }}>
+                  <Table stickyHeader size="small" sx={{ minWidth: 900 }}>
                     <TableHead>
                       <TableRow>
                         <TableCell>Address</TableCell>
@@ -2103,11 +2103,11 @@ export default function AdminPortal() {
                           sx={{ cursor: 'pointer' }}
                           onClick={() => fetchAnalysisDetail(analysis.id)}
                         >
-                          <TableCell>
+                          <TableCell sx={{ minWidth: 300 }}>
                             <Typography
                               variant="body2"
                               sx={{
-                                maxWidth: 250,
+                                maxWidth: 400,
                                 overflow: 'hidden',
                                 textOverflow: 'ellipsis',
                                 whiteSpace: 'nowrap',
