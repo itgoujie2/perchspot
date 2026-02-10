@@ -1,8 +1,8 @@
 """
 Analysis Step Log model for tracking individual steps in property analysis.
 """
-from sqlalchemy import Column, String, Integer, Numeric, Text, DateTime, ForeignKey, Index
-from sqlalchemy.dialects.postgresql import UUID, JSONB
+from sqlalchemy import Column, String, Integer, Numeric, Text, DateTime, ForeignKey, Index, JSON
+from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 import uuid
@@ -46,7 +46,7 @@ class AnalysisStepLog(Base):
     output_tokens = Column(Integer, default=0)
     model = Column(String(100))
     error_message = Column(Text)
-    step_metadata = Column(JSONB)
+    step_metadata = Column(JSON)
 
     # Relationship
     analysis_job = relationship("AnalysisJob", back_populates="step_logs")
