@@ -6,15 +6,15 @@ All endpoints require admin authentication via X-Admin-Password header.
 """
 import logging
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import List, Optional, Dict, Any
 from pathlib import Path
 
-from fastapi import APIRouter, Depends, HTTPException, Header
+from fastapi import APIRouter, Depends, HTTPException, Header, Query
 from pydantic import BaseModel
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 
-from sqlalchemy import func, desc
+from sqlalchemy import func, desc, and_, or_
 
 from app.config import settings
 from app.services.agent.tools.notes_manager import get_notes_manager
@@ -23,6 +23,8 @@ from app.services.promotions.promo_service import (
     create_promo_code, list_promo_codes, deactivate_promo_code, get_promo_by_code
 )
 from app.models.user import User, Purchase, CreditTransaction, SurveyResponse
+from app.models.database import AnalysisJob
+from app.models.analysis_log import AnalysisStepLog
 
 logger = logging.getLogger(__name__)
 
@@ -522,4 +524,318 @@ async def list_surveys(db: Session = Depends(get_db)):
         )
     except Exception as e:
         logger.error(f"Error listing surveys: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# ============================================
+# Analysis Logging & Analytics Endpoints
+# ============================================
+
+class AnalysisStepItem(BaseModel):
+    id: str
+    step_number: int
+    step_name: str
+    step_type: str
+    status: str
+    duration_ms: Optional[int] = None
+    cost: Optional[float] = None
+    input_tokens: Optional[int] = None
+    output_tokens: Optional[int] = None
+    model: Optional[str] = None
+    error_message: Optional[str] = None
+
+
+class AnalysisSummaryItem(BaseModel):
+    id: str
+    request_id: Optional[str] = None
+    user_email: Optional[str] = None
+    address: Optional[str] = None
+    status: str
+    is_cached: Optional[bool] = None
+    total_duration_ms: Optional[int] = None
+    total_cost: Optional[float] = None
+    total_cost_user: Optional[float] = None
+    error_step: Optional[str] = None
+    created_at: str
+
+
+class AnalysisDetailItem(BaseModel):
+    id: str
+    request_id: Optional[str] = None
+    user_email: Optional[str] = None
+    user_id: Optional[str] = None
+    address: Optional[str] = None
+    client_ip: Optional[str] = None
+    status: str
+    is_cached: Optional[bool] = None
+    total_duration_ms: Optional[int] = None
+    total_cost: Optional[float] = None
+    total_cost_user: Optional[float] = None
+    error_message: Optional[str] = None
+    error_step: Optional[str] = None
+    created_at: str
+    started_at: Optional[str] = None
+    completed_at: Optional[str] = None
+    steps: List[AnalysisStepItem] = []
+
+
+class AnalysisListResponse(BaseModel):
+    total: int
+    analyses: List[AnalysisSummaryItem]
+
+
+class AnalysisStatsResponse(BaseModel):
+    total_analyses: int
+    successful: int
+    failed: int
+    cached: int
+    success_rate: float
+    cache_rate: float
+    avg_duration_ms: Optional[float] = None
+    total_cost: float
+    total_cost_user: float
+    step_stats: List[Dict[str, Any]] = []
+    daily_counts: List[Dict[str, Any]] = []
+
+
+@router.get("/analyses", response_model=AnalysisListResponse,
+            dependencies=[Depends(verify_admin)])
+async def list_analyses(
+    db: Session = Depends(get_db),
+    user_id: Optional[str] = Query(None, description="Filter by user ID"),
+    status: Optional[str] = Query(None, description="Filter by status"),
+    days: int = Query(7, description="Number of days to look back"),
+    limit: int = Query(50, description="Max results"),
+    offset: int = Query(0, description="Offset for pagination"),
+):
+    """List analysis jobs with filters."""
+    try:
+        query = db.query(AnalysisJob, User.email).outerjoin(
+            User, AnalysisJob.user_id == User.id
+        )
+
+        # Apply filters
+        filters = []
+        if user_id:
+            filters.append(AnalysisJob.user_id == user_id)
+        if status:
+            filters.append(AnalysisJob.status == status)
+
+        # Date range filter
+        cutoff = datetime.utcnow() - timedelta(days=days)
+        filters.append(AnalysisJob.created_at >= cutoff)
+
+        if filters:
+            query = query.filter(and_(*filters))
+
+        # Get total count
+        total = query.count()
+
+        # Get paginated results
+        results = query.order_by(desc(AnalysisJob.created_at)).offset(offset).limit(limit).all()
+
+        analyses = [
+            AnalysisSummaryItem(
+                id=str(job.id),
+                request_id=job.request_id,
+                user_email=email,
+                address=job.address,
+                status=job.status,
+                is_cached=job.is_cached,
+                total_duration_ms=job.total_duration_ms,
+                total_cost=float(job.total_cost) if job.total_cost else None,
+                total_cost_user=float(job.total_cost_user) if job.total_cost_user else None,
+                error_step=job.error_step,
+                created_at=job.created_at.isoformat() if job.created_at else "",
+            )
+            for job, email in results
+        ]
+
+        return AnalysisListResponse(total=total, analyses=analyses)
+
+    except Exception as e:
+        logger.error(f"Error listing analyses: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/analyses/stats", response_model=AnalysisStatsResponse,
+            dependencies=[Depends(verify_admin)])
+async def get_analysis_stats(
+    db: Session = Depends(get_db),
+    days: int = Query(7, description="Number of days to analyze"),
+):
+    """Get aggregate analysis statistics."""
+    try:
+        cutoff = datetime.utcnow() - timedelta(days=days)
+
+        # Base query
+        base_query = db.query(AnalysisJob).filter(AnalysisJob.created_at >= cutoff)
+
+        # Total counts
+        total = base_query.count()
+        successful = base_query.filter(AnalysisJob.status == 'completed').count()
+        failed = base_query.filter(AnalysisJob.status == 'failed').count()
+        cached = base_query.filter(AnalysisJob.is_cached == True).count()
+
+        # Rates
+        success_rate = (successful / total * 100) if total > 0 else 0
+        cache_rate = (cached / total * 100) if total > 0 else 0
+
+        # Average duration (completed only)
+        avg_duration = db.query(func.avg(AnalysisJob.total_duration_ms)).filter(
+            AnalysisJob.created_at >= cutoff,
+            AnalysisJob.status == 'completed'
+        ).scalar()
+
+        # Total costs
+        cost_result = db.query(
+            func.sum(AnalysisJob.total_cost),
+            func.sum(AnalysisJob.total_cost_user)
+        ).filter(AnalysisJob.created_at >= cutoff).first()
+
+        total_cost = float(cost_result[0]) if cost_result[0] else 0
+        total_cost_user = float(cost_result[1]) if cost_result[1] else 0
+
+        # Step stats
+        step_stats_query = db.query(
+            AnalysisStepLog.step_number,
+            AnalysisStepLog.step_name,
+            func.count(AnalysisStepLog.id).label('count'),
+            func.sum(func.cast(AnalysisStepLog.status == 'completed', db.bind.dialect.name == 'mysql' and 'SIGNED' or 'INTEGER')).label('completed'),
+            func.sum(func.cast(AnalysisStepLog.status == 'failed', db.bind.dialect.name == 'mysql' and 'SIGNED' or 'INTEGER')).label('failed'),
+            func.avg(AnalysisStepLog.duration_ms).label('avg_duration'),
+            func.sum(AnalysisStepLog.cost).label('total_cost'),
+        ).join(
+            AnalysisJob, AnalysisStepLog.analysis_job_id == AnalysisJob.id
+        ).filter(
+            AnalysisJob.created_at >= cutoff
+        ).group_by(
+            AnalysisStepLog.step_number,
+            AnalysisStepLog.step_name
+        ).order_by(
+            AnalysisStepLog.step_number
+        ).all()
+
+        step_stats = [
+            {
+                "step_number": s.step_number,
+                "step_name": s.step_name,
+                "count": s.count,
+                "completed": int(s.completed or 0),
+                "failed": int(s.failed or 0),
+                "avg_duration_ms": float(s.avg_duration) if s.avg_duration else None,
+                "total_cost": float(s.total_cost) if s.total_cost else 0,
+            }
+            for s in step_stats_query
+        ]
+
+        # Daily counts
+        daily_query = db.query(
+            func.date(AnalysisJob.created_at).label('date'),
+            func.count(AnalysisJob.id).label('total'),
+            func.sum(func.cast(AnalysisJob.status == 'completed', db.bind.dialect.name == 'mysql' and 'SIGNED' or 'INTEGER')).label('completed'),
+            func.sum(func.cast(AnalysisJob.status == 'failed', db.bind.dialect.name == 'mysql' and 'SIGNED' or 'INTEGER')).label('failed'),
+        ).filter(
+            AnalysisJob.created_at >= cutoff
+        ).group_by(
+            func.date(AnalysisJob.created_at)
+        ).order_by(
+            func.date(AnalysisJob.created_at)
+        ).all()
+
+        daily_counts = [
+            {
+                "date": str(d.date),
+                "total": d.total,
+                "completed": int(d.completed or 0),
+                "failed": int(d.failed or 0),
+            }
+            for d in daily_query
+        ]
+
+        return AnalysisStatsResponse(
+            total_analyses=total,
+            successful=successful,
+            failed=failed,
+            cached=cached,
+            success_rate=round(success_rate, 1),
+            cache_rate=round(cache_rate, 1),
+            avg_duration_ms=float(avg_duration) if avg_duration else None,
+            total_cost=round(total_cost, 4),
+            total_cost_user=round(total_cost_user, 4),
+            step_stats=step_stats,
+            daily_counts=daily_counts,
+        )
+
+    except Exception as e:
+        logger.error(f"Error getting analysis stats: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/analyses/{analysis_id}", response_model=AnalysisDetailItem,
+            dependencies=[Depends(verify_admin)])
+async def get_analysis_detail(
+    analysis_id: str,
+    db: Session = Depends(get_db),
+):
+    """Get detailed analysis job with step breakdown."""
+    try:
+        # Get the job with user
+        result = db.query(AnalysisJob, User.email).outerjoin(
+            User, AnalysisJob.user_id == User.id
+        ).filter(
+            AnalysisJob.id == analysis_id
+        ).first()
+
+        if not result:
+            raise HTTPException(status_code=404, detail="Analysis not found")
+
+        job, user_email = result
+
+        # Get step logs
+        step_logs = db.query(AnalysisStepLog).filter(
+            AnalysisStepLog.analysis_job_id == analysis_id
+        ).order_by(AnalysisStepLog.step_number).all()
+
+        steps = [
+            AnalysisStepItem(
+                id=s.id,
+                step_number=s.step_number,
+                step_name=s.step_name,
+                step_type=s.step_type,
+                status=s.status,
+                duration_ms=s.duration_ms,
+                cost=float(s.cost) if s.cost else None,
+                input_tokens=s.input_tokens,
+                output_tokens=s.output_tokens,
+                model=s.model,
+                error_message=s.error_message,
+            )
+            for s in step_logs
+        ]
+
+        return AnalysisDetailItem(
+            id=str(job.id),
+            request_id=job.request_id,
+            user_email=user_email,
+            user_id=job.user_id,
+            address=job.address,
+            client_ip=job.client_ip,
+            status=job.status,
+            is_cached=job.is_cached,
+            total_duration_ms=job.total_duration_ms,
+            total_cost=float(job.total_cost) if job.total_cost else None,
+            total_cost_user=float(job.total_cost_user) if job.total_cost_user else None,
+            error_message=job.error_message,
+            error_step=job.error_step,
+            created_at=job.created_at.isoformat() if job.created_at else "",
+            started_at=job.started_at.isoformat() if job.started_at else None,
+            completed_at=job.completed_at.isoformat() if job.completed_at else None,
+            steps=steps,
+        )
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error getting analysis detail: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))

@@ -2,6 +2,7 @@
 SQLAlchemy database models
 """
 from sqlalchemy import Column, String, Integer, Numeric, Text, DateTime, ForeignKey, Boolean, TIMESTAMP, UniqueConstraint, Index
+from app.models.user import User  # Import for relationship
 from sqlalchemy.dialects.postgresql import UUID, JSONB
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
@@ -246,11 +247,11 @@ class APICache(Base):
 
 
 class AnalysisJob(Base):
-    """Async analysis jobs tracking"""
+    """Async analysis jobs tracking with comprehensive logging"""
     __tablename__ = "analysis_jobs"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    property_id = Column(UUID(as_uuid=True), ForeignKey('properties.id', ondelete='CASCADE'), nullable=False)
+    property_id = Column(UUID(as_uuid=True), ForeignKey('properties.id', ondelete='CASCADE'), nullable=True)
     status = Column(String(20), nullable=False, default='pending')
     progress = Column(Integer, default=0)
     current_step = Column(String(100))
@@ -259,14 +260,31 @@ class AnalysisJob(Base):
     started_at = Column(DateTime(timezone=True))
     completed_at = Column(DateTime(timezone=True))
 
-    # Relationship
+    # New logging fields
+    request_id = Column(String(36), unique=True, index=True)  # Correlation ID for tracing
+    user_id = Column(String(36), ForeignKey('users.id', ondelete='SET NULL'), nullable=True)  # Links to User
+    address = Column(String(500))  # Property address being analyzed
+    address_normalized = Column(String(500), index=True)  # Normalized for dedup
+    is_cached = Column(Boolean, default=False)  # True if served from cache
+    total_duration_ms = Column(Integer)  # Total time in milliseconds
+    total_cost = Column(Numeric(10, 6), default=0)  # Internal LLM cost
+    total_cost_user = Column(Numeric(10, 6), default=0)  # User-facing cost (with margin)
+    error_step = Column(String(50))  # Which step failed
+    client_ip = Column(String(45))  # For anonymous users
+
+    # Relationships
     property = relationship("Property", back_populates="jobs")
+    user = relationship("User", foreign_keys=[user_id])
+    step_logs = relationship("AnalysisStepLog", back_populates="analysis_job", cascade="all, delete-orphan")
 
     # Indexes
     __table_args__ = (
         Index('idx_jobs_status', 'status'),
         Index('idx_jobs_created', 'created_at'),
         Index('idx_jobs_property', 'property_id'),
+        Index('idx_jobs_user', 'user_id'),
+        Index('idx_jobs_address', 'address_normalized'),
+        Index('idx_jobs_request', 'request_id'),
     )
 
 

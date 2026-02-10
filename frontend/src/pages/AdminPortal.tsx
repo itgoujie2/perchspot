@@ -57,6 +57,11 @@ import {
   AttachMoney,
   Feedback,
   Star,
+  Analytics,
+  CheckCircleOutline,
+  Error as ErrorIcon,
+  Cached,
+  Timer,
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import './AdminPortal.css';
@@ -121,7 +126,7 @@ export default function AdminPortal() {
   const [authError, setAuthError] = useState('');
 
   // Navigation state
-  const [activeSection, setActiveSection] = useState<'knowledge' | 'reports' | 'promos' | 'users' | 'surveys'>('reports');
+  const [activeSection, setActiveSection] = useState<'knowledge' | 'reports' | 'promos' | 'users' | 'surveys' | 'analytics'>('reports');
 
   // Knowledge base state
   const [tab, setTab] = useState(0);
@@ -184,6 +189,15 @@ export default function AdminPortal() {
   const [surveysSummary, setSurveysSummary] = useState<any>(null);
   const [surveysLoading, setSurveysLoading] = useState(false);
   const [surveysError, setSurveysError] = useState('');
+
+  // Analytics state
+  const [analyses, setAnalyses] = useState<any[]>([]);
+  const [analysisStats, setAnalysisStats] = useState<any>(null);
+  const [analysesLoading, setAnalysesLoading] = useState(false);
+  const [analysesError, setAnalysesError] = useState('');
+  const [analysisDays, setAnalysisDays] = useState(7);
+  const [selectedAnalysis, setSelectedAnalysis] = useState<any>(null);
+  const [analysisDetailLoading, setAnalysisDetailLoading] = useState(false);
 
   const headers = useCallback(() => ({
     'X-Admin-Password': password,
@@ -301,6 +315,61 @@ export default function AdminPortal() {
       setSurveysLoading(false);
     }
   }, [headers]);
+
+  const fetchAnalyses = useCallback(async () => {
+    setAnalysesLoading(true);
+    setAnalysesError('');
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/v1/admin/analyses?days=${analysisDays}&limit=100`, {
+        headers: headers(),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setAnalyses(data.analyses);
+      } else {
+        const err = await res.json();
+        setAnalysesError(err.detail || 'Failed to load analyses');
+      }
+    } catch {
+      setAnalysesError('Cannot connect to backend');
+    } finally {
+      setAnalysesLoading(false);
+    }
+  }, [headers, analysisDays]);
+
+  const fetchAnalysisStats = useCallback(async () => {
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/v1/admin/analyses/stats?days=${analysisDays}`, {
+        headers: headers(),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setAnalysisStats(data);
+      }
+    } catch {
+      // silently fail
+    }
+  }, [headers, analysisDays]);
+
+  const fetchAnalysisDetail = async (analysisId: string) => {
+    setAnalysisDetailLoading(true);
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/v1/admin/analyses/${analysisId}`, {
+        headers: headers(),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setSelectedAnalysis(data);
+      } else {
+        const err = await res.json();
+        setAnalysesError(err.detail || 'Failed to load analysis detail');
+      }
+    } catch {
+      setAnalysesError('Cannot load analysis detail');
+    } finally {
+      setAnalysisDetailLoading(false);
+    }
+  };
 
   const createPromoCode = async () => {
     setCreatingPromo(true);
@@ -896,6 +965,22 @@ export default function AdminPortal() {
                   sx={{ bgcolor: 'rgba(255,255,255,0.2)', color: 'white' }}
                 />
               )}
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton
+              selected={activeSection === 'analytics'}
+              onClick={() => { setActiveSection('analytics'); fetchAnalyses(); fetchAnalysisStats(); }}
+              sx={{
+                '&.Mui-selected': { bgcolor: 'rgba(255,255,255,0.1)' },
+                '&:hover': { bgcolor: 'rgba(255,255,255,0.05)' },
+              }}
+            >
+              <ListItemIcon sx={{ color: 'inherit' }}>
+                <Analytics />
+              </ListItemIcon>
+              <ListItemText primary="Analytics" />
             </ListItemButton>
           </ListItem>
         </List>
@@ -1863,6 +1948,235 @@ export default function AdminPortal() {
             </Paper>
           </Box>
         )}
+
+        {/* Analytics Section */}
+        {activeSection === 'analytics' && (
+          <Box sx={{ p: 4 }}>
+            <Box sx={{ mb: 3, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <Box>
+                <Typography variant="h4">Analysis Analytics</Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Track analysis success rate, latency, and costs
+                </Typography>
+              </Box>
+              <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+                <FormControl size="small" sx={{ minWidth: 120 }}>
+                  <InputLabel>Time Range</InputLabel>
+                  <Select
+                    value={analysisDays}
+                    label="Time Range"
+                    onChange={(e) => {
+                      setAnalysisDays(e.target.value as number);
+                      setTimeout(() => { fetchAnalyses(); fetchAnalysisStats(); }, 0);
+                    }}
+                  >
+                    <MenuItem value={1}>Last 24 hours</MenuItem>
+                    <MenuItem value={7}>Last 7 days</MenuItem>
+                    <MenuItem value={30}>Last 30 days</MenuItem>
+                    <MenuItem value={90}>Last 90 days</MenuItem>
+                  </Select>
+                </FormControl>
+                <Button
+                  variant="outlined"
+                  startIcon={<Refresh />}
+                  onClick={() => { fetchAnalyses(); fetchAnalysisStats(); }}
+                  disabled={analysesLoading}
+                >
+                  Refresh
+                </Button>
+              </Box>
+            </Box>
+
+            {/* Stats Cards */}
+            {analysisStats && (
+              <Box sx={{ display: 'flex', gap: 2, mb: 3, flexWrap: 'wrap' }}>
+                <Card sx={{ minWidth: 140 }}>
+                  <CardContent>
+                    <Typography color="text.secondary" variant="body2">Total Analyses</Typography>
+                    <Typography variant="h4">{analysisStats.total_analyses}</Typography>
+                  </CardContent>
+                </Card>
+                <Card sx={{ minWidth: 140, bgcolor: 'success.light' }}>
+                  <CardContent>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                      <CheckCircleOutline sx={{ color: 'success.contrastText' }} />
+                      <Typography color="success.contrastText" variant="body2">Success Rate</Typography>
+                    </Box>
+                    <Typography variant="h4" color="success.contrastText">
+                      {analysisStats.success_rate}%
+                    </Typography>
+                  </CardContent>
+                </Card>
+                <Card sx={{ minWidth: 140 }}>
+                  <CardContent>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                      <Cached />
+                      <Typography color="text.secondary" variant="body2">Cache Rate</Typography>
+                    </Box>
+                    <Typography variant="h4">{analysisStats.cache_rate}%</Typography>
+                  </CardContent>
+                </Card>
+                <Card sx={{ minWidth: 140 }}>
+                  <CardContent>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                      <Timer />
+                      <Typography color="text.secondary" variant="body2">Avg Duration</Typography>
+                    </Box>
+                    <Typography variant="h4">
+                      {analysisStats.avg_duration_ms
+                        ? `${(analysisStats.avg_duration_ms / 1000).toFixed(1)}s`
+                        : 'N/A'}
+                    </Typography>
+                  </CardContent>
+                </Card>
+                <Card sx={{ minWidth: 140, bgcolor: 'primary.light' }}>
+                  <CardContent>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                      <AttachMoney sx={{ color: 'primary.contrastText' }} />
+                      <Typography color="primary.contrastText" variant="body2">Total Cost</Typography>
+                    </Box>
+                    <Typography variant="h4" color="primary.contrastText">
+                      ${analysisStats.total_cost.toFixed(2)}
+                    </Typography>
+                  </CardContent>
+                </Card>
+                {analysisStats.failed > 0 && (
+                  <Card sx={{ minWidth: 140, bgcolor: 'error.light' }}>
+                    <CardContent>
+                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                        <ErrorIcon sx={{ color: 'error.contrastText' }} />
+                        <Typography color="error.contrastText" variant="body2">Failed</Typography>
+                      </Box>
+                      <Typography variant="h4" color="error.contrastText">
+                        {analysisStats.failed}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                )}
+              </Box>
+            )}
+
+            {analysesError && (
+              <Alert severity="error" sx={{ mb: 2 }} onClose={() => setAnalysesError('')}>
+                {analysesError}
+              </Alert>
+            )}
+
+            {/* Analyses Table */}
+            <Paper elevation={2}>
+              <Box sx={{ p: 2, borderBottom: 1, borderColor: 'divider', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <Typography variant="h6">Recent Analyses</Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {analyses.length} analyses
+                </Typography>
+              </Box>
+
+              {analysesLoading ? (
+                <LinearProgress />
+              ) : analyses.length === 0 ? (
+                <Box sx={{ p: 4, textAlign: 'center' }}>
+                  <Analytics sx={{ fontSize: 48, color: 'text.secondary', mb: 2 }} />
+                  <Typography color="text.secondary">
+                    No analyses found in the selected time range
+                  </Typography>
+                </Box>
+              ) : (
+                <TableContainer sx={{ maxHeight: 'calc(100vh - 500px)' }}>
+                  <Table stickyHeader size="small">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Address</TableCell>
+                        <TableCell>User</TableCell>
+                        <TableCell align="center">Status</TableCell>
+                        <TableCell align="center">Cached</TableCell>
+                        <TableCell align="right">Duration</TableCell>
+                        <TableCell align="right">Cost</TableCell>
+                        <TableCell>Date</TableCell>
+                        <TableCell align="right">Actions</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {analyses.map((analysis) => (
+                        <TableRow
+                          key={analysis.id}
+                          hover
+                          sx={{ cursor: 'pointer' }}
+                          onClick={() => fetchAnalysisDetail(analysis.id)}
+                        >
+                          <TableCell>
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                maxWidth: 250,
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                                whiteSpace: 'nowrap',
+                              }}
+                              title={analysis.address || 'Unknown'}
+                            >
+                              {analysis.address || 'Unknown'}
+                            </Typography>
+                          </TableCell>
+                          <TableCell>
+                            {analysis.user_email ? (
+                              <Typography variant="body2">{analysis.user_email}</Typography>
+                            ) : (
+                              <Typography variant="body2" color="text.secondary">Anonymous</Typography>
+                            )}
+                          </TableCell>
+                          <TableCell align="center">
+                            <Chip
+                              label={analysis.status}
+                              size="small"
+                              color={
+                                analysis.status === 'completed' ? 'success' :
+                                analysis.status === 'failed' ? 'error' :
+                                analysis.status === 'in_progress' ? 'warning' : 'default'
+                              }
+                            />
+                          </TableCell>
+                          <TableCell align="center">
+                            {analysis.is_cached ? (
+                              <Cached sx={{ color: 'info.main', fontSize: 20 }} />
+                            ) : (
+                              <Typography variant="body2" color="text.secondary">-</Typography>
+                            )}
+                          </TableCell>
+                          <TableCell align="right">
+                            {analysis.total_duration_ms
+                              ? `${(analysis.total_duration_ms / 1000).toFixed(1)}s`
+                              : '-'}
+                          </TableCell>
+                          <TableCell align="right">
+                            {analysis.total_cost_user
+                              ? `$${analysis.total_cost_user.toFixed(4)}`
+                              : '-'}
+                          </TableCell>
+                          <TableCell>
+                            <Typography variant="body2" color="text.secondary">
+                              {formatDate(analysis.created_at)}
+                            </Typography>
+                          </TableCell>
+                          <TableCell align="right">
+                            <IconButton
+                              size="small"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                fetchAnalysisDetail(analysis.id);
+                              }}
+                            >
+                              <Visibility fontSize="small" />
+                            </IconButton>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              )}
+            </Paper>
+          </Box>
+        )}
       </Box>
 
       {/* Report Detail Dialog */}
@@ -2067,6 +2381,184 @@ export default function AdminPortal() {
             {bulkDeleting ? 'Deleting...' : `Delete ${selectedPointIds.size} Points`}
           </Button>
         </DialogActions>
+      </Dialog>
+
+      {/* Analysis Detail Dialog */}
+      <Dialog
+        open={!!selectedAnalysis}
+        onClose={() => setSelectedAnalysis(null)}
+        maxWidth="md"
+        fullWidth
+      >
+        {selectedAnalysis && (
+          <>
+            <DialogTitle sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <Box>
+                <Typography variant="h6">Analysis Details</Typography>
+                <Typography variant="caption" color="text.secondary">
+                  {selectedAnalysis.request_id}
+                </Typography>
+              </Box>
+              <IconButton onClick={() => setSelectedAnalysis(null)}>
+                <Close />
+              </IconButton>
+            </DialogTitle>
+            <DialogContent dividers>
+              {analysisDetailLoading ? (
+                <LinearProgress />
+              ) : (
+                <Box>
+                  {/* Overview */}
+                  <Paper variant="outlined" sx={{ p: 2, mb: 3 }}>
+                    <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 600 }}>
+                      Overview
+                    </Typography>
+                    <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 2 }}>
+                      <Box>
+                        <Typography variant="body2" color="text.secondary">Address</Typography>
+                        <Typography variant="body1">{selectedAnalysis.address || 'Unknown'}</Typography>
+                      </Box>
+                      <Box>
+                        <Typography variant="body2" color="text.secondary">User</Typography>
+                        <Typography variant="body1">
+                          {selectedAnalysis.user_email || `Anonymous (${selectedAnalysis.client_ip})`}
+                        </Typography>
+                      </Box>
+                      <Box>
+                        <Typography variant="body2" color="text.secondary">Status</Typography>
+                        <Chip
+                          label={selectedAnalysis.status}
+                          size="small"
+                          color={
+                            selectedAnalysis.status === 'completed' ? 'success' :
+                            selectedAnalysis.status === 'failed' ? 'error' : 'default'
+                          }
+                        />
+                      </Box>
+                      <Box>
+                        <Typography variant="body2" color="text.secondary">Cached</Typography>
+                        <Typography variant="body1">
+                          {selectedAnalysis.is_cached ? 'Yes' : 'No'}
+                        </Typography>
+                      </Box>
+                      <Box>
+                        <Typography variant="body2" color="text.secondary">Duration</Typography>
+                        <Typography variant="body1">
+                          {selectedAnalysis.total_duration_ms
+                            ? `${(selectedAnalysis.total_duration_ms / 1000).toFixed(2)}s`
+                            : 'N/A'}
+                        </Typography>
+                      </Box>
+                      <Box>
+                        <Typography variant="body2" color="text.secondary">Cost (User)</Typography>
+                        <Typography variant="body1">
+                          {selectedAnalysis.total_cost_user
+                            ? `$${selectedAnalysis.total_cost_user.toFixed(4)}`
+                            : 'N/A'}
+                        </Typography>
+                      </Box>
+                      <Box>
+                        <Typography variant="body2" color="text.secondary">Started</Typography>
+                        <Typography variant="body1">
+                          {selectedAnalysis.started_at ? formatDate(selectedAnalysis.started_at) : 'N/A'}
+                        </Typography>
+                      </Box>
+                      <Box>
+                        <Typography variant="body2" color="text.secondary">Completed</Typography>
+                        <Typography variant="body1">
+                          {selectedAnalysis.completed_at ? formatDate(selectedAnalysis.completed_at) : 'N/A'}
+                        </Typography>
+                      </Box>
+                    </Box>
+
+                    {selectedAnalysis.error_message && (
+                      <Alert severity="error" sx={{ mt: 2 }}>
+                        <Typography variant="body2">
+                          <strong>Error at step {selectedAnalysis.error_step}:</strong> {selectedAnalysis.error_message}
+                        </Typography>
+                      </Alert>
+                    )}
+                  </Paper>
+
+                  {/* Step Breakdown */}
+                  <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 600 }}>
+                    Step Breakdown
+                  </Typography>
+                  {selectedAnalysis.steps && selectedAnalysis.steps.length > 0 ? (
+                    <TableContainer component={Paper} variant="outlined">
+                      <Table size="small">
+                        <TableHead>
+                          <TableRow>
+                            <TableCell>#</TableCell>
+                            <TableCell>Step Name</TableCell>
+                            <TableCell>Type</TableCell>
+                            <TableCell align="center">Status</TableCell>
+                            <TableCell align="right">Duration</TableCell>
+                            <TableCell align="right">Cost</TableCell>
+                            <TableCell align="right">Tokens</TableCell>
+                          </TableRow>
+                        </TableHead>
+                        <TableBody>
+                          {selectedAnalysis.steps.map((step: any) => (
+                            <TableRow
+                              key={step.id}
+                              sx={{
+                                bgcolor: step.status === 'failed' ? 'error.lighter' : 'inherit',
+                              }}
+                            >
+                              <TableCell>{step.step_number}</TableCell>
+                              <TableCell>{step.step_name}</TableCell>
+                              <TableCell>
+                                <Chip
+                                  label={step.step_type}
+                                  size="small"
+                                  variant="outlined"
+                                  color={
+                                    step.step_type === 'analysis' ? 'primary' :
+                                    step.step_type === 'extraction' ? 'secondary' : 'default'
+                                  }
+                                />
+                              </TableCell>
+                              <TableCell align="center">
+                                <Chip
+                                  label={step.status}
+                                  size="small"
+                                  color={
+                                    step.status === 'completed' ? 'success' :
+                                    step.status === 'failed' ? 'error' :
+                                    step.status === 'skipped' ? 'default' : 'warning'
+                                  }
+                                />
+                              </TableCell>
+                              <TableCell align="right">
+                                {step.duration_ms ? `${step.duration_ms}ms` : '-'}
+                              </TableCell>
+                              <TableCell align="right">
+                                {step.cost ? `$${step.cost.toFixed(4)}` : '-'}
+                              </TableCell>
+                              <TableCell align="right">
+                                {step.input_tokens || step.output_tokens
+                                  ? `${step.input_tokens || 0}/${step.output_tokens || 0}`
+                                  : '-'}
+                              </TableCell>
+                            </TableRow>
+                          ))}
+                        </TableBody>
+                      </Table>
+                    </TableContainer>
+                  ) : (
+                    <Typography variant="body2" color="text.secondary">
+                      No step data available
+                    </Typography>
+                  )}
+                </Box>
+              )}
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={() => setSelectedAnalysis(null)}>Close</Button>
+            </DialogActions>
+          </>
+        )}
       </Dialog>
     </Box>
   );

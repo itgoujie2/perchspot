@@ -71,8 +71,12 @@ async def stream_property_analysis(
                 },
             )
 
-    # Create orchestrator
-    orchestrator = StreamingAnalysisOrchestrator()
+    # Create orchestrator with logging context
+    orchestrator = StreamingAnalysisOrchestrator(
+        db=db,
+        user_id=user.id if user else None,
+        client_ip=client_ip,
+    )
 
     async def event_generator():
         """

@@ -20,12 +20,16 @@ import re
 from typing import Dict, Any, AsyncGenerator, Optional
 from datetime import datetime
 
+from sqlalchemy.orm import Session
+
 from app.services.data_collectors.screenshot_extractor_collector import ScreenshotExtractorCollector
 from app.services.agent.tools.notes_manager import get_notes_manager
 from app.services.agent.skills.property_skill import PropertySkill
 from app.services.agent.skills.location_skill import LocationSkill
 from app.services.agent.skills.school_skill import SchoolSkill
 from app.services.agent.skills.investment_skill import InvestmentSkill
+from app.services.analysis_logging_service import AnalysisLoggingService
+from app.models.analysis_log import ANALYSIS_STEPS
 from app.config import settings
 
 logger = logging.getLogger(__name__)
@@ -48,8 +52,20 @@ class StreamingAnalysisOrchestrator:
     3. If not cached: run screenshot extraction pipeline
     """
 
-    def __init__(self):
-        """Initialize the orchestrator with screenshot extractor collector."""
+    def __init__(
+        self,
+        db: Optional[Session] = None,
+        user_id: Optional[str] = None,
+        client_ip: Optional[str] = None,
+    ):
+        """
+        Initialize the orchestrator with screenshot extractor collector.
+
+        Args:
+            db: Database session for logging (optional)
+            user_id: User ID if authenticated (optional)
+            client_ip: Client IP address (optional)
+        """
         self.redfin_collector = ScreenshotExtractorCollector()
         logger.info("Using Screenshot Extractor (Chromium + Claude Vision)")
 
@@ -59,6 +75,17 @@ class StreamingAnalysisOrchestrator:
         self.location_skill = LocationSkill()
         self.school_skill = SchoolSkill()
         self.investment_skill = InvestmentSkill()
+
+        # Logging context
+        self.db = db
+        self.user_id = user_id
+        self.client_ip = client_ip
+        self.logging_service: Optional[AnalysisLoggingService] = None
+        self.current_job = None
+        self.current_step_log = None
+
+        if db:
+            self.logging_service = AnalysisLoggingService(db)
 
     def _parse_cached_data(self, address: str) -> Optional[Dict[str, Any]]:
         """
@@ -161,12 +188,66 @@ class StreamingAnalysisOrchestrator:
         logger.info(f"Found all 4 cached analysis results for: {address}")
         return cached_analysis
 
+    def _start_step_logging(self, step_number: int) -> Optional[str]:
+        """Start logging a step and return the step log ID."""
+        if not self.logging_service or not self.current_job:
+            return None
+
+        step_def = None
+        for s in ANALYSIS_STEPS:
+            if s["number"] == step_number:
+                step_def = s
+                break
+
+        if not step_def:
+            return None
+
+        step_log = self.logging_service.start_step(
+            job_id=str(self.current_job.id),
+            step_number=step_number,
+            step_name=step_def["name"],
+            step_type=step_def["type"],
+        )
+        return step_log.id
+
+    def _complete_step_logging(
+        self,
+        step_log_id: Optional[str],
+        cost: float = 0,
+        input_tokens: int = 0,
+        output_tokens: int = 0,
+        model: Optional[str] = None,
+        metadata: Optional[Dict[str, Any]] = None,
+    ) -> None:
+        """Complete a step log."""
+        if not self.logging_service or not step_log_id:
+            return
+
+        self.logging_service.complete_step(
+            step_log_id=step_log_id,
+            cost=cost,
+            input_tokens=input_tokens,
+            output_tokens=output_tokens,
+            model=model,
+            metadata=metadata,
+        )
+
+    def _fail_step_logging(self, step_log_id: Optional[str], error: str) -> None:
+        """Fail a step log."""
+        if not self.logging_service or not step_log_id:
+            return
+        self.logging_service.fail_step(step_log_id, error)
+
     async def _yield_cached_data(self, address: str, cached_data: Dict[str, Any]) -> AsyncGenerator[Dict[str, Any], None]:
         """
         Yield cached data as streaming events, matching the same format
         as a live extraction so the frontend renders identically.
         """
         start_time = datetime.utcnow()
+
+        # Log cache check step
+        cache_step_id = self._start_step_logging(1)
+        self._complete_step_logging(cache_step_id, metadata={"cache_hit": True})
 
         yield {"type": "init", "status": "started", "address": address, "mode": "cached"}
         yield {"type": "status", "message": "Loading property data..."}
@@ -201,6 +282,10 @@ class StreamingAnalysisOrchestrator:
         ]
 
         for step_num, step_name, step_data in steps:
+            # Log extraction steps (cached replay - no actual cost)
+            step_log_id = self._start_step_logging(step_num)
+            self._complete_step_logging(step_log_id, metadata={"cached": True})
+
             yield {
                 "type": "data",
                 "step": step_num,
@@ -228,10 +313,20 @@ class StreamingAnalysisOrchestrator:
 
             analysis_results = {}
             for step_num, step_name, skill_key, status_msg in analysis_skill_map:
+                step_log_id = self._start_step_logging(step_num)
                 yield {"type": "status", "message": status_msg}
                 await asyncio.sleep(3.5)
                 result = cached_analysis[skill_key]
                 analysis_results[skill_key] = result
+
+                # Log cached analysis step with original cost
+                original_cost = result.get('cost_summary', {}).get('total_cost', 0)
+                self._complete_step_logging(
+                    step_log_id,
+                    cost=0,  # No new cost for cached
+                    metadata={"cached": True, "original_cost": original_cost}
+                )
+
                 yield {
                     "type": "analysis",
                     "step": step_num,
@@ -260,6 +355,10 @@ class StreamingAnalysisOrchestrator:
 
         elapsed = (datetime.utcnow() - start_time).total_seconds()
 
+        # Complete job logging
+        if self.logging_service and self.current_job:
+            self.logging_service.complete_job(str(self.current_job.id), is_cached=True)
+
         # Cached replay: cost is 0 here. Per-user billing is handled by the endpoint.
         yield {
             "type": "summary",
@@ -284,6 +383,15 @@ class StreamingAnalysisOrchestrator:
         logger.info(f"Starting streaming analysis for: {address}")
         start_time = datetime.utcnow()
 
+        # Create analysis job for logging
+        if self.logging_service:
+            self.current_job = self.logging_service.create_analysis_job(
+                address=address,
+                user_id=self.user_id,
+                client_ip=self.client_ip,
+            )
+            logger.info(f"Created analysis job: {self.current_job.id}")
+
         try:
             # Check for cached data in existing notes
             cached_data = self._parse_cached_data(address)
@@ -294,6 +402,10 @@ class StreamingAnalysisOrchestrator:
                 return
 
             logger.info(f"No cache for: {address} — running extraction")
+
+            # Log cache miss
+            cache_step_id = self._start_step_logging(1)
+            self._complete_step_logging(cache_step_id, metadata={"cache_hit": False})
 
             # Create notes file
             self.notes_manager.create_notes(address, {"address": address})
@@ -318,8 +430,18 @@ class StreamingAnalysisOrchestrator:
                     step_number = scrape_event["step"]
                     step_name = scrape_event["step_name"]
                     step_data = scrape_event.get("data", {})
+                    step_cost = scrape_event.get("step_cost", 0)
 
                     logger.info(f"Step {step_number} ({step_name}) extracted")
+
+                    # Log the extraction step
+                    step_log_id = self._start_step_logging(step_number)
+                    self._complete_step_logging(
+                        step_log_id,
+                        cost=step_cost,
+                        model=scrape_event.get("model"),
+                        metadata={"data_keys": list(step_data.keys()) if step_data else []}
+                    )
 
                     yield {
                         "type": "data",
@@ -371,6 +493,11 @@ class StreamingAnalysisOrchestrator:
                         yield analysis_event
 
                     total_raw = scrape_event["total_cost"] + analysis_cost
+
+                    # Complete job logging
+                    if self.logging_service and self.current_job:
+                        self.logging_service.complete_job(str(self.current_job.id), is_cached=False)
+
                     yield {
                         "type": "summary",
                         "content": json.dumps(all_data, indent=2, default=str),
@@ -386,10 +513,24 @@ class StreamingAnalysisOrchestrator:
                 # Handle errors
                 elif scrape_event["type"] == "error":
                     logger.error(f"Scraping error: {scrape_event['error']}")
+                    # Fail job logging
+                    if self.logging_service and self.current_job:
+                        self.logging_service.fail_job(
+                            str(self.current_job.id),
+                            error_message=scrape_event.get('error', 'Unknown error'),
+                            error_step='extraction'
+                        )
                     yield scrape_event
 
         except Exception as e:
             logger.error(f"Error in streaming analysis: {e}", exc_info=True)
+            # Fail job logging
+            if self.logging_service and self.current_job:
+                self.logging_service.fail_job(
+                    str(self.current_job.id),
+                    error_message=str(e),
+                    error_step='unknown'
+                )
             yield {
                 "type": "error",
                 "error": str(e)
@@ -481,13 +622,26 @@ class StreamingAnalysisOrchestrator:
         results = {}
         total_cost = 0.0
 
-        # Property analysis
+        # Property analysis (Step 7)
+        step_log_id = self._start_step_logging(7)
         yield {"type": "status", "message": "Running property analysis..."}
         try:
             property_result = await self.property_skill.analyze(address, property_data=all_data)
             results["property"] = property_result
+            step_cost = 0
             if property_result.get('cost_summary'):
-                total_cost += property_result['cost_summary'].get('total_cost', 0)
+                step_cost = property_result['cost_summary'].get('total_cost', 0)
+                total_cost += step_cost
+
+            self._complete_step_logging(
+                step_log_id,
+                cost=step_cost,
+                input_tokens=property_result.get('cost_summary', {}).get('input_tokens', 0),
+                output_tokens=property_result.get('cost_summary', {}).get('output_tokens', 0),
+                model=property_result.get('cost_summary', {}).get('model'),
+                metadata={"score": property_result.get('score')}
+            )
+
             yield {
                 "type": "analysis",
                 "step": 7,
@@ -514,15 +668,29 @@ class StreamingAnalysisOrchestrator:
 
         except Exception as e:
             logger.error(f"Property analysis failed: {e}", exc_info=True)
+            self._fail_step_logging(step_log_id, str(e))
             yield {"type": "status", "message": f"Property analysis failed: {e}"}
 
-        # Location analysis
+        # Location analysis (Step 8)
+        step_log_id = self._start_step_logging(8)
         yield {"type": "status", "message": "Running location analysis..."}
         try:
             location_result = await self.location_skill.analyze(address, property_data=all_data)
             results["location"] = location_result
+            step_cost = 0
             if location_result.get('cost_summary'):
-                total_cost += location_result['cost_summary'].get('total_cost', 0)
+                step_cost = location_result['cost_summary'].get('total_cost', 0)
+                total_cost += step_cost
+
+            self._complete_step_logging(
+                step_log_id,
+                cost=step_cost,
+                input_tokens=location_result.get('cost_summary', {}).get('input_tokens', 0),
+                output_tokens=location_result.get('cost_summary', {}).get('output_tokens', 0),
+                model=location_result.get('cost_summary', {}).get('model'),
+                metadata={"score": location_result.get('score')}
+            )
+
             yield {
                 "type": "analysis",
                 "step": 8,
@@ -547,15 +715,29 @@ class StreamingAnalysisOrchestrator:
                 self._write_knowledge_debug_to_notes(address, "Location", location_result)
         except Exception as e:
             logger.error(f"Location analysis failed: {e}", exc_info=True)
+            self._fail_step_logging(step_log_id, str(e))
             yield {"type": "status", "message": f"Location analysis failed: {e}"}
 
-        # School analysis
+        # School analysis (Step 9)
+        step_log_id = self._start_step_logging(9)
         yield {"type": "status", "message": "Running school analysis..."}
         try:
             school_result = await self.school_skill.analyze(address, property_data=all_data)
             results["schools"] = school_result
+            step_cost = 0
             if school_result.get('cost_summary'):
-                total_cost += school_result['cost_summary'].get('total_cost', 0)
+                step_cost = school_result['cost_summary'].get('total_cost', 0)
+                total_cost += step_cost
+
+            self._complete_step_logging(
+                step_log_id,
+                cost=step_cost,
+                input_tokens=school_result.get('cost_summary', {}).get('input_tokens', 0),
+                output_tokens=school_result.get('cost_summary', {}).get('output_tokens', 0),
+                model=school_result.get('cost_summary', {}).get('model'),
+                metadata={"score": school_result.get('score')}
+            )
+
             yield {
                 "type": "analysis",
                 "step": 9,
@@ -600,15 +782,29 @@ class StreamingAnalysisOrchestrator:
                 )
         except Exception as e:
             logger.error(f"School analysis failed: {e}", exc_info=True)
+            self._fail_step_logging(step_log_id, str(e))
             yield {"type": "status", "message": f"School analysis failed: {e}"}
 
-        # Investment analysis
+        # Investment analysis (Step 10)
+        step_log_id = self._start_step_logging(10)
         yield {"type": "status", "message": "Running investment analysis..."}
         try:
             investment_result = await self.investment_skill.analyze(address, property_data=all_data)
             results["investment"] = investment_result
+            step_cost = 0
             if investment_result.get('cost_summary'):
-                total_cost += investment_result['cost_summary'].get('total_cost', 0)
+                step_cost = investment_result['cost_summary'].get('total_cost', 0)
+                total_cost += step_cost
+
+            self._complete_step_logging(
+                step_log_id,
+                cost=step_cost,
+                input_tokens=investment_result.get('cost_summary', {}).get('input_tokens', 0),
+                output_tokens=investment_result.get('cost_summary', {}).get('output_tokens', 0),
+                model=investment_result.get('cost_summary', {}).get('model'),
+                metadata={"score": investment_result.get('score')}
+            )
+
             yield {
                 "type": "analysis",
                 "step": 10,
@@ -632,6 +828,7 @@ class StreamingAnalysisOrchestrator:
                 self._write_knowledge_debug_to_notes(address, "Investment", investment_result)
         except Exception as e:
             logger.error(f"Investment analysis failed: {e}", exc_info=True)
+            self._fail_step_logging(step_log_id, str(e))
             yield {"type": "status", "message": f"Investment analysis failed: {e}"}
 
         yield {

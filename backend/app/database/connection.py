@@ -45,4 +45,5 @@ def init_db():
     from app.models import database  # Import all models
     from app.models import user  # Import user models
     from app.models import favorite  # Import favorite model
+    from app.models import analysis_log  # Import analysis logging models
     Base.metadata.create_all(bind=engine)
