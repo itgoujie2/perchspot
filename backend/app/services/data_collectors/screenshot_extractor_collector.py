@@ -410,6 +410,12 @@ class ScreenshotExtractorCollector:
                     await browser.close()
                     return screenshots
 
+                # Check for disambiguation popup immediately after search
+                # This handles the "Did you mean" dialog before URL changes
+                if await self._handle_disambiguation_popup(page):
+                    logger.info("Handled disambiguation popup after search")
+                    await asyncio.sleep(1)
+
                 # Check if we're on a property page or search results
                 current_url = page.url
                 logger.info(f"Current URL: {current_url}")
@@ -564,8 +570,67 @@ class ScreenshotExtractorCollector:
 
         return False
 
+    async def _handle_disambiguation_popup(self, page: Page) -> bool:
+        """
+        Handle Redfin's "Did you mean" disambiguation popup.
+
+        When an address has multiple matches (e.g., similar street names),
+        Redfin shows a popup asking the user to clarify. This method
+        detects and clicks the first address suggestion.
+
+        Returns:
+            True if disambiguation popup was handled, False if not found
+        """
+        try:
+            # Check for "Did you mean" popup - various possible selectors
+            disambiguation_selectors = [
+                # Dialog/modal with address suggestions
+                '[role="dialog"] a[href*="/home/"]',
+                '[role="dialog"] a[href*="/WA/"]',
+                '.disambiguate a',
+                '.SearchResultsDisambiguate a',
+                # Autocomplete dropdown with address matches
+                '.SearchInputAutocomplete a[href*="/home/"]',
+                '.SearchInputAutocomplete a[href*="/WA/"]',
+                '[data-rf-test-name="search-box-autocomplete"] a',
+                # Generic modal address links
+                '.modal a[href*="/home/"]',
+                '[class*="modal"] a[href*="/home/"]',
+                '[class*="dialog"] a[href*="/home/"]',
+            ]
+
+            for selector in disambiguation_selectors:
+                try:
+                    result = await page.wait_for_selector(selector, timeout=2000)
+                    if result and await result.is_visible():
+                        href = await result.get_attribute('href')
+                        if href:
+                            if not href.startswith('http'):
+                                href = f"https://www.redfin.com{href}"
+                            logger.info(f"Disambiguation popup found, selecting: {href}")
+                            await page.goto(href, wait_until="domcontentloaded", timeout=30000)
+                            return True
+                        else:
+                            # Click if no href
+                            await result.click(timeout=5000)
+                            await asyncio.sleep(2)
+                            return True
+                except Exception:
+                    continue
+
+            return False
+
+        except Exception as e:
+            logger.debug(f"Disambiguation popup check failed: {e}")
+            return False
+
     async def _click_first_result(self, page: Page, max_retries: int = 3):
         """Click the first search result with retry logic."""
+        # First check for disambiguation popup ("Did you mean" dialog)
+        if await self._handle_disambiguation_popup(page):
+            logger.info("Handled disambiguation popup successfully")
+            return
+
         result_selectors = [
             '.HomeCardContainer a',
             '.HomeCard a',
@@ -577,6 +642,10 @@ class ScreenshotExtractorCollector:
         for attempt in range(max_retries):
             try:
                 await asyncio.sleep(1)
+
+                # Check disambiguation popup again on each retry
+                if await self._handle_disambiguation_popup(page):
+                    return
 
                 for selector in result_selectors:
                     try:
