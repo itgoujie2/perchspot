@@ -25,6 +25,37 @@
   color: #64748b;
 }
 
+.share-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Filled icons */
+.share-btn.twitter svg,
+.share-btn.facebook svg,
+.share-btn.linkedin svg {
+  fill: #64748b;
+}
+
+.share-btn.twitter:hover svg,
+.share-btn.facebook:hover svg,
+.share-btn.linkedin:hover svg {
+  fill: white;
+}
+
+/* Stroke icons */
+.share-btn.email svg,
+.share-btn.copy svg {
+  stroke: #64748b;
+  fill: none;
+}
+
+.share-btn.email:hover svg,
+.share-btn.copy:hover svg,
+.share-btn.copy.copied svg {
+  stroke: white;
+}
+
 .share-btn:hover {
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
