@@ -46,7 +46,7 @@ class AnalysisStepLog(Base):
     output_tokens = Column(Integer, default=0)
     model = Column(String(100))
     error_message = Column(Text)
-    metadata = Column(JSONB)
+    step_metadata = Column(JSONB)
 
     # Relationship
     analysis_job = relationship("AnalysisJob", back_populates="step_logs")

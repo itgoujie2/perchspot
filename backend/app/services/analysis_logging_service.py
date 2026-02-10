@@ -163,7 +163,7 @@ class AnalysisLoggingService:
         step_log.input_tokens = input_tokens
         step_log.output_tokens = output_tokens
         step_log.model = model
-        step_log.metadata = metadata
+        step_log.step_metadata = metadata
 
         if step_log.started_at:
             step_log.duration_ms = int((now - step_log.started_at).total_seconds() * 1000)
@@ -187,7 +187,7 @@ class AnalysisLoggingService:
                 (step_log.completed_at - step_log.started_at).total_seconds() * 1000
             )
         if reason:
-            step_log.metadata = {"skip_reason": reason}
+            step_log.step_metadata = {"skip_reason": reason}
 
         self.db.commit()
 
