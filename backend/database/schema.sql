@@ -180,7 +180,7 @@ CREATE TABLE IF NOT EXISTS api_cache (
 
 CREATE INDEX idx_cache_expiry ON api_cache(expires_at);
 
--- Analysis jobs - track async analysis jobs
+-- Analysis jobs - track async analysis jobs with comprehensive logging
 CREATE TABLE IF NOT EXISTS analysis_jobs (
     id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
     property_id CHAR(36),
@@ -192,13 +192,54 @@ CREATE TABLE IF NOT EXISTS analysis_jobs (
     started_at TIMESTAMP NULL,
     completed_at TIMESTAMP NULL,
 
+    -- New logging fields
+    request_id CHAR(36) UNIQUE,
+    user_id CHAR(36),
+    address VARCHAR(500),
+    address_normalized VARCHAR(500),
+    is_cached BOOLEAN DEFAULT FALSE,
+    total_duration_ms INTEGER,
+    total_cost DECIMAL(10,6) DEFAULT 0,
+    total_cost_user DECIMAL(10,6) DEFAULT 0,
+    error_step VARCHAR(50),
+    client_ip VARCHAR(45),
+
     FOREIGN KEY (property_id) REFERENCES properties(id) ON DELETE CASCADE,
-    CHECK (status IN ('pending', 'processing', 'completed', 'failed'))
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL,
+    CHECK (status IN ('pending', 'in_progress', 'processing', 'completed', 'failed'))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE INDEX idx_jobs_status ON analysis_jobs(status);
 CREATE INDEX idx_jobs_created ON analysis_jobs(created_at DESC);
 CREATE INDEX idx_jobs_property ON analysis_jobs(property_id);
+CREATE INDEX idx_jobs_user ON analysis_jobs(user_id);
+CREATE INDEX idx_jobs_address ON analysis_jobs(address_normalized(255));
+CREATE INDEX idx_jobs_request ON analysis_jobs(request_id);
+
+-- Analysis step logs - track individual steps in property analysis
+CREATE TABLE IF NOT EXISTS analysis_step_logs (
+    id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
+    analysis_job_id CHAR(36) NOT NULL,
+    step_number INTEGER NOT NULL,
+    step_name VARCHAR(100) NOT NULL,
+    step_type VARCHAR(20) NOT NULL,
+    status VARCHAR(20) NOT NULL DEFAULT 'pending',
+    started_at TIMESTAMP NULL,
+    completed_at TIMESTAMP NULL,
+    duration_ms INTEGER,
+    cost DECIMAL(10,6) DEFAULT 0,
+    input_tokens INTEGER DEFAULT 0,
+    output_tokens INTEGER DEFAULT 0,
+    model VARCHAR(100),
+    error_message TEXT,
+    step_metadata JSON,
+
+    FOREIGN KEY (analysis_job_id) REFERENCES analysis_jobs(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE INDEX idx_step_logs_job ON analysis_step_logs(analysis_job_id);
+CREATE INDEX idx_step_logs_status ON analysis_step_logs(status);
+CREATE INDEX idx_step_logs_step ON analysis_step_logs(step_number);
 
 -- Comparable properties - for investment analysis
 CREATE TABLE IF NOT EXISTS comparable_properties (

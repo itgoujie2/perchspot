@@ -1,8 +1,7 @@
 """
 Analysis Step Log model for tracking individual steps in property analysis.
 """
-from sqlalchemy import Column, String, Integer, Numeric, Text, DateTime, ForeignKey, Index, JSON
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy import Column, String, Integer, Numeric, Text, DateTime, ForeignKey, Index, JSON, CHAR
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 import uuid
@@ -30,7 +29,7 @@ class AnalysisStepLog(Base):
 
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     analysis_job_id = Column(
-        UUID(as_uuid=True),
+        CHAR(36),
         ForeignKey('analysis_jobs.id', ondelete='CASCADE'),
         nullable=False
     )
