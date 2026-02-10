@@ -249,15 +249,32 @@ Return ONLY valid JSON, no other text.
 
         # 1. Extract builder/developer names from description
         #    Common patterns: "Built by X", "X Homes", "by X Construction", "X Development"
+        #    Also handles names without suffixes like "Murray Franklyn"
         builder_patterns = [
+            # Pattern 1: Name with company suffix (most specific)
             r'(?:built by|by|from|builder[:\s]+)\s+([A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+){0,3}\s+(?:Homes?|Construction|Development|Builders?|Properties|Group|LLC|Inc))',
+            # Pattern 2: Company name with suffix anywhere in text
             r'([A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+){0,2}\s+(?:Homes?|Construction|Development|Builders?))',
+            # Pattern 3: Two+ capitalized words after "built by" or "by" (handles names like "Murray Franklyn")
+            r'(?:built by|constructed by|developed by)\s+([A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+)+)',
+            # Pattern 4: "by [Name]" at end of sentence or before comma (common in descriptions)
+            r'by\s+([A-Z][A-Za-z]+\s+[A-Z][A-Za-z]+)(?:[,.]|\s+(?:in|on|with|featuring))',
         ]
+        builders_found = []
         for pat in builder_patterns:
             for match in re.findall(pat, description):
-                queries.append(match.strip())
-            if queries:
-                break  # stop at first pattern that finds something
+                builder_name = match.strip()
+                # Filter out common false positives (generic phrases)
+                false_positives = {'The Home', 'This Home', 'Your Home', 'New Home',
+                                   'Custom Home', 'Main Floor', 'Top Floor', 'Master Suite',
+                                   'Great Room', 'Family Room', 'Living Room', 'Dining Room'}
+                if builder_name not in false_positives:
+                    builders_found.append(builder_name)
+
+        # Add unique builders to queries
+        for builder in builders_found:
+            if builder.lower() not in [q.lower() for q in queries]:
+                queries.append(builder)
 
         # 2. Architectural styles from description
         style_keywords = [
