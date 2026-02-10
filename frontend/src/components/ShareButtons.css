@@ -26,8 +26,11 @@
 }
 
 .share-btn svg {
-  width: 18px;
-  height: 18px;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px;
+  min-height: 18px;
+  flex-shrink: 0;
 }
 
 /* Filled icons */
