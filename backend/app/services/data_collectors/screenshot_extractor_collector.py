@@ -575,8 +575,10 @@ class ScreenshotExtractorCollector:
         Handle Redfin's "Did you mean" disambiguation popup.
 
         When an address has multiple matches (e.g., similar street names),
-        Redfin shows a popup asking the user to clarify. This method
-        detects and clicks the first address suggestion.
+        Redfin shows a popup asking the user to clarify. This method:
+        1. Collects all disambiguation options
+        2. Checks each one for active listing status
+        3. Prefers active listings over off-market ones
 
         Returns:
             True if disambiguation popup was handled, False if not found
@@ -599,30 +601,133 @@ class ScreenshotExtractorCollector:
                 '[class*="dialog"] a[href*="/home/"]',
             ]
 
+            # Collect all disambiguation URLs
+            all_urls = []
             for selector in disambiguation_selectors:
                 try:
-                    result = await page.wait_for_selector(selector, timeout=2000)
-                    if result and await result.is_visible():
-                        href = await result.get_attribute('href')
-                        if href:
-                            if not href.startswith('http'):
-                                href = f"https://www.redfin.com{href}"
-                            logger.info(f"Disambiguation popup found, selecting: {href}")
-                            await page.goto(href, wait_until="domcontentloaded", timeout=30000)
-                            return True
-                        else:
-                            # Click if no href
-                            await result.click(timeout=5000)
-                            await asyncio.sleep(2)
-                            return True
+                    results = await page.query_selector_all(selector)
+                    for result in results:
+                        if await result.is_visible():
+                            href = await result.get_attribute('href')
+                            if href:
+                                if not href.startswith('http'):
+                                    href = f"https://www.redfin.com{href}"
+                                if href not in all_urls:
+                                    all_urls.append(href)
                 except Exception:
                     continue
 
-            return False
+            if not all_urls:
+                return False
+
+            logger.info(f"Disambiguation popup found with {len(all_urls)} options: {all_urls}")
+
+            # If only one option, just use it
+            if len(all_urls) == 1:
+                await page.goto(all_urls[0], wait_until="domcontentloaded", timeout=30000)
+                return True
+
+            # Try each URL and prefer active listings
+            first_url = all_urls[0]  # Fallback
+            for url in all_urls:
+                try:
+                    logger.info(f"Checking disambiguation option: {url}")
+                    await page.goto(url, wait_until="domcontentloaded", timeout=30000)
+                    await asyncio.sleep(1)
+
+                    # Check if this is an active listing
+                    is_active = await self._is_active_listing(page)
+                    if is_active:
+                        logger.info(f"Found active listing: {url}")
+                        return True
+                    else:
+                        logger.info(f"Listing is off-market, trying next option...")
+
+                except Exception as e:
+                    logger.warning(f"Error checking {url}: {e}")
+                    continue
+
+            # No active listing found, use first URL as fallback
+            logger.info(f"No active listings found, using first option: {first_url}")
+            await page.goto(first_url, wait_until="domcontentloaded", timeout=30000)
+            return True
 
         except Exception as e:
             logger.debug(f"Disambiguation popup check failed: {e}")
             return False
+
+    async def _is_active_listing(self, page: Page) -> bool:
+        """
+        Check if the current property page is an active listing (For Sale).
+
+        Returns False for off-market, sold, pending, or other inactive statuses.
+        """
+        try:
+            # Look for status indicators on the page
+            page_content = await page.content()
+            page_content_lower = page_content.lower()
+
+            # Check for active listing indicators
+            active_indicators = [
+                'for sale',
+                'active listing',
+                'open house',
+                'price drop',
+                'new listing',
+                'coming soon',
+            ]
+
+            # Check for off-market/inactive indicators
+            inactive_indicators = [
+                'off market',
+                'off-market',
+                'sold on',
+                'sold for',
+                'no longer available',
+                'this home is not for sale',
+                'this property is not currently for sale',
+            ]
+
+            # Check for inactive indicators first (more specific)
+            for indicator in inactive_indicators:
+                if indicator in page_content_lower:
+                    logger.debug(f"Found inactive indicator: {indicator}")
+                    return False
+
+            # Check for active indicators
+            for indicator in active_indicators:
+                if indicator in page_content_lower:
+                    logger.debug(f"Found active indicator: {indicator}")
+                    return True
+
+            # Also check specific Redfin status elements
+            status_selectors = [
+                '[data-rf-test-name="abp-status"]',
+                '.HomeInfoV2 .status',
+                '.PropertyPageStatus',
+                '.HomeStatus',
+            ]
+
+            for selector in status_selectors:
+                try:
+                    element = await page.query_selector(selector)
+                    if element:
+                        text = await element.inner_text()
+                        text_lower = text.lower()
+                        if any(ind in text_lower for ind in ['off market', 'sold', 'not for sale']):
+                            return False
+                        if any(ind in text_lower for ind in ['for sale', 'active', 'coming soon']):
+                            return True
+                except Exception:
+                    continue
+
+            # Default: assume active if we can't determine status
+            # (better to show something than nothing)
+            return True
+
+        except Exception as e:
+            logger.debug(f"Error checking listing status: {e}")
+            return True  # Default to active on error
 
     async def _click_first_result(self, page: Page, max_retries: int = 3):
         """Click the first search result with retry logic."""
