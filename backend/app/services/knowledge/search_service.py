@@ -35,6 +35,8 @@ class SearchService:
         query: str,
         limit: int = 10,
         categories: Optional[List[str]] = None,
+        min_score: float = 0.0,
+        must_contain: Optional[str] = None,
     ) -> List[SearchResult]:
         """
         Run hybrid search (dense KNN + sparse BM25 with RRF fusion).
@@ -43,6 +45,8 @@ class SearchService:
             query: Search query text
             limit: Max results to return
             categories: Optional list of categories to filter by
+            min_score: Minimum score threshold (0.0-1.0), results below this are filtered
+            must_contain: If specified, only return results containing this text (case-insensitive)
 
         Returns:
             List of SearchResult sorted by relevance
@@ -51,6 +55,9 @@ class SearchService:
         dense_vector = self.embedding_service.embed_query_dense(query)
         sparse_vector = self.embedding_service.embed_query_sparse(query)
 
+        # Over-fetch if we'll be filtering
+        fetch_limit = limit * 3 if (min_score > 0 or must_contain) else limit
+
         # Search per category if multiple specified, otherwise single search
         all_results = []
         if categories:
@@ -58,29 +65,45 @@ class SearchService:
                 scored = self.storage_service.hybrid_search(
                     dense_vector=dense_vector,
                     sparse_vector=sparse_vector,
-                    limit=limit,
+                    limit=fetch_limit,
                     category_filter=cat,
                 )
                 all_results.extend(scored)
             # Re-sort by score and limit
             all_results.sort(key=lambda p: p.score, reverse=True)
-            all_results = all_results[:limit]
         else:
             all_results = self.storage_service.hybrid_search(
                 dense_vector=dense_vector,
                 sparse_vector=sparse_vector,
-                limit=limit,
+                limit=fetch_limit,
             )
 
-        return [
-            SearchResult(
-                text=p.payload.get("text", ""),
+        # Build results with filtering
+        results = []
+        must_contain_lower = must_contain.lower() if must_contain else None
+
+        for p in all_results:
+            # Skip if below score threshold
+            if min_score > 0 and p.score < min_score:
+                continue
+
+            text = p.payload.get("text", "")
+
+            # Skip if must_contain is specified and text doesn't contain it
+            if must_contain_lower and must_contain_lower not in text.lower():
+                continue
+
+            results.append(SearchResult(
+                text=text,
                 category=p.payload.get("category", ""),
                 score=p.score,
                 source_file=p.payload.get("source_file", ""),
-            )
-            for p in all_results
-        ]
+            ))
+
+            if len(results) >= limit:
+                break
+
+        return results
 
     def search_for_context(self, query: str, limit: int = 5) -> str:
         """

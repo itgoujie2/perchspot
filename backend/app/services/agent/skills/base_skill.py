@@ -207,6 +207,27 @@ class BaseSkill(ABC):
             logger.warning(f"Knowledge search unavailable: {e}")
             return "", {"query": query, "results": []}
 
+    def _is_proper_noun_query(self, query: str) -> tuple[bool, str]:
+        """
+        Detect if a query contains a proper noun (company name, builder name, etc.).
+        Returns (is_proper_noun, extracted_name).
+        """
+        import re
+        # Common patterns for builder/company names
+        # e.g., "MN Custom Homes", "Toll Brothers", "David Weekley Homes"
+        patterns = [
+            r"([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*(?:\s+(?:Homes|Builders|Construction|Development|Properties|Realty)))",  # "Name Homes"
+            r"([A-Z][A-Z]+(?:\s+[A-Z][a-z]+)*)",  # "MN Custom Homes" (starts with initials)
+        ]
+        for pattern in patterns:
+            match = re.search(pattern, query)
+            if match:
+                name = match.group(1).strip()
+                # Only consider it a proper noun if it's reasonably specific
+                if len(name) > 3 and name.lower() not in ["homes", "the", "and"]:
+                    return True, name
+        return False, ""
+
     def _run_multi_query_search(self, queries: list[str], limit_per_query: int = 3):
         """
         Run multiple targeted knowledge queries, deduplicate results.
@@ -226,9 +247,30 @@ class BaseSkill(ABC):
         seen_texts = set()
         by_category = defaultdict(list)
 
+        # Minimum score threshold for RRF-fused results
+        MIN_SCORE = 0.35
+
         for query in queries:
             try:
-                results = service.search(query, limit=limit_per_query)
+                # Check if query contains a proper noun (e.g., builder name)
+                is_proper, proper_name = self._is_proper_noun_query(query)
+
+                # For proper nouns, require results to contain the name
+                results = service.search(
+                    query,
+                    limit=limit_per_query,
+                    min_score=MIN_SCORE,
+                    must_contain=proper_name if is_proper else None,
+                )
+
+                # If no results with must_contain, try without it but with higher score
+                if not results and is_proper:
+                    results = service.search(
+                        query,
+                        limit=limit_per_query,
+                        min_score=MIN_SCORE + 0.1,  # Higher threshold for fallback
+                    )
+
                 hits = []
                 for r in results:
                     hits.append({
