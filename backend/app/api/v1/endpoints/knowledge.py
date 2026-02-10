@@ -26,8 +26,10 @@ _ingestion_jobs: Dict[str, Dict[str, Any]] = {}
 _jobs_lock = threading.Lock()
 
 
-def verify_admin(x_admin_password: str = Header(...)):
+def verify_admin(x_admin_password: Optional[str] = Header(None)):
     """Verify admin password from request header."""
+    if not x_admin_password:
+        raise HTTPException(status_code=401, detail="Admin password required")
     if x_admin_password != settings.ADMIN_PASSWORD:
         raise HTTPException(status_code=401, detail="Invalid admin password")
 

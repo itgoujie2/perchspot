@@ -31,8 +31,10 @@ logger = logging.getLogger(__name__)
 router = APIRouter()
 
 
-def verify_admin(x_admin_password: str = Header(...)):
+def verify_admin(x_admin_password: Optional[str] = Header(None)):
     """Verify admin password from request header."""
+    if not x_admin_password:
+        raise HTTPException(status_code=401, detail="Admin password required")
     if x_admin_password != settings.ADMIN_PASSWORD:
         raise HTTPException(status_code=401, detail="Invalid admin password")
 
