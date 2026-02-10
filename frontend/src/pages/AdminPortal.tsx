@@ -183,6 +183,10 @@ export default function AdminPortal() {
   const [usersLoading, setUsersLoading] = useState(false);
   const [usersError, setUsersError] = useState('');
   const [userFilter, setUserFilter] = useState('');
+  const [addCreditsUser, setAddCreditsUser] = useState<any>(null);
+  const [addCreditsAmount, setAddCreditsAmount] = useState('');
+  const [addCreditsReason, setAddCreditsReason] = useState('');
+  const [addCreditsLoading, setAddCreditsLoading] = useState(false);
 
   // Surveys state
   const [surveys, setSurveys] = useState<any[]>([]);
@@ -293,6 +297,41 @@ export default function AdminPortal() {
       setUsersLoading(false);
     }
   }, [headers]);
+
+  const handleAddCredits = async () => {
+    if (!addCreditsUser || !addCreditsAmount) return;
+
+    setAddCreditsLoading(true);
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/v1/admin/users/${addCreditsUser.id}/add-credits`, {
+        method: 'POST',
+        headers: {
+          ...headers(),
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          amount: parseFloat(addCreditsAmount),
+          reason: addCreditsReason || undefined,
+        }),
+      });
+
+      if (res.ok) {
+        // Refresh users list
+        fetchUsers();
+        // Close dialog
+        setAddCreditsUser(null);
+        setAddCreditsAmount('');
+        setAddCreditsReason('');
+      } else {
+        const err = await res.json();
+        alert(err.detail || 'Failed to add credits');
+      }
+    } catch {
+      alert('Cannot connect to backend');
+    } finally {
+      setAddCreditsLoading(false);
+    }
+  };
 
   const fetchSurveys = useCallback(async () => {
     setSurveysLoading(true);
@@ -1706,6 +1745,7 @@ export default function AdminPortal() {
                         <TableCell align="center">Purchases</TableCell>
                         <TableCell>Registered</TableCell>
                         <TableCell>Last Purchase</TableCell>
+                        <TableCell align="right">Actions</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
@@ -1765,11 +1805,24 @@ export default function AdminPortal() {
                                 <Typography variant="body2" color="text.secondary">—</Typography>
                               )}
                             </TableCell>
+                            <TableCell align="right">
+                              <Button
+                                size="small"
+                                variant="outlined"
+                                startIcon={<AttachMoney />}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setAddCreditsUser(user);
+                                }}
+                              >
+                                Add Credits
+                              </Button>
+                            </TableCell>
                           </TableRow>
                         ))}
                       {users.filter(u => u.email.toLowerCase().includes(userFilter.toLowerCase())).length === 0 && (
                         <TableRow>
-                          <TableCell colSpan={7} align="center" sx={{ py: 4 }}>
+                          <TableCell colSpan={8} align="center" sx={{ py: 4 }}>
                             <Typography color="text.secondary">
                               {userFilter ? 'No users match your filter' : 'No users found'}
                             </Typography>
@@ -2558,6 +2611,73 @@ export default function AdminPortal() {
             </DialogContent>
             <DialogActions>
               <Button onClick={() => setSelectedAnalysis(null)}>Close</Button>
+            </DialogActions>
+          </>
+        )}
+      </Dialog>
+
+      {/* Add Credits Dialog */}
+      <Dialog
+        open={!!addCreditsUser}
+        onClose={() => {
+          setAddCreditsUser(null);
+          setAddCreditsAmount('');
+          setAddCreditsReason('');
+        }}
+        maxWidth="sm"
+        fullWidth
+      >
+        {addCreditsUser && (
+          <>
+            <DialogTitle>Add Credits to User</DialogTitle>
+            <DialogContent>
+              <Box sx={{ pt: 1 }}>
+                <Typography variant="body2" color="text.secondary" gutterBottom>
+                  User: <strong>{addCreditsUser.email}</strong>
+                </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
+                  Current Balance: <strong>${addCreditsUser.credit_balance.toFixed(2)}</strong>
+                </Typography>
+
+                <TextField
+                  fullWidth
+                  label="Amount to Add"
+                  type="number"
+                  value={addCreditsAmount}
+                  onChange={(e) => setAddCreditsAmount(e.target.value)}
+                  InputProps={{
+                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                  }}
+                  sx={{ mb: 2 }}
+                  autoFocus
+                />
+
+                <TextField
+                  fullWidth
+                  label="Reason (optional)"
+                  value={addCreditsReason}
+                  onChange={(e) => setAddCreditsReason(e.target.value)}
+                  placeholder="e.g., Refund, Promotional credit, etc."
+                />
+              </Box>
+            </DialogContent>
+            <DialogActions>
+              <Button
+                onClick={() => {
+                  setAddCreditsUser(null);
+                  setAddCreditsAmount('');
+                  setAddCreditsReason('');
+                }}
+              >
+                Cancel
+              </Button>
+              <Button
+                variant="contained"
+                onClick={handleAddCredits}
+                disabled={!addCreditsAmount || parseFloat(addCreditsAmount) <= 0 || addCreditsLoading}
+              >
+                {addCreditsLoading ? 'Adding...' : 'Add Credits'}
+              </Button>
             </DialogActions>
           </>
         )}

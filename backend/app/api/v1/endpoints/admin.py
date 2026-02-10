@@ -454,6 +454,57 @@ async def get_user_detail(user_id: str, db: Session = Depends(get_db)):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+class AddCreditsRequest(BaseModel):
+    amount: float
+    reason: Optional[str] = None
+
+
+class AddCreditsResponse(BaseModel):
+    user_id: str
+    email: str
+    previous_balance: float
+    added_amount: float
+    new_balance: float
+
+
+@router.post("/users/{user_id}/add-credits", response_model=AddCreditsResponse,
+             dependencies=[Depends(verify_admin)])
+async def add_credits_to_user(
+    user_id: str,
+    request: AddCreditsRequest,
+    db: Session = Depends(get_db)
+):
+    """Add credits to a user's account."""
+    try:
+        user = db.query(User).filter(User.id == user_id).first()
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+
+        previous_balance = float(user.credit_balance)
+        new_balance = previous_balance + request.amount
+
+        user.credit_balance = new_balance
+        db.commit()
+        db.refresh(user)
+
+        logger.info(f"Added {request.amount} credits to user {user.email}. "
+                   f"Reason: {request.reason or 'Not specified'}. "
+                   f"Balance: {previous_balance} -> {new_balance}")
+
+        return AddCreditsResponse(
+            user_id=user.id,
+            email=user.email,
+            previous_balance=previous_balance,
+            added_amount=request.amount,
+            new_balance=float(user.credit_balance),
+        )
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error adding credits: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 # ============================================
 # Survey Response Endpoints
 # ============================================
