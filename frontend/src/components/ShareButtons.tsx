@@ -4,15 +4,41 @@ import './ShareButtons.css';
 interface ShareButtonsProps {
   address: string;
   score?: number | null;
+  price?: string | number | null;
+  beds?: number | null;
+  baths?: number | null;
+  sqft?: number | null;
+  grade?: string | null;
 }
 
-const ShareButtons: React.FC<ShareButtonsProps> = ({ address, score }) => {
+const ShareButtons: React.FC<ShareButtonsProps> = ({ address, score, price, beds, baths, sqft, grade }) => {
   const [copied, setCopied] = useState(false);
 
   const shareUrl = `${window.location.origin}/chat?address=${encodeURIComponent(address)}`;
-  const shareText = score
-    ? `I just analyzed "${address}" with Perchspot AI and it scored ${score}/100! Check it out:`
-    : `Check out this property analysis for "${address}" on Perchspot:`;
+
+  // Build property details string
+  const details: string[] = [];
+  if (price) {
+    const priceStr = typeof price === 'number'
+      ? `$${price.toLocaleString()}`
+      : price;
+    details.push(priceStr);
+  }
+  if (beds) details.push(`${beds} bed`);
+  if (baths) details.push(`${baths} bath`);
+  if (sqft) details.push(`${sqft.toLocaleString()} sqft`);
+
+  const propertyDetails = details.length > 0 ? details.join(' | ') : '';
+
+  // Build share text with more info
+  let shareText = '';
+  if (score && grade) {
+    shareText = `🏠 ${address}\n${propertyDetails}\n\n📊 Perchspot AI Score: ${score}/100 (Grade: ${grade})\n\nCheck out the full analysis:`;
+  } else if (score) {
+    shareText = `🏠 ${address}\n${propertyDetails}\n\n📊 Perchspot AI Score: ${score}/100\n\nCheck out the full analysis:`;
+  } else {
+    shareText = `🏠 ${address}\n${propertyDetails}\n\nCheck out this property analysis on Perchspot:`
+  }
 
   const handleCopyLink = async () => {
     try {

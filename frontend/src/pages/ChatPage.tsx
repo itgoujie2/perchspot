@@ -69,6 +69,15 @@ const formatPrice = (n: any) => {
   return '$' + num.toLocaleString();
 };
 
+const getGrade = (score: number | null): string | null => {
+  if (score === null) return null;
+  if (score >= 90) return 'A';
+  if (score >= 80) return 'B';
+  if (score >= 70) return 'C';
+  if (score >= 60) return 'D';
+  return 'F';
+};
+
 const getRiskColor = (level: string) => {
   const l = (level || '').toLowerCase();
   if (l.includes('low') || l.includes('minimal') || l.includes('none')) return '#4caf50';
@@ -846,7 +855,15 @@ const ChatPage: React.FC = () => {
             </div>
             <div className="report-actions">
               {address && isComplete && (
-                <ShareButtons address={address} score={overallScore} />
+                <ShareButtons
+                  address={address}
+                  score={overallScore}
+                  grade={getGrade(overallScore)}
+                  price={get(report.property, 'list_price') || get(report.property, 'price')}
+                  beds={get(report.property, 'bedrooms') || get(report.property, 'beds')}
+                  baths={get(report.property, 'bathrooms') || get(report.property, 'baths')}
+                  sqft={get(report.property, 'living_area_sqft') || get(report.property, 'sqft')}
+                />
               )}
               {user && address && (
                 <button
