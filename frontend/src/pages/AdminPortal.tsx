@@ -2387,7 +2387,7 @@ export default function AdminPortal() {
       <Dialog
         open={!!selectedAnalysis}
         onClose={() => setSelectedAnalysis(null)}
-        maxWidth="md"
+        maxWidth="lg"
         fullWidth
       >
         {selectedAnalysis && (
@@ -2531,7 +2531,9 @@ export default function AdminPortal() {
                                 />
                               </TableCell>
                               <TableCell align="right">
-                                {step.duration_ms ? `${step.duration_ms}ms` : '-'}
+                                {step.duration_ms
+                                  ? `${(Math.abs(step.duration_ms) / 1000).toFixed(2)}s`
+                                  : '-'}
                               </TableCell>
                               <TableCell align="right">
                                 {step.cost ? `$${step.cost.toFixed(4)}` : '-'}

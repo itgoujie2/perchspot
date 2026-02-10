@@ -166,7 +166,7 @@ class AnalysisLoggingService:
         step_log.step_metadata = metadata
 
         if step_log.started_at:
-            step_log.duration_ms = int((now - step_log.started_at).total_seconds() * 1000)
+            step_log.duration_ms = abs(int((now - step_log.started_at).total_seconds() * 1000))
 
         self.db.commit()
         logger.debug(f"Completed step {step_log.step_name} (cost: ${cost:.6f})")
@@ -183,9 +183,9 @@ class AnalysisLoggingService:
         step_log.status = 'skipped'
         step_log.completed_at = datetime.utcnow()
         if step_log.started_at:
-            step_log.duration_ms = int(
+            step_log.duration_ms = abs(int(
                 (step_log.completed_at - step_log.started_at).total_seconds() * 1000
-            )
+            ))
         if reason:
             step_log.step_metadata = {"skip_reason": reason}
 
@@ -217,7 +217,7 @@ class AnalysisLoggingService:
         step_log.error_message = error_message
 
         if step_log.started_at:
-            step_log.duration_ms = int((now - step_log.started_at).total_seconds() * 1000)
+            step_log.duration_ms = abs(int((now - step_log.started_at).total_seconds() * 1000))
 
         self.db.commit()
         logger.warning(f"Step {step_log.step_name} failed: {error_message}")
