@@ -250,8 +250,8 @@ class AnalysisJob(Base):
     """Async analysis jobs tracking with comprehensive logging"""
     __tablename__ = "analysis_jobs"
 
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    property_id = Column(UUID(as_uuid=True), ForeignKey('properties.id', ondelete='CASCADE'), nullable=True)
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    property_id = Column(String(36), ForeignKey('properties.id', ondelete='CASCADE'), nullable=True)
     status = Column(String(20), nullable=False, default='pending')
     progress = Column(Integer, default=0)
     current_step = Column(String(100))
