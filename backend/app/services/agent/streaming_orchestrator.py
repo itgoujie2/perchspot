@@ -494,6 +494,9 @@ class StreamingAnalysisOrchestrator:
 
                     total_raw = scrape_event["total_cost"] + analysis_cost
 
+                    # Calculate actual total elapsed time (scraping + analysis)
+                    total_elapsed = (datetime.utcnow() - start_time).total_seconds()
+
                     # Complete job logging
                     if self.logging_service and self.current_job:
                         self.logging_service.complete_job(str(self.current_job.id), is_cached=False)
@@ -507,7 +510,7 @@ class StreamingAnalysisOrchestrator:
                         "total_scraping_cost": _apply_margin(scrape_event["total_cost"]),
                         "total_analysis_cost": _apply_margin(analysis_cost),
                         "total_cost": _apply_margin(total_raw),
-                        "total_time": scrape_event["total_time"]
+                        "total_time": total_elapsed
                     }
 
                 # Handle errors
