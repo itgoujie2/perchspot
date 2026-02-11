@@ -282,11 +282,6 @@ class BaseSkill(ABC):
         if not items:
             return all_debug, by_category
 
-        # Skip relevance filtering for small result sets (saves API call latency)
-        if len(items) <= 5:
-            logger.debug(f"Skipping relevance filtering for {len(items)} items (threshold: 5)")
-            return all_debug, by_category
-
         # Build prompt
         numbered = []
         for i, (query, text) in enumerate(items, 1):
