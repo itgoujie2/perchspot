@@ -152,8 +152,8 @@ PHOTOS: {images.get('photo_count', 'N/A')} photos
 REGION: {region_info.get('region', 'N/A')}
 """
 
-        # Extract meaningful search terms from property data
-        knowledge_queries = self._extract_property_queries(prop, details, features, climate, region_info)
+        # Extract meaningful search terms from property data using LLM
+        knowledge_queries = await self._extract_property_queries(prop, details, features, region_info)
         knowledge_context, knowledge_debug = self._run_multi_query_search(knowledge_queries, limit_per_query=3)
 
         knowledge_section = ""
@@ -230,138 +230,104 @@ Return ONLY valid JSON, no other text.
         logger.info(f"PropertySkill: Analysis complete. Score: {analysis.get('score')}, Confidence: {analysis.get('confidence')}, Cost: ${self.total_cost:.6f}")
         return analysis
 
-    @staticmethod
-    def _extract_property_queries(
+    async def _extract_property_queries(
+        self,
         prop: Dict[str, Any],
         details: Dict[str, Any],
         features: Dict[str, Any],
-        climate: Dict[str, Any],
         region_info: Dict[str, Any],
     ) -> list[str]:
         """
-        Extract meaningful search terms from property data for targeted knowledge queries.
+        Extract meaningful search terms from property data using LLM.
 
-        Looks for: builder/developer names, architectural styles, specific features,
-        property type, climate concerns, neighborhood, etc.
+        Uses Claude Haiku to intelligently identify searchable entities:
+        - Builder/developer names
+        - Neighborhood/community names
+        - Architectural styles
+        - Premium brands (appliances, fixtures)
+        - Notable features worth researching
         """
-        queries = []
         description = (prop.get('description') or '').strip()
-
-        # 1. Extract builder/developer names from description
-        #    Common patterns: "Built by X", "X Homes", "by X Construction", "X Development"
-        #    Also handles names without suffixes like "Murray Franklyn"
-        builder_patterns = [
-            # Pattern 1: Name with company suffix (most specific)
-            r'(?:built by|by|from|builder[:\s]+)\s+([A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+){0,3}\s+(?:Homes?|Construction|Development|Builders?|Properties|Group|LLC|Inc))',
-            # Pattern 2: Company name with suffix anywhere in text
-            r'([A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+){0,2}\s+(?:Homes?|Construction|Development|Builders?))',
-            # Pattern 3: Two+ capitalized words after "built by" or "by" (handles names like "Murray Franklyn")
-            r'(?:built by|constructed by|developed by)\s+([A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+)+)',
-            # Pattern 4: "by [Name]" at end of sentence or before comma (common in descriptions)
-            r'by\s+([A-Z][A-Za-z]+\s+[A-Z][A-Za-z]+)(?:[,.]|\s+(?:in|on|with|featuring))',
-        ]
-        builders_found = []
-        for pat in builder_patterns:
-            for match in re.findall(pat, description):
-                builder_name = match.strip()
-                # Filter out common false positives (generic phrases)
-                false_positives = {'The Home', 'This Home', 'Your Home', 'New Home',
-                                   'Custom Home', 'Main Floor', 'Top Floor', 'Master Suite',
-                                   'Great Room', 'Family Room', 'Living Room', 'Dining Room'}
-                if builder_name not in false_positives:
-                    builders_found.append(builder_name)
-
-        # Add unique builders to queries
-        for builder in builders_found:
-            if builder.lower() not in [q.lower() for q in queries]:
-                queries.append(builder)
-
-        # 2. Architectural styles from description
-        style_keywords = [
-            'farmhouse', 'craftsman', 'colonial', 'victorian', 'mid-century',
-            'modern', 'contemporary', 'ranch', 'tudor', 'cape cod', 'bungalow',
-            'split-level', 'a-frame', 'mediterranean', 'spanish', 'art deco',
-            'prairie', 'dutch colonial', 'georgian', 'townhouse', 'brownstone',
-        ]
-        desc_lower = description.lower()
-        for style in style_keywords:
-            if style in desc_lower:
-                queries.append(f"{style} home construction quality")
-
-        # 3. Notable features that merit knowledge lookup
-        notable_features = [
-            'adu', 'accessory dwelling', 'mother-in-law', 'granny flat',
-            'solar', 'ev charger', 'heat pump', 'mini split', 'tankless',
-            'septic', 'well water', 'propane', 'oil heat',
-            'foundation crack', 'knob and tube', 'polybutylene', 'aluminum wiring',
-            'asbestos', 'lead paint', 'radon',
-        ]
-        all_feature_text = desc_lower + ' ' + ' '.join(
-            f.lower() for fl in [features.get('interior', []), features.get('exterior', []),
-                                  features.get('appliances', [])]
-            for f in fl
-        ) + ' ' + (features.get('heating_cooling') or '').lower()
-
-        for feat in notable_features:
-            if feat in all_feature_text:
-                queries.append(feat)
-
-        # 4. Climate risks — skip entirely, data is unreliable
-
-        # 5. Property type + region combo
-        prop_type = details.get('property_type', '')
-        region = region_info.get('region', '')
-        if prop_type and region:
-            queries.append(f"{prop_type} in {region}")
-
-        # 6. City from address - useful for market context
         address_info = prop.get('address', {})
         city = address_info.get('city', '')
-        if city:
-            queries.append(f"{city} neighborhood")
+        region = region_info.get('region', '')
+        prop_type = details.get('property_type', '')
 
-        # 7. Specific neighborhood/community names from description
-        #    Multiple patterns to catch various naming conventions
-        community_patterns = [
-            # Pattern: "in/at/of [Name] community/neighborhood/etc"
-            r'(?:in|at|of|near)\s+(?:the\s+)?([A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+){0,3})\s+(?:community|neighborhood|subdivision|development|village|area)',
-            # Pattern: "[Name] Heights/Ridge/Park/Hills/Estates/etc" (common neighborhood naming)
-            r'\b([A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+)?\s+(?:Heights|Ridge|Park|Hills|Estates|Village|Glen|Woods|Creek|Meadows|Pointe|Landing|Crossing|Place|Court|Terrace))\b',
-            # Pattern: "Welcome to [Name]" or "Located in [Name]"
-            r'(?:welcome to|located in|situated in)\s+(?:the\s+)?([A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+){0,2})',
-            # Pattern: "the [Name] area" or "[Name] district"
-            r'(?:the\s+)?([A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+)?)\s+(?:area|district|section)',
-        ]
+        # Build context for LLM
+        features_text = []
+        for key in ['interior', 'exterior', 'appliances']:
+            if features.get(key):
+                features_text.extend(features[key])
+        features_str = ', '.join(features_text) if features_text else 'None listed'
 
-        communities_found = []
-        for pat in community_patterns:
-            for match in re.findall(pat, description):
-                community_name = match.strip()
-                # Filter out false positives
-                false_positives = {'The Home', 'This Home', 'Your Home', 'New Home',
-                                   'Main Floor', 'Top Floor', 'First Floor', 'Second Floor',
-                                   'Great Room', 'Family Room', 'Living Room', 'Dining Room',
-                                   'Master Suite', 'Primary Suite', 'Guest Suite',
-                                   'Open Floor', 'Floor Plan', 'Square Feet'}
-                if community_name not in false_positives and len(community_name) > 3:
-                    communities_found.append(community_name)
+        prompt = f"""Extract search terms from this property listing for a knowledge base lookup.
 
-        # Add unique communities to queries
-        for community in communities_found:
-            if community.lower() not in [q.lower() for q in queries]:
-                queries.append(community)
+PROPERTY DESCRIPTION:
+{description}
 
-        # Deduplicate while preserving order
-        seen = set()
-        unique_queries = []
-        for q in queries:
-            q_lower = q.lower().strip()
-            if q_lower and q_lower not in seen:
-                seen.add(q_lower)
-                unique_queries.append(q.strip())
+PROPERTY DETAILS:
+- City: {city}
+- Region: {region}
+- Type: {prop_type}
+- Features: {features_str}
 
-        logger.info(f"PropertySkill: Extracted {len(unique_queries)} knowledge queries: {unique_queries}")
-        return unique_queries
+Extract specific, searchable terms in these categories. Only include terms that are EXPLICITLY mentioned or clearly implied:
+
+1. **Builder/Developer**: Company or person name who built the home (e.g., "Murray Franklyn", "Toll Brothers", "Lennar Homes")
+2. **Neighborhood/Community**: Specific neighborhood, subdivision, or community name (e.g., "Somerset", "Bridle Trails", "Newport Hills")
+3. **Architectural Style**: Home style if mentioned (e.g., "craftsman", "mid-century modern", "farmhouse")
+4. **Premium Brands**: High-end appliance or fixture brands (e.g., "Sub-Zero", "Wolf", "Thermador", "Kohler")
+5. **Notable Features**: Unique features worth researching (e.g., "ADU", "solar panels", "geothermal", "smart home")
+
+Return a JSON array of search terms. Each term should be specific enough to find relevant knowledge.
+Do NOT include generic terms like "kitchen", "bathroom", "hardwood floors", "granite counters".
+Only include proper nouns, brand names, or specific technical features.
+
+Example output: ["Murray Franklyn", "Bridle Trails", "craftsman", "Sub-Zero", "ADU"]
+
+Return ONLY the JSON array, no other text."""
+
+        try:
+            response = await self._call_claude(
+                prompt=prompt,
+                max_tokens=256,
+                model="claude-haiku-4-20250414"
+            )
+
+            # Parse JSON response
+            response = response.strip()
+            if response.startswith("```"):
+                response = response.split("```")[1]
+                if response.startswith("json"):
+                    response = response[4:]
+            response = response.strip()
+
+            queries = json.loads(response)
+            if not isinstance(queries, list):
+                queries = []
+
+            # Always add city + neighborhood as a fallback query
+            if city and f"{city} neighborhood" not in [q.lower() for q in queries]:
+                queries.append(f"{city} neighborhood")
+
+            # Add property type + region if available
+            if prop_type and region:
+                combo = f"{prop_type} in {region}"
+                if combo.lower() not in [q.lower() for q in queries]:
+                    queries.append(combo)
+
+            logger.info(f"PropertySkill: LLM extracted {len(queries)} knowledge queries: {queries}")
+            return queries
+
+        except Exception as e:
+            logger.warning(f"PropertySkill: LLM query extraction failed: {e}, using fallback")
+            # Fallback: return basic queries
+            fallback = []
+            if city:
+                fallback.append(f"{city} neighborhood")
+            if prop_type and region:
+                fallback.append(f"{prop_type} in {region}")
+            return fallback
 
     def _error_result(self, error_message: str) -> Dict[str, Any]:
         """Return error result structure."""
