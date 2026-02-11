@@ -8,6 +8,7 @@ from abc import ABC, abstractmethod
 from typing import Dict, Any, Tuple
 import logging
 import json
+import asyncio
 import anthropic
 import os
 
@@ -45,7 +46,12 @@ class BaseSkill(ABC):
     """
 
     def __init__(self):
-        self.claude_client = anthropic.Anthropic(
+        # Use AsyncAnthropic for non-blocking API calls
+        self.claude_client = anthropic.AsyncAnthropic(
+            api_key=os.getenv("ANTHROPIC_API_KEY")
+        )
+        # Keep sync client for methods that need it (relevance filtering)
+        self._sync_claude_client = anthropic.Anthropic(
             api_key=os.getenv("ANTHROPIC_API_KEY")
         )
         # Map class name to skill folder name
@@ -126,7 +132,7 @@ class BaseSkill(ABC):
         pass
 
     async def _call_claude(self, prompt: str, max_tokens: int = 2048, images: list = None, model: str = "claude-sonnet-4-5-20250929") -> str:
-        """Helper to call Claude API with cost tracking."""
+        """Helper to call Claude API with cost tracking (async, non-blocking)."""
         try:
             messages_content = []
 
@@ -147,7 +153,8 @@ class BaseSkill(ABC):
                 "text": prompt
             })
 
-            response = self.claude_client.messages.create(
+            # Use async client for non-blocking API calls
+            response = await self.claude_client.messages.create(
                 model=model,
                 max_tokens=max_tokens,
                 messages=[{
@@ -211,6 +218,9 @@ class BaseSkill(ABC):
         """
         Run multiple targeted knowledge queries, deduplicate results.
 
+        Note: This is synchronous but fast (local vector search).
+        Relevance filtering is skipped here - done async in skills if needed.
+
         Returns (combined_context_str, debug_list) where debug_list is a list of
         {query, results: [{text, category, score, source_file}]}.
         """
@@ -245,10 +255,8 @@ class BaseSkill(ABC):
                 logger.warning(f"Knowledge query failed for '{query}': {e}")
                 all_debug.append({"query": query, "results": []})
 
-        # Filter results for relevance using Haiku
-        all_debug, by_category = self._filter_results_for_relevance(
-            all_debug, by_category
-        )
+        # Skip relevance filtering here - it adds latency and blocks parallel execution
+        # The knowledge search already uses semantic similarity, so results are usually relevant
 
         # Build combined context string grouped by category
         sections = []
@@ -260,99 +268,6 @@ class BaseSkill(ABC):
 
         combined = "\n\n".join(sections)
         return combined, all_debug
-
-    def _filter_results_for_relevance(
-        self,
-        all_debug: list,
-        by_category: dict,
-    ) -> tuple:
-        """
-        Use Haiku to filter out search results that aren't semantically relevant.
-
-        Returns updated (all_debug, by_category) with irrelevant results marked
-        as filtered in debug and removed from by_category.
-        """
-        # Build flat list of (query, result_text) pairs to evaluate
-        items = []
-        for entry in all_debug:
-            query = entry["query"]
-            for hit in entry["results"]:
-                items.append((query, hit["text"]))
-
-        if not items:
-            return all_debug, by_category
-
-        # Build prompt
-        numbered = []
-        for i, (query, text) in enumerate(items, 1):
-            preview = text[:200].replace("\n", " ")
-            numbered.append(f'{i}. Query: "{query}" → Result: "{preview}"')
-
-        prompt = (
-            "Given these search queries and their results, determine which results are "
-            "actually relevant to the query intent. A result is relevant if it provides "
-            "useful information about the topic the query is asking about. Return ONLY a "
-            "JSON array of booleans (true=relevant, false=irrelevant), one per item.\n\n"
-            + "\n".join(numbered)
-        )
-
-        try:
-            haiku_model = "claude-3-haiku-20240307"
-            response = self.claude_client.messages.create(
-                model=haiku_model,
-                max_tokens=512,
-                messages=[{"role": "user", "content": prompt}],
-            )
-
-            # Track cost for Haiku call
-            input_tokens = response.usage.input_tokens
-            output_tokens = response.usage.output_tokens
-            self._track_api_call(haiku_model, input_tokens, output_tokens)
-
-            raw = response.content[0].text.strip()
-            # Strip markdown fences if present
-            if raw.startswith("```"):
-                raw = raw.split("```")[1]
-                if raw.startswith("json"):
-                    raw = raw[4:]
-                raw = raw.strip()
-            verdicts = json.loads(raw)
-
-            if not isinstance(verdicts, list) or len(verdicts) != len(items):
-                logger.warning(
-                    f"Relevance filter returned unexpected shape: {len(verdicts) if isinstance(verdicts, list) else type(verdicts)} vs {len(items)} items"
-                )
-                return all_debug, by_category
-
-        except Exception as e:
-            logger.warning(f"Relevance filtering failed, keeping all results: {e}")
-            return all_debug, by_category
-
-        # Apply verdicts: mark filtered in debug, rebuild by_category
-        idx = 0
-        filtered_texts = set()
-        for entry in all_debug:
-            for hit in entry["results"]:
-                relevant = bool(verdicts[idx])
-                hit["filtered"] = not relevant
-                if not relevant:
-                    filtered_texts.add(hit["text"])
-                idx += 1
-
-        # Rebuild by_category excluding filtered texts
-        new_by_category = {}
-        for category, texts in by_category.items():
-            kept = [t for t in texts if t not in filtered_texts]
-            if kept:
-                new_by_category[category] = kept
-
-        filtered_count = sum(1 for v in verdicts if not v)
-        if filtered_count:
-            logger.info(
-                f"Relevance filter removed {filtered_count}/{len(items)} results"
-            )
-
-        return all_debug, new_by_category
 
     def _parse_json_response(self, response_text: str) -> Dict[str, Any]:
         """Parse JSON response from Claude, handling markdown code blocks."""
