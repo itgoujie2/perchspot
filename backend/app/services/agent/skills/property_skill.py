@@ -260,32 +260,30 @@ Return ONLY valid JSON, no other text.
                 features_text.extend(features[key])
         features_str = ', '.join(features_text) if features_text else 'None listed'
 
-        prompt = f"""Extract search terms from this property listing for a knowledge base lookup.
+        prompt = f"""Extract ONLY high-value search terms from this property listing for a knowledge base lookup.
 
 PROPERTY DESCRIPTION:
 {description}
 
-PROPERTY DETAILS:
-- City: {city}
-- Region: {region}
-- Type: {prop_type}
-- Features: {features_str}
+Extract terms in these categories ONLY if they are proper nouns or truly unique:
 
-Extract specific, searchable terms in these categories. Only include terms that are EXPLICITLY mentioned or clearly implied:
+1. **Builder/Developer name** (e.g., "Murray Franklyn", "Toll Brothers") - MUST be a company/person name
+2. **Neighborhood/Community name** (e.g., "Bridle Trails", "Somerset") - MUST be a specific place name
+3. **Architectural style** (e.g., "craftsman", "mid-century modern") - only if explicitly stated
+4. **Luxury brand names** (e.g., "Sub-Zero", "Wolf", "Miele") - only premium appliance/fixture brands
+5. **Rare features** (e.g., "ADU", "solar panels", "geothermal", "EV charger") - only truly unusual features
 
-1. **Builder/Developer**: Company or person name who built the home (e.g., "Murray Franklyn", "Toll Brothers", "Lennar Homes")
-2. **Neighborhood/Community**: Specific neighborhood, subdivision, or community name (e.g., "Somerset", "Bridle Trails", "Newport Hills")
-3. **Architectural Style**: Home style if mentioned (e.g., "craftsman", "mid-century modern", "farmhouse")
-4. **Premium Brands**: High-end appliance or fixture brands (e.g., "Sub-Zero", "Wolf", "Thermador", "Kohler")
-5. **Notable Features**: Unique features worth researching (e.g., "ADU", "solar panels", "geothermal", "smart home")
+DO NOT include:
+- Generic rooms: den, bonus room, guest suite, walk-in closet, en suite bath
+- Standard features: stainless steel appliances, hardwood floors, granite counters, fireplace
+- Generic descriptors: spacious, luxurious, modern, updated
+- City names or regions (I will add those separately)
 
-Return a JSON array of search terms. Each term should be specific enough to find relevant knowledge.
-Do NOT include generic terms like "kitchen", "bathroom", "hardwood floors", "granite counters".
-Only include proper nouns, brand names, or specific technical features.
+Return a JSON array with 0-5 terms MAX. If nothing special, return empty array [].
 
-Example output: ["Murray Franklyn", "Bridle Trails", "craftsman", "Sub-Zero", "ADU"]
+Example: ["Murray Franklyn", "Bridle Trails", "Sub-Zero"]
 
-Return ONLY the JSON array, no other text."""
+Return ONLY the JSON array."""
 
         try:
             response = await self._call_claude(
