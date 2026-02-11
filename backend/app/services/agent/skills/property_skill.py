@@ -152,8 +152,8 @@ PHOTOS: {images.get('photo_count', 'N/A')} photos
 REGION: {region_info.get('region', 'N/A')}
 """
 
-        # Extract knowledge queries using simple heuristics (no LLM call needed)
-        knowledge_queries = self._extract_property_queries_fast(prop, details, region_info)
+        # Extract meaningful search terms from property data using LLM
+        knowledge_queries = await self._extract_property_queries(prop, details, features, region_info)
         knowledge_context, knowledge_debug = self._run_multi_query_search(knowledge_queries, limit_per_query=3)
 
         knowledge_section = ""
@@ -230,56 +230,102 @@ Return ONLY valid JSON, no other text.
         logger.info(f"PropertySkill: Analysis complete. Score: {analysis.get('score')}, Confidence: {analysis.get('confidence')}, Cost: ${self.total_cost:.6f}")
         return analysis
 
-    def _extract_property_queries_fast(
+    async def _extract_property_queries(
         self,
         prop: Dict[str, Any],
         details: Dict[str, Any],
+        features: Dict[str, Any],
         region_info: Dict[str, Any],
     ) -> list[str]:
         """
-        Extract knowledge queries using simple heuristics (no LLM call).
+        Extract meaningful search terms from property data using LLM.
 
-        Fast extraction based on:
-        - City/neighborhood from address
-        - Property type + region combination
-        - Known builder patterns in description
+        Uses Claude Haiku to intelligently identify searchable entities:
+        - Builder/developer names
+        - Neighborhood/community names
+        - Architectural styles
+        - Premium brands (appliances, fixtures)
+        - Notable features worth researching
         """
-        queries = []
-
+        description = (prop.get('description') or '').strip()
         address_info = prop.get('address', {})
         city = address_info.get('city', '')
         region = region_info.get('region', '')
         prop_type = details.get('property_type', '')
-        description = (prop.get('description') or '').lower()
 
-        # Add city neighborhood query
-        if city:
-            queries.append(f"{city} neighborhood")
+        # Build context for LLM
+        features_text = []
+        for key in ['interior', 'exterior', 'appliances']:
+            if features.get(key):
+                features_text.extend(features[key])
+        features_str = ', '.join(features_text) if features_text else 'None listed'
 
-        # Add property type + region
-        if prop_type and region:
-            queries.append(f"{prop_type} in {region}")
+        prompt = f"""Extract ONLY high-value search terms from this property listing for a knowledge base lookup.
 
-        # Check for known builders in description
-        known_builders = [
-            'toll brothers', 'lennar', 'pulte', 'kb home', 'dr horton',
-            'meritage', 'taylor morrison', 'murray franklyn', 'quadrant',
-            'polygon', 'harbour homes', 'rush residential', 'mainvue'
-        ]
-        for builder in known_builders:
-            if builder in description:
-                queries.append(builder)
-                break  # Only add first match
+PROPERTY DESCRIPTION:
+{description}
 
-        # Check for notable features
-        notable_features = ['adu', 'accessory dwelling', 'solar', 'geothermal', 'ev charger']
-        for feature in notable_features:
-            if feature in description:
-                queries.append(feature)
-                break
+Extract terms in these categories ONLY if they are proper nouns or truly unique:
 
-        logger.info(f"PropertySkill: Fast extracted {len(queries)} knowledge queries: {queries}")
-        return queries[:5]  # Limit to 5
+1. **Builder/Developer name** (e.g., "Murray Franklyn", "Toll Brothers") - MUST be a company/person name
+2. **Neighborhood/Community name** (e.g., "Bridle Trails", "Somerset") - MUST be a specific place name
+3. **Architectural style** (e.g., "craftsman", "mid-century modern") - only if explicitly stated
+4. **Luxury brand names** (e.g., "Sub-Zero", "Wolf", "Miele") - only premium appliance/fixture brands
+5. **Rare features** (e.g., "ADU", "solar panels", "geothermal", "EV charger") - only truly unusual features
+
+DO NOT include:
+- Generic rooms: den, bonus room, guest suite, walk-in closet, en suite bath
+- Standard features: stainless steel appliances, hardwood floors, granite counters, fireplace
+- Generic descriptors: spacious, luxurious, modern, updated
+- City names or regions (I will add those separately)
+
+Return a JSON array with 0-5 terms MAX. If nothing special, return empty array [].
+
+Example: ["Murray Franklyn", "Bridle Trails", "Sub-Zero"]
+
+Return ONLY the JSON array."""
+
+        try:
+            response = await self._call_claude(
+                prompt=prompt,
+                max_tokens=256,
+                model="claude-3-haiku-20240307"
+            )
+
+            # Parse JSON response
+            response = response.strip()
+            if response.startswith("```"):
+                response = response.split("```")[1]
+                if response.startswith("json"):
+                    response = response[4:]
+            response = response.strip()
+
+            queries = json.loads(response)
+            if not isinstance(queries, list):
+                queries = []
+
+            # Always add city + neighborhood as a fallback query
+            if city and f"{city} neighborhood" not in [q.lower() for q in queries]:
+                queries.append(f"{city} neighborhood")
+
+            # Add property type + region if available
+            if prop_type and region:
+                combo = f"{prop_type} in {region}"
+                if combo.lower() not in [q.lower() for q in queries]:
+                    queries.append(combo)
+
+            logger.info(f"PropertySkill: LLM extracted {len(queries)} knowledge queries: {queries}")
+            return queries
+
+        except Exception as e:
+            logger.warning(f"PropertySkill: LLM query extraction failed: {e}, using fallback")
+            # Fallback: return basic queries
+            fallback = []
+            if city:
+                fallback.append(f"{city} neighborhood")
+            if prop_type and region:
+                fallback.append(f"{prop_type} in {region}")
+            return fallback
 
     def _error_result(self, error_message: str) -> Dict[str, Any]:
         """Return error result structure."""

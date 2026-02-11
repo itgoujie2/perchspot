@@ -155,16 +155,75 @@ class InvestmentSkill(BaseSkill):
     async def _get_appreciation_data(self, city: str, address: str) -> Dict[str, Any]:
         """
         Get historical appreciation data for the area.
-        Uses regional estimates directly (fast, no API call needed).
+        Tries web search first, falls back to regional estimates.
         """
-        # Use regional estimates directly - faster than LLM call and just as accurate
+        # Try to get live data via web search
+        try:
+            appreciation = await self._search_appreciation_web(city)
+            if appreciation:
+                logger.info(f"InvestmentSkill: Got appreciation data from web for {city}: {appreciation}")
+                return appreciation
+        except Exception as e:
+            logger.warning(f"InvestmentSkill: Web search for appreciation failed: {e}")
+
+        # Fallback to regional estimates
         rate = REGIONAL_APPRECIATION.get(city, REGIONAL_APPRECIATION['_default'])
-        logger.info(f"InvestmentSkill: Using appreciation rate for {city}: {rate}%")
+        logger.info(f"InvestmentSkill: Using fallback appreciation rate for {city}: {rate}%")
         return {
             'annual_appreciation_pct': rate,
             'five_year_growth_pct': round(((1 + rate/100) ** 5 - 1) * 100, 1),
             'source': 'regional_estimate'
         }
+
+    async def _search_appreciation_web(self, city: str) -> Optional[Dict[str, Any]]:
+        """
+        Search web for home appreciation data and parse with Claude.
+        Returns None if search fails or no data found.
+        """
+        import os
+        from anthropic import AsyncAnthropic
+
+        try:
+            client = AsyncAnthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+
+            # Use Claude to estimate appreciation based on its knowledge
+            response = await client.messages.create(
+                model="claude-3-haiku-20240307",  # Use Haiku for speed
+                max_tokens=300,
+                messages=[{
+                    "role": "user",
+                    "content": f"""Based on your knowledge of real estate markets, estimate the home price appreciation for {city}.
+
+Return ONLY a JSON object:
+- annual_appreciation_pct: number (estimated annual % change)
+- five_year_growth_pct: number (estimated 5-year total growth %)
+- source: "claude_estimate"
+
+Return ONLY valid JSON."""
+                }]
+            )
+
+            response_text = response.content[0].text.strip()
+
+            # Parse JSON
+            if response_text.startswith('```'):
+                response_text = response_text.split('```')[1]
+                if response_text.startswith('json'):
+                    response_text = response_text[4:]
+                response_text = response_text.strip()
+
+            data = json.loads(response_text)
+
+            if 'error' in data:
+                return None
+
+            if 'annual_appreciation_pct' in data:
+                return data
+
+        except Exception as e:
+            logger.warning(f"InvestmentSkill: Appreciation estimate failed: {e}")
+
+        return None
 
     def _compute_metrics(self, data: Dict[str, Any]) -> Dict[str, Any]:
         """Compute investment metrics from property data."""
