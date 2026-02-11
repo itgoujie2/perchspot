@@ -620,219 +620,132 @@ class StreamingAnalysisOrchestrator:
 
     async def _run_analysis_skills(self, address: str, all_data: Dict[str, Any]) -> AsyncGenerator[Dict[str, Any], None]:
         """
-        Run analysis skills on extracted data and yield streaming events.
+        Run analysis skills in PARALLEL, yield results in consistent order.
+
+        All 4 skills run concurrently, but results are buffered and yielded
+        in order: Property → Location → School → Investment.
         """
-        results = {}
+        results: Dict[str, Any] = {}
         total_cost = 0.0
 
-        # Property analysis (Step 7)
-        step_log_id = self._start_step_logging(7)
-        yield {"type": "status", "message": "Running property analysis..."}
-        try:
-            property_result = await self.property_skill.analyze(address, property_data=all_data)
-            results["property"] = property_result
-            step_cost = 0
-            if property_result.get('cost_summary'):
-                step_cost = property_result['cost_summary'].get('total_cost', 0)
-                total_cost += step_cost
+        # Skill configuration in desired output order
+        skill_configs = [
+            {"key": "property", "step": 7, "step_name": "Property Condition",
+             "skill": self.property_skill, "notes_title": "Property Analysis"},
+            {"key": "location", "step": 8, "step_name": "Location & Commute",
+             "skill": self.location_skill, "notes_title": "Location Analysis"},
+            {"key": "schools", "step": 9, "step_name": "School Quality",
+             "skill": self.school_skill, "notes_title": "School Analysis"},
+            {"key": "investment", "step": 10, "step_name": "Investment Potential",
+             "skill": self.investment_skill, "notes_title": "Investment Analysis"},
+        ]
 
-            self._complete_step_logging(
-                step_log_id,
-                cost=step_cost,
-                input_tokens=property_result.get('cost_summary', {}).get('input_tokens', 0),
-                output_tokens=property_result.get('cost_summary', {}).get('output_tokens', 0),
-                model=property_result.get('cost_summary', {}).get('model'),
-                metadata={"score": property_result.get('score')}
-            )
+        yield {"type": "status", "message": "Running all analyses in parallel..."}
 
-            yield {
-                "type": "analysis",
-                "step": 7,
-                "step_name": "Property Condition",
-                "skill": "property",
-                "analysis": self._format_analysis_markdown(property_result, "Property Condition"),
-                "data": property_result,
-            }
+        # Start step logging for all skills at once
+        step_log_ids = {config["key"]: self._start_step_logging(config["step"]) for config in skill_configs}
 
-            # Save to notes
-            self.notes_manager.append_section(
-                address=address,
-                section_title="Property Analysis",
-                content="```json\n" + json.dumps(property_result, indent=2, default=str) + "\n```",
-                metadata={
-                    "Score": f"{property_result.get('score', 'N/A')}/100",
-                    "Confidence": property_result.get('confidence', 'N/A')
-                }
-            )
+        # Wrapper to include skill key in result
+        async def run_skill_with_key(config):
+            try:
+                result = await config["skill"].analyze(address, property_data=all_data)
+                return (config["key"], result, None)
+            except Exception as e:
+                logger.error(f"{config['key']} analysis failed: {e}", exc_info=True)
+                return (config["key"], None, e)
 
-            # Save knowledge debug to notes
-            if property_result.get('knowledge_debug'):
-                self._write_knowledge_debug_to_notes(address, "Property", property_result)
+        # Launch all skills in parallel
+        tasks = [asyncio.create_task(run_skill_with_key(config)) for config in skill_configs]
 
-        except Exception as e:
-            logger.error(f"Property analysis failed: {e}", exc_info=True)
-            self._fail_step_logging(step_log_id, str(e))
-            yield {"type": "status", "message": f"Property analysis failed: {e}"}
+        # Track completed results and next index to yield
+        completed_results = {}
+        next_to_yield_idx = 0
 
-        # Location analysis (Step 8)
-        step_log_id = self._start_step_logging(8)
-        yield {"type": "status", "message": "Running location analysis..."}
-        try:
-            location_result = await self.location_skill.analyze(address, property_data=all_data)
-            results["location"] = location_result
-            step_cost = 0
-            if location_result.get('cost_summary'):
-                step_cost = location_result['cost_summary'].get('total_cost', 0)
-                total_cost += step_cost
+        # Process results as they complete
+        for completed_task in asyncio.as_completed(tasks):
+            key, skill_result, error = await completed_task
+            completed_results[key] = (skill_result, error)
 
-            self._complete_step_logging(
-                step_log_id,
-                cost=step_cost,
-                input_tokens=location_result.get('cost_summary', {}).get('input_tokens', 0),
-                output_tokens=location_result.get('cost_summary', {}).get('output_tokens', 0),
-                model=location_result.get('cost_summary', {}).get('model'),
-                metadata={"score": location_result.get('score')}
-            )
+            # Status update
+            config = next(c for c in skill_configs if c["key"] == key)
+            status = f"{config['step_name']} complete" if not error else f"{config['step_name']} failed"
+            yield {"type": "status", "message": status}
 
-            yield {
-                "type": "analysis",
-                "step": 8,
-                "step_name": "Location & Commute",
-                "skill": "location",
-                "analysis": self._format_analysis_markdown(location_result, "Location & Commute"),
-                "data": location_result,
-            }
+            # Yield all consecutive ready results in order
+            while next_to_yield_idx < len(skill_configs):
+                current_config = skill_configs[next_to_yield_idx]
+                current_key = current_config["key"]
 
-            self.notes_manager.append_section(
-                address=address,
-                section_title="Location Analysis",
-                content="```json\n" + json.dumps(location_result, indent=2, default=str) + "\n```",
-                metadata={
-                    "Score": f"{location_result.get('score', 'N/A')}/100",
-                    "Confidence": location_result.get('confidence', 'N/A')
-                }
-            )
+                if current_key not in completed_results:
+                    break  # Still waiting for this skill
 
-            # Save knowledge debug to notes
-            if location_result.get('knowledge_debug'):
-                self._write_knowledge_debug_to_notes(address, "Location", location_result)
-        except Exception as e:
-            logger.error(f"Location analysis failed: {e}", exc_info=True)
-            self._fail_step_logging(step_log_id, str(e))
-            yield {"type": "status", "message": f"Location analysis failed: {e}"}
+                skill_result, skill_error = completed_results[current_key]
+                step_log_id = step_log_ids[current_key]
 
-        # School analysis (Step 9)
-        step_log_id = self._start_step_logging(9)
-        yield {"type": "status", "message": "Running school analysis..."}
-        try:
-            school_result = await self.school_skill.analyze(address, property_data=all_data)
-            results["schools"] = school_result
-            step_cost = 0
-            if school_result.get('cost_summary'):
-                step_cost = school_result['cost_summary'].get('total_cost', 0)
-                total_cost += step_cost
+                if skill_error:
+                    self._fail_step_logging(step_log_id, str(skill_error))
+                    yield {"type": "status", "message": f"{current_config['step_name']} failed: {skill_error}"}
+                else:
+                    results[current_key] = skill_result
+                    step_cost = skill_result.get('cost_summary', {}).get('total_cost', 0)
+                    total_cost += step_cost
 
-            self._complete_step_logging(
-                step_log_id,
-                cost=step_cost,
-                input_tokens=school_result.get('cost_summary', {}).get('input_tokens', 0),
-                output_tokens=school_result.get('cost_summary', {}).get('output_tokens', 0),
-                model=school_result.get('cost_summary', {}).get('model'),
-                metadata={"score": school_result.get('score')}
-            )
+                    self._complete_step_logging(
+                        step_log_id,
+                        cost=step_cost,
+                        input_tokens=skill_result.get('cost_summary', {}).get('input_tokens', 0),
+                        output_tokens=skill_result.get('cost_summary', {}).get('output_tokens', 0),
+                        model=skill_result.get('cost_summary', {}).get('model'),
+                        metadata={"score": skill_result.get('score')}
+                    )
 
-            yield {
-                "type": "analysis",
-                "step": 9,
-                "step_name": "School Quality",
-                "skill": "schools",
-                "analysis": self._format_analysis_markdown(school_result, "School Quality"),
-                "data": school_result,
-            }
+                    yield {
+                        "type": "analysis",
+                        "step": current_config["step"],
+                        "step_name": current_config["step_name"],
+                        "skill": current_key,
+                        "analysis": self._format_analysis_markdown(skill_result, current_config["step_name"]),
+                        "data": skill_result,
+                    }
 
-            self.notes_manager.append_section(
-                address=address,
-                section_title="School Analysis",
-                content="```json\n" + json.dumps(school_result, indent=2, default=str) + "\n```",
-                metadata={
-                    "Score": f"{school_result.get('score', 'N/A')}/100",
-                    "Confidence": school_result.get('confidence', 'N/A')
-                }
-            )
+                    # Save to notes
+                    self.notes_manager.append_section(
+                        address=address,
+                        section_title=current_config["notes_title"],
+                        content="```json\n" + json.dumps(skill_result, indent=2, default=str) + "\n```",
+                        metadata={
+                            "Score": f"{skill_result.get('score', 'N/A')}/100",
+                            "Confidence": skill_result.get('confidence', 'N/A')
+                        }
+                    )
 
-            if school_result.get('knowledge_debug'):
-                self._write_knowledge_debug_to_notes(address, "Schools", school_result)
+                    # Save knowledge debug to notes
+                    if skill_result.get('knowledge_debug'):
+                        self._write_knowledge_debug_to_notes(address, current_config["step_name"], skill_result)
 
-            # Write GreatSchools enrichment data for debugging
-            raw_schools = school_result.get('raw_data', {}).get('schools', [])
-            gs_schools = [s for s in raw_schools if any(k.startswith('gs_') for k in s)]
-            if gs_schools:
-                gs_lines = []
-                for s in gs_schools:
-                    gs_lines.append(f"### {s.get('name', 'Unknown')}")
-                    for k, v in s.items():
-                        if k.startswith('gs_'):
-                            if isinstance(v, dict):
-                                gs_lines.append(f"- **{k}**: {json.dumps(v, default=str)}")
-                            else:
-                                gs_lines.append(f"- **{k}**: {v}")
-                    gs_lines.append("")
-                self.notes_manager.append_section(
-                    address=address,
-                    section_title="GreatSchools Enrichment Data",
-                    content="\n".join(gs_lines),
-                    metadata={"Schools Enriched": len(gs_schools)}
-                )
-        except Exception as e:
-            logger.error(f"School analysis failed: {e}", exc_info=True)
-            self._fail_step_logging(step_log_id, str(e))
-            yield {"type": "status", "message": f"School analysis failed: {e}"}
+                    # Special: GreatSchools enrichment for schools skill
+                    if current_key == "schools":
+                        raw_schools = skill_result.get('raw_data', {}).get('schools', [])
+                        gs_schools = [s for s in raw_schools if any(k.startswith('gs_') for k in s)]
+                        if gs_schools:
+                            gs_lines = []
+                            for s in gs_schools:
+                                gs_lines.append(f"### {s.get('name', 'Unknown')}")
+                                for k, v in s.items():
+                                    if k.startswith('gs_'):
+                                        if isinstance(v, dict):
+                                            gs_lines.append(f"- **{k}**: {json.dumps(v, default=str)}")
+                                        else:
+                                            gs_lines.append(f"- **{k}**: {v}")
+                                gs_lines.append("")
+                            self.notes_manager.append_section(
+                                address=address,
+                                section_title="GreatSchools Enrichment Data",
+                                content="\n".join(gs_lines),
+                                metadata={"Schools Enriched": len(gs_schools)}
+                            )
 
-        # Investment analysis (Step 10)
-        step_log_id = self._start_step_logging(10)
-        yield {"type": "status", "message": "Running investment analysis..."}
-        try:
-            investment_result = await self.investment_skill.analyze(address, property_data=all_data)
-            results["investment"] = investment_result
-            step_cost = 0
-            if investment_result.get('cost_summary'):
-                step_cost = investment_result['cost_summary'].get('total_cost', 0)
-                total_cost += step_cost
-
-            self._complete_step_logging(
-                step_log_id,
-                cost=step_cost,
-                input_tokens=investment_result.get('cost_summary', {}).get('input_tokens', 0),
-                output_tokens=investment_result.get('cost_summary', {}).get('output_tokens', 0),
-                model=investment_result.get('cost_summary', {}).get('model'),
-                metadata={"score": investment_result.get('score')}
-            )
-
-            yield {
-                "type": "analysis",
-                "step": 10,
-                "step_name": "Investment Potential",
-                "skill": "investment",
-                "analysis": self._format_analysis_markdown(investment_result, "Investment Potential"),
-                "data": investment_result,
-            }
-
-            self.notes_manager.append_section(
-                address=address,
-                section_title="Investment Analysis",
-                content="```json\n" + json.dumps(investment_result, indent=2, default=str) + "\n```",
-                metadata={
-                    "Score": f"{investment_result.get('score', 'N/A')}/100",
-                    "Confidence": investment_result.get('confidence', 'N/A')
-                }
-            )
-
-            if investment_result.get('knowledge_debug'):
-                self._write_knowledge_debug_to_notes(address, "Investment", investment_result)
-        except Exception as e:
-            logger.error(f"Investment analysis failed: {e}", exc_info=True)
-            self._fail_step_logging(step_log_id, str(e))
-            yield {"type": "status", "message": f"Investment analysis failed: {e}"}
+                next_to_yield_idx += 1
 
         yield {
             "type": "analysis_complete",
