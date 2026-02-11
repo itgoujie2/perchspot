@@ -297,7 +297,7 @@ class BaseSkill(ABC):
         )
 
         try:
-            haiku_model = "claude-haiku-4-20250414"
+            haiku_model = "claude-3-haiku-20240307"
             response = self.claude_client.messages.create(
                 model=haiku_model,
                 max_tokens=512,

@@ -291,7 +291,7 @@ Return ONLY the JSON array, no other text."""
             response = await self._call_claude(
                 prompt=prompt,
                 max_tokens=256,
-                model="claude-haiku-4-20250414"
+                model="claude-3-haiku-20240307"
             )
 
             # Parse JSON response
