@@ -181,34 +181,25 @@ class InvestmentSkill(BaseSkill):
         Returns None if search fails or no data found.
         """
         import os
-        from anthropic import Anthropic
-
-        # Use Anthropic's web search via a prompt
-        # We'll ask Claude to search and return structured data
-        search_query = f"{city} home price appreciation rate 2024 2025 housing market"
+        from anthropic import AsyncAnthropic
 
         try:
-            client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+            client = AsyncAnthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
-            # Use Claude with web search capability
-            response = client.messages.create(
-                model="claude-sonnet-4-5-20250929",
-                max_tokens=500,
+            # Use Claude to estimate appreciation based on its knowledge
+            response = await client.messages.create(
+                model="claude-3-haiku-20240307",  # Use Haiku for speed
+                max_tokens=300,
                 messages=[{
                     "role": "user",
-                    "content": f"""Search for recent home price appreciation data for {city}.
+                    "content": f"""Based on your knowledge of real estate markets, estimate the home price appreciation for {city}.
 
-Find the annual home price appreciation rate (year-over-year percentage change).
+Return ONLY a JSON object:
+- annual_appreciation_pct: number (estimated annual % change)
+- five_year_growth_pct: number (estimated 5-year total growth %)
+- source: "claude_estimate"
 
-Return ONLY a JSON object with these fields:
-- annual_appreciation_pct: number (the annual % change, e.g., 5.2 for 5.2%)
-- five_year_growth_pct: number (total % growth over 5 years if available, else estimate from annual)
-- source: string (where the data came from, e.g., "Zillow", "Redfin", "NAR")
-- data_date: string (what time period the data covers)
-
-If you cannot find reliable data, return {{"error": "no data found"}}.
-
-Return ONLY valid JSON, no other text."""
+Return ONLY valid JSON."""
                 }]
             )
 
@@ -230,7 +221,7 @@ Return ONLY valid JSON, no other text."""
                 return data
 
         except Exception as e:
-            logger.warning(f"InvestmentSkill: Appreciation web search failed: {e}")
+            logger.warning(f"InvestmentSkill: Appreciation estimate failed: {e}")
 
         return None
 

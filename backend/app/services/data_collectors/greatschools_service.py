@@ -114,34 +114,47 @@ class GreatSchoolsService:
 
         logger.info(f"GreatSchools: City index has {len(school_index)} schools for {city}, {state_abbr}")
 
-        # Step 2: Match each Redfin school to a GS URL and fetch details
-        enriched = []
-        for school in schools:
+        # Step 2: Match each Redfin school to a GS URL
+        schools_to_fetch = []
+        for i, school in enumerate(schools):
             name = school.get("name", "")
             if not name:
-                enriched.append(school)
                 continue
-
-            # Find best match in city index
             url = self._find_best_match(name, school_index)
-            if not url:
+            if url:
+                schools_to_fetch.append((i, school, name, url))
+            else:
                 logger.info(f"GreatSchools: No match for '{name}' in city index")
-                enriched.append(school)
-                continue
 
-            try:
-                await asyncio.sleep(REQUEST_DELAY)
-                gs_data = await self._fetch_school_details(url)
-                if gs_data:
-                    merged = {**school, **gs_data}
-                    enriched.append(merged)
-                    logger.info(f"GreatSchools: Enriched '{name}' — gs_rating={gs_data.get('gs_rating')}, url={url}")
-                else:
-                    enriched.append(school)
-                    logger.info(f"GreatSchools: Page fetched but no data extracted for '{name}'")
-            except Exception as e:
-                logger.warning(f"GreatSchools: Failed to enrich '{name}': {e}")
-                enriched.append(school)
+        if not schools_to_fetch:
+            return schools
+
+        # Fetch all matched schools in parallel with semaphore for rate limiting
+        semaphore = asyncio.Semaphore(3)  # Max 3 concurrent requests
+
+        async def fetch_with_limit(idx, school, name, url):
+            async with semaphore:
+                await asyncio.sleep(0.5)  # Small delay to avoid rate limiting
+                try:
+                    gs_data = await self._fetch_school_details(url)
+                    if gs_data:
+                        logger.info(f"GreatSchools: Enriched '{name}' — gs_rating={gs_data.get('gs_rating')}")
+                        return (idx, {**school, **gs_data})
+                    else:
+                        logger.info(f"GreatSchools: No data extracted for '{name}'")
+                        return (idx, school)
+                except Exception as e:
+                    logger.warning(f"GreatSchools: Failed to enrich '{name}': {e}")
+                    return (idx, school)
+
+        # Run all fetches in parallel
+        tasks = [fetch_with_limit(idx, school, name, url) for idx, school, name, url in schools_to_fetch]
+        results = await asyncio.gather(*tasks)
+
+        # Build enriched list preserving original order
+        enriched = list(schools)  # Start with original list
+        for idx, enriched_school in results:
+            enriched[idx] = enriched_school
 
         return enriched
 

@@ -1,6 +1,7 @@
 """
 Google Maps Service - Commute time calculations via Distance Matrix API
 """
+import asyncio
 import logging
 from typing import Dict, Any, List, Optional
 
@@ -41,8 +42,11 @@ class GoogleMapsService:
         dest_addresses = [d["address"] for d in destinations]
         dest_names = [d["name"] for d in destinations]
 
-        drive_times = await self._query_matrix(origin, dest_addresses, mode="driving")
-        transit_times = await self._query_matrix(origin, dest_addresses, mode="transit")
+        # Run driving and transit queries in parallel
+        drive_times, transit_times = await asyncio.gather(
+            self._query_matrix(origin, dest_addresses, mode="driving"),
+            self._query_matrix(origin, dest_addresses, mode="transit"),
+        )
 
         results = []
         for i, name in enumerate(dest_names):
