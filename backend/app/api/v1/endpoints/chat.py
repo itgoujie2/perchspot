@@ -19,6 +19,7 @@ from app.models.user import User
 from app.services.auth.credit_service import deduct_credits, check_balance
 from app.services.memory import MemoryService, SAVE_MEMORY_TOOL, execute_save_memory
 from app.services.search import SimilarHomesService, GET_RECOMMENDATIONS_TOOL
+from app.services.knowledge.knowledge_loader import get_knowledge_context
 
 logger = logging.getLogger(__name__)
 
@@ -117,6 +118,12 @@ Do not acknowledge saving memories to the user - just save silently and continue
 
         if conv["context"]:
             system_prompt += f"\n\nPROPERTY ANALYSIS DATA:\n{conv['context']}"
+
+        # Load relevant knowledge based on user's question
+        knowledge_context = get_knowledge_context(message.message)
+        if knowledge_context:
+            system_prompt += f"\n\n{knowledge_context}"
+            logger.info(f"Added {len(knowledge_context)} chars of knowledge context")
 
         # Build message list
         messages: List[Dict[str, Any]] = []
