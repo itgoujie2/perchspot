@@ -414,9 +414,10 @@
 ## Regional Recommendations
 
 ### Pacific Northwest (Seattle, Portland)
-- **Best**: Fiber cement (moisture resistant), treated cedar with maintenance
-- **Avoid**: Basic vinyl in wet climates without proper drainage
-- **Considerations**: High moisture environment, mold growth concerns
+- **Best**: Fiber cement (moisture resistant), vinyl, engineered wood with proper maintenance
+- **Good**: Treated cedar with regular maintenance
+- **Avoid**: Stucco (prone to moisture intrusion and cracking in rainy climate), untreated wood (rot risk)
+- **Considerations**: High rainfall and humidity require moisture-resistant materials. Stucco is designed for dry climates and will trap moisture, leading to mold, rot, and structural damage behind the siding.
 
 ### Hot/Sunny Climates (Arizona, Texas, Southern California)
 - **Best**: Fiber cement, stucco, light-colored siding
