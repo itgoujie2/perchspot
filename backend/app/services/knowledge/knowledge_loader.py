@@ -97,9 +97,11 @@ def find_relevant_knowledge(user_message: str) -> List[Tuple[str, str]]:
     results = []
 
     for keywords, file_path, topic_name in KNOWLEDGE_FILES:
-        # Check if any keyword appears in the message
+        # Check if any keyword appears in the message (word boundary match)
         for keyword in keywords:
-            if keyword in message_lower:
+            # Use word boundary regex to avoid partial matches (e.g., "la" in "slab")
+            pattern = r'\b' + re.escape(keyword) + r'\b'
+            if re.search(pattern, message_lower):
                 # Load the file
                 full_path = KNOWLEDGE_DIR / file_path
                 if full_path.exists():
