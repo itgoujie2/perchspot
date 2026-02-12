@@ -22,10 +22,9 @@ An LLC (Limited Liability Company) provides:
 
 | Option | Filing Fee | Annual Fee | Pros | Cons |
 |--------|-----------|------------|------|------|
-| **Home State** | Varies | Varies | Simple, no foreign registration | State-specific rules |
-| **Wyoming** | $100 | $60 | Lowest costs, no state income tax, strong privacy | May need foreign registration in home state |
-| **Delaware** | $110 | $300 | Best for VC/investors, business-friendly courts | Higher annual fee |
-| **California** | $70 | $800 | N/A if you live there | Highest annual tax |
+| **Washington** | $180 | $70 | Home state, no income tax, reasonable fees | B&O tax on revenue |
+| **Wyoming** | $100 | $60 | Lowest costs, strong privacy | Need foreign registration in WA |
+| **Delaware** | $110 | $300 | Best for VC/investors, business-friendly courts | Higher annual fee, need foreign registration |
 
 **Recommendation**: Register in your home state unless you have specific reasons (investors, privacy, tax optimization).
 
@@ -66,6 +65,7 @@ An LLC (Limited Liability Company) provides:
 
 | State | Filing Fee | Notes |
 |-------|-----------|-------|
+| **Washington** | **$180** | **Your home state** |
 | Wyoming | $100 | Lowest overall |
 | Delaware | $110 | Popular for startups |
 | Texas | $300 | No state income tax |
@@ -77,6 +77,7 @@ An LLC (Limited Liability Company) provides:
 
 | State | Annual Fee | Notes |
 |-------|-----------|-------|
+| **Washington** | **$70** | **Annual report** |
 | Wyoming | $60 | Lowest |
 | Delaware | $300 | Franchise tax |
 | California | $800 | Franchise tax (regardless of revenue) |
@@ -84,42 +85,57 @@ An LLC (Limited Liability Company) provides:
 | New York | $25 | Biennial report |
 | Florida | $138.75 | Annual report |
 
-### California-Specific Costs
-
-If operating in California:
+### Washington State Costs (Your Home State)
 
 | Item | Cost | Frequency |
 |------|------|-----------|
-| Articles of Organization | $70 | One-time |
-| Statement of Information | $20 | Every 2 years |
-| Franchise Tax | $800 | Annual |
-| Additional fee (revenue >$250K) | $900-$11,790 | Annual |
+| Certificate of Formation | $180 | One-time |
+| Annual Report | $70 | Annual |
+| Late fee (if delinquent) | $25 | Per occurrence |
+| Expedited processing (optional) | $100 | Per filing |
+| State Business License | $0-$90 | Annual (varies by city) |
 
-**California Total Year 1**: ~$890
-**California Total Ongoing**: ~$820/year minimum
+**Washington Total Year 1**: ~$250
+**Washington Total Ongoing**: ~$70/year + B&O tax
+
+### Washington B&O Tax (Business & Occupation)
+
+Washington has **no state income tax**, but has B&O tax on gross revenue:
+
+| Business Type | B&O Tax Rate |
+|---------------|--------------|
+| Retailing | 0.471% |
+| Service & Other | 1.5% |
+| Manufacturing | 0.484% |
+
+**Example for SaaS (Service)**: $100K revenue × 1.5% = **$1,500/year**
+
+**Note**: Small business thresholds may apply. Seattle B&O threshold increases to $2M in 2026.
 
 ---
 
-## Total Estimated Costs
+## Total Estimated Costs (Washington)
 
 ### DIY Registration
 
 | Item | Cost |
 |------|------|
-| State filing fee | $70-500 |
-| Registered agent (optional) | $50-150/year |
+| WA Certificate of Formation | $180 |
+| Registered agent (yourself) | Free |
 | EIN | Free |
-| Operating agreement (template) | Free-$50 |
-| **Total** | **$70-700** |
+| Operating agreement (template) | Free |
+| WA Business License | Free-$90 |
+| **Total Year 1** | **~$180-270** |
+| **Ongoing (annual)** | **$70 + B&O tax** |
 
 ### Using a Service (LegalZoom, ZenBusiness, etc.)
 
 | Item | Cost |
 |------|------|
-| Formation service | $0-300 |
-| State filing fee | $70-500 |
-| Registered agent | $100-300/year |
-| **Total** | **$170-1,100** |
+| Formation service | $0-150 |
+| WA filing fee | $180 |
+| Registered agent (1st year free with some) | $0-150/year |
+| **Total Year 1** | **$180-480** |
 
 ---
 
@@ -138,47 +154,61 @@ If operating in California:
 
 ## Recommended Approach for Perchspot
 
-### Option A: California LLC (If Based in CA)
-- **Pros**: Simple, no foreign registration needed
-- **Cons**: $800/year franchise tax
-- **Best if**: You live/operate primarily in California
+### Option A: Washington LLC (Recommended)
+- **Pros**: Simple, no foreign registration, no state income tax, low annual fee ($70)
+- **Cons**: B&O tax on gross revenue (1.5% for services)
+- **Cost**: $180 filing + $70/year + B&O tax
+- **Best if**: You live in Washington (you do!)
 
-### Option B: Wyoming LLC + CA Foreign Registration
-- **Pros**: Lower ongoing costs if expanding to multiple states
-- **Cons**: Need to file in both states initially
-- **Best if**: Privacy important, planning multi-state operations
+### Option B: Wyoming LLC + WA Foreign Registration
+- **Pros**: Lower annual fee ($60 vs $70), stronger privacy
+- **Cons**: Need to register as foreign LLC in WA anyway, double paperwork
+- **Savings**: Only ~$10/year - not worth the complexity
+- **Best if**: Privacy is critical priority
 
 ### Option C: Delaware LLC (Future VC)
 - **Pros**: Investor-friendly, established case law
-- **Cons**: Higher annual fee ($300), may need foreign registration
-- **Best if**: Planning to raise venture capital
+- **Cons**: Higher annual fee ($300), need WA foreign registration
+- **Best if**: Planning to raise venture capital in the future
 
-**Recommendation for Solo SaaS**: Start with your home state. The complexity of out-of-state registration rarely justifies the savings for a single-member LLC.
+**Recommendation: Option A (Washington LLC)**
+
+Washington is actually a great state for LLCs:
+- No state income tax (unlike California's $800/year minimum)
+- Low annual fee ($70)
+- Simple online filing
+- B&O tax is based on revenue, so low cost when starting out
 
 ---
 
-## Post-Registration Checklist
+## Post-Registration Checklist (Washington)
 
-- [ ] Receive Articles of Organization from state
-- [ ] Apply for EIN at irs.gov
+- [ ] Receive Certificate of Formation from WA Secretary of State
+- [ ] Apply for EIN at irs.gov (free, same day)
+- [ ] Apply for WA State Business License (UBI number) at dor.wa.gov
+- [ ] Register for B&O tax account with WA Department of Revenue
 - [ ] Open business bank account
 - [ ] Set up accounting (separate from personal)
-- [ ] Update business licenses if required
-- [ ] File Statement of Information (CA: within 90 days)
-- [ ] Pay franchise tax (CA: by 15th of 4th month)
+- [ ] Check if local city business license required (Seattle, etc.)
+- [ ] File Annual Report by end of formation month each year
 - [ ] Consider business insurance
 
 ---
 
 ## Resources
 
-- [LLC University - LLC Filing Fees by State](https://www.llcuniversity.com/llc-filing-fees-by-state/)
-- [LegalZoom - How to Start an LLC](https://www.legalzoom.com/articles/how-to-start-an-llc-in-7-steps)
+### Washington State (Primary)
+- [WA Secretary of State - LLC Filing](https://www.sos.wa.gov/corporations-charities/business-entities/limited-liability-company-llc-professional-llc-pllc-filing-resource-page)
+- [WA Secretary of State - Fee Schedule](https://www.sos.wa.gov/corporations-charities/frequently-asked-questions-faqs/fee-scheduleexpedited-service)
+- [WA Department of Revenue - Business License](https://dor.wa.gov/open-business/apply-business-license)
+- [WA Department of Revenue - B&O Tax](https://dor.wa.gov/taxes-rates/business-occupation-tax)
+- [LLC University - Washington LLC](https://www.llcuniversity.com/washington-llc/costs/)
+- [ZenBusiness - Washington Filing Fees](https://www.zenbusiness.com/washington-filing-fees/)
+
+### General
 - [IRS - Apply for EIN Online](https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online)
-- [California FTB - LLC Information](https://www.ftb.ca.gov/file/business/types/limited-liability-company/index.html)
 - [SBA - Register Your Business](https://www.sba.gov/business-guide/launch-your-business/register-your-business)
-- [ZenBusiness - State Filing Fees](https://www.zenbusiness.com/state-fees/)
-- [Wyoming vs Delaware Comparison](https://www.manaycpa.com/wyoming-vs-delaware-which-is-the-best-state-to-form-your-llc/)
+- [LLC University - LLC Filing Fees by State](https://www.llcuniversity.com/llc-filing-fees-by-state/)
 
 ---
 
