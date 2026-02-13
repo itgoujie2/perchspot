@@ -91,12 +91,57 @@ class NotesManager:
         """
         Normalize address into a valid filename.
 
+        Handles common variations:
+        - Missing space between state and zip (WA98040 -> WA 98040)
+        - Street abbreviations (Pl/Place, St/Street, Ave/Avenue, etc.)
+        - Direction abbreviations (NE/Northeast, etc.)
+
         Examples:
             "522 Glacier Walk SE" -> "522_glacier_walk_se"
             "123 Main St, San Francisco, CA" -> "123_main_st_san_francisco_ca"
+            "2423 63rd Ave SE, Mercer Island, WA98040" -> same as "WA 98040" version
         """
         # Convert to lowercase
         normalized = address.lower()
+
+        # Fix missing space between state abbreviation and zip code
+        # Matches patterns like "wa98040" or "ca94102" (2-letter state + 5-digit zip)
+        normalized = re.sub(r'\b([a-z]{2})(\d{5})\b', r'\1 \2', normalized)
+
+        # Normalize common street type abbreviations to full form
+        # This ensures "17th Pl" matches "17th Place"
+        street_abbrevs = {
+            r'\bpl\b': 'place',
+            r'\bst\b': 'street',
+            r'\bave\b': 'avenue',
+            r'\bblvd\b': 'boulevard',
+            r'\bdr\b': 'drive',
+            r'\bln\b': 'lane',
+            r'\brd\b': 'road',
+            r'\bct\b': 'court',
+            r'\bcir\b': 'circle',
+            r'\bpkwy\b': 'parkway',
+            r'\bhwy\b': 'highway',
+            r'\bter\b': 'terrace',
+            r'\bway\b': 'way',  # already full, but include for completeness
+        }
+        for abbrev, full in street_abbrevs.items():
+            normalized = re.sub(abbrev, full, normalized)
+
+        # Normalize direction abbreviations (keep short form for consistency)
+        # Convert full forms to abbreviations
+        direction_full_to_abbrev = {
+            r'\bnortheast\b': 'ne',
+            r'\bnorthwest\b': 'nw',
+            r'\bsoutheast\b': 'se',
+            r'\bsouthwest\b': 'sw',
+            r'\bnorth\b': 'n',
+            r'\bsouth\b': 's',
+            r'\beast\b': 'e',
+            r'\bwest\b': 'w',
+        }
+        for full, abbrev in direction_full_to_abbrev.items():
+            normalized = re.sub(full, abbrev, normalized)
 
         # Remove special characters, keep alphanumeric and spaces
         normalized = re.sub(r'[^\w\s]', '', normalized)
