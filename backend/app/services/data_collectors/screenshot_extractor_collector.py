@@ -516,8 +516,56 @@ class ScreenshotExtractorCollector:
                 logger.debug(f"Popup dismiss attempt {attempt + 1} failed: {e}")
                 await asyncio.sleep(0.5)
 
+    def _normalize_address_for_search(self, address: str) -> str:
+        """
+        Normalize address format for Redfin search.
+
+        Handles common user input variations:
+        - Missing space between state and zip (WA98040 -> WA 98040)
+        - Street abbreviations (Pl -> Place, St -> Street, etc.)
+
+        Args:
+            address: Raw address input from user
+
+        Returns:
+            Normalized address suitable for Redfin search
+        """
+        normalized = address
+
+        # Fix missing space between state abbreviation and zip code
+        # Matches patterns like "WA98040" (2-letter state + 5-digit zip)
+        normalized = re.sub(r'\b([A-Za-z]{2})(\d{5})\b', r'\1 \2', normalized)
+
+        # Normalize common street type abbreviations to full form
+        # Redfin's search works better with full forms
+        street_abbrevs = [
+            (r'\bPl\b', 'Place'),
+            (r'\bSt\b', 'Street'),
+            (r'\bAve\b', 'Avenue'),
+            (r'\bBlvd\b', 'Boulevard'),
+            (r'\bDr\b', 'Drive'),
+            (r'\bLn\b', 'Lane'),
+            (r'\bRd\b', 'Road'),
+            (r'\bCt\b', 'Court'),
+            (r'\bCir\b', 'Circle'),
+            (r'\bPkwy\b', 'Parkway'),
+            (r'\bHwy\b', 'Highway'),
+            (r'\bTer\b', 'Terrace'),
+        ]
+        for abbrev, full in street_abbrevs:
+            # Case-insensitive replacement, preserving original case style
+            normalized = re.sub(abbrev, full, normalized, flags=re.IGNORECASE)
+
+        if normalized != address:
+            logger.info(f"Normalized address for search: '{address}' -> '{normalized}'")
+
+        return normalized
+
     async def _perform_search(self, page: Page, address: str, max_retries: int = 3) -> bool:
         """Perform search with retry logic for dynamic DOM."""
+        # Normalize address for better Redfin search results
+        search_address = self._normalize_address_for_search(address)
+
         for attempt in range(max_retries):
             try:
                 # Wait a bit for page to stabilize
@@ -553,7 +601,7 @@ class ScreenshotExtractorCollector:
 
                 # Use keyboard to clear and type (more reliable than fill)
                 await page.keyboard.press("Control+a")
-                await page.keyboard.type(address, delay=30)  # Reduced delay from 50ms
+                await page.keyboard.type(search_address, delay=30)  # Reduced delay from 50ms
                 await asyncio.sleep(1.5)  # Reduced from 2s
 
                 # Press Enter
