@@ -10,7 +10,7 @@ import tempfile
 import threading
 import uuid
 from datetime import datetime
-from typing import List, Optional, Dict, Any
+from typing import List, Optional, Dict, Any, Union
 
 from fastapi import APIRouter, Depends, UploadFile, File, HTTPException, Header, BackgroundTasks
 from pydantic import BaseModel
@@ -40,11 +40,19 @@ class SearchRequest(BaseModel):
     categories: Optional[List[str]] = None
 
 
+class AppliesWhenCondition(BaseModel):
+    attribute: str
+    operator: str
+    value: Any
+
+
 class SearchResultItem(BaseModel):
     text: str
     category: str
     score: float
     source_file: str
+    priority: Optional[str] = "medium"
+    applies_when: Optional[List[AppliesWhenCondition]] = None
 
 
 class SearchResponse(BaseModel):
@@ -163,6 +171,10 @@ async def search_knowledge(request: SearchRequest):
                     category=r.category,
                     score=r.score,
                     source_file=r.source_file,
+                    priority=r.priority,
+                    applies_when=[
+                        AppliesWhenCondition(**cond) for cond in (r.applies_when or [])
+                    ] if r.applies_when else None,
                 )
                 for r in results
             ]

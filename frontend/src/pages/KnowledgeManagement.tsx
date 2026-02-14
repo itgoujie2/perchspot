@@ -28,11 +28,19 @@ import {
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
+interface AppliesWhenCondition {
+  attribute: string;
+  operator: string;
+  value: boolean | number | string;
+}
+
 interface SearchResult {
   text: string;
   category: string;
   score: number;
   source_file: string;
+  priority?: string;
+  applies_when?: AppliesWhenCondition[];
 }
 
 interface CollectionStatus {
@@ -376,12 +384,36 @@ export default function KnowledgeManagement() {
                     <Card key={i} variant="outlined" sx={{ mb: 1 }}>
                       <CardContent sx={{ py: 1.5, '&:last-child': { pb: 1.5 } }}>
                         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 0.5 }}>
-                          <Chip label={r.category} size="small" color="primary" variant="outlined" />
+                          <Box sx={{ display: 'flex', gap: 0.5, alignItems: 'center', flexWrap: 'wrap' }}>
+                            <Chip label={r.category} size="small" color="primary" variant="outlined" />
+                            {r.priority && r.priority !== 'medium' && (
+                              <Chip
+                                label={r.priority}
+                                size="small"
+                                color={r.priority === 'high' ? 'error' : 'default'}
+                                variant="filled"
+                              />
+                            )}
+                          </Box>
                           <Typography variant="caption" color="text.secondary">
                             score: {r.score.toFixed(4)} | {r.source_file}
                           </Typography>
                         </Box>
-                        <Typography variant="body2">{r.text}</Typography>
+                        <Typography variant="body2" sx={{ mb: r.applies_when?.length ? 1 : 0 }}>{r.text}</Typography>
+                        {r.applies_when && r.applies_when.length > 0 && (
+                          <Box sx={{ display: 'flex', gap: 0.5, flexWrap: 'wrap' }}>
+                            {r.applies_when.map((cond, j) => (
+                              <Chip
+                                key={j}
+                                label={`${cond.attribute}${cond.operator}${cond.value}`}
+                                size="small"
+                                variant="outlined"
+                                color="secondary"
+                                sx={{ fontSize: '0.7rem' }}
+                              />
+                            ))}
+                          </Box>
+                        )}
                       </CardContent>
                     </Card>
                   ))}

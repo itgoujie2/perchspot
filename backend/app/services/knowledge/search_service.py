@@ -31,6 +31,7 @@ class SearchResult:
     score: float
     source_file: str
     priority: str = "medium"  # high, medium, low
+    applies_when: List[Dict[str, Any]] = None  # List of condition dicts
 
 
 class SearchService:
@@ -117,6 +118,8 @@ class SearchService:
                 category=p.payload.get("category", ""),
                 score=p.score,
                 source_file=p.payload.get("source_file", ""),
+                priority=p.payload.get("priority", "medium"),
+                applies_when=p.payload.get("applies_when", []),
             )
             for p in filtered[:limit]
         ]
@@ -197,6 +200,8 @@ class SearchService:
                 category=p.payload.get("category", ""),
                 score=p.score,
                 source_file=p.payload.get("source_file", ""),
+                priority=p.payload.get("priority", "medium"),
+                applies_when=p.payload.get("applies_when", []),
             )
             for p in all_results
         ]
