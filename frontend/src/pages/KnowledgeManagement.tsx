@@ -25,7 +25,6 @@ import {
   CheckCircle,
   Delete,
   List,
-  Checkbox,
 } from '@mui/icons-material';
 import {
   FormControl,
@@ -33,6 +32,7 @@ import {
   Select,
   MenuItem,
   FormControlLabel,
+  Checkbox,
 } from '@mui/material';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
