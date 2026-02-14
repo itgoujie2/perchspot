@@ -147,24 +147,74 @@ class AutoTaggingService:
         # Extract JSON from response (handle markdown code blocks)
         json_match = re.search(r'```(?:json)?\s*(.*?)\s*```', response_text, re.DOTALL)
         if json_match:
-            response_text = json_match.group(1)
+            response_text = json_match.group(1).strip()
+
+        # Also try to find JSON object directly if no code block
+        if not response_text.startswith('{'):
+            # Try to find a JSON object in the response
+            json_obj_match = re.search(r'\{[^{}]*\}', response_text, re.DOTALL)
+            if json_obj_match:
+                response_text = json_obj_match.group(0)
 
         try:
             data = json.loads(response_text)
-        except json.JSONDecodeError as e:
-            logger.warning(f"Failed to parse LLM response as JSON: {e}\nResponse: {response_text}")
+        except (json.JSONDecodeError, Exception) as e:
+            logger.warning(f"Failed to parse LLM response as JSON: {e}\nResponse: {response_text[:500]}")
             # Return empty suggestion on parse error
             return TagSuggestion(
                 applies_when=[],
                 priority="medium",
-                reasoning=f"Failed to parse LLM response: {str(e)}"
+                reasoning=f"Parse error: {str(e)[:100]}"
             )
 
-        return TagSuggestion(
-            applies_when=data.get("applies_when", []),
-            priority=data.get("priority", "medium"),
-            reasoning=data.get("reasoning", ""),
-        )
+        # Validate and normalize applies_when
+        try:
+            raw_applies_when = data.get("applies_when", [])
+            validated_applies_when = []
+
+            if isinstance(raw_applies_when, list):
+                for item in raw_applies_when:
+                    try:
+                        if isinstance(item, dict):
+                            # Normalize keys (strip quotes, lowercase)
+                            normalized = {}
+                            for k, v in item.items():
+                                clean_key = str(k).strip().strip('"\'').lower()
+                                normalized[clean_key] = v
+
+                            # Ensure required keys exist
+                            if "attribute" in normalized and "operator" in normalized and "value" in normalized:
+                                validated_applies_when.append({
+                                    "attribute": str(normalized["attribute"]).lower().strip(),
+                                    "operator": str(normalized["operator"]).lower().strip(),
+                                    "value": normalized["value"],
+                                })
+                            else:
+                                logger.debug(f"Skipping applies_when item missing keys: {item}")
+                    except Exception as item_err:
+                        logger.warning(f"Error processing applies_when item {item}: {item_err}")
+                        continue
+
+            # Validate priority
+            priority = str(data.get("priority", "medium")).lower().strip()
+            if priority not in ("high", "medium", "low"):
+                priority = "medium"
+
+            reasoning = str(data.get("reasoning", ""))
+
+            return TagSuggestion(
+                applies_when=validated_applies_when,
+                priority=priority,
+                reasoning=reasoning,
+            )
+
+        except Exception as e:
+            logger.warning(f"Error validating LLM response data: {e}\nData: {data}")
+            return TagSuggestion(
+                applies_when=[],
+                priority="medium",
+                reasoning=f"Validation error: {str(e)[:100]}"
+            )
 
     def auto_tag_point(self, point_id: str, text: str, category: str, source_file: str,
                        current_tags: List[Dict], current_priority: str,
