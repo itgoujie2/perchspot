@@ -269,6 +269,68 @@ class BaseSkill(ABC):
         combined = "\n\n".join(sections)
         return combined, all_debug
 
+    def _get_attribute_knowledge(self, property_data: Dict[str, Any], limit: int = 10):
+        """
+        Retrieve knowledge points that match property attributes via @applies_when tags.
+
+        This finds generic knowledge that applies based on property attributes like:
+        - Age-based: "Pre-1990 homes may have galvanized pipes"
+        - HOA-based: "Small community HOAs can have high fees"
+        - Type-based: "Townhomes share walls - noise considerations"
+
+        Args:
+            property_data: Property data dict with 'details', 'hoa', etc.
+            limit: Maximum results to return
+
+        Returns:
+            (formatted_context_str, debug_list) where debug_list contains
+            matched knowledge points with their attributes.
+        """
+        try:
+            from app.services.knowledge.search_service import get_search_service
+            from collections import defaultdict
+            service = get_search_service()
+        except Exception as e:
+            logger.warning(f"Attribute knowledge search unavailable: {e}")
+            return "", []
+
+        try:
+            results = service.search_by_attributes(property_data, limit=limit)
+            if not results:
+                logger.info("No attribute-matched knowledge found for property")
+                return "", []
+
+            # Build debug info
+            debug_list = [
+                {
+                    "text": r.text,
+                    "category": r.category,
+                    "priority": r.priority,
+                    "source_file": r.source_file,
+                }
+                for r in results
+            ]
+
+            # Group by category for context string
+            by_category = defaultdict(list)
+            for r in results:
+                by_category[r.category].append(r.text)
+
+            sections = []
+            for category, texts in by_category.items():
+                lines = [f"### {category}"]
+                for text in texts:
+                    lines.append(f"- {text}")
+                sections.append("\n".join(lines))
+
+            combined = "\n\n".join(sections)
+            logger.info(f"Attribute knowledge: found {len(results)} matching points")
+            return combined, debug_list
+
+        except Exception as e:
+            logger.warning(f"Attribute knowledge search failed: {e}")
+            return "", []
+
     def _parse_json_response(self, response_text: str) -> Dict[str, Any]:
         """Parse JSON response from Claude, handling markdown code blocks."""
         import json

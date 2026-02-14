@@ -3,11 +3,12 @@ Search Service — Hybrid search (KNN + BM25) with RRF fusion
 
 Provides search and context-formatting for LLM augmentation.
 Includes entity detection for proper noun queries (e.g., builder names).
+Supports attribute-based search for property-specific knowledge.
 """
 import logging
 from collections import defaultdict
 from dataclasses import dataclass
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
 
 from app.services.knowledge.embedding_service import get_embedding_service
 from app.services.knowledge.storage_service import get_storage_service
@@ -29,6 +30,7 @@ class SearchResult:
     category: str
     score: float
     source_file: str
+    priority: str = "medium"  # high, medium, low
 
 
 class SearchService:
@@ -207,6 +209,192 @@ class SearchService:
         Returns empty string if no results.
         """
         results = self.search(query, limit=limit)
+        if not results:
+            return ""
+
+        # Group by category
+        by_category = defaultdict(list)
+        for r in results:
+            by_category[r.category].append(r.text)
+
+        # Format
+        sections = []
+        for category, texts in by_category.items():
+            lines = [f"### {category}"]
+            for text in texts:
+                lines.append(f"- {text}")
+            sections.append("\n".join(lines))
+
+        return "\n\n".join(sections)
+
+    def _evaluate_condition(
+        self,
+        condition: Dict[str, Any],
+        property_data: Dict[str, Any]
+    ) -> bool:
+        """
+        Evaluate a single @applies_when condition against property data.
+
+        Condition format: {"attribute": "year_built", "operator": "<", "value": 1990}
+
+        Supported attributes (with their data paths):
+            - year_built: details.year_built
+            - has_hoa: hoa.has_hoa
+            - hoa_fee: hoa.fee
+            - property_type: details.property_type
+            - lot_size_sqft: details.lot_size_sqft
+            - living_area_sqft: details.living_area_sqft
+            - bedrooms: details.bedrooms
+            - bathrooms: details.bathrooms
+            - stories: details.stories
+        """
+        attribute = condition.get("attribute", "")
+        operator = condition.get("operator", "=")
+        target_value = condition.get("value")
+
+        # Map attributes to their data paths
+        attribute_paths = {
+            "year_built": ("details", "year_built"),
+            "has_hoa": ("hoa", "has_hoa"),
+            "hoa_fee": ("hoa", "fee"),
+            "property_type": ("details", "property_type"),
+            "lot_size_sqft": ("details", "lot_size_sqft"),
+            "living_area_sqft": ("details", "living_area_sqft"),
+            "bedrooms": ("details", "bedrooms"),
+            "bathrooms": ("details", "bathrooms"),
+            "stories": ("details", "stories"),
+        }
+
+        path = attribute_paths.get(attribute)
+        if not path:
+            # Unknown attribute, can't evaluate
+            return False
+
+        # Navigate to the value in property_data
+        current = property_data
+        for key in path:
+            if not isinstance(current, dict):
+                return False
+            current = current.get(key)
+            if current is None:
+                return False
+
+        actual_value = current
+
+        # Evaluate based on operator
+        try:
+            if operator == "=":
+                if isinstance(target_value, bool):
+                    return bool(actual_value) == target_value
+                elif isinstance(target_value, str):
+                    return str(actual_value).lower() == target_value.lower()
+                else:
+                    return actual_value == target_value
+            elif operator == "<":
+                return float(actual_value) < float(target_value)
+            elif operator == ">":
+                return float(actual_value) > float(target_value)
+            elif operator == "<=":
+                return float(actual_value) <= float(target_value)
+            elif operator == ">=":
+                return float(actual_value) >= float(target_value)
+            elif operator == "contains":
+                return str(target_value).lower() in str(actual_value).lower()
+            else:
+                return False
+        except (ValueError, TypeError):
+            return False
+
+    def search_by_attributes(
+        self,
+        property_data: Dict[str, Any],
+        limit: int = 20,
+    ) -> List[SearchResult]:
+        """
+        Find knowledge points that match property attributes via @applies_when tags.
+
+        Scans all knowledge points that have applies_when conditions and returns
+        those where ALL conditions match the property data.
+
+        Args:
+            property_data: Property data dict with structure:
+                {
+                    "details": {"year_built": 1985, "property_type": "townhome", ...},
+                    "hoa": {"has_hoa": True, "fee": 350, ...},
+                    ...
+                }
+            limit: Maximum results to return
+
+        Returns:
+            List of SearchResult sorted by priority (high > medium > low)
+        """
+        try:
+            # Scroll through all points that have applies_when conditions
+            # We need to check conditions in Python since Qdrant doesn't support
+            # the complex condition evaluation we need
+            all_points = []
+            offset = None
+
+            while True:
+                results, offset = self.storage_service.client.scroll(
+                    collection_name=self.storage_service.collection_name,
+                    limit=500,
+                    offset=offset,
+                    with_payload=True,
+                    with_vectors=False,
+                )
+
+                for point in results:
+                    applies_when = point.payload.get("applies_when", [])
+                    if not applies_when:
+                        continue
+
+                    # Check if ALL conditions match
+                    all_match = True
+                    for condition in applies_when:
+                        if not self._evaluate_condition(condition, property_data):
+                            all_match = False
+                            break
+
+                    if all_match:
+                        all_points.append(SearchResult(
+                            text=point.payload.get("text", ""),
+                            category=point.payload.get("category", ""),
+                            score=1.0,  # Attribute matches are binary
+                            source_file=point.payload.get("source_file", ""),
+                            priority=point.payload.get("priority", "medium"),
+                        ))
+
+                if offset is None:
+                    break
+
+            # Sort by priority: high > medium > low
+            priority_order = {"high": 0, "medium": 1, "low": 2}
+            all_points.sort(key=lambda r: priority_order.get(r.priority, 1))
+
+            logger.info(
+                f"Attribute search found {len(all_points)} matching knowledge points "
+                f"(returning top {limit})"
+            )
+
+            return all_points[:limit]
+
+        except Exception as e:
+            logger.warning(f"Attribute-based search failed: {e}")
+            return []
+
+    def search_by_attributes_for_context(
+        self,
+        property_data: Dict[str, Any],
+        limit: int = 10,
+    ) -> str:
+        """
+        Search by attributes and format results as context for LLM injection.
+
+        Groups results by category for cleaner context.
+        Returns empty string if no results.
+        """
+        results = self.search_by_attributes(property_data, limit=limit)
         if not results:
             return ""
 

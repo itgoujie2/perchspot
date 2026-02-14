@@ -152,9 +152,21 @@ PHOTOS: {images.get('photo_count', 'N/A')} photos
 REGION: {region_info.get('region', 'N/A')}
 """
 
-        # Extract meaningful search terms from property data using LLM
+        # 1. Extract meaningful search terms from property data using LLM (semantic search)
         knowledge_queries = await self._extract_property_queries(prop, details, features, region_info)
-        knowledge_context, knowledge_debug = self._run_multi_query_search(knowledge_queries, limit_per_query=3)
+        semantic_context, semantic_debug = self._run_multi_query_search(knowledge_queries, limit_per_query=3)
+
+        # 2. Get attribute-based knowledge (matches @applies_when tags)
+        attribute_context, attribute_debug = self._get_attribute_knowledge(data, limit=10)
+
+        # 3. Merge knowledge contexts, avoiding duplicates
+        knowledge_context = self._merge_knowledge_contexts(semantic_context, attribute_context)
+
+        # Combined debug info
+        knowledge_debug = {
+            "semantic_queries": semantic_debug,
+            "attribute_matches": attribute_debug,
+        }
 
         knowledge_section = ""
         if knowledge_context:
@@ -326,6 +338,52 @@ Return ONLY the JSON array."""
             if prop_type and region:
                 fallback.append(f"{prop_type} in {region}")
             return fallback
+
+    def _merge_knowledge_contexts(self, semantic_context: str, attribute_context: str) -> str:
+        """
+        Merge semantic and attribute-based knowledge contexts, avoiding duplicates.
+
+        Both contexts are formatted as:
+        ### Category Name
+        - Point 1
+        - Point 2
+
+        Returns merged context with unique points grouped by category.
+        """
+        if not semantic_context and not attribute_context:
+            return ""
+        if not semantic_context:
+            return attribute_context
+        if not attribute_context:
+            return semantic_context
+
+        from collections import defaultdict
+
+        # Parse both contexts into category -> set of points
+        by_category = defaultdict(set)
+
+        def parse_context(ctx: str):
+            current_category = ""
+            for line in ctx.split('\n'):
+                line = line.strip()
+                if line.startswith('### '):
+                    current_category = line[4:].strip()
+                elif line.startswith('- ') and current_category:
+                    point = line[2:].strip()
+                    by_category[current_category].add(point)
+
+        parse_context(semantic_context)
+        parse_context(attribute_context)
+
+        # Rebuild merged context
+        sections = []
+        for category, points in sorted(by_category.items()):
+            lines = [f"### {category}"]
+            for point in sorted(points):
+                lines.append(f"- {point}")
+            sections.append("\n".join(lines))
+
+        return "\n\n".join(sections)
 
     def _error_result(self, error_message: str) -> Dict[str, Any]:
         """Return error result structure."""
