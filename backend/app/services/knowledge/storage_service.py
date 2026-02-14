@@ -261,6 +261,42 @@ class StorageService:
             "next_offset": next_offset,
         }
 
+    def update_point_payload(self, point_id: str, payload_updates: Dict[str, Any]):
+        """Update specific payload fields for a point without re-embedding."""
+        self.client.set_payload(
+            collection_name=self.collection_name,
+            payload=payload_updates,
+            points=[point_id],
+        )
+        logger.debug(f"Updated payload for point: {point_id}")
+
+    def scroll_all_points(
+        self,
+        batch_size: int = 100,
+        with_payload: bool = True,
+    ):
+        """
+        Generator that yields all points in the collection.
+
+        Yields:
+            Point objects with id and payload
+        """
+        offset = None
+        while True:
+            results, offset = self.client.scroll(
+                collection_name=self.collection_name,
+                limit=batch_size,
+                offset=offset,
+                with_payload=with_payload,
+                with_vectors=False,
+            )
+
+            for point in results:
+                yield point
+
+            if offset is None:
+                break
+
     def get_unique_values(self) -> Dict[str, List[str]]:
         """Get unique source files and categories from the collection."""
         sources = set()

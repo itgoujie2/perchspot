@@ -328,3 +328,173 @@ async def delete_points_bulk(request: BulkDeleteRequest):
     except Exception as e:
         logger.error(f"Bulk delete error: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))
+
+
+# Auto-tagging endpoints
+_auto_tag_jobs: Dict[str, Dict[str, Any]] = {}
+_auto_tag_lock = threading.Lock()
+
+
+class AutoTagRequest(BaseModel):
+    dry_run: bool = True  # Default to dry run for safety
+    only_untagged: bool = True  # Only process points without existing tags
+    source_filter: Optional[str] = None  # Optional: only process specific source
+
+
+def _run_auto_tagging(job_id: str, dry_run: bool, only_untagged: bool, source_filter: Optional[str]):
+    """Background task to run auto-tagging."""
+    try:
+        from app.services.knowledge.auto_tagging_service import get_auto_tagging_service
+
+        with _auto_tag_lock:
+            _auto_tag_jobs[job_id]["status"] = "running"
+
+        service = get_auto_tagging_service()
+
+        def progress_callback(current: int, total: int, result):
+            with _auto_tag_lock:
+                _auto_tag_jobs[job_id]["progress"] = {
+                    "current": current,
+                    "total": total,
+                    "last_point": result.text_preview if result else None,
+                }
+
+        result = service.auto_tag_all(
+            dry_run=dry_run,
+            only_untagged=only_untagged,
+            source_filter=source_filter,
+            progress_callback=progress_callback,
+        )
+
+        with _auto_tag_lock:
+            _auto_tag_jobs[job_id]["status"] = "completed"
+            _auto_tag_jobs[job_id]["result"] = result
+            _auto_tag_jobs[job_id]["completed_at"] = datetime.utcnow().isoformat()
+
+    except Exception as e:
+        logger.error(f"Auto-tagging error for job {job_id}: {e}", exc_info=True)
+        with _auto_tag_lock:
+            _auto_tag_jobs[job_id]["status"] = "failed"
+            _auto_tag_jobs[job_id]["error"] = str(e)
+            _auto_tag_jobs[job_id]["completed_at"] = datetime.utcnow().isoformat()
+
+
+@router.post("/auto-tag", dependencies=[Depends(verify_admin)])
+async def start_auto_tagging(request: AutoTagRequest):
+    """
+    Start auto-tagging of knowledge points using LLM.
+
+    This analyzes each knowledge point's content and suggests @applies_when tags
+    based on the content. Tags determine when knowledge surfaces during property analysis.
+
+    Args:
+        dry_run: If True (default), don't actually update points, just return suggestions
+        only_untagged: If True (default), only process points without existing tags
+        source_filter: Optional source file to filter by
+
+    Returns:
+        Job ID to track progress
+    """
+    job_id = str(uuid.uuid4())[:8]
+
+    with _auto_tag_lock:
+        _auto_tag_jobs[job_id] = {
+            "job_id": job_id,
+            "status": "queued",
+            "dry_run": request.dry_run,
+            "only_untagged": request.only_untagged,
+            "source_filter": request.source_filter,
+            "started_at": datetime.utcnow().isoformat(),
+            "progress": {"current": 0, "total": 0},
+            "result": None,
+            "error": None,
+        }
+
+    # Run in background thread
+    thread = threading.Thread(
+        target=_run_auto_tagging,
+        args=(job_id, request.dry_run, request.only_untagged, request.source_filter)
+    )
+    thread.daemon = True
+    thread.start()
+
+    return {
+        "status": "accepted",
+        "job_id": job_id,
+        "dry_run": request.dry_run,
+        "message": f"Auto-tagging started. Check /api/v1/knowledge/auto-tag/status/{job_id} for progress."
+    }
+
+
+@router.get("/auto-tag/status/{job_id}", dependencies=[Depends(verify_admin)])
+async def get_auto_tag_status(job_id: str):
+    """Get status of an auto-tagging job."""
+    with _auto_tag_lock:
+        if job_id not in _auto_tag_jobs:
+            raise HTTPException(status_code=404, detail=f"Job {job_id} not found")
+        return _auto_tag_jobs[job_id]
+
+
+@router.get("/auto-tag/jobs", dependencies=[Depends(verify_admin)])
+async def list_auto_tag_jobs():
+    """List all auto-tagging jobs."""
+    with _auto_tag_lock:
+        # Return jobs without full results to keep response small
+        jobs_summary = []
+        for job in _auto_tag_jobs.values():
+            summary = {k: v for k, v in job.items() if k != "result"}
+            if job.get("result"):
+                summary["result_summary"] = {
+                    "total_processed": job["result"].get("total_processed", 0),
+                    "total_tagged": job["result"].get("total_tagged", 0),
+                    "total_skipped": job["result"].get("total_skipped", 0),
+                    "total_errors": job["result"].get("total_errors", 0),
+                }
+            jobs_summary.append(summary)
+        return {"jobs": jobs_summary}
+
+
+class UpdateTagsRequest(BaseModel):
+    applies_when: List[AppliesWhenCondition]
+    priority: str = "medium"
+
+
+@router.put("/point/{point_id}/tags", dependencies=[Depends(verify_admin)])
+async def update_point_tags(point_id: str, request: UpdateTagsRequest):
+    """
+    Manually update tags for a single knowledge point.
+
+    This allows manual editing of @applies_when tags without re-ingesting.
+    """
+    try:
+        from app.services.knowledge.storage_service import get_storage_service
+
+        service = get_storage_service()
+
+        # Convert to dict format for storage
+        applies_when_data = [
+            {
+                "attribute": cond.attribute,
+                "operator": cond.operator,
+                "value": cond.value,
+            }
+            for cond in request.applies_when
+        ]
+
+        service.update_point_payload(
+            point_id=point_id,
+            payload_updates={
+                "applies_when": applies_when_data,
+                "priority": request.priority,
+            }
+        )
+
+        return {
+            "status": "ok",
+            "point_id": point_id,
+            "applies_when": applies_when_data,
+            "priority": request.priority,
+        }
+    except Exception as e:
+        logger.error(f"Update tags error: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
