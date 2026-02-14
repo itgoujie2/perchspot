@@ -531,3 +531,37 @@ Complexity of roof shape affects installation cost and maintenance requirements.
 - May extend coverage to 50 years non-prorated
 - Often transferable to new homeowner
 - Require certified installer
+
+---
+
+## Age-Based Roof Concerns
+
+### Pre-2000 Roof Replacement Planning
+@applies_when: year_built<2000
+@priority: high
+
+Homes built before 2000 likely have roofs approaching or past typical replacement age. Asphalt shingles last 15-30 years, so original roofs from pre-2000 are due for inspection or replacement. Budget $8,000-20,000 for asphalt shingle replacement depending on roof size and complexity. Ask seller about roof age and any repairs.
+
+---
+
+### Pre-1995 Roof Structure Check
+@applies_when: year_built<1995
+@priority: medium
+
+Roofs over 30 years old require careful inspection of underlying structure (decking, rafters, trusses) in addition to surface materials. Multiple roofing layers may be present - building codes often limit to 2 layers. Full tear-off adds $1,000-3,000 to replacement cost.
+
+---
+
+### Pre-1990 Ventilation Assessment
+@applies_when: year_built<1990
+@priority: medium
+
+Older homes often have inadequate roof ventilation by modern standards. Poor ventilation causes premature shingle aging, ice dams in cold climates, and moisture problems. Adding proper ridge and soffit vents costs $300-600 and significantly extends roof life.
+
+---
+
+### Pre-1980 Roof Inspection Priority
+@applies_when: year_built<1980
+@priority: high
+
+Homes over 45 years old may have had multiple roof replacements. Verify roof history and check for underlying damage from past leaks. Original roof decking may need replacement ($2-4 per sqft) if it has deteriorated. Inspect attic for water staining and structural issues.

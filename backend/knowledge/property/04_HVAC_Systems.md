@@ -402,3 +402,45 @@ Most complete HVAC systems last 15-25 years depending on:
 - Insulate ducts in unconditioned spaces
 
 **Ductless Systems**: Avoid ductwork losses entirely, increasing efficiency
+
+---
+
+## Age-Based HVAC Concerns
+
+### Pre-2005 HVAC Replacement Planning
+@applies_when: year_built<2005
+@priority: high
+
+HVAC systems last 15-25 years. Homes built before 2005 with original equipment are approaching or past replacement age. Budget $8,000-15,000 for furnace/AC replacement or $15,000-25,000 for complete system. Ask about HVAC age, maintenance history, and recent repairs.
+
+---
+
+### Pre-2010 Refrigerant Concerns
+@applies_when: year_built<2010
+@priority: medium
+
+AC units from before 2010 may use R-22 refrigerant (Freon), which was phased out in 2020 and is now expensive if available. If system needs refrigerant charging, replacement is often more cost-effective than repair. New systems use R-410A refrigerant.
+
+---
+
+### Pre-2000 Furnace Safety Check
+@applies_when: year_built<2000
+@priority: high
+
+Furnaces over 25 years old have increased risk of heat exchanger cracks, which can leak carbon monoxide. Professional inspection ($100-200) is essential. Cracked heat exchangers require immediate furnace replacement for safety.
+
+---
+
+### Pre-1995 HVAC Efficiency
+@applies_when: year_built<1995
+@priority: medium
+
+HVAC systems from pre-1995 are significantly less efficient than modern equipment. Old furnaces may be 60-70% AFUE vs modern 90-98%. Old AC may be 8-10 SEER vs modern 14-20+. Utility savings from upgrade often offset replacement cost within 5-10 years.
+
+---
+
+### Pre-1990 Ductwork Assessment
+@applies_when: year_built<1990
+@priority: medium
+
+Ductwork in 35+ year old homes may have significant leaks, poor insulation, or asbestos insulation (pre-1980). Duct sealing and insulation ($2,000-5,000) or replacement ($5,000-10,000) can improve efficiency 20-30% and comfort significantly.

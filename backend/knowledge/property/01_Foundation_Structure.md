@@ -285,3 +285,30 @@ Foundation construction must meet local building codes which consider:
 - Flood zones
 - Soil conditions
 - Wind load requirements
+
+---
+
+## Age-Based Foundation Concerns
+
+### Pre-1970 Foundation Issues
+@applies_when: year_built<1970
+@priority: high
+
+Homes built before 1970 may have foundation issues due to outdated construction practices. Common concerns include inadequate waterproofing, insufficient reinforcement, and potential settling. Budget for professional foundation inspection ($300-800). Older foundations may need drainage improvements, crack repairs, or waterproofing updates.
+
+---
+
+### Pre-1980 Crawl Space Concerns
+@applies_when: year_built<1980
+@priority: medium
+
+Crawl spaces in pre-1980 homes often lack modern moisture barriers and ventilation standards. Inspect for signs of moisture damage, wood rot, and inadequate vapor barriers. Encapsulation ($5,000-15,000) may be needed for older crawl spaces with moisture issues.
+
+---
+
+### 1950s-1970s Pier Foundation Check
+@applies_when: year_built>=1950
+@applies_when: year_built<1975
+@priority: medium
+
+Pier and beam foundations from 1950s-1970s may have wooden piers showing age-related deterioration. Inspect for wood rot, termite damage, and settling. Pier replacement costs $1,000-3,000 per pier if needed.

@@ -480,3 +480,38 @@
 - Longer-lasting materials reduce replacement frequency
 - Recyclable materials at end-of-life preferred
 - Consider manufacturing process environmental impact
+
+---
+
+## Age-Based Siding Concerns
+
+### Pre-1990 Siding Assessment
+@applies_when: year_built<1990
+@priority: medium
+
+Original siding on 35+ year old homes is approaching or past typical lifespan for vinyl (20-40 years) and wood (20-60 years). Inspect for fading, warping, cracking, or moisture damage. Vinyl siding replacement costs $6,000-15,000 for average home. Fiber cement replacement costs more but lasts 50+ years.
+
+---
+
+### Pre-1980 Wood Siding Check
+@applies_when: year_built<1980
+@priority: high
+
+Wood siding on 45+ year old homes requires careful inspection for rot, insect damage, and paint/stain failure. Original wood siding may have lead paint (pre-1978) requiring special handling. Replacement with fiber cement provides durability without ongoing wood maintenance.
+
+---
+
+### 1970s-1980s Aluminum Siding
+@applies_when: year_built>=1970
+@applies_when: year_built<1990
+@priority: medium
+
+Aluminum siding from 1970s-1980s may show denting, fading, and chalking. While functional, it often diminishes curb appeal. Can be painted ($3,000-6,000) or replaced with modern vinyl or fiber cement siding.
+
+---
+
+### Pre-2000 Exterior Caulking
+@applies_when: year_built<2000
+@priority: medium
+
+Exterior caulking around windows, doors, and trim has limited lifespan (10-20 years). Homes over 25 years old likely need re-caulking to prevent water intrusion. Budget $500-1,500 for full exterior re-caulking. This is critical maintenance that prevents much larger water damage repairs.
