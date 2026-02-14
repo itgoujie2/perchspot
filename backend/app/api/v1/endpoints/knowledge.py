@@ -224,6 +224,8 @@ class KnowledgePoint(BaseModel):
     text: str
     category: str
     source_file: str
+    applies_when: Optional[List[AppliesWhenCondition]] = None
+    priority: Optional[str] = "medium"
 
 
 class ListPointsResponse(BaseModel):
@@ -254,6 +256,10 @@ async def list_knowledge_points(request: ListPointsRequest):
                     text=p["text"],
                     category=p["category"],
                     source_file=p["source_file"],
+                    applies_when=[
+                        AppliesWhenCondition(**cond) for cond in (p.get("applies_when") or [])
+                    ] if p.get("applies_when") else None,
+                    priority=p.get("priority", "medium"),
                 )
                 for p in result["points"]
             ],

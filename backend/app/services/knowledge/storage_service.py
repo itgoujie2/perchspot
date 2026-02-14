@@ -253,6 +253,8 @@ class StorageService:
                 "text": point.payload.get("text", ""),
                 "category": point.payload.get("category", ""),
                 "source_file": point.payload.get("source_file", ""),
+                "applies_when": point.payload.get("applies_when", []),
+                "priority": point.payload.get("priority", "medium"),
             })
 
         return {

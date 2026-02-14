@@ -24,7 +24,16 @@ import {
   ContentPaste,
   CheckCircle,
   Delete,
+  List,
+  Checkbox,
 } from '@mui/icons-material';
+import {
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  FormControlLabel,
+} from '@mui/material';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
@@ -49,6 +58,20 @@ interface CollectionStatus {
   status: string;
 }
 
+interface BrowsePoint {
+  id: string;
+  text: string;
+  category: string;
+  source_file: string;
+  applies_when?: AppliesWhenCondition[];
+  priority?: string;
+}
+
+interface FilterOptions {
+  sources: string[];
+  categories: string[];
+}
+
 export default function KnowledgeManagement() {
   const [password, setPassword] = useState('');
   const [authenticated, setAuthenticated] = useState(false);
@@ -70,6 +93,17 @@ export default function KnowledgeManagement() {
   const [searching, setSearching] = useState(false);
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [searchError, setSearchError] = useState('');
+
+  // Browse state
+  const [browsePoints, setBrowsePoints] = useState<BrowsePoint[]>([]);
+  const [browseLoading, setBrowseLoading] = useState(false);
+  const [browseHasMore, setBrowseHasMore] = useState(false);
+  const [browseOffset, setBrowseOffset] = useState(0);
+  const [selectedPoints, setSelectedPoints] = useState<Set<string>>(new Set());
+  const [filterOptions, setFilterOptions] = useState<FilterOptions>({ sources: [], categories: [] });
+  const [sourceFilter, setSourceFilter] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState('');
+  const [deleting, setDeleting] = useState(false);
 
   const headers = useCallback(() => ({
     'X-Admin-Password': password,
@@ -177,6 +211,127 @@ export default function KnowledgeManagement() {
     }
   };
 
+  const fetchFilterOptions = useCallback(async () => {
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/v1/knowledge/filters`, {
+        headers: headers(),
+      });
+      if (res.ok) {
+        setFilterOptions(await res.json());
+      }
+    } catch {
+      // silently fail
+    }
+  }, [headers]);
+
+  const loadBrowsePoints = useCallback(async (reset = false) => {
+    setBrowseLoading(true);
+    const offset = reset ? 0 : browseOffset;
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/v1/knowledge/list`, {
+        method: 'POST',
+        headers: { ...headers(), 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          limit: 50,
+          offset,
+          source_filter: sourceFilter || null,
+          category_filter: categoryFilter || null,
+        }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (reset) {
+          setBrowsePoints(data.points);
+          setSelectedPoints(new Set());
+        } else {
+          setBrowsePoints((prev) => [...prev, ...data.points]);
+        }
+        setBrowseOffset(offset + data.count);
+        setBrowseHasMore(data.has_more);
+      }
+    } catch {
+      // silently fail
+    } finally {
+      setBrowseLoading(false);
+    }
+  }, [headers, browseOffset, sourceFilter, categoryFilter]);
+
+  const handleDeleteSelected = async () => {
+    if (selectedPoints.size === 0) return;
+    setDeleting(true);
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/v1/knowledge/points/delete`, {
+        method: 'POST',
+        headers: { ...headers(), 'Content-Type': 'application/json' },
+        body: JSON.stringify({ point_ids: Array.from(selectedPoints) }),
+      });
+      if (res.ok) {
+        setBrowsePoints((prev) => prev.filter((p) => !selectedPoints.has(p.id)));
+        setSelectedPoints(new Set());
+        fetchStatus();
+      }
+    } catch {
+      // silently fail
+    } finally {
+      setDeleting(false);
+    }
+  };
+
+  const handleDeleteSingle = async (pointId: string) => {
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/v1/knowledge/point/${pointId}`, {
+        method: 'DELETE',
+        headers: headers(),
+      });
+      if (res.ok) {
+        setBrowsePoints((prev) => prev.filter((p) => p.id !== pointId));
+        setSelectedPoints((prev) => {
+          const next = new Set(prev);
+          next.delete(pointId);
+          return next;
+        });
+        fetchStatus();
+      }
+    } catch {
+      // silently fail
+    }
+  };
+
+  const toggleSelectAll = () => {
+    if (selectedPoints.size === browsePoints.length) {
+      setSelectedPoints(new Set());
+    } else {
+      setSelectedPoints(new Set(browsePoints.map((p) => p.id)));
+    }
+  };
+
+  const toggleSelectPoint = (id: string) => {
+    setSelectedPoints((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  };
+
+  // Load browse data when tab changes to browse
+  useEffect(() => {
+    if (tab === 3 && browsePoints.length === 0) {
+      fetchFilterOptions();
+      loadBrowsePoints(true);
+    }
+  }, [tab]);
+
+  // Reload when filters change
+  useEffect(() => {
+    if (tab === 3) {
+      loadBrowsePoints(true);
+    }
+  }, [sourceFilter, categoryFilter]);
+
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!searchQuery.trim()) return;
@@ -278,6 +433,7 @@ export default function KnowledgeManagement() {
           <Tab icon={<ContentPaste />} label="Paste & Ingest" iconPosition="start" />
           <Tab icon={<Upload />} label="Upload File" iconPosition="start" />
           <Tab icon={<Search />} label="Search Test" iconPosition="start" />
+          <Tab icon={<List />} label="Browse All" iconPosition="start" />
         </Tabs>
 
         <Box sx={{ p: 3 }}>
@@ -422,6 +578,157 @@ export default function KnowledgeManagement() {
               {!searching && searchResults.length === 0 && searchQuery && (
                 <Typography variant="body2" color="text.secondary">
                   No results. Try a different query or ingest some knowledge first.
+                </Typography>
+              )}
+            </>
+          )}
+
+          {/* Tab 3: Browse All */}
+          {tab === 3 && (
+            <>
+              <Box sx={{ display: 'flex', gap: 2, mb: 2, alignItems: 'center', flexWrap: 'wrap' }}>
+                <FormControl size="small" sx={{ minWidth: 200 }}>
+                  <InputLabel>Filter by Source</InputLabel>
+                  <Select
+                    value={sourceFilter}
+                    label="Filter by Source"
+                    onChange={(e) => setSourceFilter(e.target.value)}
+                  >
+                    <MenuItem value="">All Sources</MenuItem>
+                    {filterOptions.sources.map((s) => (
+                      <MenuItem key={s} value={s}>{s}</MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+                <FormControl size="small" sx={{ minWidth: 200 }}>
+                  <InputLabel>Filter by Category</InputLabel>
+                  <Select
+                    value={categoryFilter}
+                    label="Filter by Category"
+                    onChange={(e) => setCategoryFilter(e.target.value)}
+                  >
+                    <MenuItem value="">All Categories</MenuItem>
+                    {filterOptions.categories.map((c) => (
+                      <MenuItem key={c} value={c}>{c}</MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+                <Button
+                  variant="outlined"
+                  size="small"
+                  onClick={() => { setSourceFilter(''); setCategoryFilter(''); }}
+                >
+                  Clear Filters
+                </Button>
+                <Typography variant="body2" color="text.secondary" sx={{ ml: 'auto' }}>
+                  {browsePoints.length} points loaded
+                </Typography>
+              </Box>
+
+              {selectedPoints.size > 0 && (
+                <Box sx={{ mb: 2 }}>
+                  <Button
+                    variant="contained"
+                    color="error"
+                    size="small"
+                    startIcon={<Delete />}
+                    onClick={handleDeleteSelected}
+                    disabled={deleting}
+                  >
+                    {deleting ? 'Deleting...' : `Delete Selected (${selectedPoints.size})`}
+                  </Button>
+                </Box>
+              )}
+
+              <Box sx={{ mb: 2 }}>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={browsePoints.length > 0 && selectedPoints.size === browsePoints.length}
+                      indeterminate={selectedPoints.size > 0 && selectedPoints.size < browsePoints.length}
+                      onChange={toggleSelectAll}
+                    />
+                  }
+                  label={`Select All (${browsePoints.length})`}
+                />
+              </Box>
+
+              {browseLoading && browsePoints.length === 0 && <LinearProgress />}
+
+              {browsePoints.map((p, i) => (
+                <Card key={p.id} variant="outlined" sx={{ mb: 1 }}>
+                  <CardContent sx={{ py: 1.5, '&:last-child': { pb: 1.5 } }}>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1 }}>
+                      <Checkbox
+                        checked={selectedPoints.has(p.id)}
+                        onChange={() => toggleSelectPoint(p.id)}
+                        size="small"
+                      />
+                      <Box sx={{ flex: 1 }}>
+                        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 0.5 }}>
+                          <Box sx={{ display: 'flex', gap: 0.5, alignItems: 'center', flexWrap: 'wrap' }}>
+                            <Chip label={p.category} size="small" color="primary" variant="outlined" />
+                            <Chip label={p.source_file} size="small" variant="outlined" />
+                            {p.priority && p.priority !== 'medium' && (
+                              <Chip
+                                label={p.priority}
+                                size="small"
+                                color={p.priority === 'high' ? 'error' : 'default'}
+                                variant="filled"
+                              />
+                            )}
+                          </Box>
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <Typography variant="caption" color="text.secondary">
+                              #{i + 1}
+                            </Typography>
+                            <IconButton
+                              size="small"
+                              color="error"
+                              onClick={() => handleDeleteSingle(p.id)}
+                            >
+                              <Delete fontSize="small" />
+                            </IconButton>
+                          </Box>
+                        </Box>
+                        <Typography variant="body2" sx={{ mb: p.applies_when?.length ? 1 : 0 }}>
+                          {p.text}
+                        </Typography>
+                        {p.applies_when && p.applies_when.length > 0 && (
+                          <Box sx={{ display: 'flex', gap: 0.5, flexWrap: 'wrap' }}>
+                            {p.applies_when.map((cond, j) => (
+                              <Chip
+                                key={j}
+                                label={`${cond.attribute}${cond.operator}${cond.value}`}
+                                size="small"
+                                variant="outlined"
+                                color="secondary"
+                                sx={{ fontSize: '0.7rem' }}
+                              />
+                            ))}
+                          </Box>
+                        )}
+                      </Box>
+                    </Box>
+                  </CardContent>
+                </Card>
+              ))}
+
+              {browseHasMore && (
+                <Box sx={{ textAlign: 'center', mt: 2 }}>
+                  <Button
+                    variant="outlined"
+                    onClick={() => loadBrowsePoints(false)}
+                    disabled={browseLoading}
+                  >
+                    {browseLoading ? 'Loading...' : 'Load More'}
+                  </Button>
+                </Box>
+              )}
+
+              {!browseLoading && browsePoints.length === 0 && (
+                <Typography variant="body2" color="text.secondary">
+                  No knowledge points found. Try clearing filters or ingest some knowledge first.
                 </Typography>
               )}
             </>
