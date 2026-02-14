@@ -135,14 +135,31 @@ class AutoTaggingService:
             source_file=source_file,
         )
 
-        response = self.client.messages.create(
-            model="claude-haiku-3-5-20241022",
-            max_tokens=500,
-            messages=[{"role": "user", "content": prompt}],
-        )
+        try:
+            response = self.client.messages.create(
+                model="claude-3-5-haiku-20241022",
+                max_tokens=500,
+                messages=[{"role": "user", "content": prompt}],
+            )
+        except Exception as api_err:
+            logger.error(f"Anthropic API error: {api_err}")
+            return TagSuggestion(
+                applies_when=[],
+                priority="medium",
+                reasoning=f"API error: {str(api_err)[:100]}"
+            )
 
         # Parse JSON response
-        response_text = response.content[0].text.strip()
+        try:
+            response_text = response.content[0].text.strip()
+            logger.debug(f"LLM raw response: {response_text[:200]}")
+        except Exception as resp_err:
+            logger.error(f"Error accessing response content: {resp_err}")
+            return TagSuggestion(
+                applies_when=[],
+                priority="medium",
+                reasoning=f"Response error: {str(resp_err)[:100]}"
+            )
 
         # Extract JSON from response (handle markdown code blocks)
         json_match = re.search(r'```(?:json)?\s*(.*?)\s*```', response_text, re.DOTALL)
@@ -151,10 +168,22 @@ class AutoTaggingService:
 
         # Also try to find JSON object directly if no code block
         if not response_text.startswith('{'):
-            # Try to find a JSON object in the response
-            json_obj_match = re.search(r'\{[^{}]*\}', response_text, re.DOTALL)
-            if json_obj_match:
-                response_text = json_obj_match.group(0)
+            # Find the first { and try to extract balanced JSON
+            start_idx = response_text.find('{')
+            if start_idx != -1:
+                # Count braces to find matching closing brace
+                depth = 0
+                end_idx = start_idx
+                for i, char in enumerate(response_text[start_idx:], start_idx):
+                    if char == '{':
+                        depth += 1
+                    elif char == '}':
+                        depth -= 1
+                        if depth == 0:
+                            end_idx = i
+                            break
+                if depth == 0:
+                    response_text = response_text[start_idx:end_idx + 1]
 
         try:
             data = json.loads(response_text)
@@ -261,7 +290,9 @@ class AutoTaggingService:
             return result
 
         except Exception as e:
-            logger.error(f"Error auto-tagging point {point_id}: {e}", exc_info=True)
+            import traceback
+            tb = traceback.format_exc()
+            logger.error(f"Error auto-tagging point {point_id}: {e}\n{tb}")
             return AutoTagResult(
                 point_id=point_id,
                 text_preview=text[:100] + "..." if len(text) > 100 else text,
