@@ -19,6 +19,7 @@ from app.services.knowledge.storage_service import get_storage_service
 logger = logging.getLogger(__name__)
 
 # LLM prompt for tag suggestion
+# Note: Double braces {{ }} are escaped for .format() - they become single braces in output
 TAG_SUGGESTION_PROMPT = """You are a real estate knowledge tagging assistant. Your job is to analyze knowledge content and suggest @applies_when tags that determine when this knowledge should surface during property analysis.
 
 ## Available Attributes and Operators
@@ -41,8 +42,8 @@ TAG_SUGGESTION_PROMPT = """You are a real estate knowledge tagging assistant. Yo
 ## Guidelines
 
 1. **Only add tags if the knowledge CLEARLY applies to specific property attributes**
-   - "Homes built before 1980 may have lead paint" → year_built<1980
-   - "HOA fees can vary widely" → NO TAG (too generic)
+   - "Homes built before 1980 may have lead paint" -> year_built<1980
+   - "HOA fees can vary widely" -> NO TAG (too generic)
 
 2. **Be conservative** - if uncertain, don't add a tag. Better to miss a match than to surface irrelevant knowledge.
 
@@ -56,11 +57,11 @@ TAG_SUGGESTION_PROMPT = """You are a real estate knowledge tagging assistant. Yo
 ## Examples
 
 Knowledge: "Galvanized steel pipes were commonly used before 1960 and are prone to corrosion and reduced water pressure after 50+ years."
-Tags: [{"attribute": "year_built", "operator": "<", "value": 1960}]
+Tags: [{{"attribute": "year_built", "operator": "<", "value": 1960}}]
 Priority: high
 
 Knowledge: "Townhomes share walls with neighbors, which can lead to noise transfer issues."
-Tags: [{"attribute": "property_type", "operator": "contains", "value": "townhome"}]
+Tags: [{{"attribute": "property_type", "operator": "contains", "value": "townhome"}}]
 Priority: medium
 
 Knowledge: "Seattle has excellent public transportation options."
@@ -68,7 +69,7 @@ Tags: [] (no property-specific attributes apply)
 Priority: medium
 
 Knowledge: "Small HOA communities (under 50 units) often have higher per-unit fees due to fewer members sharing costs."
-Tags: [{"attribute": "has_hoa", "operator": "=", "value": true}]
+Tags: [{{"attribute": "has_hoa", "operator": "=", "value": true}}]
 Priority: medium
 
 ## Your Task
@@ -76,13 +77,13 @@ Priority: medium
 Analyze the following knowledge content and return a JSON response:
 
 ```json
-{
+{{
   "applies_when": [
-    {"attribute": "...", "operator": "...", "value": ...}
+    {{"attribute": "...", "operator": "...", "value": ...}}
   ],
   "priority": "high|medium|low",
   "reasoning": "Brief explanation of why these tags apply or why no tags apply"
-}
+}}
 ```
 
 If no tags apply, return an empty array for applies_when.
