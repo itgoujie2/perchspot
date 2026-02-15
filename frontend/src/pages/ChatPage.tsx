@@ -413,6 +413,7 @@ const ChatPage: React.FC = () => {
   const [genericKnowledge, setGenericKnowledge] = useState<GenericKnowledgePoint[]>([]);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const reportPanelRef = useRef<HTMLDivElement>(null);
   const analysisStarted = useRef(false);
   const analysisCompleted = useRef(false);
 
@@ -970,7 +971,7 @@ const ChatPage: React.FC = () => {
         </div>
 
         {/* Right panel: Property Report */}
-        <div className="report-panel">
+        <div className="report-panel" ref={reportPanelRef}>
           {/* Print-only header with logo */}
           <div className="print-header">
             <div className="print-header-left">
@@ -1001,6 +1002,7 @@ const ChatPage: React.FC = () => {
                   beds={get(report.property, 'bedrooms') || get(report.property, 'beds')}
                   baths={get(report.property, 'bathrooms') || get(report.property, 'baths')}
                   sqft={get(report.property, 'living_area_sqft') || get(report.property, 'sqft')}
+                  reportRef={reportPanelRef}
                 />
               )}
               {user && address && (
