@@ -17,7 +17,7 @@ import asyncio
 import logging
 import json
 import re
-from typing import Dict, Any, AsyncGenerator, Optional
+from typing import Dict, Any, AsyncGenerator, Optional, List
 from datetime import datetime
 
 from sqlalchemy.orm import Session
