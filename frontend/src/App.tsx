@@ -19,6 +19,7 @@ import CreditsPage from './pages/CreditsPage'
 import AccountPage from './pages/AccountPage'
 import ComparePage from './pages/ComparePage'
 import BlogPage from './pages/BlogPage'
+import SharedReportPage from './pages/SharedReportPage'
 
 function App() {
   return (
@@ -62,6 +63,9 @@ function App() {
             {/* Legacy routes */}
             <Route path="/analysis/:id" element={<ProtectedRoute><Analysis /></ProtectedRoute>} />
             <Route path="/report/:id" element={<ProtectedRoute><Report /></ProtectedRoute>} />
+
+            {/* Public shared report */}
+            <Route path="/share/:shareCode" element={<SharedReportPage />} />
           </Routes>
         </Router>
       </AuthProvider>

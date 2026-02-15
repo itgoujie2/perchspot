@@ -284,4 +284,42 @@ export const compareApi = {
   },
 }
 
+export interface CreateShareRequest {
+  address: string
+  report_data: Record<string, any>
+}
+
+export interface ShareResponse {
+  share_code: string
+  share_url: string
+  address: string
+  created_at: string
+}
+
+export interface SharedReportResponse {
+  share_code: string
+  address: string
+  report_data: Record<string, any>
+  created_at: string
+  view_count: number
+}
+
+export const shareApi = {
+  /**
+   * Create a shareable link for a property report
+   */
+  create: async (request: CreateShareRequest): Promise<ShareResponse> => {
+    const response = await apiClient.post('/share', request)
+    return response.data
+  },
+
+  /**
+   * Get a shared report by code (public, no auth)
+   */
+  get: async (shareCode: string): Promise<SharedReportResponse> => {
+    const response = await apiClient.get(`/share/${shareCode}`)
+    return response.data
+  },
+}
+
 export default api

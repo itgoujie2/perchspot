@@ -17,6 +17,7 @@ from app.models.memory import UserMemory, UserCityActivity
 from app.models.similar_homes import UserSimilarHome
 from app.models.referral import Referral
 from app.models.favorite import UserFavorite
+from app.models.shared_report import SharedReport
 
 __all__ = [
     "Property",
@@ -39,4 +40,5 @@ __all__ = [
     "UserSimilarHome",
     "Referral",
     "UserFavorite",
+    "SharedReport",
 ]

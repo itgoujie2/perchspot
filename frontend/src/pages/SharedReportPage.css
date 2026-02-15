@@ -1,0 +1,391 @@
+.shared-report-page {
+  min-height: 100vh;
+  background: #f8f9fb;
+  display: flex;
+  flex-direction: column;
+}
+
+.shared-header {
+  background: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e9ecef;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.shared-header .header-logo {
+  height: 40px;
+}
+
+.shared-header .btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.shared-header .btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.shared-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.shared-loading,
+.shared-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.shared-loading .spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.shared-error h2 {
+  margin: 0 0 0.5rem;
+  color: #333;
+}
+
+.shared-error p {
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+
+.shared-error .btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.report-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.report-title {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.report-title h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #1e293b;
+}
+
+.report-address {
+  margin: 0.25rem 0 0;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.report-meta {
+  margin: 0.5rem 0 0;
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+.report-section {
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.report-section:last-child {
+  border-bottom: none;
+}
+
+.report-section h4 {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.report-overall {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.overall-score-row {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.score-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.score-label {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.property-main-photo {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.property-header-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.property-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.status-badge {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.property-details-row {
+  display: flex;
+  gap: 1rem;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.property-details-row span::after {
+  content: "•";
+  margin-left: 1rem;
+  color: #cbd5e1;
+}
+
+.property-details-row span:last-child::after {
+  content: "";
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.report-table th,
+.report-table td {
+  padding: 0.6rem 0;
+  text-align: left;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.report-table th {
+  font-weight: 500;
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.report-table td:last-child {
+  text-align: right;
+  font-weight: 500;
+}
+
+.scores-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.risk-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.risk-chip {
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid;
+  text-transform: capitalize;
+}
+
+.score-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.score-bar-track {
+  flex: 1;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.score-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.score-bar-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  min-width: 50px;
+}
+
+.analysis-list {
+  margin-top: 0.75rem;
+}
+
+.analysis-list strong {
+  display: block;
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+}
+
+.analysis-list ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+.analysis-list li {
+  margin-bottom: 0.25rem;
+}
+
+.report-cta {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+  text-align: center;
+  color: white;
+}
+
+.report-cta h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.report-cta p {
+  margin: 0 0 1.25rem;
+  opacity: 0.9;
+}
+
+.report-cta .btn-primary {
+  background: white;
+  color: #667eea;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: all 0.2s;
+}
+
+.report-cta .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.shared-footer {
+  background: white;
+  padding: 1.5rem;
+  text-align: center;
+  border-top: 1px solid #e9ecef;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.shared-footer a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .shared-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .shared-header .header-logo {
+    height: 32px;
+  }
+
+  .shared-content {
+    padding: 1rem;
+  }
+
+  .report-title,
+  .report-section {
+    padding: 1rem 1.25rem;
+  }
+
+  .report-title h1 {
+    font-size: 1.25rem;
+  }
+
+  .property-price {
+    font-size: 1.25rem;
+  }
+
+  .property-details-row {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .overall-score-row {
+    gap: 1rem;
+  }
+
+  .scores-row {
+    gap: 1rem;
+  }
+}

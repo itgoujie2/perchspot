@@ -7,7 +7,7 @@ import DocumentUpload from '../components/DocumentUpload';
 import SEOHead from '../components/SEOHead';
 import ShareButtons from '../components/ShareButtons';
 import ReferralPrompt from '../components/ReferralPrompt';
-import { favoritesApi } from '../services/api';
+import { favoritesApi, shareApi } from '../services/api';
 import type { DocumentStatusResponse } from '../types';
 import './ChatPage.css';
 
@@ -484,6 +484,47 @@ const ChatPage: React.FC = () => {
       console.error('Failed to toggle favorite:', err);
     } finally {
       setFavoriteLoading(false);
+    }
+  };
+
+  // Create a shareable link for the report
+  const createShareLink = async (): Promise<string | null> => {
+    if (!address) return null;
+
+    try {
+      // Build comprehensive report data for sharing
+      const reportData = buildReportData(extractedSteps, finalData);
+
+      // Also include analysis results
+      const analysisResults: Record<string, any> = {};
+      const propStep = extractedSteps.find(s => s.step === 7);
+      const locStep = extractedSteps.find(s => s.step === 8);
+      const schoolStep = extractedSteps.find(s => s.step === 9);
+      const investStep = extractedSteps.find(s => s.step === 10);
+
+      if (propStep) analysisResults.property = propStep.data;
+      if (locStep) analysisResults.location = locStep.data;
+      if (schoolStep) analysisResults.schools = schoolStep.data;
+      if (investStep) analysisResults.investment = investStep.data;
+
+      const shareData = {
+        address,
+        report_data: {
+          property: reportData.property,
+          pricing: reportData.pricing,
+          schools: reportData.schools,
+          location: reportData.location,
+          climate_risks: reportData.climate,
+          images: reportData.images,
+          analysis_results: analysisResults,
+        }
+      };
+
+      const result = await shareApi.create(shareData);
+      return result.share_url;
+    } catch (err) {
+      console.error('Failed to create share link:', err);
+      return null;
     }
   };
 
@@ -1002,7 +1043,7 @@ const ChatPage: React.FC = () => {
                   beds={get(report.property, 'bedrooms') || get(report.property, 'beds')}
                   baths={get(report.property, 'bathrooms') || get(report.property, 'baths')}
                   sqft={get(report.property, 'living_area_sqft') || get(report.property, 'sqft')}
-                  reportRef={reportPanelRef}
+                  onCreateShareLink={createShareLink}
                 />
               )}
               {user && address && (

@@ -2,7 +2,7 @@
 API v1 routes
 """
 from fastapi import APIRouter
-from app.api.v1.endpoints import properties, health, granular_analysis, conversations, streaming_analysis, knowledge, chat, auth, payments, admin, documents, memory, referrals, promotions, favorites, history, compare
+from app.api.v1.endpoints import properties, health, granular_analysis, conversations, streaming_analysis, knowledge, chat, auth, payments, admin, documents, memory, referrals, promotions, favorites, history, compare, share
 
 router = APIRouter()
 
@@ -24,3 +24,4 @@ router.include_router(promotions.router, prefix="/promotions", tags=["promotions
 router.include_router(favorites.router, prefix="/favorites", tags=["favorites"])  # Favorites at /api/v1/favorites/
 router.include_router(history.router, prefix="/history", tags=["history"])  # History at /api/v1/history/
 router.include_router(compare.router, prefix="/compare", tags=["compare"])  # Compare at /api/v1/compare/
+router.include_router(share.router, prefix="/share", tags=["share"])  # Share at /api/v1/share/
