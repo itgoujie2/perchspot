@@ -28,6 +28,7 @@ from app.services.agent.skills.property_skill import PropertySkill
 from app.services.agent.skills.location_skill import LocationSkill
 from app.services.agent.skills.school_skill import SchoolSkill
 from app.services.agent.skills.investment_skill import InvestmentSkill
+from app.services.agent.skills.sale_price_skill import SalePriceSkill
 from app.services.analysis_logging_service import AnalysisLoggingService
 from app.services.knowledge.search_service import get_search_service
 from app.models.analysis_log import ANALYSIS_STEPS
@@ -76,6 +77,7 @@ class StreamingAnalysisOrchestrator:
         self.location_skill = LocationSkill()
         self.school_skill = SchoolSkill()
         self.investment_skill = InvestmentSkill()
+        self.sale_price_skill = SalePriceSkill()
 
         # Logging context
         self.db = db
@@ -143,11 +145,11 @@ class StreamingAnalysisOrchestrator:
         Parse cached analysis results from the notes file.
 
         Looks for sections "Property Analysis", "Location Analysis",
-        "School Analysis", "Investment Analysis" — each containing a
-        ```json ... ``` block with the full skill result.
+        "School Analysis", "Investment Analysis", "Sale Price Analysis" —
+        each containing a ```json ... ``` block with the full skill result.
 
-        Returns {"property": {...}, "location": {...}, "schools": {...},
-        "investment": {...}} if all 4 found, else None.
+        Returns dict with found analyses if the core 4 are present.
+        Sale Price Analysis is optional for backwards compatibility.
         """
         if not self.notes_manager.notes_exist(address):
             return None
@@ -156,21 +158,26 @@ class StreamingAnalysisOrchestrator:
         if not notes_content:
             return None
 
-        section_map = {
+        # Core 4 are required, sale_price is optional
+        required_sections = {
             "Property Analysis": "property",
             "Location Analysis": "location",
             "School Analysis": "schools",
             "Investment Analysis": "investment",
         }
+        optional_sections = {
+            "Sale Price Analysis": "sale_price",
+        }
 
         cached_analysis = {}
 
-        for section_title, key in section_map.items():
+        # Check required sections first
+        for section_title, key in required_sections.items():
             # Find the section and extract its JSON block
             pattern = rf'## {re.escape(section_title)}\n(.*?)(?=\n## |\Z)'
             matches = re.findall(pattern, notes_content, re.DOTALL)
             if not matches:
-                logger.info(f"Cached analysis missing section: {section_title}")
+                logger.info(f"Cached analysis missing required section: {section_title}")
                 return None
 
             # Use the last (most recent) match
@@ -186,7 +193,20 @@ class StreamingAnalysisOrchestrator:
                 logger.warning(f"Failed to parse JSON in cached '{section_title}'")
                 return None
 
-        logger.info(f"Found all 4 cached analysis results for: {address}")
+        # Check optional sections
+        for section_title, key in optional_sections.items():
+            pattern = rf'## {re.escape(section_title)}\n(.*?)(?=\n## |\Z)'
+            matches = re.findall(pattern, notes_content, re.DOTALL)
+            if matches:
+                section_content = matches[-1]
+                fenced = re.search(r'```json\s*\n(.+?)\n```', section_content, re.DOTALL)
+                if fenced:
+                    try:
+                        cached_analysis[key] = json.loads(fenced.group(1))
+                    except json.JSONDecodeError:
+                        logger.warning(f"Failed to parse JSON in optional cached '{section_title}'")
+
+        logger.info(f"Found {len(cached_analysis)} cached analysis results for: {address}")
         return cached_analysis
 
     def _start_step_logging(self, step_number: int) -> Optional[str]:
@@ -302,7 +322,7 @@ class StreamingAnalysisOrchestrator:
         cached_analysis = self._parse_cached_analysis(address)
 
         if cached_analysis:
-            # All 4 analysis results are cached — replay them without calling LLM
+            # Analysis results are cached — replay them without calling LLM
             # Stagger delivery so the user sees progressive loading
 
             analysis_skill_map = [
@@ -310,10 +330,14 @@ class StreamingAnalysisOrchestrator:
                 (8, "Location & Commute", "location", "Evaluating location quality..."),
                 (9, "School Quality", "schools", "Analyzing nearby schools..."),
                 (10, "Investment Potential", "investment", "Calculating investment metrics..."),
+                (12, "Sale Price Prediction", "sale_price", "Predicting sale price..."),
             ]
 
             analysis_results = {}
             for step_num, step_name, skill_key, status_msg in analysis_skill_map:
+                # Skip if this skill result isn't cached (backwards compatibility)
+                if skill_key not in cached_analysis:
+                    continue
                 step_log_id = self._start_step_logging(step_num)
                 yield {"type": "status", "message": status_msg}
                 await asyncio.sleep(3.5)
@@ -676,6 +700,8 @@ class StreamingAnalysisOrchestrator:
              "skill": self.school_skill, "notes_title": "School Analysis"},
             {"key": "investment", "step": 10, "step_name": "Investment Potential",
              "skill": self.investment_skill, "notes_title": "Investment Analysis"},
+            {"key": "sale_price", "step": 12, "step_name": "Sale Price Prediction",
+             "skill": self.sale_price_skill, "notes_title": "Sale Price Analysis"},
         ]
 
         yield {"type": "status", "message": "Running all analyses in parallel..."}

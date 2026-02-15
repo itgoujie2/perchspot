@@ -24,6 +24,8 @@ class AnalysisStepLog(Base):
     8. Location & Commute (analysis)
     9. School Quality (analysis)
     10. Investment Potential (analysis)
+    11. Property Insights (knowledge)
+    12. Sale Price Prediction (analysis)
     """
     __tablename__ = "analysis_step_logs"
 
@@ -70,4 +72,6 @@ ANALYSIS_STEPS = [
     {"number": 8, "name": "Location & Commute", "type": "analysis"},
     {"number": 9, "name": "School Quality", "type": "analysis"},
     {"number": 10, "name": "Investment Potential", "type": "analysis"},
+    {"number": 11, "name": "Property Insights", "type": "knowledge"},
+    {"number": 12, "name": "Sale Price Prediction", "type": "analysis"},
 ]

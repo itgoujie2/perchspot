@@ -73,6 +73,7 @@ const buildReportData = (steps: ExtractedStep[], finalData: Record<string, any> 
     locationAnalysis: stepMap[8] || null,
     schoolAnalysis: stepMap[9] || null,
     investmentAnalysis: stepMap[10] || null,
+    salePriceAnalysis: stepMap[12] || null,
   };
 };
 
@@ -146,6 +147,107 @@ const Tooltip: React.FC<{ label: string; tip: string }> = ({ label, tip }) => (
 const fmtCurrency = (n: number | null | undefined) => {
   if (n === null || n === undefined) return '—';
   return '$' + Math.round(n).toLocaleString();
+};
+
+// Sale Price Prediction display
+const SalePricePrediction: React.FC<{ data: Record<string, any> }> = ({ data }) => {
+  if (!data) return null;
+
+  const predictedPrice = data.predicted_sale_price;
+  const priceRange = data.price_range || {};
+  const adjustmentFactors = data.adjustment_factors || [];
+  const marketSnapshot = data.market_snapshot || {};
+  const vsListPct = data.vs_list_price_pct;
+  const vsRedfinPct = data.vs_redfin_estimate_pct;
+  const confidence = data.confidence || 'medium';
+  const confidenceScore = data.score || 50;
+
+  if (!predictedPrice) return null;
+
+  const formatPriceK = (n: number) => {
+    if (n >= 1000000) return `$${(n / 1000000).toFixed(2)}M`;
+    return `$${Math.round(n / 1000)}K`;
+  };
+
+  const getDirectionIcon = (direction: string) => {
+    return direction === 'up' ? '↑' : '↓';
+  };
+
+  const getDirectionClass = (direction: string) => {
+    return direction === 'up' ? 'factor-up' : 'factor-down';
+  };
+
+  const getImpactClass = (impact: string) => {
+    if (impact === 'significant') return 'impact-significant';
+    if (impact === 'moderate') return 'impact-moderate';
+    return 'impact-slight';
+  };
+
+  return (
+    <div className="sale-price-prediction">
+      {/* Main price range display */}
+      <div className="price-range-display">
+        <div className="price-range-bar">
+          <span className="range-low">{formatPriceK(priceRange.low)}</span>
+          <div className="range-track">
+            <div className="range-marker" style={{ left: '50%' }}>
+              <span className="predicted-price">{formatPriceK(predictedPrice)}</span>
+              <span className="predicted-label">predicted</span>
+            </div>
+          </div>
+          <span className="range-high">{formatPriceK(priceRange.high)}</span>
+        </div>
+      </div>
+
+      {/* Comparisons */}
+      <div className="price-comparisons">
+        {vsListPct !== null && vsListPct !== undefined && (
+          <div className={`comparison-chip ${vsListPct > 0 ? 'chip-positive' : vsListPct < 0 ? 'chip-negative' : ''}`}>
+            vs List: {vsListPct > 0 ? '+' : ''}{vsListPct.toFixed(1)}%
+          </div>
+        )}
+        {vsRedfinPct !== null && vsRedfinPct !== undefined && (
+          <div className={`comparison-chip ${vsRedfinPct > 0 ? 'chip-positive' : vsRedfinPct < 0 ? 'chip-negative' : ''}`}>
+            vs Estimate: {vsRedfinPct > 0 ? '+' : ''}{vsRedfinPct.toFixed(1)}%
+          </div>
+        )}
+        <div className={`confidence-chip confidence-${confidence}`}>
+          {confidence} confidence ({confidenceScore}/100)
+        </div>
+      </div>
+
+      {/* Adjustment factors */}
+      {adjustmentFactors.length > 0 && (
+        <div className="adjustment-factors">
+          <strong>Adjustment Factors:</strong>
+          <div className="factors-list">
+            {adjustmentFactors.map((f: any, i: number) => (
+              <div key={i} className={`factor-item ${getDirectionClass(f.direction)} ${getImpactClass(f.impact)}`}>
+                <span className="factor-icon">{getDirectionIcon(f.direction)}</span>
+                <span className="factor-text">{f.factor}</span>
+                <span className="factor-impact">({f.impact})</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Market snapshot */}
+      {marketSnapshot.mortgage_rate && (
+        <div className="market-snapshot-bar">
+          <span>{marketSnapshot.market_type || 'Balanced'} market</span>
+          <span className="snapshot-divider">•</span>
+          <span>Rates {marketSnapshot.mortgage_rate}%</span>
+          {marketSnapshot.local_trend && marketSnapshot.local_trend !== 'unknown' && (
+            <>
+              <span className="snapshot-divider">•</span>
+              <span>{marketSnapshot.local_trend}</span>
+            </>
+          )}
+        </div>
+      )}
+    </div>
+  );
 };
 
 // Investment metrics display with formulas
@@ -513,6 +615,14 @@ const ChatPage: React.FC = () => {
           });
           setCompletedSteps(prev => new Set(prev).add(10));
         }
+        if (data.analysis_results.sale_price) {
+          setExtractedSteps(prev => {
+            const has12 = prev.find(s => s.step === 12);
+            if (has12) return prev;
+            return [...prev, { step: 12, step_name: 'Sale Price Prediction', data: data.analysis_results.sale_price, timestamp: new Date().toISOString() }];
+          });
+          setCompletedSteps(prev => new Set(prev).add(12));
+        }
       }
 
       setTimeout(() => {
@@ -722,14 +832,17 @@ const ChatPage: React.FC = () => {
   const locStep = getAnalysisStep(8);
   const schoolStep = getAnalysisStep(9);
   const investmentStep = getAnalysisStep(10);
+  const salePriceStep = getAnalysisStep(12);
   const propAnalysis = propStep?._analysis || null;
   const locAnalysis = locStep?._analysis || null;
   const schoolAnalysis = schoolStep?._analysis || null;
   const investmentAnalysis = investmentStep?._analysis || null;
+  const salePriceAnalysis = salePriceStep?._analysis || null;
   const propScore = getScore(propStep);
   const locScore = getScore(locStep);
   const schoolScore = getScore(schoolStep);
   const investmentScore = getScore(investmentStep);
+  const salePriceConfidence = getScore(salePriceStep);
   const scoreParts = [propScore, locScore, schoolScore, investmentScore].filter((s): s is number => s !== null);
   const overallScore = scoreParts.length > 0 ? Math.round(scoreParts.reduce((a, b) => a + b, 0) / scoreParts.length) : null;
 
@@ -1169,6 +1282,31 @@ const ChatPage: React.FC = () => {
                 )}
               </div>
             ) : hasAnyData && !completedSteps.has(10) && analyzing ? (
+              <div className="report-section skeleton"><div className="skeleton-block" /></div>
+            ) : null}
+
+            {/* Step 12: Sale Price Prediction */}
+            {salePriceAnalysis ? (
+              <div className="report-section analysis-saleprice fade-in">
+                <h4>Predicted Sale Price</h4>
+                <SalePricePrediction data={salePriceStep} />
+                {salePriceStep?.reasoning && (
+                  <p className="prediction-reasoning">{salePriceStep.reasoning}</p>
+                )}
+                {getList(salePriceStep, 'strengths').length > 0 && (
+                  <div className="analysis-list">
+                    <strong>Price Strengths</strong>
+                    <ul>{getList(salePriceStep, 'strengths').map((s, i) => <li key={i}>{s}</li>)}</ul>
+                  </div>
+                )}
+                {getList(salePriceStep, 'concerns').length > 0 && (
+                  <div className="analysis-list">
+                    <strong>Price Concerns</strong>
+                    <ul>{getList(salePriceStep, 'concerns').map((s, i) => <li key={i}>{s}</li>)}</ul>
+                  </div>
+                )}
+              </div>
+            ) : hasAnyData && !completedSteps.has(12) && analyzing ? (
               <div className="report-section skeleton"><div className="skeleton-block" /></div>
             ) : null}
 
