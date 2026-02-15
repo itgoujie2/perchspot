@@ -253,6 +253,10 @@ class SearchService:
             - bathrooms: details.bathrooms
             - stories: details.stories
         """
+        # Validate condition is a dict
+        if not isinstance(condition, dict):
+            return False
+
         attribute = condition.get("attribute", "")
         operator = condition.get("operator", "=")
         target_value = condition.get("value")
@@ -357,6 +361,9 @@ class SearchService:
                     # Check if ALL conditions match
                     all_match = True
                     for condition in applies_when:
+                        # Skip invalid conditions (must be dict)
+                        if not isinstance(condition, dict):
+                            continue
                         if not self._evaluate_condition(condition, property_data):
                             all_match = False
                             break
