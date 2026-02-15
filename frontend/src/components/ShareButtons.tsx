@@ -27,6 +27,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({
   const [generating, setGenerating] = useState(false);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [showImageModal, setShowImageModal] = useState(false);
+  const [emailPending, setEmailPending] = useState(false);
 
   const shareUrl = `${window.location.origin}/chat?address=${encodeURIComponent(address)}`;
 
@@ -79,47 +80,45 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({
     window.open(linkedInUrl, '_blank', 'width=550,height=420');
   };
 
-  const handleEmailShare = () => {
-    const subject = `Property Analysis: ${address}`;
-    const body = `${shareText}\n\n${shareUrl}`;
-    window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  };
-
-  const generateReportImage = async () => {
+  // Generate image and return the data URL
+  const captureReportImage = async (): Promise<string | null> => {
     if (!reportRef?.current) {
       console.error('Report element not found');
-      return;
+      return null;
     }
 
-    setGenerating(true);
     try {
-      // Get the report content element (scrollable area)
       const reportContent = reportRef.current.querySelector('.report-content') as HTMLElement;
       if (!reportContent) {
         console.error('Report content element not found');
-        setGenerating(false);
-        return;
+        return null;
       }
 
       // Store original styles
       const originalOverflow = reportContent.style.overflow;
       const originalHeight = reportContent.style.height;
       const originalMaxHeight = reportContent.style.maxHeight;
+      const originalWidth = reportRef.current.style.width;
+      const originalMinWidth = reportRef.current.style.minWidth;
 
-      // Temporarily expand to full height for capture
+      // Temporarily expand for capture - set minimum width for better quality
       reportContent.style.overflow = 'visible';
       reportContent.style.height = 'auto';
       reportContent.style.maxHeight = 'none';
+      reportRef.current.style.width = '800px';
+      reportRef.current.style.minWidth = '800px';
 
       // Wait for styles to apply
-      await new Promise(resolve => setTimeout(resolve, 100));
+      await new Promise(resolve => setTimeout(resolve, 150));
 
       const canvas = await html2canvas(reportRef.current, {
-        scale: 2, // Higher resolution
+        scale: 2.5, // Higher resolution for crisp images
         useCORS: true,
         allowTaint: true,
         backgroundColor: '#f8f9fb',
         logging: false,
+        width: 800,
+        windowWidth: 800,
         windowHeight: reportRef.current.scrollHeight,
         height: reportRef.current.scrollHeight,
       });
@@ -128,15 +127,93 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({
       reportContent.style.overflow = originalOverflow;
       reportContent.style.height = originalHeight;
       reportContent.style.maxHeight = originalMaxHeight;
+      reportRef.current.style.width = originalWidth;
+      reportRef.current.style.minWidth = originalMinWidth;
 
-      const dataUrl = canvas.toDataURL('image/png');
-      setImageUrl(dataUrl);
-      setShowImageModal(true);
+      return canvas.toDataURL('image/png');
     } catch (err) {
       console.error('Failed to generate image:', err);
-      alert('Failed to generate report image. Please try again.');
+      return null;
+    }
+  };
+
+  const generateReportImage = async () => {
+    setGenerating(true);
+    try {
+      const dataUrl = await captureReportImage();
+      if (dataUrl) {
+        setImageUrl(dataUrl);
+        setShowImageModal(true);
+      } else {
+        alert('Failed to generate report image. Please try again.');
+      }
     } finally {
       setGenerating(false);
+    }
+  };
+
+  const handleEmailShare = async () => {
+    if (!reportRef?.current) {
+      // Fallback to text-only email if no report ref
+      const subject = `Property Analysis: ${address}`;
+      const body = `${shareText}\n\n${shareUrl}`;
+      window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      return;
+    }
+
+    setEmailPending(true);
+    setGenerating(true);
+
+    try {
+      // Generate the image
+      const dataUrl = await captureReportImage();
+
+      if (dataUrl) {
+        // Copy image to clipboard
+        const response = await fetch(dataUrl);
+        const blob = await response.blob();
+
+        try {
+          await navigator.clipboard.write([
+            new ClipboardItem({ 'image/png': blob })
+          ]);
+
+          // Open email
+          const subject = `Property Analysis: ${address}`;
+          const body = `${shareText}\n\n${shareUrl}\n\n[Paste the report image below - it's already copied to your clipboard!]`;
+          window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+          // Show success message
+          setTimeout(() => {
+            alert('Report image copied to clipboard! Paste it into your email with Ctrl+V (or Cmd+V on Mac).');
+          }, 500);
+
+        } catch (clipboardErr) {
+          // Clipboard failed - show image modal instead
+          console.error('Clipboard failed:', clipboardErr);
+          setImageUrl(dataUrl);
+          setShowImageModal(true);
+
+          // Still open email
+          const subject = `Property Analysis: ${address}`;
+          const body = `${shareText}\n\n${shareUrl}`;
+          window.open(`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+        }
+      } else {
+        // Image generation failed - fall back to text email
+        const subject = `Property Analysis: ${address}`;
+        const body = `${shareText}\n\n${shareUrl}`;
+        window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      }
+    } catch (err) {
+      console.error('Email share error:', err);
+      // Fallback
+      const subject = `Property Analysis: ${address}`;
+      const body = `${shareText}\n\n${shareUrl}`;
+      window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    } finally {
+      setGenerating(false);
+      setEmailPending(false);
     }
   };
 
@@ -153,7 +230,6 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({
     if (!imageUrl) return;
 
     try {
-      // Convert data URL to blob
       const response = await fetch(imageUrl);
       const blob = await response.blob();
 
@@ -161,7 +237,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({
         new ClipboardItem({ 'image/png': blob })
       ]);
 
-      alert('Image copied to clipboard! You can paste it directly into social media.');
+      alert('Image copied to clipboard! You can paste it directly into social media or email.');
     } catch (err) {
       console.error('Failed to copy image:', err);
       alert('Failed to copy image. Please download it instead.');
@@ -187,7 +263,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({
             aria-label="Generate shareable image"
             disabled={generating}
           >
-            {generating ? (
+            {generating && !emailPending ? (
               <div className="btn-spinner"></div>
             ) : (
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18">
@@ -233,15 +309,20 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({
         </button>
 
         <button
-          className="share-btn email"
+          className={`share-btn email ${emailPending ? 'generating' : ''}`}
           onClick={handleEmailShare}
-          title="Share via Email"
+          title="Share via Email (with report image)"
           aria-label="Share via Email"
+          disabled={generating}
         >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-            <polyline points="22,6 12,13 2,6"/>
-          </svg>
+          {emailPending ? (
+            <div className="btn-spinner"></div>
+          ) : (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          )}
         </button>
 
         <button
@@ -292,7 +373,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({
               </button>
             </div>
             <p className="image-modal-hint">
-              Download the image and share it on any social media platform for the full report!
+              Download or copy the image to share the full report on any platform!
             </p>
           </div>
         </div>
