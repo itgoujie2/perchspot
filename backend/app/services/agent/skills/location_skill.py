@@ -223,7 +223,9 @@ Return ONLY valid JSON, no other text.
 
         # Query knowledge base with targeted location queries
         knowledge_queries = self._extract_location_queries(address, region, commute_data, analysis)
-        _, knowledge_debug = self._run_multi_query_search(knowledge_queries, limit_per_query=3)
+        _, knowledge_debug = self._run_multi_query_search(
+            knowledge_queries, limit_per_query=6, min_score=0.25
+        )
 
         analysis['raw_data'] = {
             'address': address,

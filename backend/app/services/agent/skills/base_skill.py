@@ -214,12 +214,21 @@ class BaseSkill(ABC):
             logger.warning(f"Knowledge search unavailable: {e}")
             return "", {"query": query, "results": []}
 
-    def _run_multi_query_search(self, queries: list[str], limit_per_query: int = 3):
+    def _run_multi_query_search(
+        self,
+        queries: list[str],
+        limit_per_query: int = 5,
+        min_score: float = 0.3,
+    ):
         """
         Run multiple targeted knowledge queries, deduplicate results.
 
         Note: This is synchronous but fast (local vector search).
-        Relevance filtering is skipped here - done async in skills if needed.
+
+        Args:
+            queries: List of search queries
+            limit_per_query: Max results per query (default 5)
+            min_score: Minimum relevance score threshold (default 0.3)
 
         Returns (combined_context_str, debug_list) where debug_list is a list of
         {query, results: [{text, category, score, source_file}]}.
@@ -247,7 +256,8 @@ class BaseSkill(ABC):
                         "score": round(r.score, 4),
                         "source_file": r.source_file,
                     })
-                    if r.text not in seen_texts:
+                    # Only include results above score threshold
+                    if r.score >= min_score and r.text not in seen_texts:
                         seen_texts.add(r.text)
                         by_category[r.category].append(r.text)
                 all_debug.append({"query": query, "results": hits})

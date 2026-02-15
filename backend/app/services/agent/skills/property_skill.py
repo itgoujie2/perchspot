@@ -154,10 +154,12 @@ REGION: {region_info.get('region', 'N/A')}
 
         # 1. Extract meaningful search terms from property data using LLM (semantic search)
         knowledge_queries = await self._extract_property_queries(prop, details, features, region_info)
-        semantic_context, semantic_debug = self._run_multi_query_search(knowledge_queries, limit_per_query=3)
+        semantic_context, semantic_debug = self._run_multi_query_search(
+            knowledge_queries, limit_per_query=6, min_score=0.25
+        )
 
         # 2. Get attribute-based knowledge (matches @applies_when tags)
-        attribute_context, attribute_debug = self._get_attribute_knowledge(data, limit=10)
+        attribute_context, attribute_debug = self._get_attribute_knowledge(data, limit=15)
 
         # 3. Merge knowledge contexts, avoiding duplicates
         knowledge_context = self._merge_knowledge_contexts(semantic_context, attribute_context)
