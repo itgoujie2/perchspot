@@ -132,7 +132,8 @@ Return a JSON object with this structure:
       "bathrooms": number or null,
       "sqft": number or null,
       "property_type": "string (e.g., 'House', 'Townhome') or null",
-      "redfin_url": "https://... or null"
+      "redfin_url": "https://... or null",
+      "photo_url": "string URL of property thumbnail or null"
     }
   ]
 }
@@ -172,6 +173,7 @@ class ScreenshotExtractorCollector:
 
         # Photo URL tracking
         self._current_main_photo_url = None
+        self._current_similar_photos = {}
 
         # Cost per 1M tokens (Claude Sonnet 4)
         # Input: $3/1M, Output: $15/1M
@@ -263,6 +265,7 @@ class ScreenshotExtractorCollector:
         self.screenshots_taken = 0
         self.api_call_details = []
         self._current_main_photo_url = None
+        self._current_similar_photos = {}
 
         yield {"type": "init", "status": "started", "address": address, "mode": "extraction"}
         yield {"type": "status", "message": "Looking up property information..."}
@@ -442,13 +445,17 @@ class ScreenshotExtractorCollector:
                 if main_photo_url:
                     logger.info(f"Extracted main photo URL: {main_photo_url[:100]}...")
 
+                # Extract similar homes photos (scrolls to bottom then back)
+                similar_homes_photos = await self._extract_similar_homes_photos(page)
+
                 # Create address slug for filenames
                 address_slug = self._create_slug(address)
                 screenshot_dir = self.screenshots_dir / address_slug
                 screenshot_dir.mkdir(parents=True, exist_ok=True)
 
-                # Store photo URL for later use
+                # Store photo URLs for later use
                 self._current_main_photo_url = main_photo_url
+                self._current_similar_photos = similar_homes_photos
 
                 # Take screenshots at different scroll positions
                 for i, (scroll_pos, name) in enumerate(SCROLL_POSITIONS):
@@ -657,6 +664,92 @@ class ScreenshotExtractorCollector:
         except Exception as e:
             logger.warning(f"Error extracting main photo URL: {e}")
             return None
+
+    async def _extract_similar_homes_photos(self, page: Page) -> Dict[str, str]:
+        """
+        Extract photo URLs for similar/nearby homes shown on the Redfin page.
+
+        Returns a dict mapping address snippets to photo URLs.
+        """
+        similar_photos = {}
+        try:
+            # Scroll down to the similar homes section
+            await page.evaluate("window.scrollTo(0, 7000)")
+            await asyncio.sleep(0.5)
+
+            # Selectors for similar homes cards
+            card_selectors = [
+                '.SimilarHomesCard',
+                '.HomeCardContainer',
+                '.HomeCard',
+                '[class*="SimilarHomes"] [class*="Card"]',
+                '[class*="NearbyHomes"] [class*="Card"]',
+                '.MapHomeCard',
+            ]
+
+            for card_selector in card_selectors:
+                try:
+                    cards = await page.query_selector_all(card_selector)
+                    for card in cards[:6]:  # Limit to 6 similar homes
+                        try:
+                            # Get the address from the card
+                            addr_el = await card.query_selector('[class*="address"], .homeAddress, .streetAddress, a[href*="/home/"]')
+                            if addr_el:
+                                addr_text = await addr_el.inner_text()
+                                addr_text = addr_text.strip()[:50]  # Truncate for matching
+                            else:
+                                continue
+
+                            # Get the photo URL from the card
+                            img = await card.query_selector('img[src*="ssl.cdn-redfin"]')
+                            if img:
+                                src = await img.get_attribute('src')
+                                if src and 'ssl.cdn-redfin' in src:
+                                    # Skip tiny placeholder images
+                                    if 'placeholder' not in src.lower():
+                                        similar_photos[addr_text] = src
+                                        continue
+
+                            # Try srcset
+                            img_srcset = await card.query_selector('img[srcset*="ssl.cdn-redfin"]')
+                            if img_srcset:
+                                srcset = await img_srcset.get_attribute('srcset')
+                                if srcset:
+                                    urls = srcset.split(',')
+                                    if urls:
+                                        best_url = urls[-1].strip().split(' ')[0]
+                                        if best_url and 'ssl.cdn-redfin' in best_url:
+                                            similar_photos[addr_text] = best_url
+                                            continue
+
+                            # Try background-image
+                            bg_el = await card.query_selector('[style*="background-image"][style*="ssl.cdn-redfin"]')
+                            if bg_el:
+                                style = await bg_el.get_attribute('style')
+                                if style:
+                                    url_match = re.search(r'url\(["\']?(https?://[^"\')]+ssl\.cdn-redfin[^"\')]+)["\']?\)', style)
+                                    if url_match:
+                                        similar_photos[addr_text] = url_match.group(1)
+
+                        except Exception as e:
+                            logger.debug(f"Failed to extract similar home photo: {e}")
+                            continue
+
+                    if similar_photos:
+                        break  # Found photos with this selector
+
+                except Exception:
+                    continue
+
+            # Scroll back to top
+            await page.evaluate("window.scrollTo(0, 0)")
+
+            logger.info(f"Extracted {len(similar_photos)} similar home photos")
+            return similar_photos
+
+        except Exception as e:
+            logger.warning(f"Error extracting similar homes photos: {e}")
+            return {}
 
     def _normalize_address_for_search(self, address: str) -> str:
         """
@@ -1093,6 +1186,24 @@ class ScreenshotExtractorCollector:
                         extracted_data["images"] = {}
                     extracted_data["images"]["main_photo_url"] = self._current_main_photo_url
                     logger.info(f"Added main_photo_url to extracted data")
+
+                # Merge similar homes photos into the extracted similar_homes data
+                if self._current_similar_photos and extracted_data.get("similar_homes"):
+                    matched_count = 0
+                    for home in extracted_data["similar_homes"]:
+                        home_addr = home.get("address", "")
+                        # Try to match by partial address
+                        for addr_snippet, photo_url in self._current_similar_photos.items():
+                            # Match if either contains the other (partial match)
+                            if addr_snippet and home_addr:
+                                addr_lower = home_addr.lower()
+                                snippet_lower = addr_snippet.lower()
+                                # Check for street number + name match
+                                if snippet_lower[:20] in addr_lower or addr_lower[:20] in snippet_lower:
+                                    home["photo_url"] = photo_url
+                                    matched_count += 1
+                                    break
+                    logger.info(f"Matched {matched_count} similar homes with photos")
 
                 return extracted_data
             else:
