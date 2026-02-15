@@ -533,31 +533,47 @@ class ScreenshotExtractorCollector:
         """
         Extract the main property photo URL from the Redfin page.
 
-        Tries multiple selectors to find the primary property image.
+        Specifically targets the property photo gallery and excludes
+        agent profile photos and other non-property images.
+
         Returns the URL or None if not found.
         """
         try:
-            # Redfin property photo selectors (in order of preference)
+            # First, try to click on the main photo to open the gallery
+            # This gives us access to the full-resolution image
+            gallery_opened = False
+            try:
+                # Look for the main photo container that opens the gallery
+                main_photo_container = await page.query_selector('.HomeMainMedia, .above-the-fold [class*="Photo"], .MediaSection')
+                if main_photo_container:
+                    await main_photo_container.click()
+                    await asyncio.sleep(1)  # Wait for gallery to open
+                    gallery_opened = True
+            except Exception:
+                pass
+
+            # Redfin property photo selectors - very specific to avoid agent photos
+            # These target the property photo gallery area specifically
             photo_selectors = [
-                # Main hero image
-                'img[data-rf-test-name="hero-photo"]',
-                'img[data-rf-test-name="primary-photo"]',
-                # Photo gallery main image
-                '.PhotosView img',
-                '.photo-view img',
-                '.slideshow-image img',
-                '.carousel-image img',
-                # Main property image container
-                '.main-photo img',
-                '.primary-photo img',
-                '.HomeMainMedia img',
-                # Generic large property images
-                'img[class*="photo"][src*="ssl.cdn-redfin"]',
-                'img[src*="ssl.cdn-redfin.com"]',
-                'img[src*="photos.zillowstatic"]',
-                # Backup: any large image in the header area
-                '.above-the-fold img',
-                'header img[src*="cdn"]',
+                # Gallery/lightbox image (if gallery was opened)
+                '.Lightbox img[src*="ssl.cdn-redfin"]',
+                '.Lightbox img[src*="photos"]',
+                '.PhotosLightbox img',
+                '[class*="lightbox"] img[src*="ssl.cdn-redfin"]',
+                '[class*="Lightbox"] img[src*="photos"]',
+                # Main hero property photo (large image in media section)
+                '.HomeMainMedia img[src*="ssl.cdn-redfin"]',
+                '.MediaSection img[src*="ssl.cdn-redfin"]',
+                '.HomeMedia img[src*="ssl.cdn-redfin"]',
+                # Photo gallery container images
+                '[class*="PhotosView"] img[src*="ssl.cdn-redfin"]',
+                '[class*="photo-view"] img[src*="ssl.cdn-redfin"]',
+                '[class*="MediaGallery"] img[src*="ssl.cdn-redfin"]',
+                # Above the fold property images (not agent cards)
+                '.above-the-fold img[src*="ssl.cdn-redfin.com/photo"]',
+                # Specific Redfin image patterns (property photos have specific URL patterns)
+                'img[src*="ssl.cdn-redfin.com/photo/"]',
+                'img[src*="ssl.cdn-redfin.com/genphoto/"]',
             ]
 
             for selector in photo_selectors:
@@ -565,35 +581,56 @@ class ScreenshotExtractorCollector:
                     images = await page.query_selector_all(selector)
                     for img in images:
                         if await img.is_visible():
-                            # Try srcset first (for higher resolution)
-                            srcset = await img.get_attribute('srcset')
-                            if srcset:
-                                # Parse srcset and get highest resolution URL
-                                urls = srcset.split(',')
-                                if urls:
-                                    # Get the last (usually highest res) or first
-                                    best_url = urls[-1].strip().split(' ')[0]
-                                    if best_url and 'http' in best_url:
-                                        return best_url
-
-                            # Fall back to src
                             src = await img.get_attribute('src')
-                            if src and 'http' in src:
-                                # Skip tiny placeholder images
-                                width = await img.get_attribute('width')
-                                if width and int(width) < 100:
+                            if src and 'ssl.cdn-redfin' in src:
+                                # Skip agent profile photos - they typically have different URL patterns
+                                # Agent photos usually contain 'user' or 'agent' or have small dimensions
+                                if any(x in src.lower() for x in ['user', 'agent', 'avatar', 'profile']):
                                     continue
+
+                                # Check image dimensions via natural width/height
+                                try:
+                                    dims = await img.evaluate('el => ({w: el.naturalWidth, h: el.naturalHeight})')
+                                    # Property photos are usually larger than 200x200
+                                    if dims.get('w', 0) < 200 or dims.get('h', 0) < 200:
+                                        continue
+                                except Exception:
+                                    pass
+
+                                # Try srcset first for higher resolution
+                                srcset = await img.get_attribute('srcset')
+                                if srcset:
+                                    urls = srcset.split(',')
+                                    if urls:
+                                        # Get the highest resolution (last in srcset)
+                                        best_url = urls[-1].strip().split(' ')[0]
+                                        if best_url and 'ssl.cdn-redfin' in best_url:
+                                            logger.info(f"Found property photo from srcset: {best_url[:80]}...")
+                                            if gallery_opened:
+                                                await page.keyboard.press('Escape')
+                                            return best_url
+
+                                logger.info(f"Found property photo: {src[:80]}...")
+                                if gallery_opened:
+                                    await page.keyboard.press('Escape')
                                 return src
 
-                except Exception:
+                except Exception as e:
+                    logger.debug(f"Selector {selector} failed: {e}")
                     continue
 
-            # Try to extract from background-image style
+            # Close gallery if we opened it
+            if gallery_opened:
+                try:
+                    await page.keyboard.press('Escape')
+                except Exception:
+                    pass
+
+            # Try to extract from background-image style (some photos are CSS backgrounds)
             bg_selectors = [
-                '.PhotosView [style*="background-image"]',
-                '.photo-view [style*="background-image"]',
-                '.HomeMainMedia [style*="background-image"]',
-                '[class*="photo"] [style*="background-image"]',
+                '.HomeMainMedia [style*="background-image"][style*="ssl.cdn-redfin"]',
+                '.MediaSection [style*="background-image"][style*="ssl.cdn-redfin"]',
+                '[class*="PhotosView"] [style*="background-image"]',
             ]
 
             for selector in bg_selectors:
@@ -602,16 +639,19 @@ class ScreenshotExtractorCollector:
                     for el in elements:
                         if await el.is_visible():
                             style = await el.get_attribute('style')
-                            if style and 'url(' in style:
+                            if style and 'url(' in style and 'ssl.cdn-redfin' in style:
                                 # Extract URL from background-image: url("...")
-                                import re
-                                url_match = re.search(r'url\(["\']?(https?://[^"\')]+)["\']?\)', style)
+                                url_match = re.search(r'url\(["\']?(https?://[^"\')]+ssl\.cdn-redfin[^"\')]+)["\']?\)', style)
                                 if url_match:
-                                    return url_match.group(1)
+                                    url = url_match.group(1)
+                                    # Skip agent photos
+                                    if not any(x in url.lower() for x in ['user', 'agent', 'avatar', 'profile']):
+                                        logger.info(f"Found property photo from background: {url[:80]}...")
+                                        return url
                 except Exception:
                     continue
 
-            logger.warning("Could not extract main photo URL from page")
+            logger.warning("Could not extract main property photo URL from page")
             return None
 
         except Exception as e:
