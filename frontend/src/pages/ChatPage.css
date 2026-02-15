@@ -1504,3 +1504,103 @@
 .print-footer {
   display: none;
 }
+
+/* ---- Property Insights (Generic Knowledge) ---- */
+.property-insights {
+  background: linear-gradient(135deg, #fefce8 0%, #fff 100%);
+  border: 1px solid #fde68a;
+}
+
+.insights-intro {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.8rem;
+  color: #78716c;
+  font-style: italic;
+}
+
+.insights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.insight-item {
+  background: white;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e7e5e4;
+  position: relative;
+}
+
+.insight-item.high-priority {
+  border-color: #fbbf24;
+  border-width: 2px;
+  background: linear-gradient(135deg, #fffbeb 0%, #fff 100%);
+}
+
+.priority-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.4rem;
+}
+
+.priority-badge.high {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+}
+
+.insight-text {
+  margin: 0 0 0.4rem 0;
+  font-size: 0.85rem;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.insight-category {
+  font-size: 0.7rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+/* Mobile adjustments for Property Insights */
+@media (max-width: 768px) {
+  .insight-item {
+    padding: 0.6rem 0.75rem;
+  }
+
+  .insight-text {
+    font-size: 0.8rem;
+  }
+
+  .priority-badge {
+    font-size: 0.6rem;
+  }
+}
+
+/* Print styles for Property Insights */
+@media print {
+  .property-insights {
+    background: #fffef5 !important;
+    border: 1px solid #fde68a;
+  }
+
+  .insight-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .insight-item.high-priority {
+    background: #fffef5 !important;
+    border-color: #fbbf24 !important;
+  }
+
+  .priority-badge.high {
+    background: #fef3c7 !important;
+    color: #92400e !important;
+  }
+}

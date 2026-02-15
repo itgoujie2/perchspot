@@ -29,6 +29,7 @@ from app.services.agent.skills.location_skill import LocationSkill
 from app.services.agent.skills.school_skill import SchoolSkill
 from app.services.agent.skills.investment_skill import InvestmentSkill
 from app.services.analysis_logging_service import AnalysisLoggingService
+from app.services.knowledge.search_service import get_search_service
 from app.models.analysis_log import ANALYSIS_STEPS
 from app.config import settings
 
@@ -353,6 +354,18 @@ class StreamingAnalysisOrchestrator:
                     analysis_cost = analysis_event.get("analysis_cost", 0)
                 yield analysis_event
 
+        # Step 11: Generic Knowledge / Property Insights
+        generic_knowledge = self._prepare_generic_knowledge(cached_data)
+        if generic_knowledge:
+            yield {
+                "type": "generic_knowledge",
+                "step": 11,
+                "step_name": "Property Insights",
+                "data": {
+                    "knowledge_points": generic_knowledge,
+                },
+            }
+
         elapsed = (datetime.utcnow() - start_time).total_seconds()
 
         # Complete job logging
@@ -491,6 +504,18 @@ class StreamingAnalysisOrchestrator:
                             analysis_results = analysis_event.get("results", {})
                             analysis_cost = analysis_event.get("analysis_cost", 0)
                         yield analysis_event
+
+                    # Step 11: Generic Knowledge / Property Insights
+                    generic_knowledge = self._prepare_generic_knowledge(all_data)
+                    if generic_knowledge:
+                        yield {
+                            "type": "generic_knowledge",
+                            "step": 11,
+                            "step_name": "Property Insights",
+                            "data": {
+                                "knowledge_points": generic_knowledge,
+                            },
+                        }
 
                     total_raw = scrape_event["total_cost"] + analysis_cost
 
@@ -765,4 +790,28 @@ class StreamingAnalysisOrchestrator:
             "results": results,
             "analysis_cost": total_cost
         }
+
+    def _prepare_generic_knowledge(self, property_data: Dict[str, Any]) -> List[Dict[str, Any]]:
+        """
+        Find generic knowledge points that match property attributes.
+
+        Uses the search_by_attributes_with_details method to find knowledge
+        points with @applies_when tags that match the property's characteristics
+        (year_built, has_hoa, property_type, etc.)
+
+        Returns list of knowledge points with matched condition details.
+        """
+        try:
+            search_service = get_search_service()
+            knowledge_points = search_service.search_by_attributes_with_details(
+                property_data=property_data,
+                limit=15,
+            )
+
+            logger.info(f"Found {len(knowledge_points)} generic knowledge points for property")
+            return knowledge_points
+
+        except Exception as e:
+            logger.warning(f"Failed to prepare generic knowledge: {e}")
+            return []
 

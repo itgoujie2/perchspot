@@ -26,6 +26,20 @@ interface ExtractedStep {
   timestamp: string;
 }
 
+interface MatchedCondition {
+  attribute: string;
+  operator: string;
+  value: any;
+  actual_value: any;
+}
+
+interface GenericKnowledgePoint {
+  text: string;
+  category: string;
+  priority: string;
+  matched_conditions: MatchedCondition[];
+}
+
 // Helper to safely get nested values
 const get = (obj: any, path: string, fallback: any = undefined) => {
   return path.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : fallback), obj);
@@ -293,6 +307,7 @@ const ChatPage: React.FC = () => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [favoriteId, setFavoriteId] = useState<string | null>(null);
   const [favoriteLoading, setFavoriteLoading] = useState(false);
+  const [genericKnowledge, setGenericKnowledge] = useState<GenericKnowledgePoint[]>([]);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const analysisStarted = useRef(false);
@@ -441,6 +456,14 @@ const ChatPage: React.FC = () => {
       addMessage('assistant', analysisHeader + data.analysis, 'analysis', data.step, data.step_name);
     });
 
+    es.addEventListener('generic_knowledge', (e) => {
+      const data = JSON.parse(e.data);
+      if (data.data?.knowledge_points) {
+        setGenericKnowledge(data.data.knowledge_points);
+        setCompletedSteps(prev => new Set(prev).add(11));
+      }
+    });
+
     es.addEventListener('summary', (e) => {
       const data = JSON.parse(e.data);
       analysisCompleted.current = true;
@@ -575,6 +598,7 @@ const ChatPage: React.FC = () => {
     setExtractedSteps([]);
     setFinalData(null);
     setCompletedSteps(new Set());
+    setGenericKnowledge([]);
     analysisStarted.current = false;
     analysisCompleted.current = false;
     navigate('/');
@@ -1147,6 +1171,29 @@ const ChatPage: React.FC = () => {
             ) : hasAnyData && !completedSteps.has(10) && analyzing ? (
               <div className="report-section skeleton"><div className="skeleton-block" /></div>
             ) : null}
+
+            {/* Step 11: Property Insights (Generic Knowledge) */}
+            {genericKnowledge.length > 0 && (
+              <div className="report-section property-insights fade-in">
+                <h4>Property Insights</h4>
+                <p className="insights-intro">Based on this property's characteristics:</p>
+                <div className="insights-list">
+                  {genericKnowledge.filter(k => k.priority === 'high').map((k, i) => (
+                    <div key={`high-${i}`} className="insight-item high-priority">
+                      <span className="priority-badge high">Important</span>
+                      <p className="insight-text">{k.text}</p>
+                      <span className="insight-category">{k.category}</span>
+                    </div>
+                  ))}
+                  {genericKnowledge.filter(k => k.priority !== 'high').map((k, i) => (
+                    <div key={`other-${i}`} className="insight-item">
+                      <p className="insight-text">{k.text}</p>
+                      <span className="insight-category">{k.category}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Document Upload - shown after analysis is complete */}
             {address && isComplete && (

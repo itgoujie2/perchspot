@@ -314,6 +314,40 @@ class SearchService:
         except (ValueError, TypeError):
             return False
 
+    def _get_actual_value(
+        self,
+        attribute: str,
+        property_data: Dict[str, Any]
+    ) -> Any:
+        """Get the actual value from property data for a given attribute."""
+        attribute_paths = {
+            "year_built": ("details", "year_built"),
+            "has_hoa": ("hoa", "has_hoa"),
+            "hoa_fee": ("hoa", "fee"),
+            "property_type": ("details", "property_type"),
+            "lot_size_sqft": ("details", "lot_size_sqft"),
+            "living_area_sqft": ("details", "living_area_sqft"),
+            "bedrooms": ("details", "bedrooms"),
+            "bathrooms": ("details", "bathrooms"),
+            "stories": ("details", "stories"),
+            "has_pool": ("details", "has_pool"),
+            "has_garage": ("details", "has_garage"),
+        }
+
+        path = attribute_paths.get(attribute)
+        if not path:
+            return None
+
+        current = property_data
+        for key in path:
+            if not isinstance(current, dict):
+                return None
+            current = current.get(key)
+            if current is None:
+                return None
+
+        return current
+
     def search_by_attributes(
         self,
         property_data: Dict[str, Any],
@@ -393,6 +427,105 @@ class SearchService:
 
         except Exception as e:
             logger.warning(f"Attribute-based search failed: {e}")
+            return []
+
+    def search_by_attributes_with_details(
+        self,
+        property_data: Dict[str, Any],
+        limit: int = 15,
+    ) -> List[Dict[str, Any]]:
+        """
+        Find knowledge points that match property attributes, including matched condition details.
+
+        Returns knowledge points with the actual property values that triggered each match,
+        suitable for displaying to users in the Property Insights section.
+
+        Args:
+            property_data: Property data dict with structure:
+                {
+                    "details": {"year_built": 1985, "property_type": "townhome", ...},
+                    "hoa": {"has_hoa": True, "fee": 350, ...},
+                    ...
+                }
+            limit: Maximum results to return
+
+        Returns:
+            List of dicts with structure:
+            {
+                "text": "Knowledge point text...",
+                "category": "Home Age Considerations",
+                "priority": "high",
+                "matched_conditions": [
+                    {"attribute": "year_built", "operator": "<", "value": 1980, "actual_value": 1975}
+                ]
+            }
+        """
+        try:
+            all_points = []
+            offset = None
+
+            while True:
+                results, offset = self.storage_service.client.scroll(
+                    collection_name=self.storage_service.collection_name,
+                    limit=500,
+                    offset=offset,
+                    with_payload=True,
+                    with_vectors=False,
+                )
+
+                for point in results:
+                    applies_when = point.payload.get("applies_when", [])
+                    if not applies_when:
+                        continue
+
+                    # Check if ALL conditions match and collect matched conditions
+                    all_match = True
+                    matched_conditions = []
+
+                    for condition in applies_when:
+                        if not isinstance(condition, dict):
+                            continue
+
+                        if not self._evaluate_condition(condition, property_data):
+                            all_match = False
+                            break
+
+                        # Collect the matched condition with actual value
+                        actual_value = self._get_actual_value(
+                            condition.get("attribute", ""),
+                            property_data
+                        )
+                        matched_conditions.append({
+                            "attribute": condition.get("attribute"),
+                            "operator": condition.get("operator"),
+                            "value": condition.get("value"),
+                            "actual_value": actual_value,
+                        })
+
+                    if all_match and matched_conditions:
+                        all_points.append({
+                            "text": point.payload.get("text", ""),
+                            "category": point.payload.get("category", ""),
+                            "priority": point.payload.get("priority", "medium"),
+                            "matched_conditions": matched_conditions,
+                        })
+
+                if offset is None:
+                    break
+
+            # Sort by priority: high > medium > low
+            priority_order = {"high": 0, "medium": 1, "low": 2}
+            all_points.sort(key=lambda p: priority_order.get(p.get("priority", "medium"), 1))
+
+            logger.info(
+                f"Attribute search with details found {len(all_points)} matching knowledge points "
+                f"(returning top {limit})"
+            )
+
+            return all_points[:limit]
+
+        except Exception as e:
+            logger.warning(f"Attribute-based search with details failed: {e}")
             return []
 
     def search_by_attributes_for_context(

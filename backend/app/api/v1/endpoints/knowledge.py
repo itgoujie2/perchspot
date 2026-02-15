@@ -12,7 +12,7 @@ import uuid
 from datetime import datetime
 from typing import List, Optional, Dict, Any, Union
 
-from fastapi import APIRouter, Depends, UploadFile, File, HTTPException, Header, BackgroundTasks
+from fastapi import APIRouter, Depends, UploadFile, File, HTTPException, Header, BackgroundTasks, Query
 from pydantic import BaseModel
 
 from app.config import settings
@@ -59,8 +59,8 @@ class SearchResponse(BaseModel):
     results: List[SearchResultItem]
 
 
-def _run_ingestion(job_id: str, tmp_path: str, source_id: str):
-    """Background task to run ingestion."""
+def _run_ingestion(job_id: str, tmp_path: str, source_id: str, auto_tag: bool = False):
+    """Background task to run ingestion, optionally followed by auto-tagging."""
     try:
         from app.services.knowledge.ingestion_service import get_ingestion_service
 
@@ -70,10 +70,35 @@ def _run_ingestion(job_id: str, tmp_path: str, source_id: str):
         service = get_ingestion_service()
         result = service.ingest_markdown(tmp_path, source_id=source_id)
 
+        # Chain auto-tagging if requested and points were ingested
+        auto_tag_result = None
+        if auto_tag and result.get("points_ingested", 0) > 0:
+            try:
+                from app.services.knowledge.auto_tagging_service import get_auto_tagging_service
+
+                with _jobs_lock:
+                    _ingestion_jobs[job_id]["status"] = "auto_tagging"
+
+                tag_service = get_auto_tagging_service()
+                auto_tag_result = tag_service.auto_tag_all(
+                    dry_run=False,
+                    only_untagged=True,
+                    source_filter=source_id,  # Only tag newly ingested points
+                )
+            except Exception as e:
+                logger.error(f"Auto-tagging error for job {job_id}: {e}", exc_info=True)
+                auto_tag_result = {"error": str(e)}
+
         with _jobs_lock:
             _ingestion_jobs[job_id]["status"] = "completed"
             _ingestion_jobs[job_id]["result"] = result
             _ingestion_jobs[job_id]["completed_at"] = datetime.utcnow().isoformat()
+            if auto_tag_result is not None:
+                _ingestion_jobs[job_id]["auto_tag_result"] = {
+                    "total_tagged": auto_tag_result.get("total_tagged", 0),
+                    "total_processed": auto_tag_result.get("total_processed", 0),
+                    "error": auto_tag_result.get("error"),
+                }
 
     except Exception as e:
         logger.error(f"Ingestion error for job {job_id}: {e}", exc_info=True)
@@ -90,8 +115,20 @@ def _run_ingestion(job_id: str, tmp_path: str, source_id: str):
 
 
 @router.post("/ingest", dependencies=[Depends(verify_admin)])
-async def ingest_markdown(file: UploadFile = File(...), background_tasks: BackgroundTasks = None):
-    """Upload and ingest a .md knowledge file (runs in background)."""
+async def ingest_markdown(
+    file: UploadFile = File(...),
+    auto_tag: bool = Query(False, description="Auto-tag points after ingestion using LLM"),
+    background_tasks: BackgroundTasks = None,
+):
+    """
+    Upload and ingest a .md knowledge file (runs in background).
+
+    Args:
+        file: The markdown file to ingest
+        auto_tag: If True, automatically detect and apply @applies_when tags
+                  to newly ingested points using LLM. This adds ~0.5-1s per point
+                  and costs ~$0.0002 per point (Haiku).
+    """
     if not file.filename.endswith(".md"):
         raise HTTPException(status_code=400, detail="Only .md files are supported")
 
@@ -113,13 +150,17 @@ async def ingest_markdown(file: UploadFile = File(...), background_tasks: Backgr
                 "job_id": job_id,
                 "source_file": file.filename,
                 "status": "queued",
+                "auto_tag": auto_tag,
                 "started_at": datetime.utcnow().isoformat(),
                 "result": None,
                 "error": None,
             }
 
         # Run in background thread (BackgroundTasks runs after response, but we want immediate start)
-        thread = threading.Thread(target=_run_ingestion, args=(job_id, tmp_path, file.filename))
+        thread = threading.Thread(
+            target=_run_ingestion,
+            args=(job_id, tmp_path, file.filename, auto_tag)
+        )
         thread.daemon = True
         thread.start()
 
@@ -127,7 +168,8 @@ async def ingest_markdown(file: UploadFile = File(...), background_tasks: Backgr
             "status": "accepted",
             "job_id": job_id,
             "source_file": file.filename,
-            "message": "Ingestion started in background. Check /api/v1/knowledge/ingest/status/{job_id} for progress."
+            "auto_tag": auto_tag,
+            "message": f"Ingestion started in background{' with auto-tagging' if auto_tag else ''}. Check /api/v1/knowledge/ingest/status/{job_id} for progress."
         }
 
     except Exception as e:
