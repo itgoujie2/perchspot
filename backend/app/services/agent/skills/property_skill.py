@@ -162,12 +162,18 @@ REGION: {region_info.get('region', 'N/A')}
         attribute_context, attribute_debug = self._get_attribute_knowledge(data, limit=15)
 
         # 3. Merge knowledge contexts, avoiding duplicates
-        knowledge_context = self._merge_knowledge_contexts(semantic_context, attribute_context)
+        merged_context = self._merge_knowledge_contexts(semantic_context, attribute_context)
+
+        # 4. Filter combined knowledge using LLM to select most relevant points
+        knowledge_context, filter_debug = await self._filter_knowledge_with_llm(
+            merged_context, property_summary, max_points=12
+        )
 
         # Combined debug info
         knowledge_debug = {
             "semantic_queries": semantic_debug,
             "attribute_matches": attribute_debug,
+            "filter_result": filter_debug,
         }
 
         knowledge_section = ""
@@ -386,6 +392,135 @@ Return ONLY the JSON array."""
             sections.append("\n".join(lines))
 
         return "\n\n".join(sections)
+
+    async def _filter_knowledge_with_llm(
+        self,
+        merged_context: str,
+        property_summary: str,
+        max_points: int = 12,
+    ) -> tuple[str, dict]:
+        """
+        Use a fast LLM (Haiku) to filter knowledge points to the most relevant ones.
+
+        Args:
+            merged_context: Combined semantic + attribute knowledge (markdown format)
+            property_summary: Property data summary for context
+            max_points: Maximum number of points to keep
+
+        Returns:
+            (filtered_context_str, debug_dict)
+        """
+        if not merged_context:
+            return "", {"input_points": 0, "output_points": 0, "skipped": "no input"}
+
+        # Count input points
+        input_points = merged_context.count('\n- ')
+
+        # If already under limit, skip filtering
+        if input_points <= max_points:
+            return merged_context, {
+                "input_points": input_points,
+                "output_points": input_points,
+                "skipped": "under limit",
+            }
+
+        # Build numbered list of all points for easier selection
+        all_points = []
+        current_category = ""
+        for line in merged_context.split('\n'):
+            line = line.strip()
+            if line.startswith('### '):
+                current_category = line[4:].strip()
+            elif line.startswith('- ') and current_category:
+                point_text = line[2:].strip()
+                all_points.append({
+                    "id": len(all_points) + 1,
+                    "category": current_category,
+                    "text": point_text,
+                })
+
+        # Build prompt for Haiku
+        points_list = "\n".join([
+            f"{p['id']}. [{p['category']}] {p['text']}"
+            for p in all_points
+        ])
+
+        filter_prompt = f"""You are filtering knowledge points for a property analysis. Select the {max_points} MOST RELEVANT points for this specific property.
+
+PROPERTY CONTEXT:
+{property_summary}
+
+AVAILABLE KNOWLEDGE POINTS:
+{points_list}
+
+Select the {max_points} most relevant points by returning ONLY their numbers as a JSON array.
+Prioritize:
+- Points directly applicable to this property's age, type, and features
+- Safety and maintenance concerns for properties of this era
+- HOA considerations if applicable
+- Location/neighborhood-specific info
+
+Return ONLY a JSON array of numbers, e.g.: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23]
+No explanation needed."""
+
+        try:
+            # Use Haiku for fast filtering
+            response = await self._call_claude(
+                prompt=filter_prompt,
+                max_tokens=200,
+                model="claude-3-5-haiku-20241022",
+            )
+
+            # Parse selected IDs
+            response_text = response.strip()
+            if response_text.startswith('['):
+                selected_ids = json.loads(response_text)
+            else:
+                # Try to extract array from response
+                match = re.search(r'\[[\d,\s]+\]', response_text)
+                if match:
+                    selected_ids = json.loads(match.group(0))
+                else:
+                    logger.warning(f"Could not parse filter response: {response_text}")
+                    return merged_context, {
+                        "input_points": input_points,
+                        "output_points": input_points,
+                        "skipped": "parse error",
+                    }
+
+            # Build filtered context
+            from collections import defaultdict
+            by_category = defaultdict(list)
+
+            for p in all_points:
+                if p["id"] in selected_ids:
+                    by_category[p["category"]].append(p["text"])
+
+            sections = []
+            for category, texts in sorted(by_category.items()):
+                lines = [f"### {category}"]
+                for text in texts:
+                    lines.append(f"- {text}")
+                sections.append("\n".join(lines))
+
+            filtered_context = "\n\n".join(sections)
+            output_points = sum(len(texts) for texts in by_category.values())
+
+            logger.info(f"Knowledge filter: {input_points} -> {output_points} points")
+
+            return filtered_context, {
+                "input_points": input_points,
+                "output_points": output_points,
+                "selected_ids": selected_ids,
+            }
+
+        except Exception as e:
+            logger.warning(f"Knowledge filtering failed: {e}, using unfiltered")
+            return merged_context, {
+                "input_points": input_points,
+                "output_points": input_points,
+                "skipped": f"error: {str(e)}",
+            }
 
     def _error_result(self, error_message: str) -> Dict[str, Any]:
         """Return error result structure."""
