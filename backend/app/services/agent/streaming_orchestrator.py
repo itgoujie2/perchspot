@@ -546,17 +546,26 @@ class StreamingAnalysisOrchestrator:
 
         lines = []
         for entry in debug_entries:
-            query = entry.get('query', '')
-            results = entry.get('results', [])
+            # Handle both dict and string entries
+            if isinstance(entry, dict):
+                query = entry.get('query', '')
+                results = entry.get('results', [])
+            else:
+                # entry is a string (legacy format)
+                query = str(entry)
+                results = []
             lines.append(f"**Query:** `{query}`\n")
             if not results:
                 lines.append("- _(no results)_\n")
             else:
                 for r in results:
-                    score = r.get('score', 0)
-                    cat = r.get('category', '')
-                    src = r.get('source_file', '')
-                    text = r.get('text', '')
+                    if isinstance(r, dict):
+                        score = r.get('score', 0)
+                        cat = r.get('category', '')
+                        src = r.get('source_file', '')
+                        text = r.get('text', '')
+                    else:
+                        score, cat, src, text = 0, '', '', str(r)
                     lines.append(f"- [{cat}] (score: {score}, src: {src})")
                     lines.append(f"  > {text}\n")
 
@@ -564,13 +573,17 @@ class StreamingAnalysisOrchestrator:
             return
 
         content = "\n".join(lines)
+        total_results = sum(
+            len(e.get('results', [])) if isinstance(e, dict) else 0
+            for e in debug_entries
+        )
         self.notes_manager.append_section(
             address=address,
             section_title=f"Knowledge Debug ({skill_name})",
             content=content,
             metadata={
                 "Queries": str(queries),
-                "Total Results": sum(len(e.get('results', [])) for e in debug_entries),
+                "Total Results": total_results,
             }
         )
 
