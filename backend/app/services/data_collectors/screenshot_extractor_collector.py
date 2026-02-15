@@ -121,7 +121,8 @@ Return a JSON object with this structure:
   },
   "images": {
     "photo_count": number,
-    "main_photo_visible": boolean
+    "main_photo_visible": boolean,
+    "main_photo_url": "string URL of main property photo or null"
   },
   "similar_homes": [
     {
@@ -168,6 +169,9 @@ class ScreenshotExtractorCollector:
         self.api_calls = 0
         self.screenshots_taken = 0
         self.api_call_details = []  # Track each call for debugging
+
+        # Photo URL tracking
+        self._current_main_photo_url = None
 
         # Cost per 1M tokens (Claude Sonnet 4)
         # Input: $3/1M, Output: $15/1M
@@ -258,6 +262,7 @@ class ScreenshotExtractorCollector:
         self.api_calls = 0
         self.screenshots_taken = 0
         self.api_call_details = []
+        self._current_main_photo_url = None
 
         yield {"type": "init", "status": "started", "address": address, "mode": "extraction"}
         yield {"type": "status", "message": "Looking up property information..."}
@@ -432,10 +437,18 @@ class ScreenshotExtractorCollector:
                     logger.warning(f"Page load state wait failed: {e}")
                 await asyncio.sleep(1.5)  # Reduced from 3s
 
+                # Extract main photo URL before scrolling
+                main_photo_url = await self._extract_main_photo_url(page)
+                if main_photo_url:
+                    logger.info(f"Extracted main photo URL: {main_photo_url[:100]}...")
+
                 # Create address slug for filenames
                 address_slug = self._create_slug(address)
                 screenshot_dir = self.screenshots_dir / address_slug
                 screenshot_dir.mkdir(parents=True, exist_ok=True)
+
+                # Store photo URL for later use
+                self._current_main_photo_url = main_photo_url
 
                 # Take screenshots at different scroll positions
                 for i, (scroll_pos, name) in enumerate(SCROLL_POSITIONS):
@@ -515,6 +528,95 @@ class ScreenshotExtractorCollector:
             except Exception as e:
                 logger.debug(f"Popup dismiss attempt {attempt + 1} failed: {e}")
                 await asyncio.sleep(0.5)
+
+    async def _extract_main_photo_url(self, page: Page) -> Optional[str]:
+        """
+        Extract the main property photo URL from the Redfin page.
+
+        Tries multiple selectors to find the primary property image.
+        Returns the URL or None if not found.
+        """
+        try:
+            # Redfin property photo selectors (in order of preference)
+            photo_selectors = [
+                # Main hero image
+                'img[data-rf-test-name="hero-photo"]',
+                'img[data-rf-test-name="primary-photo"]',
+                # Photo gallery main image
+                '.PhotosView img',
+                '.photo-view img',
+                '.slideshow-image img',
+                '.carousel-image img',
+                # Main property image container
+                '.main-photo img',
+                '.primary-photo img',
+                '.HomeMainMedia img',
+                # Generic large property images
+                'img[class*="photo"][src*="ssl.cdn-redfin"]',
+                'img[src*="ssl.cdn-redfin.com"]',
+                'img[src*="photos.zillowstatic"]',
+                # Backup: any large image in the header area
+                '.above-the-fold img',
+                'header img[src*="cdn"]',
+            ]
+
+            for selector in photo_selectors:
+                try:
+                    images = await page.query_selector_all(selector)
+                    for img in images:
+                        if await img.is_visible():
+                            # Try srcset first (for higher resolution)
+                            srcset = await img.get_attribute('srcset')
+                            if srcset:
+                                # Parse srcset and get highest resolution URL
+                                urls = srcset.split(',')
+                                if urls:
+                                    # Get the last (usually highest res) or first
+                                    best_url = urls[-1].strip().split(' ')[0]
+                                    if best_url and 'http' in best_url:
+                                        return best_url
+
+                            # Fall back to src
+                            src = await img.get_attribute('src')
+                            if src and 'http' in src:
+                                # Skip tiny placeholder images
+                                width = await img.get_attribute('width')
+                                if width and int(width) < 100:
+                                    continue
+                                return src
+
+                except Exception:
+                    continue
+
+            # Try to extract from background-image style
+            bg_selectors = [
+                '.PhotosView [style*="background-image"]',
+                '.photo-view [style*="background-image"]',
+                '.HomeMainMedia [style*="background-image"]',
+                '[class*="photo"] [style*="background-image"]',
+            ]
+
+            for selector in bg_selectors:
+                try:
+                    elements = await page.query_selector_all(selector)
+                    for el in elements:
+                        if await el.is_visible():
+                            style = await el.get_attribute('style')
+                            if style and 'url(' in style:
+                                # Extract URL from background-image: url("...")
+                                import re
+                                url_match = re.search(r'url\(["\']?(https?://[^"\')]+)["\']?\)', style)
+                                if url_match:
+                                    return url_match.group(1)
+                except Exception:
+                    continue
+
+            logger.warning("Could not extract main photo URL from page")
+            return None
+
+        except Exception as e:
+            logger.warning(f"Error extracting main photo URL: {e}")
+            return None
 
     def _normalize_address_for_search(self, address: str) -> str:
         """
@@ -944,6 +1046,14 @@ class ScreenshotExtractorCollector:
             json_match = re.search(r'\{[\s\S]*\}', response_text)
             if json_match:
                 extracted_data = json.loads(json_match.group(0))
+
+                # Merge in the main photo URL extracted via Playwright
+                if self._current_main_photo_url:
+                    if "images" not in extracted_data:
+                        extracted_data["images"] = {}
+                    extracted_data["images"]["main_photo_url"] = self._current_main_photo_url
+                    logger.info(f"Added main_photo_url to extracted data")
+
                 return extracted_data
             else:
                 logger.error("No JSON found in Claude response")

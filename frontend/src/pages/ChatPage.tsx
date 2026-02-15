@@ -69,6 +69,7 @@ const buildReportData = (steps: ExtractedStep[], finalData: Record<string, any> 
     schools,
     location: source.location || stepMap[5] || null,
     climate: source.climate_risks || stepMap[6] || null,
+    images: source.images || null,
     propertyAnalysis: stepMap[7] || null,
     locationAnalysis: stepMap[8] || null,
     schoolAnalysis: stepMap[9] || null,
@@ -1057,6 +1058,20 @@ const ChatPage: React.FC = () => {
             {report.property ? (
               <div className="report-section property-overview fade-in">
                 <h4>Property Overview</h4>
+                {/* Property Photo */}
+                {report.images?.main_photo_url && (
+                  <div className="property-photo-container">
+                    <img
+                      src={report.images.main_photo_url}
+                      alt={address || 'Property photo'}
+                      className="property-main-photo"
+                      onError={(e) => {
+                        // Hide image if it fails to load
+                        (e.target as HTMLImageElement).style.display = 'none';
+                      }}
+                    />
+                  </div>
+                )}
                 <div className="property-header-row">
                   <span className="property-price">{formatPrice(get(report.property, 'list_price') || get(report.property, 'price'))}</span>
                   {get(report.property, 'status') && (
