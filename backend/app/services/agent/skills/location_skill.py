@@ -283,8 +283,12 @@ Return ONLY valid JSON, no other text.
             if city:
                 queries.append(f"{city} neighborhood quality")
 
-        # 4. Nearby hot areas / employers from commute data
-        for c in commute_data[:3]:  # top 3 closest
+        # 4. Nearby hot areas / employers from commute data (sorted by drive time)
+        sorted_commute = sorted(
+            [c for c in commute_data if c.get('drive_minutes') is not None],
+            key=lambda c: c.get('drive_minutes', 999)
+        )
+        for c in sorted_commute[:3]:  # top 3 closest
             name = c.get('name', '')
             if name:
                 queries.append(name)
