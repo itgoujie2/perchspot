@@ -1325,6 +1325,49 @@ const ChatPage: React.FC = () => {
               <div className="report-section skeleton"><div className="skeleton-block" /></div>
             ) : null}
 
+            {/* Similar Homes */}
+            {finalData?.similar_homes && finalData.similar_homes.length > 0 && (
+              <div className="report-section similar-homes fade-in">
+                <h4>Similar Homes</h4>
+                <div className="similar-homes-grid">
+                  {finalData.similar_homes.slice(0, 6).map((home: any, i: number) => (
+                    <div key={i} className="similar-home-card">
+                      {home.photo_url && (
+                        <div className="similar-home-photo">
+                          <img
+                            src={home.photo_url}
+                            alt={home.address || 'Similar property'}
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).style.display = 'none';
+                            }}
+                          />
+                        </div>
+                      )}
+                      <div className="similar-home-info">
+                        <div className="similar-home-price">{formatPrice(home.price)}</div>
+                        <div className="similar-home-details">
+                          {home.bedrooms && <span>{home.bedrooms} bd</span>}
+                          {home.bathrooms && <span>{home.bathrooms} ba</span>}
+                          {home.sqft && <span>{Number(home.sqft).toLocaleString()} sqft</span>}
+                        </div>
+                        <div className="similar-home-address">{home.address}</div>
+                        {home.redfin_url && (
+                          <a
+                            href={home.redfin_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="similar-home-link"
+                          >
+                            View on Redfin
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Step 11: Property Insights (Generic Knowledge) */}
             {genericKnowledge.length > 0 && (
               <div className="report-section property-insights fade-in">
