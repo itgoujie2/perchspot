@@ -18,6 +18,8 @@ from app.models.similar_homes import UserSimilarHome
 from app.models.referral import Referral
 from app.models.favorite import UserFavorite
 from app.models.shared_report import SharedReport
+from app.models.email_preference import EmailPreference
+from app.models.email_campaign_log import EmailCampaignLog
 
 __all__ = [
     "Property",
@@ -41,4 +43,6 @@ __all__ = [
     "Referral",
     "UserFavorite",
     "SharedReport",
+    "EmailPreference",
+    "EmailCampaignLog",
 ]

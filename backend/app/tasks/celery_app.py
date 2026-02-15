@@ -13,6 +13,7 @@ celery_app = Celery(
     include=[
         "app.tasks.analysis_tasks",
         "app.tasks.data_collection_tasks",
+        "app.tasks.email_tasks",
     ]
 )
 
@@ -38,6 +39,13 @@ celery_app.conf.beat_schedule = {
         'args': (30,),  # Delete files older than 30 days
         'options': {
             'expires': 3600,  # Task expires if not run within 1 hour
+        }
+    },
+    'send-weekly-digest-sunday': {
+        'task': 'send_weekly_digest_emails',
+        'schedule': crontab(day_of_week='sunday', hour='9', minute='0'),  # Every Sunday at 9:00 AM UTC
+        'options': {
+            'expires': 7200,  # Task expires if not run within 2 hours
         }
     },
 }

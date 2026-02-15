@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Your Weekly Property Update - Perchspot</title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style type="text/css">
+        /* Reset */
+        body, table, td, p, a, li, blockquote {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        table, td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+        img {
+            -ms-interpolation-mode: bicubic;
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+        }
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+        }
+
+        /* Brand Colors */
+        .brand-primary { color: #2563EB; }
+        .brand-text { color: #1E293B; }
+        .brand-muted { color: #64748B; }
+        .brand-success { color: #10B981; }
+
+        /* Responsive */
+        @media screen and (max-width: 600px) {
+            .email-container {
+                width: 100% !important;
+            }
+            .fluid {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            .stack-column {
+                display: block !important;
+                width: 100% !important;
+            }
+            .padding-mobile {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #F1F5F9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+    <!-- Preview text -->
+    <div style="display: none; max-height: 0; overflow: hidden;">
+        Your weekly property digest: {{ cities|length }} market{{ 's' if cities|length != 1 else '' }} and {{ properties|length }} new listing{{ 's' if properties|length != 1 else '' }} to explore.
+    </div>
+
+    <!-- Email Container -->
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background-color: #F1F5F9;">
+        <tr>
+            <td align="center" style="padding: 40px 20px;">
+                <table role="presentation" class="email-container" cellpadding="0" cellspacing="0" width="600" style="background-color: #FFFFFF; border-radius: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);">
+
+                    <!-- Header -->
+                    <tr>
+                        <td style="background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%); background-color: #2563EB; padding: 40px 40px 30px; border-radius: 12px 12px 0 0; text-align: center;">
+                            <!-- Logo -->
+                            <img src="{{ base_url }}/logo.svg" alt="Perchspot" width="140" style="display: inline-block; margin-bottom: 20px;">
+
+                            <h1 style="margin: 0; color: #FFFFFF; font-size: 26px; font-weight: 700; line-height: 1.3;">
+                                Your Weekly Property Update
+                            </h1>
+                            <p style="margin: 10px 0 0; color: #BFDBFE; font-size: 15px;">
+                                {{ date_range }}
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Greeting -->
+                    <tr>
+                        <td class="padding-mobile" style="padding: 30px 40px 20px;">
+                            <p style="margin: 0; color: #1E293B; font-size: 16px; line-height: 1.6;">
+                                Hi there! Here's what's happening in your favorite markets this week.
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- City Summaries Section -->
+                    {% if cities %}
+                    <tr>
+                        <td class="padding-mobile" style="padding: 10px 40px 30px;">
+                            <h2 style="margin: 0 0 20px; color: #1E293B; font-size: 20px; font-weight: 600;">
+                                Market Updates
+                            </h2>
+
+                            {% for city in cities %}
+                            <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 15px;">
+                                <tr>
+                                    <td style="background-color: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 20px;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td>
+                                                    <h3 style="margin: 0 0 5px; color: #1E293B; font-size: 18px; font-weight: 600;">
+                                                        {{ city.city }}, {{ city.state }}
+                                                    </h3>
+                                                    <p style="margin: 0 0 8px; color: #64748B; font-size: 14px;">
+                                                        {{ city.property_count }} new listing{{ 's' if city.property_count != 1 else '' }}
+                                                    </p>
+                                                    {% if city.avg_price %}
+                                                    <p style="margin: 0; color: #1E293B; font-size: 16px; font-weight: 500;">
+                                                        Avg: ${{ "{:,.0f}".format(city.avg_price) }}
+                                                    </p>
+                                                    {% endif %}
+                                                </td>
+                                                {% if city.price_change_pct is defined and city.price_change_pct is not none %}
+                                                <td style="text-align: right; vertical-align: top;">
+                                                    {% if city.price_change_pct >= 0 %}
+                                                    <span style="color: #10B981; font-size: 16px; font-weight: 600;">
+                                                        ▲ {{ "%.1f"|format(city.price_change_pct) }}%
+                                                    </span>
+                                                    {% else %}
+                                                    <span style="color: #EF4444; font-size: 16px; font-weight: 600;">
+                                                        ▼ {{ "%.1f"|format(city.price_change_pct|abs) }}%
+                                                    </span>
+                                                    {% endif %}
+                                                    <p style="margin: 5px 0 0; color: #64748B; font-size: 12px;">
+                                                        vs last week
+                                                    </p>
+                                                </td>
+                                                {% endif %}
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    {% endif %}
+
+                    <!-- Properties Section -->
+                    {% if properties %}
+                    <tr>
+                        <td class="padding-mobile" style="padding: 10px 40px 30px;">
+                            <h2 style="margin: 0 0 20px; color: #1E293B; font-size: 20px; font-weight: 600;">
+                                Properties You Might Like
+                            </h2>
+
+                            {% for property in properties %}
+                            <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 12px;">
+                                <tr>
+                                    <td style="background-color: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; padding: 16px;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td>
+                                                    <p style="margin: 0 0 6px; color: #2563EB; font-size: 20px; font-weight: 700;">
+                                                        {{ property.price_formatted }}
+                                                    </p>
+                                                    <p style="margin: 0 0 8px; color: #1E293B; font-size: 14px; line-height: 1.4;">
+                                                        {{ property.address }}
+                                                    </p>
+                                                    <p style="margin: 0; color: #64748B; font-size: 13px;">
+                                                        {{ property.beds }} bd &bull; {{ property.baths }} ba &bull; {{ property.sqft_formatted }} sqft
+                                                    </p>
+                                                </td>
+                                                <td style="text-align: right; vertical-align: middle; width: 100px;">
+                                                    {% if property.score %}
+                                                    <span style="display: inline-block; background-color: {% if property.score >= 80 %}#10B981{% elif property.score >= 60 %}#F59E0B{% else %}#EF4444{% endif %}; color: #FFFFFF; font-size: 16px; font-weight: 700; padding: 8px 12px; border-radius: 20px;">
+                                                        {{ property.score }}
+                                                    </span>
+                                                    {% endif %}
+                                                    <a href="{{ property.url }}" style="display: block; margin-top: 10px; color: #2563EB; font-size: 13px; text-decoration: none;">
+                                                        View Details →
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    {% endif %}
+
+                    <!-- CTA Section -->
+                    <tr>
+                        <td class="padding-mobile" style="padding: 10px 40px 40px;">
+                            <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background-color: #F8FAFC; border-radius: 8px; padding: 25px; text-align: center;">
+                                <tr>
+                                    <td>
+                                        <p style="margin: 0 0 15px; color: #1E293B; font-size: 16px; font-weight: 500;">
+                                            Want AI-powered analysis on any property?
+                                        </p>
+                                        <a href="{{ analyze_url }}" style="display: inline-block; background-color: #2563EB; color: #FFFFFF; font-size: 15px; font-weight: 600; text-decoration: none; padding: 14px 30px; border-radius: 8px;">
+                                            Analyze a Property
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #F8FAFC; padding: 30px 40px; border-radius: 0 0 12px 12px; border-top: 1px solid #E2E8F0;">
+                            <p style="margin: 0 0 15px; color: #64748B; font-size: 13px; line-height: 1.6; text-align: center;">
+                                You're receiving this email because you searched for properties on Perchspot.
+                            </p>
+                            <p style="margin: 0; text-align: center;">
+                                <a href="{{ unsubscribe_url }}" style="color: #64748B; font-size: 13px; text-decoration: underline;">Unsubscribe</a>
+                                &nbsp;&nbsp;|&nbsp;&nbsp;
+                                <a href="{{ preferences_url }}" style="color: #64748B; font-size: 13px; text-decoration: underline;">Manage Preferences</a>
+                            </p>
+                            <p style="margin: 20px 0 0; color: #94A3B8; font-size: 12px; text-align: center;">
+                                &copy; {{ current_year }} Perchspot. All rights reserved.
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

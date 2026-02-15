@@ -111,6 +111,12 @@ class Settings(BaseSettings):
     STRIPE_PUBLISHABLE_KEY: str = ""
     STRIPE_WEBHOOK_SECRET: str = ""
 
+    # AWS SES (Email)
+    AWS_ACCESS_KEY_ID: str = ""
+    AWS_SECRET_ACCESS_KEY: str = ""
+    AWS_REGION: str = "us-east-1"
+    SES_FROM_EMAIL: str = "Perchspot <hello@perchspot.com>"
+
     # JWT / Auth - no default in production
     JWT_SECRET_KEY: str = ""
     JWT_ALGORITHM: str = "HS256"

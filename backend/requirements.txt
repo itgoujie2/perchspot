@@ -50,6 +50,9 @@ qdrant-client>=1.7.0
 sentence-transformers>=3.0.0
 fastembed>=0.3.0
 
+# Templating
+Jinja2>=3.1.0
+
 # Utilities
 python-dotenv==1.0.0
 tenacity==8.2.3
