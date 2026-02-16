@@ -63,24 +63,24 @@ export default function Home() {
 
       <div className="feature-grid">
         <div className="feature-card">
-          <div className="feature-icon">🏠</div>
-          <h3>Property</h3>
-          <p>Condition scoring, features, and maintenance outlook</p>
+          <div className="feature-icon">⚡</div>
+          <h3>Instant Analysis</h3>
+          <p>Get comprehensive property reports in under 2 minutes</p>
         </div>
         <div className="feature-card">
-          <div className="feature-icon">📍</div>
-          <h3>Location</h3>
-          <p>Walkability, transit, and neighborhood quality</p>
+          <div className="feature-icon">🎯</div>
+          <h3>Unbiased Insights</h3>
+          <p>AI-powered analysis with no sales pressure or hidden agenda</p>
         </div>
         <div className="feature-card">
-          <div className="feature-icon">🎓</div>
-          <h3>Schools</h3>
-          <p>Nearby school ratings, types, and distances</p>
+          <div className="feature-icon">📊</div>
+          <h3>Data-Driven Scores</h3>
+          <p>Clear 0-100 ratings across property, location, schools, and investment</p>
         </div>
         <div className="feature-card">
-          <div className="feature-icon">💰</div>
-          <h3>Investment</h3>
-          <p>Market analysis, pricing, and appreciation potential</p>
+          <div className="feature-icon">☕</div>
+          <h3>Cheaper Than Coffee</h3>
+          <p>Full property analysis for less than a latte—no subscriptions needed</p>
         </div>
       </div>
 
