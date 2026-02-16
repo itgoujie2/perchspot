@@ -208,6 +208,32 @@
   line-height: 1.4;
 }
 
+/* Landing footer - subtle links */
+.landing-footer {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.landing-footer a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: color 0.2s;
+}
+
+.landing-footer a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-divider {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.8rem;
+}
+
 /* Auth form styles */
 .auth-form {
   display: flex;

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import Logo from '../assets/logo.svg'
 import SEOHead from '../components/SEOHead'
 import StructuredData from '../components/StructuredData'
@@ -83,6 +83,12 @@ export default function Home() {
           <p>Market analysis, pricing, and appreciation potential</p>
         </div>
       </div>
+
+      <footer className="landing-footer">
+        <Link to="/blog">Home Buying Guides</Link>
+        <span className="footer-divider">·</span>
+        <Link to="/compare">Compare Properties</Link>
+      </footer>
     </div>
   )
 }
