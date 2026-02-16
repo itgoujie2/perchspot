@@ -249,10 +249,12 @@ class SalePriceSkill(BaseSkill):
             prompt = f"""Based on your knowledge of current real estate market conditions (as of early 2026), provide market data for {city}, {state if state else region}.
 
 Return ONLY a JSON object with these fields:
-- mortgage_rate_30yr: number (current 30-year fixed rate estimate, e.g., 6.8)
+- best_mortgage_rate_30yr: number (BEST available 30-year fixed rate for well-qualified buyers with 20%+ down and 750+ credit, e.g., 6.25)
 - market_type: string ("seller's", "buyer's", or "balanced")
 - local_yoy_trend: string (e.g., "prices up 3% YoY" or "prices flat YoY")
 - rate_direction: string ("rising", "falling", or "stable")
+
+IMPORTANT: Use the BEST rate available in the market, not average. Well-qualified buyers can shop around and get competitive rates.
 
 Return ONLY valid JSON, no explanation."""
 
@@ -273,7 +275,7 @@ Return ONLY valid JSON, no explanation."""
             market_data = json.loads(response_text)
 
             return {
-                'mortgage_rate': market_data.get('mortgage_rate_30yr', 6.8),
+                'mortgage_rate': market_data.get('best_mortgage_rate_30yr', 6.5),
                 'market_type': market_data.get('market_type', market_type or 'balanced'),
                 'season': season,
                 'local_trend': market_data.get('local_yoy_trend', 'unknown'),
@@ -283,9 +285,9 @@ Return ONLY valid JSON, no explanation."""
 
         except Exception as e:
             logger.warning(f"SalePriceSkill: Market conditions fetch failed: {e}")
-            # Return defaults
+            # Return defaults - use best available rate for qualified buyers
             return {
-                'mortgage_rate': 6.8,
+                'mortgage_rate': 6.5,
                 'market_type': market_type or 'balanced',
                 'season': season,
                 'local_trend': 'unknown',
@@ -309,6 +311,10 @@ Return ONLY valid JSON, no explanation."""
         location = data.get('location', {}) or {}
         hoa = data.get('hoa', {}) or {}
         schools = data.get('schools', []) or []
+
+        # Document analyses (inspection reports, HOA documents)
+        inspection_analysis = data.get('inspection_analysis', {}) or {}
+        hoa_analysis = data.get('hoa_analysis', {}) or {}
 
         def fmt(val, prefix='$', suffix=''):
             if val is None:
@@ -352,7 +358,8 @@ Return ONLY valid JSON, no explanation."""
             else:
                 dom_section += "- Signal: STALE - significant discount likely\n"
         else:
-            dom_section += "- DOM: Unknown\n"
+            dom_section += "- DOM: Unknown (may be new listing or data not available)\n"
+            dom_section += "- Signal: NEUTRAL - missing DOM should lower confidence, NOT price\n"
 
         # Property details
         prop_section = "\nPROPERTY DETAILS:\n"
@@ -389,6 +396,51 @@ Return ONLY valid JSON, no explanation."""
         else:
             hoa_section += "- No HOA or N/A\n"
 
+        # Document analyses (inspection/HOA reports if user uploaded)
+        docs_section = ""
+        if inspection_analysis or hoa_analysis:
+            docs_section = "\nUPLOADED DOCUMENT ANALYSES:\n"
+
+            if inspection_analysis:
+                docs_section += "\n[INSPECTION REPORT]\n"
+                insp_details = inspection_analysis.get('details', {})
+                total_repairs = insp_details.get('total_estimated_repairs')
+                if total_repairs:
+                    docs_section += f"- Estimated Repairs Needed: {total_repairs}\n"
+                issues = insp_details.get('issues', [])
+                if issues:
+                    major_issues = [i for i in issues if i.get('severity') in ['major', 'critical', 'safety']]
+                    if major_issues:
+                        docs_section += f"- Major Issues Found: {len(major_issues)}\n"
+                        for issue in major_issues[:3]:  # Top 3 major issues
+                            docs_section += f"  * {issue.get('description', 'Unknown issue')}"
+                            if issue.get('estimated_cost'):
+                                docs_section += f" (~{issue.get('estimated_cost')})"
+                            docs_section += "\n"
+                insp_score = inspection_analysis.get('score')
+                if insp_score is not None:
+                    docs_section += f"- Property Condition Score: {insp_score}/100\n"
+                docs_section += ">>> PRICE IMPACT: Subtract estimated repair costs from predicted price\n"
+
+            if hoa_analysis:
+                docs_section += "\n[HOA DOCUMENT]\n"
+                hoa_details = hoa_analysis.get('details', {})
+                special_assessments = hoa_details.get('special_assessments', {})
+                if special_assessments and special_assessments.get('pending'):
+                    docs_section += f"- PENDING SPECIAL ASSESSMENT: {special_assessments.get('pending')}\n"
+                    docs_section += ">>> PRICE IMPACT: Special assessments reduce effective value\n"
+                reserve_fund = hoa_details.get('reserve_fund', {})
+                if reserve_fund:
+                    reserve_pct = reserve_fund.get('percent_funded')
+                    if reserve_pct and reserve_pct < 50:
+                        docs_section += f"- LOW RESERVE FUND: {reserve_pct}% funded (risk of future assessments)\n"
+                litigation = hoa_details.get('pending_litigation')
+                if litigation:
+                    docs_section += f"- PENDING LITIGATION: {litigation}\n"
+                hoa_score = hoa_analysis.get('score')
+                if hoa_score is not None:
+                    docs_section += f"- HOA Health Score: {hoa_score}/100\n"
+
         # Knowledge context
         knowledge_section = ""
         if knowledge_context:
@@ -407,6 +459,7 @@ PROPERTY: {address}
 {loc_section}
 {school_section}
 {hoa_section}
+{docs_section}
 {knowledge_section}
 ---
 
@@ -415,18 +468,27 @@ Using the guidelines above, predict the likely final sale price for this propert
 Your job is to:
 1. Start from the baseline value (may be weighted between list price and Redfin estimate)
 2. Apply adjustments based on DOM, market conditions, property features
-3. Provide a predicted midpoint and realistic range:
+3. If inspection/HOA documents were analyzed, incorporate those findings:
+   - Subtract estimated repair costs from predicted price
+   - Factor in special assessments and HOA financial health
+4. Provide a predicted midpoint and realistic range:
    - Standard properties: +/- 3-5%
    - Luxury properties (>$1.5M): +/- 5-8% (more price variability)
-4. List the key adjustment factors (3-6 most impactful)
-5. Explain your reasoning in 2-3 sentences
-6. Assign a confidence score (0-100) based on data quality
+5. List the key adjustment factors (3-6 most impactful)
+6. Explain your reasoning in 2-3 sentences
+7. Assign a confidence score (0-100) based on data quality
 
 CRITICAL PRICING INSIGHTS:
 - For NEW listings (DOM < 14), the list price hasn't been rejected by the market yet - respect it more
 - Redfin estimates tend to be CONSERVATIVE, especially for luxury properties (often 5-10% low)
 - Low DOM + list price > Redfin estimate = sellers know something, don't undervalue
 - High DOM (>45) = market HAS spoken, price likely needs to come down
+
+IMPORTANT - MISSING DATA HANDLING:
+- Missing DOM or other data should LOWER YOUR CONFIDENCE SCORE, NOT the predicted price
+- Unknown data = wider price range and lower confidence, but don't arbitrarily reduce the midpoint
+- Only adjust price DOWN for concrete negative signals (high DOM, inspection issues, etc.)
+- Note missing data in concerns, but don't penalize price for lack of information
 
 Provide your analysis in this JSON format:
 {{
