@@ -480,11 +480,8 @@ Return ONLY valid JSON, no explanation."""
         prop_section += f"- Year Built: {details.get('year_built', 'N/A')}\n"
         prop_section += f"- Lot Size: {details.get('lot_size_sqft', 'N/A')} sqft\n"
 
-        # Location scores
-        loc_section = "\nLOCATION SCORES:\n"
-        loc_section += f"- Walk Score: {location.get('walkability_score', 'N/A')}\n"
-        loc_section += f"- Transit Score: {location.get('transit_score', 'N/A')}\n"
-        loc_section += f"- Bike Score: {location.get('bike_score', 'N/A')}\n"
+        # Location scores - not included in price prediction as they have minimal impact
+        loc_section = ""
 
         # Schools summary
         school_section = "\nSCHOOLS:\n"
