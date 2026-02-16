@@ -894,7 +894,8 @@ const ChatPage: React.FC = () => {
       <SEOHead
         title={address ? `${address} Analysis - Perchspot` : "Property Analysis - Perchspot"}
         description={address ? `AI analysis of ${address}. View condition, schools, investment potential, and location quality.` : "Analyze any property with AI-powered insights."}
-        path={`/chat${address ? `?address=${encodeURIComponent(address)}` : ''}`}
+        path="/chat"
+        noindex={true}
       />
       <div className="chat-header no-print">
         <div className="header-left">
