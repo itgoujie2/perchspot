@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 
 # Cache for mortgage rates (avoid hitting web on every request)
 _mortgage_rate_cache: Dict[str, Tuple[float, datetime]] = {}
-MORTGAGE_RATE_CACHE_HOURS = 4  # Refresh every 4 hours
+MORTGAGE_RATE_CACHE_HOURS = 24  # Refresh daily - rates don't change frequently
 
 
 async def _fetch_mortgage_rate_from_web() -> Optional[float]:
