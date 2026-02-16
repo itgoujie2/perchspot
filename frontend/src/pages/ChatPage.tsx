@@ -411,6 +411,7 @@ const ChatPage: React.FC = () => {
   const [favoriteId, setFavoriteId] = useState<string | null>(null);
   const [favoriteLoading, setFavoriteLoading] = useState(false);
   const [genericKnowledge, setGenericKnowledge] = useState<GenericKnowledgePoint[]>([]);
+  const [mobileChatExpanded, setMobileChatExpanded] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const reportPanelRef = useRef<HTMLDivElement>(null);
@@ -923,7 +924,18 @@ const ChatPage: React.FC = () => {
 
       <div className="chat-content-wrapper">
         {/* Left panel: Chat */}
-        <div className="chat-panel no-print">
+        <div className={`chat-panel no-print ${mobileChatExpanded ? 'mobile-expanded' : ''}`}>
+          {/* Mobile chat toggle */}
+          <button
+            className="mobile-chat-toggle"
+            onClick={() => setMobileChatExpanded(!mobileChatExpanded)}
+          >
+            <span className="toggle-icon">{mobileChatExpanded ? '▼' : '▲'}</span>
+            <span className="toggle-text">{mobileChatExpanded ? 'Hide Chat' : 'Show Chat History'}</span>
+            {messages.length > 0 && !mobileChatExpanded && (
+              <span className="message-count">{messages.length}</span>
+            )}
+          </button>
           {analyzing && currentStep && (
             <div className="progress-indicator">
               <div className="spinner"></div>

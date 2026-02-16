@@ -893,10 +893,15 @@
   font-style: italic;
 }
 
+/* Mobile chat toggle button - hidden on desktop */
+.mobile-chat-toggle {
+  display: none;
+}
+
 /* ---- Mobile Responsive ---- */
 @media (max-width: 768px) {
   .chat-content-wrapper {
-    flex-direction: column;
+    flex-direction: column-reverse; /* Report first, chat at bottom */
     height: calc(100vh - 60px);
   }
 
@@ -936,20 +941,79 @@
     font-size: 0.75rem;
   }
 
-  /* Panel toggle for mobile */
-  .chat-panel,
-  .report-panel {
-    flex: none;
-    height: 50%;
-    border-right: none;
+  /* Mobile chat toggle button */
+  .mobile-chat-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.6rem 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    flex-shrink: 0;
   }
 
+  .mobile-chat-toggle .toggle-icon {
+    font-size: 0.7rem;
+  }
+
+  .mobile-chat-toggle .message-count {
+    background: rgba(255, 255, 255, 0.25);
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.7rem;
+  }
+
+  /* Chat panel - collapsed by default on mobile */
   .chat-panel {
-    border-bottom: 1px solid #dee2e6;
+    flex: none;
+    height: auto;
+    max-height: 140px; /* Just enough for toggle + input */
+    border-right: none;
+    border-top: 1px solid #dee2e6;
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+  }
+
+  /* Chat panel expanded on mobile */
+  .chat-panel.mobile-expanded {
+    max-height: 60vh;
+  }
+
+  .chat-panel.mobile-expanded .chat-messages {
+    display: block;
+  }
+
+  /* Hide chat messages when collapsed */
+  .chat-panel:not(.mobile-expanded) .chat-messages {
+    display: none;
+  }
+
+  .chat-panel:not(.mobile-expanded) .progress-indicator {
+    display: none;
+  }
+
+  .chat-panel:not(.mobile-expanded) .signup-prompt {
+    display: none;
+  }
+
+  /* Report panel takes most space on mobile */
+  .report-panel {
+    flex: 1;
+    border-right: none;
+    min-height: 0;
+    overflow-y: auto;
   }
 
   .chat-messages {
     padding: 1rem;
+    max-height: calc(60vh - 140px);
+    overflow-y: auto;
   }
 
   .message-content {
@@ -1103,9 +1167,18 @@
     font-size: 0.7rem;
   }
 
-  .chat-panel,
-  .report-panel {
-    height: 50%;
+  /* Chat panel stays collapsed */
+  .chat-panel {
+    max-height: 130px;
+  }
+
+  .chat-panel.mobile-expanded {
+    max-height: 55vh;
+  }
+
+  .mobile-chat-toggle {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
   }
 
   .message-content {
@@ -1152,11 +1225,25 @@
   .report-panel {
     height: 100%;
     flex: 1;
+    max-height: none;
   }
 
   .chat-panel {
-    border-bottom: none;
+    border-top: none;
     border-right: 1px solid #dee2e6;
+  }
+
+  .chat-panel .chat-messages {
+    display: block;
+    max-height: none;
+  }
+
+  .chat-panel .progress-indicator {
+    display: flex;
+  }
+
+  .mobile-chat-toggle {
+    display: none;
   }
 }
 
