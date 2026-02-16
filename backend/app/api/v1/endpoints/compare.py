@@ -153,9 +153,18 @@ def extract_property_summary(extracted_data: dict, analysis_results: dict, addre
         if result.get("concerns"):
             all_concerns.extend(result["concerns"][:2])
 
+    # Get price and convert to string if needed
+    raw_price = pricing_data.get("list_price") or property_data.get("price") or property_data.get("list_price")
+    price_str = None
+    if raw_price is not None:
+        if isinstance(raw_price, (int, float)):
+            price_str = f"${raw_price:,.0f}"
+        else:
+            price_str = str(raw_price)
+
     return PropertySummary(
         address=address,
-        price=pricing_data.get("list_price") or property_data.get("price") or property_data.get("list_price"),
+        price=price_str,
         beds=property_data.get("bedrooms") or property_data.get("beds"),
         baths=property_data.get("bathrooms") or property_data.get("baths"),
         sqft=property_data.get("living_area_sqft") or property_data.get("sqft"),
