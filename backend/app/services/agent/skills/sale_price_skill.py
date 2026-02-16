@@ -151,15 +151,38 @@ class SalePriceSkill(BaseSkill):
         dom = _parse_number(market.get('days_on_market'))
 
         # Determine baseline
+        # Key insight: For new listings (low DOM), list price is the market test.
+        # Redfin estimates are often conservative, especially for luxury properties.
         baseline = None
         baseline_source = None
 
-        if redfin_estimate:
-            baseline = redfin_estimate
-            baseline_source = 'redfin_estimate'
+        if list_price and redfin_estimate:
+            spread_pct = (list_price - redfin_estimate) / list_price * 100
+
+            # For new listings (DOM < 14), trust list price more - market hasn't rejected it
+            if dom is not None and dom < 14:
+                # Use weighted average favoring list price for new listings
+                baseline = list_price * 0.7 + redfin_estimate * 0.3
+                baseline_source = 'weighted_new_listing'
+            # For luxury properties where Redfin often underestimates
+            elif list_price > 1_500_000 and spread_pct > 5:
+                # Redfin tends to undervalue luxury - use weighted average
+                baseline = list_price * 0.6 + redfin_estimate * 0.4
+                baseline_source = 'weighted_luxury'
+            # If list price is much higher than Redfin (>10%), likely overpriced
+            elif spread_pct > 10:
+                baseline = redfin_estimate
+                baseline_source = 'redfin_estimate'
+            # Normal case: prices are close, use Redfin
+            else:
+                baseline = redfin_estimate
+                baseline_source = 'redfin_estimate'
         elif list_price:
             baseline = list_price
             baseline_source = 'list_price'
+        elif redfin_estimate:
+            baseline = redfin_estimate
+            baseline_source = 'redfin_estimate'
         elif median_price:
             # Derive from neighborhood median using sqft ratio
             sqft = _parse_number(details.get('living_area_sqft'))
@@ -390,14 +413,20 @@ PROPERTY: {address}
 Using the guidelines above, predict the likely final sale price for this property.
 
 Your job is to:
-1. Start from the baseline value
+1. Start from the baseline value (may be weighted between list price and Redfin estimate)
 2. Apply adjustments based on DOM, market conditions, property features
-3. Provide a predicted midpoint and +/- 5% range
+3. Provide a predicted midpoint and realistic range:
+   - Standard properties: +/- 3-5%
+   - Luxury properties (>$1.5M): +/- 5-8% (more price variability)
 4. List the key adjustment factors (3-6 most impactful)
 5. Explain your reasoning in 2-3 sentences
 6. Assign a confidence score (0-100) based on data quality
 
-CRITICAL: Consider DOM heavily - it's the market's real-time verdict on pricing.
+CRITICAL PRICING INSIGHTS:
+- For NEW listings (DOM < 14), the list price hasn't been rejected by the market yet - respect it more
+- Redfin estimates tend to be CONSERVATIVE, especially for luxury properties (often 5-10% low)
+- Low DOM + list price > Redfin estimate = sellers know something, don't undervalue
+- High DOM (>45) = market HAS spoken, price likely needs to come down
 
 Provide your analysis in this JSON format:
 {{
