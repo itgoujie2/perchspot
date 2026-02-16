@@ -105,7 +105,7 @@ For tech workers with stable employment, current conditions represent a reasonab
 
 ---
 
-*Ready to analyze a specific property in Bellevue? [Try Perchspot](/chat) to get an AI-powered analysis of any home in under 2 minutes.*
+*Ready to analyze a specific property in Bellevue? [Try Perchspot](/chat) to get an AI-powered analysis of any home in under 5 minutes.*
     `,
   },
   {
@@ -6435,7 +6435,7 @@ const BlogPage: React.FC = () => {
 
           <div className="post-cta">
             <h3>Ready to analyze your next property?</h3>
-            <p>Get AI-powered insights on any home in under 2 minutes.</p>
+            <p>Get AI-powered insights on any home in under 5 minutes.</p>
             <Link to="/" className="cta-btn">Try Perchspot Free</Link>
           </div>
         </article>
@@ -6534,7 +6534,7 @@ const BlogPage: React.FC = () => {
 
       <div className="blog-cta">
         <h2>Ready to analyze your next property?</h2>
-        <p>Get AI-powered insights on any home in under 2 minutes.</p>
+        <p>Get AI-powered insights on any home in under 5 minutes.</p>
         <Link to="/" className="cta-btn">Try Perchspot Free</Link>
       </div>
 
