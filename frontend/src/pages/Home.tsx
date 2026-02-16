@@ -65,7 +65,7 @@ export default function Home() {
         <div className="feature-card">
           <div className="feature-icon">⚡</div>
           <h3>Instant Analysis</h3>
-          <p>Get comprehensive property reports in under 2 minutes</p>
+          <p>Get comprehensive property reports in under 5 minutes</p>
         </div>
         <div className="feature-card">
           <div className="feature-icon">🎯</div>
@@ -86,8 +86,6 @@ export default function Home() {
 
       <footer className="landing-footer">
         <Link to="/blog">Home Buying Guides</Link>
-        <span className="footer-divider">·</span>
-        <Link to="/compare">Compare Properties</Link>
       </footer>
     </div>
   )
