@@ -32,10 +32,12 @@ MORTGAGE_RATE_CACHE_HOURS = 24  # Refresh daily - rates don't change frequently
 _hot_zip_codes_cache: Optional[Dict[str, Dict[str, Any]]] = None
 
 # Hot zip code tiers and their price premiums
+# Note: Ultra-premium markets are already priced at peak - less room for appreciation
+# High-demand markets see more bidding wars and sell above ask
 HOT_ZIP_PREMIUM = {
-    1: {'min': 0.05, 'max': 0.10, 'label': 'Ultra-Premium'},  # Tier 1: +5% to +10%
-    2: {'min': 0.03, 'max': 0.05, 'label': 'High Demand'},     # Tier 2: +3% to +5%
-    3: {'min': 0.01, 'max': 0.03, 'label': 'Emerging Hot'},    # Tier 3: +1% to +3%
+    1: {'min': 0.01, 'max': 0.03, 'label': 'Ultra-Premium'},  # Tier 1: +1% to +3% (already at peak)
+    2: {'min': 0.05, 'max': 0.08, 'label': 'High Demand'},     # Tier 2: +5% to +8% (bidding wars)
+    3: {'min': 0.02, 'max': 0.04, 'label': 'Emerging Hot'},    # Tier 3: +2% to +4% (growing demand)
 }
 
 

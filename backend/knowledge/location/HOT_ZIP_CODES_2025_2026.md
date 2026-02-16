@@ -5,9 +5,9 @@ This document identifies zip codes with strong demand, rapid appreciation, and p
 ## Price Adjustment Guidelines
 
 When predicting sale prices for properties in these hot zip codes:
-- **Tier 1 (Ultra-Premium)**: +5% to +10% price premium over baseline
-- **Tier 2 (High Demand)**: +3% to +5% price premium over baseline
-- **Tier 3 (Emerging Hot)**: +1% to +3% price premium over baseline
+- **Tier 1 (Ultra-Premium)**: +1% to +3% premium - prices already at peak, limited upside
+- **Tier 2 (High Demand)**: +5% to +8% premium - bidding wars common, sells above ask
+- **Tier 3 (Emerging Hot)**: +2% to +4% premium - growing demand, appreciation potential
 
 ---
 
@@ -277,9 +277,9 @@ When analyzing a property:
 1. **Check if zip code is listed** - Look up the property's zip code in the tables above
 2. **Identify tier** - Determine if Tier 1, 2, or 3
 3. **Apply premium** - Add the corresponding percentage to baseline prediction:
-   - Tier 1: +5% to +10%
-   - Tier 2: +3% to +5%
-   - Tier 3: +1% to +3%
+   - Tier 1 (Ultra-Premium): +1% to +3% - already at peak pricing, less room to grow
+   - Tier 2 (High Demand): +5% to +8% - bidding wars, properties sell above ask
+   - Tier 3 (Emerging): +2% to +4% - growing demand, appreciation potential
 4. **Consider context** - Newer data or local signals may override these guidelines
 
 ---
