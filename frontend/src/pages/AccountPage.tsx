@@ -189,14 +189,14 @@ const AccountPage: React.FC = () => {
     const selectedAddresses = favorites
       .filter(f => selectedForCompare.has(f.id))
       .map(f => encodeURIComponent(f.address));
-    navigate(`/compare?addresses=${selectedAddresses.join(',')}`);
+    navigate(`/compare?addresses=${selectedAddresses.join('|')}`);
   };
 
   const handleCompareFromHistory = () => {
     const selectedAddresses = history
       .filter(item => selectedHistoryForCompare.has(item.id))
       .map(item => encodeURIComponent(item.address));
-    navigate(`/compare?addresses=${selectedAddresses.join(',')}`);
+    navigate(`/compare?addresses=${selectedAddresses.join('|')}`);
   };
 
   const formatDate = (dateString: string) => {

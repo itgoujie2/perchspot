@@ -20,7 +20,7 @@ const ComparePage: React.FC = () => {
   useEffect(() => {
     const addressParam = searchParams.get('addresses');
     if (addressParam) {
-      const parsedAddresses = addressParam.split(',').map(a => decodeURIComponent(a.trim())).filter(a => a);
+      const parsedAddresses = addressParam.split('|').map(a => decodeURIComponent(a.trim())).filter(a => a);
       if (parsedAddresses.length >= 2) {
         setAddresses(parsedAddresses);
       }
