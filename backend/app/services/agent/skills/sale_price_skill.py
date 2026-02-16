@@ -6,6 +6,7 @@ Considers:
 - Days on market (key signal)
 - Market conditions (buyer's vs seller's)
 - Mortgage rate environment (fetched from web)
+- Hot zip codes (premium markets)
 - Seasonal factors
 - Comparables and neighborhood pricing
 """
@@ -26,6 +27,107 @@ logger = logging.getLogger(__name__)
 # Cache for mortgage rates (avoid hitting web on every request)
 _mortgage_rate_cache: Dict[str, Tuple[float, datetime]] = {}
 MORTGAGE_RATE_CACHE_HOURS = 24  # Refresh daily - rates don't change frequently
+
+# Cache for hot zip codes (loaded once from knowledge file)
+_hot_zip_codes_cache: Optional[Dict[str, Dict[str, Any]]] = None
+
+# Hot zip code tiers and their price premiums
+HOT_ZIP_PREMIUM = {
+    1: {'min': 0.05, 'max': 0.10, 'label': 'Ultra-Premium'},  # Tier 1: +5% to +10%
+    2: {'min': 0.03, 'max': 0.05, 'label': 'High Demand'},     # Tier 2: +3% to +5%
+    3: {'min': 0.01, 'max': 0.03, 'label': 'Emerging Hot'},    # Tier 3: +1% to +3%
+}
+
+
+def _load_hot_zip_codes() -> Dict[str, Dict[str, Any]]:
+    """
+    Load and parse hot zip codes from knowledge file.
+    Returns dict mapping zip_code -> {tier, area, notes, region}
+    """
+    global _hot_zip_codes_cache
+    if _hot_zip_codes_cache is not None:
+        return _hot_zip_codes_cache
+
+    # Try multiple paths for the knowledge file
+    possible_paths = [
+        Path("/app/knowledge/location/HOT_ZIP_CODES_2025_2026.md"),
+        Path("./knowledge/location/HOT_ZIP_CODES_2025_2026.md"),
+        Path("./backend/knowledge/location/HOT_ZIP_CODES_2025_2026.md"),
+    ]
+
+    content = None
+    for path in possible_paths:
+        if path.exists():
+            content = path.read_text()
+            logger.info(f"Loaded hot zip codes from {path}")
+            break
+
+    if not content:
+        logger.warning("Hot zip codes knowledge file not found")
+        _hot_zip_codes_cache = {}
+        return _hot_zip_codes_cache
+
+    hot_zips = {}
+    current_region = ""
+    current_tier = 0
+
+    for line in content.split('\n'):
+        line = line.strip()
+
+        # Detect region headers (## Seattle / Bellevue, ## San Francisco Bay Area, etc.)
+        if line.startswith('## ') and not line.startswith('## Price') and not line.startswith('## How'):
+            current_region = line[3:].strip()
+            continue
+
+        # Detect tier headers (### Tier 1, ### Tier 2, ### Tier 3)
+        if line.startswith('### Tier 1'):
+            current_tier = 1
+            continue
+        elif line.startswith('### Tier 2'):
+            current_tier = 2
+            continue
+        elif line.startswith('### Tier 3'):
+            current_tier = 3
+            continue
+
+        # Parse table rows with zip codes (| 98039 | Medina | ...)
+        if line.startswith('|') and current_tier > 0:
+            parts = [p.strip() for p in line.split('|')]
+            # Filter out empty parts
+            parts = [p for p in parts if p]
+            if len(parts) >= 2 and parts[0].isdigit() and len(parts[0]) == 5:
+                zip_code = parts[0]
+                area = parts[1] if len(parts) > 1 else ""
+                notes = parts[-1] if len(parts) > 2 else ""
+
+                hot_zips[zip_code] = {
+                    'tier': current_tier,
+                    'area': area,
+                    'notes': notes,
+                    'region': current_region,
+                    'premium': HOT_ZIP_PREMIUM.get(current_tier, {})
+                }
+
+    logger.info(f"Parsed {len(hot_zips)} hot zip codes")
+    _hot_zip_codes_cache = hot_zips
+    return _hot_zip_codes_cache
+
+
+def get_hot_zip_info(zip_code: str) -> Optional[Dict[str, Any]]:
+    """
+    Check if a zip code is a hot market.
+    Returns tier info if hot, None otherwise.
+    """
+    if not zip_code:
+        return None
+
+    # Clean zip code (handle zip+4 format like "98006-1234")
+    zip_clean = zip_code.split('-')[0].strip()
+    if len(zip_clean) != 5:
+        return None
+
+    hot_zips = _load_hot_zip_codes()
+    return hot_zips.get(zip_clean)
 
 
 async def _fetch_mortgage_rate_from_web() -> Optional[float]:
@@ -213,6 +315,16 @@ class SalePriceSkill(BaseSkill):
             analysis['details']['baseline_value'] = baseline_metrics.get('baseline')
             analysis['details']['dom'] = baseline_metrics.get('dom')
 
+            # Add hot zip code info if applicable
+            if baseline_metrics.get('hot_zip_info'):
+                analysis['details']['hot_zip'] = {
+                    'zip_code': baseline_metrics.get('zip_code'),
+                    'tier': baseline_metrics['hot_zip_info'].get('tier'),
+                    'area': baseline_metrics['hot_zip_info'].get('area'),
+                    'region': baseline_metrics['hot_zip_info'].get('region'),
+                    'premium_applied': baseline_metrics.get('hot_zip_premium_applied'),
+                }
+
             analysis['market_snapshot'] = market_snapshot
             analysis['raw_data'] = {
                 'address': address,
@@ -254,6 +366,18 @@ class SalePriceSkill(BaseSkill):
 
         # Days on market
         dom = _parse_number(market.get('days_on_market'))
+
+        # Extract zip code for hot market check
+        zip_code = None
+        prop = data.get('property', {}) or {}
+        addr = prop.get('address', {}) or {}
+        zip_code = addr.get('zip_code') or addr.get('postal_code') or addr.get('zip')
+        if not zip_code:
+            region_info = data.get('region_info', {}) or {}
+            zip_code = region_info.get('zip_code') or region_info.get('zip')
+
+        # Check if hot zip code
+        hot_zip_info = get_hot_zip_info(zip_code) if zip_code else None
 
         # Determine baseline
         # Key insight: For new listings (low DOM), list price is the market test.
@@ -298,6 +422,19 @@ class SalePriceSkill(BaseSkill):
                 baseline = median_price
             baseline_source = 'derived_from_median'
 
+        # Apply hot zip code premium to baseline
+        hot_zip_premium_applied = None
+        if baseline and hot_zip_info:
+            tier = hot_zip_info['tier']
+            premium_info = hot_zip_info.get('premium', {})
+            # Use midpoint of premium range
+            premium_pct = (premium_info.get('min', 0) + premium_info.get('max', 0)) / 2
+            if premium_pct > 0:
+                hot_zip_premium_applied = premium_pct
+                baseline = baseline * (1 + premium_pct)
+                baseline_source = f"{baseline_source}_hot_zip_t{tier}"
+                logger.info(f"Applied hot zip premium: Tier {tier} ({premium_pct*100:.1f}%) for zip {zip_code}")
+
         metrics = {
             'baseline': baseline,
             'baseline_source': baseline_source,
@@ -310,6 +447,9 @@ class SalePriceSkill(BaseSkill):
             'year_built': details.get('year_built'),
             'bedrooms': details.get('bedrooms'),
             'bathrooms': details.get('bathrooms'),
+            'zip_code': zip_code,
+            'hot_zip_info': hot_zip_info,
+            'hot_zip_premium_applied': hot_zip_premium_applied,
         }
 
         # Price vs estimate spread
@@ -444,6 +584,24 @@ Return ONLY valid JSON, no explanation."""
             direction = "below estimate" if spread > 0 else "above estimate"
             baseline_section += f"- List vs Estimate: {spread:+.1f}% ({direction})\n"
 
+        # Hot zip code section
+        hot_zip_section = ""
+        hot_zip_info = baseline_metrics.get('hot_zip_info')
+        if hot_zip_info:
+            hot_zip_section = "\nHOT ZIP CODE MARKET:\n"
+            tier = hot_zip_info.get('tier', 0)
+            premium_info = hot_zip_info.get('premium', {})
+            hot_zip_section += f"- Zip Code: {baseline_metrics.get('zip_code')}\n"
+            hot_zip_section += f"- Market Tier: {tier} ({premium_info.get('label', 'Hot')})\n"
+            hot_zip_section += f"- Area: {hot_zip_info.get('area', 'N/A')}\n"
+            hot_zip_section += f"- Region: {hot_zip_info.get('region', 'N/A')}\n"
+            if hot_zip_info.get('notes'):
+                hot_zip_section += f"- Notes: {hot_zip_info.get('notes')}\n"
+            premium_applied = baseline_metrics.get('hot_zip_premium_applied')
+            if premium_applied:
+                hot_zip_section += f"- Premium Applied: +{premium_applied*100:.1f}% (already factored into baseline)\n"
+            hot_zip_section += ">>> This is a premium/high-demand market - properties often sell at or above ask\n"
+
         # Market snapshot section
         market_section = "\nMARKET CONDITIONS:\n"
         rate_source = market_snapshot.get('mortgage_rate_source', '')
@@ -560,6 +718,7 @@ Return ONLY valid JSON, no explanation."""
 PROPERTY: {address}
 
 {baseline_section}
+{hot_zip_section}
 {market_section}
 {dom_section}
 {prop_section}
