@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { favoritesApi, historyApi, compareApi, referralsApi } from '../services/api';
-import type { Favorite, HistoryItem, CompareResponse } from '../types';
+import { favoritesApi, historyApi, referralsApi } from '../services/api';
+import type { Favorite, HistoryItem } from '../types';
 import Logo from '../assets/logo.svg';
 import SEOHead from '../components/SEOHead';
 import './AccountPage.css';
@@ -22,6 +22,7 @@ interface ReferralStats {
 
 const AccountPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
   const { user, logout, isLoading } = useAuth();
 
   const initialTab = (searchParams.get('tab') as TabType) || 'profile';
@@ -34,12 +35,11 @@ const AccountPage: React.FC = () => {
   const [favorites, setFavorites] = useState<Favorite[]>([]);
   const [favoritesLoading, setFavoritesLoading] = useState(false);
   const [selectedForCompare, setSelectedForCompare] = useState<Set<string>>(new Set());
-  const [comparing, setComparing] = useState(false);
-  const [compareResult, setCompareResult] = useState<CompareResponse | null>(null);
 
   // History state
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [historyLoading, setHistoryLoading] = useState(false);
+  const [selectedHistoryForCompare, setSelectedHistoryForCompare] = useState<Set<string>>(new Set());
 
   // Referral state
   const [referralData, setReferralData] = useState<ReferralData | null>(null);
@@ -121,7 +121,6 @@ const AccountPage: React.FC = () => {
   const handleTabChange = (tab: TabType) => {
     setActiveTab(tab);
     setSearchParams({ tab });
-    setCompareResult(null);
   };
 
   const loadFavorites = async () => {
@@ -167,29 +166,37 @@ const AccountPage: React.FC = () => {
       const next = new Set(prev);
       if (next.has(favoriteId)) {
         next.delete(favoriteId);
-      } else if (next.size < 3) {
+      } else if (next.size < 2) {
         next.add(favoriteId);
       }
       return next;
     });
   };
 
-  const handleCompare = async () => {
+  const toggleHistorySelection = (itemId: string) => {
+    setSelectedHistoryForCompare(prev => {
+      const next = new Set(prev);
+      if (next.has(itemId)) {
+        next.delete(itemId);
+      } else if (next.size < 2) {
+        next.add(itemId);
+      }
+      return next;
+    });
+  };
+
+  const handleCompareFromFavorites = () => {
     const selectedAddresses = favorites
       .filter(f => selectedForCompare.has(f.id))
-      .map(f => f.address);
+      .map(f => encodeURIComponent(f.address));
+    navigate(`/compare?addresses=${selectedAddresses.join(',')}`);
+  };
 
-    if (selectedAddresses.length < 2) return;
-
-    try {
-      setComparing(true);
-      const result = await compareApi.compare({ addresses: selectedAddresses });
-      setCompareResult(result);
-    } catch (err) {
-      console.error('Compare failed:', err);
-    } finally {
-      setComparing(false);
-    }
+  const handleCompareFromHistory = () => {
+    const selectedAddresses = history
+      .filter(item => selectedHistoryForCompare.has(item.id))
+      .map(item => encodeURIComponent(item.address));
+    navigate(`/compare?addresses=${selectedAddresses.join(',')}`);
   };
 
   const formatDate = (dateString: string) => {
@@ -198,13 +205,6 @@ const AccountPage: React.FC = () => {
       day: 'numeric',
       year: 'numeric',
     });
-  };
-
-  const getScoreColor = (score: number | undefined) => {
-    if (score === undefined) return '#94a3b8';
-    if (score >= 70) return '#22c55e';
-    if (score >= 40) return '#f59e0b';
-    return '#ef4444';
   };
 
   // Handle loading and missing user states
@@ -338,10 +338,9 @@ const AccountPage: React.FC = () => {
                 {selectedForCompare.size >= 2 && (
                   <button
                     className="compare-btn"
-                    onClick={handleCompare}
-                    disabled={comparing}
+                    onClick={handleCompareFromFavorites}
                   >
-                    {comparing ? 'Comparing...' : `Compare ${selectedForCompare.size} Properties`}
+                    Compare {selectedForCompare.size} Properties
                   </button>
                 )}
               </div>
@@ -349,52 +348,6 @@ const AccountPage: React.FC = () => {
               {selectedForCompare.size > 0 && selectedForCompare.size < 2 && (
                 <div className="compare-hint">
                   Select {2 - selectedForCompare.size} more to compare
-                </div>
-              )}
-
-              {/* Compare Results */}
-              {compareResult && (
-                <div className="compare-results">
-                  <div className="compare-results-header">
-                    <h3>Comparison Results</h3>
-                    <button onClick={() => setCompareResult(null)} className="close-compare">
-                      Close
-                    </button>
-                  </div>
-                  {compareResult.comparison_notes && (
-                    <div className="comparison-summary">{compareResult.comparison_notes}</div>
-                  )}
-                  <div className="compare-grid">
-                    {compareResult.properties.map((prop, idx) => (
-                      <div key={idx} className="compare-card">
-                        <div className="compare-rank">#{idx + 1}</div>
-                        <h4>{prop.address}</h4>
-                        <div className="compare-stats">
-                          {prop.price && <span>{prop.price}</span>}
-                          {prop.beds && <span>{prop.beds} bd</span>}
-                          {prop.baths && <span>{prop.baths} ba</span>}
-                        </div>
-                        <div
-                          className="compare-score"
-                          style={{ borderColor: getScoreColor(prop.scores.overall) }}
-                        >
-                          <span style={{ color: getScoreColor(prop.scores.overall) }}>
-                            {prop.scores.overall ?? '—'}
-                          </span>
-                          <small>Overall</small>
-                        </div>
-                        {prop.needs_analysis && (
-                          <div className="needs-analysis-badge">Needs Analysis</div>
-                        )}
-                        <Link
-                          to={`/chat?address=${encodeURIComponent(prop.address)}`}
-                          className="view-link"
-                        >
-                          View Full Analysis
-                        </Link>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               )}
 
@@ -424,7 +377,7 @@ const AccountPage: React.FC = () => {
                           type="checkbox"
                           checked={selectedForCompare.has(fav.id)}
                           onChange={() => toggleCompareSelection(fav.id)}
-                          disabled={!selectedForCompare.has(fav.id) && selectedForCompare.size >= 3}
+                          disabled={!selectedForCompare.has(fav.id) && selectedForCompare.size >= 2}
                         />
                         <span className="checkmark"></span>
                       </label>
@@ -457,7 +410,23 @@ const AccountPage: React.FC = () => {
           {/* History Tab */}
           {activeTab === 'history' && (
             <div className="tab-content history-tab">
-              <h2>Analysis History</h2>
+              <div className="tab-header">
+                <h2>Analysis History</h2>
+                {selectedHistoryForCompare.size >= 2 && (
+                  <button
+                    className="compare-btn"
+                    onClick={handleCompareFromHistory}
+                  >
+                    Compare {selectedHistoryForCompare.size} Properties
+                  </button>
+                )}
+              </div>
+
+              {selectedHistoryForCompare.size > 0 && selectedHistoryForCompare.size < 2 && (
+                <div className="compare-hint">
+                  Select {2 - selectedHistoryForCompare.size} more to compare
+                </div>
+              )}
 
               {historyLoading ? (
                 <div className="loading-state">
@@ -477,7 +446,19 @@ const AccountPage: React.FC = () => {
               ) : (
                 <div className="history-list">
                   {history.map((item) => (
-                    <div key={item.id} className="history-item">
+                    <div
+                      key={item.id}
+                      className={`history-item ${selectedHistoryForCompare.has(item.id) ? 'selected' : ''}`}
+                    >
+                      <label className="compare-checkbox">
+                        <input
+                          type="checkbox"
+                          checked={selectedHistoryForCompare.has(item.id)}
+                          onChange={() => toggleHistorySelection(item.id)}
+                          disabled={!selectedHistoryForCompare.has(item.id) && selectedHistoryForCompare.size >= 2}
+                        />
+                        <span className="checkmark"></span>
+                      </label>
                       <div className="history-content">
                         <h4>{item.address}</h4>
                         <span className="date">{formatDate(item.analyzed_at)}</span>

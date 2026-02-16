@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { compareApi } from '../services/api';
 import type { PropertySummary, CompareResponse } from '../types';
@@ -9,10 +9,35 @@ import './ComparePage.css';
 
 const ComparePage: React.FC = () => {
   const { user } = useAuth();
+  const [searchParams] = useSearchParams();
   const [addresses, setAddresses] = useState<string[]>(['', '']);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<CompareResponse | null>(null);
+  const autoCompareTriggered = useRef(false);
+
+  // Load addresses from URL params on mount
+  useEffect(() => {
+    const addressParam = searchParams.get('addresses');
+    if (addressParam) {
+      const parsedAddresses = addressParam.split(',').map(a => decodeURIComponent(a.trim())).filter(a => a);
+      if (parsedAddresses.length >= 2) {
+        setAddresses(parsedAddresses);
+      }
+    }
+  }, [searchParams]);
+
+  // Auto-compare when addresses loaded from URL
+  useEffect(() => {
+    const validAddresses = addresses.filter(a => a.trim());
+    if (validAddresses.length >= 2 && !result && !loading && !autoCompareTriggered.current) {
+      const addressParam = searchParams.get('addresses');
+      if (addressParam) {
+        autoCompareTriggered.current = true;
+        handleCompare();
+      }
+    }
+  }, [addresses]);
 
   const handleAddressChange = (index: number, value: string) => {
     const newAddresses = [...addresses];
@@ -94,10 +119,10 @@ const ComparePage: React.FC = () => {
           <h1>Compare Properties</h1>
         </div>
         <div className="header-actions">
-          <Link to="/favorites" className="nav-link">
+          <Link to="/account?tab=favorites" className="nav-link">
             Favorites
           </Link>
-          <Link to="/history" className="nav-link">
+          <Link to="/account?tab=history" className="nav-link">
             History
           </Link>
           <Link to="/" className="btn-secondary">
