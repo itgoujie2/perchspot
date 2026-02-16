@@ -5,7 +5,7 @@ Considers:
 - Property characteristics
 - Days on market (key signal)
 - Market conditions (buyer's vs seller's)
-- Mortgage rate environment
+- Mortgage rate environment (fetched from web)
 - Seasonal factors
 - Comparables and neighborhood pricing
 """
@@ -13,12 +13,117 @@ import json
 import re
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, Optional, List, Tuple
 import logging
+import httpx
+from bs4 import BeautifulSoup
 
 from app.services.agent.skills.base_skill import BaseSkill
+from app.config import settings
 
 logger = logging.getLogger(__name__)
+
+# Cache for mortgage rates (avoid hitting web on every request)
+_mortgage_rate_cache: Dict[str, Tuple[float, datetime]] = {}
+MORTGAGE_RATE_CACHE_HOURS = 4  # Refresh every 4 hours
+
+
+async def _fetch_mortgage_rate_from_web() -> Optional[float]:
+    """
+    Fetch current best mortgage rates from the web.
+    Returns the best available 30-year fixed rate for well-qualified buyers.
+    """
+    try:
+        async with httpx.AsyncClient(
+            headers={'User-Agent': settings.USER_AGENT},
+            timeout=10.0,
+            follow_redirects=True
+        ) as client:
+            # Try Bankrate's mortgage rates page
+            response = await client.get('https://www.bankrate.com/mortgages/current-interest-rates/')
+
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.text, 'lxml')
+
+                # Look for 30-year fixed rate - Bankrate shows rates in specific elements
+                # Try multiple selectors as page structure may change
+                rate_text = None
+
+                # Try finding rate in common patterns
+                for selector in [
+                    '[data-testid="30-year-fixed-rate"]',
+                    '.rate-value',
+                    'td:contains("30-year fixed")',
+                ]:
+                    elem = soup.select_one(selector)
+                    if elem:
+                        rate_text = elem.get_text(strip=True)
+                        break
+
+                # Also try regex pattern matching in page text
+                if not rate_text:
+                    # Look for patterns like "6.25%" or "6.5%" near "30-year"
+                    text = soup.get_text()
+                    match = re.search(r'30[- ]?year[^%]*?(\d+\.?\d*)\s*%', text, re.IGNORECASE)
+                    if match:
+                        rate_text = match.group(1)
+
+                if rate_text:
+                    # Clean and parse
+                    rate_str = re.sub(r'[^\d.]', '', rate_text)
+                    if rate_str:
+                        rate = float(rate_str)
+                        if 3.0 <= rate <= 12.0:  # Sanity check
+                            logger.info(f"Fetched mortgage rate from web: {rate}%")
+                            return rate
+
+            # Try alternative source: Freddie Mac PMMS (Primary Mortgage Market Survey)
+            # This is the authoritative source but updates weekly
+            response = await client.get('https://www.freddiemac.com/pmms')
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.text, 'lxml')
+                # Look for 30-year rate
+                rate_elem = soup.select_one('.rate-30yr, .pmms-rate')
+                if rate_elem:
+                    rate_text = rate_elem.get_text(strip=True)
+                    rate_str = re.sub(r'[^\d.]', '', rate_text)
+                    if rate_str:
+                        rate = float(rate_str)
+                        if 3.0 <= rate <= 12.0:
+                            logger.info(f"Fetched mortgage rate from Freddie Mac: {rate}%")
+                            return rate
+
+    except Exception as e:
+        logger.warning(f"Failed to fetch mortgage rate from web: {e}")
+
+    return None
+
+
+async def get_current_mortgage_rate() -> Tuple[float, str]:
+    """
+    Get current mortgage rate with caching.
+    Returns (rate, source) tuple.
+    """
+    cache_key = "30yr_fixed"
+
+    # Check cache
+    if cache_key in _mortgage_rate_cache:
+        cached_rate, cached_time = _mortgage_rate_cache[cache_key]
+        hours_old = (datetime.now() - cached_time).total_seconds() / 3600
+        if hours_old < MORTGAGE_RATE_CACHE_HOURS:
+            logger.debug(f"Using cached mortgage rate: {cached_rate}% ({hours_old:.1f}h old)")
+            return cached_rate, "cached_web"
+
+    # Fetch from web
+    rate = await _fetch_mortgage_rate_from_web()
+    if rate:
+        _mortgage_rate_cache[cache_key] = (rate, datetime.now())
+        return rate, "web_fetch"
+
+    # Fall back to reasonable default for well-qualified buyers
+    # As of early 2026, rates are typically 6-7%
+    logger.info("Using fallback mortgage rate: 6.5%")
+    return 6.5, "fallback"
 
 # Property data directory
 PROPERTY_DATA_DIR = Path("/app/property_data")
@@ -244,23 +349,24 @@ class SalePriceSkill(BaseSkill):
         month = _get_current_month()
         season = _get_season(month)
 
-        # Use Claude to estimate current mortgage rate and market conditions
+        # Fetch mortgage rate from web (with caching)
+        mortgage_rate, rate_source = await get_current_mortgage_rate()
+        logger.info(f"Mortgage rate: {mortgage_rate}% (source: {rate_source})")
+
+        # Use Claude only for local market conditions (not mortgage rate)
         try:
             prompt = f"""Based on your knowledge of current real estate market conditions (as of early 2026), provide market data for {city}, {state if state else region}.
 
 Return ONLY a JSON object with these fields:
-- best_mortgage_rate_30yr: number (BEST available 30-year fixed rate for well-qualified buyers with 20%+ down and 750+ credit, e.g., 6.25)
 - market_type: string ("seller's", "buyer's", or "balanced")
 - local_yoy_trend: string (e.g., "prices up 3% YoY" or "prices flat YoY")
 - rate_direction: string ("rising", "falling", or "stable")
-
-IMPORTANT: Use the BEST rate available in the market, not average. Well-qualified buyers can shop around and get competitive rates.
 
 Return ONLY valid JSON, no explanation."""
 
             response = await self._call_claude(
                 prompt=prompt,
-                max_tokens=200,
+                max_tokens=150,
                 model="claude-3-haiku-20240307"  # Use Haiku for speed/cost
             )
 
@@ -275,24 +381,26 @@ Return ONLY valid JSON, no explanation."""
             market_data = json.loads(response_text)
 
             return {
-                'mortgage_rate': market_data.get('best_mortgage_rate_30yr', 6.5),
+                'mortgage_rate': mortgage_rate,
+                'mortgage_rate_source': rate_source,
                 'market_type': market_data.get('market_type', market_type or 'balanced'),
                 'season': season,
                 'local_trend': market_data.get('local_yoy_trend', 'unknown'),
                 'rate_direction': market_data.get('rate_direction', 'stable'),
-                'source': 'claude_estimate'
+                'source': 'web_and_claude'
             }
 
         except Exception as e:
             logger.warning(f"SalePriceSkill: Market conditions fetch failed: {e}")
-            # Return defaults - use best available rate for qualified buyers
+            # Return with web-fetched rate
             return {
-                'mortgage_rate': 6.5,
+                'mortgage_rate': mortgage_rate,
+                'mortgage_rate_source': rate_source,
                 'market_type': market_type or 'balanced',
                 'season': season,
                 'local_trend': 'unknown',
                 'rate_direction': 'stable',
-                'source': 'fallback'
+                'source': 'web_only'
             }
 
     async def _predict_sale_price(
@@ -338,7 +446,9 @@ Return ONLY valid JSON, no explanation."""
 
         # Market snapshot section
         market_section = "\nMARKET CONDITIONS:\n"
-        market_section += f"- Mortgage Rate (30yr): {market_snapshot.get('mortgage_rate', 'N/A')}%\n"
+        rate_source = market_snapshot.get('mortgage_rate_source', '')
+        rate_note = f" (from {rate_source})" if rate_source else ""
+        market_section += f"- Mortgage Rate (30yr best available): {market_snapshot.get('mortgage_rate', 'N/A')}%{rate_note}\n"
         market_section += f"- Market Type: {market_snapshot.get('market_type', 'N/A')}\n"
         market_section += f"- Season: {market_snapshot.get('season', 'N/A')}\n"
         market_section += f"- Local Trend: {market_snapshot.get('local_trend', 'N/A')}\n"
