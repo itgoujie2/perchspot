@@ -4116,6 +4116,1425 @@ The inspection contingency exists for this reason. Use it when needed.
 *Navigating inspection negotiations? [Use Perchspot](/chat) to understand your property's true condition and value before making decisions.*
     `,
   },
+  {
+    id: 'down-payment-savings-strategies',
+    title: "Down Payment Strategies: How to Save $50K+ for Your First Home",
+    excerpt: "Saving for a down payment feels impossible. Here are proven strategies real buyers use—plus programs that can help.",
+    category: 'Guide',
+    date: '2026-01-18',
+    readTime: '10 min read',
+    image: '/blog/savings.jpg',
+    metaDescription: "How to save for a house down payment: strategies to save $50K+, down payment assistance programs, and creative approaches that work.",
+    content: `
+# Down Payment Strategies: How to Save $50K+ for Your First Home
+
+The down payment is the biggest hurdle for most first-time buyers. On a $500K home, that's $25K-$100K depending on your loan type. Here's how real buyers make it happen.
+
+## How Much Do You Actually Need?
+
+### By Loan Type
+| Loan Type | Minimum Down | On $500K Home |
+|-----------|-------------|---------------|
+| Conventional | 3% | $15,000 |
+| FHA | 3.5% | $17,500 |
+| VA | 0% | $0 |
+| USDA | 0% | $0 |
+| Conventional (no PMI) | 20% | $100,000 |
+
+### Don't Forget Closing Costs
+Add 2-5% for closing costs:
+- On $500K: $10K-$25K additional
+- Can sometimes be negotiated with seller
+- Some rolled into loan
+
+### The Real Target
+For most conventional buyers: **10% down + closing costs**
+- On $500K: ~$50K-$75K total needed
+
+## The Savings Framework
+
+### Step 1: Know Your Timeline
+| Timeline | Monthly Savings Needed ($50K goal) |
+|----------|------------------------------------|
+| 1 year | $4,167 |
+| 2 years | $2,083 |
+| 3 years | $1,389 |
+| 5 years | $833 |
+
+Realistic for most: 2-3 years with aggressive saving.
+
+### Step 2: Track Every Dollar
+Before optimizing, know where money goes:
+- Use Mint, YNAB, or spreadsheet
+- Categorize all spending
+- Track for at least 2 months
+- Identify opportunities
+
+### Step 3: Create a Housing Fund
+- Separate savings account
+- High-yield (4-5% currently)
+- Automatic transfers
+- Don't touch it
+
+## Proven Savings Strategies
+
+### The Big Three (Highest Impact)
+
+**1. Housing Arbitrage**
+Your biggest expense is usually housing:
+- Move to cheaper apartment
+- Get a roommate
+- Live with parents temporarily
+- Move to cheaper area
+
+**Savings Potential**: $500-$1,500/month
+
+**2. Transportation Downgrade**
+Second biggest expense:
+- Sell expensive car, buy used
+- Go down to one car
+- Use public transit
+- Bike/walk when possible
+
+**Savings Potential**: $300-$800/month
+
+**3. Income Boost**
+Earning more beats cutting more:
+- Ask for raise (research market rate)
+- Side gig (consulting, freelance)
+- Overtime if available
+- Sell unused items
+
+**Earnings Potential**: $500-$2,000+/month
+
+### Medium Impact Strategies
+
+**Cut Subscriptions**
+- Audit all recurring charges
+- Cancel unused services
+- Share family plans
+- Use free alternatives
+
+**Savings**: $50-$200/month
+
+**Reduce Food Costs**
+- Cook at home more
+- Meal prep Sundays
+- Reduce delivery apps
+- Pack lunches
+
+**Savings**: $200-$500/month
+
+**Entertainment Shift**
+- Library instead of buying
+- Free local events
+- Parks and hikes
+- Potlucks over restaurants
+
+**Savings**: $100-$400/month
+
+### The Windfalls
+
+Don't spend unexpected money:
+- Tax refunds → Savings
+- Work bonuses → Savings
+- Gifts → Savings
+- Side income → Savings
+
+**Annual Impact**: $3,000-$15,000+
+
+## Down Payment Assistance Programs
+
+### Federal Programs
+
+**FHA Loans**
+- 3.5% down with 580+ credit
+- Gift funds allowed
+- Easier qualification
+
+**VA Loans**
+- 0% down for eligible veterans
+- No PMI
+- Competitive rates
+
+**USDA Loans**
+- 0% down in eligible areas
+- Income limits apply
+- Suburban areas often qualify
+
+### State Programs (Washington Example)
+
+**Washington State Housing Finance Commission**:
+- Down payment assistance up to $10,000
+- Below-market interest rates
+- First-time buyer programs
+- Income limits apply
+
+**Home Advantage Program**:
+- Up to $10,000 assistance
+- Can combine with other programs
+- Second mortgage (deferred)
+
+### Employer Programs
+
+Some employers offer:
+- Down payment assistance
+- Homebuyer education
+- Relocation benefits
+- Mortgage partnerships
+
+Ask HR what's available.
+
+### Community Programs
+
+Check locally for:
+- City down payment assistance
+- County first-time buyer programs
+- Nonprofit housing organizations
+- Community development grants
+
+## Creative Approaches
+
+### Gift Funds
+FHA and conventional allow gift funds:
+- Parents, grandparents, relatives
+- Must be documented properly
+- Gift letter required
+- No repayment expected
+
+**Tip**: Receive gifts 2+ months before applying (looks better on statements)
+
+### 401(k) Loan
+Borrow from your retirement:
+- Up to 50% or $50K (whichever less)
+- Pay yourself back with interest
+- No early withdrawal penalty
+- Risk: Must repay if you leave job
+
+**Consideration**: Not ideal, but can work
+
+### IRA First-Time Buyer Withdrawal
+- Up to $10K penalty-free
+- Must be first-time buyer
+- Still owe income taxes
+- Reduces retirement savings
+
+### Roth IRA Contributions
+- Withdraw contributions anytime (tax-free)
+- Plus $10K earnings for first home
+- More flexible than traditional IRA
+
+### Side Hustle Dedication
+Dedicated side income for house:
+- Freelancing: $500-$3,000/month
+- Rideshare driving: $500-$1,500/month
+- Tutoring: $500-$1,000/month
+- E-commerce: Variable
+
+All side income → House fund
+
+## The Reality Check
+
+### What $50K Savings Looks Like
+
+**Aggressive Approach (2 years)**:
+| Source | Monthly | 24-Month Total |
+|--------|---------|----------------|
+| Budget cuts | $800 | $19,200 |
+| Income boost | $500 | $12,000 |
+| Windfalls | - | $8,000 |
+| Interest earned | - | $1,500 |
+| **Total** | - | **$40,700** |
+
+Add tax refunds and bonuses: **$50,000+**
+
+### Moderate Approach (3 years)**:
+| Source | Monthly | 36-Month Total |
+|--------|---------|----------------|
+| Budget cuts | $500 | $18,000 |
+| Income boost | $300 | $10,800 |
+| Windfalls | - | $12,000 |
+| Interest earned | - | $3,000 |
+| **Total** | - | **$43,800** |
+
+Add assistance programs: **$50,000+**
+
+## Mistakes to Avoid
+
+### 1. Keeping Savings in Checking
+Move to high-yield savings:
+- Current rates: 4-5% APY
+- On $50K: $2,000-$2,500/year extra
+- Easy to open online
+
+### 2. Investing Down Payment
+Market risk too high:
+- What if it drops when you need it?
+- Keep in cash/savings
+- Not worth the risk
+
+### 3. Lifestyle Inflation
+As income grows, don't spend more:
+- Raise? → Save the difference
+- Promotion? → Save the difference
+- Side gig? → Save it all
+
+### 4. Giving Up Too Early
+Consistency beats intensity:
+- Small monthly savings add up
+- 3 years goes faster than you think
+- Stay focused on goal
+
+## Action Plan
+
+### This Week
+1. Calculate your actual target number
+2. Open high-yield savings account
+3. Set up automatic transfer
+
+### This Month
+1. Track all spending
+2. Identify top 3 cuts
+3. Explore income boost options
+
+### This Quarter
+1. Implement major changes
+2. Research assistance programs
+3. Review progress
+
+### Ongoing
+1. Monthly savings review
+2. Quarterly goal check
+3. Adjust as needed
+
+---
+
+*Know your savings goal and ready to start looking? [Explore properties with Perchspot](/chat) to understand what your budget can buy.*
+    `,
+  },
+  {
+    id: 'seattle-vs-eastside-where-to-buy',
+    title: "Seattle vs Eastside: Where Should You Buy in 2026?",
+    excerpt: "The eternal Seattle-area debate: urban Seattle living or Eastside suburban life? Here's how to decide.",
+    category: 'Local',
+    date: '2026-01-15',
+    readTime: '12 min read',
+    image: '/blog/seattle-eastside.jpg',
+    metaDescription: "Seattle vs Eastside comparison 2026: prices, commute, schools, lifestyle differences between Seattle and Bellevue, Redmond, Kirkland.",
+    content: `
+# Seattle vs Eastside: Where Should You Buy in 2026?
+
+The I-90 and 520 bridges separate two distinct lifestyles. Seattle offers urban energy; the Eastside offers suburban comfort. Both have trade-offs. Here's how to decide.
+
+## The Quick Comparison
+
+| Factor | Seattle | Eastside |
+|--------|---------|----------|
+| Median Price | $850K | $1.1-1.3M |
+| Lot Size | Smaller | Larger |
+| Schools | Variable | Generally better |
+| Walkability | Better | Limited |
+| Commute | Traffic + transit | Traffic, some transit |
+| Lifestyle | Urban | Suburban |
+| Diversity | More diverse | Less diverse |
+| Nightlife | Yes | Limited |
+| Nature Access | Good | Excellent |
+
+## Seattle: The Case For
+
+### Urban Walkability
+Many Seattle neighborhoods offer car-optional living:
+- Capitol Hill: Restaurants, bars, culture at your door
+- Ballard: Walkable downtown, breweries
+- Fremont: Quirky shops, restaurants
+- Queen Anne: Neighborhood villages
+
+**Reality**: You can walk to grocery, coffee, restaurants.
+
+### Transit Options
+Seattle has actual public transit:
+- Light rail expanding
+- Frequent bus routes
+- Streetcar lines
+- More options coming
+
+**For Commuters**: Link Light Rail connects downtown to UW, Capitol Hill, Beacon Hill, Columbia City, and eventually everywhere.
+
+### Cultural Energy
+- Music scene (birthplace of grunge)
+- Diverse food options
+- Art galleries, museums
+- Sports (Seahawks, Kraken, Mariners, Sounders)
+- Events and festivals
+
+### More Affordable Entry Points
+Surprisingly, Seattle can cost less:
+| Seattle Neighborhood | Median |
+|---------------------|--------|
+| West Seattle | $700K |
+| Columbia City | $750K |
+| Beacon Hill | $700K |
+| Rainier Valley | $650K |
+
+Compare to:
+| Eastside City | Median |
+|--------------|--------|
+| Bellevue | $1.3M |
+| Redmond | $1.3M |
+| Kirkland | $1.1M |
+
+### Diversity
+Seattle is more diverse:
+- More cultural communities
+- More international food
+- More varied perspectives
+- More inclusive generally
+
+## Seattle: The Case Against
+
+### School Quality Concerns
+Seattle Public Schools face challenges:
+- Funding issues
+- Variable quality by area
+- Lottery systems for magnet schools
+- Some excellent, some struggling
+
+**Best Seattle School Areas**:
+- North Seattle (Roosevelt, Ballard HS)
+- West Seattle (limited options)
+- Capitol Hill (private school concentration)
+
+### Crime and Safety
+Higher crime rates in some areas:
+- Property crime significant
+- Car break-ins endemic
+- Homeless encampments
+- Some neighborhoods require more awareness
+
+### Parking and Traffic
+Owning a car in Seattle is harder:
+- Street parking battles
+- Garage space rare
+- Traffic within city
+- Parking costs high
+
+### Housing Stock
+Many options are older:
+- 1920s-1950s homes common
+- Smaller lots typical
+- Renovation often needed
+- New construction expensive
+
+## Eastside: The Case For
+
+### Excellent Schools
+Eastside schools dominate ratings:
+| District | Overall Rating |
+|----------|---------------|
+| Bellevue SD | 9/10 |
+| Lake Washington SD | 8/10 |
+| Issaquah SD | 9/10 |
+| Northshore SD | 7/10 |
+
+**For Families**: The school quality is often the deciding factor.
+
+### Safety
+Lower crime rates generally:
+- Safer streets
+- Less property crime
+- Family-friendly atmosphere
+- Better policed
+
+### Space and Nature
+- Larger lots standard
+- More parking
+- Backyard space
+- Easy access to trails, mountains
+
+### Tech Job Proximity
+If you work for Microsoft, Amazon (Bellevue), Meta, or Google:
+- Shorter commute from Eastside
+- Reverse commute from Seattle works but adds time
+- More colleagues nearby
+
+### Newer Housing Stock
+Many Eastside homes are newer:
+- 1980s-2020s construction common
+- Modern amenities
+- Better energy efficiency
+- Less deferred maintenance
+
+## Eastside: The Case Against
+
+### Car Dependency
+You need a car. Period.
+- Minimal walkability except downtown Bellevue/Kirkland
+- Transit exists but limited
+- Errands require driving
+- Kids' activities require driving
+
+### Suburban Monotony
+Some find it boring:
+- Limited nightlife
+- Chain restaurants dominate
+- Less cultural diversity
+- Less "interesting"
+
+### Higher Prices
+You pay more for similar quality:
+- $1M+ entry point for good neighborhoods
+- Premium for schools
+- Premium for newness
+- Premium for safety
+
+### Homogeneity
+Less diverse population:
+- Tech worker concentration
+- Certain demographics dominate
+- Less varied experiences
+- Can feel "bubble"
+
+## By Life Stage
+
+### Young Singles / Couples
+**Lean Seattle**:
+- Nightlife and dating scene
+- Urban energy
+- Don't need schools yet
+- Walkability matters
+
+### Young Families
+**Lean Eastside**:
+- Schools become priority
+- Safety matters more
+- Space for kids
+- Yards and play areas
+
+### Empty Nesters
+**Either Works**:
+- Seattle: Urban amenities, culture
+- Eastside: Established community, space
+
+### Remote Workers
+**Location Freedom**:
+- Commute matters less
+- Choose lifestyle preference
+- Seattle if you want city
+- Eastside if you want space
+
+## By Work Location
+
+### Microsoft (Redmond)
+**Best**: Redmond, Kirkland, Bellevue, Sammamish
+**Doable**: Bothell, Woodinville, Seattle (Connector shuttle)
+
+### Amazon (Bellevue)
+**Best**: Bellevue, Kirkland, Redmond
+**Doable**: Seattle (light rail options improving)
+
+### Amazon (South Lake Union)
+**Best**: Capitol Hill, Queen Anne, Fremont, Ballard
+**Doable**: Eastside (reverse commute)
+
+### Downtown Seattle
+**Best**: Capitol Hill, First Hill, Beacon Hill, West Seattle
+**Doable**: Eastside (if you like driving)
+
+### Hybrid/Remote
+**Choose Lifestyle**: Either works; pick based on how you want to live.
+
+## The Financial Analysis
+
+### $1M Budget
+
+**In Seattle ($1M)**:
+- Good neighborhood (Ballard, Wallingford)
+- 3-4 bed, 2 bath
+- 1,800-2,200 sq ft
+- Smaller lot
+- Possibly needs updates
+
+**On Eastside ($1M)**:
+- Mid-tier neighborhood
+- 3-4 bed, 2.5 bath
+- 2,000-2,400 sq ft
+- Larger lot
+- Possibly better condition
+
+### $1.5M Budget
+
+**In Seattle ($1.5M)**:
+- Premium neighborhood
+- Updated home
+- Good space
+- Still limited yard
+
+**On Eastside ($1.5M)**:
+- Good neighborhood (parts of Bellevue, Redmond)
+- 4 bed, 2.5-3 bath
+- 2,500+ sq ft
+- Nice lot
+- Modern condition
+
+## Making the Decision
+
+### Choose Seattle If:
+- You value walkability highly
+- Schools aren't a priority (yet)
+- You enjoy urban culture
+- Nightlife/dining matters
+- You prefer diversity
+- You don't mind older homes
+- Budget is tighter
+
+### Choose Eastside If:
+- Schools are top priority
+- Safety is paramount
+- You want more space
+- Tech commute efficiency matters
+- You prefer newer homes
+- You're okay driving everywhere
+- You have higher budget
+
+### The Hybrid Approach
+Consider:
+- **Living in Seattle while young**, then Eastside for kids
+- **West Seattle**: More suburban Seattle
+- **Downtown Kirkland**: More urban Eastside
+- **Light rail corridors**: Best of both
+
+## Final Thought
+
+There's no wrong answer—only what's right for you. Both sides have thriving communities, good people, and good homes. Visit extensively, imagine your daily life in each location, and trust your gut.
+
+---
+
+*Found a property on either side of the lake? [Analyze it with Perchspot](/chat) to understand condition, schools, and investment potential.*
+    `,
+  },
+  {
+    id: 'what-to-do-when-offer-rejected',
+    title: "What to Do When Your Offer Is Rejected: A Recovery Guide",
+    excerpt: "Rejection stings—especially after you've imagined your life in that home. Here's how to recover and win the next one.",
+    category: 'Tips',
+    date: '2026-01-12',
+    readTime: '8 min read',
+    image: '/blog/rejected.jpg',
+    metaDescription: "What to do when your home offer is rejected: how to recover, learn from it, and improve your chances on the next property.",
+    content: `
+# What to Do When Your Offer Is Rejected: A Recovery Guide
+
+You found the perfect home. You made an offer. You waited anxiously. And then: rejected. It hurts. Here's how to process it, learn from it, and win the next one.
+
+## First: Process the Emotion
+
+### It's Normal to Feel
+- Disappointment
+- Frustration
+- Anger (especially if you stretched)
+- Sadness
+- Doubt about the whole process
+
+### What NOT to Do
+- Make rash decisions
+- Give up entirely
+- Blame your agent (unless warranted)
+- Immediately make an impulsive offer elsewhere
+- Spiral into negativity
+
+### What TO Do
+- Take 24-48 hours to process
+- Talk it through with your partner/family
+- Remember: this is business
+- Trust that other homes exist
+
+## Understanding Why You Lost
+
+### Ask for Feedback
+Request through your agent:
+- Why was your offer rejected?
+- What did the winning offer include?
+- What could you have done differently?
+
+### Common Reasons
+
+**Price**:
+- Simply outbid
+- Escalation clause triggered above yours
+- Cash offer at lower price beat financed offer
+
+**Terms**:
+- Winner waived inspection
+- Winner offered rent-back
+- Winner had larger earnest money
+- Winner had better timeline
+
+**Financing**:
+- Winner had cash
+- Winner had better pre-approval
+- Winner's lender had better reputation
+- Your financing seemed risky
+
+**Intangibles**:
+- Seller preferred other buyer's situation
+- Personal letter made difference
+- Relationship between agents
+- First-come preference
+
+### Learn the Real Reason
+Sometimes it's just price. Sometimes it's not. Knowing helps you adjust.
+
+## Analyzing Your Offer
+
+### Was Your Price Competitive?
+- What did it sell for?
+- Were you close or far?
+- Did you leave room you shouldn't have?
+
+### Were Your Terms Reasonable?
+- Standard contingencies or aggressive?
+- Flexible on timing?
+- Large enough earnest money?
+
+### Was Your Pre-Approval Strong?
+- Fully underwritten?
+- Strong lender?
+- Clear and clean?
+
+## Improving for Next Time
+
+### If You Lost on Price
+
+**Options**:
+1. Increase budget (if possible)
+2. Look at lower price points
+3. Target homes with less competition
+4. Be first to tour, first to offer
+
+### If You Lost on Terms
+
+**Adjustments**:
+1. Consider inspection waivers (carefully)
+2. Offer appraisal gap coverage
+3. Be flexible on closing date
+4. Increase earnest money
+
+### If You Lost on Financing
+
+**Improvements**:
+1. Get fully underwritten pre-approval
+2. Use lender with strong local reputation
+3. Increase down payment if possible
+4. Clean up any credit issues
+
+### If You Lost for Unknown Reasons
+
+**General Improvements**:
+1. Be first to submit
+2. Write personal letter (if appropriate)
+3. Strengthen all aspects
+4. Make offers quickly
+
+## Market Reality Check
+
+### In Hot Markets
+Losing is normal:
+- Average buyer loses 3-5+ offers
+- Multiple offer situations are standard
+- Cash/waived contingencies common
+- Price is often not enough
+
+### Adjusting Expectations
+- This is a process
+- Each loss teaches something
+- The right home will come
+- Stay patient but aggressive
+
+### When to Reconsider
+If you've lost 10+ offers:
+- Is your budget realistic?
+- Are you in the right market?
+- Is your agent effective?
+- Should you wait for conditions to change?
+
+## The Silver Lining
+
+Sometimes losing is winning:
+- Home might have had hidden issues
+- Neighborhood might not have been right
+- Price might have been too high
+- Better home might be coming
+
+**Reality**: Many buyers later say "I'm glad we didn't get that one" after finding their actual home.
+
+## Ready for the Next One
+
+### Immediate Actions
+1. Review feedback and lessons
+2. Adjust strategy if needed
+3. Continue touring homes
+4. Stay pre-approval current
+
+### Mental Reset
+1. This home wasn't meant to be
+2. The right one is out there
+3. You're learning and improving
+4. Each offer makes you stronger
+
+### Practical Preparations
+1. Keep funds liquid and ready
+2. Stay in touch with lender
+3. Respond quickly to new listings
+4. Be ready to move fast
+
+## When to Make a Second Offer
+
+Sometimes backup position works:
+- If deal falls through, you're next
+- Ask to be backup
+- Sometimes financing falls through
+- Sometimes inspection kills deals
+
+Keep the door open—politely.
+
+## Long-Term Perspective
+
+### The Numbers
+- Average buyer: 10 home tours
+- Average buyer: 2-4 offers
+- Time to buy: 3-6 months typically
+- Right home: Eventually found
+
+### What Matters
+- You will buy a home
+- It might not be your first choice
+- It might be better than your first choice
+- Home ownership is achievable
+
+## Questions to Ask Yourself
+
+1. Am I being realistic about budget?
+2. Am I being competitive on terms?
+3. Am I moving fast enough?
+4. Am I too attached too early?
+5. Am I learning from each experience?
+
+If yes to all: Keep going. Your home is out there.
+
+---
+
+*Ready to analyze the next potential home? [Use Perchspot](/chat) to understand any property's condition, schools, and investment value before you offer.*
+    `,
+  },
+  {
+    id: 'choosing-real-estate-agent',
+    title: "How to Choose the Right Real Estate Agent: Questions to Ask",
+    excerpt: "A great agent makes buying easier. A bad one makes it harder. Here's how to find the right partner for your home search.",
+    category: 'Guide',
+    date: '2026-01-10',
+    readTime: '9 min read',
+    image: '/blog/agent.jpg',
+    metaDescription: "How to choose a real estate agent: questions to ask, red flags to watch for, and what makes a great buyer's agent.",
+    content: `
+# How to Choose the Right Real Estate Agent: Questions to Ask
+
+Your real estate agent is your guide through one of life's biggest transactions. The right agent makes the process smoother; the wrong one adds stress and costs. Here's how to choose wisely.
+
+## Do You Even Need an Agent?
+
+### Buyer's Agent Value
+- Access to listings (same-day or earlier)
+- Neighborhood expertise
+- Negotiation experience
+- Process guidance
+- Contract knowledge
+- Problem solving
+
+### Cost to Buyers
+- Typically $0 directly (seller pays commission)
+- Built into home price indirectly
+- Some discount models emerging
+
+**Verdict**: For most first-time buyers, a good agent is worth it.
+
+## Where to Find Candidates
+
+### Good Sources
+- **Referrals**: Friends/family who recently bought
+- **Open Houses**: Meet agents in action
+- **Online Reviews**: Zillow, Google, Yelp
+- **Agent Websites**: Check their listings and experience
+
+### Avoid
+- Random calls from agents
+- "I'll represent you AND the seller" (dual agency)
+- Agents who seem desperate
+- Anyone who won't answer questions
+
+## Interview Questions
+
+### Experience and Background
+
+**"How long have you been a full-time agent?"**
+- Full-time matters
+- 2+ years minimum preferred
+- 5+ years ideal for complex situations
+
+**"How many buyers did you help last year?"**
+- 10+ shows active practice
+- Ask specifically about buyers (not sellers)
+- Quality matters more than quantity
+
+**"What neighborhoods do you specialize in?"**
+- Should know your target area deeply
+- Ask about recent sales there
+- Local expertise matters
+
+### Process and Communication
+
+**"How will we communicate?"**
+- Text, call, email preference?
+- Response time expectations?
+- Who do you contact for questions?
+
+**"How quickly can you tour homes?"**
+- Same day availability for hot listings?
+- Evening/weekend flexibility?
+- What's your typical response time?
+
+**"Walk me through your process."**
+- Clear explanation?
+- Organized approach?
+- Confidence and clarity?
+
+### Market Knowledge
+
+**"What's happening in [your target area] right now?"**
+- Should have current data
+- Know trends and inventory
+- Understand pricing dynamics
+
+**"What should I expect in this market?"**
+- Realistic expectations
+- Number of offers to expect
+- Timeline predictions
+
+### Negotiation and Strategy
+
+**"How do you approach multiple offer situations?"**
+- Specific strategies
+- Past success examples
+- Creative approaches
+
+**"How do you handle inspection negotiations?"**
+- Experience with issues
+- Reasonable approach
+- Problem-solving mentality
+
+### References
+
+**"Can I speak with recent buyer clients?"**
+- Should provide readily
+- Contact at least 2
+- Ask about their experience
+
+## Red Flags to Watch
+
+### Communication Problems
+- Slow to respond during interview
+- Vague answers
+- Doesn't listen to your needs
+- Pushy or aggressive
+
+### Experience Gaps
+- Mostly represents sellers
+- Doesn't know your area
+- New without mentor support
+- Part-time agent
+
+### Attitude Issues
+- Dismissive of your concerns
+- Pressures you toward decisions
+- More interested in closing than helping
+- Talks more than listens
+
+### Process Concerns
+- Can't explain their process
+- No clear communication plan
+- Won't provide references
+- Seems disorganized
+
+## Questions to Ask References
+
+When speaking with past clients:
+
+1. How responsive was the agent?
+2. Did they feel guided through the process?
+3. Were there any problems? How were they handled?
+4. Would they work with this agent again?
+5. What could the agent have done better?
+
+## The Interview Process
+
+### Interview at Least 3 Agents
+- Compare styles and approaches
+- See who fits your personality
+- Get different perspectives
+
+### Meet in Person (or Video)
+- Phone-only isn't enough
+- See how they present
+- Evaluate communication style
+
+### Trust Your Gut
+- Do you like them?
+- Do you trust them?
+- Can you see working together for months?
+
+## What a Great Agent Does
+
+### Before You Search
+- Explains the full process
+- Helps you get pre-approved
+- Defines your criteria
+- Sets realistic expectations
+
+### During the Search
+- Sends relevant listings quickly
+- Tours with you patiently
+- Provides honest assessments
+- Knows the neighborhoods
+
+### Making Offers
+- Advises on pricing strategy
+- Writes competitive offers
+- Negotiates effectively
+- Communicates clearly
+
+### Under Contract
+- Coordinates inspections
+- Manages timelines
+- Solves problems
+- Guides to closing
+
+## Agent Types to Understand
+
+### Buyer's Agent (You want this)
+- Represents YOUR interests
+- Fiduciary duty to you
+- Negotiates for you
+
+### Seller's Agent (Listing agent)
+- Represents the seller
+- Works against your interests
+- Don't share too much with them
+
+### Dual Agent (Avoid if possible)
+- Represents both parties
+- Conflict of interest
+- Limited advocacy for you
+- Legal in some states, not advised
+
+### Transaction Coordinator (Different role)
+- Administrative support
+- Not advocacy
+- Paperwork management
+
+## Making Your Decision
+
+### Prioritize
+1. Communication style fit
+2. Market knowledge
+3. Experience level
+4. Availability
+5. Strategy approach
+
+### Don't Prioritize
+- Biggest name
+- Most listings
+- Most aggressive
+- Cheapest (shouldn't cost you anyway)
+
+### The Chemistry Factor
+You'll spend months with this person:
+- Do you enjoy talking to them?
+- Do they understand you?
+- Do you trust their judgment?
+- Can you handle tough conversations?
+
+## After You Choose
+
+### Buyer Agency Agreement
+- Standard paperwork
+- Defines relationship
+- Usually 3-6 months
+- Review terms carefully
+
+### Setting Expectations
+- Agree on communication frequency
+- Define your criteria clearly
+- Be honest about budget
+- Share concerns early
+
+### Being a Good Client
+- Respond promptly
+- Be honest
+- Show up on time
+- Make decisions when needed
+
+---
+
+*Found your agent and ready to analyze properties? [Use Perchspot](/chat) for instant AI analysis of any home you're considering.*
+    `,
+  },
+  {
+    id: 'condo-vs-house-which-is-right',
+    title: "Condo vs House: Which Is Right for You?",
+    excerpt: "Lower price or more space? No maintenance or full control? Here's how to decide between condo and single-family living.",
+    category: 'Guide',
+    date: '2026-01-08',
+    readTime: '10 min read',
+    image: '/blog/condo-house.jpg',
+    metaDescription: "Condo vs house comparison: pros and cons, costs, lifestyle differences, and how to decide which is right for your situation.",
+    content: `
+# Condo vs House: Which Is Right for You?
+
+The condo vs. house decision goes beyond price. It's about lifestyle, maintenance tolerance, and long-term goals. Here's a comprehensive comparison to help you decide.
+
+## Quick Comparison
+
+| Factor | Condo | House |
+|--------|-------|-------|
+| Entry Price | Lower | Higher |
+| Monthly Costs | HOA adds up | Maintenance variable |
+| Maintenance | Minimal | Full responsibility |
+| Space | Less | More |
+| Privacy | Less | More |
+| Amenities | Often included | Your expense |
+| Customization | Limited | Full control |
+| Appreciation | Typically slower | Typically faster |
+
+## Condo: The Full Picture
+
+### What You Get
+- Unit within larger building
+- Shared walls (usually)
+- Common areas maintained
+- Amenities included
+- HOA governance
+
+### Condo Costs
+
+**Purchase Price**: Lower entry point
+- Seattle: $400K-$800K typical
+- Eastside: $500K-$900K typical
+- Can be 30-50% less than house
+
+**Monthly HOA Fees**: $200-$800+
+Typically includes:
+- Building insurance
+- Common area maintenance
+- Water/sewer (sometimes)
+- Amenities (gym, pool, etc.)
+- Reserves for major repairs
+
+**Special Assessments**: Potential surprise
+- Major repairs (roof, elevator, facade)
+- Can be $5,000-$50,000+
+- Check reserves before buying
+
+### Condo Pros
+
+**Lower Maintenance**:
+- No yard work
+- No exterior maintenance
+- No roof to replace
+- Someone else handles problems
+
+**Amenities**:
+- Gym in building
+- Pool/hot tub
+- Rooftop deck
+- Secure entry
+- Package rooms
+
+**Location**:
+- Often walkable urban areas
+- Close to restaurants, transit
+- Downtown living accessible
+- Less car-dependent
+
+**Security**:
+- Secure entry
+- Neighbors nearby
+- Travel without worry
+- Package handling
+
+### Condo Cons
+
+**HOA Fees**:
+- Never goes away
+- Increases over time
+- Adds to monthly cost
+- Less control over spending
+
+**Limited Control**:
+- Rules on modifications
+- Pet restrictions sometimes
+- Rental restrictions possible
+- Board decisions affect you
+
+**Less Privacy**:
+- Shared walls
+- Noise from neighbors
+- Less personal space
+- Building politics
+
+**Appreciation**:
+- Typically slower than houses
+- Supply increases with new construction
+- Land value component smaller
+- Resale can be trickier
+
+### Who Condos Work For
+
+**Great fit if you**:
+- Value low maintenance
+- Want urban walkability
+- Travel frequently
+- Don't need much space
+- First-time buyer on budget
+- Prefer amenities to yard
+- Single or couple without kids
+
+## House: The Full Picture
+
+### What You Get
+- Land ownership
+- Full structure responsibility
+- No shared walls
+- Complete control
+- Full maintenance burden
+
+### House Costs
+
+**Purchase Price**: Higher entry
+- Seattle: $700K-$1.5M typical
+- Eastside: $900K-$2M+ typical
+
+**No HOA** (usually):
+- Full control
+- No monthly fee
+- But also no shared costs
+
+**Maintenance Budget**: 1-2% of home value annually
+- $10,000-$20,000/year on $1M home
+- Irregular—some years more, some less
+- You control timing and quality
+
+### House Pros
+
+**Space**:
+- Yard for kids, pets, gardening
+- No shared walls
+- Room to grow
+- Storage space
+
+**Privacy**:
+- Your own property
+- No common areas
+- No HOA rules (usually)
+- Do what you want
+
+**Control**:
+- Modify freely
+- Paint any color
+- Add rooms
+- Your decisions
+
+**Appreciation**:
+- Land appreciates well
+- Historically stronger returns
+- Scarcity factor
+- More buyer demand
+
+**Wealth Building**:
+- Full ownership
+- No shared costs
+- Force appreciation through improvements
+- More equity over time
+
+### House Cons
+
+**Maintenance**:
+- Roof, HVAC, plumbing, electrical
+- Yard work (or pay someone)
+- Snow removal
+- Constant small tasks
+
+**Higher Costs**:
+- More expensive to buy
+- All utilities your responsibility
+- Repairs not shared
+- Insurance costs more
+
+**Location Trade-offs**:
+- Often suburban
+- May need car
+- Less walkable
+- Further from urban amenities
+
+**Time Commitment**:
+- Weekends maintaining
+- Constant project list
+- Learning new skills
+- Hiring contractors
+
+### Who Houses Work For
+
+**Great fit if you**:
+- Have kids (or planning to)
+- Want yard space
+- Value privacy highly
+- Don't mind maintenance
+- Want full control
+- Plan to stay long-term
+- Want maximum appreciation
+
+## The Financial Comparison
+
+### $600K Condo vs. $800K House
+
+**Condo**:
+| Item | Monthly |
+|------|---------|
+| Mortgage (5% down, 6.5%) | $3,600 |
+| Property Tax | $400 |
+| HOA | $450 |
+| Insurance | $50 |
+| Maintenance | $100 |
+| **Total** | **$4,600** |
+
+**House**:
+| Item | Monthly |
+|------|---------|
+| Mortgage (5% down, 6.5%) | $4,800 |
+| Property Tax | $550 |
+| Insurance | $150 |
+| Maintenance | $650 |
+| **Total** | **$6,150** |
+
+**Difference**: House costs ~$1,550 more monthly
+
+### But Consider Long-Term
+
+**After 10 Years** (hypothetical):
+
+**Condo**:
+- Appreciation: 3%/year = $806K value
+- HOA fees paid: $54K+
+- Equity built: ~$120K
+
+**House**:
+- Appreciation: 4%/year = $1.18M value
+- Maintenance paid: $78K
+- Equity built: ~$200K
+
+House likely ahead despite higher costs.
+
+## The Lifestyle Factor
+
+### Daily Life in a Condo
+- Walk to coffee shop
+- Gym downstairs
+- No yard to maintain
+- Package in lobby
+- Neighbors in hallway
+- Noise considerations
+
+### Daily Life in a House
+- Yard to enjoy (and maintain)
+- Complete privacy
+- More space to spread out
+- Projects to manage
+- Driving more often
+- Full responsibility
+
+## Hybrid Options
+
+### Townhouse
+- Own the land
+- Share some walls
+- Often HOA but lower
+- More space than condo
+- Less than single-family
+
+### Single-Family with HOA
+- House ownership
+- Some maintenance covered
+- Rules exist
+- Common in newer communities
+
+### Condo Alternative: ADU
+- Buy house with basement apartment
+- Rent basement, live upstairs
+- Offset costs
+- More complex
+
+## Decision Framework
+
+### Start with Priorities
+
+**Rate 1-5**:
+- Low maintenance: ___
+- Private outdoor space: ___
+- Urban walkability: ___
+- Maximum appreciation: ___
+- Lower monthly cost: ___
+- Space for family growth: ___
+- Full control: ___
+
+**Score**:
+- Condo-leaning: Maintenance, walkability, lower cost
+- House-leaning: Outdoor space, appreciation, control, family
+
+### Consider Your Phase of Life
+
+**Young Professional**: Condo often makes sense
+**Growing Family**: House usually better
+**Empty Nester**: Either can work
+**Investor**: House typically better
+
+### Think 5-10 Years Out
+
+Where will you be?
+- Same job/city?
+- Kids in school?
+- Different space needs?
+- Ready to maintain?
+
+## Red Flags to Watch
+
+### Condo Red Flags
+- Low reserves (<$10K per unit)
+- High special assessment history
+- Pending litigation
+- Poor HOA management
+- Rental restriction issues
+- FHA non-approval
+
+### House Red Flags
+- Deferred maintenance everywhere
+- Unusual layouts limiting resale
+- Poor locations
+- Foundation issues
+- Major system failures
+
+---
+
+*Found a condo or house you're considering? [Analyze it with Perchspot](/chat) to understand condition, value, and investment potential.*
+    `,
+  },
 ];
 
 // Update categories to include Local
