@@ -13674,6 +13674,1692 @@ Events beyond your control that caused financial hardship:
 *Ready to start evaluating homes? [Analyze any property with Perchspot](/chat) to ensure you're making a smart decision on your path back to homeownership.*
     `,
   },
+  {
+    id: 'relocating-for-work-home-buying',
+    title: 'Relocating for Work: How to Buy a Home in a New City',
+    excerpt: 'Moving for a job? Learn how to research, house hunt remotely, and make smart buying decisions when relocating to an unfamiliar area.',
+    category: 'Guide',
+    date: '2026-01-28',
+    readTime: '11 min read',
+    image: '/blog/relocating.jpg',
+    metaDescription: 'Complete guide to buying a home when relocating for work. Learn how to research new cities, house hunt remotely, time your purchase, and avoid common relocation mistakes.',
+    content: `
+# Relocating for Work: How to Buy a Home in a New City
+
+Relocating for a job is exciting but challenging—especially when it comes to finding a home in an unfamiliar area. Here's how to navigate the process successfully.
+
+## Before You Start
+
+### Key Decisions
+
+**Rent First or Buy Immediately?**
+
+Arguments for **renting first**:
+- Learn the area before committing
+- Discover neighborhoods firsthand
+- Less pressure on the purchase
+- Time to explore and compare
+- Understand commute realities
+
+Arguments for **buying immediately**:
+- Avoid moving twice
+- Start building equity
+- Lock in current prices
+- Settle in completely
+- Tax benefits begin sooner
+
+**Recommendation**: Unless you know the area well or have visited extensively, renting 6-12 months first is often wise.
+
+### Understand Your Timeline
+
+**Typical Relocation Scenarios**:
+
+| Timeline | Challenge Level | Recommendation |
+|----------|-----------------|----------------|
+| 2-4 weeks | Very difficult | Rent first |
+| 1-2 months | Challenging | Consider rent or quick buy |
+| 3+ months | Manageable | Can buy with planning |
+| 6+ months | Comfortable | Full buying process |
+
+## Researching Your New City
+
+### Online Research
+
+**General Information**:
+- Cost of living comparisons
+- Climate and weather patterns
+- Local culture and lifestyle
+- Employment landscape
+- Population trends
+
+**Neighborhood Research**:
+- School ratings (even without kids—affects values)
+- Crime statistics
+- Walkability scores
+- Commute times from different areas
+- Local amenities
+
+**Real Estate Market**:
+- Median home prices
+- Price trends
+- Inventory levels
+- Days on market
+- Popular neighborhoods
+
+### Resources to Use
+- City-Data.com for demographics
+- GreatSchools.org for school info
+- WalkScore.com for walkability
+- Google Maps for commute estimates
+- Local news websites
+- Reddit city subreddits
+- Facebook neighborhood groups
+
+### Virtual Exploration
+- Google Street View tours
+- YouTube neighborhood videos
+- Local real estate agent videos
+- Virtual open houses
+- Social media location tags
+
+## Working with a Relocation Specialist
+
+### Finding the Right Agent
+
+**What to Look For**:
+- Relocation experience
+- Knowledge of multiple neighborhoods
+- Responsiveness (time zones matter)
+- Technology comfort (video tours, etc.)
+- References from other relocators
+
+**Questions to Ask**:
+- How many relocation buyers have you helped?
+- Can you do live video tours?
+- How do you help remote buyers?
+- What neighborhoods fit my criteria?
+- What's your availability for my timeline?
+
+### Agent Partnership
+
+**Before Your Visit**:
+- Share detailed criteria
+- Review listings online together
+- Do virtual pre-tours
+- Narrow to serious candidates
+
+**During Your Visit**:
+- Efficient tour schedule
+- Focus on pre-screened homes
+- Explore neighborhoods
+- Ask local questions
+
+## The Research Trip
+
+### Planning Your Visit
+
+**Duration**: 3-5 days minimum
+
+**Goals**:
+- See neighborhoods in person
+- Tour serious home candidates
+- Experience commutes
+- Explore daily life areas
+- Make offer if ready
+
+### Itinerary Suggestions
+
+**Day 1: Orientation**
+- Drive/ride through potential neighborhoods
+- Stop at local coffee shops, restaurants
+- Get feel for different areas
+- Note first impressions
+
+**Days 2-3: Home Tours**
+- See 8-12 pre-screened homes
+- Take photos and videos
+- Note neighborhood feel
+- Revisit favorites at different times
+
+**Day 4: Deep Dive**
+- Revisit top neighborhoods
+- Experience rush hour commute
+- Visit grocery stores, gyms, etc.
+- Explore evening/weekend vibe
+
+**Day 5: Decision Making**
+- Second look at top homes
+- Make offer if ready
+- Set up follow-up if not
+
+### What to Evaluate
+
+**Neighborhoods**:
+- Safety/comfort walking around
+- Noise levels at different times
+- Neighbor demographics
+- Maintenance of surrounding homes
+- Future development nearby
+
+**Commute**:
+- Drive it during actual commute hours
+- Test alternative routes
+- Try public transit if applicable
+- Note traffic patterns
+
+## Remote Offers and Closing
+
+### Making Offers Remotely
+
+**Preparation**:
+- Have financing fully ready
+- Know your limits
+- Trust your agent's guidance
+- Be prepared to act quickly
+
+**Technology**:
+- Video tour of property
+- Document signing apps (DocuSign, etc.)
+- Video calls for negotiations
+- Remote notarization (if available)
+
+### Inspections and Appraisals
+
+**When You Can't Attend**:
+- Hire inspector, get detailed report
+- Request extensive photos/video
+- Ask inspector to call during inspection
+- Have agent attend
+
+**Important**: Don't skip inspection just because it's inconvenient
+
+### Remote Closing
+
+**Options**:
+- Fly in for closing (traditional)
+- Remote Online Notarization (RON)
+- Mail-away closing
+- Power of attorney (if unavailable)
+
+**What You'll Need**:
+- Government ID
+- Proof of insurance
+- Funds transfer capability
+- Signed documents
+
+## Employer Relocation Benefits
+
+### Common Benefits
+
+**Financial**:
+- Relocation bonus
+- Moving expense coverage
+- Temporary housing allowance
+- House-hunting trips
+- Home sale assistance
+
+**Services**:
+- Relocation coordinator
+- Moving company
+- Temporary housing
+- Real estate referrals
+- Tax gross-up
+
+### Negotiating Relocation
+
+**What to Ask For**:
+- Multiple house-hunting trips
+- Temporary housing duration
+- Moving cost cap or full coverage
+- Closing cost assistance
+- Loss-on-sale protection
+
+**Tax Implications**:
+- Many relocation benefits are taxable
+- Gross-up covers tax hit
+- Understand what's covered
+- Keep documentation for taxes
+
+## Timing Your Purchase
+
+### Market Considerations
+
+**In Hot Markets**:
+- More competition
+- May need to act fast
+- Less negotiating room
+- Could rent first to wait
+
+**In Slower Markets**:
+- More inventory
+- Negotiation possible
+- Less urgency
+- Can take time to decide
+
+### Financial Timing
+
+**Before Buying**:
+- Job start confirmed
+- First paycheck timing known
+- Moving costs planned
+- Emergency fund intact
+
+**Mortgage Considerations**:
+- Need offer letter for pre-approval
+- May need first paystub
+- Employment verified at closing
+- Job changes during process are risky
+
+## Common Relocation Mistakes
+
+### Mistake 1: Rushing the Purchase
+- Buying without adequate research
+- Choosing wrong neighborhood
+- Buyer's remorse
+
+**Solution**: Rent first if timeline is short
+
+### Mistake 2: Only Seeing Homes Once
+- Missing issues
+- Misjudging neighborhood
+- Surprise problems
+
+**Solution**: Plan return visit if making offer
+
+### Mistake 3: Ignoring Commute Reality
+- Underestimating traffic
+- Not testing actual route
+- Work-life balance suffering
+
+**Solution**: Drive commute during actual work hours
+
+### Mistake 4: Not Understanding Local Market
+- Overpaying
+- Missing better neighborhoods
+- Wrong expectations
+
+**Solution**: Work with local expert, research thoroughly
+
+### Mistake 5: Underestimating Moving Costs
+- Budget blown
+- Cash strapped for home purchase
+- Financial stress
+
+**Solution**: Get quotes early, add 20% buffer
+
+## Checklist for Relocation Buyers
+
+### Before Accepting Job
+- [ ] Understand relocation benefits
+- [ ] Research cost of living
+- [ ] Compare salary to local market
+- [ ] Consider housing affordability
+
+### 3+ Months Before Move
+- [ ] Research neighborhoods online
+- [ ] Connect with local real estate agent
+- [ ] Get pre-approved for mortgage
+- [ ] Plan house-hunting trip
+
+### House-Hunting Trip
+- [ ] Tour neighborhoods
+- [ ] View 8-12 homes
+- [ ] Experience commute
+- [ ] Make offer if ready
+
+### Pending to Close
+- [ ] Arrange inspections
+- [ ] Complete appraisal
+- [ ] Lock interest rate
+- [ ] Arrange insurance
+- [ ] Schedule moving company
+
+### After Close
+- [ ] Transfer utilities
+- [ ] Update address everywhere
+- [ ] Explore new neighborhood
+- [ ] Meet neighbors
+
+## Special Considerations
+
+### Military Relocation (PCS)
+
+**Unique Factors**:
+- VA loan benefits
+- BAH considerations
+- Short timelines common
+- Future PCS uncertainty
+
+**Tips**:
+- VA loans don't require down payment
+- Consider future rental potential
+- Factor in BAH vs purchase price
+- Work with military-friendly agent
+
+### International Relocation
+
+**Unique Challenges**:
+- No US credit history
+- Visa/immigration status
+- Different financing rules
+- Cultural differences
+
+**Solutions**:
+- Work with international lenders
+- Larger down payment may be needed
+- Rent first to establish credit
+- Work with experienced agent
+
+---
+
+*Evaluating homes in your new city? [Use Perchspot](/chat) to quickly analyze any property and make informed decisions, even from afar.*
+    `,
+  },
+  {
+    id: 'buying-second-home-guide',
+    title: 'Buying a Second Home: Investment Property vs Vacation Home',
+    excerpt: 'Thinking about a second property? Learn the differences between vacation homes and investment properties, financing options, and key considerations.',
+    category: 'Investment',
+    date: '2026-01-27',
+    readTime: '11 min read',
+    image: '/blog/second-home.jpg',
+    metaDescription: 'Complete guide to buying a second home. Understand vacation home vs investment property classifications, financing requirements, tax implications, and key considerations.',
+    content: `
+# Buying a Second Home: Investment Property vs Vacation Home
+
+A second home can be a smart investment, a vacation getaway, or both. Understanding the distinctions and requirements is crucial before you buy.
+
+## Second Home vs Investment Property
+
+### Vacation/Second Home
+
+**IRS Definition**: A residence you use personally for more than 14 days per year (or 10% of rental days)
+
+**Characteristics**:
+- Personal use primary purpose
+- Can rent occasionally
+- Must be suitable for year-round use
+- Usually 50+ miles from primary home
+
+**Financing**:
+- Rates similar to primary residence (+0.25-0.5%)
+- 10% down payment typical
+- Easier qualification than investment
+
+### Investment Property
+
+**IRS Definition**: Property bought primarily to generate income or profit
+
+**Characteristics**:
+- Rental income primary purpose
+- Limited personal use
+- Location based on rental demand
+- May be near primary home
+
+**Financing**:
+- Higher interest rates (+0.5-0.75%+)
+- 15-25% down payment required
+- Stricter qualification standards
+- Reserves often required
+
+### Classification Matters
+
+**Why It's Important**:
+- Determines loan terms
+- Affects interest rate
+- Tax treatment differs
+- Insurance requirements vary
+- Impacts qualifying difficulty
+
+**Misclassifying Is Fraud**: Don't claim vacation home if it's really investment property
+
+## Financing Options
+
+### Conventional Loans
+
+**For Second/Vacation Homes**:
+- 10% minimum down
+- 620+ credit score
+- DTI up to 45%
+- Rates 0.25-0.5% higher than primary
+
+**For Investment Properties**:
+- 15-25% down (25% for best rates)
+- 620-680+ credit score
+- DTI up to 45%
+- 6 months reserves often required
+- Rates 0.5-0.75%+ higher
+
+### Alternative Financing
+
+**Home Equity Loan/HELOC**:
+- Use primary home equity
+- May get better rate
+- Puts primary home at risk
+- Simpler qualification
+
+**Cash-Out Refinance**:
+- Pull equity from primary home
+- Single payment
+- May lose low rate on primary
+
+**Portfolio Loans**:
+- Non-conforming options
+- More flexibility
+- Higher rates typically
+- Good for unique situations
+
+**DSCR Loans (Investment)**:
+- Debt Service Coverage Ratio loans
+- Qualify based on rental income
+- Less personal income documentation
+- Rates higher, more flexible
+
+### Down Payment Comparison
+
+| Property Type | Minimum Down | Better Rate |
+|---------------|--------------|-------------|
+| Primary Home | 3-5% | 20%+ |
+| Second Home | 10% | 20%+ |
+| Investment | 15% | 25% |
+
+## Tax Implications
+
+### Second Home (Limited Rental)
+
+**If Rented < 15 Days/Year**:
+- Rental income is tax-free
+- Mortgage interest deductible (if itemizing)
+- Property taxes deductible (SALT cap)
+- No rental expenses deductible
+
+**If Rented 15+ Days (Mixed Use)**:
+- Must allocate expenses between personal/rental
+- Rental income taxable
+- Proportional expenses deductible
+- Complex calculations
+
+### Investment Property (Primary Rental)
+
+**Deductible Expenses**:
+- Mortgage interest (no limit for rental)
+- Property taxes (no SALT cap for rental portion)
+- Depreciation (27.5 years)
+- Repairs and maintenance
+- Property management fees
+- Insurance
+- Utilities
+- Travel to property
+
+**Passive Activity Rules**:
+- Losses may be limited
+- $25K allowance if income under $100K
+- Real Estate Professional status exception
+- Carry forward unused losses
+
+### 1031 Exchange
+
+**What It Is**: Defer capital gains by reinvesting in similar property
+
+**Requirements**:
+- Must be investment property (not second home)
+- 45 days to identify replacement
+- 180 days to close
+- "Like-kind" property
+
+**Strategy**: Convert second home to rental, then 1031
+
+## Key Considerations
+
+### Location Analysis
+
+**For Vacation Home**:
+- Personal enjoyment primary
+- Distance from primary home
+- Activities and amenities
+- Year-round vs seasonal access
+- Ease of getting there
+
+**For Investment Property**:
+- Rental demand and rates
+- Vacancy rates
+- Economic drivers
+- Property management availability
+- Appreciation potential
+
+### Running the Numbers
+
+**Vacation Home Math**:
+- Can you afford without rental income?
+- What will occasional rentals offset?
+- Total carrying cost vs hotel stays
+- Maintenance and management
+
+**Investment Property Math**:
+- Cash flow (income minus all expenses)
+- Cash-on-cash return
+- Cap rate
+- Appreciation potential
+- Total return on investment
+
+### Example Investment Analysis
+
+**$400K rental property, 25% down**:
+
+| Category | Monthly | Annual |
+|----------|---------|--------|
+| Rental Income | $2,500 | $30,000 |
+| Mortgage (6.5%, $300K) | -$1,896 | -$22,752 |
+| Property Tax | -$350 | -$4,200 |
+| Insurance | -$150 | -$1,800 |
+| Maintenance | -$200 | -$2,400 |
+| Vacancy (5%) | -$125 | -$1,500 |
+| **Cash Flow** | **-$221** | **-$2,652** |
+
+This property is **cash flow negative**, but consider:
+- Equity paydown: ~$6,500/year
+- Appreciation: ~$12,000/year (3%)
+- Tax benefits: ~$2,000/year
+- **Total return**: ~$17,850 on $100K investment (17.8%)
+
+## Management Considerations
+
+### Self-Managing vs Property Manager
+
+**Self-Management**:
+- Keep more income
+- More control
+- Time commitment required
+- Must handle issues directly
+
+**Property Manager**:
+- Costs 8-12% of rent
+- Professional handling
+- Less personal time
+- May have better tenant screening
+
+### Distance Matters
+
+**Same City**:
+- Can self-manage feasibly
+- Can respond to issues
+- See property regularly
+
+**Different City/State**:
+- Management strongly recommended
+- Response time limitations
+- Can't do minor tasks yourself
+
+### Vacation Rental Management
+
+**Short-Term Rental Specifics**:
+- Higher management fees (15-25%)
+- More turnover
+- Cleaning coordination
+- Guest communication
+- Dynamic pricing
+
+## Insurance Requirements
+
+### Second Home Insurance
+- Similar to primary home
+- May need vacancy clause
+- Natural disaster coverage
+- Liability coverage
+
+### Landlord Insurance
+- Covers structure and liability
+- Lost rent coverage
+- Higher premiums than homeowner's
+- Doesn't cover tenant belongings
+
+### Vacation Rental Insurance
+- Short-term rental specific
+- Guest injury liability
+- Property damage coverage
+- Check with platform (Airbnb, VRBO)
+
+## Pros and Cons
+
+### Vacation Home Pros
+- Personal enjoyment
+- Family gathering place
+- Potential appreciation
+- Some rental income possible
+- May become retirement home
+
+### Vacation Home Cons
+- Limited use (often)
+- Maintenance burden
+- Can feel obligated to go
+- Costs even when not used
+- May limit other vacations
+
+### Investment Property Pros
+- Rental income potential
+- Appreciation
+- Tax benefits
+- Leverage wealth building
+- Diversification
+
+### Investment Property Cons
+- Management hassle
+- Tenant issues
+- Vacancy risk
+- Maintenance costs
+- Liability exposure
+- Not liquid investment
+
+## Making the Decision
+
+### Questions to Ask
+
+**For Vacation Home**:
+- How often will I realistically use it?
+- Can I afford it without rental income?
+- Am I ready for the responsibility?
+- Would I rather travel different places?
+- Does this location make sense long-term?
+
+**For Investment Property**:
+- Am I prepared to be a landlord?
+- Do the numbers work?
+- Do I understand the local market?
+- Can I handle unexpected costs?
+- Is this the best use of my capital?
+
+### Hybrid Strategy
+
+**Many buyers blend both**:
+1. Use property personally
+2. Rent when not using
+3. Get some benefits of both
+4. More complex tax situation
+
+**IRS Rules for Hybrid**:
+- If personal use exceeds 14 days or 10% of rental days
+- Classified as second home, not investment
+- Limits loss deductions
+- Requires expense allocation
+
+## Checklist for Second Property Buyers
+
+### Financial Preparation
+- [ ] Assess total budget (not just purchase)
+- [ ] Calculate all carrying costs
+- [ ] Ensure emergency fund remains
+- [ ] Get pre-approved for second home loan
+- [ ] Understand tax implications
+
+### Market Research
+- [ ] Research target location thoroughly
+- [ ] Understand rental market (if applicable)
+- [ ] Check local regulations (STR rules, etc.)
+- [ ] Analyze comparable sales and rents
+- [ ] Visit multiple times, different seasons
+
+### Due Diligence
+- [ ] Full home inspection
+- [ ] Understand HOA rules (if applicable)
+- [ ] Check insurance availability and costs
+- [ ] Verify rental is allowed
+- [ ] Research property management options
+
+### Ongoing Management
+- [ ] Plan for maintenance
+- [ ] Set up local contacts
+- [ ] Establish systems for rent/bookings
+- [ ] Budget for vacancies and repairs
+- [ ] Track expenses for taxes
+
+---
+
+*Evaluating a potential second home? [Analyze it with Perchspot](/chat) for comprehensive insights on value, condition, and investment potential.*
+    `,
+  },
+  {
+    id: 'credit-score-mortgage-rates-impact',
+    title: 'How Your Credit Score Affects Your Mortgage Rate (And What It Really Costs)',
+    excerpt: 'See exactly how much your credit score impacts your mortgage rate—and what that means in real dollars over the life of your loan.',
+    category: 'Education',
+    date: '2026-01-26',
+    readTime: '9 min read',
+    image: '/blog/credit-score-rates.jpg',
+    metaDescription: 'Learn how credit scores affect mortgage rates with real examples. See the cost difference between credit score tiers and get tips to improve your score before buying.',
+    content: `
+# How Your Credit Score Affects Your Mortgage Rate (And What It Really Costs)
+
+Your credit score is one of the most important factors in determining your mortgage rate. Here's exactly how it impacts what you'll pay—and what you can do about it.
+
+## Credit Score Tiers and Rates
+
+### How Lenders View Credit Scores
+
+| Score Range | Rating | Rate Impact |
+|-------------|--------|-------------|
+| 760+ | Excellent | Best rates |
+| 700-759 | Good | Good rates |
+| 680-699 | Fair | Moderate rates |
+| 660-679 | Below Average | Higher rates |
+| 620-659 | Poor | Highest rates |
+| Below 620 | Very Poor | May not qualify |
+
+### Typical Rate Differences (2026 Example)
+
+Based on a conventional loan, these are approximate rate differences:
+
+| Credit Score | Approximate Rate | vs 760+ |
+|--------------|------------------|---------|
+| 760+ | 6.25% | Baseline |
+| 700-759 | 6.50% | +0.25% |
+| 680-699 | 6.75% | +0.50% |
+| 660-679 | 7.00% | +0.75% |
+| 620-659 | 7.50% | +1.25% |
+
+*Rates are illustrative and vary by lender and market conditions*
+
+## The Real Cost Difference
+
+### $400,000 Loan Example
+
+**Monthly Payment Comparison**:
+
+| Credit Score | Rate | Monthly Payment | vs Best |
+|--------------|------|-----------------|---------|
+| 760+ | 6.25% | $2,462 | Baseline |
+| 700-759 | 6.50% | $2,528 | +$66 |
+| 680-699 | 6.75% | $2,594 | +$132 |
+| 660-679 | 7.00% | $2,661 | +$199 |
+| 620-659 | 7.50% | $2,797 | +$335 |
+
+### 30-Year Total Cost
+
+| Credit Score | Monthly | Total Interest | Extra vs Best |
+|--------------|---------|----------------|---------------|
+| 760+ | $2,462 | $486,000 | Baseline |
+| 700-759 | $2,528 | $510,000 | +$24,000 |
+| 680-699 | $2,594 | $534,000 | +$48,000 |
+| 660-679 | $2,661 | $558,000 | +$72,000 |
+| 620-659 | $2,797 | $607,000 | +$121,000 |
+
+**A 660 vs 760 score costs an extra $199/month and $72,000 over 30 years.**
+
+## What Makes Up Your Credit Score
+
+### FICO Score Components
+
+**Payment History (35%)**:
+- On-time payments
+- Late payments
+- Collections
+- Bankruptcies
+
+**Amounts Owed (30%)**:
+- Credit utilization (% of credit used)
+- Total debt amounts
+- Number of accounts with balances
+
+**Length of Credit History (15%)**:
+- Age of oldest account
+- Average age of accounts
+- Age of newest account
+
+**Credit Mix (10%)**:
+- Variety of account types
+- Installment vs revolving
+- Mortgage, auto, credit cards
+
+**New Credit (10%)**:
+- Recent credit inquiries
+- New accounts opened
+- Recent credit-seeking behavior
+
+## Quick Credit Improvements
+
+### Before Applying for a Mortgage
+
+**High Impact (1-3 months)**:
+
+**1. Pay Down Credit Card Balances**
+- Target under 30% utilization
+- Under 10% is even better
+- Pay before statement closes
+
+**2. Dispute Errors**
+- Check all three bureaus
+- Dispute inaccuracies
+- Can add points quickly
+
+**3. Become Authorized User**
+- On family member's old, good account
+- Inherits history (sometimes)
+- Works quickly
+
+**Medium Impact (3-6 months)**:
+
+**4. Pay All Bills On Time**
+- Set up autopay
+- Even one late payment hurts
+- Consistency matters
+
+**5. Don't Open New Credit**
+- No new cards
+- No new loans
+- Avoid hard inquiries
+
+**6. Don't Close Old Accounts**
+- Age of credit matters
+- Available credit matters
+- Keep old cards open (use occasionally)
+
+## What NOT to Do
+
+### Credit Mistakes Before Buying
+
+**Don't**:
+- Open new credit cards
+- Finance furniture or appliances
+- Co-sign for anyone
+- Close old accounts
+- Max out any cards
+- Miss any payments
+- Apply for multiple loans
+
+**These actions can**:
+- Lower your score
+- Disqualify you from loan
+- Raise your rate
+- Delay closing
+
+### During the Mortgage Process
+
+**Also Don't**:
+- Change jobs
+- Make large deposits without documentation
+- Move money around unexpectedly
+- Make major purchases
+- Change your financial picture at all
+
+## Multiple Credit Scores
+
+### Which Score Do Lenders Use?
+
+**FICO Versions**:
+- Mortgages use FICO 2, 4, or 5 (older versions)
+- Credit Karma shows VantageScore (different)
+- Your FICO 8 may differ significantly
+
+**Multiple Bureaus**:
+- Experian
+- TransUnion
+- Equifax
+- Lenders pull all three
+- Use middle score for qualification
+
+### Score Variations
+
+Your credit score can differ by 20-50+ points between:
+- Different bureaus
+- Different score versions
+- Different dates
+
+**Strategy**: Get your actual mortgage FICO scores before applying
+
+## FHA vs Conventional Credit Requirements
+
+### FHA Loans
+
+**Minimum Scores**:
+- 580+ = 3.5% down payment
+- 500-579 = 10% down payment
+- Below 500 = doesn't qualify
+
+**Pros for Lower Credit**:
+- Lower minimum score
+- More forgiving of past issues
+- Manual underwriting options
+
+**Cons**:
+- Requires mortgage insurance
+- MIP for life of loan (unless 10%+ down)
+- More paperwork
+
+### Conventional Loans
+
+**Minimum Scores**:
+- 620 typical minimum
+- 680+ for best rates
+- 740+ for best-best rates
+
+**Pros for Higher Credit**:
+- No permanent mortgage insurance
+- PMI removable at 20% equity
+- Often lower total cost
+
+## Special Circumstances
+
+### Multiple Borrowers
+
+**How It Works**:
+- Lender looks at both scores
+- Uses lower of the two middle scores
+- Lower score affects rate
+
+**Strategy Options**:
+- Remove lower-score borrower
+- Improve lower score before applying
+- Accept higher rate
+
+### Recent Credit Events
+
+**After Bankruptcy**:
+- Chapter 7: 2-4 year wait
+- Chapter 13: 1-2 year wait
+- Score recovers over time
+
+**After Foreclosure**:
+- 2-7 year wait depending on loan type
+- Score impact decreases over time
+
+**After Short Sale**:
+- 2-4 year wait
+- Score recovers faster than foreclosure
+
+## Action Plan
+
+### 6+ Months Before Buying
+
+1. **Check all credit reports** (annualcreditreport.com)
+2. **Dispute any errors**
+3. **Pay down credit cards** to under 30%
+4. **Make all payments on time**
+5. **Don't open new accounts**
+
+### 3 Months Before Buying
+
+1. **Check scores again**
+2. **Get under 10% utilization if possible**
+3. **Avoid any new credit**
+4. **Maintain payment history**
+5. **Talk to lender about score impact**
+
+### During Mortgage Process
+
+1. **Change nothing**
+2. **Don't apply for credit**
+3. **Keep paying everything on time**
+4. **Don't move money without documentation**
+5. **Ask before any financial changes**
+
+## Is It Worth Waiting?
+
+### Calculate the Value of Waiting
+
+**If you can improve from 660 to 720**:
+- Rate drops ~0.5%
+- Monthly payment drops ~$130 ($400K loan)
+- Lifetime savings: ~$47,000
+
+**Waiting 6 Months to Improve Score**:
+- 6 months rent: $12,000
+- But save $47,000 long-term
+- Net savings: $35,000
+
+**When to Wait**:
+- Close to next tier (within 20 points)
+- Definite improvement possible
+- Market conditions stable
+- Renting isn't expensive
+
+**When to Buy Now**:
+- Need a home now
+- Rising market/rates
+- Score won't improve much
+- Refinance later when score improves
+
+## The Bottom Line
+
+### Credit Score ROI
+
+Improving your credit score is one of the highest-return financial activities:
+
+- Free to check and improve
+- Saves tens of thousands
+- Benefits last decades
+- Affects more than mortgages
+
+### Key Takeaways
+
+1. Know your actual mortgage credit scores
+2. Credit score tiers significantly affect rates
+3. Small improvements can save thousands
+4. Don't make credit changes during mortgage process
+5. Calculate whether waiting to improve is worth it
+6. Can always refinance later if scores improve
+
+---
+
+*Understanding your buying power is the first step. Once your credit is ready, [analyze any property with Perchspot](/chat) to make sure you're making a smart investment.*
+    `,
+  },
+  {
+    id: 'understanding-hoa-financials',
+    title: 'Understanding HOA Financials: What to Check Before Buying',
+    excerpt: 'Don\'t get surprised by special assessments. Learn how to evaluate HOA financial health and spot warning signs before you buy.',
+    category: 'Education',
+    date: '2026-01-25',
+    readTime: '10 min read',
+    image: '/blog/hoa-financials.jpg',
+    metaDescription: 'Learn how to evaluate HOA financials before buying a condo or home. Understand reserve studies, budgets, assessments, and red flags that indicate financial problems.',
+    content: `
+# Understanding HOA Financials: What to Check Before Buying
+
+Buying in an HOA community means you're tying your financial fate to your neighbors. A poorly managed HOA can lead to special assessments, declining values, and ongoing problems. Here's how to evaluate HOA financial health.
+
+## What You're Really Buying
+
+### Beyond the Unit
+When you buy in an HOA, you're buying:
+- Your individual unit
+- A share of common areas
+- A share of reserves (or debts)
+- An obligation to pay assessments
+- A vote in community decisions
+
+### The Financial Connection
+- HOA problems become your problems
+- Special assessments can be thousands
+- Deferred maintenance hurts values
+- Well-run HOAs protect investments
+
+## Key Documents to Review
+
+### The Resale Certificate
+
+**What It Contains**:
+- Current monthly dues
+- Special assessments (pending or approved)
+- Reserve fund balance
+- Outstanding litigation
+- Rules and restrictions
+- Financial statements
+
+**Red Flags**:
+- Large special assessments pending
+- Active litigation
+- Very low reserves
+- Recent fee increases
+
+### Financial Statements
+
+**What to Look For**:
+- Annual budget
+- Income vs expenses
+- Reserve fund balance
+- Year-over-year comparisons
+- Accounts receivable (unpaid dues)
+
+### Reserve Study
+
+**What It Is**: Professional analysis of:
+- Common area components
+- Remaining useful life
+- Replacement costs
+- Funding plan
+
+**Key Terms**:
+- **Fully funded**: Reserves match projected needs
+- **Percent funded**: Current reserves / Ideal reserves
+- **Baseline funding**: Minimum to avoid running out
+
+## Reserve Fund Analysis
+
+### What Reserves Cover
+- Roof replacement
+- Elevator repairs
+- Parking lot repaving
+- Pool/amenity updates
+- Building systems (HVAC, plumbing)
+- Exterior painting
+- Structural repairs
+
+### Percent Funded Interpretation
+
+| Percent | Status | Risk Level |
+|---------|--------|------------|
+| 70%+ | Good | Lower |
+| 50-69% | Fair | Moderate |
+| 30-49% | Below Average | Higher |
+| Under 30% | Poor | High |
+
+### What Low Reserves Mean
+- Future special assessments likely
+- Deferred maintenance probable
+- May affect resale value
+- Mortgage approval may be harder
+
+## Budget Analysis
+
+### Income Side
+**Typical Sources**:
+- Monthly assessments (dues)
+- Special assessments
+- Interest income
+- Late fees
+- Other income (laundry, parking)
+
+**What to Check**:
+- Is income realistic?
+- What happens if assessments aren't paid?
+- Any dependency on special income?
+
+### Expense Side
+**Typical Categories**:
+- Property management
+- Insurance
+- Utilities
+- Maintenance and repairs
+- Reserve contributions
+- Professional services (legal, accounting)
+- Landscaping
+- Security
+
+**Red Flags**:
+- No reserve contribution
+- Unusually low maintenance budget
+- High management fees
+- Missing expense categories
+
+### Healthy Budget Signs
+- Reserve contribution is 10-30% of budget
+- Realistic maintenance allocation
+- Emergency/contingency line item
+- Balanced or surplus operations
+
+## Special Assessments
+
+### What They Are
+One-time or temporary charges for:
+- Major repairs not covered by reserves
+- Capital improvements
+- Unexpected expenses
+- Litigation settlements
+
+### How They Work
+- HOA board approves assessment
+- Owners must pay (often within 30-90 days)
+- Can be thousands or tens of thousands
+- May be split into payments
+
+### Past Assessment History
+**Ask about**:
+- Assessments in last 5 years
+- Amounts and purposes
+- Any pending assessments
+- Any likely future assessments
+
+### Example Impact
+**$15,000 roof assessment on $400K condo**:
+- Effectively increases your purchase price
+- May not be financeable
+- Could affect resale
+- Might indicate pattern
+
+## Delinquency Analysis
+
+### Why It Matters
+When owners don't pay dues:
+- HOA has less operating income
+- May defer maintenance
+- Other owners may cover shortfall
+- Can indicate distressed community
+
+### Healthy vs Concerning
+| Delinquency Rate | Assessment |
+|------------------|------------|
+| Under 5% | Healthy |
+| 5-10% | Monitor |
+| 10-15% | Concerning |
+| Over 15% | Major red flag |
+
+### What High Delinquency Signals
+- Economic distress in community
+- Possible investor-heavy building
+- May lead to special assessments
+- Lenders may have concerns
+
+## Insurance Review
+
+### HOA Master Policy
+**Should Cover**:
+- Building structure
+- Common areas
+- Liability for common spaces
+- Directors and officers
+
+**Check For**:
+- Adequate coverage limits
+- Reasonable deductible
+- No coverage gaps
+- Policy is current
+
+### What Owners Need
+**Individual Policy (HO-6)**:
+- Interior improvements
+- Personal property
+- Personal liability
+- "Walls in" coverage
+
+### Assessment Coverage
+- Covers your share of HOA deductibles
+- Important if master policy has high deductible
+- Relatively inexpensive
+
+## Litigation Check
+
+### Active Litigation
+**Questions to Ask**:
+- Is HOA suing anyone?
+- Is anyone suing HOA?
+- What are the claims?
+- What's potential liability?
+
+### Types of Concern
+- **Construction defects**: Can be huge settlements
+- **Personal injury**: Liability issues
+- **Owner disputes**: Governance problems
+- **Vendor disputes**: Management issues
+
+### Impact of Litigation
+- Legal costs drain reserves
+- Uncertainty affects values
+- May indicate problems
+- Can affect insurability
+
+## Questions to Ask
+
+### For the HOA/Property Manager
+1. What is the percent funded of reserves?
+2. Are any special assessments pending or likely?
+3. What major expenses are coming in next 5 years?
+4. What is the delinquency rate?
+5. Is there any litigation?
+6. When was the last reserve study?
+7. What major repairs have been done recently?
+8. Has there been any turnover in management?
+
+### For Your Agent
+1. What have recent sales shown about HOA health?
+2. Are there financing concerns for this building?
+3. What's the investor vs owner-occupant ratio?
+4. Any known issues with this HOA?
+
+### For Your Lender
+1. Is this building/HOA on any restricted lists?
+2. Are there any special requirements?
+3. Will the HOA financials affect approval?
+
+## Red Flags Summary
+
+### Financial Red Flags
+- Reserves under 30% funded
+- No reserve study in 5+ years
+- Special assessments in recent years
+- Delinquency over 10%
+- Operating at deficit
+- No reserve contributions in budget
+
+### Management Red Flags
+- Frequent management company changes
+- High board turnover
+- Poor communication
+- Deferred maintenance visible
+- Common areas poorly maintained
+
+### Structural Red Flags
+- Known building issues
+- Pending major repairs
+- Insurance claims history
+- Construction defect litigation
+- Visible deterioration
+
+## Making Your Decision
+
+### Green Light Signs
+- Reserves 70%+ funded
+- Recent reserve study
+- No pending assessments
+- Low delinquency
+- Well-maintained building
+- Stable management
+
+### Yellow Light Signs
+- Reserves 50-70%
+- Minor maintenance concerns
+- Moderate dues increases
+- Some delinquency
+- Older reserve study
+
+### Red Light Signs
+- Reserves under 30%
+- Pending or recent assessments
+- High delinquency
+- Active litigation
+- Visible deterioration
+- Lender concerns
+
+### Negotiation Opportunities
+Poor HOA financials can be leverage:
+- Lower purchase price
+- Seller contributes to reserves
+- Credit for pending assessments
+- Awareness in offer
+
+---
+
+*Evaluating a condo or HOA property? [Analyze it with Perchspot](/chat) for comprehensive insights beyond just HOA financials.*
+    `,
+  },
+  {
+    id: 'pre-approval-vs-prequalification',
+    title: 'Pre-Approval vs Pre-Qualification: Understanding the Difference',
+    excerpt: 'Don\'t make the mistake of confusing pre-qualification with pre-approval. Learn what each means and which one you actually need.',
+    category: 'Education',
+    date: '2026-01-24',
+    readTime: '8 min read',
+    image: '/blog/pre-approval.jpg',
+    metaDescription: 'Understand the critical difference between mortgage pre-approval and pre-qualification. Learn which one sellers want, how to get pre-approved, and what documents you need.',
+    content: `
+# Pre-Approval vs Pre-Qualification: Understanding the Difference
+
+Many buyers use "pre-qualification" and "pre-approval" interchangeably, but they're very different—and confusing them can cost you a home.
+
+## Quick Comparison
+
+| Factor | Pre-Qualification | Pre-Approval |
+|--------|-------------------|--------------|
+| Documentation | Minimal/none | Extensive |
+| Credit Check | Soft or none | Hard pull |
+| Verification | Self-reported | Verified |
+| Reliability | Estimate | Conditional commitment |
+| Strength | Weak | Strong |
+| Time to Get | Minutes | Days |
+
+## Pre-Qualification
+
+### What It Is
+An informal estimate of how much you might be able to borrow based on information you provide.
+
+### How It Works
+1. You provide basic financial info (income, debts, assets)
+2. Lender does quick calculation
+3. You receive estimate of loan amount
+4. No commitment from either party
+
+### What's Required
+- Self-reported income
+- Estimated debts
+- General asset information
+- Basic employment info
+- Soft credit check (sometimes)
+
+### Value
+**Limited**. Pre-qualification is:
+- A starting point for budgeting
+- Quick and easy
+- Non-binding estimate
+- May not reflect reality
+
+### Problems
+- Based on unverified information
+- Doesn't account for issues
+- Sellers don't take it seriously
+- Could be wildly inaccurate
+
+## Pre-Approval
+
+### What It Is
+A conditional commitment from a lender to provide a specific loan amount, based on verified information.
+
+### How It Works
+1. Submit application with documentation
+2. Lender verifies income, assets, employment
+3. Credit report pulled (hard inquiry)
+4. Underwriting reviews file
+5. Pre-approval letter issued
+
+### What's Required
+**Documentation Typically Includes**:
+- [ ] Government ID
+- [ ] Social Security number
+- [ ] Pay stubs (30 days)
+- [ ] W-2s (2 years)
+- [ ] Tax returns (2 years)
+- [ ] Bank statements (2-3 months)
+- [ ] Investment account statements
+- [ ] Employment verification
+- [ ] Explanation of credit issues (if any)
+
+### What You Get
+**Pre-Approval Letter States**:
+- Maximum loan amount
+- Loan type
+- Interest rate range
+- Expiration date (usually 60-90 days)
+- Conditions for final approval
+
+### Value
+**High**. Pre-approval means:
+- Lender has vetted you
+- Numbers are verified
+- Fewer surprises ahead
+- Sellers take you seriously
+- Faster closing possible
+
+## Why Pre-Approval Matters
+
+### To Sellers
+**Pre-qualified offer**: "I think I can get a loan"
+**Pre-approved offer**: "My lender has verified I can close"
+
+In competitive markets, many sellers won't even consider pre-qualified offers.
+
+### To You
+**Knowing Your Real Budget**:
+- Pre-qualification might say $600K
+- Pre-approval reveals it's actually $500K
+- Better to know before house hunting
+
+**Identifying Issues Early**:
+- Credit problems discovered
+- Income documentation issues
+- Debt ratios too high
+- Time to fix before finding a home
+
+## The Pre-Approval Process
+
+### Step 1: Gather Documents
+Collect everything before applying:
+- Recent pay stubs
+- Tax returns
+- Bank statements
+- ID and SSN
+
+### Step 2: Choose Lender(s)
+Consider getting pre-approved by multiple lenders:
+- Compare rates and terms
+- Multiple inquiries within 14-45 days count as one
+- More choices
+
+### Step 3: Submit Application
+Complete full application:
+- Personal information
+- Employment details
+- Income and assets
+- Property type (if known)
+
+### Step 4: Verification
+Lender will verify:
+- Employment (call your employer)
+- Income (review documents)
+- Assets (review statements)
+- Credit (pull reports)
+
+### Step 5: Receive Letter
+If approved, you'll get:
+- Pre-approval letter
+- Rate quote
+- Loan estimate
+- List of conditions
+
+### Timeline
+- Simple situation: 1-3 days
+- Self-employed/complex: 1-2 weeks
+- Issues to resolve: Varies
+
+## What Pre-Approval Doesn't Guarantee
+
+### It's Still Conditional
+Pre-approval is subject to:
+- Property appraisal
+- Title search
+- No changes in your finances
+- Final underwriting
+- Property meeting requirements
+
+### Things That Can Change
+Between pre-approval and closing:
+- Interest rates
+- Your employment status
+- Your credit score
+- Your debt levels
+- Your assets
+
+### Don't Do This After Pre-Approval
+- Change jobs
+- Open new credit
+- Make large purchases
+- Move money around
+- Co-sign for anyone
+
+## Types of Pre-Approval
+
+### Basic Pre-Approval
+- Standard verification
+- Conditional commitment
+- Most common
+
+### Verified Approval / Underwritten Pre-Approval
+- Full underwriting completed
+- Stronger than basic
+- Only property-specific items remain
+- Shows serious commitment
+
+### Desktop Underwriting (DU) Pre-Approval
+- Run through automated system
+- Identifies any red flags
+- Faster process
+- Standard for many lenders
+
+## Making Your Pre-Approval Strong
+
+### Get Verified/Underwritten Approval
+- Goes further than basic
+- More competitive in offers
+- Faster closing possible
+
+### Get Recent Date
+- Sellers notice old pre-approvals
+- Renew if over 60 days
+- Shows active buyer
+
+### Appropriate Amount
+- Don't show max approval
+- Match to offer price
+- Signals serious buyer
+
+### Include Key Details
+- Loan type
+- Down payment
+- Rate lock status
+- Closing timeline
+
+## Common Questions
+
+### How Long Does Pre-Approval Last?
+Typically 60-90 days. You can renew if it expires.
+
+### Does Pre-Approval Hurt Credit?
+Yes, it's a hard inquiry, but:
+- Small impact (5-10 points)
+- Recovers in few months
+- Multiple mortgage inquiries count as one (within window)
+
+### Should I Get Multiple Pre-Approvals?
+Yes, to compare rates. Do them within 14-45 days to minimize credit impact.
+
+### What If I'm Denied?
+Ask why and address issues:
+- Credit problems: Work on score
+- Income: Wait for more history
+- Debt: Pay down before reapplying
+
+### Can I Get Pre-Approved Before Selling?
+Yes, but lender will consider:
+- Current mortgage payment
+- Contingency plans
+- Bridge financing options
+
+## Pre-Approval Checklist
+
+### Before Applying
+- [ ] Check credit reports for errors
+- [ ] Know your credit score
+- [ ] Calculate your debt-to-income
+- [ ] Gather all documents
+- [ ] Research lenders
+
+### During Application
+- [ ] Complete full application
+- [ ] Provide all requested documents
+- [ ] Respond promptly to questions
+- [ ] Ask about rate locks
+
+### After Approval
+- [ ] Understand conditions
+- [ ] Know expiration date
+- [ ] Maintain financial status quo
+- [ ] Keep documents updated
+
+## The Bottom Line
+
+### Pre-Qualification
+- Quick estimate
+- Unverified
+- Low value to sellers
+- Good starting point only
+
+### Pre-Approval
+- Verified commitment
+- Strong documentation
+- High value to sellers
+- Essential for serious buyers
+
+### Recommendation
+**Get pre-approved before house hunting.** Not pre-qualified—actually pre-approved.
+
+This will:
+- Show your real budget
+- Identify any issues
+- Make your offers competitive
+- Speed up closing
+- Reduce stress
+
+---
+
+*Ready to start your search? Once you're pre-approved, [analyze any property with Perchspot](/chat) to make sure it's the right fit.*
+    `,
+  },
 ];
 
 // Update categories to include Local
