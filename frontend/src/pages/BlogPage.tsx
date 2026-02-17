@@ -16791,6 +16791,1308 @@ You can provide all of this with financing.
 *Ready to make your move? [Analyze any property with Perchspot](/chat) first to know exactly what you're competing for.*
     `,
   },
+  {
+    id: 'when-to-walk-away-from-deal',
+    title: 'When to Walk Away from a Deal: Red Flags That Should Stop a Purchase',
+    excerpt: 'Sometimes the best deal is the one you don\'t make. Learn the warning signs that indicate you should walk away from a home purchase.',
+    category: 'Tips',
+    date: '2026-01-18',
+    readTime: '9 min read',
+    image: '/blog/walk-away.jpg',
+    metaDescription: 'Learn when to walk away from a home purchase. Identify deal-breaker red flags, understand inspection findings that warrant backing out, and protect your earnest money.',
+    content: `
+# When to Walk Away from a Deal: Red Flags That Should Stop a Purchase
+
+Falling in love with a house can cloud your judgment. Knowing when to walk away is just as important as knowing when to buy.
+
+## Structural Red Flags
+
+### Foundation Issues
+**Warning Signs**:
+- Significant cracks (over 1/4 inch, horizontal)
+- Doors/windows that don't close properly
+- Uneven floors
+- Gaps between wall and ceiling/floor
+
+**Why Walk Away**:
+- Repair costs: $5,000 to $100,000+
+- Ongoing issues likely
+- Affects entire structure
+- Difficult to fully fix
+- Impacts resale significantly
+
+### Major Roof Problems
+**Warning Signs**:
+- Multiple layers of roofing
+- Sagging roof deck
+- Active leaks
+- Very old (25+ years for shingles)
+
+**Why Walk Away**:
+- Full replacement: $10,000-$30,000+
+- Water damage may be hidden
+- Insurance issues possible
+- Immediate expense required
+
+### Water Intrusion
+**Warning Signs**:
+- Musty odors
+- Water stains
+- Mold presence
+- Wet basement/crawl space
+
+**Why Walk Away**:
+- Hidden damage often extensive
+- Mold remediation expensive
+- Health hazard
+- Source may be difficult to identify
+- Recurring problem likely
+
+## Environmental Hazards
+
+### Mold
+**When It's a Deal Breaker**:
+- Extensive mold (not minor surface mold)
+- Black mold (Stachybotrys)
+- Mold in HVAC system
+- Source not addressed
+
+**Remediation Costs**: $500-$30,000+ depending on extent
+
+### Asbestos
+**Common Locations**:
+- Old insulation
+- Floor tiles
+- Popcorn ceilings
+- Pipe insulation
+
+**When It's a Deal Breaker**:
+- Friable (crumbling) asbestos
+- In areas needing renovation
+- Seller won't address
+
+### Lead Paint
+**Most Common In**: Pre-1978 homes
+
+**When It's a Deal Breaker**:
+- Deteriorating paint
+- Young children in household
+- Renovation planned
+
+### Radon
+**What It Is**: Radioactive gas from soil
+
+**When It's a Deal Breaker**:
+- High levels (above 4 pCi/L)
+- Mitigation fails
+- Seller won't address
+
+**Note**: Usually fixable for $800-$2,500
+
+## Financial Red Flags
+
+### Price Doesn't Make Sense
+**Warning Signs**:
+- Significantly over-priced vs comparables
+- Seller won't negotiate reasonably
+- Doesn't appraise
+
+**Why Walk Away**:
+- Starting underwater
+- Negative equity position
+- Will be difficult to sell later
+
+### Hidden Costs
+**What to Watch For**:
+- High property taxes not disclosed
+- Special assessments coming
+- HOA issues
+- Major repairs needed
+
+**Why Walk Away**:
+- Budget blown
+- Ongoing financial burden
+- Wasn't priced accordingly
+
+### Appraisal Issues
+**When It's a Problem**:
+- Appraisal significantly below offer
+- Seller won't renegotiate
+- Gap too large to cover
+
+## Legal and Title Issues
+
+### Title Problems
+**Serious Issues**:
+- Liens that won't be cleared
+- Boundary disputes
+- Easements affecting property
+- Unclear ownership
+
+**Why Walk Away**:
+- May never get clear title
+- Legal battles possible
+- Can't sell later
+
+### Permit Issues
+**Warning Signs**:
+- Unpermitted additions
+- Work done without inspection
+- Unpermitted ADU
+- Zoning violations
+
+**Why Walk Away**:
+- May need to remove additions
+- Insurance issues
+- Can't get permits closed
+- Future sale complicated
+
+### HOA Problems
+**Deal Breakers**:
+- Pending litigation
+- Reserves critically low
+- Large special assessment coming
+- Restrictive rules you can't live with
+
+## Inspection Deal Breakers
+
+### The Inspector's Language
+**Phrases That Should Concern You**:
+- "Further evaluation by specialist needed"
+- "Safety hazard"
+- "Not to current code"
+- "Signs of..."
+- "Recommend immediate repair"
+
+### Multiple Major Issues
+One issue might be negotiable. Multiple major issues compound:
+- Roof + foundation + electrical = walk away
+- Each issue adds uncertainty
+- Combined costs overwhelming
+- Likely more hidden problems
+
+### Seller Won't Negotiate
+After significant inspection findings:
+- If seller won't repair
+- If seller won't credit
+- If seller won't negotiate price
+- Time to walk away
+
+## Seller Behavior Red Flags
+
+### Lack of Disclosure
+**Warning Signs**:
+- Incomplete disclosures
+- Vague answers
+- Rushed timeline
+- Avoiding questions
+
+**Why It Matters**:
+- What else aren't they telling you?
+- Legal issues possible
+- Trust is broken
+
+### Suspicious Activity
+**Watch For**:
+- Covering up problems (fresh paint over water stains)
+- Refusing reasonable requests
+- Changing terms repeatedly
+- Pressure tactics
+
+### Unreasonable Seller
+**When to Walk Away**:
+- Won't negotiate in good faith
+- Demanding unreasonable terms
+- Emotional or unpredictable
+- Making the process difficult
+
+## Neighborhood Issues
+
+### Crime and Safety
+**Discovered During Due Diligence**:
+- High crime rates
+- Sex offenders nearby
+- Safety concerns during visits
+
+### Nuisances
+**Hard to Live With**:
+- Excessive noise
+- Bad odors
+- Traffic issues
+- Problematic neighbors
+
+### Declining Area
+**Warning Signs**:
+- Businesses closing
+- High vacancy rates
+- Declining schools
+- Increasing crime
+
+## Protecting Your Earnest Money
+
+### Using Contingencies
+**Standard Contingencies Protect You**:
+- Inspection contingency
+- Financing contingency
+- Appraisal contingency
+
+**How to Exit**:
+- Cite specific issues
+- Follow contingency timelines
+- Document everything
+- Get release signed
+
+### When You Might Lose It
+**Earnest Money at Risk If**:
+- You waived contingencies
+- You missed deadlines
+- You get "cold feet" without grounds
+- You can't prove contingency failure
+
+### Documentation Matters
+**Always Get**:
+- Written inspection reports
+- Photos of issues
+- Professional evaluations
+- Communication in writing
+
+## The Emotional Challenge
+
+### Why It's Hard to Walk Away
+- Time invested
+- Emotional attachment
+- Fear of starting over
+- Pressure from others
+- Sunk cost fallacy
+
+### How to Stay Objective
+- Have clear deal-breakers in advance
+- Listen to your inspector
+- Trust your agent's guidance
+- Remember: there are other houses
+- Consider long-term, not just now
+
+### Questions to Ask Yourself
+- Would I buy this knowing what I know now?
+- Can I afford to fix the issues?
+- Will this affect resale?
+- Am I settling or is this right?
+- What does my gut say?
+
+## The Walk-Away Checklist
+
+### Definitely Walk Away If:
+- [ ] Foundation issues are significant
+- [ ] Mold is extensive
+- [ ] Title can't be cleared
+- [ ] Price doesn't appraise and seller won't adjust
+- [ ] Multiple major structural issues
+- [ ] Environmental hazards unaddressed
+- [ ] Seller is dishonest
+
+### Consider Walking If:
+- [ ] Repairs exceed 10% of purchase price
+- [ ] Issues will affect your daily life
+- [ ] Neighborhood doesn't feel right
+- [ ] Financial stretch is too great
+- [ ] Your instincts say no
+
+### It's Probably OK If:
+- [ ] Issues are minor and fixable
+- [ ] Seller is negotiating fairly
+- [ ] Problems are disclosed and priced in
+- [ ] You can live with the issues
+- [ ] Cost to fix is reasonable
+
+---
+
+*Not sure about a property? [Get an instant AI analysis with Perchspot](/chat) to help identify potential issues before you're too far into the process.*
+    `,
+  },
+  {
+    id: 'buying-foreclosures-guide',
+    title: 'Buying Foreclosures: Opportunities, Risks, and How It Works',
+    excerpt: 'Foreclosures can offer deals, but they come with unique challenges. Learn the different types of foreclosure sales and what to watch out for.',
+    category: 'Investment',
+    date: '2026-01-17',
+    readTime: '11 min read',
+    image: '/blog/foreclosures.jpg',
+    metaDescription: 'Complete guide to buying foreclosed homes. Understand pre-foreclosure, auction, and REO properties, their risks and benefits, and how to buy them successfully.',
+    content: `
+# Buying Foreclosures: Opportunities, Risks, and How It Works
+
+Foreclosed properties can offer below-market prices, but they come with unique risks. Understanding the process helps you find deals while avoiding disasters.
+
+## Types of Foreclosure Properties
+
+### Pre-Foreclosure
+**What It Is**: Owner is behind on payments but hasn't lost the property yet
+
+**How to Buy**:
+- Contact owner directly
+- Negotiate short sale
+- Work through owner's agent
+
+**Advantages**:
+- Can inspect property
+- Owner may negotiate
+- Less competition
+- Normal purchase process
+
+**Challenges**:
+- Owner must agree
+- Bank approval for short sale
+- Emotional sellers
+- May take time
+
+### Auction (Trustee Sale)
+**What It Is**: Property sold at public auction
+
+**How It Works**:
+- Auction on courthouse steps (or online)
+- Cash or certified funds required
+- Property sold "as-is"
+- Winning bid takes title
+
+**Advantages**:
+- Potentially lowest prices
+- Quick transaction
+- No negotiation
+
+**Challenges**:
+- Cash required immediately
+- No inspection possible
+- No title insurance at purchase
+- May have occupants
+- Liens may transfer
+
+### REO (Real Estate Owned)
+**What It Is**: Bank-owned after foreclosure
+
+**How to Buy**:
+- Listed on MLS or bank sites
+- Through real estate agent
+- Standard offer process
+
+**Advantages**:
+- Can get financing
+- Can inspect
+- Title cleared by bank
+- More normal process
+
+**Challenges**:
+- Less discounted than auction
+- Competition from investors
+- Bank bureaucracy
+- Sold "as-is"
+
+## The Foreclosure Process
+
+### Timeline
+1. **Missed Payments** (Month 1-3): Borrower falls behind
+2. **Notice of Default** (Month 4-6): Formal notice filed
+3. **Pre-Foreclosure** (Month 6-9): Owner may sell
+4. **Auction Scheduled** (Month 9-12): Date announced
+5. **Auction** (Month 12+): Property sold
+6. **REO** (If no buyer): Bank takes ownership
+
+### Judicial vs Non-Judicial
+**Judicial** (some states):
+- Court involved
+- Longer process
+- More borrower protections
+
+**Non-Judicial** (most states):
+- No court involved
+- Faster process
+- Trustee conducts sale
+
+## Finding Foreclosures
+
+### Sources
+- MLS listings (REO)
+- Bank websites (REO)
+- Foreclosure.com
+- RealtyTrac
+- County records (auctions)
+- HUD homes (FHA foreclosures)
+- Fannie Mae HomePath
+- Freddie Mac HomeSteps
+
+### Working with Agents
+- Some specialize in foreclosures
+- Know REO process
+- Have bank contacts
+- Understand as-is sales
+
+## Buying at Auction
+
+### Before the Auction
+**Research**:
+- Property address and details
+- Outstanding liens
+- Title search (recommended)
+- Drive-by inspection
+- Comparable sales
+- Maximum bid calculation
+
+**Preparation**:
+- Cash or certified funds ready
+- Understand auction rules
+- Bidder registration
+- Bring required ID
+
+### At the Auction
+**What to Expect**:
+- Fast-paced
+- Competitive
+- Multiple properties
+- Professional investors
+
+**Bidding Strategy**:
+- Set maximum before starting
+- Don't get caught up
+- Account for repair costs
+- Factor in holding costs
+
+### After Winning
+**Immediate**:
+- Pay deposit (usually same day)
+- Balance due in days
+- Receive trustee's deed
+
+**Then**:
+- Title search
+- May need to evict occupants
+- Begin repairs
+- Get insurance
+
+### Auction Risks
+- No interior inspection
+- Unknown repair costs
+- May have tenants/squatters
+- Junior liens may survive
+- HOA dues may be owed
+- No warranties
+
+## Buying REO Properties
+
+### The Process
+1. Find REO listing
+2. Get pre-approved
+3. Make offer through agent
+4. Bank reviews (slow)
+5. Bank counters or accepts
+6. Inspection period
+7. Close
+
+### REO Offer Tips
+- Submit proof of funds
+- Use bank's addendums
+- Expect as-is sale
+- Be patient with response
+- Negotiate repairs less likely
+
+### Bank Expectations
+- Clean offers
+- Qualified buyers
+- Following their process
+- Quick closings
+- Fewer contingencies
+
+## Short Sales
+
+### What They Are
+Owner sells for less than owed, with bank approval
+
+### How They Work
+1. Owner lists property
+2. Buyer makes offer
+3. Offer submitted to bank
+4. Bank reviews (months)
+5. Bank approves, counters, or rejects
+6. If approved, proceed to close
+
+### Short Sale Challenges
+- Very long timeline (3-6 months+)
+- Multiple banks may be involved
+- Bank can reject
+- Property may deteriorate
+- Owner may change mind
+
+### Why Consider Short Sales
+- Better condition than REO/auction
+- Can inspect
+- Can get financing
+- Prices sometimes better than market
+
+## Financial Considerations
+
+### True Cost Calculation
+
+**Auction Example**:
+| Item | Cost |
+|------|------|
+| Purchase Price | $250,000 |
+| Estimated Repairs | $50,000 |
+| Holding Costs (6 mo) | $10,000 |
+| Closing/Legal | $5,000 |
+| Buffer (20%) | $15,000 |
+| **Total** | **$330,000** |
+
+Compare to market value of repaired home
+
+### Financing Options
+
+**Auction**:
+- Cash required
+- Hard money after
+- Refinance later
+
+**REO**:
+- Conventional possible
+- FHA 203(k) for repairs
+- Hard money for quick close
+
+**Short Sale**:
+- Conventional
+- FHA
+- VA
+
+## Due Diligence
+
+### Title Research
+**Check For**:
+- First mortgage balance
+- Second mortgages
+- Tax liens
+- Mechanic's liens
+- HOA liens
+- Judgments
+
+**For Auctions**: Critical—liens may transfer
+
+### Property Assessment
+**If You Can Inspect**:
+- Full home inspection
+- Structural evaluation
+- Systems check
+- Pest inspection
+
+**If You Can't** (auction):
+- Drive-by exterior
+- Public records
+- Google Street View history
+- Talk to neighbors
+
+### Financial Analysis
+- ARV (After Repair Value)
+- Repair estimates
+- Holding costs
+- Transaction costs
+- Profit margin
+
+## Risks and How to Mitigate
+
+### Unknown Condition
+**Risk**: Property worse than expected
+**Mitigation**: Add repair buffer, inspect if possible, conservative estimates
+
+### Title Issues
+**Risk**: Liens you're responsible for
+**Mitigation**: Title search before auction, title insurance for REO
+
+### Occupants
+**Risk**: Property occupied
+**Mitigation**: Research occupancy, budget for eviction, "cash for keys"
+
+### Market Changes
+**Risk**: Value drops during rehab
+**Mitigation**: Quick timeline, conservative valuation, have exit strategy
+
+## Who Should Buy Foreclosures
+
+### Good Candidates
+- Experienced investors
+- Those with cash reserves
+- Handy/can manage renovations
+- Patient buyers
+- Those who understand risk
+
+### Think Twice If
+- First-time buyer
+- Need move-in ready
+- Tight budget
+- Need financing (for auction)
+- Low risk tolerance
+
+## Step-by-Step Guide
+
+### For Auction
+1. Learn your local auction process
+2. Research available properties
+3. Do title searches
+4. Calculate maximum bids
+5. Prepare funds
+6. Attend auctions (observe first)
+7. Bid strategically
+8. Complete purchase if winning
+9. Secure property
+10. Begin repairs
+
+### For REO
+1. Get pre-approved
+2. Find experienced REO agent
+3. Search bank-owned listings
+4. Submit offers (expect rejection)
+5. Negotiate with bank
+6. Conduct inspection
+7. Understand as-is terms
+8. Close when clear
+
+---
+
+*Evaluating a foreclosure property? [Get AI analysis with Perchspot](/chat) to help estimate repair costs and understand the property's potential.*
+    `,
+  },
+  {
+    id: 'buying-in-flood-zone',
+    title: 'Buying in a Flood Zone: What You Need to Know First',
+    excerpt: 'Homes in flood zones can be great values—or money pits. Learn what flood zones mean, insurance requirements, and how to evaluate the risk.',
+    category: 'Guide',
+    date: '2026-01-16',
+    readTime: '10 min read',
+    image: '/blog/flood-zone.jpg',
+    metaDescription: 'Guide to buying property in flood zones. Understand FEMA flood maps, insurance requirements, costs, and how to evaluate flood risk before purchasing.',
+    content: `
+# Buying in a Flood Zone: What You Need to Know First
+
+Flood zones aren't automatic deal-breakers, but they do require extra due diligence. Here's what you need to understand before buying in a flood-prone area.
+
+## Understanding Flood Zones
+
+### FEMA Flood Zone Types
+
+**High-Risk Zones (Special Flood Hazard Areas)**:
+
+| Zone | Meaning |
+|------|---------|
+| A | High risk, no base flood elevation determined |
+| AE | High risk, base flood elevation determined |
+| AH | High risk, shallow flooding (1-3 feet) |
+| AO | High risk, sheet flow, 1-3 feet |
+| V | High risk, coastal with wave action |
+| VE | High risk, coastal, base elevation determined |
+
+**Moderate Risk Zones**:
+
+| Zone | Meaning |
+|------|---------|
+| B | Moderate risk (older maps) |
+| X (shaded) | 0.2% annual chance (500-year flood) |
+
+**Low Risk Zones**:
+
+| Zone | Meaning |
+|------|---------|
+| C | Minimal risk (older maps) |
+| X (unshaded) | Minimal risk |
+
+### What "100-Year Flood" Means
+- NOT "once every 100 years"
+- 1% chance of flooding in any given year
+- 26% chance over 30-year mortgage
+- Can happen multiple times in a decade
+
+## How to Check Flood Zone
+
+### FEMA Flood Map Service
+- Visit msc.fema.gov
+- Enter property address
+- View flood zone designation
+- Download detailed map
+
+### What to Check
+- Current flood zone
+- Base flood elevation
+- Distance to flood source
+- Historical flooding
+- Pending map changes
+
+### Limitations of Maps
+- Maps may be outdated
+- Don't show all flood risk
+- Climate change not fully factored
+- Local drainage not always reflected
+
+## Insurance Requirements
+
+### When Flood Insurance Is Required
+**Mandatory** if:
+- Property is in high-risk zone (A or V zones)
+- AND you have a federally-backed mortgage
+
+**Recommended** for everyone—25% of flood claims are outside high-risk zones
+
+### National Flood Insurance Program (NFIP)
+**Coverage Limits**:
+- Building: Up to $250,000
+- Contents: Up to $100,000
+
+**What It Covers**:
+- Structure and foundation
+- Electrical/plumbing
+- HVAC
+- Appliances
+- Carpeting over unfinished floors
+
+**What It Doesn't Cover**:
+- Basement improvements
+- Landscaping
+- Living expenses
+- Most personal property below lowest floor
+
+### Private Flood Insurance
+**Advantages**:
+- Higher coverage limits
+- May be cheaper
+- More coverage options
+- Replacement cost available
+
+**Considerations**:
+- May not meet lender requirements
+- Company stability varies
+- Coverage terms differ
+
+## Insurance Costs
+
+### Factors Affecting Premium
+- Flood zone designation
+- Elevation relative to base flood elevation
+- Building type and age
+- Number of floors
+- Basement/enclosure
+- Claims history
+- Prior policy existence
+
+### Approximate Costs (NFIP)
+
+| Situation | Annual Range |
+|-----------|--------------|
+| Zone X (low risk) | $300-$600 |
+| Zone B (moderate) | $500-$1,500 |
+| Zone AE (high risk) | $1,000-$3,000+ |
+| Zone V (coastal high) | $2,500-$10,000+ |
+
+### Risk Rating 2.0
+NFIP's new rating system:
+- More individualized pricing
+- Based on multiple risk factors
+- Some premiums increasing
+- Some decreasing
+
+## Elevation Certificate
+
+### What It Is
+Professional survey documenting:
+- Building's elevation
+- Lowest floor elevation
+- Base flood elevation
+- Flood zone
+
+### Why It Matters
+- Required for accurate insurance quote
+- Shows if building is above flood level
+- Can reduce insurance costs
+- Important for resale
+
+### How to Get One
+- Hire licensed surveyor
+- Costs $200-$500
+- Takes a few days
+- Remains valid unless changes occur
+
+## Financial Considerations
+
+### Total Ownership Cost
+Don't just look at purchase price:
+
+| Item | Annual Cost |
+|------|-------------|
+| Mortgage | $24,000 |
+| Property Tax | $5,000 |
+| Homeowner's Insurance | $1,500 |
+| Flood Insurance | $2,000 |
+| **Total** | **$32,500** |
+
+Flood insurance adds $167/month
+
+### Resale Considerations
+- Flood zone affects buyer pool
+- Insurance costs deter some buyers
+- Flooding history must be disclosed
+- May appreciate slower
+
+### Value Calculation
+Flood zone homes should be priced lower to account for:
+- Insurance costs
+- Flood risk
+- Limited buyer pool
+- Potential damage costs
+
+## Due Diligence Steps
+
+### Before Making Offer
+1. Check FEMA flood map
+2. Research area flood history
+3. Ask about previous flooding
+4. Get preliminary insurance quote
+5. Review seller disclosures
+
+### During Inspection Period
+1. Get elevation certificate
+2. Look for flood damage signs
+3. Check sump pump/drainage
+4. Verify flood vents if applicable
+5. Research mitigation options
+
+### Signs of Previous Flooding
+- Water stains on walls
+- Warped flooring/baseboards
+- Musty odors
+- Rust on HVAC/water heater
+- Mold presence
+- Recent renovations hiding damage
+
+## Flood Mitigation Options
+
+### Before Purchase Negotiation
+Can seller add:
+- Flood vents
+- Sump pump system
+- Foundation waterproofing
+- Landscaping/grading improvements
+
+### After Purchase Options
+- Elevate structure (expensive but effective)
+- Install flood vents
+- Improve drainage
+- Waterproof basement
+- Move utilities higher
+- Flood barriers/shields
+
+### Cost vs Benefit
+**Elevation**:
+- Cost: $30,000-$100,000+
+- Benefit: Major insurance reduction, peace of mind
+
+**Flood Vents**:
+- Cost: $500-$2,000
+- Benefit: Moderate insurance reduction
+
+**Drainage Improvements**:
+- Cost: $1,000-$10,000
+- Benefit: Reduced flood risk
+
+## Questions to Ask
+
+### About the Property
+- Has it ever flooded?
+- What was the damage?
+- What mitigation has been done?
+- What's the elevation certificate show?
+- Have flood maps recently changed?
+
+### About Insurance
+- What's the current flood policy cost?
+- Is there an existing policy (lower grandfathered rate)?
+- What coverage is in place?
+- Any claims history?
+
+### About the Area
+- How often does this area flood?
+- What causes flooding (river, storm, drainage)?
+- Are there flood control projects planned?
+- How has development affected flooding?
+
+## When to Walk Away
+
+### Red Flags
+- History of repeated flooding
+- No mitigation possible
+- Insurance unaffordable
+- Structural flood damage
+- In V zone (coastal high risk)
+- Below base flood elevation
+
+### Acceptable Situations
+- Zone X (low risk) with buffer
+- Properly elevated building
+- First floor above BFE
+- No flooding history
+- Reasonable insurance costs
+- Good mitigation in place
+
+## Living in Flood Zone
+
+### Be Prepared
+- Know your evacuation route
+- Have emergency supplies
+- Keep important documents safe/backed up
+- Know how to shut off utilities
+- Have plan for pets
+
+### Ongoing Monitoring
+- Watch weather forecasts
+- Sign up for flood alerts
+- Know local creek/river levels
+- Have sandbags available
+- Maintain drainage
+
+---
+
+*Considering a property in a flood zone? [Analyze it with Perchspot](/chat) to understand all the factors affecting your purchase decision.*
+    `,
+  },
+  {
+    id: 'adu-accessory-dwelling-unit-guide',
+    title: 'ADU Guide: Building or Buying Property with Accessory Dwelling Units',
+    excerpt: 'ADUs can generate income, house family, or boost property value. Learn what they are, how to add one, and what to consider when buying property with an ADU.',
+    category: 'Investment',
+    date: '2026-01-15',
+    readTime: '11 min read',
+    image: '/blog/adu.jpg',
+    metaDescription: 'Complete guide to accessory dwelling units. Learn about ADU types, costs, regulations, rental income potential, and considerations when buying or building an ADU.',
+    content: `
+# ADU Guide: Building or Buying Property with Accessory Dwelling Units
+
+Accessory Dwelling Units (ADUs) have exploded in popularity. Whether you're looking to add one or buy a property with one, here's what you need to know.
+
+## What Is an ADU?
+
+### Definition
+An Accessory Dwelling Unit is a secondary housing unit on a single-family residential lot.
+
+### Common Names
+- ADU
+- In-law unit
+- Granny flat
+- Backyard cottage
+- Carriage house
+- Casita
+- Mother-in-law suite
+- Guest house
+
+### Types of ADUs
+
+**Detached ADU**:
+- Separate structure
+- Most privacy
+- Typically most expensive
+- Flexible placement
+
+**Attached ADU**:
+- Connected to main house
+- Share wall/structure
+- Often converted garage
+- Less expensive than detached
+
+**Internal ADU**:
+- Within existing structure
+- Basement, attic, or converted space
+- Least expensive
+- Most impact on main house
+
+**Garage Conversion**:
+- Converting existing garage
+- Popular and cost-effective
+- Loses parking
+- Structural limits
+
+## Why ADUs Are Popular
+
+### For Homeowners
+- Rental income
+- Housing for family
+- Aging in place
+- Home office space
+- Increased property value
+
+### For Communities
+- Addresses housing shortage
+- Uses existing infrastructure
+- Provides affordable options
+- Maintains neighborhood character
+
+## ADU Uses
+
+### Rental Income
+**Potential Returns**:
+- Offset mortgage payment
+- Generate cash flow
+- Long-term or short-term rental
+- Typically $1,000-$2,500/month (varies by market)
+
+### Family Housing
+- Aging parents
+- Adult children
+- Extended family
+- Caregiver housing
+
+### Home Office/Studio
+- Separate workspace
+- Creative studio
+- Home business
+- Teaching/tutoring space
+
+### Guest Accommodations
+- Visiting family
+- Friends
+- Short-term rental potential
+
+## Building an ADU
+
+### Typical Costs
+
+| ADU Type | Cost Range |
+|----------|------------|
+| Internal conversion | $40,000-$100,000 |
+| Garage conversion | $50,000-$150,000 |
+| Attached ADU | $100,000-$250,000 |
+| Detached ADU | $150,000-$400,000+ |
+
+**Cost Factors**:
+- Size ($/sq ft typically $200-$400+)
+- Location/market
+- Finishes
+- Site conditions
+- Utility connections
+- Permits and fees
+
+### The Process
+
+**1. Feasibility Check**:
+- Zoning allows ADU
+- Lot size requirements
+- Setback requirements
+- Parking requirements
+- Utility capacity
+
+**2. Design**:
+- Hire architect/designer
+- Pre-approved plans (some cities)
+- Custom design
+- Meet building codes
+
+**3. Permits**:
+- Planning review
+- Building permit
+- Can take weeks to months
+- Fees vary ($5,000-$30,000+)
+
+**4. Construction**:
+- Hire licensed contractor
+- 4-12 months typical
+- Inspections throughout
+
+**5. Final Approval**:
+- Certificate of occupancy
+- Utility hookups complete
+- Ready for use
+
+### Regulatory Considerations
+
+**Common Requirements**:
+- Maximum size (often 800-1,200 sq ft)
+- Height limits
+- Setback requirements
+- Owner occupancy (some areas)
+- Parking requirements (relaxed in many areas)
+- Short-term rental restrictions
+
+**Recent Changes**:
+Many states have:
+- Reduced barriers
+- Eliminated some parking requirements
+- Streamlined permitting
+- Limited HOA restrictions
+
+## Buying Property with an ADU
+
+### What to Verify
+
+**Legal Status**:
+- Permitted and inspected?
+- Certificate of occupancy?
+- Meets current codes?
+- Any open permits?
+
+**Condition**:
+- Quality of construction
+- Age and maintenance
+- Utilities properly connected
+- Safety features present
+
+**Rental Status**:
+- Current tenants?
+- Lease terms?
+- Rental history?
+- Income documentation?
+
+### Financing Considerations
+
+**Primary Residence with ADU**:
+- Standard residential financing
+- May count rental income for qualifying
+- Single-family loan products
+
+**Investment Purpose**:
+- May require investment property financing
+- Higher down payment
+- Higher rates
+- Rental income documentation
+
+**Value Considerations**:
+- Permitted ADUs add more value
+- Rental income supports higher value
+- Unpermitted ADUs are risky
+
+### Unpermitted ADUs
+
+**Risks**:
+- May need to remove
+- Insurance issues
+- Financing issues
+- Can't legally rent
+- Liability concerns
+
+**What to Do**:
+- Research permit history
+- Consult city planning
+- Get legalization estimate
+- Factor into offer price
+
+## ADU Rental Considerations
+
+### Setting Rent
+**Factors**:
+- Local comparable rentals
+- Size and amenities
+- Location/neighborhood
+- Included utilities
+- Parking availability
+
+### Landlord Responsibilities
+- Habitability standards
+- Maintenance
+- Tenant screening
+- Lease management
+- Legal compliance
+
+### Short-Term vs Long-Term
+
+**Short-Term (Airbnb, etc.)**:
+- Higher income potential
+- More management
+- May have restrictions
+- Variable occupancy
+- Additional insurance needed
+
+**Long-Term**:
+- Stable income
+- Less turnover
+- Tenant laws apply
+- Less management
+- More predictable
+
+## Financial Analysis
+
+### Build vs Rent Analysis
+
+**Build an ADU**:
+- Cost: $150,000
+- Expected rent: $1,500/month
+- Annual income: $18,000
+- Simple return: 12%
+- Payback: ~8 years
+
+**But consider**:
+- Property value increase
+- Tax benefits
+- Vacancy and expenses
+- Opportunity cost of capital
+
+### When It Makes Sense
+- Long-term ownership planned
+- Rental demand strong
+- Regulations favorable
+- Site is suitable
+- Capital available
+
+## Tax Implications
+
+### Rental Income
+- Report on Schedule E
+- Deduct operating expenses
+- Depreciation allowed
+- May trigger self-employment tax
+
+### Tax Benefits
+- Depreciation (27.5 years)
+- Operating expense deductions
+- Mortgage interest (rental portion)
+- Property taxes (rental portion)
+
+### Capital Gains
+If selling property with ADU:
+- Primary residence exclusion may apply
+- ADU rental portion may be taxed
+- Consult tax professional
+
+## Common Challenges
+
+### Building Challenges
+- Utility capacity limits
+- Tree removal restrictions
+- Neighbor objections
+- Cost overruns
+- Permit delays
+
+### Operating Challenges
+- Tenant issues
+- Maintenance
+- Privacy concerns
+- Parking conflicts
+- HOA restrictions
+
+### Solutions
+- Hire experienced professionals
+- Clear agreements with tenants
+- Good property management
+- Know regulations before starting
+- Budget conservatively
+
+## Questions to Ask
+
+### If Buying Property with ADU
+- Is it permitted?
+- What's the rental history?
+- Current lease terms?
+- Separately metered utilities?
+- Any needed repairs?
+
+### If Building an ADU
+- What are local regulations?
+- What size can I build?
+- What will it cost?
+- What's the timeline?
+- What's the rental potential?
+
+---
+
+*Evaluating a property with an ADU? [Analyze it with Perchspot](/chat) to understand the property's full potential and value.*
+    `,
+  },
 ];
 
 // Update categories to include Local
