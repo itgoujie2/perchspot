@@ -6351,6 +6351,1695 @@ Be prepared, understand the process, and have a plan for all outcomes.
 *Before the appraisal, understand what you're buying. [Analyze any property with Perchspot](/chat) for AI-powered insights on condition, location, and value.*
     `,
   },
+  // BATCH 2: More local SEO and buyer education
+  {
+    id: 'snoqualmie-north-bend-housing-2026',
+    title: "Snoqualmie & North Bend Housing Guide 2026: Mountain Town Living",
+    excerpt: "Discover life at the base of the Cascades. Snoqualmie and North Bend offer stunning scenery, outdoor access, and surprising affordability.",
+    category: 'Local',
+    date: '2026-02-16',
+    readTime: '11 min read',
+    image: '/blog/snoqualmie.jpg',
+    metaDescription: "Snoqualmie and North Bend WA housing guide 2026: home prices, best neighborhoods, schools, and commute to Seattle and Eastside tech jobs.",
+    content: `
+# Snoqualmie & North Bend Housing Guide 2026: Mountain Town Living
+
+At the eastern edge of King County, where the Cascade foothills begin, Snoqualmie and North Bend offer a distinctly different lifestyle from typical Eastside suburbs. Here you'll find mountain views, waterfalls, outdoor recreation, and—perhaps surprisingly—reasonable home prices.
+
+## Why Consider Snoqualmie/North Bend?
+
+### The Setting
+- **Snoqualmie Falls**: 268-foot waterfall in your backyard
+- **Mount Si**: Iconic hiking trail minutes away
+- **Snoqualmie Pass**: 30 minutes to skiing
+- **Rattlesnake Lake/Ridge**: Year-round outdoor recreation
+- **Twin Peaks fame**: Yes, that diner is real
+
+### The Value Proposition
+Compared to closer-in Eastside:
+| Location | Median Price | Commute to Bellevue |
+|----------|-------------|---------------------|
+| Snoqualmie | $950K | 30-40 min |
+| North Bend | $825K | 35-45 min |
+| Issaquah | $1.12M | 20-30 min |
+| Sammamish | $1.52M | 25-35 min |
+
+You're trading commute time for significant savings and mountain access.
+
+## Current Market Snapshot (February 2026)
+
+### Snoqualmie
+- **Median Home Price**: $950,000
+- **Price Range**: $700K - $1.5M
+- **Days on Market**: 28 days average
+- **Inventory**: Moderate
+- **Character**: Master-planned, newer construction
+
+### North Bend
+- **Median Home Price**: $825,000
+- **Price Range**: $550K - $1.3M
+- **Days on Market**: 32 days average
+- **Inventory**: Limited
+- **Character**: Small-town, mixed housing stock
+
+## Snoqualmie Neighborhoods
+
+### Snoqualmie Ridge
+**Best for**: Families wanting amenities and newer homes
+**Price Range**: $850K - $1.4M
+
+The primary residential area:
+- Master-planned community (1990s-present)
+- Multiple parks, trails, community center
+- Golf course
+- Town center with shops, restaurants
+- Excellent schools
+- Mix of townhomes and single-family
+
+**Pros**: Amenities, community feel, well-maintained
+**Cons**: HOA fees, somewhat suburban feel, consistent architecture
+
+### Historic Downtown Snoqualmie
+**Best for**: Character seekers, smaller budgets
+**Price Range**: $650K - $950K
+
+Original town center:
+- Older homes with character
+- Walking distance to Falls
+- Railroad museum area
+- More affordable
+- Limited inventory
+
+### Snoqualmie Falls Neighborhood
+**Best for**: Views and privacy
+**Price Range**: $900K - $1.5M+
+
+Near the falls:
+- Larger lots
+- More privacy
+- Some view properties
+- Mixed age homes
+- Premium for location
+
+## North Bend Neighborhoods
+
+### Downtown North Bend
+**Best for**: Small-town living, walkability
+**Price Range**: $600K - $900K
+
+The original town:
+- Walk to restaurants, shops
+- Mt. Si Trailhead nearby
+- Older homes, character
+- True small-town feel
+- Limited new construction
+
+### North Bend Highlands
+**Best for**: Newer homes, families
+**Price Range**: $750K - $1.1M
+
+Newer development area:
+- Built 2000s-present
+- More suburban layout
+- Good school access
+- Mountain views
+- Growing area
+
+### Rural North Bend
+**Best for**: Acreage, privacy, hobby farms
+**Price Range**: $700K - $1.5M+
+
+Surrounding areas:
+- Larger properties (1-5+ acres)
+- Horses, animals allowed
+- Well/septic common
+- More self-sufficient lifestyle
+- Variable home ages
+
+## Schools: Snoqualmie Valley School District
+
+Both communities are served by SVSD:
+
+**Elementary Schools**:
+- Cascade View Elementary (Snoqualmie Ridge) - 8/10
+- Timber Ridge Elementary - 7/10
+- North Bend Elementary - 7/10
+
+**Middle School**:
+- Twin Falls Middle School - 7/10
+
+**High School**:
+- Mount Si High School - 7/10
+
+**Overall**: Good district, strong community involvement, smaller class sizes than urban districts.
+
+## Commute Considerations
+
+### To Eastside Tech (Bellevue/Redmond)
+
+**From Snoqualmie Ridge**:
+- Distance: 22-28 miles
+- Time: 30-45 minutes
+- Route: I-90 West
+- Rush hour: Can stretch to 50-60 min
+
+**From North Bend**:
+- Distance: 28-32 miles
+- Time: 35-50 minutes
+- Route: I-90 West
+- Rush hour: Can stretch to 60+ min
+
+### To Seattle
+- Distance: 30-35 miles
+- Time: 40-55 minutes (highly variable)
+- Route: I-90 West
+
+### Commute Reality Check
+- **Morning westbound**: Leave before 6:30 AM for smooth commute
+- **Evening eastbound**: Generally easier than westbound morning
+- **Weather**: I-90 closures happen in winter; chains sometimes required
+- **Remote work**: If you're hybrid 2-3 days, very manageable
+
+### Vanpool/Transit
+- Sound Transit: Limited service
+- Vanpool programs: Available for some employers
+- Most residents drive
+
+## Lifestyle: The Mountain Life
+
+### Outdoor Recreation
+**Summer**:
+- Hiking: Mt. Si, Rattlesnake Ridge, dozens more
+- Mountain biking: Extensive trail network
+- Fishing: Three Forks Natural Area, rivers
+- Golf: Snoqualmie Ridge Golf Course
+- Kayaking/Paddleboarding: Rattlesnake Lake
+
+**Winter**:
+- Skiing/Snowboarding: Summit at Snoqualmie (30 min)
+- Snowshoeing: Countless trails
+- Cross-country skiing: Multiple options
+
+### The Twin Peaks Connection
+North Bend was the filming location for the iconic TV series:
+- Twede's Cafe (the Double R Diner)
+- Salish Lodge (Great Northern Hotel)
+- Various filming locations
+- Annual Twin Peaks festival
+
+### Community Character
+- Slower pace than urban/suburban
+- Tight-knit community
+- Family-oriented
+- Outdoor enthusiasts
+- Artists and creatives
+
+## Things to Know Before Buying
+
+### Weather Differences
+The Snoqualmie Valley gets more rain and snow:
+- 10-20% more precipitation than Seattle
+- More foggy mornings
+- Cooler temperatures
+- Occasional snow accumulation
+- I-90 pass closures affect access
+
+### Wildlife
+Living near wilderness means:
+- Deer (very common)
+- Black bears (occasional)
+- Cougars (rare but present)
+- Coyotes
+- Eagles, hawks, owls
+
+Secure garbage, don't feed wildlife, be aware.
+
+### Flooding
+Parts of the valley are flood-prone:
+- Check FEMA flood maps
+- Flood insurance may be required
+- Some areas have restrictions
+- River flooding does occur
+
+### Septic/Well
+Some properties, especially in North Bend:
+- Septic systems (not sewer)
+- Private wells (not municipal water)
+- Additional inspection needed
+- Maintenance requirements
+
+## Snoqualmie vs. North Bend
+
+| Factor | Snoqualmie | North Bend |
+|--------|------------|------------|
+| Price | Higher | Lower |
+| Character | Planned/suburban | Small town |
+| Amenities | More | Fewer |
+| HOAs | Common | Less common |
+| Home Age | Newer | Mixed |
+| Commute | Slightly shorter | Slightly longer |
+| Outdoor Access | Excellent | Excellent |
+
+## Who Should Consider This Area
+
+### Great Fit If You:
+- Love outdoor recreation
+- Work remote or hybrid
+- Want more space for less money
+- Appreciate small-town life
+- Don't need urban amenities
+- Can handle a commute
+
+### Consider Elsewhere If You:
+- Need shortest possible commute
+- Want walkable urban amenities
+- Dislike driving in weather
+- Need frequent Seattle access
+- Prefer diverse dining/entertainment
+
+## Investment Outlook
+
+**Positive Factors**:
+- Limited land = constrained supply
+- Outdoor lifestyle increasingly valued
+- Remote work trend helps
+- Relative affordability attracts buyers
+
+**Considerations**:
+- Dependent on I-90 access
+- Weather can be limiting factor
+- Less appreciation historically than closer-in areas
+
+---
+
+*Found a property in Snoqualmie or North Bend? [Analyze it with Perchspot](/chat) for AI-powered insights on condition, schools, and investment potential.*
+    `,
+  },
+  {
+    id: 'mercer-island-housing-guide-2026',
+    title: "Mercer Island Housing Guide 2026: Seattle's Exclusive Island Community",
+    excerpt: "Mercer Island offers top schools, waterfront living, and unmatched convenience. Here's what buyers need to know about this premium market.",
+    category: 'Local',
+    date: '2026-02-15',
+    readTime: '10 min read',
+    image: '/blog/mercer-island.jpg',
+    metaDescription: "Mercer Island WA housing guide 2026: luxury home prices, top schools, waterfront properties, and commute to Seattle and Bellevue.",
+    content: `
+# Mercer Island Housing Guide 2026: Seattle's Exclusive Island Community
+
+Situated in the middle of Lake Washington, Mercer Island offers a unique proposition: island living with direct freeway access to both Seattle and Bellevue. With top-rated schools, safe streets, and waterfront properties, it commands some of the region's highest prices.
+
+## Current Market Snapshot (February 2026)
+
+- **Median Home Price**: $2,150,000
+- **Price Range**: $1.2M (condos) - $10M+ (waterfront estates)
+- **Days on Market**: 38 days average
+- **Inventory**: Very limited
+- **Market Type**: Premium/luxury
+
+Mercer Island is consistently one of the most expensive markets in Washington State.
+
+## Why Mercer Island Commands Premium Prices
+
+### Location Perfection
+- **Equidistant**: 10-15 min to downtown Seattle OR downtown Bellevue
+- **I-90 Access**: Direct freeway on/off ramps
+- **Light Rail**: Link station on island
+- **Lake Washington**: Surrounded by water
+
+### Top-Rated Schools
+Mercer Island School District is among Washington's best:
+- **Mercer Island High School**: 10/10 rating
+- **Islander Middle School**: 9/10 rating
+- **Elementary Schools**: All 9-10/10 rated
+- **Graduation Rate**: 97%+
+- **College Attendance**: 90%+
+
+### Safety and Community
+- Very low crime rates
+- Engaged community
+- Excellent parks and recreation
+- Small-town island feel
+- High property values maintained
+
+## Neighborhoods
+
+### North End
+**Best for**: Seattle commuters, families
+**Price Range**: $1.5M - $3.5M
+
+Closest to I-90 Seattle-side:
+- Quick Seattle access
+- Mix of home ages
+- Good schools throughout
+- Community parks
+
+### East Side
+**Best for**: Bellevue commuters, waterfront seekers
+**Price Range**: $2M - $8M+
+
+Facing Bellevue across the lake:
+- Waterfront properties
+- Sunrise views
+- Larger lots
+- Some of island's finest homes
+
+### West Side
+**Best for**: Seattle views, waterfront luxury
+**Price Range**: $2.5M - $10M+
+
+Facing Seattle:
+- Stunning city/mountain views
+- Premier waterfront
+- Sunset exposure
+- Highest prices
+
+### South End
+**Best for**: Privacy, larger lots
+**Price Range**: $1.8M - $4M
+
+More secluded feel:
+- Larger properties
+- More wooded
+- Pioneer Park access
+- Quieter streets
+
+### Town Center
+**Best for**: Walkability, condos
+**Price Range**: $800K - $1.5M (condos), $1.5M+ (houses)
+
+Island's commercial hub:
+- Walking distance to shops, restaurants
+- Condo options available
+- Light rail station nearby
+- Most affordable entry point
+
+## Waterfront Living
+
+Mercer Island waterfront is the pinnacle of Seattle-area living:
+
+### What to Expect
+- **Price**: $3M - $15M+
+- **Availability**: Extremely limited (10-20 sales/year)
+- **Features**: Private docks, boat lifts, swimming
+- **Competition**: Multiple offers common
+
+### Waterfront Considerations
+- Dock permits and maintenance
+- Seawall condition
+- Lake level fluctuations
+- Privacy varies by location
+- HOA restrictions on some shores
+
+## Commute Analysis
+
+### To Downtown Seattle
+- **Distance**: 6-8 miles
+- **Time**: 10-20 minutes
+- **Route**: I-90 West
+- **Light Rail**: 12 minutes to downtown
+
+### To Bellevue
+- **Distance**: 5-7 miles
+- **Time**: 10-15 minutes
+- **Route**: I-90 East
+- **Light Rail**: Direct connection
+
+### To Amazon (Bellevue)
+- Distance: 6 miles
+- Time: 12-20 minutes
+- Among the best commutes to Amazon Bellevue
+
+### To Microsoft (Redmond)
+- Distance: 12 miles
+- Time: 20-30 minutes
+- Reasonable but not optimal
+
+### Light Rail Advantage
+The Link Light Rail station on Mercer Island provides:
+- Car-free commute option
+- Seattle access in 12 minutes
+- Bellevue access in 8 minutes
+- SeaTac Airport access
+- No parking stress downtown
+
+## Schools Deep Dive
+
+### Why Mercer Island Schools Excel
+
+**Mercer Island High School**:
+- 10/10 GreatSchools rating
+- Top 1% in Washington
+- Strong AP/IB programs
+- Excellent college counseling
+- Competitive athletics
+- Robust arts programs
+
+**Demographics**:
+- High family income supports schools
+- Strong parent involvement
+- Consistent funding
+- Low student turnover
+
+### Private School Options
+Some families still choose private:
+- Seattle private schools accessible
+- Eastside options via I-90
+- But public schools rival private quality
+
+## The Mercer Island Lifestyle
+
+### Island Amenities
+- **Luther Burbank Park**: Waterfront, swimming beach
+- **Pioneer Park**: 113 acres of forest trails
+- **Mercer Island Country Club**: Golf, tennis, dining
+- **Town Center**: Local shops, restaurants
+- **Community Center**: Programs, events, fitness
+
+### Community Character
+- Family-oriented
+- Highly educated population
+- Active civic engagement
+- Strong school involvement
+- Affluent but not ostentatious
+
+### What's Not on the Island
+- Major shopping (QFC, some retail only)
+- Diverse restaurant scene
+- Entertainment venues
+- Large employers
+
+Residents drive to Seattle or Bellevue for these needs.
+
+## Buying on Mercer Island
+
+### Competition
+- Low inventory means competition
+- Multiple offers not uncommon
+- Cash buyers active
+- Premium for desirable properties
+
+### Entry Points
+**Most Affordable**:
+- Town Center condos: $800K-$1.2M
+- Older homes needing work: $1.2M-$1.5M
+- Smaller lots, North End: $1.3M-$1.8M
+
+**Mid-Range**:
+- Updated family homes: $1.8M-$2.5M
+- Larger lots, good condition: $2M-$3M
+
+**Premium**:
+- Waterfront: $3M-$10M+
+- View properties: $2.5M-$5M
+- New construction: $3M+
+
+### What to Know
+1. **Property taxes are high**: Premium values = premium taxes
+2. **Insurance**: Waterfront properties need additional coverage
+3. **HOAs**: Some neighborhoods have restrictions
+4. **Renovation**: Older homes may need significant updates
+
+## Mercer Island vs. Alternatives
+
+| Factor | Mercer Island | Bellevue | Medina |
+|--------|--------------|----------|--------|
+| Median Price | $2.15M | $1.3M | $3.5M+ |
+| Schools | 10/10 | 9/10 | Bellevue SD |
+| Commute Balance | Best | Good to Eastside | Eastside focused |
+| Waterfront | Available | Limited | Available |
+| Character | Island/suburban | Urban/suburban | Ultra-private |
+
+## Is Mercer Island Right for You?
+
+### Good Fit If You:
+- Prioritize schools highly
+- Work in Seattle AND Eastside
+- Want waterfront potential
+- Value safety and community
+- Can afford premium prices
+- Appreciate island tranquility
+
+### Consider Elsewhere If You:
+- Budget is under $1.5M
+- Need walkable urban amenities
+- Want diverse dining/entertainment
+- Work primarily in Redmond
+- Prefer newer construction
+
+---
+
+*Considering a Mercer Island property? [Analyze it with Perchspot](/chat) for comprehensive AI insights on condition, value, and investment potential.*
+    `,
+  },
+  {
+    id: 'earnest-money-explained',
+    title: "Earnest Money Deposits: How Much, When, and How to Protect It",
+    excerpt: "Earnest money shows you're serious—but how much is enough? And what happens if the deal falls through?",
+    category: 'Guide',
+    date: '2026-02-14',
+    readTime: '8 min read',
+    image: '/blog/earnest-money.jpg',
+    metaDescription: "Earnest money deposit guide: how much to offer, when it's due, how to protect it, and when you can get it back.",
+    content: `
+# Earnest Money Deposits: How Much, When, and How to Protect It
+
+Earnest money is your "good faith" deposit showing you're serious about buying. It's real money at real risk. Here's everything you need to know to handle it wisely.
+
+## What Is Earnest Money?
+
+Earnest money (also called a good faith deposit) is:
+- Money you put down when making an offer
+- Held in escrow by a neutral third party
+- Applied to your purchase at closing
+- At risk if you breach the contract
+
+It demonstrates commitment and gives the seller confidence to take their home off the market.
+
+## How Much Earnest Money?
+
+### General Guidelines
+
+| Market Condition | Typical Amount |
+|-----------------|----------------|
+| Buyer's Market | 1-2% of price |
+| Balanced Market | 2-3% of price |
+| Seller's Market | 3-5% of price |
+| Highly Competitive | 5%+ |
+
+### Real Examples
+
+**$500,000 Home**:
+- Minimum: $5,000 (1%)
+- Typical: $10,000-$15,000 (2-3%)
+- Competitive: $25,000 (5%)
+
+**$1,000,000 Home**:
+- Minimum: $10,000 (1%)
+- Typical: $20,000-$30,000 (2-3%)
+- Competitive: $50,000 (5%)
+
+### Factors That Affect Amount
+
+**Go Higher If**:
+- Multiple offer situation
+- Hot market
+- Want to show serious intent
+- Competing against cash buyers
+
+**Can Go Lower If**:
+- Buyer's market
+- Property has been listed long
+- Less competition
+- Need to preserve cash for closing
+
+## When Is Earnest Money Due?
+
+### Timeline
+
+**At Offer**: Sometimes a check accompanies the offer, but more commonly:
+
+**Upon Mutual Acceptance**: Within 2-3 business days of both parties signing the contract
+
+**Typical Process**:
+1. Offer accepted
+2. You have 2-3 days to deliver funds
+3. Check or wire to escrow company
+4. Escrow holds until closing
+
+### How to Pay
+- Personal check (most common)
+- Cashier's check
+- Wire transfer
+- NOT cash
+
+## Where Does It Go?
+
+### Escrow Account
+Earnest money is held by a neutral third party:
+- Title company
+- Escrow company
+- Real estate brokerage (trust account)
+- Attorney (in some states)
+
+### Not to the Seller
+The seller does NOT receive your earnest money directly. It stays in escrow until:
+- Closing (applied to purchase)
+- Deal falls through (disbursed per agreement)
+
+## Protecting Your Earnest Money
+
+### Contingencies Are Key
+
+Contingencies allow you to back out AND keep your earnest money:
+
+**Financing Contingency**
+- Can't get loan approval? Get deposit back.
+- Typical period: 21-30 days
+
+**Inspection Contingency**
+- Find major issues? Can back out and recover deposit.
+- Typical period: 10-17 days
+
+**Appraisal Contingency**
+- Appraisal too low? Can exit with deposit.
+- Tied to financing usually
+
+**Home Sale Contingency**
+- Need to sell your home first?
+- Protects if your sale falls through
+
+### Following Procedures
+
+To protect your deposit, you MUST:
+- Meet all contingency deadlines
+- Provide required notices in writing
+- Follow contract procedures exactly
+- Communicate through proper channels
+
+### Documentation
+
+Keep records of:
+- All written communications
+- Contingency removal dates
+- Inspection reports
+- Financing documents
+- Any issues discovered
+
+## When You Lose Earnest Money
+
+### Scenarios Where Deposit Is at Risk
+
+**Backing Out Without Cause**:
+- Changed your mind? Seller may keep deposit.
+- Found a "better" house? Deposit at risk.
+- Personal circumstances changed? Risky.
+
+**Missing Deadlines**:
+- Contingency period expired but you didn't remove or cancel
+- Deposit could be forfeit
+
+**Contract Breach**:
+- Failed to close without valid reason
+- Didn't perform required actions
+
+### The Gray Areas
+
+Sometimes disputes arise:
+- Both parties claim the deposit
+- Escrow won't release without agreement
+- May require mediation or court
+
+## When You Get Earnest Money Back
+
+### Protected Scenarios
+
+**Within Contingency Periods**:
+- Inspection reveals deal-breaker issues
+- Financing falls through
+- Appraisal too low
+- Home sale contingency not met
+
+**Seller Breach**:
+- Seller can't deliver clear title
+- Seller refuses to make required repairs
+- Seller backs out
+
+**Mutual Agreement**:
+- Both parties agree to cancel
+- Sign mutual release
+
+### The Refund Process
+
+1. Issue arises
+2. Notify other party per contract
+3. Request deposit refund
+4. Sign release documents
+5. Escrow disburses funds
+6. Receive check (5-10 business days typically)
+
+## Earnest Money Strategy
+
+### In Competitive Markets
+
+To win offers, consider:
+- Higher earnest money (signals commitment)
+- Shortened contingency periods
+- Non-refundable earnest money (risky!)
+
+### Non-Refundable Earnest Money
+
+Some buyers offer "day one" non-refundable deposits:
+- Immediately becomes seller's if you back out
+- Very attractive to sellers
+- Very risky for buyers
+- Only for confident, well-researched buyers
+
+### Escalating Deposits
+
+Some contracts structure deposits that increase:
+- $10K at mutual acceptance
+- Additional $15K after inspection
+- Remaining at contingency removal
+
+## Common Mistakes
+
+### 1. Not Understanding Timelines
+- Know your contingency deadlines
+- Calendar them
+- Don't miss them
+
+### 2. Verbal Agreements
+- Everything must be in writing
+- Verbal promises don't protect you
+- Document everything
+
+### 3. Wrong Escrow Account
+- Verify escrow company legitimacy
+- Watch for wire fraud scams
+- Confirm instructions by phone
+
+### 4. Assuming Automatic Refund
+- You must follow procedures
+- Actively request refund
+- Provide documentation
+
+## Wire Fraud Warning
+
+Earnest money is a target for scammers:
+
+### Red Flags
+- Last-minute wire instruction changes
+- Instructions only via email
+- Pressure to wire immediately
+- Unfamiliar account details
+
+### Protection
+- ALWAYS verify wire instructions by phone
+- Use a known phone number (not from email)
+- Confirm with escrow directly
+- Never rush the process
+
+## Quick Reference
+
+### Checklist Before Depositing
+- [ ] Contract clearly states deposit amount
+- [ ] Contingencies protect your interests
+- [ ] Escrow company verified
+- [ ] Wire/payment instructions confirmed
+- [ ] Timelines understood
+- [ ] Documentation ready
+
+### If Issues Arise
+1. Don't panic
+2. Review contract language
+3. Consult your agent
+4. Consider attorney if needed
+5. Communicate in writing
+
+---
+
+*Ready to make an offer? [Analyze any property with Perchspot](/chat) before putting your earnest money down.*
+    `,
+  },
+  {
+    id: 'title-insurance-explained',
+    title: "Title Insurance Explained: What It Is and Do You Really Need It?",
+    excerpt: "Title insurance protects against ownership disputes and hidden liens. Here's what it covers and whether it's worth the cost.",
+    category: 'Guide',
+    date: '2026-02-13',
+    readTime: '9 min read',
+    image: '/blog/title-insurance.jpg',
+    metaDescription: "Title insurance explained: what it covers, lender's vs owner's policies, how much it costs, and whether you need it.",
+    content: `
+# Title Insurance Explained: What It Is and Do You Really Need It?
+
+Title insurance is one of those closing costs that seems mysterious. What exactly are you paying for? Do you really need it? Here's everything you need to know.
+
+## What Is Title Insurance?
+
+Title insurance protects against financial loss from defects in the title to your property. Unlike other insurance (which protects against future events), title insurance protects against past events that could affect your ownership.
+
+### What's a "Title"?
+
+Your title is your legal ownership of the property. A "clean" title means:
+- You have full ownership rights
+- No one else has claims to the property
+- No liens or encumbrances exist
+- The seller had the right to sell
+
+### What Could Go Wrong?
+
+**Hidden Issues That Might Surface**:
+- Unknown heirs claiming ownership
+- Forged documents in the ownership chain
+- Fraud in previous transactions
+- Mistakes in public records
+- Missing signatures on old deeds
+- Undisclosed liens (taxes, contractors, HOA)
+- Boundary disputes
+- Easements not disclosed
+
+These issues can emerge years after purchase—and threaten your ownership.
+
+## Two Types of Title Insurance
+
+### Lender's Title Insurance
+**What It Is**: Protects the LENDER's interest in the property
+
+**Who Requires It**: Your mortgage lender
+
+**Who Pays**: The buyer (required for loan approval)
+
+**Coverage Amount**: The loan amount (decreases as you pay down mortgage)
+
+**Duration**: Until mortgage is paid off
+
+### Owner's Title Insurance
+**What It Is**: Protects YOUR interest as the owner
+
+**Who Requires It**: Nobody—it's optional
+
+**Who Pays**: Buyer (sometimes negotiable)
+
+**Coverage Amount**: The purchase price
+
+**Duration**: As long as you (or your heirs) own the property
+
+## What Title Insurance Covers
+
+### Standard Coverage
+
+**Lender's Policy**:
+- Protects lender's security interest
+- Covers forgery, fraud, errors
+- Defends against claims
+- Pays lender if title fails
+
+**Owner's Policy**:
+- Protects your ownership
+- Covers legal defense costs
+- Pays for losses up to policy amount
+- Transfers to heirs
+
+### Enhanced Coverage (ALTA)
+
+Enhanced owner's policies add protection for:
+- Building permit issues
+- Zoning violations
+- Encroachments
+- Post-policy forgery
+- Forced removal of structures
+- Access issues
+
+Worth the small additional cost for most buyers.
+
+## What Title Insurance Doesn't Cover
+
+### Excluded Items
+- Issues you knew about before purchase
+- Government actions (eminent domain)
+- Native American land claims
+- Environmental hazards
+- Issues after purchase date
+- Things you agreed to in contract
+
+### Things You Must Disclose
+If you know about a potential issue and don't disclose it, coverage may be void.
+
+## How Much Does Title Insurance Cost?
+
+### Typical Costs
+
+| Home Price | Lender's Policy | Owner's Policy |
+|------------|-----------------|----------------|
+| $400,000 | $800-$1,200 | $1,000-$1,500 |
+| $600,000 | $1,000-$1,500 | $1,400-$2,000 |
+| $1,000,000 | $1,500-$2,200 | $2,000-$3,000 |
+
+**Note**: Costs vary significantly by state and company. Some states regulate rates; others don't.
+
+### One-Time Premium
+Unlike other insurance, title insurance is:
+- Paid once at closing
+- No monthly or annual premiums
+- Coverage continues indefinitely (owner's policy)
+
+### Bundling Discount
+Buying both policies from same company often saves 10-30%.
+
+## Do You Need Owner's Title Insurance?
+
+### Arguments FOR Owner's Title Insurance
+
+**Protection You Can't Get Elsewhere**:
+- No other insurance covers title defects
+- Legal defense costs are expensive
+- Losing your home is catastrophic
+- Relatively low cost for coverage provided
+
+**Real Risks Exist**:
+- Title searches aren't perfect
+- Fraud happens
+- Records have errors
+- Claims do get filed
+
+**One-Time Cost**:
+- Pay once, protected forever
+- No ongoing premiums
+- Transfers to heirs
+
+### Arguments AGAINST
+
+**Low Probability**:
+- Claims are relatively rare
+- Modern title searches are thorough
+- Most issues found before closing
+
+**Not Required**:
+- You can decline
+- Save $1,000-$3,000
+
+### The Verdict
+
+**Most experts recommend owner's title insurance**. The cost is modest for the protection provided, and the consequences of an uninsured title problem can be devastating.
+
+## The Title Search Process
+
+Before issuing a policy, a title company:
+
+### Step 1: Research
+- Search public records
+- Review deed history
+- Check for liens
+- Verify legal description
+- Examine surveys
+
+### Step 2: Examination
+- Title examiner reviews findings
+- Identifies potential issues
+- Notes requirements to clear
+
+### Step 3: Title Commitment
+- Document showing findings
+- Lists any exceptions to coverage
+- Shows requirements before closing
+
+### Step 4: Clearing Issues
+- Resolve any problems found
+- Obtain releases for liens
+- Correct errors in records
+
+### Step 5: Policy Issuance
+- At closing, policy is issued
+- Coverage begins immediately
+
+## Common Title Issues
+
+### Liens
+**What**: Claims against the property for unpaid debts
+**Examples**: Tax liens, mechanic's liens, judgment liens
+**Resolution**: Must be paid off before closing
+
+### Easements
+**What**: Rights others have to use your property
+**Examples**: Utility easements, shared driveways
+**Resolution**: Disclosed and buyer accepts or negotiates
+
+### Boundary Disputes
+**What**: Disagreements about property lines
+**Examples**: Fence in wrong location, building over line
+**Resolution**: Survey, negotiation, or legal action
+
+### Missing Heirs
+**What**: Unknown inheritors with potential claims
+**Examples**: Children from previous marriage, unknown siblings
+**Resolution**: May require quiet title action
+
+## Tips for Buyers
+
+### 1. Review the Title Commitment
+Before closing:
+- Read exceptions carefully
+- Understand what's NOT covered
+- Ask questions about anything unclear
+
+### 2. Consider Enhanced Coverage
+- Usually costs 10-20% more
+- Adds significant protections
+- Worth it for most properties
+
+### 3. Shop Title Companies
+In most states:
+- You can choose your title company
+- Prices vary
+- Service quality varies
+- Get quotes from 2-3 companies
+
+### 4. Understand Your Exceptions
+Every policy has exceptions—specific things not covered:
+- Standard exceptions (apply to all policies)
+- Specific exceptions (unique to your property)
+- Know what you're accepting
+
+## After Purchase
+
+### Keep Your Policy
+- Store in safe place
+- Needed if claim arises
+- Needed when you sell
+
+### File Claims Promptly
+If someone challenges your title:
+- Contact title company immediately
+- They handle legal defense
+- Don't try to resolve yourself
+
+---
+
+*Before closing on your next home, [analyze the property with Perchspot](/chat) to understand its full picture—condition, location, schools, and investment potential.*
+    `,
+  },
+  {
+    id: 'hoa-living-pros-cons',
+    title: "HOA Living: Pros, Cons, and Red Flags to Watch For",
+    excerpt: "HOAs can be a blessing or a burden. Here's how to evaluate them before you buy—and red flags that signal trouble.",
+    category: 'Guide',
+    date: '2026-02-12',
+    readTime: '10 min read',
+    image: '/blog/hoa.jpg',
+    metaDescription: "HOA pros and cons: what HOA fees cover, red flags in HOA documents, questions to ask, and how to evaluate before buying.",
+    content: `
+# HOA Living: Pros, Cons, and Red Flags to Watch For
+
+About 75 million Americans live in HOA communities. For some, it's the best decision they made. For others, it's a nightmare. Here's how to evaluate HOA living before you commit.
+
+## What Is an HOA?
+
+A Homeowners Association (HOA) is a governing body that:
+- Sets and enforces community rules
+- Manages common areas
+- Collects fees from owners
+- Maintains shared amenities
+- Handles community decisions
+
+## Types of HOA Communities
+
+### Condominiums
+- Own unit interior
+- HOA owns/manages building, grounds
+- Higher fees (more coverage)
+- Fees include building insurance, exterior maintenance
+
+### Townhouses
+- Own unit and sometimes land beneath
+- HOA manages common areas
+- Moderate fees
+- May share walls, roofs
+
+### Single-Family HOAs
+- Own home and land
+- HOA manages common areas, enforces rules
+- Lower fees typically
+- Rules about exterior appearance
+
+### Planned Communities
+- Master-planned developments
+- Extensive amenities
+- Varying fee structures
+- Multiple sub-associations possible
+
+## What HOA Fees Cover
+
+### Typical Inclusions
+
+**Exterior/Common Areas**:
+- Landscaping
+- Common area maintenance
+- Parking lot/road maintenance
+- Lighting
+- Signage
+
+**Amenities**:
+- Pool maintenance
+- Gym/fitness center
+- Clubhouse
+- Tennis courts
+- Playgrounds
+
+**Utilities (Sometimes)**:
+- Water/sewer
+- Garbage
+- Cable/internet
+- Gas (condos)
+
+**Insurance**:
+- Common area liability
+- Building insurance (condos)
+- Fidelity bond
+
+**Management**:
+- Professional management company
+- Administrative costs
+- Legal/accounting
+
+**Reserves**:
+- Savings for future repairs
+- Roof replacement
+- Repaving
+- Major system repairs
+
+## HOA Fees: What to Expect
+
+### Average Monthly Fees
+
+| Property Type | Typical Range |
+|--------------|---------------|
+| Single-family HOA | $50-$200 |
+| Townhouse | $150-$400 |
+| Condo (mid-rise) | $300-$600 |
+| Condo (high-rise) | $500-$1,000+ |
+| Luxury/resort | $1,000-$2,000+ |
+
+### What Affects Fees
+- Amenities offered
+- Age of property
+- Size of community
+- Reserve funding level
+- Management quality
+- Location
+
+## Pros of HOA Living
+
+### Maintenance Handled
+- No mowing lawn (often)
+- Exterior maintained
+- Common areas kept up
+- Less weekend work
+
+### Amenities Access
+- Pool without pool ownership hassle
+- Gym without gym membership
+- Tennis, golf, clubhouse
+- Community events
+
+### Property Value Protection
+- Standards maintained
+- No junk cars next door
+- Consistent neighborhood appearance
+- Shared investment in community
+
+### Simplified Living
+- One payment covers many services
+- Problems handled by management
+- Community coordination
+- Emergency response plans
+
+### Community Building
+- Organized events
+- Shared spaces encourage interaction
+- Newsletter/communication
+- Collective voice for issues
+
+## Cons of HOA Living
+
+### Monthly Fees
+- Never go away
+- Increase over time
+- Significant over years
+- Add to true housing cost
+
+### Rules and Restrictions
+- What colors you can paint
+- Where you can park
+- What you can plant
+- Pet restrictions
+- Rental restrictions
+- Noise policies
+
+### Special Assessments
+- Surprise large bills
+- Major repairs shared by owners
+- Can be thousands of dollars
+- Limited ability to decline
+
+### Bad Management
+- Poorly run HOAs exist
+- Politics and conflicts
+- Inconsistent enforcement
+- Financial mismanagement
+
+### Loss of Control
+- Can't always do what you want
+- Need approval for changes
+- Board makes decisions for you
+- Democracy can be frustrating
+
+## Red Flags to Watch
+
+### Financial Red Flags
+
+**Low Reserves**:
+- Reserves below 30% funded = danger
+- Indicates special assessments coming
+- Shows poor financial planning
+
+**Recent Fee Increases**:
+- Multiple large increases = problems
+- Ask for 5-year fee history
+- Understand why increases occurred
+
+**Pending Special Assessments**:
+- Ask directly
+- Check meeting minutes
+- Major repairs planned?
+
+**High Delinquency Rate**:
+- Many owners not paying?
+- Community financial stress
+- May lead to fee increases
+
+**Ongoing Litigation**:
+- HOA suing or being sued
+- Expensive and risky
+- Affects resale
+
+### Management Red Flags
+
+**Unresponsive Management**:
+- Slow to return calls
+- Problems not addressed
+- Poor communication
+
+**High Turnover**:
+- Multiple management companies recently
+- Board member exodus
+- Instability
+
+**Selective Enforcement**:
+- Rules applied inconsistently
+- Favoritism apparent
+- Legal liability
+
+### Community Red Flags
+
+**Deferred Maintenance**:
+- Common areas poorly maintained
+- Visible deterioration
+- Shows financial or management problems
+
+**Many Rentals**:
+- High rental percentage
+- Owners less invested
+- Harder to get loans (some lenders restrict)
+
+**Empty Board Positions**:
+- No one wants to serve
+- Apathy in community
+- Problems go unaddressed
+
+## Questions to Ask Before Buying
+
+### Financial Questions
+1. What are current monthly fees?
+2. How have fees changed over 5 years?
+3. What's the reserve fund balance?
+4. What percentage is reserve funded?
+5. Are any special assessments planned?
+6. What's the delinquency rate?
+7. Any pending litigation?
+
+### Rules Questions
+1. Can I rent my unit?
+2. What are pet restrictions?
+3. What changes need approval?
+4. What are parking rules?
+5. Are there quiet hours?
+6. What's the violation process?
+
+### Community Questions
+1. How many units are owner-occupied vs rented?
+2. What amenities are included?
+3. Who manages the HOA?
+4. When are board meetings?
+5. How are decisions made?
+
+## Documents to Review
+
+### Before Buying, Get and Read:
+
+**CC&Rs (Covenants, Conditions & Restrictions)**:
+- The rules
+- What you can and can't do
+- Enforcement procedures
+
+**Bylaws**:
+- How HOA operates
+- Board structure
+- Meeting requirements
+
+**Budget**:
+- Current year financials
+- Where money goes
+- Reserve contributions
+
+**Reserve Study**:
+- Future repair projections
+- Funding plan
+- Component conditions
+
+**Meeting Minutes**:
+- Last 12 months at minimum
+- Issues being discussed
+- Upcoming projects
+
+**Financial Statements**:
+- Audited if available
+- Income and expenses
+- Reserve balance
+
+### What to Look For
+- Consistent reserve contributions
+- No major pending issues
+- Professional management
+- Engaged board
+- Adequate insurance
+- Reasonable rules
+
+## Making the Decision
+
+### HOA Living Works If You:
+- Appreciate maintained communities
+- Don't mind paying for convenience
+- Can follow rules
+- Want amenities without ownership hassle
+- Like community structure
+
+### Avoid HOAs If You:
+- Value maximum freedom
+- Hate paying monthly fees
+- Want to make changes freely
+- Dislike rules and oversight
+- Prefer privacy over community
+
+### The Middle Ground
+Some HOAs are minimal:
+- Low fees ($50-$100/month)
+- Basic rules only
+- Shared road maintenance
+- Little interference
+
+These offer some protection without major restrictions.
+
+---
+
+*Evaluating a property in an HOA? [Analyze it with Perchspot](/chat) for AI insights on the home itself—condition, location, schools, and investment potential.*
+    `,
+  },
+  {
+    id: 'contingencies-explained',
+    title: "Home Buying Contingencies: Which Ones to Include (And When to Waive)",
+    excerpt: "Contingencies protect you—but too many can cost you the house. Here's how to balance protection and competitiveness.",
+    category: 'Guide',
+    date: '2026-02-11',
+    readTime: '9 min read',
+    image: '/blog/contingencies.jpg',
+    metaDescription: "Real estate contingencies explained: inspection, financing, appraisal, and home sale contingencies. When to include them and when to waive.",
+    content: `
+# Home Buying Contingencies: Which Ones to Include (And When to Waive)
+
+Contingencies are your safety net—contract clauses that let you back out without losing your earnest money if certain conditions aren't met. But in competitive markets, too many contingencies can cost you the house. Here's how to navigate the balance.
+
+## What Are Contingencies?
+
+Contingencies are conditions that must be met for the sale to proceed. If a contingency isn't satisfied, you can typically:
+- Cancel the contract
+- Recover your earnest money
+- Walk away without penalty
+
+Think of them as "if-then" statements: IF the home doesn't appraise, THEN you can exit.
+
+## The Major Contingencies
+
+### 1. Inspection Contingency
+
+**What It Does**: Allows you to have the home professionally inspected and back out (or negotiate) based on findings.
+
+**Typical Period**: 10-17 days
+
+**What You Can Do**:
+- Cancel if major issues found
+- Request repairs
+- Request credits
+- Renegotiate price
+- Accept as-is
+
+**Why It Matters**:
+- Homes hide problems
+- Inspections reveal issues
+- Protects against costly surprises
+- Gives negotiating leverage
+
+**When to Consider Waiving**:
+- Very competitive market
+- You're experienced/knowledgeable
+- Home is newer construction
+- You've done thorough due diligence
+- You have cash reserves for surprises
+
+### 2. Financing Contingency
+
+**What It Does**: Protects you if you can't secure mortgage approval.
+
+**Typical Period**: 21-30 days
+
+**What It Covers**:
+- Loan denial
+- Terms significantly different than expected
+- Interest rate locks expiring
+
+**Why It Matters**:
+- Loan approval isn't guaranteed
+- Employment changes happen
+- Underwriting surprises occur
+- Protects your deposit
+
+**When to Consider Waiving**:
+- You're paying cash
+- You're extremely well-qualified
+- You have backup financing
+- Market demands it (risky!)
+
+### 3. Appraisal Contingency
+
+**What It Does**: Lets you exit or renegotiate if the home appraises below purchase price.
+
+**Tied To**: Usually part of financing contingency
+
+**What Happens If Low**:
+- Renegotiate price
+- Pay difference in cash
+- Walk away
+
+**Why It Matters**:
+- Lenders won't lend more than appraised value
+- Protects against overpaying
+- Gives negotiating leverage
+
+**When to Consider Waiving**:
+- You have cash to cover gap
+- Market values support price
+- You're confident in value
+- Using appraisal gap coverage instead
+
+### 4. Home Sale Contingency
+
+**What It Does**: Makes your purchase dependent on selling your current home.
+
+**Typical Period**: 30-60 days
+
+**Two Types**:
+- **Sale Contingency**: Must sell your home
+- **Settlement Contingency**: Already under contract, must close
+
+**Why It Matters**:
+- Avoids owning two homes
+- Protects if your sale falls through
+- Coordinates timing
+
+**When to Consider Waiving**:
+- You can afford both mortgages
+- Your home is already sold
+- You can use bridge financing
+- Market demands it
+
+### 5. Title Contingency
+
+**What It Does**: Ensures clear title can be delivered.
+
+**Typical Period**: Throughout escrow
+
+**What It Covers**:
+- Liens discovered
+- Ownership disputes
+- Easement issues
+- Title defects
+
+**Should You Waive?**: Generally NO. This is fundamental protection.
+
+## Other Contingencies
+
+### HOA Document Review
+- Review HOA rules, finances, meeting minutes
+- Typically 5-10 days
+- Important for condo/townhouse purchases
+
+### Property Insurance
+- Must be able to obtain insurance
+- Important in high-risk areas
+- Usually resolved early
+
+### Final Walkthrough
+- Not technically a contingency
+- But allows verification before closing
+- Don't skip this
+
+## Contingency Timelines
+
+### Sample Timeline (30-Day Close)
+
+| Day | Event |
+|-----|-------|
+| 1 | Offer accepted, clock starts |
+| 3 | Earnest money delivered |
+| 10 | Inspection completed |
+| 14 | Inspection contingency deadline |
+| 21 | Financing contingency deadline |
+| 25 | Final loan approval |
+| 28 | Final walkthrough |
+| 30 | Closing |
+
+### What "Deadline" Means
+By the deadline, you must either:
+- Remove the contingency (move forward)
+- Use the contingency to exit/renegotiate
+- Request extension
+
+Missing a deadline may mean you've waived the protection.
+
+## Balancing Protection vs. Competitiveness
+
+### In Buyer's Markets
+You have leverage:
+- Include all standard contingencies
+- Take full time periods
+- Negotiate freely
+- Less pressure to waive
+
+### In Seller's Markets
+Sellers have options:
+- Fewer contingencies wins
+- Shorter periods help
+- Waiving carefully considered
+- Balance risk vs. reward
+
+### The Spectrum of Risk
+
+**Most Protected** (Least Competitive):
+- All contingencies
+- Full time periods
+- No compromises
+
+**Moderately Protected**:
+- Inspection contingency
+- Financing contingency
+- Shortened timelines
+
+**More Competitive**:
+- Inspection for information only
+- Pre-approval with confidence
+- Appraisal gap coverage
+
+**Most Competitive** (Most Risk):
+- Waived inspection
+- Waived financing (if not cash)
+- Waived appraisal
+
+## Strategies for Competitive Markets
+
+### Shortened Periods
+Instead of waiving:
+- 7-day inspection vs. 14
+- 14-day financing vs. 21
+- Shows urgency while protecting
+
+### Inspection "As-Is"
+- Do inspection
+- Don't request repairs
+- Information only
+- Still can walk for major issues
+
+### Appraisal Gap Coverage
+- "I'll cover up to $X above appraisal"
+- Protects seller from low appraisal
+- You're still protected to a limit
+
+### Pre-Inspection
+- Inspect BEFORE offering
+- No inspection contingency needed
+- Know what you're buying
+- Costs money upfront
+
+### Stronger Pre-Approval
+- Fully underwritten
+- Strong lender letter
+- Seller confidence in financing
+- May allow shorter period
+
+## When NOT to Waive
+
+### Never Waive If:
+- First-time buyer without experience
+- Older home with unknown condition
+- Limited cash reserves
+- Stretching to afford the home
+- Red flags during showing
+- Your gut says no
+
+### The Cost of Waiving Wrong
+**Inspection waived, major issue found**:
+- Stuck with problem
+- Repair costs yours
+- May be unfixable
+- Could lose entire investment
+
+**Financing waived, loan denied**:
+- Lose earnest money
+- Potentially sued for damages
+- Seller has to relist
+- Legal costs possible
+
+## Making the Decision
+
+### Questions to Ask
+1. How competitive is this market?
+2. How confident am I in this home?
+3. What's my risk tolerance?
+4. What are my cash reserves?
+5. How experienced am I?
+6. What could go wrong?
+
+### Get Professional Guidance
+- Your agent knows the market
+- Lender knows financing risks
+- Inspector can do pre-inspection
+- Don't guess—ask
+
+---
+
+*Before making contingency decisions, understand the property. [Analyze it with Perchspot](/chat) for AI-powered insights on condition, location, and value.*
+    `,
+  },
 ];
 
 // Update categories to include Local
