@@ -18093,6 +18093,619 @@ If selling property with ADU:
 *Evaluating a property with an ADU? [Analyze it with Perchspot](/chat) to understand the property's full potential and value.*
     `,
   },
+  {
+    id: 'first-year-homeownership-costs',
+    title: 'First Year of Homeownership: Hidden Costs and How to Budget',
+    excerpt: 'The purchase price is just the beginning. Here\'s what first-year homeowners actually spend and how to prepare.',
+    category: 'Education',
+    date: '2026-01-14',
+    readTime: '9 min read',
+    image: '/blog/first-year.jpg',
+    metaDescription: 'Complete guide to first-year homeownership costs. Learn about maintenance, repairs, utilities, and expenses new homeowners often underestimate.',
+    content: `
+# First Year of Homeownership: Hidden Costs and How to Budget
+
+Buying a home is exciting—until the unexpected expenses hit. Here's what first-year homeowners actually spend beyond the mortgage.
+
+## The Big Picture
+
+### Average First-Year Spending
+
+| Category | Annual Cost |
+|----------|-------------|
+| Mortgage (P&I) | $28,800 |
+| Property Taxes | $5,400 |
+| Insurance | $1,800 |
+| Utilities | $4,200 |
+| Maintenance | $4,500 |
+| Immediate Repairs | $3,000 |
+| Furnishing/Setup | $5,000 |
+| Lawn/Garden | $1,200 |
+| **Total** | **$53,900** |
+
+*Based on $450K median home*
+
+### The 1% Rule
+Budget approximately 1% of home value annually for maintenance and repairs.
+- $400K home = $4,000/year
+- $600K home = $6,000/year
+- $800K home = $8,000/year
+
+## Immediate Costs After Closing
+
+### Moving Expenses
+- Local move: $1,000-$2,500
+- Long-distance: $3,000-$10,000+
+- DIY with truck: $200-$500
+
+### Essential Purchases
+
+**Safety**:
+- New locks/rekeying: $100-$300
+- Smoke/CO detectors: $100-$200
+- Fire extinguishers: $50-$100
+
+**Utilities Setup**:
+- Deposits: $100-$300 each
+- Connection fees: $50-$100 each
+- First bills (prorated): Varies
+
+**Immediate Needs**:
+- Cleaning supplies: $100-$200
+- Basic tools: $200-$500
+- Lawn equipment: $200-$1,000+
+
+## Ongoing Monthly Costs
+
+### Utilities Breakdown
+
+| Utility | Monthly Range |
+|---------|---------------|
+| Electricity | $100-$300 |
+| Gas/Heating | $50-$200 |
+| Water/Sewer | $50-$150 |
+| Trash | $25-$50 |
+| Internet | $50-$100 |
+| **Total** | **$275-$800** |
+
+### Factors Affecting Utilities
+- Home size
+- Climate
+- Energy efficiency
+- Usage habits
+- Number of occupants
+
+### Ways to Reduce
+- Programmable thermostat
+- LED bulbs
+- Energy audit
+- Efficient appliances
+- Insulation check
+
+## Maintenance Costs
+
+### Routine Maintenance
+
+**Monthly/Quarterly**:
+- HVAC filters: $15-$50/quarter
+- Pest control: $30-$50/month
+- Yard maintenance: $100-$200/month (if hired)
+
+**Annually**:
+- HVAC service: $100-$200
+- Gutter cleaning: $100-$250
+- Chimney cleaning: $150-$300
+- Tree trimming: $200-$500
+- Pressure washing: $200-$400
+
+### The Maintenance Calendar
+
+**Spring**:
+- HVAC service
+- Gutter cleaning
+- Deck inspection/sealing
+- Lawn prep
+- Window washing
+
+**Summer**:
+- Irrigation check
+- Pest inspection
+- Caulking/weatherproofing
+- Paint touch-ups
+
+**Fall**:
+- Furnace service
+- Gutter cleaning
+- Winterization
+- Chimney check
+- Weather stripping
+
+**Winter**:
+- Monitor pipes
+- Change filters
+- Check insulation
+- Clear ice dams
+
+## Common First-Year Repairs
+
+### What New Owners Often Face
+
+| Repair | Typical Cost |
+|--------|--------------|
+| Appliance replacement | $500-$2,000 |
+| Plumbing issues | $200-$1,000 |
+| Electrical fixes | $150-$500 |
+| Door/window repairs | $100-$400 |
+| Roof leak repair | $300-$1,000 |
+| HVAC repair | $200-$600 |
+| Water heater issues | $200-$400 |
+
+### Why Repairs Happen
+- Inspection catches major, not minor
+- Sellers defer maintenance
+- Systems fail after stress of sale
+- You notice what they ignored
+
+## Insurance Costs
+
+### Homeowner's Insurance
+- Average: $1,200-$2,500/year
+- Varies by location, coverage
+- Review and shop annually
+
+### Additional Coverage to Consider
+- Flood insurance: $300-$3,000/year
+- Earthquake: Varies significantly
+- Umbrella policy: $200-$500/year
+- Home warranty: $300-$600/year
+
+## Property Tax Reality
+
+### What to Expect
+- Typically reassessed to purchase price
+- May increase significantly
+- Budget for increases
+
+### First-Year Surprise
+**Example**:
+- Seller paid: $4,000/year
+- Home reassessed to your purchase price
+- New tax: $6,000/year
+- Escrow shortage follows
+
+### Budget Accordingly
+- Check current assessment
+- Calculate at purchase price
+- Add to true cost calculation
+
+## Furnishing and Improvement
+
+### Common First-Year Purchases
+
+| Item | Cost Range |
+|------|------------|
+| Window treatments | $200-$2,000 |
+| Light fixtures | $100-$500 |
+| Appliances | $500-$5,000 |
+| Furniture | $2,000-$10,000+ |
+| Paint/wallpaper | $200-$1,000 |
+| Landscaping | $500-$3,000 |
+
+### Prioritization Strategy
+1. Safety items (locks, detectors)
+2. Essential function (appliances, furniture)
+3. Comfort (window treatments, climate)
+4. Aesthetics (paint, decor)
+5. Nice-to-haves (upgrades)
+
+## Building Your Emergency Fund
+
+### How Much to Save
+- Minimum: $5,000
+- Better: 3-6 months of housing costs
+- Ideal: $10,000-$20,000+
+
+### Why You Need More Than Renters
+- No landlord to call
+- All repairs are yours
+- Surprise costs are common
+- Major systems can fail
+
+### Building It Up
+- Set aside monthly amount
+- Automate savings
+- Use windfalls
+- Keep accessible but separate
+
+## Cost-Saving Strategies
+
+### DIY When Appropriate
+**Good DIY Projects**:
+- Painting
+- Basic landscaping
+- Simple repairs
+- Cleaning gutters
+- Changing filters
+
+**Hire Professionals For**:
+- Electrical work
+- Plumbing beyond basics
+- Roof work
+- HVAC repairs
+- Structural issues
+
+### Shop Smart
+- Get multiple quotes
+- Check reviews
+- Ask for referrals
+- Negotiate prices
+- Time purchases strategically
+
+### Prevent Rather Than Repair
+- Regular maintenance
+- Catch issues early
+- Don't defer obvious problems
+- Keep records
+
+## The Real Monthly Budget
+
+### Sample Budget ($500K Home)
+
+| Category | Monthly |
+|----------|---------|
+| Mortgage P&I | $2,700 |
+| Property Tax | $450 |
+| Insurance | $150 |
+| Utilities | $350 |
+| Maintenance Reserve | $400 |
+| Repair Reserve | $200 |
+| Improvement Fund | $150 |
+| **Total** | **$4,400** |
+
+Compare to rent you were paying—is it sustainable?
+
+## What First-Year Owners Wish They Knew
+
+### Common Regrets
+- Didn't budget enough for maintenance
+- Underestimated utility costs
+- Bought too much house
+- Didn't build emergency fund first
+- Made too many improvements at once
+
+### Best Advice
+- Live in home before major changes
+- Prioritize needs over wants
+- Build reserves before upgrading
+- Learn basic maintenance
+- Know when to hire pros
+
+---
+
+*Planning your budget before buying? [Analyze any property with Perchspot](/chat) to understand the true cost of ownership.*
+    `,
+  },
+  {
+    id: 'downsizing-home-guide',
+    title: 'Downsizing Your Home: When, Why, and How to Make the Move',
+    excerpt: 'Whether for retirement, empty-nesting, or simplifying life, here\'s your complete guide to successfully downsizing.',
+    category: 'Guide',
+    date: '2026-01-13',
+    readTime: '10 min read',
+    image: '/blog/downsizing.jpg',
+    metaDescription: 'Complete guide to downsizing your home. Learn when to downsize, financial benefits, emotional challenges, and practical tips for making the transition.',
+    content: `
+# Downsizing Your Home: When, Why, and How to Make the Move
+
+Downsizing is more than moving to a smaller space—it's a lifestyle change. Here's how to do it successfully.
+
+## When Downsizing Makes Sense
+
+### Common Triggers
+- Kids have moved out
+- Retirement approaching
+- Health considerations
+- Financial goals
+- Maintenance burden
+- Location change desired
+- Simpler lifestyle wanted
+
+### Signs It's Time
+- Unused rooms
+- Maintenance feels overwhelming
+- Stairs becoming difficult
+- Costs exceeding needs
+- Isolated from desired activities
+- Equity better used elsewhere
+
+## Financial Benefits
+
+### Potential Savings
+
+| Category | Typical Reduction |
+|----------|-------------------|
+| Mortgage/Housing | 30-50% |
+| Property Taxes | 20-40% |
+| Utilities | 25-40% |
+| Maintenance | 30-50% |
+| Insurance | 20-30% |
+
+### Equity Release
+**Example**:
+- Sell $800K home (paid off)
+- Buy $400K condo
+- Net (after costs): ~$360K
+- Invested at 5%: $18K/year income
+
+### Total Cost Comparison
+
+**Large Home (3,000 sq ft)**:
+| Expense | Annual |
+|---------|--------|
+| Mortgage/Taxes | $24,000 |
+| Insurance | $2,400 |
+| Utilities | $6,000 |
+| Maintenance | $8,000 |
+| **Total** | **$40,400** |
+
+**Smaller Home (1,500 sq ft)**:
+| Expense | Annual |
+|---------|--------|
+| Mortgage/Taxes | $12,000 |
+| Insurance | $1,400 |
+| Utilities | $3,600 |
+| Maintenance | $3,500 |
+| **Total** | **$20,500** |
+
+**Annual Savings: $19,900**
+
+## Emotional Considerations
+
+### The Hard Parts
+- Leaving memories
+- Sorting through belongings
+- Admitting life stage change
+- Family expectations
+- Losing familiar space
+- Neighborhood connections
+
+### Reframing the Decision
+- Freedom, not loss
+- New chapter, not ending
+- Choosing, not forced
+- Simplifying, not sacrificing
+- Gaining flexibility
+
+### Getting Family On Board
+- Involve them early
+- Explain your reasons
+- Let them choose keepsakes
+- Address concerns directly
+- Give time to adjust
+
+## Where to Downsize
+
+### Housing Options
+
+**Smaller Single-Family**:
+- Familiar ownership model
+- Yard (smaller)
+- Privacy maintained
+- Maintenance reduced
+
+**Condo/Townhome**:
+- Minimal exterior maintenance
+- Amenities possible
+- HOA handles some tasks
+- Community feel
+
+**Active Adult Community (55+)**:
+- Age-restricted
+- Activities and amenities
+- Like-minded neighbors
+- Lower maintenance
+
+**Apartment Rental**:
+- Maximum flexibility
+- No maintenance
+- No equity building
+- May increase costs long-term
+
+### Location Factors
+- Proximity to family
+- Healthcare access
+- Walkability
+- Climate preferences
+- Cost of living
+- Social opportunities
+
+## The Decluttering Process
+
+### The Four-Box Method
+For each item, choose:
+1. **Keep**: Moving with you
+2. **Donate**: Good condition, not needed
+3. **Sell**: Value worth effort
+4. **Trash**: Worn out or broken
+
+### Room-by-Room Approach
+Tackle one area at a time:
+- Start with easiest (garage, storage)
+- Move to harder (bedrooms, kitchen)
+- End with sentimental (photos, keepsakes)
+
+### Dealing with Sentimental Items
+- Take photos of items you can't keep
+- Keep one representative item, not all
+- Give to family who will treasure
+- Remember: memories aren't in objects
+- Create memory book with photos
+
+### What to Do with Stuff
+
+**Selling Options**:
+- Estate sale (30-40% to company)
+- Facebook Marketplace
+- Consignment
+- eBay for valuable items
+- Antique dealers
+
+**Donation Options**:
+- Habitat ReStore
+- Goodwill/Salvation Army
+- Local charities
+- Churches
+- Schools
+
+### Timeline for Decluttering
+| Timeframe | Focus |
+|-----------|-------|
+| 6-12 months before | Start sorting, easy decisions |
+| 3-6 months before | Major purging, selling |
+| 1-3 months before | Final decisions, donations |
+| Move week | Last items, trash |
+
+## Financial Planning
+
+### Calculate True Costs
+**Selling Current Home**:
+- Agent commission (5-6%)
+- Closing costs (1-2%)
+- Repairs for sale
+- Moving costs
+- Storage if needed
+
+**Buying New Home**:
+- Down payment
+- Closing costs (2-5%)
+- Moving costs
+- Setup costs
+- Potential renovations
+
+### Tax Considerations
+- Capital gains exclusion ($250K single, $500K married)
+- Primary residence rules
+- Timing of sale
+- State-specific taxes
+
+### Investment of Proceeds
+- Emergency fund
+- Retirement accounts
+- Income-generating investments
+- Travel/lifestyle fund
+- Grandchildren education
+
+## The Practical Move
+
+### Measuring and Planning
+- Get floor plan of new space
+- Measure furniture
+- Plan what fits
+- Identify what must go
+
+### Moving Options
+- Full-service movers
+- Portable containers (PODS)
+- DIY with help
+- Hybrid approach
+
+### Moving Costs (Typical)
+| Type | Cost Range |
+|------|------------|
+| Local full-service | $1,000-$3,000 |
+| Long-distance | $3,000-$10,000+ |
+| PODS/containers | $1,500-$5,000 |
+| DIY with truck | $200-$500 |
+
+## Adjusting to Smaller Space
+
+### Design Strategies
+- Multi-functional furniture
+- Vertical storage
+- Light colors
+- Mirrors for space
+- Minimize clutter
+
+### Lifestyle Adjustments
+- One-in, one-out rule
+- Regular purging
+- Use community amenities
+- Embrace smaller scale
+- Quality over quantity
+
+### What People Miss (and Don't)
+
+**Often Miss**:
+- Storage space
+- Guest rooms
+- Garage
+- Yard for activities
+
+**Often Don't Miss**:
+- Cleaning time
+- Maintenance stress
+- Utility bills
+- Unused rooms
+- Large yard work
+
+## Common Mistakes
+
+### Financial Mistakes
+- Not calculating all costs
+- Buying too quickly
+- Underestimating new location costs
+- Not planning for HOA fees
+- Ignoring tax implications
+
+### Emotional Mistakes
+- Rushing the decision
+- Not involving family
+- Keeping too much stuff
+- Not visiting potential areas
+- Unrealistic expectations
+
+### Practical Mistakes
+- Not measuring new space
+- Bringing too much furniture
+- Choosing wrong location
+- Underestimating lifestyle change
+- Not trying before buying (rent first)
+
+## Downsizing Checklist
+
+### 6-12 Months Before
+- [ ] Decide on location/type
+- [ ] Start decluttering
+- [ ] Research markets
+- [ ] Talk to family
+- [ ] Financial planning
+
+### 3-6 Months Before
+- [ ] List current home
+- [ ] Active house hunting
+- [ ] Major purging
+- [ ] Sell valuable items
+- [ ] Get moving quotes
+
+### 1-3 Months Before
+- [ ] Finalize new home
+- [ ] Book movers
+- [ ] Final decluttering
+- [ ] Donations
+- [ ] Notify everyone
+
+### Move Week
+- [ ] Final walkthrough both homes
+- [ ] Utility transfers
+- [ ] Last donations/trash
+- [ ] Clean out completely
+- [ ] Hand over keys
+
+---
+
+*Looking for your next right-sized home? [Analyze any property with Perchspot](/chat) to make sure it fits your downsized lifestyle perfectly.*
+    `,
+  },
 ];
 
 // Update categories to include Local
