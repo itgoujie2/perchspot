@@ -8040,6 +8040,1775 @@ Instead of waiving:
 *Before making contingency decisions, understand the property. [Analyze it with Perchspot](/chat) for AI-powered insights on condition, location, and value.*
     `,
   },
+  {
+    id: 'pmi-explained-how-to-remove',
+    title: "PMI Explained: What It Is, What It Costs, and How to Remove It",
+    excerpt: "Private Mortgage Insurance adds to your monthly payment but isn't forever. Here's everything you need to know about PMI.",
+    category: 'Guide',
+    date: '2026-02-10',
+    readTime: '8 min read',
+    image: '/blog/pmi.jpg',
+    metaDescription: "Private mortgage insurance (PMI) explained: what it costs, when it's required, and how to remove it to save money on your mortgage.",
+    content: `
+# PMI Explained: What It Is, What It Costs, and How to Remove It
+
+If you're putting less than 20% down on a conventional mortgage, you'll encounter PMI—Private Mortgage Insurance. It protects the lender, not you, but you pay for it. Here's everything you need to know.
+
+## What Is PMI?
+
+PMI (Private Mortgage Insurance) is insurance that protects the LENDER if you default on your loan. It doesn't protect you—it protects the bank.
+
+### Why It Exists
+When you put less than 20% down:
+- Lender takes more risk
+- Less equity cushion if values drop
+- Higher default probability statistically
+- PMI offsets this risk
+
+### Who Pays
+You do. It's added to your monthly payment or paid upfront.
+
+## When Is PMI Required?
+
+### Conventional Loans
+- Less than 20% down = PMI required
+- 20%+ down = No PMI
+
+### FHA Loans
+- Called MIP (Mortgage Insurance Premium)
+- Required regardless of down payment
+- Has upfront premium + monthly premium
+- Usually for life of loan (if <10% down)
+
+### VA Loans
+- No PMI required
+- Has funding fee instead (one-time)
+
+### USDA Loans
+- Has guarantee fee (similar to PMI)
+- Lower than conventional PMI
+
+## How Much Does PMI Cost?
+
+### Typical PMI Rates
+
+| Down Payment | PMI Rate (Annual) |
+|--------------|-------------------|
+| 3% | 0.8% - 1.5% |
+| 5% | 0.5% - 1.1% |
+| 10% | 0.3% - 0.7% |
+| 15% | 0.2% - 0.5% |
+
+### Factors Affecting PMI Cost
+- Credit score (higher = lower PMI)
+- Down payment size
+- Loan-to-value ratio
+- Loan type
+- Property type
+
+### Real Cost Examples
+
+**$400,000 home, 5% down ($380K loan)**:
+
+| Credit Score | PMI Rate | Monthly Cost |
+|--------------|----------|--------------|
+| 760+ | 0.40% | $127 |
+| 720-759 | 0.55% | $174 |
+| 680-719 | 0.80% | $253 |
+| 640-679 | 1.10% | $348 |
+
+**Annual cost**: $1,500-$4,200 depending on credit
+
+### How PMI Is Paid
+
+**Monthly Premium** (Most Common):
+- Added to mortgage payment
+- Ongoing until removed
+
+**Single Premium** (Upfront):
+- Paid at closing
+- May be financed into loan
+- Non-refundable usually
+
+**Split Premium**:
+- Part upfront, part monthly
+- Reduces monthly cost
+
+## How to Avoid PMI
+
+### Option 1: Put 20% Down
+- No PMI required
+- Largest down payment
+- Best option if you have the cash
+
+### Option 2: Piggyback Loan (80-10-10)
+- First mortgage: 80% (no PMI)
+- Second mortgage: 10%
+- Down payment: 10%
+- Second loan rate usually higher
+- Combined may cost less than PMI
+
+### Option 3: Lender-Paid PMI (LPMI)
+- Lender pays PMI
+- You pay higher interest rate
+- Rate is permanent (PMI would eventually end)
+- Good if you'll sell/refinance soon
+
+### Option 4: VA Loan
+- No PMI for eligible veterans
+- Funding fee instead (one-time)
+- Often better deal
+
+## How to Remove PMI
+
+### Automatic Termination
+By law (Homeowners Protection Act), PMI must automatically terminate when:
+- Loan balance reaches 78% of original value
+- You're current on payments
+
+**Note**: Based on ORIGINAL value, not current value.
+
+### Borrower-Requested Cancellation
+You can request cancellation when:
+- Balance reaches 80% of original value
+- Good payment history (no 30-day lates in 12 months)
+- No other liens on property
+
+### With Increased Home Value
+If your home has appreciated:
+1. Request cancellation based on current value
+2. Lender may require appraisal ($400-$800)
+3. If LTV is 80% or less, PMI can be removed
+
+### Refinancing
+- Refinance at 80% LTV or less
+- New loan has no PMI
+- Consider closing costs vs. PMI savings
+
+## PMI Removal Timeline Example
+
+**Purchase**: $500,000 home, 10% down ($450,000 loan)
+
+| Year | Balance | LTV | PMI Status |
+|------|---------|-----|------------|
+| 0 | $450,000 | 90% | Required |
+| 2 | $435,000 | 87% | Required |
+| 4 | $418,000 | 84% | Required |
+| 5 | $408,000 | 82% | Request removal |
+| 7 | $390,000 | 78% | Auto-terminates |
+
+**With 3% annual appreciation**:
+| Year | Home Value | Balance | True LTV |
+|------|------------|---------|----------|
+| 2 | $531,000 | $435,000 | 82% |
+| 3 | $547,000 | $428,000 | 78% |
+
+Could request removal at year 3 with appraisal.
+
+## PMI vs. MIP (FHA)
+
+### Key Differences
+
+| Factor | Conventional PMI | FHA MIP |
+|--------|-----------------|---------|
+| Upfront | Optional | 1.75% required |
+| Monthly | Varies | 0.45-1.05% |
+| Removal | At 80% LTV | Usually never* |
+| Credit Impact | Higher = lower | Fixed rates |
+
+*FHA loans after 2013 with <10% down have MIP for life of loan.
+
+### Why This Matters
+FHA loans can seem attractive initially but the lifetime MIP makes them more expensive long-term. Consider conventional with PMI instead if possible.
+
+## Is PMI Worth It?
+
+### When PMI Makes Sense
+- Home prices rising (build equity faster)
+- Low down payment is only option
+- Strong cash flow to pay down faster
+- Planning to refinance soon
+- Good credit (lower PMI rates)
+
+### When to Avoid
+- Very high PMI rates (bad credit)
+- Can reach 20% with small delay
+- FHA lifetime MIP trap
+- Better uses for monthly cash
+
+### The Math
+
+**Scenario**: Wait 2 years to save 20% vs. buy now with 10% down
+
+**Buy Now**:
+- Home price: $500,000
+- PMI: $200/month for 5 years = $12,000 total
+- Home appreciates 3%/year = $530,000+ in 2 years
+
+**Wait**:
+- Saved additional 10%: $50,000
+- Home at 3%/year = $530,000 (costs $30K more)
+- Net: Paid $30K more for home, saved $12K in PMI
+
+**Result**: Buying now with PMI often wins in appreciating markets.
+
+## Strategies to Minimize PMI
+
+### 1. Improve Credit Before Buying
+Higher credit = lower PMI rates
+- 740+ gets best rates
+- Every 20 points can make difference
+
+### 2. Maximize Down Payment
+Even 1-2% more down can lower PMI significantly
+
+### 3. Shop Lenders
+PMI rates vary by lender
+- Get quotes from multiple lenders
+- Compare PMI specifically
+
+### 4. Pay Down Principal Faster
+- Extra payments reduce balance
+- Reach 80% LTV sooner
+- Request removal earlier
+
+### 5. Track Home Value
+- If appreciation is strong
+- Request appraisal-based removal
+- Don't wait for automatic termination
+
+---
+
+*Understanding your true monthly costs matters. [Analyze any property with Perchspot](/chat) to get the full picture before buying.*
+    `,
+  },
+  {
+    id: 'fixer-upper-vs-move-in-ready',
+    title: "Fixer-Upper vs Move-In Ready: Which Should You Buy?",
+    excerpt: "A fixer-upper can be a great deal or a money pit. Here's how to decide if renovation is right for you.",
+    category: 'Guide',
+    date: '2026-02-09',
+    readTime: '10 min read',
+    image: '/blog/fixer.jpg',
+    metaDescription: "Fixer-upper vs move-in ready comparison: pros and cons, true renovation costs, and how to decide which type of home is right for you.",
+    content: `
+# Fixer-Upper vs Move-In Ready: Which Should You Buy?
+
+The appeal of a fixer-upper is obvious: lower price, customize to your taste, build instant equity. But renovation is harder, more expensive, and takes longer than most expect. Here's how to make the right choice.
+
+## Defining the Terms
+
+### Move-In Ready
+- No major work required
+- Systems functional and updated
+- Cosmetically acceptable
+- Can live comfortably immediately
+
+### Needs Work (Cosmetic)
+- Dated but functional
+- Paint, flooring, fixtures
+- Weekend warrior projects
+- $10K-$50K investment
+
+### Fixer-Upper (Significant)
+- Major systems need work
+- Layout changes desired
+- Professional contractors needed
+- $50K-$150K+ investment
+
+### Full Gut/Tear-Down
+- Everything needs replacing
+- Structural work required
+- Permit-heavy project
+- $150K-$300K+ investment
+
+## The Fixer-Upper Appeal
+
+### Potential Benefits
+
+**Lower Purchase Price**:
+- Discount vs. updated homes
+- Typically 10-30% below market
+- Less competition sometimes
+
+**Instant Equity**:
+- Buy for $400K, put in $75K
+- Worth $550K when done
+- $75K equity gain (theoretically)
+
+**Customization**:
+- Choose everything yourself
+- Get exactly what you want
+- No compromises on design
+
+**Less Competition**:
+- Many buyers avoid projects
+- Fewer bidding wars
+- More negotiating power
+
+### The Reality Check
+
+**Cost Overruns**:
+- Average renovation: 20-50% over budget
+- Hidden issues emerge
+- Scope creep happens
+- Materials cost more than expected
+
+**Time Delays**:
+- Permits take longer
+- Contractors get delayed
+- Supply chain issues
+- One thing leads to another
+
+**Living Conditions**:
+- Construction zone living
+- Dust, noise, disruption
+- May need to rent elsewhere
+- Stress on relationships
+
+**Not All Value Adds**:
+- Not every dollar spent returns a dollar
+- Some renovations over-improve for area
+- Market can shift during project
+
+## True Cost Analysis
+
+### Renovation Cost Realities
+
+| Project | DIY Cost | Contractor Cost |
+|---------|----------|-----------------|
+| Kitchen (mid-range) | $25K-$40K | $50K-$100K |
+| Bathroom | $10K-$15K | $20K-$40K |
+| Flooring (whole house) | $8K-$12K | $15K-$25K |
+| Roof replacement | N/A | $15K-$30K |
+| HVAC replacement | N/A | $10K-$20K |
+| Electrical update | N/A | $10K-$25K |
+| Foundation repair | N/A | $10K-$50K+ |
+| Windows (10) | $5K-$8K | $10K-$20K |
+
+### Hidden Costs People Forget
+
+- Permits: $500-$5,000
+- Architect/designer: $5K-$20K
+- Temporary housing: $2K-$5K/month
+- Storage: $200-$400/month
+- Dumpster rentals: $500-$1,500
+- Tool purchases: $500-$2,000
+- Multiple trips to store: Time + gas
+- Time off work: Lost wages
+
+### The 30% Rule
+Whatever you estimate, add 30%:
+- Estimate $75K? Budget $100K
+- Unexpected issues arise
+- Better to be over-prepared
+
+## When Fixer-Uppers Make Sense
+
+### Good Candidate If:
+- You have construction experience
+- You're handy and enjoy projects
+- You have cash reserves for overruns
+- You have time flexibility
+- You can live in construction
+- You're buying in appreciating market
+- The bones are good
+
+### Ideal Fixer-Upper Profile
+- Cosmetic issues only
+- Good location
+- Sound structure
+- Functional systems (or budget to replace)
+- Clear scope of work
+- Reasonable ARV (after repair value)
+
+## When Move-In Ready Makes Sense
+
+### Good Candidate If:
+- You value your time
+- Limited cash after down payment
+- Need to move quickly
+- Have young children
+- Don't enjoy construction projects
+- Want predictable costs
+- Can afford the premium
+
+### The Time Value
+Your time has value:
+- 100 hours on renovation @ $50/hour = $5,000
+- Plus stress, disruption, delays
+- Sometimes paying more upfront is cheaper
+
+## Analyzing a Fixer-Upper Deal
+
+### Step 1: Calculate ARV
+What will it be worth when done?
+- Look at comparable updated homes
+- Same neighborhood, size, features
+- Sold in last 6 months
+
+### Step 2: Estimate Renovation Cost
+- Get contractor bids (3 minimum)
+- Add 30% contingency
+- Include all costs (permits, design, etc.)
+
+### Step 3: The Math
+
+**The Deal Works If**:
+ARV - Purchase Price - Renovation Cost - Carrying Costs > 0
+
+**Example**:
+- ARV: $600,000
+- Purchase: $425,000
+- Renovation: $100,000
+- Carrying costs: $25,000
+- Equity created: $50,000 ✓
+
+**Bad Deal**:
+- ARV: $600,000
+- Purchase: $475,000
+- Renovation: $150,000
+- Carrying costs: $25,000
+- Equity created: -$50,000 ✗
+
+### Step 4: Risk Assessment
+- What if costs are 50% higher?
+- What if market drops 10%?
+- What if timeline doubles?
+- Can you still afford it?
+
+## Red Flags in Fixer-Uppers
+
+### Walk Away If:
+- Foundation issues (unless priced in)
+- Major structural problems
+- Extensive water damage
+- Mold throughout
+- Unpermitted major work
+- Environmental hazards (lead, asbestos)
+- Neighborhood declining
+
+### Proceed with Caution:
+- Electrical needs updating
+- Plumbing is old (but functional)
+- HVAC at end of life
+- Roof needs replacement
+- Cosmetic disasters
+
+## Financing a Fixer-Upper
+
+### Standard Mortgage
+- Buy as-is
+- Fund renovations separately
+- Requires cash for repairs
+
+### FHA 203(k) Loan
+- Purchase + renovation in one loan
+- Lower down payment (3.5%)
+- More paperwork
+- Limits on work scope
+
+### Fannie Mae HomeStyle
+- Conventional option
+- Purchase + renovation combined
+- Higher credit requirements
+- More flexibility than 203(k)
+
+### Home Equity After Purchase
+- Buy, then HELOC for repairs
+- Need equity first
+- Rates may be higher
+
+### Cash Reserves
+- Ideal: Cash for renovations
+- Don't over-leverage
+- Have emergency fund still
+
+## Making the Decision
+
+### Personality Fit
+
+**Fixer-Upper Personality**:
+- Enjoys projects
+- Patient with setbacks
+- Flexible with timeline
+- Comfortable with uncertainty
+- Can make decisions quickly
+- Handles stress well
+
+**Move-In Ready Personality**:
+- Values predictability
+- Limited free time
+- Doesn't enjoy construction
+- Wants immediate comfort
+- Risk-averse
+- Busy career/family
+
+### Financial Fit
+
+**Can Afford Fixer-Upper If**:
+- Cash after purchase for repairs
+- Income can cover carrying costs
+- Emergency fund intact
+- Can absorb cost overruns
+- Have contractor relationships
+
+**Choose Move-In Ready If**:
+- Limited cash after down payment
+- Need every dollar allocated
+- Can't handle surprises
+- Financing is stretched
+
+---
+
+*Found a potential fixer-upper? [Analyze it with Perchspot](/chat) to understand the property's condition before committing.*
+    `,
+  },
+  {
+    id: 'remote-work-home-buying-2026',
+    title: "Remote Work and Home Buying 2026: How WFH Changes Everything",
+    excerpt: "Remote work has transformed home buying priorities. Here's how to choose a home when your commute is to the spare bedroom.",
+    category: 'Guide',
+    date: '2026-02-08',
+    readTime: '9 min read',
+    image: '/blog/remote-work.jpg',
+    metaDescription: "How remote work changes home buying: what WFH buyers should prioritize, home office needs, and where to live when commute doesn't matter.",
+    content: `
+# Remote Work and Home Buying 2026: How WFH Changes Everything
+
+When your commute is 15 seconds to a spare bedroom, everything changes. Remote work has fundamentally shifted home buying priorities—and opened up options that didn't exist before.
+
+## How Remote Work Changes Buying Priorities
+
+### Traditional Priorities
+1. Commute time/distance
+2. School district (families)
+3. Price
+4. Home features
+5. Neighborhood
+
+### Remote Worker Priorities
+1. Home office space
+2. Internet quality
+3. Square footage value
+4. Lifestyle/location preference
+5. Price (often more flexibility)
+
+## The New Location Freedom
+
+### What It Means
+- Don't need to live near office
+- Can optimize for lifestyle
+- More home for the money possible
+- New areas become viable
+
+### Opportunity Examples
+
+**Previous Constraint**: Must live within 30 min of Seattle office
+**Now**: Can live anywhere with good internet
+
+| Location | Commute (Old) | Median Home | Savings vs. Seattle |
+|----------|---------------|-------------|---------------------|
+| Seattle Core | N/A | $850K | Baseline |
+| Snoqualmie | 35 min | $950K | Similar |
+| Wenatchee | 2.5 hours | $500K | $350K |
+| Spokane | 4.5 hours | $425K | $425K |
+| Boise | 7 hours | $475K | $375K |
+
+### Geographic Arbitrage
+Earn Seattle salary, live in lower-cost area:
+- Same income
+- 30-50% lower housing costs
+- More space
+- Different lifestyle
+
+## Home Office Requirements
+
+### Must-Haves
+
+**Dedicated Space**:
+- Separate room (ideally with door)
+- Quiet for video calls
+- Professional background
+- Away from household noise
+
+**Internet**:
+- Minimum: 100 Mbps down, 20 Mbps up
+- Ideal: 500+ Mbps fiber
+- Backup option (mobile hotspot, Starlink)
+- Verify before buying (test at property)
+
+**Lighting**:
+- Natural light preferred
+- Window placement for video calls
+- Avoid backlighting
+
+**Power**:
+- Sufficient outlets
+- Consider UPS for outages
+- Charging stations
+
+### Nice-to-Haves
+
+**Separate Entrance**:
+- Keeps work/home separate
+- Quieter arrivals/departures
+- Potential for detached office
+
+**Outdoor View**:
+- Mental health benefits
+- Break from screens
+- Better video backgrounds
+
+**Built-In Desks/Shelving**:
+- Custom office space
+- Professional appearance
+- Organization
+
+## Evaluating Homes for WFH
+
+### Questions to Ask
+
+**About the Space**:
+- Where would my office be?
+- Can I close a door?
+- Is there natural light?
+- Can I have video calls without interruption?
+
+**About Connectivity**:
+- What internet providers serve this address?
+- What speeds are available?
+- Is fiber available or coming?
+- Cell signal strength?
+
+**About the Household**:
+- Where will kids/family be during work hours?
+- Is there a secondary workspace?
+- How's the noise insulation?
+
+### Deal Breakers for Remote Workers
+- No room for dedicated office
+- Poor internet options (no fiber, slow DSL only)
+- Excessive household noise transmission
+- No good video call location
+
+## Lifestyle Considerations
+
+### What Remote Workers Often Want
+
+**More Space**:
+- Larger homes affordable outside cities
+- Room to spread out
+- Home gym
+- Hobby rooms
+
+**Outdoor Access**:
+- Yards for breaks
+- Nature nearby
+- Outdoor activities during "commute" time saved
+
+**Community Amenities**:
+- Coffee shops for occasional work
+- Coworking spaces available
+- Social opportunities (you're home alone all day)
+
+**Quality of Life**:
+- Better weather?
+- Recreation access?
+- Lower stress?
+
+### What to Watch Out For
+
+**Isolation**:
+- Working from home can be lonely
+- Consider community aspects
+- Coffee shops, coworking, local activities
+
+**Time Zone Challenges**:
+- If team is in different zone
+- Early/late calls
+- Meeting schedules
+
+**Career Impact**:
+- Some companies reward in-office presence
+- Networking happens in person
+- Consider long-term career path
+
+## The Hybrid Consideration
+
+### If You're Hybrid (2-3 Days Office)
+
+Still need reasonable commute:
+- 1+ hour each way is hard for 2-3 days
+- Consider cost of commuting
+- Gas, tolls, parking add up
+
+**Sweet Spot**: 30-45 minute commute range
+- Acceptable for 2-3 days
+- Opens up more affordable areas
+- Still reasonable when needed
+
+### Calculate True Commute Cost
+
+**Example**: 40-mile round trip, 3 days/week
+- Gas: $15/day × 3 × 52 = $2,340/year
+- Parking: $15/day × 3 × 52 = $2,340/year
+- Car wear: $0.30/mile × 40 × 3 × 52 = $1,872/year
+- Time: 1.5 hrs × 3 × 52 = 234 hours/year
+- **Total**: $6,500/year + 234 hours
+
+Living closer has value even if hybrid.
+
+## Where Remote Workers Are Moving
+
+### Popular Destinations (2024-2026)
+
+**Within Washington**:
+- Spokane (affordable, outdoors)
+- Tri-Cities (sunshine, affordability)
+- Bellingham (smaller city, nature)
+- Wenatchee (outdoor recreation)
+- Walla Walla (wine country, small town)
+
+**Outside Washington**:
+- Boise, ID (booming, outdoor access)
+- Portland suburbs, OR (similar climate)
+- Arizona (sunshine, lower cost)
+- Texas (no state income tax)
+- Florida (no state income tax, weather)
+
+### State Tax Considerations
+
+Working remotely doesn't always mean you escape taxes:
+- Tax nexus rules are complex
+- Some states still tax remote workers
+- Consult tax professional before assuming savings
+
+## Buying Considerations for Remote Workers
+
+### Verify Internet Before Buying
+Absolutely critical:
+1. Check provider websites
+2. Ask neighbors about actual speeds
+3. Test during showing if possible
+4. Verify future fiber plans
+
+### Consider Backup Office Space
+- What if internet goes down?
+- Local library, coffee shop, coworking
+- Cellular backup (check signal)
+
+### Think About Resale
+If you're moving somewhere unusual:
+- Will there be buyers when you sell?
+- Is the area growing or declining?
+- Who else would want this home?
+
+### Factor in Tax Implications
+- State income tax differences
+- Property tax differences
+- Could save thousands annually
+
+## Creating the Ideal Home Office
+
+### Converting Spaces
+
+**Best Conversions**:
+- Spare bedroom → office (ideal)
+- Finished basement area → office
+- Detached garage → ADU/office
+- Unused dining room → office
+
+**Avoid If Possible**:
+- Corner of bedroom
+- Kitchen table
+- Closet conversions (poor ventilation)
+- Shared spaces
+
+### Renovation Ideas
+
+**Budget Upgrades** ($500-$2,000):
+- Better lighting
+- Sound panels
+- Cable management
+- Standing desk
+- Ergonomic setup
+
+**Moderate Investment** ($5,000-$15,000):
+- Add closet/storage
+- Better door (soundproofing)
+- Window treatments
+- Built-in desk
+
+**Major Upgrade** ($15,000-$50,000+):
+- Detached office ADU
+- Garage conversion
+- Addition
+
+---
+
+*Found a home for your remote work lifestyle? [Analyze it with Perchspot](/chat) for AI-powered insights on the full picture.*
+    `,
+  },
+  {
+    id: 'buying-home-self-employed',
+    title: "Buying a Home While Self-Employed: What You Need to Know",
+    excerpt: "Self-employed income is harder to document. Here's how to qualify for a mortgage when you're your own boss.",
+    category: 'Guide',
+    date: '2026-02-07',
+    readTime: '10 min read',
+    image: '/blog/self-employed.jpg',
+    metaDescription: "Self-employed mortgage guide: documentation requirements, how lenders calculate income, and tips to qualify for a home loan.",
+    content: `
+# Buying a Home While Self-Employed: What You Need to Know
+
+Self-employment offers freedom—but getting a mortgage is more complicated. Lenders want to see consistent income, and self-employed income is inherently variable. Here's how to navigate the process.
+
+## Why Self-Employment Complicates Mortgages
+
+### The Lender's Perspective
+- W-2 employees have predictable, verifiable income
+- Self-employed income varies month to month
+- Tax returns often minimize income (for tax purposes)
+- Business health is harder to assess
+
+### The Catch-22
+You've optimized taxes by reducing taxable income. Now lenders see that low taxable income and offer smaller loans. The very strategies that saved you taxes hurt your mortgage qualification.
+
+## Documentation Requirements
+
+### What Lenders Want
+
+**Personal Tax Returns**: 2 years
+- Form 1040
+- All schedules
+- Signed and complete
+
+**Business Tax Returns**: 2 years
+- Schedule C (sole proprietor)
+- Form 1120/1120S (corporations)
+- Form 1065 (partnerships)
+- K-1s if applicable
+
+**Profit & Loss Statement**
+- Year-to-date
+- Prepared by CPA ideally
+- Shows current income
+
+**Business License/Registration**
+- Proof business exists
+- Duration of operation
+
+**Bank Statements**
+- 2-3 months personal
+- 12-24 months business (sometimes)
+
+**CPA Letter**
+- Confirming business operation
+- Sometimes required
+
+### Additional Items (Case by Case)
+- Client contracts
+- Accounts receivable
+- Business asset documentation
+- Insurance certificates
+
+## How Lenders Calculate Self-Employed Income
+
+### The Basic Formula
+
+They average your last 2 years of taxable income (with adjustments):
+
+**Year 1 Taxable Income**: $85,000
+**Year 2 Taxable Income**: $95,000
+**2-Year Average**: $90,000
+
+### Adjustments Lenders Make
+
+Lenders add back certain write-offs:
+
+**Add Back**:
+- Depreciation
+- Depletion
+- One-time business expenses
+- Non-cash losses
+
+**Example**:
+- Taxable income: $80,000
+- Depreciation: $15,000
+- Adjusted income: $95,000
+
+### Income Trending
+
+Lenders look at trend:
+
+**Stable/Increasing** (Good):
+- Year 1: $80,000
+- Year 2: $90,000
+- Average: $85,000 (or they may use $80K)
+
+**Declining** (Problem):
+- Year 1: $100,000
+- Year 2: $70,000
+- Average: $85,000, but lender may use $70K
+
+Declining income is a red flag. Expect to explain and possibly use lower figure.
+
+## Self-Employment Types
+
+### Sole Proprietor / Schedule C
+- Simplest structure
+- Income = Net profit from Schedule C
+- Averaged over 2 years
+
+### S-Corporation
+- Salary + distributions
+- Only W-2 salary counts directly
+- Distributions may count with caveats
+- K-1 income evaluated
+
+### Partnership
+- K-1 income
+- Your share of partnership income
+- May need partnership returns too
+
+### Multiple Businesses
+- Each business evaluated
+- Income combined if stable
+- Complexity increases
+
+## Minimum Requirements
+
+### Time in Business
+- **Minimum**: 2 years
+- **Ideal**: 3+ years
+- Under 2 years: Very difficult
+
+### Credit Score
+- Same minimums as W-2 (620-700+ depending on loan)
+- But compensating factors may be needed
+- Higher scores help offset income complexity
+
+### Down Payment
+- Same programs available
+- But larger down payment helps
+- Shows financial stability
+- Compensates for income complexity
+
+### Reserves
+- Often required to have more reserves
+- 3-12 months mortgage payments in savings
+- Compensates for income variability
+
+## Tips to Qualify
+
+### 1. Plan Ahead
+If buying in 1-2 years:
+- Consider showing more income on taxes
+- Painful to pay more taxes, but enables purchase
+- Balance tax savings vs. borrowing ability
+
+### 2. Keep Business and Personal Separate
+- Separate bank accounts
+- Clear financial records
+- Easier for lenders to evaluate
+
+### 3. Document Everything
+- Keep meticulous records
+- Profit/loss statements current
+- Contracts and invoices organized
+
+### 4. Work with Right Lender
+Not all lenders handle self-employed well:
+- Find one experienced with self-employed
+- Ask specifically about their process
+- Get pre-approved early
+
+### 5. Get CPA Involved Early
+- Help with tax strategy
+- Prepare required documentation
+- Write verification letters
+- Navigate complex situations
+
+### 6. Consider Non-QM Loans
+If traditional doesn't work:
+- Bank statement loans (12-24 months statements)
+- Asset-based loans
+- Higher rates but more flexible
+- Require larger down payments
+
+## Bank Statement Loans
+
+### What They Are
+- Qualify based on bank deposits, not tax returns
+- Review 12-24 months of business bank statements
+- Calculate income from deposits
+
+### How Income Is Calculated
+**Total Deposits** / 12 or 24 months = Monthly income
+**Expense Factor**: Subtract 40-50% for expenses
+**Net Income**: What they use for qualification
+
+**Example**:
+- 24-month deposits: $500,000
+- Monthly average: $20,833
+- Less 50% expenses: $10,416
+- Qualifying income: $10,416/month
+
+### Trade-offs
+- Easier to qualify
+- Higher interest rates (0.5-2% more)
+- Larger down payment required (10-20% minimum)
+- Not available from all lenders
+
+## Common Obstacles
+
+### Issue: Income Dropped Last Year
+**Solution**:
+- Explain why (one-time event, investment in growth)
+- Show current-year profit/loss trending up
+- May need to use lower income figure
+
+### Issue: Business Less Than 2 Years
+**Solution**:
+- Very difficult traditionally
+- Bank statement loans may work
+- Wait until 2-year mark if possible
+- Document same line of work history
+
+### Issue: Lots of Write-Offs
+**Solution**:
+- Add back allowable items
+- Work with CPA to show adjusted income
+- Consider showing more income next tax year
+- Bank statement loan alternative
+
+### Issue: Seasonal/Variable Income
+**Solution**:
+- 2-year average smooths variation
+- Strong reserves help
+- Document the pattern
+- Show stability over time
+
+## Pre-Approval Process
+
+### Get Pre-Approved Early
+For self-employed, start 3-6 months before shopping:
+- More documentation needed
+- Potential issues surface early
+- Time to correct problems
+- Know your real budget
+
+### What Pre-Approval Reviews
+- Tax returns
+- Bank statements
+- Credit report
+- Business documentation
+- Preliminary income calculation
+
+### Pre-Approval Letter
+Should state:
+- Verified self-employment income
+- Maximum loan amount
+- Down payment required
+- Any conditions
+
+## Working with Your Team
+
+### Lender Selection
+- Experience with self-employed crucial
+- Ask about typical documentation
+- Understand timeline
+- Know what they add back
+
+### CPA Relationship
+- Inform them of purchase plans
+- Balance tax optimization with qualification
+- Get letters and documentation
+- Strategize for future
+
+### Real Estate Agent
+- Should know you're self-employed
+- May face competition issues (sellers prefer W-2)
+- Strong pre-approval letter helps
+
+---
+
+*Ready to start house hunting? [Analyze properties with Perchspot](/chat) for AI-powered insights before you buy.*
+    `,
+  },
+  {
+    id: 'townhouse-buying-guide',
+    title: "Townhouse Buying Guide: Everything You Need to Know",
+    excerpt: "Townhouses offer a middle ground between condos and single-family homes. Here's what makes them unique and what to watch for.",
+    category: 'Guide',
+    date: '2026-02-06',
+    readTime: '9 min read',
+    image: '/blog/townhouse.jpg',
+    metaDescription: "Townhouse buying guide: pros and cons, what to look for, HOA considerations, and how townhouses differ from condos and houses.",
+    content: `
+# Townhouse Buying Guide: Everything You Need to Know
+
+Townhouses occupy a unique space in real estate—more space than a condo, lower maintenance than a single-family home. But they come with their own considerations. Here's what you need to know.
+
+## What Is a Townhouse?
+
+A townhouse (or townhome) is typically:
+- Multi-story attached home
+- Shared walls with neighbors
+- Own entrance (ground level)
+- Often includes small yard/patio
+- May be fee simple or condo ownership
+
+### Townhouse vs. Condo
+
+| Feature | Townhouse | Condo |
+|---------|-----------|-------|
+| Stories | Multi-level | Single level (usually) |
+| Entrance | Private ground level | Shared hallways |
+| Land ownership | Sometimes | No |
+| Exterior maintenance | Varies | Always HOA |
+| Parking | Often attached garage | Assigned space/garage |
+| Neighbors | Side-by-side | Above/below/beside |
+
+### Townhouse vs. Single-Family
+
+| Feature | Townhouse | Single-Family |
+|---------|-----------|---------------|
+| Price | Lower | Higher |
+| Lot size | Smaller | Larger |
+| Shared walls | Yes | No |
+| Maintenance | Less | More |
+| Privacy | Less | More |
+| HOA | Usually | Sometimes |
+
+## Townhouse Ownership Types
+
+### Fee Simple
+- You own the land beneath
+- True property ownership
+- More control
+- Sell like single-family home
+- Usually lower HOA fees
+
+### Condominium (Condo-mapped)
+- You own interior only
+- HOA owns land and exterior
+- Like condo in attached format
+- HOA handles more
+- May have restrictions
+
+**Why It Matters**:
+- Financing can differ
+- Insurance requirements differ
+- Resale considerations
+- Level of control varies
+
+**Ask**: "Is this fee simple or condo ownership?"
+
+## Advantages of Townhouses
+
+### Financial
+- Lower price than single-family
+- More space than condos
+- Land ownership (if fee simple)
+- Often better appreciation than condos
+
+### Lifestyle
+- Ground-level entry
+- Often private garage
+- Small outdoor space
+- More privacy than condos
+- Less maintenance than house
+
+### Practical
+- Newer construction common
+- Modern amenities
+- Efficient layouts
+- Multiple floors for separation
+
+## Disadvantages of Townhouses
+
+### Shared Walls
+- Noise from neighbors
+- Less privacy
+- Potential disputes
+- Can't control neighbor behavior
+
+### Limited Outdoor Space
+- Small yards/patios
+- No room for large gardens
+- Limited entertaining space
+- Pets have less room
+
+### HOA Restrictions
+- Rules on modifications
+- Exterior appearance controlled
+- Pet policies
+- Rental restrictions possible
+
+### Stairs
+- Multiple levels means stairs
+- Not ideal for mobility issues
+- Carrying items up/down
+- Baby gates for young children
+
+## What to Look for in a Townhouse
+
+### Location Within Development
+- **End unit**: One shared wall, more windows, light
+- **Interior unit**: Two shared walls, less privacy
+- **Corner**: Often best light and privacy
+
+**Premium**: End units typically cost 5-15% more—often worth it.
+
+### Construction Quality
+
+**Noise Insulation**:
+- What's between units?
+- Concrete/masonry vs. wood frame
+- Insulation quality
+- STC ratings if available
+
+**Fire Separation**:
+- Required by code
+- Varies in quality
+- Important for safety and insurance
+
+### Floor Plan Considerations
+
+**Good Layouts**:
+- Living areas not against shared wall
+- Bedrooms on upper floors (away from neighbors)
+- Garages buffer noise
+- Stacked utilities (efficient)
+
+**Watch Out For**:
+- Master bedroom against shared wall
+- Thin shared walls
+- Poor sound insulation
+- Inefficient stairs
+
+### Parking and Storage
+
+**Garage**:
+- Attached vs. detached
+- One car vs. two car
+- Direct entry to unit?
+- Storage space in garage
+
+**Guest Parking**:
+- How many spots?
+- Where located?
+- Restrictions?
+
+**Storage**:
+- Closet space
+- Garage storage
+- Outdoor shed possible?
+
+## HOA Considerations for Townhouses
+
+### What's Usually Covered
+- Exterior maintenance (siding, roof)
+- Common area landscaping
+- Shared amenities
+- Insurance (master policy)
+- Snow removal
+- Garbage
+
+### What's Usually Your Responsibility
+- Interior maintenance
+- Private patio/yard
+- Unit utilities
+- Interior insurance (HO-6)
+
+### Fee Ranges
+- Basic townhouse HOA: $100-$250/month
+- With amenities: $200-$400/month
+- Luxury communities: $400-$800/month
+
+### Important Questions
+1. What does HOA cover?
+2. What are current fees?
+3. How often do fees increase?
+4. What's the reserve fund status?
+5. Any pending special assessments?
+6. What are the major rules?
+
+## Financing Townhouses
+
+### Conventional Loans
+- Usually straightforward
+- Same as single-family (fee simple)
+- Condo rules may apply (condo-mapped)
+
+### FHA Loans
+- Available for townhouses
+- Condo-mapped may need FHA approval
+- Check development approval status
+
+### VA Loans
+- Available for townhouses
+- Similar considerations to FHA
+- VA approval may be needed
+
+### Potential Issues
+- High investor ownership percentage
+- Pending litigation
+- Low reserves
+- FHA/VA non-approval
+
+These can affect financing options and interest rates.
+
+## Insurance for Townhouses
+
+### If Fee Simple
+- Standard homeowners (HO-3)
+- Like single-family home
+- You insure everything
+
+### If Condo-Mapped
+- HO-6 policy (condo insurance)
+- HOA covers exterior/structure
+- You cover interior, belongings, liability
+- Coordinate with master policy
+
+### Key Coverage
+- Dwelling (structure)
+- Personal property
+- Liability
+- Loss assessment (HOA assessments)
+- Loss of use
+
+## Townhouse Red Flags
+
+### Physical Issues
+- Visible wall cracks (foundation?)
+- Water stains (roof or plumbing?)
+- Uneven floors (settling?)
+- Poor ventilation
+- Outdated electrical/plumbing
+
+### HOA Issues
+- Very low fees (under-funded)
+- Multiple special assessments
+- Pending litigation
+- High delinquency rate
+- Poor maintenance visible
+- Contentious board
+
+### Development Issues
+- Mostly rentals (less investment)
+- Vacant units
+- Deferred maintenance throughout
+- Builder still involved (new developments)
+- Incomplete amenities
+
+## Questions to Ask Sellers/Agents
+
+### About the Unit
+1. Which walls are shared?
+2. Any noise issues with neighbors?
+3. What's included (appliances, fixtures)?
+4. Any known issues or repairs needed?
+5. How old are major systems (HVAC, water heater)?
+
+### About the HOA
+1. What's included in HOA fee?
+2. Any special assessments planned?
+3. Can I see recent meeting minutes?
+4. What are the major rules?
+5. Any rental restrictions?
+
+### About the Neighborhood
+1. How long have you lived here?
+2. Any issues in the community?
+3. What's neighbor turnover like?
+4. How's the management company?
+
+## Making the Decision
+
+### Townhouse Is Right If You:
+- Want more space than condo
+- Like less maintenance than house
+- Can handle stairs
+- Accept shared walls
+- Want ground-level entry
+- Value newer construction
+- Okay with HOA
+
+### Consider Alternatives If You:
+- Need maximum privacy
+- Want large yard
+- Have mobility concerns
+- Can't handle noise sensitivity
+- Want full control of property
+- Need space for hobbies
+
+---
+
+*Found a townhouse you're considering? [Analyze it with Perchspot](/chat) for AI-powered insights on condition, location, and value.*
+    `,
+  },
+  {
+    id: 'buying-duplex-multi-family',
+    title: "Buying a Duplex or Multi-Family: Investment Property Guide",
+    excerpt: "Multi-family properties can generate income while you live there. Here's how to evaluate duplexes, triplexes, and fourplexes.",
+    category: 'Investment',
+    date: '2026-02-05',
+    readTime: '11 min read',
+    image: '/blog/duplex.jpg',
+    metaDescription: "How to buy a duplex or multi-family property: financing, analyzing rental income, management considerations, and investment returns.",
+    content: `
+# Buying a Duplex or Multi-Family: Investment Property Guide
+
+Multi-family properties (2-4 units) represent a unique opportunity: you can live in one unit while renting others, building wealth while reducing your housing costs. Here's how to evaluate and purchase these properties.
+
+## What Is Multi-Family?
+
+### Property Types
+
+**Duplex**: 2 units
+- Most common small multi-family
+- Often side-by-side or up-down
+- Easiest to manage
+
+**Triplex**: 3 units
+- Less common
+- Better income than duplex
+- More management
+
+**Fourplex**: 4 units
+- Maximum for residential financing
+- Best income potential
+- Most management required
+
+**5+ Units**: Commercial
+- Different financing required
+- Different management approach
+- Beyond this guide's scope
+
+## Why Buy Multi-Family?
+
+### House Hacking
+Live in one unit, rent others:
+- Tenants pay your mortgage
+- Live free or cheap
+- Build equity while learning landlording
+
+**Example**:
+- Duplex: $4,000/month mortgage
+- Rent other unit: $2,500/month
+- Your cost: $1,500/month
+
+### Investment Returns
+Multiple income streams:
+- Rental income
+- Appreciation
+- Tax benefits
+- Equity building
+
+### Learning Landlording
+- Start small (1-3 tenants)
+- Learn before scaling
+- Lower stakes than large apartment
+- Hands-on education
+
+## Financing Multi-Family (2-4 Units)
+
+### Owner-Occupied Benefits
+If you'll live in one unit:
+- Same financing as single-family
+- Low down payments available
+- Better interest rates
+- Rental income helps qualify
+
+### Loan Options
+
+**FHA Loan**:
+- 3.5% down
+- Up to 4 units
+- Must live in one unit
+- Rental income helps qualify
+
+**Conventional**:
+- 5-20% down (owner-occupied)
+- Up to 4 units
+- Better rates with more down
+- Rental income counted
+
+**VA Loan**:
+- 0% down possible
+- Up to 4 units
+- Must live in one unit
+- Great for veterans
+
+### Investment Property (Non-Owner)
+- 20-25% down minimum
+- Higher interest rates
+- Stricter qualification
+- Full rental income considered
+
+### How Lenders Count Rental Income
+
+**Owner-Occupied**:
+- 75% of market rent from other units
+- Added to your income for qualification
+- Vacancy factor built in
+
+**Example** (Triplex):
+- Your income: $100,000
+- Other 2 units rent: $3,000/month combined
+- 75% counted: $2,250/month = $27,000/year
+- Qualifying income: $127,000
+
+## Analyzing Multi-Family Deals
+
+### Key Metrics
+
+**Gross Rent Multiplier (GRM)**:
+- Purchase Price / Annual Gross Rent
+- Lower is better
+- Under 12 is excellent; over 20 is poor
+
+**Cap Rate** (Capitalization Rate):
+- NOI / Purchase Price × 100
+- Higher is better return
+- 5-8% typical for small multi-family
+
+**Cash-on-Cash Return**:
+- Annual Cash Flow / Cash Invested × 100
+- Your actual return on investment
+- 8-12%+ is good
+
+### Running the Numbers
+
+**Example: $600,000 Duplex**
+
+**Income**:
+- Unit 1 (you live): $0
+- Unit 2 rent: $2,200/month
+- **Gross annual income**: $26,400
+
+**Expenses**:
+- Vacancy (5%): $1,320
+- Repairs (8%): $2,112
+- Property management (0% self-manage): $0
+- Property taxes: $6,000
+- Insurance: $2,400
+- Utilities (if you pay): $1,200
+- **Total expenses**: $13,032
+
+**NOI**: $26,400 - $13,032 = $13,368
+
+**Debt Service**:
+- Mortgage ($480K loan, 7%, 30yr): $38,340/year
+
+**Cash Flow**: $13,368 - $38,340 = -$24,972
+**Monthly out of pocket**: ~$2,080
+
+**vs. Renting equivalent unit**: $2,500/month
+**Savings**: $420/month + equity building
+
+### The 1% Rule (Quick Screen)
+Monthly rent ≥ 1% of purchase price
+
+**$600K duplex**:
+- 1% = $6,000/month total rent
+- Your duplex: $2,200 (other unit only) ≠ 1%
+- Including both units at market: $4,400 = 0.73%
+
+Properties rarely hit 1% in expensive markets, but it's a useful screening tool.
+
+## What to Evaluate
+
+### The Property
+
+**Physical Condition**:
+- Roof, foundation, systems
+- Deferred maintenance
+- Age of major components
+- Separate systems or shared?
+
+**Unit Configuration**:
+- Separate entrances?
+- Separate utilities?
+- Unit sizes comparable?
+- Privacy between units?
+
+**Parking**:
+- Enough spaces for all units?
+- Garage or surface?
+- Guest parking?
+
+### The Rental Market
+
+**Comparable Rents**:
+- What do similar units rent for?
+- Vacancy rates in area?
+- Rent growth trends?
+
+**Tenant Quality**:
+- What kind of tenants in area?
+- Employment nearby?
+- Crime rates?
+
+### The Location
+
+**Desirability**:
+- Would you want to live there?
+- Good schools (affects value)?
+- Neighborhood trajectory?
+
+**Landlord-Friendliness**:
+- Local laws favor landlords or tenants?
+- Rent control?
+- Eviction process?
+
+## Living in Your Multi-Family
+
+### Pros
+- Close to tenants for management
+- See issues firsthand
+- Build relationships
+- No landlord above you
+
+### Cons
+- Tenants know where you live
+- Harder to maintain boundaries
+- Always "at work"
+- Less privacy
+
+### Tips for Success
+
+**Set Boundaries**:
+- Office hours for non-emergencies
+- Separate entrance if possible
+- Professional relationship
+
+**Sound Insulation**:
+- Your unit should feel private
+- Consider this when choosing your unit
+- Upgrades may be worth it
+
+**Choose Your Unit**:
+- Often take less desirable unit
+- Leave better unit for higher rent
+- Consider long-term plans
+
+## Management Considerations
+
+### Self-Managing (Owner-Occupied)
+
+**Pros**:
+- Save management fees (8-10%)
+- Learn the business
+- Direct control
+- Know your tenants
+
+**Cons**:
+- Time commitment
+- Learning curve
+- Emotional challenges
+- Legal responsibilities
+
+### Hiring Manager
+
+**When to Consider**:
+- You don't live in property
+- Time constraints
+- Scaling to more properties
+- Prefer hands-off
+
+**Cost**: 8-10% of collected rent + leasing fees
+
+## Tax Benefits
+
+### Rental Income
+- Offset by expenses
+- Depreciation reduces taxable income
+- Only rental portion counts
+
+### Owner-Occupied Split
+If you live in half of duplex:
+- 50% mortgage interest on Schedule A
+- 50% as rental expense on Schedule E
+- Same split for property taxes, etc.
+
+### Depreciation
+- Deduct building value over 27.5 years
+- Rental portion only
+- Significant tax benefit
+
+### Example
+**$600K duplex** (land $100K, building $500K):
+- Rental portion: 50%
+- Depreciable building: $250K
+- Annual depreciation: $250K / 27.5 = $9,090
+- Tax savings (24% bracket): $2,182/year
+
+## Red Flags
+
+### Financial
+- Seller won't provide rent rolls
+- Below-market rents to friends/family
+- High vacancy history
+- Deferred maintenance
+
+### Physical
+- Shared systems (harder to bill separately)
+- Code violations
+- Unpermitted work
+- Environmental issues
+
+### Legal
+- Problem tenants with leases
+- Pending lawsuits
+- Zoning issues
+- Rent control complications
+
+## Steps to Buy Multi-Family
+
+### 1. Get Pre-Approved
+- Lender experienced with multi-family
+- Understand rental income counting
+- Know your budget
+
+### 2. Define Criteria
+- Location requirements
+- Unit count preference
+- Condition tolerance
+- Return requirements
+
+### 3. Analyze Deals
+- Run numbers on every property
+- Verify rents with market research
+- Estimate all expenses
+- Calculate returns
+
+### 4. Make Offer
+- Include financing contingency
+- Inspection contingency critical
+- Request rent rolls, leases, expenses
+
+### 5. Due Diligence
+- Professional inspection
+- Review all leases
+- Verify income/expenses
+- Estoppel certificates from tenants
+
+### 6. Close and Transition
+- Meet tenants
+- Transfer deposits properly
+- Provide contact information
+- Review lease terms
+
+---
+
+*Evaluating a multi-family property? [Analyze it with Perchspot](/chat) for AI insights on condition, location, and investment potential.*
+    `,
+  },
 ];
 
 // Update categories to include Local
