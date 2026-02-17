@@ -9809,6 +9809,1987 @@ If you live in half of duplex:
 *Evaluating a multi-family property? [Analyze it with Perchspot](/chat) for AI insights on condition, location, and investment potential.*
     `,
   },
+  {
+    id: 'newcastle-factoria-housing-2026',
+    title: 'Newcastle & Factoria Housing Guide 2026: Hidden Eastside Gems',
+    excerpt: 'Discover Newcastle and Factoria—two often-overlooked Eastside neighborhoods offering excellent value and Bellevue amenities.',
+    category: 'Local',
+    date: '2026-02-09',
+    readTime: '10 min read',
+    image: '/blog/newcastle-factoria.jpg',
+    metaDescription: 'Complete 2026 guide to buying a home in Newcastle and Factoria WA. Market trends, neighborhoods, schools, and what makes these Bellevue-adjacent areas great values.',
+    content: `
+# Newcastle & Factoria Housing Guide 2026: Hidden Eastside Gems
+
+While Bellevue, Kirkland, and Redmond dominate Eastside conversations, Newcastle and Factoria offer exceptional value with many of the same amenities. These neighborhoods have gained popularity among savvy buyers seeking Eastside quality without premium prices.
+
+## Why Consider Newcastle & Factoria?
+
+### Newcastle Advantages
+- **Bellevue schools**: Access to top-rated Bellevue School District
+- **Nature at your doorstep**: Cougar Mountain Regional Wildland Park
+- **Community feel**: Small-town atmosphere, tight-knit neighborhoods
+- **Value**: 10-20% less than comparable Bellevue neighborhoods
+- **Views**: Many homes offer Seattle/Lake Washington views
+
+### Factoria Advantages
+- **Commuter friendly**: Easy I-90 and I-405 access
+- **Urban amenities**: Factoria Mall, dining, services nearby
+- **Diverse housing**: Condos, townhomes, and single-family options
+- **Mixed zoning**: Investment opportunities with multi-family potential
+- **Affordability**: Entry point to Eastside living
+
+## Newcastle Neighborhoods
+
+### Coal Creek
+**Vibe**: Established, wooded, family-oriented
+
+**Housing Stock**:
+- 1970s-1990s split-levels and ranches
+- Newer construction mixed in
+- Large lots common (10,000+ sq ft)
+
+**Price Range**: $1.1M - $1.8M
+
+**Best For**: Families wanting space and nature access
+
+### Downtown Newcastle
+**Vibe**: Newer, modern, walkable to parks
+
+**Housing Stock**:
+- 2000s+ construction dominates
+- Contemporary designs
+- Smaller lots, more efficient
+
+**Price Range**: $1.3M - $2.2M
+
+**Best For**: Those wanting newer homes with amenities
+
+### Olympus
+**Vibe**: View properties, established
+
+**Housing Stock**:
+- Mix of 1980s-2000s homes
+- Many view lots
+- Custom builds
+
+**Price Range**: $1.4M - $2.5M
+
+**Best For**: Buyers prioritizing views and space
+
+## Factoria Areas
+
+### Lake Hills Connector Area
+**Vibe**: Urban, diverse, convenient
+
+**Housing Stock**:
+- Condos and townhomes dominate
+- Some single-family pockets
+- Older apartments
+
+**Price Range**:
+- Condos: $400K - $700K
+- Townhomes: $650K - $950K
+- Single-family: $900K - $1.4M
+
+**Best For**: First-time buyers, investors
+
+### Factoria Boulevard
+**Vibe**: Commercial-adjacent, practical
+
+**Housing Stock**:
+- Dense housing near retail
+- Newer townhome communities
+- Mix of rentals and owned
+
+**Price Range**: $500K - $900K
+
+**Best For**: Those prioritizing convenience and value
+
+### SE 36th Street Area
+**Vibe**: Residential, quieter
+
+**Housing Stock**:
+- Older single-family homes
+- Some redevelopment occurring
+- Larger lots in pockets
+
+**Price Range**: $850K - $1.3M
+
+**Best For**: Families wanting single-family without premium prices
+
+## Schools
+
+### Newcastle Schools (Bellevue SD)
+**Elementary**:
+- Newcastle Elementary: 8/10
+- Somerset Elementary: 9/10
+
+**Middle**:
+- Tyee Middle School: 8/10
+
+**High**:
+- Newport High School: 9/10
+
+### Factoria Schools (Bellevue SD)
+**Elementary**:
+- Somerset Elementary: 9/10
+- Eastgate Elementary: 7/10
+
+**Middle**:
+- Tyee Middle School: 8/10
+
+**High**:
+- Newport High School: 9/10
+
+## Commute Analysis
+
+### From Newcastle
+
+| Destination | Drive Time | Transit Time |
+|-------------|-----------|--------------|
+| Downtown Bellevue | 10-20 min | 25-35 min |
+| Microsoft/Redmond | 20-30 min | 40-55 min |
+| Downtown Seattle | 20-35 min | 40-55 min |
+| Amazon/SLU | 25-40 min | 50-70 min |
+
+### From Factoria
+
+| Destination | Drive Time | Transit Time |
+|-------------|-----------|--------------|
+| Downtown Bellevue | 5-15 min | 15-25 min |
+| Microsoft/Redmond | 15-25 min | 30-45 min |
+| Downtown Seattle | 15-30 min | 35-50 min |
+| Amazon/SLU | 20-35 min | 45-60 min |
+
+## Market Trends 2026
+
+### Newcastle
+- **Median Price**: $1.45M (up 4% YoY)
+- **Days on Market**: 18 days
+- **Inventory**: Tight, especially for newer homes
+- **Trend**: Steady appreciation, growing awareness
+
+### Factoria
+- **Median Price**: $725K (condos/townhomes)
+- **Days on Market**: 22 days
+- **Inventory**: More availability than other Eastside
+- **Trend**: Strong interest from first-time buyers
+
+## Investment Potential
+
+### Newcastle
+- **Appreciation History**: 7% annually over 10 years
+- **Rental Potential**: Limited, mostly owner-occupied
+- **Future**: Likely continued appreciation as awareness grows
+- **Risk**: Limited upside compared to emerging areas
+
+### Factoria
+- **Appreciation History**: 6% annually
+- **Rental Potential**: Strong rental demand
+- **Future**: Redevelopment potential in older areas
+- **Risk**: Commercial development may change character
+
+## What to Watch For
+
+### Newcastle Considerations
+- **Septic vs Sewer**: Many older homes on septic
+- **Coal mining history**: Some areas have old mine shafts
+- **HOA restrictions**: Some neighborhoods have strict rules
+- **Road conditions**: Some private roads, limited maintenance
+
+### Factoria Considerations
+- **Noise**: I-90 and I-405 traffic noise in some areas
+- **Commercial proximity**: Some areas very urban
+- **Aging condos**: Check building reserve studies
+- **Parking**: Some areas have limited parking
+
+## Lifestyle
+
+### Newcastle Living
+**Outdoor Recreation**:
+- Cougar Mountain trails (dozens of miles)
+- Coal Creek Trail
+- Lake Boren Park
+- Multiple neighborhood parks
+
+**Dining/Shopping**:
+- Limited within Newcastle
+- 5-10 minutes to Factoria
+- 10-15 minutes to Downtown Bellevue
+
+**Community**:
+- Newcastle Days festival
+- Active community clubs
+- Family-oriented events
+
+### Factoria Living
+**Outdoor Recreation**:
+- Mercer Slough Nature Park nearby
+- Lake Washington access
+- Bellevue College trails
+
+**Dining/Shopping**:
+- Factoria Mall
+- Diverse restaurant options
+- All major retailers
+
+**Community**:
+- More urban, less community-event focused
+- Diverse, multicultural population
+
+## Buying Strategy
+
+### For Newcastle
+1. **Be patient**: Inventory is limited
+2. **Consider older homes**: Renovation opportunities exist
+3. **Check views**: Some lots have protected views, others don't
+4. **Septic inspection**: Essential for older homes
+5. **School verify**: Confirm school assignments
+
+### For Factoria
+1. **Move quickly**: Good values go fast
+2. **Check HOA**: Reserve studies and rules vary widely
+3. **Visit multiple times**: Noise levels vary by time/day
+4. **Consider future**: Light rail expansion will help values
+5. **Parking matters**: Verify parking for your needs
+
+## Who Should Buy Here?
+
+### Newcastle is Ideal For:
+- Families wanting Bellevue schools at lower prices
+- Nature lovers who hike/run regularly
+- Those who don't need urban walkability
+- Buyers seeking community atmosphere
+- Remote workers who don't commute daily
+
+### Factoria is Ideal For:
+- First-time buyers entering Eastside market
+- Commuters needing highway access
+- Those who want urban convenience
+- Investors seeking rental properties
+- Downsizers from larger homes
+
+---
+
+*Found a property in Newcastle or Factoria? [Get instant AI analysis](/chat) to understand its true value and potential.*
+    `,
+  },
+  {
+    id: 'property-taxes-explained',
+    title: 'Property Taxes Explained: What Every Homeowner Needs to Know',
+    excerpt: 'Understand how property taxes work, what affects your bill, and strategies to manage this ongoing cost of homeownership.',
+    category: 'Education',
+    date: '2026-02-08',
+    readTime: '9 min read',
+    image: '/blog/property-taxes.jpg',
+    metaDescription: 'Complete guide to property taxes for homeowners. Learn how property taxes are calculated, what affects your bill, appeals process, and tax saving strategies.',
+    content: `
+# Property Taxes Explained: What Every Homeowner Needs to Know
+
+Property taxes are one of the largest ongoing costs of homeownership, yet many buyers don't fully understand them. This guide explains everything you need to know about property taxes.
+
+## How Property Taxes Work
+
+### Basic Formula
+**Property Tax = Assessed Value × Tax Rate (Mill Rate)**
+
+### Key Terms
+- **Assessed Value**: What the county says your property is worth for tax purposes
+- **Market Value**: What your property would sell for
+- **Tax Rate/Mill Rate**: Rate per $1,000 of assessed value
+- **Levy**: The total amount a taxing district needs to collect
+
+### Who Sets the Rate?
+Multiple entities contribute to your tax rate:
+- County government
+- City/town government
+- School district
+- Fire district
+- Library district
+- Port authority
+- Special levies (parks, transit, etc.)
+
+## Assessment Process
+
+### How Your Home is Valued
+
+**Mass Appraisal**: Assessors value thousands of properties using:
+- Recent sales of comparable homes
+- Property characteristics (size, age, features)
+- Neighborhood factors
+- Cost approach (replacement cost minus depreciation)
+
+### Assessment Timeline
+- Most counties reassess annually or every 2-4 years
+- Notices sent after assessment
+- Appeal period follows (typically 30-60 days)
+- New values effective the following tax year
+
+### Assessed vs Market Value
+In many areas, assessed value differs from market value:
+- Some states assess at a percentage of market value
+- Assessment may lag behind rapid market changes
+- Caps may limit annual increases
+
+## Washington State Specifics
+
+### How WA Works
+- Assessed at 100% of market value
+- 1% annual cap on levy increases (with exceptions)
+- Senior/disabled exemptions available
+- Varies significantly by county/city
+
+### King County Example
+**Typical rates by area** (per $1,000 assessed):
+| Area | Rate |
+|------|------|
+| Seattle | $9-11 |
+| Bellevue | $8-10 |
+| Redmond | $9-11 |
+| Kirkland | $10-12 |
+
+### Sample Calculation
+**$1.5M home in Bellevue** (rate: $9.50 per $1,000):
+- $1,500,000 / $1,000 = 1,500
+- 1,500 × $9.50 = **$14,250/year**
+- Monthly: **$1,187.50**
+
+## What Affects Your Bill
+
+### Property-Specific Factors
+1. **Square footage**: Larger = higher value = more tax
+2. **Lot size**: Larger lots usually assessed higher
+3. **Age and condition**: Updated homes valued more
+4. **Improvements**: Permits trigger reassessment
+5. **View/location**: Premiums affect assessment
+
+### External Factors
+1. **School levies**: Often the largest component
+2. **Bond measures**: Voter-approved debt
+3. **City services**: Police, fire, infrastructure
+4. **Special districts**: Transit, libraries, parks
+
+### What Triggers Reassessment
+- Sale of property (not always)
+- Permitted improvements
+- Regular assessment cycle
+- Appeal by owner
+- Market changes
+
+## Exemptions and Reductions
+
+### Common Exemptions
+
+**Homestead Exemption** (not in WA):
+- Reduces taxable value for primary residence
+- Varies by state ($25K-$100K+ reduction)
+
+**Senior Exemption** (WA has this):
+- Age 61+ with limited income
+- Can freeze or reduce assessed value
+- Income limits apply
+
+**Disabled Veteran Exemption**:
+- Partial or full exemption based on disability rating
+- Varies by state
+
+### Washington State Programs
+
+**Senior/Disabled Exemption**:
+- Income under $58,423 (2026)
+- Age 61+ or disabled
+- Must be primary residence
+- Can exempt portion of value
+
+**Deferral Program**:
+- Defer taxes until sale or death
+- Interest accrues
+- For seniors and disabled
+
+## Appealing Your Assessment
+
+### When to Appeal
+- Assessed value exceeds market value
+- Assessment increased significantly
+- Errors in property description
+- Comparable homes assessed lower
+
+### Grounds for Appeal
+1. **Value too high**: Evidence of lower market value
+2. **Unequal assessment**: Similar homes assessed lower
+3. **Incorrect data**: Wrong square footage, features, etc.
+4. **Exemption denied**: Should qualify for exemption
+
+### The Appeal Process
+
+**Step 1: Review Assessment**
+- Get your property record card
+- Check for errors (sq ft, bedrooms, etc.)
+- Compare to similar properties
+
+**Step 2: Gather Evidence**
+- Recent comparable sales
+- Professional appraisal
+- Photos of condition issues
+- Assessment records of neighbors
+
+**Step 3: File Appeal**
+- Meet deadline (usually 30-60 days)
+- Complete required forms
+- Pay filing fee if required
+
+**Step 4: Hearing**
+- Present your case
+- Bring evidence and comparables
+- Be prepared for questions
+
+**Step 5: Decision**
+- Written decision issued
+- Further appeal possible if denied
+
+### Tips for Success
+- Focus on facts, not fairness
+- Use recent, comparable sales
+- Document property issues
+- Be respectful and prepared
+- Consider professional help for large discrepancies
+
+## Tax Saving Strategies
+
+### Legal Ways to Reduce Taxes
+
+**1. Apply for Exemptions**
+- Research all available exemptions
+- Apply before deadlines
+- Reapply if circumstances change
+
+**2. Appeal Overassessment**
+- Monitor assessed value annually
+- Appeal when value seems high
+- Keep records of comparable sales
+
+**3. Review for Errors**
+- Check property records for mistakes
+- Report errors to assessor
+- Request reassessment after corrections
+
+**4. Understand Improvement Triggers**
+- Know what triggers reassessment
+- Time major improvements strategically
+- Some maintenance doesn't trigger increases
+
+**5. Senior Planning**
+- Apply for exemptions early
+- Consider income qualification strategies
+- Explore deferral programs
+
+### What NOT to Do
+- Don't hide improvements (illegal)
+- Don't underreport (penalties apply)
+- Don't skip payments (lien/foreclosure risk)
+- Don't assume exemptions auto-apply
+
+## Property Taxes and Home Buying
+
+### Before You Buy
+
+**Research Tax History**:
+- Request 3-5 years of tax bills
+- Check if exemptions will transfer
+- Calculate taxes at full value (new assessment likely)
+
+**Budget Accurately**:
+- Don't rely on seller's tax bill
+- Assume assessment at purchase price
+- Factor in potential levy increases
+
+### After Purchase
+
+**What to Expect**:
+- Reassessment typically within 1-2 years
+- Assessment will likely rise to purchase price
+- Plan for increased payment
+
+**Example Impact**:
+- Seller paid $800K, taxes $8,000/year
+- You pay $1.2M
+- New taxes: ~$12,000/year (50% increase)
+
+## Tax Escrow Explained
+
+### How Escrow Works
+- Lender collects monthly with mortgage payment
+- Held in escrow account
+- Lender pays taxes when due
+
+### Advantages
+- Spreads large bills over 12 months
+- Ensures taxes paid on time
+- No risk of late penalties
+
+### Disadvantages
+- Less control over funds
+- Escrow shortages require catch-up
+- Overage refunds can take time
+
+### Escrow Analysis
+- Lender reviews annually
+- Adjusts payment if taxes change
+- May require cushion (2-3 months reserve)
+
+## Special Assessments
+
+### What They Are
+- One-time or limited charges
+- Fund specific improvements
+- Not included in regular tax rate
+
+### Common Examples
+- Street improvements
+- Sewer connections
+- Sidewalk installation
+- Utility upgrades
+
+### Buyer Considerations
+- Ask about pending assessments
+- Check for liens
+- Negotiate who pays outstanding
+
+## Property Tax FAQ
+
+**Q: Do taxes go down when market crashes?**
+A: Eventually, but assessments lag. You may need to appeal.
+
+**Q: Can I deduct property taxes?**
+A: Yes, up to $10,000 combined with state income tax (SALT cap).
+
+**Q: What happens if I don't pay?**
+A: Penalties, interest, and eventually tax lien or foreclosure.
+
+**Q: Do taxes transfer to new owner?**
+A: Unpaid taxes create liens that must be cleared at sale.
+
+**Q: How do I find tax records?**
+A: County assessor website, usually free access.
+
+---
+
+*Understanding property costs before you buy is essential. [Analyze any property with Perchspot](/chat) for comprehensive financial insights.*
+    `,
+  },
+  {
+    id: 'closing-day-what-to-expect',
+    title: 'Closing Day: What Happens and What to Expect',
+    excerpt: 'A complete walkthrough of closing day—what documents you\'ll sign, who will be there, and how to prepare for this final step.',
+    category: 'Guide',
+    date: '2026-02-07',
+    readTime: '11 min read',
+    image: '/blog/closing-day.jpg',
+    metaDescription: 'Complete guide to closing day when buying a home. Learn what to expect, what documents you\'ll sign, how long it takes, and tips for a smooth closing.',
+    content: `
+# Closing Day: What Happens and What to Expect
+
+Closing day is the final step in your home buying journey—the day you sign papers and get the keys. Here's everything you need to know to be prepared.
+
+## What is Closing?
+
+### Definition
+Closing (also called settlement) is the final transaction where:
+- Ownership transfers from seller to buyer
+- Funds transfer to appropriate parties
+- Documents are signed and recorded
+- Keys are handed over
+
+### Who Attends?
+Depending on your location and situation:
+- **Buyer(s)**: You!
+- **Seller(s)**: Sometimes (may sign separately)
+- **Closing agent/escrow officer**: Facilitates the process
+- **Real estate agents**: Yours and/or seller's
+- **Attorney**: Required in some states, optional in others
+- **Lender representative**: Occasionally
+
+### Where Does It Happen?
+- Title company office
+- Escrow company office
+- Attorney's office
+- Lender's office
+- Virtually (increasingly common)
+
+## Timeline Before Closing
+
+### 3-7 Days Before
+
+**Final Walkthrough**:
+- Verify repairs completed
+- Check condition unchanged
+- Ensure agreed items remain
+- Test systems and appliances
+
+**Wire Transfer Setup**:
+- Get verified wire instructions
+- Never trust emailed instructions (wire fraud!)
+- Call to verify using known phone number
+- Initiate transfer day before (if allowed)
+
+**Review Closing Disclosure**:
+- Compare to Loan Estimate
+- Verify all charges
+- Ask questions about discrepancies
+- You must receive 3 days before closing
+
+### 1-2 Days Before
+
+**Confirm Appointment**:
+- Time and location
+- Who should attend
+- What to bring
+
+**Gather Documents**:
+- Government-issued photo ID
+- Proof of insurance
+- Certified/cashier's check (if not wiring)
+- Any required documentation
+
+**Funds Ready**:
+- Wire transfer initiated
+- Or cashier's check obtained
+- Verify amount with closing agent
+
+## What to Bring
+
+### Required
+- [ ] Government-issued photo ID (driver's license, passport)
+- [ ] Second form of ID (sometimes required)
+- [ ] Cashier's check or wire confirmation
+- [ ] Proof of homeowner's insurance
+
+### Potentially Needed
+- [ ] Power of attorney (if applicable)
+- [ ] Trust documents (if buying in trust)
+- [ ] Business documents (if applicable)
+- [ ] Additional funds method (personal checkbook)
+
+### Recommended
+- [ ] Copy of Closing Disclosure
+- [ ] List of questions
+- [ ] Blue or black ink pen
+- [ ] Phone/calculator
+- [ ] Water/snacks (it takes a while)
+
+## Documents You'll Sign
+
+### Mortgage Documents
+
+**Promissory Note**:
+- Your promise to repay the loan
+- States loan amount, interest rate, terms
+- Outlines payment schedule
+- Specifies consequences of default
+
+**Deed of Trust/Mortgage**:
+- Gives lender security interest in property
+- Allows foreclosure if you default
+- Recorded in public records
+- Released when loan paid off
+
+**Initial Escrow Statement**:
+- Shows escrow account setup
+- Lists monthly escrow payment
+- Details for taxes and insurance
+
+**First Payment Letter**:
+- States when first payment is due
+- Shows payment amount
+- Provides payment instructions
+
+### Property Documents
+
+**Deed**:
+- Transfers ownership to you
+- Lists property description
+- Recorded in county records
+- Types: Warranty, Grant, Quitclaim
+
+**Title Documents**:
+- Title insurance policy
+- Title search results
+- Any exceptions or exclusions
+
+### Disclosure Documents
+
+**Closing Disclosure**:
+- Final loan terms
+- All closing costs itemized
+- Cash needed at closing
+- Compare to Loan Estimate
+
+**Settlement Statement**:
+- Shows all financial transactions
+- Who pays what to whom
+- Final accounting of the deal
+
+### Additional Documents
+
+**Affidavits**:
+- Identity affidavit
+- Occupancy affidavit
+- Other declarations as needed
+
+**Compliance Agreements**:
+- Various lender requirements
+- State-specific disclosures
+- Other regulatory documents
+
+## The Signing Process
+
+### How Long Does It Take?
+- **Typical**: 1-2 hours
+- **Complex situations**: 2-3+ hours
+- **Remote/familiar signers**: 45 minutes
+
+### What to Expect
+
+**1. Identity Verification**
+- Show ID to closing agent
+- May be compared to file documents
+
+**2. Document Review and Signing**
+Each document will be:
+- Presented by closing agent
+- Briefly explained
+- Signed where indicated
+- Initialed as needed
+
+**3. Questions Welcome**
+- Ask if anything is unclear
+- Request more time if needed
+- Don't sign what you don't understand
+
+**4. Funds Verification**
+- Wire transfer confirmed
+- Or cashier's check accepted
+
+**5. Closing**
+- Agent collects all documents
+- Keys provided (or after recording)
+- Copies given to you
+
+## Understanding Your Closing Disclosure
+
+### Page 1: Loan Terms
+- **Loan Amount**: Principal borrowed
+- **Interest Rate**: Your rate
+- **Monthly Principal & Interest**: Base payment
+- **Prepayment Penalty**: Whether one exists
+- **Balloon Payment**: Whether one exists
+
+### Page 2: Closing Costs
+- **Loan Costs**: Origination, discount points
+- **Services You Cannot Shop For**: Appraisal, credit report
+- **Services You Can Shop For**: Title, survey
+- **Taxes and Government Fees**: Recording, transfer taxes
+- **Prepaids**: Prepaid interest, initial insurance, taxes
+- **Initial Escrow Payment**: First escrow deposit
+
+### Page 3: Cash to Close
+- **Total Closing Costs**: Sum of all costs
+- **Cash to Close**: What you bring
+
+### Pages 4-5: Additional Information
+- Loan details
+- Contact information
+- Acknowledgments
+
+## Wire Fraud Warning
+
+### The Scam
+Criminals hack email accounts and send fake wire instructions. Victims wire money to criminals instead of closing company.
+
+### How to Protect Yourself
+
+**1. Never Trust Email Instructions**
+- Even if it looks legitimate
+- Even from your agent's email
+- Even from the title company email
+
+**2. Always Verify by Phone**
+- Call the title company directly
+- Use a number you find independently
+- NOT a number from the email
+
+**3. Verify Bank Details**
+- Confirm account name
+- Verify routing number
+- Ask for confirmation process
+
+**4. Be Suspicious**
+- Any last-minute changes
+- Urgency to wire immediately
+- Unusual requests
+
+### If You Suspect Fraud
+1. Contact your bank immediately
+2. Report to FBI (ic3.gov)
+3. Contact title company
+4. Act within hours for best recovery chance
+
+## After the Signing
+
+### Same Day or Next
+
+**Recording**:
+- Documents sent to county recorder
+- Title officially transfers
+- Typically same day or next morning
+
+**Key Handover**:
+- After recording confirmed
+- Or as agreed in contract
+- Coordinate with agent
+
+### What You'll Receive
+
+**At Closing**:
+- Copies of everything you signed
+- Keys (usually)
+- Garage door openers
+- Access codes
+
+**By Mail (Later)**:
+- Recorded deed
+- Title insurance policy
+- Final title documents
+
+## Common Closing Issues
+
+### Document Problems
+- **Misspellings**: Can delay recording
+- **Missing signatures**: Requires re-signing
+- **Wrong amounts**: Must be corrected
+
+**Prevention**: Review Closing Disclosure early
+
+### Funding Issues
+- **Wire delay**: Bank holidays, timing
+- **Amount discrepancy**: Recalculate or supplement
+- **Hold on funds**: Bank verification needed
+
+**Prevention**: Send wire early, confirm receipt
+
+### Title Issues
+- **Last-minute lien discovered**: Must be resolved
+- **Judgment against similar name**: Affidavit needed
+- **Recording delays**: Patience required
+
+**Prevention**: Title search completed early
+
+### Walkthrough Issues
+- **Damage discovered**: Negotiate or delay
+- **Items missing**: Holdback or escrow
+- **Repairs incomplete**: Escrow funds until done
+
+**Prevention**: Thorough walkthrough, documentation
+
+## Remote Closings
+
+### Fully Remote
+- All signing done electronically
+- Video notarization
+- Digital delivery of documents
+
+### Hybrid
+- Some documents signed in person
+- Some signed remotely
+- Notary may come to you
+
+### Requirements
+- State must allow e-notarization
+- Lender must approve
+- Proper technology setup
+- Identity verification process
+
+## Tips for a Smooth Closing
+
+### Before
+- Review all documents early
+- Ask questions before closing day
+- Verify wire instructions by phone
+- Do walkthrough thoroughly
+- Have funds ready day before
+
+### During
+- Arrive on time
+- Bring required documents
+- Take your time reading
+- Ask questions
+- Stay until everything is complete
+
+### After
+- Keep all documents safe
+- Set up utility accounts
+- Change locks
+- Update your address
+- File homestead exemption (if applicable)
+
+## Closing Day Checklist
+
+### Morning Of
+- [ ] Confirm closing time/location
+- [ ] Verify funds have transferred
+- [ ] Gather all required documents
+- [ ] Charge your phone
+- [ ] Plan for 2-3 hours
+
+### At Closing
+- [ ] Review each document
+- [ ] Verify all numbers match expectations
+- [ ] Sign all required items
+- [ ] Get copies of everything
+- [ ] Receive keys and access items
+
+### After Closing
+- [ ] Confirm recording (next day)
+- [ ] Change locks
+- [ ] Set up utilities
+- [ ] File important documents
+- [ ] Celebrate!
+
+---
+
+*Ready to start your home buying journey? [Analyze properties with Perchspot](/chat) to find the perfect home before you reach the closing table.*
+    `,
+  },
+  {
+    id: 'home-warranty-vs-insurance',
+    title: 'Home Warranty vs Home Insurance: What\'s the Difference?',
+    excerpt: 'Understand the key differences between home warranties and homeowner\'s insurance, and decide which coverage you actually need.',
+    category: 'Education',
+    date: '2026-02-06',
+    readTime: '8 min read',
+    image: '/blog/warranty-insurance.jpg',
+    metaDescription: 'Home warranty vs homeowner\'s insurance explained. Learn what each covers, costs, pros and cons, and whether you need both as a homeowner.',
+    content: `
+# Home Warranty vs Home Insurance: What's the Difference?
+
+Many homeowners confuse home warranties with homeowner's insurance. While both protect your home, they cover very different things. Understanding the distinction helps you make informed coverage decisions.
+
+## Quick Comparison
+
+| Feature | Home Warranty | Homeowner's Insurance |
+|---------|---------------|----------------------|
+| Covers | Systems & appliances | Structure & belongings |
+| Cause | Normal wear & tear | Sudden damage/disasters |
+| Required? | Optional | Required by lender |
+| Cost | $300-$600/year | $1,000-$3,000+/year |
+| Deductible | $75-$150 per claim | $500-$2,500 per claim |
+
+## Home Warranty Explained
+
+### What It Is
+A home warranty is a service contract that covers repair or replacement of home systems and appliances when they fail due to normal wear and tear.
+
+### What It Covers
+
+**Systems**:
+- HVAC (heating, ventilation, air conditioning)
+- Electrical system
+- Plumbing system
+- Water heater
+- Ductwork
+
+**Appliances**:
+- Refrigerator
+- Dishwasher
+- Oven/range/cooktop
+- Built-in microwave
+- Washer and dryer
+- Garbage disposal
+
+**Optional Add-ons**:
+- Pool/spa equipment
+- Septic system
+- Well pump
+- Guest unit
+- Additional refrigerators
+
+### What It Doesn't Cover
+- Pre-existing conditions (often)
+- Improper installation
+- Code violations
+- Cosmetic defects
+- Outdoor items (usually)
+- Items under manufacturer warranty
+
+### How It Works
+
+**1. Problem Occurs**
+Your covered appliance or system breaks down
+
+**2. File Claim**
+Call or submit online claim to warranty company
+
+**3. Service Dispatch**
+Company sends approved technician (usually 24-48 hours)
+
+**4. Pay Service Fee**
+You pay $75-$150 when technician arrives
+
+**5. Repair or Replace**
+Technician repairs or warranty company replaces item
+
+### Cost
+- **Annual premium**: $300-$600 (basic) to $600-$800+ (comprehensive)
+- **Service fee**: $75-$150 per claim
+- **No limit** on number of claims (usually)
+- **Coverage limits** may apply per item
+
+## Homeowner's Insurance Explained
+
+### What It Is
+Homeowner's insurance is an insurance policy that protects your home structure, personal belongings, and provides liability coverage against certain disasters and accidents.
+
+### What It Covers
+
+**Dwelling Coverage**:
+- House structure
+- Attached structures (garage)
+- Built-in appliances
+- Damage from covered perils
+
+**Personal Property**:
+- Furniture
+- Electronics
+- Clothing
+- Other belongings
+
+**Liability**:
+- Injuries to others on your property
+- Damage you cause to others' property
+- Legal defense costs
+
+**Additional Living Expenses**:
+- Hotel costs if home uninhabitable
+- Restaurant meals
+- Temporary housing
+
+### Covered Perils (Typically)
+- Fire and smoke
+- Lightning
+- Windstorm and hail
+- Theft and vandalism
+- Falling objects
+- Weight of ice/snow
+- Water damage (sudden, accidental)
+- Electrical surge damage
+
+### What It Doesn't Cover
+- Floods (separate policy needed)
+- Earthquakes (separate policy/rider)
+- Normal wear and tear
+- Maintenance issues
+- Pest damage (termites, rodents)
+- Mold (often limited or excluded)
+- Sewer backup (usually optional)
+
+### How It Works
+
+**1. Incident Occurs**
+Covered event damages home or belongings
+
+**2. Document Damage**
+Take photos, make lists, preserve evidence
+
+**3. File Claim**
+Contact insurance company, provide documentation
+
+**4. Adjuster Visit**
+Insurance adjuster assesses damage
+
+**5. Receive Payment**
+Company pays claim minus deductible
+
+### Cost
+- **Annual premium**: $1,000-$3,000+ (varies by location, coverage)
+- **Deductible**: $500-$2,500 (your choice)
+- **Coverage limits**: Set by policy
+- **Riders available**: Additional coverage for valuables
+
+## When Each Applies
+
+### Scenario 1: AC Stops Working
+- **Cause**: Compressor failed after 12 years
+- **Home Warranty**: Covered (normal wear)
+- **Home Insurance**: NOT covered (not sudden damage)
+
+### Scenario 2: Kitchen Fire
+- **Cause**: Grease fire damages kitchen
+- **Home Warranty**: NOT covered (not wear and tear)
+- **Home Insurance**: Covered (fire is covered peril)
+
+### Scenario 3: Washing Machine Floods
+- **Cause**: Supply line bursts suddenly
+- **Home Warranty**: May cover washer repair
+- **Home Insurance**: Covers water damage to home
+
+### Scenario 4: Refrigerator Dies
+- **Cause**: 15-year-old fridge stops cooling
+- **Home Warranty**: Covered (appliance failure)
+- **Home Insurance**: NOT covered (not sudden event)
+
+### Scenario 5: Storm Damages Roof
+- **Cause**: Tree falls on roof during windstorm
+- **Home Warranty**: NOT covered (not systems/appliances)
+- **Home Insurance**: Covered (windstorm damage)
+
+## Do You Need Both?
+
+### You Definitely Need Home Insurance
+- **Required**: Mortgage lenders require it
+- **Protects investment**: Your home is likely your biggest asset
+- **Liability**: Protects if someone is injured
+- **No alternative**: Nothing else covers disasters
+
+### Home Warranty is Optional
+
+**Consider a Warranty If**:
+- Systems/appliances are older (5+ years)
+- You're not handy with repairs
+- You want budget predictability
+- Home inspection revealed aging systems
+- You're buying a new-to-you home
+
+**Skip the Warranty If**:
+- Systems/appliances are new
+- You're comfortable with DIY repairs
+- You have emergency savings
+- Home is newly constructed
+- You've researched and warranty has poor reviews
+
+## Pros and Cons
+
+### Home Warranty Pros
+- Predictable repair costs
+- No need to find contractors
+- Covers expensive items (HVAC, etc.)
+- Low service fees vs full repair cost
+- Peace of mind for unexpected failures
+
+### Home Warranty Cons
+- May not cover pre-existing issues
+- Limited choice of contractors
+- Coverage limits and exclusions
+- Claims can be denied
+- Some companies have poor service
+- Items may be repaired not replaced
+
+### Home Insurance Pros
+- Comprehensive disaster protection
+- Covers structure and belongings
+- Liability protection
+- Required, so well-regulated
+- Standardized coverage types
+
+### Home Insurance Cons
+- Expensive premiums
+- High deductibles
+- Claims can raise rates
+- Many exclusions
+- Doesn't cover maintenance/wear
+
+## Choosing a Home Warranty
+
+### What to Look For
+- **Coverage breadth**: What's included in base plan
+- **Service fee**: Cost per service call
+- **Coverage limits**: Maximum payout per item
+- **Contractor network**: Quality and availability
+- **Claim process**: How easy to file
+- **Reviews**: Actual customer experiences
+
+### Red Flags
+- Very low price (often means poor coverage)
+- Many exclusions in fine print
+- Poor BBB rating
+- Complaints about claim denials
+- Long wait times for service
+
+### Top Warranty Companies (2026)
+Research current reviews, but commonly well-rated:
+- American Home Shield
+- Choice Home Warranty
+- Select Home Warranty
+- First American Home Warranty
+
+## Tips for Using Home Warranty
+
+### To Maximize Value
+- Read the contract thoroughly
+- Understand exclusions
+- Maintain systems properly
+- Keep maintenance records
+- File claims promptly
+- Document everything
+
+### Common Mistakes
+- Assuming everything is covered
+- Not reading exclusions
+- Ignoring maintenance requirements
+- Waiting too long to file claims
+- Not following claim procedures
+
+## The Seller-Provided Warranty
+
+### Common in Real Estate
+- Sellers often provide 1-year home warranty
+- Shows good faith
+- Covers buyer during first year
+- Usually basic coverage
+
+### Should You Continue It?
+After the seller-provided year:
+- Evaluate if items were covered well
+- Consider ages of systems/appliances
+- Compare to savings account approach
+- Decide based on your comfort level
+
+## Alternative to Home Warranty
+
+### Self-Insurance Approach
+Instead of warranty premium, save:
+- $50/month into emergency fund
+- After a few years, you have significant savings
+- Keep for actual repairs
+- Unused funds are yours
+
+### Pros
+- Money is yours if not used
+- No coverage denials
+- Choose your own contractors
+- No service fees
+
+### Cons
+- Need discipline to save
+- Big repair early could exceed savings
+- Must find reliable contractors
+- No peace of mind of coverage
+
+---
+
+*Understanding your home's systems and their condition helps you decide on warranty coverage. [Analyze any property with Perchspot](/chat) for insights on what might need attention.*
+    `,
+  },
+  {
+    id: 'tax-benefits-homeownership',
+    title: 'Tax Benefits of Homeownership: What You Can Actually Deduct',
+    excerpt: 'A practical guide to the real tax benefits of owning a home—what you can deduct, how much it saves, and what\'s changed.',
+    category: 'Education',
+    date: '2026-02-05',
+    readTime: '10 min read',
+    image: '/blog/tax-benefits.jpg',
+    metaDescription: 'Guide to homeowner tax deductions including mortgage interest, property taxes, and capital gains exclusion. Learn what you can actually deduct when you own a home.',
+    content: `
+# Tax Benefits of Homeownership: What You Can Actually Deduct
+
+Owning a home comes with potential tax advantages, but the reality is more nuanced than many believe. This guide explains what you can actually deduct and how much it's really worth.
+
+## The Main Tax Benefits
+
+### 1. Mortgage Interest Deduction
+**What It Is**: Deduct interest paid on your mortgage
+
+**The Limits**:
+- Mortgages up to $750,000 (married filing jointly)
+- $375,000 if married filing separately
+- Pre-December 2017 loans: up to $1 million
+
+**What Qualifies**:
+- Primary residence
+- Second home
+- Home equity loan (if used for home improvement)
+
+**What Doesn't**:
+- Interest on loans over the limit
+- Home equity used for non-home purposes (since 2018)
+
+### 2. Property Tax Deduction
+**What It Is**: Deduct state and local property taxes
+
+**The Limit**:
+- SALT cap: $10,000 total (state and local taxes)
+- Includes property tax + state income tax
+- Most homeowners in high-tax states hit this cap
+
+**Example**:
+If you pay:
+- $15,000 property tax
+- $10,000 state income tax
+- You can only deduct $10,000 total (SALT cap)
+
+### 3. Capital Gains Exclusion
+**What It Is**: Exclude profit from taxes when you sell
+
+**The Exclusion**:
+- Single: $250,000
+- Married filing jointly: $500,000
+
+**Requirements**:
+- Owned home 2 of last 5 years
+- Lived in home 2 of last 5 years
+- Haven't used exclusion in last 2 years
+
+**Example**:
+- Bought for: $500,000
+- Sold for: $900,000
+- Gain: $400,000
+- Married couple pays: $0 tax (under $500K exclusion)
+
+### 4. Home Office Deduction
+**Who Qualifies**: Self-employed only (W-2 employees don't qualify)
+
+**Requirements**:
+- Regular and exclusive use
+- Principal place of business
+- Calculate percentage of home used
+
+**Methods**:
+- Simplified: $5/sq ft, up to 300 sq ft ($1,500 max)
+- Regular: Actual expenses × business percentage
+
+### 5. Energy Efficiency Credits
+**What's Available**:
+- Solar panels: 30% of cost (no limit)
+- Heat pumps: Up to $2,000
+- Insulation/windows: Up to $1,200
+- Energy audits: Up to $150
+
+**Note**: These are credits, not deductions (directly reduce tax owed)
+
+## Standard Deduction vs Itemizing
+
+### The Reality Check
+To benefit from mortgage interest and property tax deductions, you must **itemize** deductions.
+
+**2026 Standard Deductions**:
+- Single: ~$15,700
+- Married filing jointly: ~$31,400
+
+**You only benefit if your itemized deductions exceed the standard deduction.**
+
+### Example: Does Itemizing Help?
+
+**Homeowner's Deductible Expenses**:
+- Mortgage interest: $15,000
+- Property tax: $8,000
+- State income tax: $5,000
+- SALT cap applies: -$3,000
+- Total potentially itemized: $25,000
+
+**Married Filing Jointly**:
+- Standard deduction: $31,400
+- Itemized total: $25,000
+- **Result**: Standard deduction wins; no tax benefit from homeownership
+
+**Single Filer**:
+- Standard deduction: $15,700
+- Itemized total: $25,000
+- **Result**: Itemizing saves $9,300 × tax rate
+
+### Who Actually Benefits?
+
+**More Likely to Benefit**:
+- Single filers
+- High mortgage balances
+- High-income areas (expensive homes)
+- High state income tax states
+- Large charitable contributions
+
+**Less Likely to Benefit**:
+- Married couples
+- Lower mortgage amounts
+- Paid cash for home
+- Low state income tax
+- Few other deductions
+
+## Calculating Your Actual Benefit
+
+### Step-by-Step
+
+**1. Calculate Itemized Deductions**
+- Mortgage interest (from Form 1098)
+- Property taxes (capped by SALT)
+- State income taxes (capped by SALT)
+- Charitable contributions
+- Other itemized deductions
+
+**2. Compare to Standard Deduction**
+- Your filing status standard deduction
+- Whichever is higher is what you use
+
+**3. Calculate Tax Savings**
+If itemizing:
+- Excess over standard × your tax bracket
+- This is your actual savings
+
+### Real Example
+
+**The Numbers**:
+- Married couple, $180K income (24% bracket)
+- $600K mortgage at 6.5% = $38,500 interest
+- Property tax: $7,000
+- State income tax: $8,000
+- Charitable giving: $3,000
+
+**Calculation**:
+- Mortgage interest: $38,500
+- SALT (capped): $10,000 ($7K + $3K of state tax)
+- Charitable: $3,000
+- **Total itemized: $51,500**
+
+**Benefit**:
+- Itemized: $51,500
+- Standard: $31,400
+- Excess: $20,100
+- Tax savings: $20,100 × 24% = **$4,824**
+
+## Common Misconceptions
+
+### Myth 1: "All My Mortgage Payment is Deductible"
+**Reality**: Only the interest portion is deductible, not principal or escrow
+
+### Myth 2: "Homeownership Always Saves on Taxes"
+**Reality**: Many homeowners take the standard deduction and get no tax benefit
+
+### Myth 3: "I Should Keep My Mortgage for the Tax Break"
+**Reality**: You're paying $1 in interest to save $0.24 in taxes (24% bracket). Paying off the mortgage saves you $0.76.
+
+### Myth 4: "Property Taxes Are Fully Deductible"
+**Reality**: SALT cap of $10,000 limits this significantly
+
+### Myth 5: "Home Improvements Are Tax Deductible"
+**Reality**: Not deductible, but they increase your cost basis (reducing capital gains when you sell)
+
+## Special Situations
+
+### First-Time Homebuyer
+**No special federal tax benefits currently exist** for first-time buyers. Some states have programs.
+
+### Home Equity Loans
+- Interest deductible only if used for home improvement
+- Must be used to "buy, build, or substantially improve"
+- Not deductible if used for other purposes (car, vacation, etc.)
+
+### Rental Property
+Different rules apply:
+- Can deduct all expenses against rental income
+- Depreciation allowed
+- Different capital gains rules
+- More complex tax situation
+
+### Selling and Buying in Same Year
+- Capital gains exclusion still applies
+- Can potentially deduct mortgage interest on both properties
+- Prorate property taxes
+
+## Tax Planning Strategies
+
+### Maximize Your Benefit
+
+**1. Bunch Deductions**
+If close to standard deduction threshold:
+- Prepay property taxes (if allowed)
+- Make charitable contributions in same year
+- Time medical expenses if significant
+
+**2. Track Home Improvements**
+Keep records for capital gains calculation:
+- Receipts for all improvements
+- Before/after documentation
+- Building permits
+
+**3. Know Your Basis**
+**Cost Basis** = Purchase price + improvements + buying costs
+- Higher basis = lower capital gains = less tax
+
+**4. Use the Exclusion Wisely**
+- Must live in home 2 of 5 years
+- Plan timing around this rule
+- Can use every 2 years
+
+### Records to Keep
+
+**For Annual Deductions**:
+- Form 1098 (mortgage interest)
+- Property tax bills
+- Home office measurements/calculations
+
+**For Capital Gains (Keep Forever)**:
+- Closing documents (purchase and sale)
+- Improvement receipts
+- Records of any casualty losses claimed
+- Home office depreciation records
+
+## The Bottom Line
+
+### Realistic View of Tax Benefits
+
+**For Most Married Homeowners**:
+- Tax benefit is modest or zero
+- Standard deduction often wins
+- Don't buy a home "for the tax break"
+
+**When It Really Helps**:
+- High mortgage relative to home value
+- High state income taxes
+- Single filer
+- Significant other itemized deductions
+
+**Always Valuable**:
+- Capital gains exclusion ($250K/$500K)
+- Energy credits (if applicable)
+- Forced savings (building equity)
+
+### Decision Framework
+- Don't buy a home primarily for tax benefits
+- Do understand the benefits you'll actually receive
+- Do keep good records for capital gains
+- Do take advantage of energy credits
+- Don't keep a mortgage just for the deduction
+
+---
+
+*Understanding total costs of ownership is essential. [Analyze any property with Perchspot](/chat) for comprehensive financial insights before you buy.*
+    `,
+  },
+  {
+    id: 'multigenerational-housing-guide',
+    title: 'Multigenerational Housing: Buying a Home for Extended Family',
+    excerpt: 'How to find and finance a home that works for parents, grandparents, and adult children living together.',
+    category: 'Guide',
+    date: '2026-02-04',
+    readTime: '11 min read',
+    image: '/blog/multigenerational.jpg',
+    metaDescription: 'Complete guide to multigenerational housing. Learn how to find homes for extended family, financing options, legal considerations, and design features to look for.',
+    content: `
+# Multigenerational Housing: Buying a Home for Extended Family
+
+Multigenerational living—where parents, adult children, and/or grandparents share a home—is increasingly common. Whether for cultural reasons, financial benefits, or caregiving needs, here's how to make it work.
+
+## Why Multigenerational Living?
+
+### Financial Benefits
+- **Shared costs**: Mortgage, utilities, maintenance split
+- **Childcare savings**: Grandparents can help with kids
+- **Elder care savings**: Avoid assisted living costs
+- **Building wealth**: Pool resources for better home
+
+### Lifestyle Benefits
+- **Family connection**: Daily interaction across generations
+- **Support system**: Help always available
+- **Cultural continuity**: Traditional family structure
+- **Shared responsibilities**: Housework, cooking, errands
+
+### Common Scenarios
+- Adult children caring for aging parents
+- Grandparents helping with grandchildren
+- Young adults saving for own home
+- Immigrant families maintaining traditions
+- Divorced parent returning home
+- Widowed parent joining family
+
+## Finding the Right Home
+
+### Floor Plan Priorities
+
+**Ideal Features**:
+- Multiple master suites
+- Separate entrances
+- Distinct living areas
+- Multiple kitchens or kitchenettes
+- Sound insulation between units
+- Separate HVAC zones
+
+**Layout Options**:
+
+**In-Law Suite/ADU**:
+- Separate attached unit
+- Own entrance
+- Full kitchen and bath
+- Most privacy
+
+**Dual Master**:
+- Two master suites
+- Shared common areas
+- Less privacy but more integration
+
+**Basement Apartment**:
+- Finished basement with bedroom/bath
+- Can be fully separate
+- May need egress windows/permit
+
+**Main Floor Suite**:
+- Accessible for elderly
+- No stairs required
+- Often includes bedroom + bath
+
+### What to Look For
+
+**Must-Haves**:
+- [ ] Enough bedrooms for everyone
+- [ ] Multiple full bathrooms
+- [ ] Adequate parking
+- [ ] Legal for intended use
+
+**Strong Preferences**:
+- [ ] Two living areas
+- [ ] Separate entrance option
+- [ ] Main floor bedroom/bath
+- [ ] Space between sleeping areas
+
+**Nice-to-Haves**:
+- [ ] Second kitchen/kitchenette
+- [ ] Separate laundry areas
+- [ ] Outdoor space division
+- [ ] Garage for each household
+
+## Legal Considerations
+
+### Zoning and Permits
+
+**Check Local Rules**:
+- ADU (Accessory Dwelling Unit) regulations
+- Occupancy limits
+- Family definition in zoning
+- Permit requirements for modifications
+
+**Common Restrictions**:
+- Number of unrelated adults
+- Number of kitchens allowed
+- Rental of ADU
+- Parking requirements
+
+### Ownership Structures
+
+**Single Owner**:
+- One person/couple owns
+- Others pay rent or contribute
+- Simplest structure
+- One person bears all risk
+
+**Joint Tenancy**:
+- All owners equal share
+- Right of survivorship
+- Any owner can force sale
+- Credit of all affects financing
+
+**Tenants in Common**:
+- Unequal shares possible
+- No survivorship rights
+- More flexible
+- Can be complex
+
+**LLC/Trust**:
+- Entity owns property
+- Operating agreement governs
+- Asset protection
+- More complex setup
+
+### Family Agreements
+
+**Document in Writing**:
+- Financial contributions
+- Decision-making process
+- Exit strategy
+- Maintenance responsibilities
+- House rules
+
+**Key Questions to Address**:
+- Who pays what share?
+- What if someone wants to leave?
+- How are improvements decided?
+- What are shared vs private spaces?
+- Who handles maintenance?
+
+## Financing Options
+
+### Traditional Mortgage
+
+**Considerations**:
+- Primary borrower(s) qualify alone
+- Others can contribute to down payment
+- Gift letters may be required
+- Only primary owner builds equity
+
+### Multiple Borrowers
+
+**Co-Borrowing**:
+- All incomes considered
+- All credit scores matter
+- All are equally responsible
+- All appear on title
+
+**Pros**:
+- Higher qualification amount
+- Combined income strength
+
+**Cons**:
+- Weakest credit can hurt rate
+- All liable for full amount
+- Complex if someone exits
+
+### FHA Multi-Family
+
+**2-4 Unit Properties**:
+- Live in one unit
+- Rent others (or house family)
+- 3.5% down payment
+- Rental income can help qualify
+
+**Requirements**:
+- Must be owner-occupied
+- FHA property standards
+- Self-sufficiency test
+
+### HomeReady/Home Possible
+
+**Fannie Mae HomeReady**:
+- Allows boarder income
+- Income from non-borrower household members
+- 3% down payment
+- Flexible qualifying
+
+**Freddie Mac Home Possible**:
+- Similar flexibility
+- Non-occupant co-borrowers allowed
+- Sweat equity for down payment
+
+### Renovation Loans
+
+**FHA 203(k)**:
+- Buy and renovate
+- Finance ADU addition
+- Single loan
+- Must meet FHA standards
+
+**Conventional Reno**:
+- Fannie Mae HomeStyle
+- Freddie Mac CHOICERenovation
+- Add in-law suite to existing home
+
+## Design and Renovation
+
+### Creating Separate Spaces
+
+**Adding an ADU**:
+- Detached: $150K-$400K+ to build
+- Attached: $100K-$250K+
+- Garage conversion: $50K-$150K
+- Basement finishing: $30K-$100K
+
+**Permit Requirements**:
+- Building permit
+- Electrical permit
+- Plumbing permit
+- Inspections throughout
+
+### Accessibility Features
+
+**For Aging Parents**:
+- No-step entry
+- Wide doorways (36"+)
+- Walk-in shower
+- Grab bars
+- Lever door handles
+- Good lighting
+- Main floor bedroom
+
+**Universal Design**:
+- Benefits everyone
+- Adds resale value
+- Plan for future needs
+
+### Privacy Considerations
+
+**Sound Insulation**:
+- Solid core doors
+- Insulated walls
+- Separate HVAC
+- Buffer rooms between units
+
+**Visual Privacy**:
+- Separate entrances
+- Private outdoor space
+- Window placement
+- Landscaping screens
+
+## Making It Work
+
+### Setting Expectations
+
+**Before Moving In**:
+- Discuss finances openly
+- Agree on house rules
+- Plan for guests/visitors
+- Address lifestyle differences
+- Discuss duration/exit plan
+
+**House Rules Topics**:
+- Quiet hours
+- Shared space use
+- Kitchen/cooking schedules
+- Guests and visitors
+- Pet policies
+- Parking
+- Thermostat settings
+- Cleaning responsibilities
+
+### Financial Arrangements
+
+**Options for Sharing Costs**:
+
+**Proportional**:
+- Based on space used
+- Or number of occupants
+- Or income levels
+
+**Equal Split**:
+- Simple to calculate
+- May not be fair if unequal use
+
+**Rent Model**:
+- In-law pays market rent
+- Or below-market rent
+- Tax implications vary
+
+**What to Share**:
+- Mortgage/rent
+- Utilities
+- Insurance
+- Property taxes
+- Maintenance
+- Repairs
+- Improvements
+
+### Communication
+
+**Regular Family Meetings**:
+- Weekly or monthly
+- Address issues early
+- Plan shared activities
+- Discuss finances
+- Prevent resentment
+
+**Conflict Resolution**:
+- Address issues directly
+- Listen to all perspectives
+- Compromise when possible
+- Consider mediation if stuck
+
+## Tax Implications
+
+### Rent from Family
+
+**Below-Market Rent**:
+- IRS may consider personal use
+- Can't deduct losses
+- Gift tax implications possible
+
+**Market Rent**:
+- Report as rental income
+- Deduct proportional expenses
+- Depreciation allowed
+- More complex taxes
+
+### Shared Ownership Deductions
+
+**Mortgage Interest**:
+- Only those on mortgage deduct
+- Proportional to ownership
+- Must itemize
+
+**Property Taxes**:
+- Those who pay can deduct
+- Subject to SALT cap
+- Keep payment records
+
+### Gift Tax Considerations
+
+**If Helping with Down Payment**:
+- Annual exclusion: $18,000/person (2026)
+- Married couples: $36,000/recipient
+- Above that: use lifetime exemption
+- Document as gift, not loan
+
+## Pros and Cons
+
+### Advantages
+- Financial savings for all
+- Built-in support system
+- Closer family bonds
+- Shared childcare/eldercare
+- Better home than alone
+- Cultural continuity
+
+### Challenges
+- Privacy limitations
+- Potential conflicts
+- Complex finances
+- Exit complications
+- Different lifestyles
+- Boundary issues
+
+### Making the Decision
+
+**Good Fit If**:
+- Strong family relationships
+- Clear communication
+- Compatible lifestyles
+- Shared values
+- Flexible personalities
+- Financial necessity or benefit
+
+**Reconsider If**:
+- History of conflict
+- Very different lifestyles
+- Unclear expectations
+- One party reluctant
+- No exit plan
+- Financial imbalance concerns
+
+## Finding Multigenerational Homes
+
+### Search Strategies
+
+**Keywords to Use**:
+- "In-law suite"
+- "Mother-in-law"
+- "ADU"
+- "Dual master"
+- "Separate entrance"
+- "Guest house"
+- "Multi-generational"
+
+**Property Types**:
+- Single-family with ADU
+- Duplex or triplex
+- Large single-family to convert
+- New construction designed for it
+
+### Questions for Listings
+
+- Is ADU legally permitted?
+- Are there two kitchens?
+- Separate entrance available?
+- Separate utilities metered?
+- Any HOA restrictions?
+- What permits were pulled?
+
+---
+
+*Evaluating a potential multigenerational home? [Analyze it with Perchspot](/chat) to understand the property's condition, layout potential, and value.*
+    `,
+  },
 ];
 
 // Update categories to include Local
