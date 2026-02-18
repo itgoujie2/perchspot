@@ -18706,6 +18706,4666 @@ Tackle one area at a time:
 *Looking for your next right-sized home? [Analyze any property with Perchspot](/chat) to make sure it fits your downsized lifestyle perfectly.*
     `,
   },
+  // MORE LOCAL SEO POSTS - Additional Seattle Area Cities
+  {
+    id: 'renton-housing-guide-2026',
+    title: 'Renton Housing Market 2026: Affordable Alternative to Bellevue',
+    excerpt: 'Discover why Renton is attracting buyers priced out of the Eastside. Current prices, best neighborhoods, and Boeing/tech commute insights.',
+    category: 'Local',
+    date: '2026-02-10',
+    readTime: '11 min read',
+    image: '/blog/renton.jpg',
+    metaDescription: 'Renton WA housing market 2026: median price $650K, best neighborhoods, Boeing commute, and why tech workers are discovering this affordable gem.',
+    content: `
+# Renton Housing Market 2026: Your Complete Guide
+
+Renton has emerged as one of the most compelling alternatives for buyers priced out of Bellevue, Kirkland, and Seattle. With median home prices nearly half those of neighboring Eastside cities, strong job access, and improving amenities, Renton deserves serious consideration.
+
+## Market Snapshot (February 2026)
+
+- **Median Home Price**: $649,000
+- **Price Change**: +3.2% year-over-year
+- **Days on Market**: 28 days average
+- **Inventory**: 1.8 months supply
+- **Sale-to-List Ratio**: 99.1%
+
+## Why Renton is Gaining Attention
+
+### Price Advantage
+While Bellevue median sits at $1.3M and Kirkland at $1.1M, Renton offers comparable housing for nearly half the price. A 4-bedroom home that costs $1.4M in Bellevue can be found for $700K-$850K in Renton's better neighborhoods.
+
+### Boeing Connection
+Boeing's Renton facility is the company's largest final assembly plant, producing 737 aircraft. This brings:
+- Stable, high-paying jobs
+- Extensive supplier network
+- Economic anchor for the community
+
+### Tech Commute Reality
+- **To Amazon Bellevue**: 15-25 minutes
+- **To Microsoft Redmond**: 20-30 minutes
+- **To Seattle Downtown**: 20-35 minutes
+- **To Sea-Tac Airport**: 10-15 minutes
+
+The proximity to I-405, SR-167, and I-5 makes Renton surprisingly accessible.
+
+## Best Neighborhoods
+
+### Kennydale
+**Best for**: Families, waterfront enthusiasts
+
+Kennydale hugs the eastern shore of Lake Washington with stunning views:
+- Lake access at Gene Coulon Memorial Beach Park
+- Established homes from the 1960s-1980s
+- Strong sense of community
+- Prices: $750K-$1.2M
+
+### The Highlands (Renton Highlands)
+**Best for**: Value seekers, young families
+
+Higher elevation means:
+- Better views of Mt. Rainier
+- Newer construction options
+- Lower prices than waterfront areas
+- Good school access
+- Prices: $550K-$800K
+
+### Benson Hill
+**Best for**: First-time buyers, growing families
+
+South Renton's Benson Hill offers:
+- Newer subdivisions
+- Larger lots
+- More affordable entry points
+- Quick access to SR-167
+- Prices: $500K-$700K
+
+### Fairwood
+**Best for**: Space and value
+
+Technically unincorporated King County:
+- Larger lots (1/4 acre+)
+- Golf course community
+- Mix of 1970s-2000s homes
+- Strong community feel
+- Prices: $600K-$850K
+
+### The Landing
+**Best for**: Urban lifestyle, shopping access
+
+Walkable to The Landing shopping center:
+- Newer apartments and condos
+- Restaurant and retail access
+- Younger demographic
+- Condos: $350K-$500K
+
+## Schools Overview
+
+Renton School District serves most of the city:
+- **Graduation Rate**: 85%
+- **Student-Teacher Ratio**: 19:1
+- **Notable Schools**: Hazen High (7/10), Nelsen Middle (6/10)
+
+Some areas (like Fairwood) are served by Kent or Issaquah districts, which may offer different ratings.
+
+## Investment Potential
+
+### Rental Market
+Strong rental demand from Boeing workers and young professionals:
+- 2BR apartment: $1,800-$2,200/month
+- 3BR house: $2,500-$3,200/month
+- Vacancy rates: Low (under 5%)
+
+### Appreciation Outlook
+Renton benefits from the "spillover effect" as buyers seek affordability:
+- 10-year appreciation: 85%
+- Forecast 2026-2027: 4-6%
+- Development projects increasing appeal
+
+## Things to Consider
+
+### Pros
+- Significant price advantage vs. Eastside
+- Good freeway access
+- Boeing economic anchor
+- Improving downtown
+- Lake Washington access
+
+### Cons
+- Some areas have higher crime than Eastside
+- Schools generally rated lower than Bellevue/Kirkland
+- Traffic on I-405 during peak hours
+- Less prestige than Eastside addresses
+- Some neighborhoods feel industrial
+
+## Buying Tips for Renton
+
+1. **Visit multiple times**: Crime and feel vary significantly by neighborhood
+2. **Check school boundaries**: They don't always align with city limits
+3. **Consider commute timing**: Test your route during rush hour
+4. **Look at development plans**: Downtown and waterfront are changing rapidly
+5. **Don't skip inspections**: Some older homes have deferred maintenance
+
+---
+
+*Ready to analyze a specific Renton property? [Use Perchspot](/chat) to get AI-powered insights on any home in minutes.*
+    `,
+  },
+  {
+    id: 'shoreline-housing-guide-2026',
+    title: 'Shoreline Housing Market 2026: Seattle Living at Better Prices',
+    excerpt: 'Just north of Seattle, Shoreline offers urban convenience with lower prices. Complete guide to neighborhoods, schools, and what to expect.',
+    category: 'Local',
+    date: '2026-02-09',
+    readTime: '10 min read',
+    image: '/blog/shoreline.jpg',
+    metaDescription: 'Shoreline WA housing 2026: median $780K, best neighborhoods, light rail access, and why families choose this Seattle suburb.',
+    content: `
+# Shoreline Housing Market 2026: Complete Buyer's Guide
+
+Shoreline sits directly north of Seattle, offering the best of both worlds: Seattle address prestige with suburban prices and family-friendly neighborhoods. With light rail now connecting the city, it's more accessible than ever.
+
+## Market Snapshot (February 2026)
+
+- **Median Home Price**: $782,000
+- **Price Change**: +2.8% year-over-year
+- **Days on Market**: 25 days
+- **Inventory**: 1.2 months supply
+- **Sale-to-List Ratio**: 100.2%
+
+## Light Rail Game Changer
+
+The 2024 Link Light Rail extension transformed Shoreline:
+
+**Stations**:
+- 145th Street Station
+- 185th Street Station
+
+**Commute Times**:
+- To University of Washington: 12 minutes
+- To Downtown Seattle: 25 minutes
+- To Capitol Hill: 20 minutes
+- To Sea-Tac Airport: 55 minutes
+
+Properties within 1/2 mile of stations have seen 10-15% premium increases.
+
+## Best Neighborhoods
+
+### Ridgecrest
+**Best for**: Families with school-age children
+
+Premium Shoreline neighborhood featuring:
+- Top-rated Shorecrest High School
+- Established mid-century homes
+- Large lots (6,000-10,000 sqft)
+- Strong community involvement
+- Prices: $850K-$1.2M
+
+### Echo Lake
+**Best for**: Nature lovers, retirees
+
+Centered around Echo Lake Park:
+- Swimming and fishing access
+- Quieter, more residential feel
+- Mix of original and updated homes
+- Easy I-5 access
+- Prices: $700K-$950K
+
+### Parkwood
+**Best for**: First-time buyers, young professionals
+
+Near the 185th Street Station:
+- Smaller, more affordable homes
+- Excellent transit access
+- Emerging restaurant scene
+- Diverse community
+- Prices: $600K-$800K
+
+### Richmond Beach
+**Best for**: Beach access, upscale living
+
+Shoreline's premium neighborhood:
+- Saltwater beach access
+- Stunning Puget Sound views
+- Historic homes mixed with new construction
+- Richmond Beach Saltwater Park
+- Prices: $900K-$1.5M+
+
+### Innis Arden
+**Best for**: Privacy, views, established families
+
+Exclusive community with:
+- Architectural guidelines
+- Large wooded lots
+- Puget Sound and Olympic views
+- Mid-century modern homes
+- Prices: $1M-$2M+
+
+## Schools Overview
+
+Shoreline School District is one of the region's strongest:
+- **Shorecrest High School**: 8/10 rating
+- **Shorewood High School**: 7/10 rating
+- **Einstein Middle School**: 8/10 rating
+- **Graduation Rate**: 89%
+- **College Readiness**: Above state average
+
+## Commuter Reality
+
+### By Car
+- To Amazon SLU: 20-35 minutes
+- To Microsoft: 25-40 minutes
+- To Boeing Everett: 25-35 minutes
+- To Downtown Seattle: 15-25 minutes
+
+### By Transit
+Light rail has transformed commuting:
+- Park-and-ride lots fill by 8 AM
+- Consider proximity to stations
+- Bus connections throughout
+
+## Investment Considerations
+
+### Appreciation History
+- 5-year appreciation: 45%
+- 10-year appreciation: 110%
+- Light rail premium: 10-15% near stations
+
+### Rental Market
+Strong demand from UW students and young professionals:
+- 1BR: $1,500-$1,900
+- 2BR: $1,900-$2,400
+- 3BR house: $2,800-$3,500
+
+## Things to Consider
+
+### Pros
+- Light rail connectivity
+- Strong schools
+- Seattle address without Seattle prices
+- Beach access (Richmond Beach)
+- Diverse community
+
+### Cons
+- Some areas have older housing stock
+- Aurora Avenue corridor has rough patches
+- Limited nightlife/dining
+- Traffic on I-5 and Aurora
+- Smaller lots than suburbs further out
+
+## Buying Tips
+
+1. **Prioritize transit access**: Station proximity increasingly valuable
+2. **Check lot sizes**: Vary significantly by neighborhood
+3. **Understand Aurora Avenue**: Creates neighborhood divisions
+4. **School boundary research**: Important for families
+5. **Consider views**: West-side properties may have water views
+
+---
+
+*Exploring Shoreline properties? [Analyze any home with Perchspot](/chat) to get detailed insights before making an offer.*
+    `,
+  },
+  {
+    id: 'edmonds-housing-guide-2026',
+    title: 'Edmonds Housing Market 2026: Waterfront Charm North of Seattle',
+    excerpt: 'Charming downtown, ferry access, and beach living define Edmonds. Your guide to this sought-after Snohomish County community.',
+    category: 'Local',
+    date: '2026-02-08',
+    readTime: '11 min read',
+    image: '/blog/edmonds.jpg',
+    metaDescription: 'Edmonds WA housing 2026: median $850K, downtown bowl, waterfront living, ferry commute, and why buyers love this charming coastal town.',
+    content: `
+# Edmonds Housing Market 2026: Waterfront Living Guide
+
+Edmonds is often called the crown jewel of Snohomish County—a charming waterfront town with a walkable downtown, Kingston ferry access, and that rare combination of small-town feel with urban proximity.
+
+## Market Snapshot (February 2026)
+
+- **Median Home Price**: $852,000
+- **Price Change**: +4.1% year-over-year
+- **Days on Market**: 22 days
+- **Inventory**: 1.1 months supply
+- **Sale-to-List Ratio**: 101.5%
+
+## What Makes Edmonds Special
+
+### Walkable Downtown
+Unlike most suburban areas, downtown Edmonds offers:
+- Independently owned shops and restaurants
+- Art galleries and antique stores
+- Summer farmers market
+- No chain stores in the core
+- Active arts and music scene
+
+### Ferry Commute Option
+The Kingston-Edmonds ferry provides:
+- 30-minute crossing to Kitsap Peninsula
+- Scenic, stress-free commute option
+- Access to Olympic Peninsula recreation
+- Historic appeal
+
+### Beach Access
+Multiple public beaches:
+- Brackett's Landing
+- Marina Beach Park
+- Olympic Beach
+- Sunset viewing spots
+
+## Best Neighborhoods
+
+### Downtown Bowl
+**Best for**: Walkability, urban lifestyle
+
+The heart of Edmonds:
+- Walk to everything—shops, restaurants, beach
+- Mix of historic homes and newer condos
+- Flat terrain
+- Ferry terminal access
+- Prices: $700K-$1.5M+ (houses), $400K-$800K (condos)
+
+### Westgate
+**Best for**: Families, larger lots
+
+Established family neighborhood:
+- Larger mid-century homes
+- Mature landscaping
+- Good school access
+- Community feel
+- Prices: $800K-$1.1M
+
+### Edmonds Highlands
+**Best for**: Views, newer construction
+
+Elevated area with:
+- Puget Sound and mountain views
+- Mix of 1970s-2000s homes
+- Some new construction
+- Larger lots
+- Prices: $900K-$1.4M
+
+### Perrinville
+**Best for**: Value seekers
+
+Eastern Edmonds:
+- More affordable entry point
+- Closer to I-5
+- Newer developments
+- Growing retail
+- Prices: $650K-$900K
+
+### Meadowdale
+**Best for**: Beach lovers on a budget
+
+Along the southern edge:
+- Beach access via Meadowdale Beach Park
+- More affordable than downtown
+- Good for young families
+- Established community
+- Prices: $700K-$1M
+
+## Schools Overview
+
+Edmonds School District serves the area:
+- **Edmonds-Woodway High**: 7/10 rating
+- **Meadowdale High**: 6/10 rating
+- **Strong elementary options**: Westgate, Sherwood, Maplewood
+
+## The Ferry Commute Reality
+
+### To Seattle Via Ferry + Bus
+Some professionals use this route:
+- Walk/bike to Edmonds terminal
+- 30-minute crossing to Kingston
+- Dramatic, scenic commute
+- Weather dependent
+- Works better for flexible schedules
+
+### Traditional Commute
+- To Seattle Downtown: 25-40 minutes (traffic dependent)
+- To Bellevue: 30-45 minutes
+- To Boeing Everett: 15-20 minutes
+- To Seattle-Tacoma Airport: 35-50 minutes
+
+## Investment Potential
+
+### Appreciation
+Edmonds consistently outperforms:
+- 5-year appreciation: 55%
+- 10-year appreciation: 125%
+- Premium for downtown proximity: 15-20%
+
+### Rental Demand
+Strong rental market:
+- 2BR apartment: $1,800-$2,300
+- 3BR house: $2,800-$3,500
+- Vacation rental potential near beach
+
+## Things to Consider
+
+### Pros
+- Charming, walkable downtown
+- Beach and waterfront access
+- Strong community identity
+- Good restaurants and shops
+- Ferry adventure commute option
+
+### Cons
+- Premium prices for Snohomish County
+- Limited inventory—competitive market
+- I-5 traffic for Seattle commuters
+- Some areas far from downtown charm
+- Tourist crowds in summer
+
+## Buying Tips
+
+1. **Visit during tourist season**: See the crowds before buying
+2. **Walk the neighborhood**: Downtown walkability varies
+3. **Check parking**: Downtown properties may lack parking
+4. **Consider elevation**: Lower = more flooding risk, higher = more views
+5. **Time your commute**: Test I-5 southbound during rush hour
+
+---
+
+*Found a home in Edmonds you love? [Run it through Perchspot](/chat) to ensure you're making an informed decision.*
+    `,
+  },
+  {
+    id: 'lynnwood-housing-guide-2026',
+    title: 'Lynnwood Housing Market 2026: Transit Hub Transformation',
+    excerpt: 'With light rail arriving, Lynnwood is transforming from suburban mall town to connected urban center. Current prices and what to expect.',
+    category: 'Local',
+    date: '2026-02-07',
+    readTime: '10 min read',
+    image: '/blog/lynnwood.jpg',
+    metaDescription: 'Lynnwood WA housing 2026: median $720K, light rail transformation, City Center development, and why investors are paying attention.',
+    content: `
+# Lynnwood Housing Market 2026: The Transit Transformation
+
+Lynnwood is in the midst of the most significant transformation in its history. The arrival of light rail and massive City Center redevelopment are converting this former mall-centric suburb into a genuine urban center.
+
+## Market Snapshot (February 2026)
+
+- **Median Home Price**: $718,000
+- **Price Change**: +5.2% year-over-year
+- **Days on Market**: 21 days
+- **Inventory**: 1.4 months supply
+- **Sale-to-List Ratio**: 100.8%
+
+## The Light Rail Effect
+
+Link Light Rail has arrived in Lynnwood:
+
+**Lynnwood City Center Station**:
+- Opened 2024
+- Major transit hub
+- Park-and-ride with 2,000+ spaces
+- Bus connections throughout Snohomish County
+
+**Commute Times**:
+- To University of Washington: 28 minutes
+- To Downtown Seattle: 40 minutes
+- To Capitol Hill: 35 minutes
+- To Sea-Tac: 60 minutes
+
+Properties within walking distance of the station are commanding 10-20% premiums.
+
+## City Center Transformation
+
+The area around the transit station is becoming unrecognizable:
+
+### Current Development
+- **Residential**: 5,000+ new apartment units planned
+- **Retail**: Ground-floor shops and restaurants
+- **Office**: New Class A office buildings
+- **Hotel**: Conference center and hospitality
+
+### What It Means
+Lynnwood is intentionally creating an urban center—something rare in Snohomish County. This represents a long-term bet on density and transit.
+
+## Best Neighborhoods
+
+### Lynnwood City Center
+**Best for**: Transit commuters, urban lifestyle seekers
+
+The transformation zone:
+- New apartments and condos
+- Walk to light rail
+- Emerging restaurant scene
+- Prices increasing rapidly
+- Condos: $400K-$650K
+- Houses (older): $600K-$850K
+
+### Alderwood
+**Best for**: Families, established feel
+
+Classic Lynnwood suburb:
+- Mature neighborhoods
+- Alderwood Mall access (still useful!)
+- Mid-century homes
+- Larger lots
+- Prices: $650K-$900K
+
+### Martha Lake
+**Best for**: Value seekers, Boeing commuters
+
+Northern Lynnwood:
+- More affordable entry point
+- Quick access to I-5 north
+- Mix of housing types
+- Growing retail
+- Prices: $550K-$750K
+
+### Meadowdale (Lynnwood portion)
+**Best for**: Beach access, nature lovers
+
+Southwest area:
+- Near Meadowdale Beach Park
+- Established families
+- Good schools
+- Older homes, often updated
+- Prices: $700K-$950K
+
+## Schools Overview
+
+Edmonds School District serves Lynnwood:
+- **Lynnwood High School**: 6/10 rating
+- **Meadowdale High School**: 6/10 rating
+- **Alderwood Middle**: 6/10 rating
+
+Schools are generally rated lower than Eastside or Seattle, which is reflected in home prices.
+
+## Commuter Reality
+
+### By Light Rail
+Game-changing for Seattle commuters:
+- Reliable schedule
+- No traffic stress
+- 40 minutes to downtown
+
+### By Car
+- To Seattle: 25-45 minutes (traffic dependent)
+- To Bellevue: 25-40 minutes
+- To Boeing Everett: 10-15 minutes
+- To Sea-Tac: 30-45 minutes
+
+## Investment Thesis
+
+### Why Investors Like Lynnwood
+1. **Transit premium**: Properties near station appreciating faster
+2. **Development momentum**: City Center creating demand
+3. **Affordability gap**: Still cheaper than Seattle/Eastside
+4. **Snohomish County taxes**: Lower than King County
+5. **Boeing proximity**: Steady employment anchor
+
+### Rental Market
+Strong demand from young professionals:
+- 1BR apartment: $1,500-$1,900
+- 2BR apartment: $1,900-$2,400
+- 3BR house: $2,600-$3,200
+
+## Things to Consider
+
+### Pros
+- Light rail connectivity
+- Major transformation underway
+- Lower prices than Seattle/Eastside
+- Boeing commute advantage
+- Lower property taxes (Snohomish County)
+
+### Cons
+- Schools rate lower than alternatives
+- Some areas still very suburban/dated
+- Traffic on 196th/99 corridor
+- Transition period = construction
+- Less character than older towns
+
+## Buying Tips
+
+1. **Proximity to station matters**: Walking distance commands premium
+2. **Check development plans**: More construction coming—good or bad depending on view
+3. **Consider timing**: City Center will look very different in 5 years
+4. **School choice**: Research options carefully if you have kids
+5. **Visit at night**: Some areas quieter than others
+
+---
+
+*Considering a Lynnwood property? [Get an instant Perchspot analysis](/chat) to understand what you're buying.*
+    `,
+  },
+  {
+    id: 'federal-way-housing-guide-2026',
+    title: 'Federal Way Housing Market 2026: South King County Value',
+    excerpt: 'Federal Way offers some of King County\'s most affordable housing. Complete guide to neighborhoods, commutes, and what buyers should know.',
+    category: 'Local',
+    date: '2026-02-06',
+    readTime: '10 min read',
+    image: '/blog/federal-way.jpg',
+    metaDescription: 'Federal Way WA housing 2026: median $550K, best neighborhoods, Sea-Tac commute, and why first-time buyers are looking south.',
+    content: `
+# Federal Way Housing Market 2026: Complete Buyer's Guide
+
+Federal Way represents one of the last frontiers of affordable homeownership in King County. With median prices nearly $800K below Seattle, it's attracting first-time buyers and investors seeking value.
+
+## Market Snapshot (February 2026)
+
+- **Median Home Price**: $548,000
+- **Price Change**: +3.8% year-over-year
+- **Days on Market**: 32 days
+- **Inventory**: 2.1 months supply
+- **Sale-to-List Ratio**: 98.5%
+
+## The Value Proposition
+
+### Price Comparison
+- **Seattle**: $900K median
+- **Bellevue**: $1.3M median
+- **Federal Way**: $550K median
+
+You can buy a 4-bedroom family home in Federal Way for less than a 2-bedroom condo in Seattle.
+
+### Who's Moving Here
+- First-time buyers priced out of Seattle
+- Boeing and Alaska Airlines employees
+- Amazon warehouse workers
+- Families seeking space
+- Investors seeking cash flow
+
+## Best Neighborhoods
+
+### Redondo
+**Best for**: Beach access, established community
+
+Federal Way's premium area:
+- Puget Sound waterfront access
+- Redondo Beach pier and restaurants
+- Older, well-maintained homes
+- Strong community feel
+- Prices: $650K-$950K
+
+### Twin Lakes
+**Best for**: Families, golf enthusiasts
+
+Master-planned community:
+- Twin Lakes Golf & Country Club
+- Well-maintained homes
+- HOA maintains standards
+- Good school access
+- Prices: $550K-$750K
+
+### Camelot
+**Best for**: Value seekers, young families
+
+Residential area with:
+- Affordable single-family homes
+- Established neighborhoods
+- Mix of 1970s-1990s construction
+- Larger lots
+- Prices: $450K-$600K
+
+### Steel Lake
+**Best for**: Lake access, recreation
+
+Near Steel Lake Park:
+- Swimming and recreation access
+- Mix of housing styles
+- Family-oriented
+- Growing retail nearby
+- Prices: $500K-$700K
+
+### Adelaide/Lakota
+**Best for**: First-time buyers
+
+More affordable areas:
+- Entry-level pricing
+- Improving infrastructure
+- Close to Federal Way downtown
+- Townhomes and condos available
+- Prices: $380K-$550K
+
+## Schools Overview
+
+Federal Way Public Schools:
+- **Graduation Rate**: 78%
+- **Student Diversity**: Among highest in state
+- **Challenges**: Lower ratings than north King County
+- **Improvements**: New facilities, increased funding
+
+Private school options exist for families prioritizing academics.
+
+## Commuter Reality
+
+### By Car
+- To Seattle Downtown: 30-50 minutes
+- To Bellevue: 35-55 minutes
+- To Sea-Tac Airport: 15-20 minutes
+- To Tacoma: 15-25 minutes
+- To Boeing Renton: 20-30 minutes
+
+### Public Transit
+- ST Express buses to Seattle
+- Future light rail (2030s planning)
+- Park-and-ride lots
+
+## Employment Centers
+
+### Nearby Jobs
+- Sea-Tac Airport (15 min): Alaska Airlines, airport services
+- Kent Valley (20 min): Warehousing, manufacturing
+- Tacoma (20 min): Port, healthcare, education
+- Auburn (15 min): Muckleshoot Casino, retail
+
+### Work From Home
+Increasingly, buyers work remotely and choose Federal Way for:
+- Affordable space for home offices
+- Lower cost of living
+- Outdoor recreation access
+
+## Investment Potential
+
+### Cash Flow Opportunities
+Lower purchase prices + solid rents = better returns:
+- 3BR house rent: $2,200-$2,800
+- Cap rates: 5-7% (higher than Eastside)
+- Vacancy: Moderate (5-8%)
+
+### Appreciation
+- 5-year appreciation: 45%
+- 10-year appreciation: 95%
+- Future light rail could boost values
+
+## Things to Consider
+
+### Pros
+- Significant affordability
+- Beach access (Redondo)
+- Sea-Tac proximity for travel
+- Space for growing families
+- Investment potential
+
+### Cons
+- Schools rate below county average
+- Higher crime in some areas
+- Long commute to Seattle/Eastside tech jobs
+- Less walkable than urban areas
+- Stigma in some Seattle circles
+
+## Buying Tips
+
+1. **Neighborhood variation is huge**: Visit multiple times
+2. **Check crime maps**: Varies significantly by area
+3. **School research**: Consider private or charter options
+4. **Commute timing**: Test during rush hour
+5. **HOA communities**: Twin Lakes and others provide consistency
+
+---
+
+*Exploring Federal Way? [Run any property through Perchspot](/chat) to get neighborhood-specific insights and analysis.*
+    `,
+  },
+  // LOAN TYPE EDUCATION POSTS
+  {
+    id: 'fha-loans-complete-guide',
+    title: 'FHA Loans Explained: Complete Guide for First-Time Buyers',
+    excerpt: 'Everything you need to know about FHA loans: requirements, down payments, limits, and whether it\'s right for your situation.',
+    category: 'Education',
+    date: '2026-02-05',
+    readTime: '12 min read',
+    image: '/blog/fha-loans.jpg',
+    metaDescription: 'FHA loan guide 2026: 3.5% down payment, credit requirements, loan limits, MIP costs, and how to qualify. Complete first-time buyer resource.',
+    content: `
+# FHA Loans Explained: Complete 2026 Guide
+
+FHA loans have helped millions of Americans achieve homeownership who might not qualify for conventional financing. Here's everything you need to know about this government-backed loan program.
+
+## What is an FHA Loan?
+
+FHA loans are mortgages insured by the Federal Housing Administration, a government agency within the Department of Housing and Urban Development (HUD). The FHA doesn't lend money directly—instead, it insures loans made by approved lenders, reducing their risk.
+
+This insurance allows lenders to offer:
+- Lower down payments
+- More flexible credit requirements
+- Competitive interest rates
+
+## Key FHA Loan Features
+
+### Down Payment
+- **Minimum**: 3.5% with credit score of 580+
+- **With lower credit**: 10% down required (500-579 credit score)
+
+For a $500,000 home, that's $17,500 down vs. $100,000 for a 20% conventional down payment.
+
+### Credit Requirements
+- **580+**: Qualifies for 3.5% down
+- **500-579**: Qualifies for 10% down
+- **Below 500**: Does not qualify
+
+FHA is more forgiving of credit issues:
+- Bankruptcies: 2 years after Chapter 7, 1 year after Chapter 13
+- Foreclosures: 3 years after
+- Collections: May be overlooked with explanation
+
+### Debt-to-Income Ratio
+- **Front-end ratio** (housing costs/income): Up to 31%
+- **Back-end ratio** (all debts/income): Up to 43%
+- **With compensating factors**: Up to 50% may be approved
+
+### 2026 Loan Limits
+FHA loan limits vary by county:
+
+**High-cost areas (like King County, WA)**:
+- Single-family: $1,149,825
+- Duplex: $1,472,250
+- Triplex: $1,779,525
+- Fourplex: $2,211,600
+
+**Standard areas**:
+- Single-family: $498,257
+- (Higher for multi-unit properties)
+
+## The Cost: Mortgage Insurance Premium (MIP)
+
+FHA loans require mortgage insurance—this is how the program funds itself.
+
+### Upfront MIP
+- **Amount**: 1.75% of loan amount
+- **Payment**: Usually rolled into the loan
+- **Example**: $500,000 loan = $8,750 upfront MIP
+
+### Annual MIP
+- **Amount**: 0.55% of loan balance (typical)
+- **Payment**: Divided into monthly payments
+- **Duration**: Life of loan for most borrowers (if less than 10% down)
+- **Example**: $500,000 loan = ~$229/month initially
+
+### MIP vs. PMI
+| Factor | FHA MIP | Conventional PMI |
+|--------|---------|------------------|
+| Upfront | 1.75% | None typically |
+| Annual | 0.55% | 0.2%-2.0% |
+| Removal | Life of loan* | At 20% equity |
+
+*MIP can be removed if you made 10%+ down payment after 11 years
+
+## FHA Loan Requirements
+
+### Property Requirements
+- Must be primary residence
+- Must meet FHA minimum property standards
+- Appraisal by FHA-approved appraiser
+
+**FHA appraisers check**:
+- Structural integrity
+- Working systems (electrical, plumbing, HVAC)
+- Roof condition (minimum 2 years life)
+- Safe water and sewage
+- No lead paint hazards
+- No health and safety issues
+
+### Borrower Requirements
+- Valid Social Security number
+- Steady employment (2 years preferred)
+- Legal residency
+- Not delinquent on federal debt
+- Not behind on child support
+
+## Who Should Consider FHA?
+
+### Good Candidates
+- First-time buyers with limited savings
+- Buyers with credit scores 580-680
+- Buyers recovering from bankruptcy/foreclosure
+- Buyers with higher debt-to-income ratios
+- Buyers in high-cost areas needing lower down payment
+
+### Maybe Not Ideal For
+- Buyers with 700+ credit scores (conventional may be cheaper)
+- Buyers with 20% down payment (avoid MIP)
+- Investment property buyers (FHA is owner-occupied only)
+- Buyers of fixer-uppers (unless FHA 203(k))
+- Buyers above FHA loan limits
+
+## FHA vs. Conventional: Quick Comparison
+
+| Factor | FHA | Conventional |
+|--------|-----|--------------|
+| Min. down | 3.5% | 3% |
+| Min. credit | 500 | 620 |
+| Mortgage insurance | Required | Removable at 20% |
+| Property standards | Strict | Less strict |
+| Loan limits | FHA limits | Higher limits |
+| Best for | Lower credit/savings | Higher credit |
+
+## The FHA Application Process
+
+### Step 1: Check Your Eligibility
+- Review credit report
+- Calculate debt-to-income
+- Verify you can occupy the home
+
+### Step 2: Find FHA-Approved Lender
+- Banks, credit unions, and mortgage companies
+- Compare rates and fees
+- Get pre-approved
+
+### Step 3: House Hunt
+- Stay within FHA limits
+- Consider property condition
+- Remember: Must be primary residence
+
+### Step 4: Get FHA Appraisal
+- Lender orders appraisal
+- Property must meet standards
+- Repairs may be required
+
+### Step 5: Close the Loan
+- Sign documents
+- Pay closing costs (can be seller-paid)
+- Upfront MIP added to loan
+
+## Common FHA Myths
+
+### "FHA is only for first-time buyers"
+**False**: Anyone can use FHA if owner-occupying.
+
+### "FHA means bad credit"
+**False**: Many buyers choose FHA for the low down payment, not credit issues.
+
+### "FHA takes forever"
+**False**: Timeline is similar to conventional—30-45 days typical.
+
+### "You can never remove FHA mortgage insurance"
+**Partially true**: With less than 10% down, MIP is for life. But you can refinance to conventional later.
+
+## Tips for FHA Buyers
+
+1. **Improve credit before applying**: Every point matters for rates
+2. **Save more than minimum**: Reserves help approval
+3. **Choose property carefully**: FHA appraisals are strict
+4. **Plan to refinance later**: Remove MIP when you build equity
+5. **Compare lenders**: Rates and fees vary significantly
+
+---
+
+*Found a home you want to buy with an FHA loan? [Analyze it with Perchspot](/chat) to ensure it will pass FHA property standards.*
+    `,
+  },
+  {
+    id: 'va-loans-complete-guide',
+    title: 'VA Loans: The Best Mortgage Benefit for Veterans',
+    excerpt: 'VA loans offer $0 down payment and no mortgage insurance. Complete guide for veterans, active duty, and surviving spouses.',
+    category: 'Education',
+    date: '2026-02-04',
+    readTime: '12 min read',
+    image: '/blog/va-loans.jpg',
+    metaDescription: 'VA loan guide 2026: zero down payment, no PMI, eligibility requirements, funding fee, and how to use your VA benefit to buy a home.',
+    content: `
+# VA Loans: Complete Guide for Veterans and Service Members
+
+If you've served in the military, the VA home loan benefit is arguably the best mortgage program available. Zero down payment, no mortgage insurance, and competitive rates make VA loans incredibly powerful.
+
+## What Makes VA Loans Special
+
+### Zero Down Payment
+- Buy a home with $0 down
+- No savings required beyond closing costs
+- Full purchase price can be financed
+- Even in high-cost markets
+
+### No Mortgage Insurance
+- No PMI or MIP—ever
+- Saves $200-500+/month on typical loans
+- Saving persists for life of loan
+- Massive cost advantage vs. FHA or conventional
+
+### Competitive Rates
+- Often 0.25-0.5% lower than conventional
+- Veterans present lower default risk
+- Rates reflect government backing
+
+### Flexible Credit Requirements
+- No official minimum credit score from VA
+- Lenders typically want 580-620+
+- More forgiving of past issues
+- Considers full financial picture
+
+### No Loan Limits for Full Entitlement
+- First-time VA buyers: No maximum loan amount
+- Full entitlement means $0 down regardless of price
+- High-cost market friendly
+
+## Who Qualifies for VA Loans
+
+### Eligibility Requirements
+
+**Active Duty Service Members**:
+- 90 continuous days of service, or
+- 181 days in peacetime
+
+**Veterans**:
+- 90 days during wartime
+- 181 days during peacetime
+- 6 years in Reserves/Guard
+
+**National Guard/Reserves**:
+- 90 days of active duty, or
+- 6 years in Reserves/Guard
+
+**Surviving Spouses**:
+- Unmarried spouse of veteran who died in service
+- Spouse of MIA/POW
+
+### Certificate of Eligibility (COE)
+You'll need a COE to prove eligibility:
+- Request through VA portal
+- Lender can obtain electronically
+- Shows available entitlement
+
+## The VA Funding Fee
+
+Instead of mortgage insurance, VA loans charge a one-time funding fee:
+
+### First-Time Use
+| Down Payment | Funding Fee |
+|--------------|-------------|
+| 0% | 2.15% |
+| 5%+ | 1.5% |
+| 10%+ | 1.25% |
+
+### Subsequent Use
+| Down Payment | Funding Fee |
+|--------------|-------------|
+| 0% | 3.3% |
+| 5%+ | 1.5% |
+| 10%+ | 1.25% |
+
+### Exemptions
+Fee waived for:
+- Veterans with service-connected disabilities
+- Surviving spouses receiving DIC
+- Active duty Purple Heart recipients
+
+**Example**: $500,000 loan, first use, $0 down = $10,750 funding fee (can be rolled into loan)
+
+## VA Loan Limits and Entitlement
+
+### Full Entitlement
+If you've never used your VA benefit (or restored it):
+- No loan limit
+- $0 down for any loan amount
+- Full benefit available
+
+### Reduced Entitlement
+If you have an existing VA loan or previous use:
+- County loan limits apply
+- May need down payment above limit
+- Can restore entitlement by paying off previous VA loan
+
+### 2026 Conforming Loan Limit
+- Most counties: $766,550
+- High-cost areas: Up to $1,149,825
+
+## VA Property Requirements
+
+### Minimum Property Standards
+VA appraisers ensure homes are:
+- Safe, sound, and sanitary
+- Structurally sound
+- Free of wood-destroying pests
+- Adequate heating and utilities
+- Proper roofing (2+ years life)
+- Safe water and sewage
+
+### Property Types Allowed
+- Single-family homes
+- Condos (VA-approved)
+- Multi-family (up to 4 units)
+- Manufactured homes (permanent foundation)
+- New construction
+
+### Occupancy Requirement
+- Must be primary residence
+- Move in within 60 days (usually)
+- Cannot be investment property
+- Spouse can fulfill if service member deployed
+
+## VA Loan Benefits Summary
+
+| Benefit | Value |
+|---------|-------|
+| Down payment | $0 |
+| Mortgage insurance | $0/month |
+| Interest rate | 0.25-0.5% lower |
+| Credit flexibility | More forgiving |
+| Assumability | Yes |
+| Prepayment penalty | None |
+| Lifetime benefit | Reusable |
+
+## VA vs. Other Loan Types
+
+| Factor | VA | Conventional | FHA |
+|--------|-----|--------------|-----|
+| Down payment | 0% | 3-20% | 3.5% |
+| Mortgage insurance | None | Until 20% equity | Life of loan |
+| Credit requirement | Flexible | 620+ | 580+ |
+| Funding fee | 2.15%* | None | 1.75% upfront |
+| Property requirements | Strict | Moderate | Strict |
+
+*Can be waived for disability
+
+## Common VA Loan Questions
+
+### Can I use VA loan more than once?
+**Yes**: VA entitlement can be restored and reused. Many veterans buy multiple homes over their lifetime using VA loans.
+
+### Can I have two VA loans at once?
+**Yes**: If you have remaining entitlement. Common scenario: keep home #1 as rental, buy home #2 with remaining entitlement.
+
+### What if the appraisal comes in low?
+Options include:
+- Negotiate lower price
+- Pay difference in cash
+- Walk away (with VA clause)
+- Request reconsideration of value
+
+### Can I buy a fixer-upper?
+VA appraisals are strict, but the VA Renovation Loan allows purchase and repair financing in one loan.
+
+### Is there a time limit to use my benefit?
+**No**: VA benefit never expires. You can use it years after service.
+
+## Tips for VA Buyers
+
+1. **Get your COE first**: Confirms eligibility and entitlement
+2. **Work with VA-experienced lenders**: Process knowledge matters
+3. **Choose properties carefully**: VA appraisals are strict
+4. **Compare lender rates**: VA doesn't set rates—lenders do
+5. **Consider funding fee waiver**: Apply for disability rating if applicable
+6. **Don't use all entitlement**: Leave room for future purchases
+
+---
+
+*Ready to use your VA benefit? [Analyze any property with Perchspot](/chat) to ensure it meets VA standards before making an offer.*
+    `,
+  },
+  {
+    id: 'jumbo-loans-guide',
+    title: 'Jumbo Loans Explained: Financing High-End Properties',
+    excerpt: 'Buying a home above conforming loan limits? Here\'s everything you need to know about jumbo mortgages.',
+    category: 'Education',
+    date: '2026-02-03',
+    readTime: '10 min read',
+    image: '/blog/jumbo-loans.jpg',
+    metaDescription: 'Jumbo loan guide 2026: requirements, rates, down payment, and how to qualify for mortgages above conforming limits.',
+    content: `
+# Jumbo Loans Explained: Financing High-End Properties
+
+In expensive markets like Seattle, Bellevue, and the Bay Area, many homes exceed conventional loan limits. That's where jumbo loans come in—larger mortgages that require higher qualifications but enable purchase of premium properties.
+
+## What is a Jumbo Loan?
+
+A jumbo loan exceeds the conforming loan limits set by the Federal Housing Finance Agency (FHFA). These loans can't be purchased by Fannie Mae or Freddie Mac, so lenders keep them on their own books.
+
+### 2026 Conforming Limits
+
+**Standard Counties**: $766,550
+**High-Cost Areas** (like King County, WA): $1,149,825
+
+Any loan above these limits in your area is a jumbo loan.
+
+### Jumbo Example
+Buying a $1.5M home in Bellevue:
+- Conforming limit: $1,149,825
+- Your loan (20% down): $1,200,000
+- Amount above limit: $50,175
+- **Result**: Jumbo loan required
+
+## Jumbo Loan Requirements
+
+Because lenders take on more risk with jumbo loans, requirements are stricter:
+
+### Credit Score
+- **Minimum**: 700 (most lenders)
+- **Competitive rates**: 720+
+- **Best rates**: 740+
+
+### Down Payment
+- **Minimum**: 10-20%
+- **Common**: 20%
+- **Competitive**: 25-30%
+
+Some lenders offer 10% down jumbos with higher rates and reserves requirements.
+
+### Debt-to-Income Ratio
+- **Maximum**: 43-45%
+- **Preferred**: Under 40%
+- More stringent than conforming loans
+
+### Cash Reserves
+Lenders want to see cash reserves after closing:
+- **Typical requirement**: 6-12 months of payments
+- **Higher loan amounts**: 12-24 months
+- Demonstrates ability to weather financial stress
+
+### Documentation
+Jumbo loans often require more documentation:
+- 2 years of tax returns
+- 2 months of bank statements
+- Asset verification
+- Employment verification
+- Additional underwriting scrutiny
+
+## Jumbo Loan Interest Rates
+
+### Historical Spread
+Jumbo rates used to be 0.25-0.50% higher than conforming. Today:
+- **Current environment**: Often equal to or below conforming
+- **Why**: Banks compete for affluent customers
+- **Result**: Jumbo rates are competitive
+
+### Rate Factors
+Your jumbo rate depends on:
+- Credit score
+- Down payment amount
+- Loan amount
+- Property type
+- Occupancy (primary vs. second home)
+- Reserves
+
+## Jumbo Loan Types
+
+### Fixed-Rate Jumbos
+- 15, 20, 30-year terms
+- Predictable payments
+- Best for long-term ownership
+
+### Adjustable-Rate Jumbos (ARMs)
+- 5/1, 7/1, 10/1 ARMs common
+- Lower initial rates
+- Rate adjusts after initial period
+- Good for shorter ownership horizons
+
+### Interest-Only Jumbos
+- Pay only interest for initial period (5-10 years)
+- Lower initial payments
+- Principal payments begin later
+- Common with high-net-worth buyers
+
+### Jumbo Portfolio Loans
+- Kept on lender's books
+- More flexible terms
+- May accommodate unusual situations
+- Relationship-based lending
+
+## Who Gets Jumbo Loans?
+
+### Typical Borrower Profile
+- High income ($200K+ household)
+- Strong credit (720+)
+- Significant assets
+- Professional or executive career
+- Buying in expensive market
+
+### Common Scenarios
+1. **Tech executives** buying in Seattle/Eastside
+2. **Doctors/lawyers** purchasing first home
+3. **Move-up buyers** in high-cost markets
+4. **Investors** buying premium rentals
+5. **Second home** purchasers
+
+## Jumbo Loan Challenges
+
+### More Paperwork
+Expect extensive documentation:
+- Complete tax returns (all schedules)
+- Bank statements for all accounts
+- Investment account statements
+- Business documentation (if self-employed)
+- Asset verification letters
+
+### Longer Processing
+- More underwriting scrutiny
+- Additional quality checks
+- May take 45-60 days vs. 30-45 for conforming
+
+### Fewer Lender Options
+- Not all lenders offer jumbos
+- Terms vary significantly
+- Shopping around is essential
+
+## Jumbo vs. Conforming: Comparison
+
+| Factor | Jumbo | Conforming |
+|--------|-------|------------|
+| Loan amount | Above limit | Below limit |
+| Min. credit | 700+ | 620 |
+| Down payment | 10-20%+ | 3-20% |
+| Reserves | 6-24 months | 0-2 months |
+| Documentation | Extensive | Standard |
+| Rates | Competitive | Market standard |
+| Lender options | Fewer | Many |
+
+## Tips for Jumbo Borrowers
+
+### Before Applying
+1. **Check your credit**: Aim for 720+
+2. **Build reserves**: 12+ months ideal
+3. **Reduce debt**: Lower DTI helps
+4. **Organize documents**: Tax returns, statements ready
+5. **Stabilize income**: Consistency matters
+
+### During Process
+1. **Shop multiple lenders**: Rates and terms vary
+2. **Consider portfolio lenders**: Banks may offer better terms
+3. **Lock rate carefully**: Jumbo locks may have different terms
+4. **Respond quickly**: Document requests shouldn't delay
+5. **Don't make big purchases**: Preserve your qualifications
+
+### Lender Selection
+- Compare at least 3-5 lenders
+- Ask about jumbo-specific experience
+- Check processing times
+- Understand rate lock policies
+- Review all fees
+
+## Alternatives to Jumbo Loans
+
+### Piggyback Loans (80-10-10)
+- First mortgage at conforming limit
+- Second mortgage for remainder
+- 10% down payment
+- Avoid jumbo requirements
+
+### Two Conforming Loans
+- First mortgage at conforming limit
+- HELOC or second mortgage
+- May offer better total rate
+
+### Larger Down Payment
+- Get loan under conforming limit
+- May be better total cost
+- Preserve cash flow
+
+---
+
+*Shopping for a luxury property? [Analyze it with Perchspot](/chat) to ensure you're making a sound investment at any price point.*
+    `,
+  },
+  {
+    id: 'arm-adjustable-rate-mortgage-guide',
+    title: 'Adjustable Rate Mortgages (ARMs): When They Make Sense',
+    excerpt: 'ARMs aren\'t as scary as they seem. Learn how they work, the risks involved, and when an ARM might save you money.',
+    category: 'Education',
+    date: '2026-02-02',
+    readTime: '11 min read',
+    image: '/blog/arm-guide.jpg',
+    metaDescription: 'ARM mortgage guide 2026: how adjustable rates work, 5/1 vs 7/1 ARM, caps, risks, and when to choose ARM over fixed rate.',
+    content: `
+# Adjustable Rate Mortgages (ARMs): Complete Guide
+
+ARMs have a mixed reputation—they contributed to the 2008 financial crisis, but they've also saved countless borrowers money. Understanding how they work helps you decide if an ARM is right for your situation.
+
+## How ARMs Work
+
+An adjustable rate mortgage has two periods:
+
+### Fixed Period
+- Initial rate stays constant
+- Lower than comparable fixed rates
+- Length varies (3, 5, 7, or 10 years)
+
+### Adjustment Period
+- Rate adjusts based on index + margin
+- Can go up or down
+- Subject to caps
+
+### ARM Naming Convention
+The name tells you the structure:
+
+**5/1 ARM**: Fixed for 5 years, adjusts every 1 year after
+**7/1 ARM**: Fixed for 7 years, adjusts every 1 year after
+**10/1 ARM**: Fixed for 10 years, adjusts every 1 year after
+**5/6 ARM**: Fixed for 5 years, adjusts every 6 months after
+
+## ARM Components
+
+### Index
+The benchmark rate your ARM follows:
+- **SOFR** (Secured Overnight Financing Rate): Most common today
+- **Prime Rate**: Some lenders use this
+- **Treasury rates**: Less common now
+
+### Margin
+The lender's markup above the index:
+- Typically 2-3%
+- Stays constant for life of loan
+- Your rate = Index + Margin
+
+### Caps
+Limits on how much your rate can change:
+
+**Initial Cap**: Maximum first adjustment (typically 2-5%)
+**Periodic Cap**: Maximum each subsequent adjustment (typically 2%)
+**Lifetime Cap**: Maximum total increase (typically 5-6%)
+
+### Example: 5/1 ARM with 2/2/5 Caps
+- Initial rate: 5.5%
+- After 5 years, first adjustment: Maximum 7.5% (5.5% + 2%)
+- Each year after: Maximum 2% increase
+- Lifetime maximum: 10.5% (5.5% + 5%)
+
+## Current ARM Rates (2026)
+
+Typical rate comparison:
+| Loan Type | Rate |
+|-----------|------|
+| 30-Year Fixed | 6.75% |
+| 5/1 ARM | 5.75% |
+| 7/1 ARM | 6.00% |
+| 10/1 ARM | 6.25% |
+
+The ARM discount is roughly 0.5-1.0% below fixed rates.
+
+## The Math: ARM Savings Example
+
+**Scenario**: $600,000 loan
+
+### 30-Year Fixed at 6.75%
+Monthly payment: $3,893
+5-year total payments: $233,580
+
+### 5/1 ARM at 5.75%
+Monthly payment: $3,501
+5-year total payments: $210,060
+
+**5-Year Savings**: $23,520
+
+Even if the ARM adjusts up after year 5, you've banked significant savings.
+
+## When ARMs Make Sense
+
+### You'll Move Within Fixed Period
+If you know you'll sell before the rate adjusts:
+- Job relocation likely
+- Planning to upsize/downsize
+- Temporary living situation
+
+### You'll Refinance
+If rates are expected to drop:
+- Planning to refinance before adjustment
+- Building equity for better terms
+- Market timing strategy
+
+### You Need Lower Initial Payment
+When cash flow is tight now but will improve:
+- Early career professionals
+- Expecting income growth
+- Temporary expenses ending
+
+### Jumbo Loans
+ARM discounts are often larger on jumbos:
+- Greater savings potential
+- Sophisticated borrowers
+- Often refinanced anyway
+
+### Investment Properties
+When managing cash flow:
+- Maximize initial returns
+- Planning to sell before adjustment
+- Portfolio management strategy
+
+## When to Avoid ARMs
+
+### You're Rate-Sensitive
+If payment increases would cause stress:
+- Fixed budget constraints
+- Risk-averse personality
+- No refinance contingency
+
+### Planning to Stay Long-Term
+If you're settling in forever:
+- 10+ year horizon
+- Unlikely to refinance
+- Value predictability
+
+### Rates Are Already Low
+When fixed rates are historically low:
+- Less upside to ARMs
+- Limited savings potential
+- Fixed offers security
+
+## ARM Risks
+
+### Payment Shock
+When rates adjust significantly:
+- Monthly payment increases
+- Budget disruption
+- Potential financial stress
+
+**Mitigation**: Calculate worst-case payment using lifetime cap
+
+### Refinance Risk
+You might not be able to refinance when needed:
+- Credit problems
+- Home value decline
+- Tight lending standards
+- Rate environment unfavorable
+
+**Mitigation**: Maintain credit, build equity, have reserves
+
+### Negative Amortization
+Rare today, but some ARMs allowed:
+- Paying less than interest due
+- Loan balance grows
+- Avoided in modern ARMs
+
+## ARM Strategies
+
+### The Refinance Plan
+1. Take 5/1 or 7/1 ARM
+2. Enjoy lower payments
+3. Refinance before adjustment
+4. Lock in new rate (fixed or another ARM)
+
+### The Sale Plan
+1. Take ARM matching expected stay
+2. 5/1 ARM if selling within 5 years
+3. 7/1 ARM if selling within 7 years
+4. Never face adjustment
+
+### The Aggressive Paydown
+1. Take ARM for lower rate
+2. Apply savings to principal
+3. Build equity faster
+4. Refinance with better LTV
+
+## Comparing Your Options
+
+When evaluating ARM vs. fixed, calculate:
+
+1. **Monthly savings** with ARM
+2. **Total savings** during fixed period
+3. **Break-even point** if rates rise
+4. **Worst-case payment** at lifetime cap
+5. **Probability** of refinancing/moving
+
+## Questions to Ask Lenders
+
+1. What index does this ARM use?
+2. What is the margin?
+3. What are the caps (initial/periodic/lifetime)?
+4. Is there a prepayment penalty?
+5. What's the worst-case monthly payment?
+6. How does rate compare to your fixed rates?
+
+## ARM Checklist
+
+Before choosing an ARM:
+- [ ] Calculate savings during fixed period
+- [ ] Determine worst-case payment
+- [ ] Assess likelihood of moving
+- [ ] Consider refinance ability
+- [ ] Evaluate personal risk tolerance
+- [ ] Compare to fixed rate options
+- [ ] Understand all caps and limits
+
+---
+
+*Considering an ARM for your purchase? [Analyze the property with Perchspot](/chat) to make sure the home itself is a solid investment regardless of your financing choice.*
+    `,
+  },
+  {
+    id: 'usda-loans-rural-home-buying',
+    title: 'USDA Loans: Zero Down Payment for Rural Home Buyers',
+    excerpt: 'USDA loans offer 100% financing for eligible rural properties. Discover if your target area qualifies and how to apply.',
+    category: 'Education',
+    date: '2026-02-01',
+    readTime: '10 min read',
+    image: '/blog/usda-loans.jpg',
+    metaDescription: 'USDA loan guide 2026: zero down payment, income limits, eligible areas, and how to buy a home with rural development financing.',
+    content: `
+# USDA Loans: Zero Down for Rural Properties
+
+USDA loans are one of the best-kept secrets in home financing—offering 100% financing (zero down payment) for homes in eligible rural and suburban areas. Many buyers are surprised to learn that "rural" includes areas close to major cities.
+
+## What is a USDA Loan?
+
+The USDA Rural Development Guaranteed Housing Loan Program helps low-to-moderate income buyers purchase homes in eligible rural areas. Despite the name, many suburban areas qualify.
+
+### Key Benefits
+- **Zero down payment**: 100% financing
+- **Below-market rates**: Competitive with FHA/VA
+- **Low mortgage insurance**: Cheaper than FHA
+- **Flexible credit**: Similar to FHA requirements
+- **No loan limits**: Income limits instead
+
+## USDA Eligibility Requirements
+
+### Location Requirements
+Property must be in USDA-eligible area:
+- Populations under 35,000 (generally)
+- Not in metropolitan statistical areas
+- **Check eligibility**: USDA eligibility map online
+
+**Surprising eligible areas near Seattle**:
+- Parts of Snohomish County
+- Rural King County (east)
+- Parts of Pierce County
+- Kitsap Peninsula areas
+- Skagit and Whatcom counties
+
+### Income Limits
+Your household income must not exceed 115% of area median income:
+
+**2026 Income Limits (examples)**:
+| Household Size | Limit |
+|----------------|-------|
+| 1-4 persons | $103,500* |
+| 5-8 persons | $136,600* |
+
+*Varies by county—check your specific area
+
+Income includes all adult household members, even if not on the loan.
+
+### Property Requirements
+- Must be primary residence
+- Must be in eligible area
+- Must be modest (not luxury)
+- Single-family, townhome, or approved condo
+- Must meet USDA minimum property standards
+
+### Credit Requirements
+- **Minimum**: 640 for automated approval
+- **Below 640**: Manual underwriting possible
+- **No credit score**: Alternative credit history accepted
+
+## USDA Loan Costs
+
+### Guarantee Fee (Upfront)
+- **Amount**: 1.0% of loan amount
+- **Payment**: Rolled into loan
+- **Example**: $300,000 loan = $3,000 fee
+
+### Annual Fee
+- **Amount**: 0.35% of loan balance
+- **Payment**: Monthly with mortgage
+- **Example**: $300,000 loan = $87.50/month initially
+
+### Comparison to FHA
+| Fee Type | USDA | FHA |
+|----------|------|-----|
+| Upfront | 1.0% | 1.75% |
+| Annual | 0.35% | 0.55% |
+| Monthly ($300K) | $87.50 | $137.50 |
+
+USDA saves ~$600/year on a $300K loan compared to FHA.
+
+## The USDA Loan Process
+
+### Step 1: Check Eligibility
+- Use USDA eligibility map
+- Verify income limits for your area
+- Confirm you want rural/suburban living
+
+### Step 2: Find USDA-Approved Lender
+- Not all lenders offer USDA
+- Find experienced USDA lenders
+- Get pre-approved
+
+### Step 3: Find Eligible Property
+- Must be in eligible area
+- Must be primary residence
+- Must meet property standards
+
+### Step 4: USDA Review
+After regular underwriting:
+- Lender submits to USDA
+- USDA reviews and approves
+- Additional 1-2 weeks typical
+
+### Step 5: Close
+- Similar to conventional closing
+- Guarantee fee added to loan
+- Start making payments
+
+## USDA vs. Other Zero/Low Down Options
+
+| Feature | USDA | VA | FHA | Conv. 3% |
+|---------|------|-----|-----|----------|
+| Down payment | 0% | 0% | 3.5% | 3% |
+| Location | Rural only | Any | Any | Any |
+| Eligibility | Income | Military | Any | Credit |
+| Upfront fee | 1% | 2.15% | 1.75% | PMI |
+| Annual fee | 0.35% | 0 | 0.55% | PMI |
+
+## Common USDA Questions
+
+### Is my area USDA-eligible?
+Check the USDA eligibility map at usda.gov. Enter the property address for instant results.
+
+### What counts as household income?
+All adult household members (18+), including:
+- Borrowers
+- Non-borrower spouse
+- Adult children living at home
+- Other adult residents
+
+### Can I buy land and build?
+USDA offers construction-to-permanent loans, but they're more complex. Many buyers purchase existing homes instead.
+
+### Is there a maximum home price?
+No official price limit, but:
+- Home must be "modest" for area
+- Income limits effectively cap buying power
+- Must be reasonable for region
+
+### Can I use USDA for a second home?
+No—primary residence only. No investment properties or vacation homes.
+
+## Who USDA Loans Are Best For
+
+### Ideal Candidates
+- First-time buyers with limited savings
+- Moderate income households
+- Buyers wanting suburban/rural lifestyle
+- Those who can't qualify for conventional
+- Buyers in eligible areas
+
+### Not Ideal For
+- High-income buyers (exceed limits)
+- Urban property seekers
+- Investment property buyers
+- Luxury home purchasers
+- Those needing fast closing
+
+## Tips for USDA Buyers
+
+1. **Check map first**: Don't fall in love with ineligible property
+2. **Calculate household income carefully**: All adults count
+3. **Find experienced lender**: USDA process differs from conventional
+4. **Allow extra time**: USDA review adds 1-2 weeks
+5. **Consider location carefully**: You're committing to rural/suburban life
+6. **Property condition matters**: USDA standards similar to FHA
+
+## Finding USDA-Eligible Properties
+
+### Strategy 1: Start with the Map
+- Identify eligible areas near your work
+- Focus home search there
+- Many MLS systems don't flag eligibility
+
+### Strategy 2: Work with Local Agents
+- Agents in rural areas know eligibility
+- Can focus showing on qualifying properties
+- Understand USDA process
+
+### Strategy 3: Expand Your Search
+- Look beyond immediate suburbs
+- Consider slightly longer commute
+- Remote work makes this easier
+
+---
+
+*Found a property in a rural area? [Analyze it with Perchspot](/chat) to get comprehensive insights before applying for your USDA loan.*
+    `,
+  },
+  // PROPERTY-SPECIFIC GUIDES
+  {
+    id: 'buying-older-homes-guide',
+    title: 'Buying an Older Home: What to Know Before You Fall in Love',
+    excerpt: 'Older homes have charm—and hidden costs. Learn what to inspect, expect, and budget for when buying a home built before 1980.',
+    category: 'Guide',
+    date: '2026-01-31',
+    readTime: '12 min read',
+    image: '/blog/older-homes.jpg',
+    metaDescription: 'Buying an older home guide: what to inspect, common issues, hidden costs, and how to decide if vintage charm is worth potential problems.',
+    content: `
+# Buying an Older Home: Complete Guide
+
+Older homes offer character, craftsmanship, and established neighborhoods that new construction can't match. They also come with unique challenges. Here's what to know before buying a home built before 1980.
+
+## The Appeal of Older Homes
+
+### What You Get
+- **Character**: Unique architectural details
+- **Craftsmanship**: Solid construction, real materials
+- **Established lots**: Mature trees and landscaping
+- **Proven neighborhoods**: Known quantities
+- **Location**: Often in desirable, walkable areas
+- **Value**: Sometimes better price per square foot
+
+### What You're Getting Into
+- **Deferred maintenance**: Years of wear
+- **Outdated systems**: Electrical, plumbing, HVAC
+- **Code issues**: Built to old standards
+- **Hazardous materials**: Lead, asbestos possible
+- **Energy inefficiency**: Higher utility bills
+
+## Critical Inspection Areas
+
+### Electrical System
+
+**Warning signs**:
+- Knob-and-tube wiring (pre-1940s)
+- 60-amp service (inadequate for modern use)
+- Lack of grounded outlets
+- Federal Pacific or Zinsco panels (fire hazards)
+- Aluminum wiring (1965-1973)
+
+**Expected costs**:
+- Panel upgrade: $1,500-$3,000
+- Rewiring whole house: $8,000-$15,000+
+- Adding circuits: $150-$300 each
+
+### Plumbing System
+
+**Pipe materials by era**:
+- Lead pipes (pre-1930): Must replace
+- Galvanized steel (1940s-1960s): Corroding, 50-year life
+- Cast iron drain lines: May be deteriorating
+- Copper: Generally good
+
+**Warning signs**:
+- Low water pressure
+- Rust-colored water
+- Slow drains throughout
+- Water hammer sounds
+
+**Expected costs**:
+- Repipe house (copper): $8,000-$15,000
+- Repipe house (PEX): $4,000-$10,000
+- Sewer line replacement: $3,000-$20,000
+
+### Foundation
+
+**Common issues**:
+- Settling and cracks
+- Water intrusion
+- Inadequate drainage
+- Old concrete degradation
+
+**Warning signs**:
+- Cracks wider than 1/4 inch
+- Doors/windows that stick
+- Sloping floors
+- Water stains in basement
+
+**Expected costs**:
+- Crack repair: $500-$2,500
+- Drainage improvement: $2,000-$10,000
+- Foundation stabilization: $5,000-$20,000+
+
+### Roof
+
+**Lifespans by material**:
+- Asphalt shingles: 20-30 years
+- Wood shake: 20-40 years
+- Metal: 40-70 years
+- Slate/tile: 50-100+ years
+
+**What to check**:
+- Age of current roof
+- Number of layers
+- Condition of flashing
+- Attic for leaks/daylight
+
+**Expected costs**:
+- Asphalt replacement: $8,000-$15,000
+- Wood shake: $15,000-$25,000
+- Tear-off additional layer: $1,000-$3,000
+
+### Heating/Cooling
+
+**Systems by era**:
+- Gravity furnaces (pre-1950): Inefficient, often contain asbestos
+- Floor/wall furnaces: Limited capacity
+- Forced air (1960s+): Check age and efficiency
+
+**Warning signs**:
+- Furnace over 20 years old
+- Uneven heating
+- High utility bills
+- Strange smells or sounds
+
+**Expected costs**:
+- Furnace replacement: $3,000-$7,000
+- Adding central AC: $3,500-$7,000
+- New HVAC system: $7,000-$15,000
+
+## Hazardous Materials
+
+### Lead Paint
+Present in most homes built before 1978:
+- Required seller disclosure
+- Testing recommended for families with children
+- Intact paint may be managed in place
+- Disturbing during renovation requires special handling
+
+**Remediation costs**: $2,000-$10,000+ depending on scope
+
+### Asbestos
+Common in homes built 1920-1980:
+- Floor tiles and adhesive
+- Insulation around pipes and ducts
+- Popcorn ceilings (some)
+- Roof shingles
+
+**Management**: Often left alone if undisturbed
+**Removal costs**: $1,500-$30,000 depending on extent
+
+### Radon
+Naturally occurring in many areas:
+- Testing recommended regardless of age
+- Mitigation straightforward if found
+- Costs: $800-$2,500 for mitigation system
+
+## Age-Related Budget Guidelines
+
+### First Year Budget
+Plan for immediate needs:
+- Essential repairs: $5,000-$15,000
+- Updated systems: $5,000-$20,000
+- Cosmetic updates: Variable
+
+### Ongoing Maintenance
+Older homes need more maintenance:
+- Budget 2-3% of home value annually
+- Example: $600,000 home = $12,000-$18,000/year
+
+### Major Systems Timeline
+Create a replacement schedule:
+- Know age of roof, HVAC, water heater
+- Budget for replacements
+- Prioritize by urgency
+
+## The Right Inspector Matters
+
+### What to Look For
+- Experience with homes of that era
+- Knowledge of historical construction methods
+- Understanding of grandfathered code issues
+- Relationships with specialized inspectors
+
+### Additional Inspections to Consider
+- Sewer scope ($150-$300)
+- Chimney inspection ($150-$500)
+- Foundation specialist ($300-$500)
+- Electrical assessment ($200-$400)
+- Environmental testing ($200-$600)
+
+## Negotiating Older Home Purchases
+
+### Strategy Options
+
+**Option 1: Credit at Closing**
+Request credit for known issues:
+- Seller provides funds
+- You manage repairs
+- More flexibility
+
+**Option 2: Repairs Before Closing**
+Seller makes repairs:
+- Verify quality of work
+- May delay closing
+- Less control over contractors
+
+**Option 3: Price Reduction**
+Lower purchase price:
+- Simplest negotiation
+- Provides ongoing flexibility
+- May affect appraisal
+
+### What's Reasonable to Request
+- Health and safety issues
+- Major system deficiencies
+- Code violations
+- Structural concerns
+
+### What's Typically Not Addressed
+- Cosmetic issues
+- Normal wear and tear
+- Maintenance items
+- Code updates (grandfathered)
+
+## When to Walk Away
+
+### Red Flags
+- Foundation issues without clear solution
+- Evidence of water damage in structure
+- Outdated electrical with insurance issues
+- Extensive pest damage
+- Owner unwilling to address serious issues
+
+### Questions to Ask Yourself
+1. Am I prepared for ongoing projects?
+2. Do I have budget for unexpected repairs?
+3. Is the location worth the work?
+4. Am I being realistic about costs?
+
+## Making It Work
+
+### Success Strategies
+1. **Build contractor relationships**: You'll need them
+2. **Learn DIY basics**: Small repairs add up
+3. **Prioritize systematically**: Safety first, comfort second
+4. **Budget conservatively**: Add 20% buffer
+5. **Celebrate the journey**: Enjoy the character
+
+### When Older Homes Are Worth It
+- Prime location you couldn't otherwise afford
+- Unique architecture or features
+- Established neighborhood with mature lots
+- You enjoy improvement projects
+- Strong bones with mostly cosmetic needs
+
+---
+
+*Found an older home you love? [Run it through Perchspot](/chat) to understand exactly what you're getting into before making an offer.*
+    `,
+  },
+  {
+    id: 'homes-with-pools-guide',
+    title: 'Buying a Home with a Pool: Luxury or Liability?',
+    excerpt: 'Pools add fun—and costs. Here\'s the complete guide to evaluating, maintaining, and insuring a home with a swimming pool.',
+    category: 'Guide',
+    date: '2026-01-30',
+    readTime: '10 min read',
+    image: '/blog/homes-with-pools.jpg',
+    metaDescription: 'Guide to buying a home with a pool: inspection tips, maintenance costs, insurance requirements, safety features, and resale considerations.',
+    content: `
+# Buying a Home with a Pool: Complete Guide
+
+A swimming pool can be a dream feature or a maintenance nightmare. Before buying a home with a pool, understand the full picture—costs, responsibilities, and considerations that come with pool ownership.
+
+## Pool Types and What They Mean for You
+
+### In-Ground Pools
+
+**Concrete/Gunite**:
+- Most durable and customizable
+- Highest maintenance requirements
+- Resurfacing needed every 10-15 years
+- Cost to build: $50,000-$100,000+
+
+**Fiberglass**:
+- Lower maintenance than concrete
+- Smooth surface, less algae
+- Limited shapes and sizes
+- Cost to build: $40,000-$75,000
+
+**Vinyl Liner**:
+- Lowest initial cost
+- Liner replacement every 5-10 years
+- More prone to damage
+- Cost to build: $30,000-$50,000
+
+### Above-Ground Pools
+- Lowest cost and commitment
+- Easier to remove
+- Limited resale appeal
+- Not typically property fixtures
+
+## Pool Inspection Essentials
+
+### What Pool Inspectors Check
+
+**Structure**:
+- Cracks in concrete
+- Liner condition
+- Tile and coping
+- Deck condition and drainage
+
+**Equipment**:
+- Pump and motor
+- Filter system
+- Heater (if present)
+- Chlorinator or salt system
+- Automation/controls
+
+**Plumbing**:
+- Leaks (pressure test)
+- Skimmer and drains
+- Return jets
+- Pipes and fittings
+
+**Electrical**:
+- GFCI protection
+- Bonding and grounding
+- Light fixtures
+- Code compliance
+
+### Red Flags
+
+**Immediate concerns**:
+- Green water (circulation/maintenance issues)
+- Visible cracks in structure
+- Failing equipment
+- Missing safety features
+- Electrical hazards
+
+**Expensive problems**:
+- Structural cracks (pool shell)
+- Leaks in underground plumbing
+- Deck settling/cracking
+- Equipment at end of life
+
+### Pool Inspection Cost
+- Basic pool inspection: $150-$300
+- Comprehensive (with leak detection): $300-$500
+- Worth every penny before purchase
+
+## Annual Pool Costs
+
+### Maintenance
+| Item | Annual Cost |
+|------|-------------|
+| Chemicals | $600-$1,200 |
+| Electricity | $600-$1,800 |
+| Water | $200-$400 |
+| Cleaning service | $1,200-$3,600 |
+| Minor repairs | $200-$500 |
+| **Total** | **$2,800-$7,500+** |
+
+### Major Repairs/Replacements
+| Item | Cost | Frequency |
+|------|------|-----------|
+| Pump/motor | $500-$1,500 | 8-12 years |
+| Filter | $500-$2,000 | 10-15 years |
+| Heater | $2,000-$5,000 | 10-15 years |
+| Vinyl liner | $3,000-$7,000 | 5-10 years |
+| Resurface (concrete) | $10,000-$20,000 | 10-15 years |
+| Deck repair | $2,000-$10,000 | As needed |
+
+### Insurance Impact
+- Increased liability coverage needed
+- Premium increase: $50-$100+/month
+- Umbrella policy recommended ($300-$500/year)
+
+## Safety Requirements
+
+### Legal Requirements (Vary by Location)
+
+**Fencing**:
+- Typically 4-5 feet minimum height
+- Self-closing, self-latching gates
+- No climbable elements
+- Must separate pool from house
+
+**Covers**:
+- Safety covers may be required
+- Must support weight (child/pet)
+- Automatic covers provide convenience
+
+**Alarms**:
+- Door alarms to pool area
+- Pool surface alarms
+- Gate alarms
+
+### Recommended Safety Features
+- Pool fence with self-latching gate
+- Safety cover
+- Pool alarm
+- Anti-entrapment drain covers
+- Rescue equipment nearby
+- CPR instructions posted
+
+## Insurance Considerations
+
+### Liability Concerns
+Pools are "attractive nuisances":
+- Property owner liability for injuries
+- Even uninvited guests (including trespassing children)
+- Umbrella policy highly recommended
+
+### Coverage Requirements
+- Increase liability to $300,000-$500,000+
+- Add umbrella policy ($1M minimum recommended)
+- Verify pool equipment coverage
+- Check flood/water damage exclusions
+
+### What Insurers May Require
+- Proper fencing and gates
+- Compliance with local codes
+- No diving boards (some insurers)
+- Safety inspections
+
+## Impact on Home Value
+
+### Does a Pool Add Value?
+
+**Depends on**:
+- Climate (pools add more value in warm climates)
+- Neighborhood (does pool fit the area?)
+- Pool condition
+- Local buyer preferences
+
+**General guidelines**:
+- Pacific Northwest: Pool may add $15,000-$30,000
+- Warm climates: May add $30,000-$50,000+
+- Never recoups full installation cost
+- May narrow buyer pool
+
+### Resale Considerations
+- Some buyers specifically seek pools
+- Others specifically avoid them
+- Families with young children may be cautious
+- Older buyers may not want maintenance
+
+## Questions to Ask Sellers
+
+1. How old is the pool and major equipment?
+2. Who maintains it (service company or DIY)?
+3. What's the monthly/annual maintenance cost?
+4. Are there any known issues or recent repairs?
+5. When was it last resurfaced/relined?
+6. Is there a heater, and how much does it cost to run?
+7. Are there automation systems? How do they work?
+8. What safety features are installed?
+9. Has the pool ever leaked? Been replastered?
+10. Are there any warranty transfers available?
+
+## Pool Ownership Reality Check
+
+### You're a Good Pool Candidate If:
+- You'll use the pool regularly
+- You have budget for maintenance
+- You're willing to learn pool chemistry (or pay for service)
+- You have or will install proper safety features
+- Your lifestyle includes entertaining at home
+
+### Think Twice If:
+- You're rarely home in summer
+- Budget is already stretched
+- You have very young children (safety concerns)
+- You're planning to sell soon
+- Local climate limits pool season
+
+## Alternatives to Pool Ownership
+
+If you want pool access without full ownership:
+- Community pool in HOA
+- Neighborhood pool membership
+- Nearby public pools
+- Gym with pool access
+- Friends/family with pools
+
+## Pool Buying Checklist
+
+Before making an offer:
+- [ ] Get professional pool inspection
+- [ ] Review maintenance records
+- [ ] Verify safety compliance
+- [ ] Get insurance quote with pool
+- [ ] Calculate annual operating costs
+- [ ] Factor equipment age into negotiations
+- [ ] Confirm local regulations/permits
+- [ ] Plan for immediate needs
+
+---
+
+*Found a home with a pool you love? [Analyze it with Perchspot](/chat) to understand the full picture, including pool condition and neighborhood comparisons.*
+    `,
+  },
+  {
+    id: 'waterfront-homes-guide',
+    title: 'Buying Waterfront Property: A Complete Guide',
+    excerpt: 'Waterfront living is the dream—but it comes with unique challenges. Learn about flood zones, bulkheads, and what makes waterfront worth it.',
+    category: 'Guide',
+    date: '2026-01-29',
+    readTime: '12 min read',
+    image: '/blog/waterfront-homes.jpg',
+    metaDescription: 'Waterfront property buying guide: flood insurance, bulkhead maintenance, dock permits, environmental regulations, and what to inspect.',
+    content: `
+# Buying Waterfront Property: Complete Guide
+
+Living on the water is a lifestyle many dream about—waking to water views, having a dock for your boat, and the serenity of waterfront living. But waterfront properties come with unique considerations that can surprise first-time buyers.
+
+## Types of Waterfront Property
+
+### Lake Waterfront
+- Freshwater, often calmer
+- Swimming and boating access
+- May have dock rights
+- HOA may govern lake use
+
+### River Waterfront
+- Flowing water considerations
+- Flood risk varies
+- Navigation rights complex
+- May have erosion issues
+
+### Ocean/Sound Waterfront
+- Saltwater effects on structures
+- Tidal considerations
+- Typically highest cost
+- Most dramatic views
+
+### Canal/Creek Front
+- Varying water depth
+- May not accommodate all boats
+- Often more affordable entry
+- Access to larger water bodies
+
+## Critical Waterfront Considerations
+
+### Flood Zones and Insurance
+
+**FEMA Flood Zones**:
+- **Zone A**: High risk, flood insurance required
+- **Zone V**: Coastal high risk, strictest requirements
+- **Zone X**: Moderate to low risk
+
+**Flood Insurance Costs**:
+- Can range from $500 to $10,000+ annually
+- Based on zone, elevation, structure
+- Required for federally-backed mortgages in high-risk zones
+
+**What to Do**:
+1. Check FEMA flood maps before buying
+2. Get elevation certificate
+3. Obtain flood insurance quotes
+4. Factor into total ownership cost
+
+### Bulkheads and Seawalls
+
+**What They Do**:
+- Protect shoreline from erosion
+- Define property boundary
+- Support dock structures
+- Critical to property integrity
+
+**Inspection Points**:
+- Age and material condition
+- Signs of failure (leaning, gaps)
+- Erosion behind structure
+- Permit compliance
+
+**Replacement Costs**:
+- Wood bulkhead: $300-$600/linear foot
+- Vinyl bulkhead: $400-$700/linear foot
+- Concrete seawall: $500-$1,500/linear foot
+- 100 feet of waterfront: $30,000-$150,000
+
+### Dock Rights and Permits
+
+**Not All Waterfront Includes Dock Rights**:
+- Review deed carefully
+- Check for dock easements
+- Understand permit requirements
+- Verify existing dock is permitted
+
+**Adding a Dock**:
+- Permits required (often lengthy process)
+- Environmental reviews
+- Neighbor considerations
+- Costs: $10,000-$100,000+ depending on type
+
+### Shoreline Regulations
+
+**Environmental Protections**:
+- Setback requirements
+- Buffer zones
+- Vegetation restrictions
+- Construction limitations
+
+**What This Means**:
+- Can't always build to water's edge
+- May limit renovation options
+- Landscaping may be regulated
+- Permits needed for many changes
+
+## Special Inspection Needs
+
+### Standard Home Inspection Plus:
+
+**Marine Survey** (if dock/boathouse):
+- Dock structure condition
+- Pilings and supports
+- Electrical systems
+- Boathouse structural integrity
+
+**Bulkhead/Seawall Inspection**:
+- Structural engineer assessment
+- Expected remaining life
+- Repair vs. replacement recommendation
+
+**Environmental Assessment**:
+- Shoreline erosion patterns
+- Water quality issues
+- Wetland designations
+- Protected species concerns
+
+### What to Look For
+
+**Property-Side**:
+- Water damage history
+- Elevation relative to water
+- Drainage patterns
+- Foundation moisture
+
+**Water-Side**:
+- Shoreline stability
+- Water depth at dock
+- Navigation considerations
+- Neighboring property impacts
+
+## The True Cost of Waterfront
+
+### Premium Over Non-Waterfront
+Expect to pay 50-100%+ more than comparable non-waterfront homes.
+
+### Ongoing Costs
+
+| Item | Annual Cost |
+|------|-------------|
+| Flood insurance | $500-$10,000+ |
+| Waterfront maintenance | $2,000-$5,000 |
+| Dock/boathouse upkeep | $500-$2,000 |
+| Increased homeowners insurance | $500-$2,000 |
+| Bulkhead reserve (saving for replacement) | $3,000-$10,000 |
+
+### Major Expenses to Plan For
+- Bulkhead replacement: $30,000-$150,000+
+- Dock replacement: $10,000-$50,000
+- Erosion mitigation: $10,000-$100,000+
+- Storm damage repairs: Variable
+
+## Waterfront Lifestyle Reality
+
+### The Good
+- Wake up to water views daily
+- Recreation at your doorstep
+- Potential for boat/kayak access
+- Peaceful setting
+- Pride of ownership
+- Strong property values long-term
+
+### The Challenges
+- Higher maintenance demands
+- Weather exposure
+- Insurance costs
+- Environmental regulations
+- Potential flooding
+- Less privacy (waterside)
+- Noise from boats/watercraft
+
+## Financing Waterfront Properties
+
+### Lender Considerations
+- May require flood insurance verification
+- Appraisals more complex
+- Some lenders avoid high-risk zones
+- Jumbo loans common (higher prices)
+
+### Insurance Challenges
+- Flood insurance required in many cases
+- Wind/storm coverage may be separate
+- Some insurers won't cover waterfront
+- Shop aggressively for coverage
+
+## Questions to Ask
+
+### About the Property
+1. Has it ever flooded? When and how severely?
+2. What flood zone is it in?
+3. What's the current flood insurance cost?
+4. When was the bulkhead/seawall last inspected or repaired?
+5. Are the dock and any structures permitted?
+6. What are the setback requirements?
+7. Are there any environmental restrictions?
+
+### About the Water
+1. What water rights come with the property?
+2. Who maintains the waterway?
+3. Are there any water quality issues?
+4. What's the typical water depth at the dock?
+5. Is navigation affected by tides or seasons?
+
+## Red Flags
+
+### Walk Away If:
+- Unpermitted structures with no path to compliance
+- Major bulkhead failure with unclear solutions
+- Flood history with inadequate mitigation
+- Severe erosion without management plan
+- Environmental violations attached to property
+
+### Proceed With Caution If:
+- Bulkhead approaching end of life
+- In high-risk flood zone
+- Complex permit situation
+- Shared waterfront with unclear boundaries
+
+## Making It Work
+
+### Success Strategies
+1. **Budget conservatively**: Add 30% buffer for waterfront costs
+2. **Build relationships**: Know marine contractors
+3. **Stay proactive**: Address issues before they worsen
+4. **Understand regulations**: Permits take time
+5. **Embrace the lifestyle**: It should bring joy
+
+### Is Waterfront Worth It?
+For many owners, absolutely yes—if you:
+- Will actively use the water access
+- Can afford the premium and maintenance
+- Accept the responsibilities
+- Want this lifestyle long-term
+
+---
+
+*Found a waterfront property that's calling your name? [Analyze it with Perchspot](/chat) to understand flood risks, neighborhood comparisons, and what questions to ask.*
+    `,
+  },
+  {
+    id: 'corner-lot-pros-cons',
+    title: 'Corner Lot Homes: Pros, Cons, and What Buyers Should Know',
+    excerpt: 'Corner lots offer more space but come with trade-offs. Here\'s everything to consider before buying a corner lot property.',
+    category: 'Tips',
+    date: '2026-01-28',
+    readTime: '8 min read',
+    image: '/blog/corner-lots.jpg',
+    metaDescription: 'Corner lot home buying guide: pros and cons, privacy considerations, maintenance requirements, and whether corner lots are worth the trade-offs.',
+    content: `
+# Corner Lot Homes: Complete Buyer's Guide
+
+Corner lots generate strong opinions—some buyers love them, others avoid them. Understanding the real pros and cons helps you decide if a corner lot is right for you.
+
+## Advantages of Corner Lots
+
+### More Space
+Corner lots are typically larger:
+- Extra side yard
+- More outdoor living space
+- Room for additions
+- Larger driveways possible
+
+### Better Light
+Two street exposures means:
+- More natural light
+- Brighter interior
+- Multiple orientation options
+- Less overshadowing from neighbors
+
+### Easier Access
+Practical benefits include:
+- Side-loading garage options
+- Circular driveway possibilities
+- Multiple entry points
+- Better for RV/boat parking
+
+### Unique Architecture
+Design flexibility allows:
+- Wrap-around porches
+- Corner windows
+- Multiple facade treatments
+- Statement landscaping
+
+### Only One Close Neighbor
+Reduced adjacency means:
+- Less shared fence line
+- Fewer neighbor conflicts
+- More independence
+
+## Disadvantages of Corner Lots
+
+### Less Privacy
+The exposure trade-off:
+- Two sides face public streets
+- More visibility to passersby
+- Car headlights at night
+- Less enclosed yard feel
+
+### More Maintenance
+Larger perimeter requires:
+- More lawn to mow
+- Longer fence lines
+- More snow removal (if applicable)
+- Two street trees to manage
+
+### Traffic Exposure
+Street presence brings:
+- More street noise
+- Higher accident risk (corner collisions)
+- Headlight intrusion
+- Pedestrian traffic
+
+### Setback Restrictions
+Zoning often requires:
+- Two front yard setbacks
+- Limited buildable area
+- Fence height restrictions on both streets
+- Reduced usable space despite larger lot
+
+### Safety Concerns
+Some buyers worry about:
+- Easier burglary access
+- Less hidden backyard
+- More entry points to secure
+- Visibility of daily activities
+
+## Cost Considerations
+
+### Purchase Price
+Corner lots may command:
+- 5-15% premium in desirable areas
+- Equivalent or less in high-traffic locations
+- Varies by neighborhood preferences
+
+### Ongoing Costs
+
+**Higher**:
+- More landscaping
+- Longer fence replacement
+- Increased sidewalk/curb maintenance
+- Potentially higher insurance (traffic exposure)
+
+**Similar**:
+- Property taxes (based on value)
+- Utility costs
+
+### Resale Considerations
+Market depends on:
+- Buyer preferences vary
+- May take longer to sell
+- Wider or narrower buyer pool
+
+## What to Evaluate
+
+### Traffic Patterns
+Visit at different times:
+- Rush hour traffic volume
+- Weekend activity
+- School hours (if near school)
+- Night-time headlight patterns
+
+### Privacy Solutions
+Consider what's needed:
+- Fencing costs and restrictions
+- Landscaping for screening
+- Window treatments
+- Outdoor living privacy
+
+### Setbacks and Restrictions
+Research zoning:
+- Fence height limits
+- Building setbacks
+- Driveway placement rules
+- Addition possibilities
+
+### Maintenance Reality
+Assess requirements:
+- Current landscape complexity
+- Fence condition/length
+- Snow removal responsibility
+- Tree maintenance
+
+## Corner Lot Deal-Breakers
+
+### Walk Away If:
+- High-traffic intersection (safety)
+- No fencing allowed (privacy needs)
+- Setbacks eliminate usable yard
+- Traffic noise unbearable
+- Previous accidents at corner
+
+### Proceed With Caution If:
+- Heavy pedestrian traffic
+- Poor drainage (corner collection)
+- Complex fence/hedge maintenance
+- Restrictive HOA on screening
+
+## Making Corner Lots Work
+
+### Privacy Solutions
+- Tall hedges (where allowed)
+- Privacy fencing
+- Strategic tree placement
+- Window film/treatments
+- Outdoor privacy screens
+
+### Noise Mitigation
+- Quality windows
+- Strategic bedroom placement
+- White noise solutions
+- Landscaping buffers
+
+### Safety Measures
+- Good exterior lighting
+- Security system
+- Clear sight lines
+- Quality locks on all entries
+
+## Who Should Buy Corner Lots?
+
+### Good Fit If You:
+- Value outdoor space
+- Want light-filled home
+- Need RV/boat parking
+- Plan additions
+- Enjoy gardening
+- Like visible landscaping
+- Prefer only one immediate neighbor
+
+### Maybe Not Ideal If You:
+- Prioritize privacy highly
+- Dislike maintenance
+- Have safety concerns
+- Want enclosed yard feel
+- Live on busy streets
+- Have small children (traffic)
+
+## Questions to Ask
+
+1. What are the setback requirements on both streets?
+2. What are fence height restrictions?
+3. Have there been accidents at this corner?
+4. What's the traffic volume at different times?
+5. Are there any planned road changes?
+6. What do current/past owners say about the corner location?
+7. What screening options are allowed?
+
+## The Verdict
+
+Corner lots aren't inherently better or worse—they're different. The right buyer will love the extra space, light, and flexibility. The wrong buyer will struggle with privacy, maintenance, and traffic.
+
+**Key decision factors**:
+- Traffic on both streets
+- Your privacy preferences
+- Willingness to maintain
+- Specific lot configuration
+- Neighborhood context
+
+---
+
+*Considering a corner lot property? [Analyze it with Perchspot](/chat) to understand the full picture including neighborhood context and comparable values.*
+    `,
+  },
+  {
+    id: 'homes-on-busy-roads',
+    title: 'Buying a Home on a Busy Road: Hidden Costs and Considerations',
+    excerpt: 'Homes on busy roads often sell for less—but is the discount worth it? What to know about noise, safety, and long-term value.',
+    category: 'Tips',
+    date: '2026-01-27',
+    readTime: '9 min read',
+    image: '/blog/busy-roads.jpg',
+    metaDescription: 'Guide to buying homes on busy roads: noise impact, price discounts, safety concerns, resale challenges, and whether the savings are worth it.',
+    content: `
+# Buying a Home on a Busy Road: What to Know
+
+Homes on busy roads typically sell at a discount—sometimes 10-20% below comparable homes on quiet streets. But is that discount worth the trade-offs? Here's what to consider.
+
+## The Price Discount Reality
+
+### Typical Discounts
+- **Arterial roads**: 5-15% below comparable
+- **Highway adjacent**: 10-20% below comparable
+- **Major intersections**: 15-25% below comparable
+
+### Why Discounts Exist
+- Fewer interested buyers
+- Noise concerns
+- Safety perceptions
+- Air quality worries
+- Resale uncertainty
+
+## Noise Impact
+
+### Constant vs. Intermittent
+**Constant traffic noise**:
+- Arterials with steady flow
+- Becomes "background" for some
+- Others find it unbearable
+
+**Intermittent noise**:
+- Stop signs, traffic lights
+- Acceleration sounds
+- May be more disruptive
+
+### Noise Assessment
+
+**Visit at different times**:
+- Morning rush hour
+- Evening rush hour
+- Weekends
+- Late night
+
+**Measure if concerned**:
+- Phone apps provide rough readings
+- 70+ decibels = conversation difficult
+- 60-70 decibels = noticeable but tolerable
+- Under 60 decibels = relatively quiet
+
+### Noise Mitigation
+
+**Effective measures**:
+- Triple-pane windows: 50-70% reduction
+- Solid-core doors
+- Soundproofing insulation
+- Strategic landscaping
+- White noise machines
+
+**Costs**:
+- Window replacement: $15,000-$40,000 (whole house)
+- Soundproofing project: $10,000-$30,000
+- Landscaping buffer: $5,000-$15,000
+
+## Safety Concerns
+
+### Traffic Safety
+- Higher accident rates on arterials
+- Backing out of driveway risks
+- Children and pet safety
+- Pedestrian crossing challenges
+
+### Mitigation
+- Turnaround driveway
+- Back yard only for kids/pets
+- Teaching traffic awareness
+- Fencing requirements
+
+### Air Quality
+Studies show homes near high-traffic roads have:
+- Higher pollution levels
+- Increased respiratory risks
+- Particular concern within 300 feet
+- Risk decreases with distance
+
+## Long-Term Value Considerations
+
+### Appreciation Rates
+Busy road homes often:
+- Appreciate more slowly
+- See sharper declines in downturns
+- Recover more slowly after dips
+- Maintain discount over time
+
+### Resale Challenges
+When selling, expect:
+- Longer time on market
+- More price negotiations
+- Smaller buyer pool
+- Emphasis on mitigation features
+
+### Who Buys These Homes?
+- First-time buyers seeking deals
+- Investors for rentals
+- People who genuinely don't mind noise
+- Work-from-elsewhere buyers (rarely home)
+
+## Making the Math Work
+
+### Calculate True Savings
+
+**Example Analysis**:
+
+Quiet street home: $600,000
+Busy road home: $520,000
+Apparent savings: $80,000
+
+**Minus**:
+- Window upgrades: $25,000
+- Landscaping buffer: $10,000
+- Slower appreciation (10 years): $30,000
+- Resale discount: Already factored
+
+**Real savings**: $15,000 (significantly less than it appears)
+
+### When the Discount Is Worth It
+
+**Good situations**:
+- You're rarely home
+- You genuinely don't hear traffic
+- Short-term ownership planned
+- Investment property (renters care less)
+- Noise mitigation already done
+
+**Poor situations**:
+- Work from home
+- Light sleepers
+- Young children
+- Long-term ownership planned
+- Sensitive to noise generally
+
+## Due Diligence Steps
+
+### Before Making Offer
+
+1. **Visit multiple times**: Different days, times
+2. **Sit in backyard**: Where you'll actually be
+3. **Sleep test if possible**: How loud at night?
+4. **Talk to neighbors**: What's their experience?
+5. **Research traffic counts**: City data available
+
+### During Inspection
+
+1. **Check window quality**: Single vs. double/triple pane
+2. **Assess insulation**: Especially exterior walls
+3. **Note room layouts**: Bedrooms toward quiet side?
+4. **Evaluate landscaping**: Existing buffers?
+
+## Negotiation Leverage
+
+### Use Traffic Location For:
+- Lower initial offer
+- Seller credits for upgrades
+- Faster closing (sellers may be motivated)
+- Contingencies on noise testing
+
+### What to Request
+- Comprehensive window upgrade credit
+- Landscaping allowance
+- Disclosure of any noise complaints
+- Traffic study data if available
+
+## Making It Livable
+
+### If You Buy
+
+**Priorities**:
+1. Upgrade windows immediately
+2. Establish landscaping buffer
+3. Position bedrooms away from road
+4. Create protected outdoor space
+5. Accept the background noise
+
+### Room Planning
+- Living areas: Can face road
+- Bedrooms: Away from road
+- Home office: Away from road
+- Outdoor living: Backyard focus
+
+## Red Flags
+
+### Don't Buy If:
+- Property is within 100 feet of highway
+- Traffic includes heavy trucks regularly
+- Intersection has frequent accidents
+- No setback from road
+- You're a light sleeper and mitigation isn't feasible
+
+### Proceed With Caution If:
+- Near school (rush hour traffic)
+- Traffic increasing (development)
+- No space for buffer
+- Current owners cite noise as reason for selling
+
+## The Decision Framework
+
+### Answer These Questions:
+1. How much time do I spend at home?
+2. How sensitive am I to noise?
+3. What's my planned ownership duration?
+4. Can the home be effectively mitigated?
+5. Is the discount truly significant after costs?
+
+### Final Calculation
+If after mitigation costs, the home still saves you 10%+ and you can live with the noise, it may be worthwhile. If savings dwindle to 5% or less, a quiet street might be worth the extra money.
+
+---
+
+*Considering a home on a busy road? [Analyze it with Perchspot](/chat) to understand how traffic impacts value and what comparable quiet-street homes cost.*
+    `,
+  },
+  // FINANCIAL PLANNING POSTS
+  {
+    id: 'emergency-fund-homeowners',
+    title: 'Emergency Fund for Homeowners: How Much Do You Really Need?',
+    excerpt: 'Owning a home means bigger potential emergencies. Here\'s how to calculate and build the right emergency fund for homeowners.',
+    category: 'Tips',
+    date: '2026-01-26',
+    readTime: '8 min read',
+    image: '/blog/emergency-fund.jpg',
+    metaDescription: 'Homeowner emergency fund guide: how much to save, what emergencies to plan for, and strategies to build your fund while paying your mortgage.',
+    content: `
+# Emergency Fund for Homeowners: Complete Guide
+
+As a renter, your emergency fund covers job loss and maybe a car repair. As a homeowner, you also need to plan for a failed furnace, roof leak, or plumbing disaster. Here's how to calculate the right amount.
+
+## Why Homeowners Need Larger Emergency Funds
+
+### Renter vs. Homeowner Emergencies
+
+**Renter emergencies**:
+- Job loss (landlord's problem if you break lease)
+- Car repair
+- Medical bills
+- Major: 3-6 months expenses
+
+**Homeowner emergencies** (all the above plus):
+- HVAC failure: $5,000-$10,000
+- Roof repair: $5,000-$20,000
+- Foundation issues: $10,000-$30,000+
+- Plumbing failures: $2,000-$10,000
+- Appliance replacements: $1,000-$5,000
+- Storm damage (deductible): $1,000-$10,000
+
+## Calculating Your Number
+
+### The Formula
+
+**Base emergency fund**: 3-6 months of expenses
+**Plus homeowner reserve**: $10,000-$25,000
+**Total recommended**: 6+ months expenses OR base + home reserve
+
+### Example Calculation
+
+**Monthly expenses**: $6,000
+- Mortgage: $2,500
+- Utilities: $400
+- Insurance: $200
+- Food: $800
+- Transportation: $500
+- Other: $1,600
+
+**Base emergency fund** (6 months): $36,000
+**Homeowner reserve**: $15,000
+**Total target**: $51,000
+
+### Adjust Based On:
+
+**Need more if**:
+- Older home (more likely repairs)
+- Single income household
+- Unstable employment
+- High-deductible insurance
+- Home with pool, septic, well
+- Limited home warranty
+
+**May need less if**:
+- New construction (warranty coverage)
+- Strong job security
+- Two-income household
+- Extensive home warranty
+- Strong DIY skills
+- Family support available
+
+## What Home Emergencies Cost
+
+### HVAC (Heating/Cooling)
+- Furnace replacement: $3,000-$7,000
+- AC unit replacement: $3,500-$7,500
+- Full HVAC system: $7,000-$15,000
+- Emergency repair: $200-$1,000
+
+### Plumbing
+- Water heater: $1,000-$3,000
+- Main line repair: $3,000-$10,000
+- Repipe house: $5,000-$15,000
+- Emergency leak repair: $200-$500
+
+### Roof
+- Minor repair: $300-$1,500
+- Partial replacement: $3,000-$8,000
+- Full replacement: $8,000-$25,000
+- Emergency tarp/patch: $200-$500
+
+### Electrical
+- Panel upgrade: $1,500-$3,000
+- Rewiring room: $1,000-$3,000
+- Emergency repair: $150-$500
+
+### Foundation
+- Crack repair: $500-$2,000
+- Drainage fix: $2,000-$6,000
+- Structural repair: $5,000-$20,000+
+
+### Appliances
+- Refrigerator: $1,000-$3,000
+- Washer/dryer: $1,000-$2,500
+- Dishwasher: $500-$1,500
+- Range/oven: $800-$2,500
+
+## Building Your Fund
+
+### Strategy 1: Savings Priority Order
+
+1. **Starter emergency fund**: $1,000
+2. **Pay high-interest debt**: If applicable
+3. **3-month emergency fund**: Essential expenses
+4. **6-month emergency fund**: Full expenses
+5. **Homeowner reserve**: $10,000-$25,000
+
+### Strategy 2: Parallel Approach
+
+After buying home, save:
+- 50% to emergency fund
+- 50% to homeowner reserve
+- Until both are funded
+
+### Strategy 3: Allocate Monthly
+
+Budget specific amount for home reserve:
+- Example: $300/month
+- Reaches $10,000 in ~3 years
+- Covers most single emergencies
+
+## Where to Keep It
+
+### High-Yield Savings Account
+- Best for emergency funds
+- Earns 4-5% currently
+- FDIC insured
+- Instant access
+
+### Money Market Account
+- Similar to savings
+- May have check writing
+- Competitive rates
+- Easy access
+
+### Treasury Bills (Short-term)
+- Slightly higher yields
+- 4-week to 1-year terms
+- Very low risk
+- Slight access delay
+
+### What NOT to Use
+- Stock market investments (too volatile)
+- CDs with early withdrawal penalties
+- Retirement accounts (penalties)
+- Home equity (takes time to access)
+
+## Using Your Emergency Fund
+
+### What Qualifies as Emergency
+
+**Yes**:
+- Job loss
+- Medical emergency
+- Essential home repair (furnace, roof leak)
+- Major appliance failure
+- Emergency travel (family crisis)
+
+**No**:
+- Vacation
+- Planned home improvements
+- New furniture
+- Non-essential repairs
+- "Good deals" on purchases
+
+### After Using It
+
+1. Stop non-essential spending
+2. Rebuild to minimum level ASAP
+3. Then resume normal saving pace
+4. Consider what caused the need
+
+## Common Questions
+
+### Should I pay down mortgage instead?
+
+**Emergency fund first because**:
+- Can't eat home equity
+- Home equity not instantly accessible
+- Job loss = can't access HELOC
+- Emergencies don't wait
+
+**After fund is built**:
+- Extra payments make sense
+- Balance liquidity and payoff
+
+### What if I can't save that much?
+
+**Start smaller**:
+- $1,000 starter fund
+- Then 1 month expenses
+- Build gradually
+- Something is better than nothing
+
+### Should I use a HELOC as emergency fund?
+
+**Risky because**:
+- Can be frozen by lender
+- Requires payments when used
+- Home is collateral
+- Not accessible during home-related emergencies
+
+**HELOC is supplement, not replacement**
+
+### What about home warranty?
+
+**Supplements but doesn't replace**:
+- Doesn't cover everything
+- Often has service fees
+- May have claim limits
+- Quality of repairs varies
+
+## Emergency Fund Checklist
+
+### Calculate your number:
+- [ ] Monthly expenses total
+- [ ] Multiply by 6
+- [ ] Add homeowner reserve ($10K-$25K)
+- [ ] Adjust for personal factors
+
+### Build it:
+- [ ] Open high-yield savings
+- [ ] Set up automatic transfers
+- [ ] Name the account "Emergency Fund"
+- [ ] Track progress monthly
+
+### Protect it:
+- [ ] Don't link to checking
+- [ ] Remove from "available" mental money
+- [ ] Review and rebuild after use
+
+---
+
+*Understanding your home's condition helps you plan your emergency fund. [Analyze your property with Perchspot](/chat) to identify potential future repairs and budget accordingly.*
+    `,
+  },
+  {
+    id: 'home-maintenance-schedule',
+    title: 'Home Maintenance Schedule: Monthly, Seasonal, and Annual Tasks',
+    excerpt: 'Prevent expensive repairs with regular maintenance. Here\'s the complete schedule for keeping your home in top condition.',
+    category: 'Tips',
+    date: '2026-01-25',
+    readTime: '11 min read',
+    image: '/blog/home-maintenance.jpg',
+    metaDescription: 'Complete home maintenance schedule: monthly, seasonal, and annual tasks to prevent expensive repairs and maintain your home\'s value.',
+    content: `
+# Home Maintenance Schedule: Complete Guide
+
+Regular maintenance prevents small issues from becoming expensive emergencies. This comprehensive schedule helps you stay ahead of problems and protect your investment.
+
+## Monthly Tasks
+
+### HVAC
+- [ ] Replace or clean air filters
+- [ ] Check thermostat function
+- [ ] Listen for unusual sounds
+- [ ] Clear area around outdoor unit
+
+**Time**: 15 minutes
+**Cost**: $5-20 for filters
+
+### Plumbing
+- [ ] Check under sinks for leaks
+- [ ] Test garbage disposal
+- [ ] Clean disposal with ice/citrus
+- [ ] Check toilet for running/leaks
+
+**Time**: 10 minutes
+**Cost**: Free
+
+### Safety
+- [ ] Test smoke detectors
+- [ ] Test CO detectors
+- [ ] Check fire extinguisher gauge
+- [ ] Ensure clear exit paths
+
+**Time**: 10 minutes
+**Cost**: Free
+
+### General
+- [ ] Check for water stains on ceilings
+- [ ] Inspect caulking in bathrooms
+- [ ] Run water in unused drains (prevent dry traps)
+- [ ] Clean range hood filter
+
+**Time**: 15 minutes
+**Cost**: Free
+
+## Seasonal Tasks
+
+### Spring
+
+**Exterior**
+- [ ] Clean gutters and downspouts
+- [ ] Inspect roof for winter damage
+- [ ] Check siding for damage/gaps
+- [ ] Power wash deck, patio, siding
+- [ ] Repair driveway cracks
+- [ ] Check foundation for cracks
+- [ ] Service lawn mower
+- [ ] Check irrigation system
+
+**HVAC**
+- [ ] Schedule AC tune-up
+- [ ] Clean outdoor AC unit
+- [ ] Replace batteries in thermostat
+
+**Interior**
+- [ ] Deep clean all rooms
+- [ ] Check attic for pests/leaks
+- [ ] Test sump pump (if applicable)
+- [ ] Flip mattresses
+
+**Windows/Doors**
+- [ ] Clean windows inside and out
+- [ ] Check screens for holes
+- [ ] Inspect weatherstripping
+- [ ] Lubricate door hinges
+
+**Time**: 4-8 hours (spread across weekends)
+**Cost**: $200-500 (supplies, tune-up)
+
+### Summer
+
+**Exterior**
+- [ ] Maintain landscaping
+- [ ] Trim trees/shrubs away from house
+- [ ] Check deck/patio for damage
+- [ ] Inspect outdoor faucets
+- [ ] Check exterior paint/stain
+- [ ] Clean outdoor furniture
+
+**HVAC**
+- [ ] Monitor AC performance
+- [ ] Keep outdoor unit clear
+- [ ] Consider ceiling fan direction
+
+**Interior**
+- [ ] Check basement for moisture
+- [ ] Inspect caulking in bathrooms
+- [ ] Clean refrigerator coils
+- [ ] Clean dryer vent
+
+**Safety**
+- [ ] Check pool/spa equipment
+- [ ] Ensure proper fence/gate function
+- [ ] Review emergency supplies
+
+**Time**: 2-4 hours monthly
+**Cost**: $100-300
+
+### Fall
+
+**Exterior**
+- [ ] Clean gutters (after leaves fall)
+- [ ] Winterize irrigation system
+- [ ] Disconnect garden hoses
+- [ ] Cover/store outdoor furniture
+- [ ] Service snowblower
+- [ ] Check exterior lighting
+- [ ] Seal driveway cracks
+- [ ] Apply fertilizer/overseed lawn
+
+**HVAC**
+- [ ] Schedule furnace tune-up
+- [ ] Replace furnace filter
+- [ ] Bleed radiators (if applicable)
+- [ ] Test heating system
+
+**Interior**
+- [ ] Reverse ceiling fans
+- [ ] Check attic insulation
+- [ ] Inspect fireplace/chimney
+- [ ] Schedule chimney cleaning
+- [ ] Test backup heating
+
+**Weatherproofing**
+- [ ] Check weatherstripping
+- [ ] Apply door sweeps
+- [ ] Caulk gaps around windows
+- [ ] Insulate pipes in cold areas
+
+**Time**: 4-8 hours
+**Cost**: $300-600 (tune-ups, supplies)
+
+### Winter
+
+**Exterior**
+- [ ] Monitor ice dams
+- [ ] Keep snow away from foundation
+- [ ] Check for icicles (indicate ice dams)
+- [ ] Prevent pipes from freezing
+- [ ] Monitor tree limbs for ice/snow
+
+**Interior**
+- [ ] Test CO detectors (heating season)
+- [ ] Monitor humidity levels
+- [ ] Check for drafts
+- [ ] Keep cabinet doors open (cold snaps)
+
+**HVAC**
+- [ ] Replace filters monthly
+- [ ] Monitor heating bills for efficiency changes
+- [ ] Keep vents clear
+
+**Time**: 1-2 hours monthly
+**Cost**: $50-100
+
+## Annual Tasks
+
+### Professional Inspections
+
+**HVAC System** (Spring/Fall)
+- Tune-up and cleaning
+- Efficiency check
+- Safety inspection
+- Cost: $150-300
+
+**Chimney** (Fall)
+- Inspection and cleaning
+- Cap check
+- Safety assessment
+- Cost: $150-350
+
+**Roof** (Spring)
+- Professional inspection
+- Minor repairs
+- Gutter check
+- Cost: $150-300
+
+**Termite/Pest** (Varies)
+- Annual inspection
+- Treatment if needed
+- Prevention assessment
+- Cost: $100-200 (inspection)
+
+### Annual Deep Maintenance
+
+**Water Heater**
+- [ ] Drain and flush tank
+- [ ] Check anode rod (replace if needed)
+- [ ] Test T&P valve
+- [ ] Check for corrosion
+
+**Garage Door**
+- [ ] Lubricate moving parts
+- [ ] Check safety sensors
+- [ ] Tighten hardware
+- [ ] Test auto-reverse
+
+**Septic System** (if applicable)
+- [ ] Professional inspection
+- [ ] Pump if needed (every 3-5 years)
+- [ ] Check drain field
+
+**Major Appliances**
+- [ ] Deep clean oven
+- [ ] Clean dishwasher interior
+- [ ] Service refrigerator seals
+- [ ] Clean washer drum
+
+## Long-Term Planning
+
+### 5-10 Year Replacements
+- Interior paint: 5-10 years
+- Carpet: 5-15 years
+- Water heater: 10-15 years
+- Appliances: 10-20 years
+- Roof (varies by type): 15-30 years
+
+### Budget Planning
+Allocate 1-2% of home value annually:
+- $500,000 home = $5,000-$10,000/year
+- Covers maintenance and saves for replacements
+
+## DIY vs. Professional
+
+### DIY-Friendly
+- Filter replacement
+- Caulking
+- Basic landscaping
+- Gutter cleaning
+- Minor painting
+- Weather stripping
+
+### Hire Professional
+- HVAC tune-ups
+- Electrical work
+- Roof inspection/repair
+- Major plumbing
+- Chimney cleaning
+- Tree trimming near house
+
+## Maintenance Tracking
+
+### Keep Records Of:
+- All repairs and maintenance
+- Contractor information
+- Warranties
+- Receipts
+- Before/after photos
+
+### Organization Methods
+- Binder with tabs by system
+- Spreadsheet with dates
+- Home maintenance app
+- Digital folder by year
+
+## Common Mistakes
+
+### Don't:
+- Skip filter changes
+- Ignore small leaks
+- Forget gutter cleaning
+- Delay roof repairs
+- Ignore strange sounds/smells
+- Let vegetation grow against house
+
+### Do:
+- Stay consistent with schedule
+- Address issues immediately
+- Budget for maintenance
+- Know your home's age/condition
+- Build contractor relationships
+
+---
+
+*Not sure what condition your home systems are in? [Analyze your property with Perchspot](/chat) to understand what to prioritize and plan for upcoming maintenance needs.*
+    `,
+  },
+  {
+    id: 'heloc-home-equity-line-credit',
+    title: 'HELOC vs. Home Equity Loan: Which Is Right for You?',
+    excerpt: 'Tapping home equity? Understand the differences between HELOCs and home equity loans to choose the best option for your needs.',
+    category: 'Education',
+    date: '2026-01-24',
+    readTime: '10 min read',
+    image: '/blog/heloc.jpg',
+    metaDescription: 'HELOC vs home equity loan comparison: how they work, rates, requirements, best uses, and how to choose the right equity product.',
+    content: `
+# HELOC vs. Home Equity Loan: Complete Comparison
+
+You've built equity in your home—now you're considering accessing it. Understanding the difference between a Home Equity Line of Credit (HELOC) and a Home Equity Loan helps you make the right choice.
+
+## The Basics
+
+### Home Equity Loan
+A home equity loan is a **lump sum** you borrow against your home equity:
+- Fixed amount upfront
+- Fixed interest rate
+- Fixed monthly payments
+- Set repayment period (10-30 years)
+- Also called "second mortgage"
+
+### HELOC (Home Equity Line of Credit)
+A HELOC is a **revolving credit line** secured by your home:
+- Credit limit you can draw from
+- Variable interest rate (usually)
+- Pay only on what you borrow
+- Draw period (usually 10 years)
+- Repayment period (10-20 years after)
+
+## How They Compare
+
+| Feature | Home Equity Loan | HELOC |
+|---------|-----------------|-------|
+| Disbursement | Lump sum | As needed |
+| Interest rate | Fixed | Usually variable |
+| Payment | Fixed monthly | Varies with balance |
+| Flexibility | Less | More |
+| Best for | One-time expense | Ongoing needs |
+| Rate (typical) | 7-9% | 8-10% |
+
+## How Much Can You Borrow?
+
+### Loan-to-Value Calculation
+Most lenders allow 80-85% combined LTV:
+
+**Example**:
+- Home value: $600,000
+- Current mortgage: $350,000
+- Maximum LTV (80%): $480,000
+- Available equity: $480,000 - $350,000 = **$130,000**
+
+### Requirements
+- Minimum 15-20% equity typically
+- Good credit (680+ preferred)
+- Stable income
+- Acceptable debt-to-income ratio
+- Current on mortgage payments
+
+## Home Equity Loan: Deep Dive
+
+### How It Works
+1. Apply and get approved for specific amount
+2. Receive lump sum at closing
+3. Begin fixed monthly payments immediately
+4. Pay off over set term (10, 15, 20, 30 years)
+
+### Interest Rates
+- Fixed rate for life of loan
+- Currently 7-9% (varies by credit/LTV)
+- Higher rate = more certainty
+
+### Payments
+- Same amount each month
+- Principal and interest
+- Predictable budgeting
+- Starts immediately
+
+### Costs
+- Closing costs: 2-5% of loan
+- Appraisal: $300-500
+- Origination: 0.5-1%
+- Title insurance, recording fees
+
+### Best For
+- Major one-time expense (renovation, debt consolidation)
+- When you know exact amount needed
+- When you want payment certainty
+- Rising rate environment (lock in fixed)
+
+## HELOC: Deep Dive
+
+### How It Works
+1. Apply and get approved for credit line
+2. Draw period (typically 10 years): Access funds as needed
+3. Repayment period (10-20 years): Pay off balance
+
+### Draw Period
+- Access up to your limit anytime
+- Pay interest only on borrowed amount
+- Minimum payments often interest-only
+- Can repay and reborrow
+
+### Repayment Period
+- No more borrowing
+- Pay principal and interest
+- Fixed schedule to pay off
+- Payment increases from draw period
+
+### Interest Rates
+- Usually variable (Prime + margin)
+- Can fluctuate monthly
+- Some fixed-rate HELOC options exist
+- Currently 8-10%
+
+### Costs
+- Often lower upfront costs
+- May have annual fee ($50-100)
+- May have inactivity fee
+- May have early termination fee
+
+### Best For
+- Ongoing expenses (tuition, multiple projects)
+- When total amount unknown
+- Emergency backup fund
+- When rates are falling/stable
+
+## Rate Comparison Example
+
+### Today's Market
+**Home Equity Loan**: 8% fixed
+**HELOC**: 9% variable (Prime 8.5% + 0.5% margin)
+
+### After Rate Changes
+If rates rise 2%:
+- Home Equity Loan: Still 8%
+- HELOC: Now 11%
+
+If rates fall 2%:
+- Home Equity Loan: Still 8%
+- HELOC: Now 7%
+
+## Tax Implications
+
+### Deductibility Rules
+Interest may be tax-deductible if:
+- Funds used to "buy, build, or substantially improve" home
+- Combined mortgage debt under $750,000
+- You itemize deductions
+
+### Not Deductible
+Interest NOT deductible if funds used for:
+- Debt consolidation
+- Vacations
+- General expenses
+- Education
+
+**Consult tax professional for your situation**
+
+## When to Choose Each
+
+### Choose Home Equity Loan When:
+- You need specific lump sum
+- You want payment certainty
+- Rates are rising/expected to rise
+- Major renovation with known budget
+- Consolidating high-interest debt
+
+### Choose HELOC When:
+- You don't know total amount needed
+- Expenses spread over time
+- You want flexibility
+- Rates are stable/falling
+- Emergency fund backup
+- Multiple smaller projects
+
+## Risks to Consider
+
+### Both Products
+- Your home is collateral—default = foreclosure
+- Reduces your equity cushion
+- Increases monthly obligations
+- Interest costs over time
+
+### HELOC-Specific Risks
+- Rate can increase significantly
+- Payment shock when draw period ends
+- Temptation to overborrow
+- Lender can freeze credit line
+
+### Home Equity Loan Risks
+- Locked into amount/rate (refinance to change)
+- Closing costs reduce proceeds
+- Less flexibility
+
+## Common Mistakes
+
+### Don't:
+- Use equity for depreciating purchases (cars, vacations)
+- Borrow maximum available
+- Ignore rate environment
+- Forget closing costs in calculations
+- Use as emergency fund without real emergency
+
+### Do:
+- Have clear purpose for funds
+- Calculate total interest cost
+- Factor payment into budget
+- Maintain adequate equity
+- Have repayment plan
+
+## Questions to Ask Lenders
+
+1. What's the current rate and APR?
+2. What are all closing costs?
+3. Are there ongoing fees (annual, inactivity)?
+4. What's the rate adjustment cap (HELOC)?
+5. Can I convert HELOC balance to fixed rate?
+6. What are prepayment penalties?
+7. What triggers default?
+8. How long is rate quote valid?
+
+## Application Checklist
+
+### Documents Needed
+- Income verification (paystubs, W-2s, tax returns)
+- Current mortgage statement
+- Property insurance
+- Recent bank statements
+- Photo ID
+- Property appraisal (lender orders)
+
+### Process Timeline
+- Application: 1 day
+- Processing: 2-4 weeks
+- Closing: 1-2 hours
+- Funding: Same day to few days
+
+---
+
+*Before tapping your equity, make sure you understand your home's current value. [Analyze your property with Perchspot](/chat) to get current market insights.*
+    `,
+  },
+  {
+    id: '1031-exchange-basics',
+    title: '1031 Exchange Basics: Defer Taxes on Investment Property Sales',
+    excerpt: 'A 1031 exchange lets you defer capital gains when selling investment property. Here\'s how it works and whether it\'s right for you.',
+    category: 'Education',
+    date: '2026-01-23',
+    readTime: '11 min read',
+    image: '/blog/1031-exchange.jpg',
+    metaDescription: '1031 exchange guide: rules, timelines, requirements, and how to defer capital gains taxes when selling investment property.',
+    content: `
+# 1031 Exchange: Defer Capital Gains on Investment Property
+
+When you sell investment property at a profit, you typically owe capital gains tax. A 1031 exchange allows you to defer that tax by reinvesting in similar property. Here's how it works.
+
+## What Is a 1031 Exchange?
+
+Named after Section 1031 of the IRS code, this strategy allows you to:
+- Sell investment property
+- Buy replacement property
+- Defer capital gains taxes
+
+**Key word**: DEFER, not eliminate. Taxes are postponed, not forgiven.
+
+## Why Use a 1031 Exchange?
+
+### Tax Deferral Example
+
+**Without 1031 Exchange**:
+- Sell property for: $500,000
+- Original purchase: $300,000
+- Capital gain: $200,000
+- Federal tax (15-20%): $30,000-$40,000
+- State tax (varies): $0-$26,000
+- Cash to reinvest: ~$440,000
+
+**With 1031 Exchange**:
+- Sell property for: $500,000
+- Taxes due: $0 (deferred)
+- Cash to reinvest: ~$500,000
+
+That extra $60,000+ can generate returns for years.
+
+### Compound Benefits
+By deferring repeatedly:
+- More capital working for you
+- Larger properties over time
+- Greater cash flow potential
+- Transfer to heirs with stepped-up basis
+
+## Requirements and Rules
+
+### Property Must Qualify
+
+**Qualifies ("Like-Kind")**:
+- Rental properties
+- Commercial buildings
+- Raw land held for investment
+- Industrial properties
+
+**Does NOT Qualify**:
+- Primary residence
+- Second/vacation home (mostly)
+- Property held for sale (flippers)
+- Partnership interests
+
+### "Like-Kind" Is Broad
+You can exchange:
+- Rental house → Apartment building
+- Raw land → Commercial building
+- Industrial property → Retail strip mall
+
+Any investment real estate for any other investment real estate (within the US).
+
+### Equal or Greater Value
+To defer ALL taxes:
+- Replacement property must equal or exceed sold property value
+- All cash proceeds must be reinvested
+- Debt on replacement must equal or exceed debt on relinquished
+
+### Strict Timelines
+
+**Day 0**: Close on sale of relinquished property
+
+**Day 45**: Deadline to IDENTIFY replacement property
+- Must be in writing
+- Up to 3 properties (any value), OR
+- More properties if total value ≤ 200% of relinquished
+
+**Day 180**: Deadline to CLOSE on replacement property
+- Must acquire at least one identified property
+- No extensions (even for weekends/holidays)
+
+### Qualified Intermediary Required
+You CANNOT touch the money:
+- Funds go to Qualified Intermediary (QI)
+- QI holds funds during exchange
+- QI pays for replacement property
+- Touching funds = taxable event
+
+## Types of 1031 Exchanges
+
+### Simultaneous Exchange
+- Sell and buy same day
+- Rare in practice
+- Requires coordination
+
+### Delayed Exchange (Most Common)
+- Sell first
+- Buy within 180 days
+- QI holds funds between
+
+### Reverse Exchange
+- Buy first
+- Sell within 180 days
+- More complex, more expensive
+- Useful in hot markets
+
+### Construction/Improvement Exchange
+- Buy property needing work
+- Improvements count toward value
+- Must be complete by Day 180
+
+## The Exchange Process
+
+### Step 1: Plan Ahead
+Before selling:
+- Consult tax advisor
+- Select Qualified Intermediary
+- Identify potential replacements
+- Understand your numbers
+
+### Step 2: Set Up Exchange
+Before closing:
+- Engage QI
+- Sign exchange agreement
+- Inform buyer of exchange (no impact to them)
+- Direct proceeds to QI
+
+### Step 3: Sell Property
+- Close on relinquished property
+- Funds go to QI
+- Clock starts ticking
+
+### Step 4: Identify Replacement
+Within 45 days:
+- Written identification to QI
+- Specific addresses required
+- Up to 3 properties typically
+
+### Step 5: Acquire Replacement
+Within 180 days:
+- Due diligence on replacement
+- Negotiate and contract
+- Close using QI funds
+
+## Costs and Considerations
+
+### Direct Costs
+- Qualified Intermediary fee: $750-$1,500
+- Legal/tax advice: $500-$2,000
+- Potential rush fees (tight timelines)
+
+### Indirect Costs
+- May overpay for replacement (deadline pressure)
+- May choose inferior property (limited time)
+- Complexity and stress
+- Professional time/attention
+
+### Is It Worth It?
+Generally yes if:
+- Significant capital gains
+- Planning continued investment
+- Adequate replacement options exist
+- Can meet timeline requirements
+
+May not be worth it if:
+- Small gain
+- Want to exit real estate
+- Can't find suitable replacement
+- Cash needed for other purposes
+
+## Common Pitfalls
+
+### Timeline Violations
+- Missing 45-day identification
+- Missing 180-day closing
+- No extensions granted
+
+### Cash Out Violations
+- Receiving funds (even temporarily)
+- Using funds for non-property expenses
+- Paying exchange costs from proceeds
+
+### Boot
+"Boot" is taxable gain from:
+- Cash not reinvested
+- Debt reduction
+- Personal property included
+
+### Inadequate Planning
+- Starting exchange without replacements in mind
+- Not having backup identified properties
+- Unrealistic expectations
+
+## Special Situations
+
+### Partial Exchange
+You don't have to defer everything:
+- Take some cash (pay tax on that portion)
+- Reinvest remainder tax-deferred
+- Called "boot"
+
+### Related Party Exchanges
+Special rules apply:
+- Must hold for 2 years
+- Both parties subject to rules
+- Consult tax professional
+
+### Multi-Property Exchanges
+You can:
+- Sell one, buy multiple
+- Sell multiple, buy one
+- Sell multiple, buy multiple
+- As long as rules met
+
+### Failed Exchange
+If exchange fails:
+- Receive funds from QI
+- Pay capital gains tax
+- Same as regular sale
+
+## Professional Team
+
+### You Need:
+- **CPA/Tax Advisor**: Overall strategy, implications
+- **Qualified Intermediary**: Holds funds, ensures compliance
+- **Real Estate Attorney**: Review contracts, structure
+- **Real Estate Agent**: Find replacement property
+
+### Choosing a QI
+Look for:
+- Established company
+- Fidelity bond/insurance
+- Segregated accounts
+- Clear communication
+- Reasonable fees
+
+## Planning Your Exchange
+
+### Questions to Answer
+1. What's your current capital gain?
+2. What's your investment strategy going forward?
+3. What replacement properties would you consider?
+4. Can you meet the timeline requirements?
+5. Do you have professional support lined up?
+
+### Ideal Exchange Scenario
+- Large capital gain
+- Clear investment vision
+- Multiple identified replacements
+- Adequate time for due diligence
+- Professional team assembled
+
+---
+
+*Thinking about exchanging into a new investment property? [Analyze potential replacements with Perchspot](/chat) to ensure you're making a sound investment decision within your 1031 timeline.*
+    `,
+  },
+  // ADDITIONAL LOCAL SEO POSTS
+  {
+    id: 'kent-auburn-housing-2026',
+    title: 'Kent & Auburn Housing Guide 2026: South King County Value',
+    excerpt: 'Kent and Auburn offer affordable entry points to King County homeownership. Your complete guide to these growing cities.',
+    category: 'Local',
+    date: '2026-01-14',
+    readTime: '10 min read',
+    image: '/blog/kent-auburn.jpg',
+    metaDescription: 'Kent and Auburn WA housing 2026: median prices, best neighborhoods, commute times, and why buyers are looking to South King County.',
+    content: `
+# Kent & Auburn Housing Market 2026
+
+Kent and Auburn represent some of the last affordable frontiers in King County. With median prices significantly below Seattle and the Eastside, these cities attract first-time buyers, families, and investors seeking value.
+
+## Market Overview
+
+### Kent
+- **Median Home Price**: $575,000
+- **Year-over-Year Change**: +4.1%
+- **Days on Market**: 25 days
+- **Population**: ~136,000
+
+### Auburn
+- **Median Home Price**: $545,000
+- **Year-over-Year Change**: +3.8%
+- **Days on Market**: 28 days
+- **Population**: ~87,000
+
+## Why Consider South King County
+
+### Price Advantage
+| City | Median Price | vs. Seattle |
+|------|-------------|-------------|
+| Seattle | $900,000 | — |
+| Bellevue | $1,300,000 | +44% |
+| Kent | $575,000 | -36% |
+| Auburn | $545,000 | -39% |
+
+### What You Get
+For $550,000 in Kent/Auburn:
+- 3-4 bedroom single-family home
+- 1,800-2,200 sqft
+- Garage
+- Yard
+
+Same money in Seattle:
+- 2-bedroom condo
+- Or nothing in many areas
+
+## Kent Neighborhoods
+
+### East Hill
+**Best for**: Families, established feel
+- Larger lots
+- Good schools in district
+- Quick access to I-5
+- Prices: $550K-$750K
+
+### West Hill
+**Best for**: Commuters, value seekers
+- Closer to downtown Kent
+- Mix of older and updated homes
+- Light rail planning underway
+- Prices: $450K-$650K
+
+### Scenic Hill
+**Best for**: Families seeking newer construction
+- Master-planned community
+- Newer construction
+- Good schools
+- Prices: $600K-$800K
+
+### Meridian Valley
+**Best for**: Golf, country club lifestyle
+- Golf course community
+- Larger homes
+- HOA maintained
+- Prices: $700K-$1M
+
+## Auburn Neighborhoods
+
+### Lakeland Hills
+**Best for**: Master-planned living
+- Auburn's premiere community
+- Excellent schools
+- Parks and trails
+- Prices: $650K-$900K
+
+### Lea Hill
+**Best for**: Families, school access
+- Green River College area
+- Family-oriented
+- Established neighborhoods
+- Prices: $550K-$750K
+
+### West Auburn
+**Best for**: Value, older homes
+- Historic area
+- More affordable
+- Character homes
+- Prices: $400K-$600K
+
+### Auburn North
+**Best for**: Commuters
+- Quick Green River Valley access
+- Industrial/residential mix
+- Affordable
+- Prices: $450K-$600K
+
+## Commute Reality
+
+### By Car
+- Kent to Seattle: 25-45 minutes
+- Kent to Bellevue: 20-35 minutes
+- Auburn to Seattle: 30-50 minutes
+- Auburn to Sea-Tac: 15-25 minutes
+
+### Public Transit
+- Sounder Train (Auburn, Kent): Downtown Seattle in 30-40 minutes
+- Bus connections
+- Future Link Light Rail (South King County planning)
+
+## Employment Anchors
+
+### Major Employers
+- Amazon (multiple facilities)
+- Blue Origin
+- Boeing (Renton nearby)
+- Green River College
+- Warehouse/logistics sector
+
+### Economic Diversity
+The Green River Valley is an industrial hub:
+- Distribution centers
+- Manufacturing
+- E-commerce fulfillment
+- Strong job base
+
+## Schools
+
+### Kent School District
+- Graduation rate: 82%
+- Diverse student population
+- Improving test scores
+- Various magnet programs
+
+### Auburn School District
+- Graduation rate: 85%
+- Strong vocational programs
+- Auburn High improving
+- New facilities investments
+
+## Investment Potential
+
+### Rental Market
+Strong demand from workforce:
+- 3BR house: $2,200-$2,800
+- Healthy cash flow potential
+- Lower entry prices
+- Appreciation room
+
+### Appreciation Outlook
+- South King County undervalued relative to north
+- Light rail expansion planned
+- Employment growth
+- Development pressure
+
+## Considerations
+
+### Pros
+- Significant affordability
+- Space and lot sizes
+- Sounder train access
+- Employment nearby
+- Growing amenities
+
+### Cons
+- Some areas have higher crime
+- Schools rated below Eastside
+- Traffic on 167/I-5
+- Less "prestige" perception
+- Some industrial areas
+
+## Buying Tips
+
+1. **Research specific neighborhoods**: Quality varies significantly
+2. **Visit multiple times**: Day, night, weekends
+3. **Check flood zones**: Green River proximity
+4. **Consider commute**: Test drive during rush hour
+5. **School research**: If applicable to you
+
+---
+
+*Exploring Kent or Auburn? [Analyze any property with Perchspot](/chat) to get neighborhood-specific insights and investment analysis.*
+    `,
+  },
+  {
+    id: 'tacoma-housing-guide-2026',
+    title: 'Tacoma Housing Market 2026: Gritty City to Rising Star',
+    excerpt: 'Tacoma has transformed into a desirable destination. Your guide to this revitalized city and its neighborhoods.',
+    category: 'Local',
+    date: '2026-01-13',
+    readTime: '11 min read',
+    image: '/blog/tacoma.jpg',
+    metaDescription: 'Tacoma WA housing 2026: median prices, best neighborhoods, waterfront revival, and why Seattle buyers are looking south.',
+    content: `
+# Tacoma Housing Market 2026: The Transformation
+
+Tacoma has undergone a remarkable transformation from "Seattle's gritty neighbor" to a desirable destination in its own right. With a thriving arts scene, waterfront revival, and prices well below Seattle, Tacoma attracts diverse buyers.
+
+## Market Snapshot
+
+- **Median Home Price**: $480,000
+- **Year-over-Year Change**: +5.2%
+- **Days on Market**: 22 days
+- **Inventory**: 1.5 months supply
+- **Price per Square Foot**: $285
+
+### Seattle Comparison
+| City | Median | Savings |
+|------|--------|---------|
+| Seattle | $900,000 | — |
+| Tacoma | $480,000 | **$420,000** |
+
+## Why Tacoma Now
+
+### The Transformation
+Over the past decade:
+- University of Washington Tacoma expansion
+- Point Ruston development
+- Museum district revitalization
+- Restaurant and brewery scene explosion
+- Arts community growth
+
+### Value Proposition
+- Major city amenities
+- Waterfront access
+- Cultural institutions
+- Half the price of Seattle
+- Sounder train to Seattle
+
+## Best Neighborhoods
+
+### Stadium District
+**Best for**: Historic charm, walkability
+- Historic architecture
+- Near downtown
+- Stadium High School (iconic)
+- Walk to restaurants
+- Prices: $450K-$800K
+
+### North Slope
+**Best for**: Views, historic homes
+- Victorian and Craftsman homes
+- Downtown views
+- Active community
+- Near UWT
+- Prices: $400K-$700K
+
+### Proctor District
+**Best for**: Families, village feel
+- Charming business district
+- Great schools
+- Parks nearby
+- Community events
+- Prices: $550K-$900K
+
+### Point Ruston
+**Best for**: Waterfront, modern living
+- New construction condos/townhomes
+- Waterfront promenade
+- Dining and shops
+- Point Defiance access
+- Prices: $400K-$800K (condos), $700K-$1.2M (homes)
+
+### Old Town
+**Best for**: History buffs, character seekers
+- Tacoma's original downtown
+- Victorian architecture
+- Near waterfront
+- Emerging revitalization
+- Prices: $350K-$600K
+
+### West End
+**Best for**: Value seekers, investors
+- More affordable entry
+- Investment opportunity
+- Diverse community
+- Improving infrastructure
+- Prices: $300K-$500K
+
+### University Place
+**Best for**: Families, suburban feel
+- Chambers Bay golf
+- Good schools
+- Newer construction options
+- Community amenities
+- Prices: $500K-$800K
+
+## Commute to Seattle
+
+### Sounder Train
+The game-changer for Tacoma:
+- Tacoma to Seattle: ~60 minutes
+- Multiple daily departures
+- Reliable schedule
+- WiFi for productivity
+
+### By Car
+- To Seattle: 35-75 minutes (highly traffic dependent)
+- To Bellevue: 45-90 minutes
+- To Sea-Tac: 25-45 minutes
+
+### Work-From-Home Advantage
+Tacoma is ideal for hybrid workers:
+- Affordable space for home office
+- City amenities for local days
+- Sounder for occasional commute
+
+## What Tacoma Offers
+
+### Culture and Arts
+- Tacoma Art Museum
+- Museum of Glass
+- LeMay Car Museum
+- Washington State History Museum
+- Broadway Center for the Performing Arts
+
+### Outdoors
+- Point Defiance Park (700+ acres)
+- Ruston Way waterfront
+- Chambers Bay
+- Mt. Rainier views
+- Puget Sound access
+
+### Food and Drink
+- Thriving brewery scene
+- Farm-to-table restaurants
+- Diverse cuisines
+- Waterfront dining
+- Growing culinary reputation
+
+## Investment Potential
+
+### Why Investors Like Tacoma
+- Lower entry prices
+- Strong rent demand
+- Appreciation potential
+- University student demand
+- Military (JBLM nearby)
+
+### Rental Market
+- 2BR apartment: $1,500-$2,000
+- 3BR house: $2,200-$2,800
+- Strong cash flow potential
+- Growing rents
+
+## Things to Consider
+
+### Pros
+- Dramatic price advantage
+- Waterfront city living
+- Arts and culture
+- Sounder train access
+- Investment potential
+- Community revival
+
+### Cons
+- Seattle commute is real
+- Some areas still transitioning
+- Crime varies by neighborhood
+- Weather (more rain than Seattle)
+- Perception lingering from past
+
+## Neighborhood Research Essentials
+
+### Crime Variation
+Tacoma's crime stats vary dramatically:
+- Research specific addresses
+- Visit day and night
+- Talk to neighbors
+- Check police reports
+
+### School Quality
+Mixed results:
+- Some excellent schools
+- Others struggling
+- Research specific boundaries
+- Consider charter/private options
+
+## Buying Tips for Tacoma
+
+1. **Neighborhood matters enormously**: Few blocks can make big difference
+2. **Visit multiple times**: Day, night, weekend
+3. **Research crime data**: Use Tacoma PD resources
+4. **Consider commute honestly**: Test Sounder schedule
+5. **Look at trajectory**: Some areas improving rapidly
+
+---
+
+*Considering Tacoma? [Analyze any property with Perchspot](/chat) to understand neighborhood dynamics and investment potential.*
+    `,
+  },
+  {
+    id: 'everett-housing-guide-2026',
+    title: 'Everett Housing Market 2026: Boeing Town with Waterfront Dreams',
+    excerpt: 'Everett offers waterfront living and Boeing jobs at prices below Seattle. Your guide to this evolving Snohomish County city.',
+    category: 'Local',
+    date: '2026-01-12',
+    readTime: '10 min read',
+    image: '/blog/everett.jpg',
+    metaDescription: 'Everett WA housing 2026: median prices, best neighborhoods, Boeing influence, waterfront development, and commute considerations.',
+    content: `
+# Everett Housing Market 2026: Complete Guide
+
+Everett, Snohomish County's largest city, anchored by Boeing's massive presence, offers waterfront potential and affordability that's attracting Seattle-area buyers looking north.
+
+## Market Overview
+
+- **Median Home Price**: $565,000
+- **Year-over-Year Change**: +3.9%
+- **Days on Market**: 24 days
+- **Inventory**: 1.6 months supply
+
+### Regional Comparison
+| City | Median Price |
+|------|-------------|
+| Seattle | $900,000 |
+| Bellevue | $1,300,000 |
+| Everett | $565,000 |
+| Marysville | $530,000 |
+
+## The Boeing Factor
+
+### Economic Anchor
+Boeing's Everett facility is the world's largest building by volume:
+- Major employer in region
+- Steady, well-paying jobs
+- Supply chain network
+- Economic stability
+
+### Impact on Housing
+- Housing demand from workers
+- Rental market strength
+- Somewhat cyclical with aerospace
+- Diversifying economy helps
+
+## Best Neighborhoods
+
+### North Everett/Port Gardner
+**Best for**: Walkability, waterfront access
+- Historic architecture
+- Near waterfront development
+- Walk to dining/shops
+- Marina access
+- Prices: $450K-$700K
+
+### Bayside
+**Best for**: Views, established feel
+- Puget Sound views
+- Established homes
+- Quiet, residential
+- Near waterfront
+- Prices: $500K-$800K
+
+### Forest Park
+**Best for**: Families, space
+- Larger lots
+- Good school access
+- More suburban feel
+- Near Forest Park
+- Prices: $550K-$750K
+
+### Silver Lake
+**Best for**: Nature lovers
+- Lake access
+- Parks nearby
+- Family-oriented
+- Mix of housing types
+- Prices: $500K-$700K
+
+### Boulevard Bluffs
+**Best for**: Views, mid-century charm
+- Bluff-top views
+- Mid-century homes
+- Close to downtown
+- Character properties
+- Prices: $450K-$650K
+
+## Waterfront Development
+
+### The Evolution
+Everett's waterfront is transforming:
+- New mixed-use development
+- Waterfront trails
+- Restaurant scene
+- Marina improvements
+- Public access expansion
+
+### What's Coming
+- Additional housing
+- Retail and dining
+- Public amenities
+- Connectivity improvements
+- Growing appeal
+
+## Commute Reality
+
+### To Seattle
+- By car: 30-60 minutes (traffic dependent)
+- By Sounder: ~45 minutes (limited service)
+- By bus: Community Transit express
+
+### To Bellevue/Eastside
+- 40-75 minutes
+- 405 corridor congestion
+- Less transit direct service
+
+### To Boeing Everett
+- Many workers live locally
+- 5-15 minute commutes
+- Part of Boeing's appeal
+
+## Light Rail Future
+
+### Everett Link Extension
+Light rail planned for Everett:
+- Extension underway
+- Completion 2030s
+- Will transform commute
+- Property values may increase near stations
+
+## Schools Overview
+
+### Everett Public Schools
+- Graduation rate: 80%
+- Diverse student population
+- Career and technical programs
+- Improving metrics
+
+### Notable Schools
+- Cascade High School
+- Jackson High School
+- STEM programs available
+
+## Investment Potential
+
+### Why Investors Consider Everett
+- Lower entry prices
+- Boeing employment anchor
+- Light rail coming
+- Waterfront transformation
+- Rental demand
+
+### Rental Market
+- 2BR apartment: $1,600-$2,100
+- 3BR house: $2,300-$2,900
+- Demand from Boeing workers
+- Growing young professional base
+
+## Things to Consider
+
+### Pros
+- Boeing employment anchor
+- Waterfront access
+- Lower prices than Seattle
+- Light rail coming
+- Improving amenities
+
+### Cons
+- Some areas have crime concerns
+- Distance from Seattle tech hub
+- Aerospace industry cyclicality
+- Some older housing stock
+- Traffic on I-5
+
+## Neighborhood Research Tips
+
+### What to Check
+- Crime statistics by area
+- Boeing economic health
+- School specific ratings
+- Development plans
+- Flood zone status (waterfront areas)
+
+### Red Flags
+- Areas with persistent crime
+- Properties near industrial zones
+- Deferred maintenance from rentals
+- Flood-prone locations
+
+## Buying Strategy
+
+1. **Target improving areas**: North Everett, waterfront proximity
+2. **Consider light rail**: Future station locations
+3. **Research employers**: Beyond Boeing diversification
+4. **Check crime carefully**: Varies significantly
+5. **Visit repeatedly**: Feel the neighborhood
+
+---
+
+*Looking at Everett properties? [Analyze them with Perchspot](/chat) to understand neighborhood dynamics and Boeing economic influence.*
+    `,
+  },
 ];
 
 // Update categories to include Local
