@@ -379,7 +379,7 @@ class StreamingAnalysisOrchestrator:
                 yield analysis_event
 
         # Step 11: Generic Knowledge / Property Insights
-        generic_knowledge = await self._prepare_generic_knowledge(cached_data)
+        generic_knowledge, insights_debug = await self._prepare_generic_knowledge(cached_data)
         if generic_knowledge:
             yield {
                 "type": "generic_knowledge",
@@ -387,6 +387,7 @@ class StreamingAnalysisOrchestrator:
                 "step_name": "Property Insights",
                 "data": {
                     "knowledge_points": generic_knowledge,
+                    "debug": insights_debug,
                 },
             }
 
@@ -530,7 +531,7 @@ class StreamingAnalysisOrchestrator:
                         yield analysis_event
 
                     # Step 11: Generic Knowledge / Property Insights
-                    generic_knowledge = await self._prepare_generic_knowledge(all_data)
+                    generic_knowledge, insights_debug = await self._prepare_generic_knowledge(all_data)
                     if generic_knowledge:
                         yield {
                             "type": "generic_knowledge",
@@ -538,6 +539,7 @@ class StreamingAnalysisOrchestrator:
                             "step_name": "Property Insights",
                             "data": {
                                 "knowledge_points": generic_knowledge,
+                                "debug": insights_debug,
                             },
                         }
 
@@ -817,7 +819,9 @@ class StreamingAnalysisOrchestrator:
             "analysis_cost": total_cost
         }
 
-    async def _prepare_generic_knowledge(self, property_data: Dict[str, Any]) -> List[Dict[str, Any]]:
+    async def _prepare_generic_knowledge(
+        self, property_data: Dict[str, Any]
+    ) -> tuple[List[Dict[str, Any]], Dict[str, Any]]:
         """
         Find generic knowledge using two-stage LLM filtering.
 
@@ -826,8 +830,19 @@ class StreamingAnalysisOrchestrator:
 
         Falls back to attribute-based search if LLM filtering fails.
 
-        Returns list of knowledge points suitable for Property Insights display.
+        Returns:
+            Tuple of (knowledge_points, debug_info) where debug_info contains
+            the search query, candidate counts, and selection details.
         """
+        debug_info = {
+            "method": "llm_filtered",
+            "query": "",
+            "property_summary": "",
+            "candidates_count": 0,
+            "selected_count": 0,
+            "candidates_sample": [],
+        }
+
         try:
             # Stage 1: Build rich query from property attributes
             from app.services.knowledge.context_builder import (
@@ -837,11 +852,25 @@ class StreamingAnalysisOrchestrator:
             query = build_knowledge_query(property_data)
             property_summary = build_property_summary(property_data)
 
+            debug_info["query"] = query
+            debug_info["property_summary"] = property_summary
+
             logger.info(f"Built knowledge query:\n{query[:200]}...")
 
             # Get broad candidates via hybrid search
             search_service = get_search_service()
             candidates = search_service.get_broad_candidates(query, limit=100, min_score=0.3)
+
+            debug_info["candidates_count"] = len(candidates)
+            # Include sample of top candidates for debugging
+            debug_info["candidates_sample"] = [
+                {
+                    "text": c.text[:100] + "..." if len(c.text) > 100 else c.text,
+                    "category": c.category,
+                    "score": round(c.score, 4),
+                }
+                for c in candidates[:10]
+            ]
 
             if not candidates:
                 logger.info("No broad candidates found, falling back to attribute search")
@@ -861,6 +890,9 @@ class StreamingAnalysisOrchestrator:
                 candidates=candidate_dicts,
                 max_results=15,
             )
+
+            debug_info["selected_indices"] = selected_indices
+            debug_info["selected_count"] = len(selected_indices)
 
             if not selected_indices:
                 logger.info("LLM filter returned no results, falling back to attribute search")
@@ -882,27 +914,37 @@ class StreamingAnalysisOrchestrator:
                 f"LLM filtered {len(knowledge_points)} knowledge points "
                 f"from {len(candidates)} candidates"
             )
-            return knowledge_points
+            return knowledge_points, debug_info
 
         except Exception as e:
             logger.warning(f"Failed to prepare generic knowledge via LLM: {e}")
+            debug_info["error"] = str(e)
             return self._fallback_attribute_search(property_data)
 
-    def _fallback_attribute_search(self, property_data: Dict[str, Any]) -> List[Dict[str, Any]]:
+    def _fallback_attribute_search(
+        self, property_data: Dict[str, Any]
+    ) -> tuple[List[Dict[str, Any]], Dict[str, Any]]:
         """
         Fallback to attribute-based search when LLM filtering fails.
 
         Uses @applies_when tags to match knowledge points to property attributes.
         """
+        debug_info = {
+            "method": "attribute_fallback",
+            "query": "N/A (attribute-based)",
+        }
+
         try:
             search_service = get_search_service()
             knowledge_points = search_service.search_by_attributes_with_details(
                 property_data=property_data,
                 limit=15,
             )
+            debug_info["results_count"] = len(knowledge_points)
             logger.info(f"Fallback attribute search found {len(knowledge_points)} points")
-            return knowledge_points
+            return knowledge_points, debug_info
         except Exception as e:
             logger.warning(f"Fallback attribute search also failed: {e}")
-            return []
+            debug_info["error"] = str(e)
+            return [], debug_info
 
