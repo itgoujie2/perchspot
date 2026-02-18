@@ -206,6 +206,57 @@ class SearchService:
             for p in all_results
         ]
 
+    def get_broad_candidates(
+        self,
+        query: str,
+        limit: int = 100,
+        min_score: float = 0.3,
+    ) -> List[SearchResult]:
+        """
+        Get broad knowledge candidates using hybrid search with lower threshold.
+
+        Used as Stage 1 of two-stage LLM filtering:
+        1. This method gets 50-100 candidates with relaxed threshold
+        2. LLM filters down to 10-15 most relevant
+
+        Args:
+            query: Rich property query string (from context_builder)
+            limit: Maximum candidates to return (default 100)
+            min_score: Minimum score threshold (default 0.3, lower than normal search)
+
+        Returns:
+            List of SearchResult candidates for LLM filtering
+        """
+        dense_vector = self.embedding_service.embed_query_dense(query)
+        sparse_vector = self.embedding_service.embed_query_sparse(query)
+
+        # Search all categories (no category filter)
+        all_results = self.storage_service.hybrid_search(
+            dense_vector=dense_vector,
+            sparse_vector=sparse_vector,
+            limit=limit,
+        )
+
+        # Filter by minimum score
+        filtered = [p for p in all_results if p.score >= min_score]
+
+        logger.info(
+            f"Broad candidate search: {len(all_results)} total, "
+            f"{len(filtered)} above threshold {min_score}"
+        )
+
+        return [
+            SearchResult(
+                text=p.payload.get("text", ""),
+                category=p.payload.get("category", ""),
+                score=p.score,
+                source_file=p.payload.get("source_file", ""),
+                priority=p.payload.get("priority", "medium"),
+                applies_when=p.payload.get("applies_when", []),
+            )
+            for p in filtered
+        ]
+
     def search_for_context(self, query: str, limit: int = 5) -> str:
         """
         Search and format results as context for LLM injection.

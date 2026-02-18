@@ -379,7 +379,7 @@ class StreamingAnalysisOrchestrator:
                 yield analysis_event
 
         # Step 11: Generic Knowledge / Property Insights
-        generic_knowledge = self._prepare_generic_knowledge(cached_data)
+        generic_knowledge = await self._prepare_generic_knowledge(cached_data)
         if generic_knowledge:
             yield {
                 "type": "generic_knowledge",
@@ -530,7 +530,7 @@ class StreamingAnalysisOrchestrator:
                         yield analysis_event
 
                     # Step 11: Generic Knowledge / Property Insights
-                    generic_knowledge = self._prepare_generic_knowledge(all_data)
+                    generic_knowledge = await self._prepare_generic_knowledge(all_data)
                     if generic_knowledge:
                         yield {
                             "type": "generic_knowledge",
@@ -817,15 +817,82 @@ class StreamingAnalysisOrchestrator:
             "analysis_cost": total_cost
         }
 
-    def _prepare_generic_knowledge(self, property_data: Dict[str, Any]) -> List[Dict[str, Any]]:
+    async def _prepare_generic_knowledge(self, property_data: Dict[str, Any]) -> List[Dict[str, Any]]:
         """
-        Find generic knowledge points that match property attributes.
+        Find generic knowledge using two-stage LLM filtering.
 
-        Uses the search_by_attributes_with_details method to find knowledge
-        points with @applies_when tags that match the property's characteristics
-        (year_built, has_hoa, property_type, etc.)
+        Stage 1: Build rich property query and get 50-100 candidates via broad semantic search
+        Stage 2: Use LLM (Haiku) to filter to 10-15 most relevant knowledge points
 
-        Returns list of knowledge points with matched condition details.
+        Falls back to attribute-based search if LLM filtering fails.
+
+        Returns list of knowledge points suitable for Property Insights display.
+        """
+        try:
+            # Stage 1: Build rich query from property attributes
+            from app.services.knowledge.context_builder import (
+                build_knowledge_query,
+                build_property_summary,
+            )
+            query = build_knowledge_query(property_data)
+            property_summary = build_property_summary(property_data)
+
+            logger.info(f"Built knowledge query:\n{query[:200]}...")
+
+            # Get broad candidates via hybrid search
+            search_service = get_search_service()
+            candidates = search_service.get_broad_candidates(query, limit=100, min_score=0.3)
+
+            if not candidates:
+                logger.info("No broad candidates found, falling back to attribute search")
+                return self._fallback_attribute_search(property_data)
+
+            # Stage 2: LLM filter to select most relevant
+            from app.services.knowledge.llm_filter_service import get_filter_service
+            filter_service = get_filter_service()
+
+            candidate_dicts = [
+                {"text": c.text, "category": c.category}
+                for c in candidates
+            ]
+
+            selected_indices = await filter_service.filter_relevant_knowledge(
+                property_summary=property_summary,
+                candidates=candidate_dicts,
+                max_results=15,
+            )
+
+            if not selected_indices:
+                logger.info("LLM filter returned no results, falling back to attribute search")
+                return self._fallback_attribute_search(property_data)
+
+            # Build result list from selected candidates
+            knowledge_points = []
+            for idx in selected_indices:
+                if idx < len(candidates):
+                    c = candidates[idx]
+                    knowledge_points.append({
+                        "text": c.text,
+                        "category": c.category,
+                        "priority": c.priority,
+                        "source": "llm_filtered",
+                    })
+
+            logger.info(
+                f"LLM filtered {len(knowledge_points)} knowledge points "
+                f"from {len(candidates)} candidates"
+            )
+            return knowledge_points
+
+        except Exception as e:
+            logger.warning(f"Failed to prepare generic knowledge via LLM: {e}")
+            return self._fallback_attribute_search(property_data)
+
+    def _fallback_attribute_search(self, property_data: Dict[str, Any]) -> List[Dict[str, Any]]:
+        """
+        Fallback to attribute-based search when LLM filtering fails.
+
+        Uses @applies_when tags to match knowledge points to property attributes.
         """
         try:
             search_service = get_search_service()
@@ -833,11 +900,9 @@ class StreamingAnalysisOrchestrator:
                 property_data=property_data,
                 limit=15,
             )
-
-            logger.info(f"Found {len(knowledge_points)} generic knowledge points for property")
+            logger.info(f"Fallback attribute search found {len(knowledge_points)} points")
             return knowledge_points
-
         except Exception as e:
-            logger.warning(f"Failed to prepare generic knowledge: {e}")
+            logger.warning(f"Fallback attribute search also failed: {e}")
             return []
 
