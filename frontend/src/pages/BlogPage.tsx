@@ -25232,6 +25232,811 @@ You can buy without buyer agent:
 *Navigating the new real estate landscape? [Analyze properties with Perchspot](/chat) to make informed decisions regardless of commission structure.*
     `,
   },
+  // ADDITIONAL INVESTMENT POSTS
+  {
+    id: 'house-hacking-duplex-guide',
+    title: 'House Hacking with a Duplex: Live Free and Build Wealth',
+    excerpt: 'Buy a duplex, live in one unit, rent the other—and let tenants pay your mortgage. Here\'s the complete strategy.',
+    category: 'Investment',
+    date: '2026-01-03',
+    readTime: '11 min read',
+    image: '/blog/house-hacking-duplex.jpg',
+    metaDescription: 'Duplex house hacking guide: how to buy, financing options, tenant management, cash flow calculations, and building wealth through rental income.',
+    content: `
+# House Hacking with a Duplex: Complete Guide
+
+House hacking—buying a multi-unit property, living in one unit, and renting the others—is one of the most powerful wealth-building strategies available to regular home buyers. Here's how to do it with a duplex.
+
+## What Is Duplex House Hacking?
+
+### The Concept
+1. Buy a duplex (two-unit property)
+2. Live in one unit as your primary residence
+3. Rent the other unit to a tenant
+4. Tenant rent covers most/all of your mortgage
+5. Build equity while living affordably
+
+### Why It Works
+- Owner-occupied financing (lower rates, lower down payment)
+- Rental income offsets your costs
+- Build landlord experience
+- Forced savings through equity building
+- Tax advantages
+
+## The Numbers
+
+### Example Property
+**Duplex purchase price**: $550,000
+**Down payment (5%)**: $27,500
+**Loan amount**: $522,500
+**Interest rate**: 6.75%
+**Monthly payment (P&I)**: $3,389
+
+### Monthly Costs
+- Mortgage (P&I): $3,389
+- Property taxes: $500
+- Insurance: $200
+- Maintenance reserve (5%): $165
+- Vacancy reserve (5%): $165
+- **Total**: $4,419
+
+### Income
+- Rental unit: $2,200/month
+- **Net cost to live**: $2,219/month
+
+### Comparison
+- Same area 1BR apartment rent: $1,800
+- Your "rent" after tenant income: $2,219
+- **But you're building equity!**
+
+### After 5 Years
+- Equity from paydown: ~$35,000
+- Potential appreciation (3%/year): ~$90,000
+- **Total equity gained**: ~$125,000
+
+## Financing Options
+
+### FHA Loan
+- 3.5% down payment
+- Up to 4 units allowed
+- Rental income can help qualify
+- Must occupy 1 year minimum
+- Lower credit requirements
+
+### Conventional Loan
+- 5-15% down typical
+- Competitive rates
+- 2-4 units allowed
+- Can use 75% of rental income to qualify
+
+### VA Loan
+- 0% down payment
+- Up to 4 units
+- Great for veterans
+- Strong terms
+
+### House Hacker's Choice
+FHA is often best for first-timers:
+- Low down payment
+- Flexible qualification
+- Good rates
+- Can refinance later
+
+## Finding the Right Duplex
+
+### What to Look For
+
+**Location**:
+- Good rental demand
+- Safe neighborhood
+- Proximity to employment
+- Tenant-friendly area
+
+**Property**:
+- Separate utilities (essential)
+- Separate entrances (preferred)
+- Good condition
+- Sound rental unit
+
+**Numbers**:
+- Rent covers significant mortgage portion
+- Positive or near-positive cash flow
+- Appreciation potential
+- Below market value
+
+### Red Flags
+- Shared utilities (billing nightmare)
+- Poor tenant access
+- Major deferred maintenance
+- Bad neighborhood for rentals
+- Numbers don't work
+
+## Running the Numbers
+
+### Key Metrics
+
+**Cash flow after all expenses**:
+Total rent - All costs = Monthly cash flow
+
+**Cash-on-cash return**:
+(Annual cash flow / Total cash invested) × 100
+
+**Cap rate**:
+(Annual NOI / Purchase price) × 100
+
+### Your Living Cost Calculation
+Total costs - Rental income = Your monthly "rent"
+
+### Break-Even Analysis
+What rent do you need to cover all costs?
+(Mortgage + Taxes + Insurance + Maintenance) = Required rent
+
+## Being a Landlord
+
+### Responsibilities
+- Tenant screening
+- Lease management
+- Maintenance response
+- Rent collection
+- Legal compliance
+
+### Living Next Door
+**Pros**:
+- See what's happening
+- Quick maintenance response
+- Easier showing for vacancies
+
+**Cons**:
+- Hard to "get away"
+- Tenant may expect quick response
+- Boundary management needed
+
+### Success Tips
+- Screen tenants carefully
+- Set clear boundaries
+- Have professional lease
+- Document everything
+- Treat it as business
+
+## Tax Advantages
+
+### Deductions
+As landlord, you can deduct:
+- Mortgage interest (rental portion)
+- Property taxes (rental portion)
+- Insurance (rental portion)
+- Maintenance and repairs
+- Depreciation
+
+### Example
+$550,000 duplex, 50% rental use:
+- Depreciation deduction: ~$10,000/year
+- Interest deduction: Thousands more
+- Significant tax savings
+
+### Consult Tax Professional
+Rules are complex—get expert advice on:
+- Proper allocation (personal vs. rental)
+- Depreciation calculations
+- Passive activity rules
+- Record keeping requirements
+
+## Exit Strategies
+
+### Option 1: Move Out, Rent Both
+After 1 year owner-occupancy:
+- Rent your unit
+- Now cash flowing investment
+- Buy next property
+
+### Option 2: Sell
+- Capital gains (reduced if lived 2+ years)
+- Move up to larger property
+- Cash out equity
+
+### Option 3: Refinance
+- Pull out equity
+- Use for next investment
+- Keep property
+
+### Option 4: Keep and Buy Another
+- Use FHA again (after 1 year)
+- Build portfolio
+- Multiple income streams
+
+## Getting Started
+
+### Step 1: Get Pre-Approved
+- Tell lender about house hacking plan
+- Understand what you can afford
+- Know rental income requirements
+
+### Step 2: Learn Your Market
+- What do duplexes cost?
+- What are rental rates?
+- Where is demand strongest?
+
+### Step 3: Find Property
+- Work with investor-friendly agent
+- Run numbers on every property
+- Be patient for right deal
+
+### Step 4: Close and Prepare
+- Complete purchase
+- Prepare rental unit
+- Screen tenants
+
+### Step 5: Implement and Learn
+- Manage the property
+- Learn from experience
+- Plan next steps
+
+## Common Mistakes
+
+### Financial Mistakes
+- Not accounting for all expenses
+- Overestimating rent
+- Underestimating maintenance
+- Forgetting vacancy
+
+### Management Mistakes
+- Poor tenant screening
+- Inadequate lease
+- Not treating as business
+- Ignoring boundaries
+
+### Strategic Mistakes
+- Wrong location
+- Paying too much
+- Bad property condition
+- Unrealistic expectations
+
+---
+
+*Looking for a duplex to house hack? [Analyze properties with Perchspot](/chat) to find the best investment opportunities.*
+    `,
+  },
+  {
+    id: 'rental-property-cash-flow-analysis',
+    title: 'Rental Property Cash Flow Analysis: The Numbers That Matter',
+    excerpt: 'Before buying an investment property, you need to run the numbers. Here\'s how to analyze cash flow like a pro.',
+    category: 'Investment',
+    date: '2026-01-02',
+    readTime: '12 min read',
+    image: '/blog/cash-flow-analysis.jpg',
+    metaDescription: 'Rental property cash flow analysis guide: calculating NOI, cap rate, cash-on-cash return, and using spreadsheet formulas for investment decisions.',
+    content: `
+# Rental Property Cash Flow Analysis
+
+The difference between a good investment and a bad one is in the numbers. Here's how to analyze a rental property's cash flow to make informed investment decisions.
+
+## The Fundamental Equation
+
+**Cash Flow** = Gross Rent - All Expenses - Debt Service
+
+Positive cash flow = Money in your pocket each month
+Negative cash flow = You pay out of pocket each month
+
+## Key Metrics to Calculate
+
+### 1. Gross Rental Income
+**Annual potential rent**:
+- Market rent × 12 months
+- Include all units
+- Consider additional income (parking, laundry, storage)
+
+### 2. Effective Gross Income
+**Account for vacancy**:
+- Gross rental income
+- Minus vacancy allowance (typically 5-10%)
+- = Effective Gross Income (EGI)
+
+### 3. Operating Expenses
+**All costs except mortgage**:
+- Property taxes
+- Insurance
+- Property management (8-12% if using)
+- Maintenance and repairs (10-15% of rent)
+- Utilities (if landlord pays)
+- HOA fees
+- Landscaping
+- Accounting/legal
+- Advertising/turnover
+
+### 4. Net Operating Income (NOI)
+**The core profitability metric**:
+EGI - Operating Expenses = NOI
+
+NOI tells you what the property earns before financing.
+
+### 5. Debt Service
+**Your mortgage payment**:
+- Principal + Interest
+- Monthly or annual
+
+### 6. Cash Flow
+**What's left**:
+NOI - Debt Service = Cash Flow
+
+## Important Return Metrics
+
+### Cap Rate (Capitalization Rate)
+**Measures property return regardless of financing**:
+(NOI / Purchase Price) × 100 = Cap Rate
+
+**Example**:
+- NOI: $30,000/year
+- Purchase price: $400,000
+- Cap rate: 7.5%
+
+**Interpreting cap rates**:
+- Higher cap rate = Higher return (and often higher risk)
+- Lower cap rate = Lower return (often lower risk)
+- Market average varies by location
+
+### Cash-on-Cash Return
+**Measures return on YOUR invested cash**:
+(Annual Cash Flow / Total Cash Invested) × 100 = CoC Return
+
+**Total cash invested**:
+- Down payment
+- Closing costs
+- Initial repairs
+- Reserves set aside
+
+**Example**:
+- Annual cash flow: $6,000
+- Total invested: $100,000
+- Cash-on-cash return: 6%
+
+### Gross Rent Multiplier (GRM)
+**Quick screening tool**:
+Purchase Price / Annual Gross Rent = GRM
+
+**Example**:
+- Purchase: $400,000
+- Annual rent: $48,000
+- GRM: 8.3
+
+**Lower GRM = Potentially better deal** (but verify with full analysis)
+
+## Sample Property Analysis
+
+### Property Details
+- Purchase price: $450,000
+- Down payment (25%): $112,500
+- Loan amount: $337,500
+- Interest rate: 7%
+- Loan term: 30 years
+
+### Income
+- Monthly rent: $3,500
+- Annual gross rent: $42,000
+- Vacancy (5%): -$2,100
+- **Effective Gross Income**: $39,900
+
+### Operating Expenses
+- Property taxes: $5,400 (1.2% of value)
+- Insurance: $1,800
+- Maintenance (10%): $4,200
+- Property management (10%): $4,200
+- Reserves (5%): $2,100
+- **Total Operating Expenses**: $17,700
+
+### NOI Calculation
+- EGI: $39,900
+- Operating expenses: -$17,700
+- **NOI**: $22,200
+
+### Debt Service
+- Monthly mortgage: $2,245
+- Annual debt service: $26,940
+
+### Cash Flow
+- NOI: $22,200
+- Debt service: -$26,940
+- **Annual cash flow**: -$4,740
+- **Monthly cash flow**: -$395
+
+### Analysis
+This property is **cash flow negative**. You would pay $395/month out of pocket. This might still work if:
+- Expecting strong appreciation
+- Significant tax benefits
+- Below-market purchase price
+- Rent increases coming
+
+## The 1% Rule (Quick Screening)
+
+### The Rule
+Monthly rent should equal at least 1% of purchase price.
+
+**Example**:
+- $400,000 property should rent for $4,000/month
+
+### Reality Check
+In many markets, 1% is impossible. Use as screening tool only, then do full analysis.
+
+### Variations
+- 2% rule: Very cash-flow focused markets
+- 0.8% rule: More realistic in HCOL areas
+- Always verify with full analysis
+
+## Expense Guidelines
+
+### Typical Allocations
+| Expense | % of Rent |
+|---------|-----------|
+| Vacancy | 5-10% |
+| Maintenance | 10-15% |
+| Management | 8-12% |
+| CapEx reserves | 5-10% |
+
+### Don't Forget
+- Property taxes (check actual)
+- Insurance (get quote)
+- HOA fees (if applicable)
+- Utilities (if landlord-paid)
+
+### Common Mistake
+Underestimating expenses is the #1 new investor error.
+
+## Analyzing Different Scenarios
+
+### Best Case
+- Full occupancy
+- No major repairs
+- Rent increases
+- Appreciation
+
+### Base Case
+- Normal vacancy
+- Expected maintenance
+- Stable rents
+- Moderate appreciation
+
+### Worst Case
+- Extended vacancy
+- Major repair needed
+- Flat or declining rents
+- No appreciation
+
+**Invest if you can handle the worst case.**
+
+## Spreadsheet Approach
+
+### Build Your Own Analysis
+Create spreadsheet with:
+1. Property details (price, loan terms)
+2. Income section (rent, vacancy)
+3. Expense section (all categories)
+4. Debt service calculation
+5. Cash flow result
+6. Key metrics (cap rate, CoC)
+
+### Sensitivity Analysis
+Test different scenarios:
+- What if vacancy is 10%?
+- What if rent is 5% lower?
+- What if rates are 1% higher?
+
+## When Numbers Don't Work
+
+### Options
+1. **Negotiate lower price**: Make numbers work
+2. **Pass**: Find better deal
+3. **Accept appreciation play**: If market supports
+4. **Value-add opportunity**: Raise rents after improvements
+
+### Don't Force It
+Bad numbers are bad numbers. Don't buy hoping things improve.
+
+## Common Analysis Mistakes
+
+### Income Side
+- Using asking rent vs. market rent
+- Ignoring vacancy
+- Forgetting seasonal variation
+
+### Expense Side
+- Underestimating repairs
+- Forgetting to include reserves
+- Missing HOA/special assessments
+- Not accounting for management
+
+### Financing
+- Using wrong interest rate
+- Forgetting closing costs
+- Not including PMI if applicable
+
+---
+
+*Found an investment property? [Analyze it with Perchspot](/chat) to get comprehensive insights and verify your numbers.*
+    `,
+  },
+  {
+    id: 'real-estate-appreciation-factors',
+    title: 'What Makes Real Estate Appreciate? The Factors That Drive Home Values',
+    excerpt: 'Understanding what drives property values helps you buy smarter. Here are the key factors that influence real estate appreciation.',
+    category: 'Investment',
+    date: '2026-01-01',
+    readTime: '10 min read',
+    image: '/blog/appreciation-factors.jpg',
+    metaDescription: 'Real estate appreciation factors: what drives home values up, location influences, economic factors, and how to identify properties with growth potential.',
+    content: `
+# What Makes Real Estate Appreciate?
+
+Real estate appreciation isn't random—it's driven by identifiable factors. Understanding these helps you buy properties with the best potential for value growth.
+
+## The Two Types of Appreciation
+
+### Market Appreciation
+Values rise due to external factors:
+- Economic growth
+- Population increase
+- Limited supply
+- Inflation
+- Interest rate changes
+
+You have no control over market appreciation.
+
+### Forced Appreciation
+Values rise due to property improvements:
+- Renovations
+- Better management
+- Higher rents
+- Additional units
+- Better marketing
+
+You can create forced appreciation.
+
+## Location Factors
+
+### Employment Centers
+**Job growth drives housing demand**:
+- Tech company expansions
+- Corporate relocations
+- Major employer headquarters
+- Diverse employment base
+
+**Example**: Amazon's Bellevue expansion drove Eastside appreciation.
+
+### Infrastructure Development
+**Transportation improvements increase access and value**:
+- Light rail stations
+- Highway improvements
+- New bridges or tunnels
+- Bus rapid transit
+
+**Research**: Check long-term transportation plans.
+
+### School Quality
+**Strong schools = Strong demand**:
+- Great Schools ratings
+- Test scores
+- Special programs
+- Consistent high performance
+
+School quality affects values even for buyers without children.
+
+### Amenities
+**Walkability and conveniences matter**:
+- Restaurants and shops
+- Parks and recreation
+- Entertainment
+- Healthcare access
+
+Walk Score increasingly correlates with value.
+
+### Safety
+**Low crime attracts buyers**:
+- Crime statistics
+- Perceived safety
+- Police presence
+- Community involvement
+
+Research crime trends, not just current levels.
+
+## Economic Factors
+
+### Interest Rates
+**Lower rates = Higher affordability = Higher prices**:
+- When rates drop, buyers can afford more
+- More demand pushes prices up
+- Opposite when rates rise
+
+### Job Market
+**Employment health drives housing**:
+- Unemployment rates
+- Wage growth
+- Job diversity
+- Remote work trends
+
+### Income Growth
+**Rising incomes support rising prices**:
+- Median income trends
+- High-income job growth
+- Industry presence
+
+### Population Growth
+**More people = More demand**:
+- Net migration
+- Birth rates
+- Age demographics
+- Household formation
+
+## Supply Factors
+
+### Construction Costs
+**Higher costs = Less new supply**:
+- Material costs
+- Labor availability
+- Regulation costs
+- Land costs
+
+Limited new construction can boost existing home values.
+
+### Land Availability
+**Scarcity creates value**:
+- Geographic constraints (water, mountains)
+- Protected lands
+- Already developed areas
+- Zoning restrictions
+
+Seattle's water boundaries limit supply.
+
+### Zoning and Regulation
+**Development restrictions limit supply**:
+- Single-family zoning
+- Height limits
+- Parking requirements
+- Environmental rules
+
+Strict zoning can boost values (limited supply) or hurt them (can't improve).
+
+## Neighborhood Factors
+
+### Development Trajectory
+**Is the area improving or declining?**:
+- New businesses opening
+- Property improvements
+- Investment activity
+- Community pride
+
+### Comparable Sales
+**Recent sales set expectations**:
+- Renovated homes selling high
+- New construction nearby
+- Teardowns and rebuilds
+
+### Community Investment
+**Signs of improvement**:
+- New parks
+- Street improvements
+- Business investment
+- School upgrades
+
+### Demographics
+**Who's moving in?**:
+- Age trends
+- Income levels
+- Family size
+- Professional makeup
+
+## Property-Specific Factors
+
+### Condition
+**Well-maintained properties appreciate more**:
+- Updated systems
+- Modern finishes
+- Good bones
+- Curb appeal
+
+### Layout
+**Functional layouts hold value**:
+- Open floor plans
+- Good flow
+- Adequate storage
+- Flexible spaces
+
+### Lot
+**Land matters**:
+- Size
+- Usability
+- Privacy
+- Expansion potential
+
+### Unique Features
+**Desirable characteristics**:
+- Views
+- Water access
+- Corner lot
+- Historic character
+
+## Identifying Appreciation Potential
+
+### Research Steps
+
+1. **Study historical appreciation**
+   - Local market trends
+   - Neighborhood specifics
+   - Price per square foot trends
+
+2. **Identify growth catalysts**
+   - Planned infrastructure
+   - Major employers
+   - Development projects
+   - Zoning changes
+
+3. **Assess supply constraints**
+   - Available land
+   - Construction activity
+   - Regulatory environment
+
+4. **Evaluate demand drivers**
+   - Job growth
+   - Population trends
+   - Income levels
+   - Remote work impact
+
+### Warning Signs
+- Declining population
+- Major employer leaving
+- Increasing crime
+- School quality dropping
+- Infrastructure deteriorating
+
+## Seattle/Eastside Appreciation Drivers
+
+### Recent History
+- Tech job growth (Amazon, Microsoft, Meta, Google)
+- Limited land supply (water boundaries)
+- Light rail expansion
+- Remote work migration
+- Strong income growth
+
+### Current Factors
+- Continued tech presence
+- Infrastructure investment
+- Population growth
+- Quality of life
+- Limited new construction
+
+## Timing and Appreciation
+
+### Long-Term Perspective
+- Real estate appreciates 3-5% annually on average
+- But highly variable year-to-year
+- Best returns from holding long-term
+- Timing the market rarely works
+
+### Market Cycles
+- Expansion: Prices rising
+- Peak: Growth slowing
+- Contraction: Prices falling
+- Trough: Stabilization
+
+Buy for fundamentals, not timing.
+
+## Making It Actionable
+
+### When Buying
+1. Choose strong fundamentals (jobs, schools, transit)
+2. Look for emerging areas before peak
+3. Consider improvement potential
+4. Verify supply constraints
+5. Research future development
+
+### After Buying
+1. Maintain and improve property
+2. Stay informed on local development
+3. Monitor market conditions
+4. Consider strategic upgrades
+
+---
+
+*Looking for properties with appreciation potential? [Analyze them with Perchspot](/chat) to understand location factors and growth drivers.*
+    `,
+  },
 ];
 
 // Update categories to include Local
