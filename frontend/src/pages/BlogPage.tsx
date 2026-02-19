@@ -32966,6 +32966,2475 @@ Plumbing problems can be expensive and disruptive. Here's what buyers need to un
 *Evaluating a property's condition? [Perchspot analysis](/chat) helps identify potential issues to investigate with professionals.*
     `,
   },
+  {
+    id: 'advanced-negotiation-strategies',
+    title: 'Advanced Negotiation Strategies: Beyond the Basics',
+    category: 'Tips',
+    date: '2025-01-25',
+    readTime: '9 min read',
+    metaDescription: 'Advanced home buying negotiation tactics. Learn about escalation clauses, seller motivation, timing leverage, and strategies that go beyond price.',
+    content: `
+# Advanced Negotiation Strategies: Beyond the Basics
+
+Price isn't everything. Smart negotiation considers the full transaction and leverages what matters most to each party.
+
+## Understanding Seller Motivation
+
+### Motivation Types
+| Type | Leverage | Approach |
+|------|----------|----------|
+| Relocation | High | Quick close, flexible terms |
+| Estate sale | Moderate-High | Easy transaction, patience |
+| Divorce | High | Speed, minimal hassle |
+| Downsizing | Moderate | Leaseback, timing flexibility |
+| Investor | Low | Numbers-driven only |
+| Upgrading | Moderate | Contingency concerns |
+
+### How to Learn Motivation
+- Ask agent directly
+- Days on market
+- Price reduction history
+- Disclosure statements
+- Listing description clues
+- Neighbor conversations (carefully)
+
+## Beyond Price Negotiation
+
+### Closing Timeline
+- Quick close (2-3 weeks) valuable to some
+- Extended close helps others
+- Seller leaseback option
+- Flexible possession date
+
+### Inspection Terms
+- Shortened inspection period
+- As-is with credit
+- Pre-inspection before offer
+- Limited inspection scope
+
+### Contingencies
+- Waiving appraisal contingency
+- Loan approval speed
+- No sale contingency
+- Rent-back accommodations
+
+### Earnest Money
+- Larger deposit shows commitment
+- Quick release of contingencies
+- Non-refundable portions
+
+## Escalation Clauses
+
+### How They Work
+- Your offer: $500,000
+- Escalation: Up to $550,000
+- Increment: $2,000 over highest offer
+- Cap protects your maximum
+
+### Best Practices
+- Set realistic cap
+- Require proof of competing offer
+- Include per-increment amount
+- Understand appraised value risk
+
+### Risks
+- May overpay if no competition
+- Seller knows your maximum
+- Appraisal gap possibility
+- Complexity can confuse
+
+## Pre-Offer Strategies
+
+### Pre-Inspection
+- Inspect before offering
+- Remove inspection contingency
+- Offer as-is with confidence
+- Cost: $400-600
+
+### Pre-Approval vs Pre-Qualification
+- Full underwriting approval stronger
+- Reduces financing risk perception
+- Shows serious buyer
+- Some lenders offer
+
+### Love Letters (Where Legal)
+- Carefully check legality (illegal in OR)
+- Focus on property appreciation
+- Avoid protected class information
+- Keep professional
+
+## Timing Leverage
+
+### Market Timing
+| Situation | Your Leverage |
+|-----------|---------------|
+| Days on market 60+ | Higher |
+| Just listed | Lower |
+| Multiple price cuts | Higher |
+| Relisting after failed deal | Higher |
+| Hot market, 5 offers | Lower |
+
+### Seasonal Timing
+- Winter: Usually less competition
+- Spring: More inventory, more buyers
+- End of month: Agent pressure
+- Holiday periods: Motivated sellers remain
+
+### Transaction Timing
+- End of seller's lease
+- School year transitions
+- Job start dates
+- Tax year considerations
+
+## Inspection Negotiation Tactics
+
+### Strategic Approach
+1. Categorize findings by severity
+2. Focus on safety and systems
+3. Request repairs OR credits (not both)
+4. Prioritize dealbreakers
+5. Let cosmetic items go
+
+### Credit vs Repair
+| Request | When Better |
+|---------|-------------|
+| Credit | You control quality, choose contractor |
+| Repair | Simple fix, want done before close |
+| Price reduction | Significant issues, permanent record |
+
+### What Not to Negotiate
+- Disclosed items you already knew
+- Wear-and-tear appropriate to age
+- Items clearly visible during showing
+- Minor cosmetic issues
+
+## Information Asymmetry
+
+### What Sellers Know (That You Don't)
+- Actual motivation
+- Timeline pressure
+- Other offers received
+- Property history
+- What they'd really accept
+
+### What You Can Learn
+- Days on market
+- Price history
+- Comparable sales
+- Seller's next move
+- Agent feedback
+
+### Agent Conversations
+- Ask listing agent about seller priorities
+- Share your strengths
+- Understand seller concerns
+- Build rapport (agent influences seller)
+
+## Multiple Offer Situations
+
+### Standing Out
+- Clean, simple offer
+- Strong earnest money
+- Short contingency periods
+- Personal letter (where legal)
+- Flexible on seller preferences
+
+### Best and Final
+- Don't hold back
+- Consider appraisal gap coverage
+- Strong escalation if using
+- Offer your best terms
+
+### Losing Gracefully
+- Stay in touch
+- Backup position valuable
+- First deal may fall through
+- Relationship matters
+
+## Failed Deal Recovery
+
+### When to Pursue
+- Property back on market
+- Inspection killed prior deal
+- Financing fell through
+- Contingency timeline expired
+
+### Approach
+- Learn why deal failed
+- Address those concerns in offer
+- May get better price (stigma)
+- Move quickly
+
+## Psychological Tactics
+
+### Anchoring
+- First number matters
+- Low offer sets anchor
+- High list price anchors high
+
+### Reciprocity
+- Small concession invites return
+- Give something to get something
+- Creates goodwill
+
+### Scarcity
+- Limited time offers
+- Other buyer interest
+- Quick decision required
+- Creates urgency
+
+### Loss Aversion
+- Frame as seller's loss
+- "This offer expires..."
+- "Won't be showing again..."
+
+## What to Avoid
+
+### Negotiation Mistakes
+- Insulting lowball offers
+- Emotional decision-making
+- Revealing too much
+- Rigid positioning
+- Winning the battle, losing the war
+
+### Burned Bridge Risks
+- Same agents in market
+- Reputation follows you
+- Small communities
+- Future transactions
+
+## Working With Your Agent
+
+### Agent's Role
+- Present your case
+- Read seller reactions
+- Suggest strategies
+- Know local norms
+- Maintain relationships
+
+### Your Role
+- Clear priorities
+- Quick decisions
+- Written authority
+- Honest about limits
+- Trust but verify
+
+---
+
+*Ready to negotiate on a property? [Perchspot analysis](/chat) gives you data to support your negotiating position.*
+    `,
+  },
+  {
+    id: 'home-staging-tells-buyers',
+    title: 'What Home Staging Tells You as a Buyer',
+    category: 'Tips',
+    date: '2025-01-24',
+    readTime: '7 min read',
+    metaDescription: 'How to see past home staging when buying. Learn what sellers are hiding, how staging manipulates perception, and how to evaluate a staged home.',
+    content: `
+# What Home Staging Tells You as a Buyer
+
+Professional staging makes homes look their best—but it can also distract from problems. Here's how to see past the presentation.
+
+## Purpose of Staging
+
+### What Sellers Want
+- Emotional connection
+- Higher perceived value
+- Faster sale
+- Fewer objections
+- Better photos
+
+### What It Costs Sellers
+- Professional staging: $2,000-6,000/month
+- Shows investment in sale
+- Usually indicates motivated seller
+- Or overpriced property needing help
+
+## Common Staging Tricks
+
+### Furniture Sizing
+| Trick | What It Hides |
+|-------|---------------|
+| Smaller furniture | Small room size |
+| No dresser in bedroom | Tight space |
+| Minimal dining table | Cramped dining |
+| Floating furniture | Awkward layouts |
+
+### What to Do
+- Measure rooms yourself
+- Bring furniture dimensions
+- Ask for floor plan
+- Check closet/storage space
+
+### Lighting Manipulation
+- All lights on during showing
+- Lamps covering dark corners
+- Mirrors reflecting light
+- Strategic window treatments
+
+### What to Do
+- Visit at different times
+- Turn off lights to see natural light
+- Check north-facing rooms
+- Look at utility bills (low light = higher bills?)
+
+### Distraction Staging
+- Art covering wall damage
+- Rugs covering floor issues
+- Furniture blocking problem areas
+- Plants hiding stains or defects
+
+### What to Do
+- Move rugs (if allowed)
+- Look behind large items
+- Check wall condition
+- Ask to see covered areas
+
+## What to Look For
+
+### Despite the Staging
+1. **Wall condition**: Cracks, patches, paint quality
+2. **Floor condition**: Under rugs, edge wear
+3. **Window condition**: Seals, frames, operation
+4. **Ceiling**: Stains, cracks, texture
+5. **Doors**: Alignment, operation, gaps
+
+### What Can't Be Staged
+- Smell (masked temporarily)
+- Sounds (traffic, neighbors)
+- Natural light
+- Room flow
+- Actual room dimensions
+
+## Vacant vs Staged vs Lived-In
+
+### Vacant Homes
+**Pros**: See everything clearly
+**Cons**: Feels cold, harder to imagine
+**Watch for**: Every flaw visible
+
+### Professionally Staged
+**Pros**: Shows potential
+**Cons**: May hide issues
+**Watch for**: Distraction tactics
+
+### Owner-Occupied
+**Pros**: See real living
+**Cons**: Clutter, personal items
+**Watch for**: Maintenance habits visible
+
+## Questions to Ask
+
+### About the Property
+1. When was the home staged?
+2. What furniture is staying?
+3. Any issues under staging items?
+4. Can I see the rooms empty? (Second showing)
+
+### About Recent Changes
+1. Any recent painting?
+2. New carpet or flooring?
+3. Fresh landscaping?
+4. New appliances?
+
+*Recent updates before sale may indicate cover-ups*
+
+## Second Showing Tactics
+
+### Go Back Differently
+- Different time of day
+- Different weather
+- Bring measuring tape
+- Without agent if possible
+- Focus on structure, not decor
+
+### Request Unstaged Viewing
+- Some sellers will accommodate
+- Shows confidence
+- Reveals reality
+- May not be possible
+
+## Smells and Senses
+
+### Masking Tactics
+- Fresh cookies baking
+- Scented candles
+- Air fresheners
+- Fresh flowers
+- Open windows
+
+### What They Might Hide
+- Pet odors
+- Smoke smell
+- Mold/mildew
+- Sewer issues
+- Mustiness
+
+### Counter-Tactics
+- Visit unexpected times
+- Ask to turn off scents
+- Check under sinks
+- Smell closets and storage
+- Check basement/crawl space
+
+## Photography vs Reality
+
+### Listing Photo Tricks
+- Wide-angle lenses (rooms look bigger)
+- HDR (makes everything glow)
+- Sky replacement (better views)
+- Furniture editing
+- Color enhancement
+
+### Reality Check
+- Compare photos to showing
+- Note differences
+- Some distortion normal
+- Significant changes: Question why
+
+## Price and Staging Relationship
+
+### What Heavy Staging Suggests
+- Home needs help selling
+- Price may be high
+- Cosmetic condition poor underneath
+- Or... just smart selling strategy
+
+### Minimal Staging
+- Confident seller
+- Good condition
+- Priced right
+- Or... cutting corners
+
+## What Really Matters
+
+### Beyond Staging
+- Location (can't change)
+- Lot size (can't change)
+- Layout (expensive to change)
+- Systems (HVAC, plumbing, electrical)
+- Structure (foundation, roof)
+
+### Staging Doesn't Fix
+- Bad floor plan
+- Lack of storage
+- Poor natural light
+- Noise issues
+- Foundation problems
+
+## Buyer Mindset
+
+### Stay Objective
+- Imagine it empty
+- Focus on bones
+- Consider renovation costs
+- Think long-term
+- Don't fall for the fantasy
+
+### Questions to Ask Yourself
+1. Would I buy this unstaged?
+2. What would it cost to match this look?
+3. What am I not seeing?
+4. Is my reaction emotional or logical?
+
+---
+
+*Looking past the staging? [Perchspot analysis](/chat) evaluates the fundamentals—not the furniture.*
+    `,
+  },
+  {
+    id: 'backup-offers-explained',
+    title: 'Backup Offers: How They Work and When to Make One',
+    category: 'Guide',
+    date: '2025-01-23',
+    readTime: '6 min read',
+    metaDescription: 'Complete guide to backup offers in real estate. Learn when backup offers make sense, how they work, and your rights as a backup buyer.',
+    content: `
+# Backup Offers: How They Work and When to Make One
+
+When your dream home already has an accepted offer, a backup position might still get you the property.
+
+## What Is a Backup Offer?
+
+### Definition
+- Offer submitted after another is accepted
+- Becomes primary if first deal fails
+- Legally binding contract
+- Secondary position acknowledged
+
+### How It Works
+1. Primary offer accepted
+2. You submit backup offer
+3. Seller accepts as backup
+4. If primary fails, you're automatically next
+5. No renegotiation of terms
+
+## When to Make Backup Offers
+
+### Good Situations
+- You really want this specific property
+- Primary offer has concerning contingencies
+- Market conditions favor deal failures
+- Limited inventory in your target area
+- Property checks all your boxes
+
+### Less Ideal Situations
+- Casual interest only
+- Primary is cash, no contingencies
+- Many backup offers already
+- Better alternatives available
+- You need certainty quickly
+
+## Why Primary Deals Fall Through
+
+### Common Reasons
+| Reason | Frequency |
+|--------|-----------|
+| Inspection issues | 30-35% of failures |
+| Financing problems | 25-30% |
+| Appraisal gaps | 15-20% |
+| Cold feet | 10-15% |
+| Contingency failures | 10% |
+
+### Market-Dependent
+- Hot markets: 10-15% failure rate
+- Normal markets: 15-20% failure rate
+- Cooling markets: 20-25% failure rate
+
+## Making a Strong Backup Offer
+
+### Be Competitive
+- Offer your best terms
+- Assume competition exists
+- Don't hold back thinking you're only backup
+
+### Include
+- Clear backup acknowledgment
+- All standard contingencies
+- Your financing strength
+- Reasonable timeline
+- Earnest money (refundable until primary)
+
+### Consider
+- Shorter inspection period
+- Flexible close timing
+- Pre-approval documentation
+- Motivation letter (where legal)
+
+## Your Rights as Backup
+
+### What You Can Do
+- Continue house hunting
+- Withdraw anytime before primary fails
+- Renegotiate if primary fails (optional)
+- Make offers on other properties
+
+### What You Can't Do
+- Force seller to notify of primary status
+- Interfere with primary transaction
+- Access property for inspection (usually)
+- Assume deal will fail
+
+## Withdrawal and Continuation
+
+### Withdrawing Backup
+- Usually no penalty
+- Earnest money refunded
+- Simple written notice
+- Do it promptly when you find alternative
+
+### Finding Another Home
+- Don't pause your search
+- Continue making offers
+- Multiple backups possible (rare but allowed)
+- Communicate with your agent
+
+## If Primary Fails
+
+### What Happens
+1. Seller notifies your agent
+2. Your backup becomes primary
+3. Inspection period starts
+4. Earnest money deadlines begin
+5. Process proceeds normally
+
+### Your Options
+- Proceed with your offer
+- Renegotiate (seller may refuse)
+- Withdraw (may lose earnest money)
+- Complete due diligence quickly
+
+## Strategic Considerations
+
+### Multiple Backup Positions
+- Some properties have many backups
+- Know your position (first backup, second, etc.)
+- Earlier position is better
+- But any position has value
+
+### Earnest Money Timing
+- Usually not deposited until primary
+- Or deposited but refundable
+- Understand your contract terms
+- Clarify with your agent
+
+## How Long to Wait
+
+### Typical Timelines
+| Contingency | When They Fail |
+|-------------|----------------|
+| Inspection | Days 7-14 |
+| Appraisal | Days 14-25 |
+| Financing | Days 21-35 |
+| Close | Day 30-45 |
+
+### Setting Expectations
+- Most fail within first 2 weeks
+- Financing failures happen later
+- Extended timeline = stronger primary
+- No news isn't necessarily bad
+
+## Pros and Cons
+
+### Advantages
+- Position secured
+- No further action needed
+- Automatic escalation
+- Shows seller your commitment
+
+### Disadvantages
+- Emotional attachment
+- May miss other opportunities
+- No guarantee
+- Waiting is hard
+- May pause your search
+
+## Questions to Ask
+
+### Before Submitting
+1. What position would I be in?
+2. What contingencies does primary have?
+3. How strong is primary financing?
+4. Any known issues with primary?
+5. What's typical failure rate for this agent?
+
+### After Acceptance
+1. How will I be notified of changes?
+2. What timeline for primary contingencies?
+3. What's my withdrawal process?
+4. When would earnest money be due?
+
+## Agent's Role
+
+### Your Agent Should
+- Monitor primary status (if possible)
+- Keep you informed
+- Advise on continued searching
+- Prepare for quick action
+- Manage expectations
+
+### Listing Agent May
+- Not share primary details
+- Update on timeline changes
+- Facilitate smooth transition
+- Maintain confidentiality
+
+---
+
+*Considering backup offers? [Perchspot analysis](/chat) helps you evaluate which properties are worth the wait.*
+    `,
+  },
+  {
+    id: 'rent-to-own-explained',
+    title: 'Rent-to-Own Homes: How It Works and When It Makes Sense',
+    category: 'Guide',
+    date: '2025-01-22',
+    readTime: '8 min read',
+    metaDescription: 'Complete guide to rent-to-own home purchases. Learn how lease-options work, the risks, benefits, and when rent-to-own makes sense for buyers.',
+    content: `
+# Rent-to-Own Homes: How It Works and When It Makes Sense
+
+Rent-to-own can be a path to homeownership for those not ready for traditional purchase, but it comes with unique risks.
+
+## How Rent-to-Own Works
+
+### Basic Structure
+1. Sign lease-option agreement
+2. Pay option fee upfront (1-5% of price)
+3. Pay monthly rent (portion may credit toward purchase)
+4. At end of term, option to buy at agreed price
+5. Exercise option OR walk away
+
+### Two Types
+
+**Lease-Option**:
+- Right to buy, not obligation
+- More buyer flexibility
+- Lose option fee if you don't buy
+
+**Lease-Purchase**:
+- Obligated to buy at term end
+- More commitment required
+- May face legal consequences if you don't buy
+
+## Key Terms Explained
+
+### Option Fee
+- Non-refundable upfront payment
+- Typically 1-5% of purchase price
+- May credit toward purchase
+- Lost if you don't buy
+
+### Rent Premium
+- Monthly rent above market rate
+- Extra amount credits toward purchase
+- Example: $2,000 rent, $200 credits monthly
+- Lost if you don't buy
+
+### Purchase Price
+- Set at agreement signing
+- Usually locked for lease term
+- May appreciate or depreciate during term
+- Negotiable upfront
+
+### Lease Term
+- Typically 1-3 years
+- Time to prepare for mortgage
+- Build credit, save down payment
+- Option expires at end
+
+## Financial Example
+
+### Setup
+- Purchase price: $400,000
+- Option fee: $12,000 (3%)
+- Monthly rent: $2,500
+- Rent credit: $500/month
+- Term: 2 years
+
+### If You Buy
+| Item | Amount |
+|------|--------|
+| Option fee credit | $12,000 |
+| Rent credits (24 mo × $500) | $12,000 |
+| Total credits | $24,000 |
+| Purchase price | $400,000 |
+| Net price at close | $376,000* |
+
+*Plus your additional down payment
+
+### If You Don't Buy
+- Lost option fee: $12,000
+- Lost rent credits: $12,000
+- **Total lost**: $24,000
+
+## Who Rent-to-Own Works For
+
+### Good Candidates
+- Building/repairing credit
+- Saving for down payment
+- Self-employed (need income history)
+- Recent job change
+- Need time to sell other property
+- Love the house, not quite ready
+
+### Poor Fit
+- Uncertain about location
+- Unstable employment
+- Very poor credit (won't improve)
+- Financial difficulties likely
+- Don't really want this house
+
+## Benefits
+
+### For Buyers
+- Lock in price in rising market
+- "Try before you buy"
+- Time to qualify for mortgage
+- Portion of rent builds equity
+- Can walk away (lease-option)
+
+### Compared to Renting
+- Working toward ownership
+- Locked price
+- Credits accumulate
+- More commitment to property
+
+## Risks and Drawbacks
+
+### Financial Risks
+| Risk | Impact |
+|------|--------|
+| Can't qualify at term end | Lose all credits |
+| Property value drops | Locked at higher price |
+| Seller defaults on mortgage | Lose everything |
+| Maintenance costs unclear | May pay major repairs |
+| Interest rates rise | Monthly payment higher than expected |
+
+### Structural Risks
+- Seller may not have clear title
+- Seller's mortgage holder may object
+- Contract may be poorly drafted
+- Disputes common
+- Less legal protection than purchase
+
+## Critical Contract Elements
+
+### Must Include
+1. Exact purchase price
+2. Option fee amount and credit terms
+3. Rent credit specifics
+4. Who pays for what repairs
+5. What happens if seller defaults
+6. Clear exercise procedure
+7. Timeline and deadlines
+
+### Red Flags
+- Verbal promises not in writing
+- Unclear credit terms
+- Seller's mortgage not disclosed
+- No attorney review period
+- Pressure to sign quickly
+
+## Due Diligence Steps
+
+### Before Signing
+1. **Title search**: Verify seller ownership
+2. **Mortgage status**: Current? How much owed?
+3. **Property inspection**: You're potentially buying
+4. **Appraisal**: Is price fair?
+5. **Attorney review**: Essential for this contract
+
+### During Lease
+1. Verify mortgage payments being made
+2. Document your credits
+3. Monitor your credit
+4. Save for down payment
+5. Maintain the property
+
+## Comparison: Rent vs Rent-to-Own vs Buy
+
+| Factor | Rent | Rent-to-Own | Buy |
+|--------|------|-------------|-----|
+| Flexibility | High | Moderate | Low |
+| Building equity | No | Partial | Yes |
+| Risk | Low | Moderate | Moderate |
+| Credit needed | Moderate | Lower | Higher |
+| Down payment now | No | Partial | Yes |
+| Property responsibility | Low | Moderate | High |
+
+## Alternatives to Consider
+
+### FHA Loans
+- 3.5% down payment
+- Lower credit requirements
+- Immediate ownership
+
+### Down Payment Assistance
+- State/local programs
+- Grant options
+- May provide same benefit
+
+### Conventional with PMI
+- 3-5% down possible
+- Build equity immediately
+- Full ownership benefits
+
+## Exit Scenarios
+
+### Best Case
+- Qualify for mortgage
+- Property appreciated
+- Buy at locked-in price
+- Instant equity
+
+### Neutral Case
+- Property value stable
+- Qualify for mortgage
+- Buy at agreed price
+- Credits applied
+
+### Worst Case
+- Can't qualify
+- Market declined
+- Lose all credits
+- No home ownership
+
+## Questions Before Signing
+
+### About the Property
+1. What's the current market value?
+2. Any liens or title issues?
+3. What's the seller's mortgage situation?
+4. Any major repairs needed?
+
+### About the Contract
+1. What exactly credits toward purchase?
+2. What if I need to extend?
+3. Who handles maintenance?
+4. What's the exit process?
+
+### About Yourself
+1. Why can't I buy now?
+2. What will change in 1-3 years?
+3. Am I confident in this property?
+4. What's my backup plan?
+
+---
+
+*Exploring rent-to-own options? [Perchspot analysis](/chat) helps evaluate properties regardless of purchase path.*
+    `,
+  },
+  {
+    id: '55-plus-communities',
+    title: 'Age 55+ Communities: Complete Buyer\'s Guide',
+    category: 'Guide',
+    date: '2025-01-21',
+    readTime: '8 min read',
+    metaDescription: 'Guide to buying in 55+ communities. Learn about age requirements, HOA considerations, amenities, resale factors, and lifestyle considerations.',
+    content: `
+# Age 55+ Communities: Complete Buyer's Guide
+
+Active adult communities offer amenities and lifestyle benefits but come with unique considerations for buyers.
+
+## Understanding 55+ Communities
+
+### Legal Framework
+- Housing for Older Persons Act (HOPA)
+- 80% of units must have 55+ resident
+- At least one person per unit must be 55+
+- Some communities stricter
+- FHA exemption from familial status
+
+### Community Types
+| Type | Description |
+|------|-------------|
+| Active adult | Lifestyle amenities, activities |
+| Independent living | Services available, less intensive |
+| CCRC | Continuum from independent to nursing |
+| Age-restricted condos | Standard condo, age rules only |
+
+## Age Rules
+
+### Typical Requirements
+- One occupant must be 55+
+- May allow younger spouse (varies)
+- Guest/family visit restrictions
+- No permanent residents under 18 usually
+- Ownership vs residency rules differ
+
+### Exceptions and Flexibility
+- Younger spouse when 55+ person dies
+- Caregiver exceptions
+- Short-term family visits
+- Community-specific variations
+
+### Verify Before Buying
+- Exact age requirements
+- Spousal age policies
+- Guest policies
+- Grandchildren visits
+- Caregiver provisions
+
+## HOA Considerations
+
+### Typical HOA Fees
+| Community Type | Monthly Range |
+|----------------|---------------|
+| Basic age-restricted | $200-400 |
+| Full amenity community | $400-800 |
+| Resort-style | $600-1,200+ |
+| CCRC | Varies widely |
+
+### What's Included
+- Common area maintenance
+- Amenities (pool, clubhouse)
+- Exterior maintenance (often)
+- Some utilities (varies)
+- Community activities
+- Security/gate
+
+### What's Extra
+- Golf/club memberships
+- Meal plans
+- Enhanced services
+- Cable/internet (sometimes)
+- Special assessments
+
+## Amenities to Evaluate
+
+### Common Features
+- Clubhouse
+- Fitness center
+- Pool/spa
+- Walking trails
+- Social activities
+- Tennis/pickleball
+
+### Premium Features
+- Golf course
+- Restaurant/dining
+- Spa services
+- Transportation
+- On-site healthcare
+- Concierge services
+
+### Questions About Amenities
+1. What's included in HOA?
+2. What costs extra?
+3. Usage rules?
+4. Quality and maintenance?
+5. Future plans for amenities?
+
+## Financial Considerations
+
+### Purchase Prices
+- Often 10-20% less than standard homes
+- Limited buyer pool
+- Smaller sizes common
+- Amenity value considered
+
+### Ongoing Costs
+| Cost | Consideration |
+|------|---------------|
+| HOA fees | Higher than standard |
+| Property taxes | Often lower (smaller home) |
+| Maintenance | Exterior often included |
+| Utilities | May be lower |
+| Amenity costs | Factor extras |
+
+### Resale Factors
+- Limited buyer pool (55+)
+- Market sensitivity
+- Amenity quality matters
+- Community reputation
+- Location still important
+
+## Lifestyle Fit
+
+### Who Thrives Here
+- Active retirees
+- Social butterflies
+- Those wanting community
+- Low-maintenance lifestyle seekers
+- Activity enthusiasts
+
+### Who May Not Enjoy
+- Introverts wanting privacy
+- Grandparent caregivers
+- Those with younger spouses
+- Independence seekers
+- Those sensitive to rules
+
+### Questions to Ask Yourself
+1. Do I want social activities?
+2. Can I handle community rules?
+3. Will family visits work?
+4. Do I value amenities offered?
+5. Am I really ready for this lifestyle?
+
+## Due Diligence
+
+### Community Research
+- Visit multiple times
+- Talk to residents
+- Attend community event
+- Review meeting minutes
+- Check online reviews
+
+### Financial Health
+- HOA reserves (6+ months recommended)
+- Recent special assessments
+- Planned improvements
+- Litigation pending
+- Management company reputation
+
+### Rules Review
+- CC&Rs thoroughly
+- Rental restrictions
+- Modification rules
+- Pet policies
+- Vehicle restrictions
+
+## Family Considerations
+
+### Grandchildren Visits
+- Most communities allow visits
+- Duration limits common (2-4 weeks)
+- Verify specific rules
+- Pool/amenity access
+- Consider practical impact
+
+### Younger Spouse
+| Situation | Common Rule |
+|-----------|-------------|
+| 55+ married to 50 | Usually allowed |
+| 55+ dies | Spouse may stay |
+| 55+ divorced | Spouse must leave |
+| Inheritance | Age rules apply |
+
+### Caregiver Provisions
+- Live-in caregiver usually allowed
+- Documentation may be required
+- Age rules waived for caregivers
+- Verify specific community rules
+
+## Resale Reality
+
+### Challenges
+- Smaller buyer pool
+- Market sensitivity
+- Seasonal demand (some areas)
+- Competition within community
+- Amenity date aging
+
+### Advantages
+- Community desirability
+- Maintained appearance
+- Lifestyle appeal
+- Amenity value
+- Location (often good)
+
+### Maximizing Value
+- Choose strong communities
+- Location matters still
+- Maintain your unit
+- Stay informed on community health
+
+## Questions Before Buying
+
+### For the HOA
+1. What are current and projected HOA fees?
+2. What special assessments have occurred?
+3. What's the reserve fund status?
+4. Any pending litigation?
+5. What rule violations are common?
+
+### For Residents
+1. What do you like most?
+2. What would you change?
+3. How are activities/social life?
+4. How responsive is management?
+5. Would you buy here again?
+
+### For Yourself
+1. Am I ready for community living?
+2. Can my family visit comfortably?
+3. Do I value the amenities?
+4. Can I afford ongoing costs?
+5. Is this the right location long-term?
+
+## Red Flags
+
+### Community
+- Declining HOA reserves
+- High turnover/vacancies
+- Deferred maintenance
+- Resident complaints
+- Ongoing litigation
+
+### Rules
+- Extremely restrictive
+- Inconsistent enforcement
+- Constantly changing
+- Unclear language
+- Resistance to questions
+
+---
+
+*Evaluating a 55+ community? [Perchspot analysis](/chat) helps assess property value and community factors.*
+    `,
+  },
+  {
+    id: 'first-generation-buyers',
+    title: 'First-Generation Home Buyer\'s Guide: Starting From Scratch',
+    category: 'Guide',
+    date: '2025-01-20',
+    readTime: '9 min read',
+    metaDescription: 'Complete guide for first-generation home buyers. Navigate the process without family experience, find resources, and avoid common pitfalls.',
+    content: `
+# First-Generation Home Buyer's Guide: Starting From Scratch
+
+Buying a home without family experience or generational wealth is increasingly common. Here's how to navigate the process.
+
+## What First-Generation Means
+
+### Your Unique Situation
+- No family home buying experience to draw from
+- No generational wealth for down payment help
+- Learning the process from scratch
+- Building wealth for future generations
+- Often navigating alone
+
+### The Challenge
+- Don't know what you don't know
+- No family advisor for guidance
+- May distrust institutions
+- Less margin for expensive mistakes
+- Starting from zero
+
+## Building Your Knowledge
+
+### Resources to Use
+| Resource | Best For |
+|----------|----------|
+| HUD-approved counselors | Free, unbiased education |
+| First-time buyer classes | Comprehensive overview |
+| Online guides (like this) | Specific questions |
+| Public library | Books, free resources |
+| Non-profit housing orgs | Community-specific help |
+
+### What to Learn First
+1. How mortgages actually work
+2. True cost of homeownership
+3. The buying process timeline
+4. Your market specifically
+5. What you can actually afford
+
+### Avoid Learning From
+- "Guru" courses (usually expensive, generic)
+- Social media flexing (unrealistic)
+- Get-rich-quick real estate (risky)
+- Anyone selling something
+
+## Financial Preparation
+
+### Credit Building
+| Action | Timeline |
+|--------|----------|
+| Check credit report | Now |
+| Dispute errors | 1-3 months |
+| Pay down debt | 6-12 months |
+| Build payment history | 12+ months |
+
+### Saving Strategies
+- Automate savings
+- Reduce unnecessary expenses
+- Side income toward house fund
+- Keep funds in separate account
+- Track your progress
+
+### What You'll Need
+| Expense | Typical Amount |
+|---------|---------------|
+| Down payment | 3-20% of purchase price |
+| Closing costs | 2-5% of purchase price |
+| Moving costs | $2,000-5,000 |
+| Emergency fund | 3-6 months expenses |
+| Initial home expenses | $2,000-5,000 |
+
+## Down Payment Assistance
+
+### Programs to Research
+- State housing finance agency programs
+- City/county down payment assistance
+- Employer programs (some offer)
+- Non-profit organization grants
+- FHA loans (3.5% down)
+
+### Types of Assistance
+| Type | Repayment |
+|------|-----------|
+| Grant | Never |
+| Forgivable loan | If you stay X years |
+| Deferred loan | When you sell |
+| Low-interest loan | Monthly payments |
+
+### How to Find Programs
+1. HUD.gov local resources
+2. State housing authority
+3. Your city's housing department
+4. Credit unions often know
+5. Non-profit housing counselors
+
+## Team Building
+
+### HUD-Approved Counselor
+- Free or very low cost
+- Required for some programs
+- Unbiased guidance
+- No selling agenda
+- Find at HUD.gov
+
+### Your Real Estate Agent
+- Interview multiple
+- Ask about first-time buyer experience
+- Should be patient, educational
+- Good communication style
+- No pressure
+
+### Your Lender
+- Shop multiple lenders
+- Ask about all fees
+- Compare APR not just rate
+- Ask about programs you qualify for
+- Get everything in writing
+
+### Attorney (Some States)
+- Required in some states
+- Review contracts
+- Protect your interests
+- Explain what you're signing
+
+## Understanding True Costs
+
+### Beyond the Mortgage
+| Cost | Monthly Estimate |
+|------|------------------|
+| Property taxes | 1-2% of value annually ÷ 12 |
+| Homeowners insurance | $100-300 |
+| PMI (if <20% down) | 0.5-1% of loan annually ÷ 12 |
+| HOA (if applicable) | $200-500 |
+| Maintenance | 1% of value annually ÷ 12 |
+| Utilities | $200-400 |
+
+### The Real Monthly Cost
+Example for $350,000 home, 5% down:
+- Mortgage payment: $2,200
+- Property taxes: $350
+- Insurance: $150
+- PMI: $140
+- HOA: $0
+- Maintenance reserve: $290
+- **Total**: ~$3,130/month
+
+## Common Mistakes to Avoid
+
+### Financial Mistakes
+- Buying too much house
+- Emptying savings for down payment
+- Not shopping for rates
+- Ignoring closing costs
+- Forgetting about ongoing costs
+
+### Process Mistakes
+- Skipping pre-approval
+- Not getting inspection
+- Waiving contingencies carelessly
+- Making major purchases during process
+- Changing jobs during process
+
+### Emotional Mistakes
+- Falling in love before inspection
+- Rushing decision
+- Ignoring red flags
+- Letting FOMO drive you
+- Not walking away when needed
+
+## Protecting Yourself
+
+### Contract Protections
+- Inspection contingency (always)
+- Financing contingency (usually)
+- Title insurance (always)
+- Home warranty (consider)
+
+### Things to Verify
+- Property boundaries (survey)
+- Title is clear
+- No liens
+- Permit history
+- Insurance availability
+
+### When to Walk Away
+- Major inspection issues
+- Seller won't negotiate fairly
+- Financing falls through
+- Something feels wrong
+- Better opportunity appears
+
+## After Purchase
+
+### First Year Priorities
+1. Build emergency fund back up
+2. Learn home systems
+3. Create maintenance schedule
+4. Know shutoff locations
+5. Get to know neighbors
+
+### Building Wealth
+- Pay mortgage on time (builds equity)
+- Maintain property value
+- Consider extra principal payments
+- Track home value over time
+- Understand refinancing options
+
+### Future Planning
+- This becomes generational wealth
+- Learn from this experience
+- Help others when you can
+- Plan for next steps
+
+## Resources
+
+### Government
+- HUD.gov
+- CFPB.gov (Consumer Financial Protection Bureau)
+- State housing finance authority
+
+### Non-Profit
+- NeighborWorks America
+- Local housing counseling agencies
+- Habitat for Humanity (some programs)
+
+### Financial Education
+- Khan Academy (free)
+- Your local library
+- Credit union resources
+- Community college courses
+
+## You Can Do This
+
+### Remember
+- Many first-generation buyers succeed
+- Take your time
+- Ask questions (all of them)
+- Use free resources
+- Build your team carefully
+- Trust your preparation
+
+### Your Advantages
+- Fresh perspective
+- No bad habits inherited
+- Motivated to learn
+- Starting your own legacy
+- Making your own path
+
+---
+
+*First-generation buyer? [Perchspot analysis](/chat) helps you make data-driven decisions without needing family expertise.*
+    `,
+  },
+  {
+    id: 'easements-explained',
+    title: 'Property Easements Explained: What Buyers Must Know',
+    category: 'Education',
+    date: '2025-01-19',
+    readTime: '8 min read',
+    metaDescription: 'Complete guide to property easements for home buyers. Learn about easement types, how they affect property use, and what to check before buying.',
+    content: `
+# Property Easements Explained: What Buyers Must Know
+
+Easements give others rights to use parts of your property. Understanding them before purchase is essential.
+
+## What Is an Easement?
+
+### Definition
+- Legal right to use someone else's property
+- For specific, limited purpose
+- Runs with the land (transfers with sale)
+- Not ownership transfer
+- Recorded on title
+
+### Key Terms
+| Term | Meaning |
+|------|---------|
+| Dominant estate | Property benefiting from easement |
+| Servient estate | Property burdened by easement |
+| Appurtenant | Attached to property, transfers with it |
+| In gross | Personal right, may not transfer |
+
+## Common Easement Types
+
+### Utility Easements
+- Most common type
+- Electric, gas, water, sewer lines
+- Usually along property edges
+- Standard width (10-20 feet)
+- Can't build permanent structures there
+
+### Access Easements
+- Right to cross your property
+- For landlocked parcels
+- Driveways across your land
+- Shared driveway situations
+
+### Drainage Easements
+- Water flow management
+- Stormwater runoff
+- Natural waterways
+- Can't block or alter
+
+### Conservation Easements
+- Environmental protection
+- Limits development
+- May restrict building
+- Tax benefits to original grantor
+
+### Private Easements
+- Neighbor agreements
+- Shared amenities
+- View preservation
+- Light and air access
+
+## How Easements Are Created
+
+### Express Grant
+- Written agreement
+- Recorded on title
+- Clear terms
+- Most common
+
+### Implied Easement
+- Created by circumstances
+- Prior use suggests necessity
+- Not always documented
+- Can be problematic
+
+### Prescriptive Easement
+- Long-term use without permission
+- Similar to adverse possession
+- State-specific timelines
+- May not be documented
+
+### Easement by Necessity
+- Legal necessity (access)
+- Landlocked properties
+- Courts can establish
+
+## Impact on Property Use
+
+### Building Restrictions
+- Can't build in easement area
+- Fences may be restricted
+- Landscaping limitations
+- Pool/patio placement affected
+
+### Maintenance Responsibilities
+| Area | Typically Responsible |
+|------|----------------------|
+| Surface maintenance | Property owner |
+| Utility line repairs | Utility company |
+| Access road | Varies by agreement |
+| Fence in easement | May not be allowed |
+
+### Value Impact
+- Significant easements reduce value
+- Location matters (back vs front)
+- Width matters
+- Frequency of use matters
+
+## Finding Easements
+
+### Where to Look
+1. Title report (preliminary)
+2. Survey
+3. Deed
+4. HOA documents
+5. Local records office
+
+### What Title Shows
+- Recorded easements
+- Easement locations (sometimes)
+- Rights granted
+- Original creation
+
+### Survey Importance
+- Visual location
+- Exact boundaries
+- Overlap with structures
+- Encroachment issues
+
+## Red Flags
+
+### Concerning Easements
+- Large percentage of property
+- Through middle of lot
+- Affects building site
+- Heavy commercial use
+- Unclear or disputed
+
+### Questions That Need Answers
+- Is current use consistent with easement?
+- Any disputes with neighbors?
+- Future expansion possible?
+- Maintenance responsibilities clear?
+
+## Due Diligence Steps
+
+### Before Offer
+1. Review listing disclosures
+2. Ask agent about known easements
+3. Walk property for visible signs
+
+### During Escrow
+1. Review title report carefully
+2. Order survey (always recommended)
+3. Understand all easements listed
+4. Ask questions about unclear items
+
+### Questions to Ask
+1. What are all recorded easements?
+2. Where exactly are they located?
+3. What use is permitted?
+4. Who maintains what?
+5. Any disputes or violations?
+
+## Specific Scenarios
+
+### Shared Driveways
+- Common in older neighborhoods
+- Maintenance sharing agreement
+- Access rights specified
+- Parking typically addressed
+- Repair cost sharing
+
+### Utility Access
+- Companies have access rights
+- May need to excavate
+- Your landscaping at risk
+- Limited recourse
+- Usually narrow strips
+
+### Pipeline Easements
+- Oil, gas, or water pipes
+- Typically wide (25-75 feet)
+- Building severely restricted
+- Maintenance access rights
+- May limit property use significantly
+
+### View Easements
+- Protect views
+- Restrict tree height
+- Limit building height
+- Common in scenic areas
+- Can benefit or burden
+
+## Negotiating with Easements
+
+### Buyer Options
+- Request easement map/survey
+- Price reduction for impact
+- Understand before closing
+- Walk away if significant concern
+
+### What Can't Change
+- Existing recorded easements stay
+- Can't remove utility easements
+- Historic access rights continue
+- Conservation easements permanent
+
+### What Might Be Flexible
+- Unused private easements
+- Negotiated releases
+- Easement relocation (rare)
+- Maintenance agreements
+
+## After Purchase
+
+### Your Rights
+- Use easement area (consistent with easement)
+- No permanent structures (usually)
+- Maintain appearance
+- Challenge misuse
+
+### Your Obligations
+- Allow easement use
+- Don't obstruct access
+- Maintain surface (usually)
+- Know exact boundaries
+
+### Problem Resolution
+- Document issues
+- Review easement terms
+- Communicate with easement holder
+- Legal action if necessary
+
+## When Easements Kill Deals
+
+### Walk-Away Situations
+- Easement affects buildability
+- Commercial use too intensive
+- Unclear/disputed easements
+- Significant value impact
+- Future expansion limited
+
+### Manageable Situations
+- Standard utility easements
+- Edge-of-property location
+- Limited practical impact
+- Clear documentation
+
+---
+
+*Concerned about property easements? [Perchspot analysis](/chat) helps evaluate what you're really buying.*
+    `,
+  },
+  {
+    id: 'zoning-home-buyers',
+    title: 'Zoning Basics: What Home Buyers Need to Understand',
+    category: 'Education',
+    date: '2025-01-18',
+    readTime: '8 min read',
+    metaDescription: 'Guide to zoning for home buyers. Learn about zoning types, how zoning affects property use, and what to verify before buying a home.',
+    content: `
+# Zoning Basics: What Home Buyers Need to Understand
+
+Zoning controls what you can do with property. Understanding it prevents expensive surprises.
+
+## What Is Zoning?
+
+### Purpose
+- Controls land use
+- Manages density
+- Separates incompatible uses
+- Protects property values
+- Plans community development
+
+### Who Controls It
+- Local government (city/county)
+- Planning department administers
+- Zoning board hears variances
+- Can change over time
+- Subject to comprehensive plan
+
+## Residential Zoning Types
+
+### Common Classifications
+| Zone | Description |
+|------|-------------|
+| R-1 / RS | Single-family only |
+| R-2 | Single-family, small lots |
+| R-3 | Multi-family low density |
+| R-4 | Multi-family high density |
+| Mixed-use | Residential + commercial |
+
+### Single-Family Zones
+**What's allowed**:
+- One dwelling unit
+- Accessory structures (garages, sheds)
+- Home occupations (limited)
+- ADUs (in many areas now)
+
+**What's typically restricted**:
+- Multi-family buildings
+- Commercial activities
+- Industrial uses
+- Certain home businesses
+
+### Multi-Family Zones
+- Apartments permitted
+- Sometimes single-family too
+- Higher density
+- Different parking requirements
+- May have height limits
+
+## What Zoning Controls
+
+### Building Restrictions
+| Restriction | Typical Example |
+|-------------|-----------------|
+| Setbacks | 20' front, 5' side, 10' rear |
+| Height limits | 35' or 2.5 stories |
+| Lot coverage | 40% maximum |
+| FAR (floor area ratio) | 0.5 to 1.0 |
+| Building footprint | Related to lot coverage |
+
+### Use Restrictions
+- Primary use (residential, commercial)
+- Accessory uses (home office, garage)
+- Conditional uses (daycare, ADU)
+- Prohibited uses (manufacturing)
+
+### Other Controls
+- Parking requirements
+- Landscaping requirements
+- Signage rules
+- Fence heights
+- Accessory structure sizes
+
+## Why Zoning Matters to Buyers
+
+### Current Use Questions
+- Is current use legal?
+- Any non-conforming situations?
+- Home business allowed?
+- Rental permitted?
+
+### Future Use Questions
+- Can I add an ADU?
+- Can I run a business?
+- Can I subdivide?
+- What can neighbors build?
+
+### Value Protection
+- Zoning protects from incompatible uses
+- Commercial creep concerns
+- Development potential
+- View protection (sometimes)
+
+## Non-Conforming Uses
+
+### What It Means
+- Legal use before zoning changed
+- "Grandfathered" in
+- May continue operating
+- Special rules apply
+
+### Restrictions
+- Can't expand non-conforming use
+- Damage may require compliance
+- Abandonment ends rights
+- Transfer may be limited
+
+### Red Flags
+- Major damage may require bringing into compliance
+- Insurance complications
+- Financing challenges
+- Future restrictions
+
+## How to Check Zoning
+
+### Where to Look
+1. City/county planning website
+2. Zoning maps (often online)
+3. Call planning department
+4. Title report may mention
+5. Agent should know
+
+### What to Request
+- Current zoning designation
+- Permitted uses
+- Setback requirements
+- Building restrictions
+- Any pending changes
+
+### Questions to Ask
+1. What is the current zoning?
+2. Is current use conforming?
+3. Any variances on record?
+4. What can I build/add?
+5. Any proposed zoning changes?
+
+## Common Buyer Scenarios
+
+### Scenario 1: Home Business
+**Want to run business from home**
+- Check home occupation rules
+- Customer visits allowed?
+- Signage permitted?
+- Employee limits?
+- Parking requirements?
+
+### Scenario 2: ADU Plans
+**Want to add rental unit**
+- ADU permitted in zone?
+- Size limitations?
+- Owner occupancy required?
+- Parking needed?
+- Setback requirements?
+
+### Scenario 3: Future Development
+**Want to subdivide or add units**
+- Lot size requirements?
+- Zoning allow?
+- Infrastructure available?
+- Permitting process?
+- Cost-effective?
+
+### Scenario 4: Protection Concerns
+**Worried about what neighbors can build**
+- What's permitted in zone?
+- Any pending developments?
+- Commercial creep possible?
+- Height limits?
+- View protection?
+
+## Zoning Changes
+
+### How Changes Happen
+- Property owner requests
+- Planning commission reviews
+- Public hearings held
+- City council decides
+- Process takes months to years
+
+### Impact on You
+- Neighbor requests can affect you
+- City-wide rezones happen
+- Comprehensive plan changes
+- Usually opportunity to comment
+
+### Staying Informed
+- Attend neighborhood meetings
+- Watch for public notices
+- Check planning department
+- Know your rights
+
+## Variances and Exceptions
+
+### Variance
+- Permission to deviate from rules
+- Must show hardship
+- Goes through hearing process
+- May be denied
+- Runs with property
+
+### Conditional Use Permit
+- For uses requiring approval
+- Conditions may apply
+- Renewable sometimes
+- May be revoked
+
+### What Prior Variances Mean
+- Check for any on property
+- Understand what's permitted
+- Conditions still apply
+- May affect your plans
+
+## Due Diligence Checklist
+
+### Before Offer
+- [ ] Identify zoning designation
+- [ ] Understand basic restrictions
+- [ ] Consider your intended use
+
+### During Inspection Period
+- [ ] Verify current use is legal
+- [ ] Check for variances on record
+- [ ] Confirm building compliance
+- [ ] Research any intended changes
+
+### Questions for Planning Dept
+- [ ] Is property in compliance?
+- [ ] Any pending zoning changes?
+- [ ] What improvements are allowed?
+- [ ] Any overlay districts?
+
+## Red Flags
+
+### Concerning Situations
+- Non-conforming structures
+- Unpermitted additions
+- Active zoning disputes
+- Pending adjacent developments
+- Commercial encroachment
+
+### When to Walk Away
+- Intended use not permitted
+- Major compliance issues
+- Neighboring development concerns
+- Unclear legal status
+- Seller won't clarify
+
+---
+
+*Verifying zoning before you buy? [Perchspot analysis](/chat) helps you understand what you're really getting.*
+    `,
+  },
+  {
+    id: 'capital-gains-exclusion-home',
+    title: 'Capital Gains Tax Exclusion: Selling Your Primary Home',
+    category: 'Education',
+    date: '2025-01-17',
+    readTime: '8 min read',
+    metaDescription: 'Guide to the capital gains tax exclusion when selling your home. Learn about the $250K/$500K exclusion, requirements, and how to maximize your benefit.',
+    content: `
+# Capital Gains Tax Exclusion: Selling Your Primary Home
+
+The capital gains exclusion is one of the most valuable tax benefits for homeowners. Here's how it works.
+
+## The Basic Rule
+
+### Exclusion Amounts
+| Filing Status | Exclusion Amount |
+|---------------|------------------|
+| Single | $250,000 |
+| Married Filing Jointly | $500,000 |
+
+### What It Means
+- Profit from home sale (up to limit) is tax-free
+- No tax owed on excluded amount
+- Can be used repeatedly (once per 2 years)
+- One of biggest tax benefits available
+
+## Requirements
+
+### The 5-Year Test
+
+**Ownership Test**:
+- Must own home for 2 of last 5 years
+- Years don't need to be consecutive
+- Counting back from sale date
+
+**Use Test**:
+- Must be primary residence for 2 of last 5 years
+- Years don't need to be consecutive
+- Must be concurrent with ownership
+
+### Both Tests Required
+- Own for at least 2 years
+- Live in as primary residence for at least 2 years
+- Within the 5 years before sale
+
+### 2-Year Waiting Period
+- Can't use exclusion more than once every 2 years
+- Counts from previous sale using exclusion
+
+## Calculating Your Gain
+
+### Basic Formula
+| Item | Example |
+|------|---------|
+| Sale price | $800,000 |
+| - Original purchase price | ($400,000) |
+| - Capital improvements | ($50,000) |
+| - Selling costs | ($48,000) |
+| = Gain | $302,000 |
+
+### What Increases Basis (Reduces Gain)
+- Original purchase price
+- Closing costs when purchased
+- Capital improvements
+- Selling costs (commission, etc.)
+
+### What Doesn't Count
+- Repairs and maintenance
+- Lawn care
+- Cleaning
+- Normal wear and tear fixes
+
+## Improvements vs Repairs
+
+### Capital Improvements (Count)
+- Room additions
+- New roof
+- New HVAC system
+- Remodeled kitchen/bathroom
+- Adding deck or patio
+- Landscaping (permanent)
+- New flooring
+
+### Repairs (Don't Count)
+- Fixing leaky roof
+- Repairing HVAC
+- Patching walls
+- Painting
+- Replacing broken fixtures
+- Regular maintenance
+
+### Record Keeping
+- Keep all improvement receipts
+- Document before/after
+- Maintain contractor records
+- Track permit costs
+- This saves taxes at sale
+
+## Special Situations
+
+### Married Couples
+To claim $500,000 exclusion:
+- Either spouse can meet ownership test
+- Both must meet use test
+- Both must not have used exclusion in past 2 years
+- Must be married at time of sale
+
+### Divorce
+- Exclusion available to each spouse separately
+- Division of property affects calculations
+- Time living there for use test may include ex-spouse's time
+- Consult tax professional
+
+### Death of Spouse
+- Surviving spouse may use $500,000 exclusion
+- If sold within 2 years of death
+- And other requirements met
+- Consult tax professional
+
+### Rental Property Conversion
+- Time as rental doesn't count toward use test
+- But can still qualify if 2 of last 5 years as primary
+- May have partial exclusion
+- Depreciation recapture applies to rental period
+
+## Partial Exclusion
+
+### When Available
+Can claim partial exclusion for:
+- Job-related move (>50 miles)
+- Health reasons
+- Unforeseen circumstances
+- Didn't meet 2-year ownership/use
+- Used exclusion in past 2 years
+
+### How It Works
+- Prorate based on time
+- Example: Owned 1 year = 50% of exclusion
+- Single: $125,000 (half of $250,000)
+- Married: $250,000 (half of $500,000)
+
+### Unforeseen Circumstances
+- Divorce
+- Death
+- Multiple births from single pregnancy
+- Unemployment
+- Other IRS-approved events
+
+## Examples
+
+### Example 1: Full Exclusion
+| Detail | Amount |
+|--------|--------|
+| Purchase price (2020) | $500,000 |
+| Sale price (2026) | $900,000 |
+| Improvements | $50,000 |
+| Selling costs | $54,000 |
+| Gain | $296,000 |
+| Exclusion (married) | $500,000 |
+| **Taxable gain** | **$0** |
+
+### Example 2: Gain Over Exclusion
+| Detail | Amount |
+|--------|--------|
+| Purchase price (2018) | $300,000 |
+| Sale price (2026) | $800,000 |
+| Improvements | $75,000 |
+| Selling costs | $48,000 |
+| Gain | $377,000 |
+| Exclusion (single) | $250,000 |
+| **Taxable gain** | **$127,000** |
+
+### Example 3: Partial Exclusion
+- Owned and lived in home for 1 year
+- Moving for job relocation
+- Entitled to 50% of exclusion
+- Single: $125,000 exclusion available
+
+## Investment Property
+
+### No Exclusion
+- Investment property doesn't qualify
+- Must be primary residence
+- Rental properties: Different rules apply
+- Consider 1031 exchange for investments
+
+### Conversion Strategy
+- Convert rental to primary residence
+- Live in for 2 years
+- Then sell with exclusion
+- Some restrictions post-2008
+
+## Planning Strategies
+
+### Maximize Basis
+- Track all improvements
+- Keep receipts forever
+- Document everything
+- Reduces taxable gain
+
+### Timing the Sale
+- Ensure 2-year tests met
+- Consider market timing
+- Tax year considerations
+- Wait if close to 2 years
+
+### Multiple Properties
+- Can only claim for one primary residence
+- Plan which to claim
+- 2-year cooling off between uses
+
+## Record Keeping
+
+### What to Save
+- Purchase HUD-1/closing statement
+- All improvement receipts
+- Contractor contracts
+- Permit records
+- Photos (before/after)
+- Sale closing statement
+
+### How Long to Keep
+- At least 3 years after sale
+- Better: 7 years
+- Digital copies recommended
+- Organized by year
+
+## When to Consult Professional
+
+### Complex Situations
+- Gain over exclusion amount
+- Multiple properties
+- Divorce involved
+- Rental conversion
+- Short ownership/use
+- Business use of home
+
+---
+
+*Planning to sell someday? [Perchspot analysis](/chat) helps you understand your property's current value.*
+    `,
+  },
+  {
+    id: 'new-development-phases',
+    title: 'Buying in New Developments: Phase Timing and Strategy',
+    category: 'Guide',
+    date: '2025-01-16',
+    readTime: '8 min read',
+    metaDescription: 'Guide to buying in new development phases. Learn about early vs late phase advantages, pricing strategies, and what to consider at each stage.',
+    content: `
+# Buying in New Developments: Phase Timing and Strategy
+
+New developments sell in phases. When you buy matters for price, selection, and experience.
+
+## Understanding Phases
+
+### Typical Development Timeline
+| Phase | Description |
+|-------|-------------|
+| Pre-construction | Before building starts |
+| Phase 1 | First release (often 10-20% of units) |
+| Phase 2-3 | Middle releases |
+| Final Phase | Last available units |
+| Resales | After development complete |
+
+### Why Phases Exist
+- Manage construction schedule
+- Control cash flow
+- Test market pricing
+- Build momentum
+- Reduce builder risk
+
+## Early Phase (Phase 1) Buying
+
+### Advantages
+- Best lot selection
+- Often lowest prices
+- Priority for upgrades
+- Longest appreciation runway
+- First pick of everything
+
+### Disadvantages
+- Living in construction zone (years)
+- Unfinished amenities
+- No community yet
+- Builder reputation unproven
+- Design changes may occur
+
+### Best For
+- Patient buyers
+- Value-focused
+- Want best lots/views
+- Comfortable with uncertainty
+- Long-term residents
+
+## Middle Phase Buying
+
+### Advantages
+- See some finished homes
+- Community taking shape
+- Amenities may be open
+- Proven builder track record
+- Some neighbors established
+
+### Disadvantages
+- Premium lots may be gone
+- Prices typically higher
+- Still construction nearby
+- Selection more limited
+- Still ongoing development
+
+### Best For
+- Balanced approach
+- Want to see community
+- Need quicker move-in
+- Moderate risk tolerance
+
+## Final Phase Buying
+
+### Advantages
+- Community complete
+- All amenities open
+- No more construction
+- Know exactly what you're getting
+- Motivated sellers (builder wants to close out)
+
+### Disadvantages
+- Highest prices (usually)
+- Limited selection
+- Less desirable lots often remain
+- Missed appreciation
+- "What's left" feeling
+
+### Best For
+- Risk-averse buyers
+- Need certainty
+- Dislike construction
+- Don't mind premium
+- Value finished community
+
+## Price Strategy by Phase
+
+### Typical Price Progression
+| Phase | Price Relationship |
+|-------|-------------------|
+| Phase 1 | Base price |
+| Phase 2 | 3-5% higher |
+| Phase 3 | 6-10% higher |
+| Final | 8-15% higher than Phase 1 |
+
+### Why Prices Rise
+- Builder proves demand
+- Appreciation occurs
+- Costs increase over time
+- Marketing momentum
+- Less risk premium needed
+
+### Exceptions
+- Slow market: Prices may stay flat
+- Market downturn: Later phases cheaper
+- Overbuilding: Concessions appear
+- Builder distress: Negotiate harder
+
+## Lot Selection Strategy
+
+### Premium Lots Go First
+- Corner lots
+- View lots
+- Larger lots
+- Interior location (no through traffic)
+- Privacy/backing to trees
+
+### What Remains
+- Highway/road adjacent
+- Near community entrance
+- Smaller lots
+- Less desirable orientation
+- Power line proximity
+
+### Lot Premium Worth It?
+| Feature | Typical Premium | Worth It? |
+|---------|-----------------|-----------|
+| View | 5-15% | Usually yes |
+| Corner | 3-8% | Often yes |
+| Larger lot | 3-10% | Depends on use |
+| Backs to trees | 5-10% | Yes for privacy |
+| Cul-de-sac | 3-5% | Yes if children |
+
+## Builder Incentives
+
+### Common Phase 1 Incentives
+- Lower base prices
+- Closing cost assistance
+- Design center credits
+- Rate buydowns
+- Appliance packages
+
+### Later Phase Tactics
+- Standing inventory discounts
+- Aggressive financing
+- "Broker bonus" (pushes agents)
+- Quick close discounts
+- Year-end deals
+
+### What's Negotiable
+| Item | Negotiability |
+|------|---------------|
+| Base price | Low (especially early) |
+| Upgrades | Moderate |
+| Closing costs | High |
+| Financing help | Moderate-High |
+| Design credits | Moderate |
+
+## Amenity Timeline
+
+### Typical Sequence
+1. Sales office and model
+2. Parks/trails
+3. Pool/clubhouse
+4. Fitness center
+5. Additional phases
+
+### What's Promised vs Built
+- Get amenity plan in writing
+- Completion dates
+- What triggers construction
+- What if development stalls
+
+### Risk of Incomplete Amenities
+- Developer may delay
+- HOA takes over half-built
+- Assessments to complete
+- Scaled-down versions
+
+## HOA Considerations
+
+### During Development
+- Builder controls HOA
+- Decisions made by builder
+- Assessments set by builder
+- May not reflect long-term
+
+### Transition to Owners
+- Typically at buildout or % sold
+- Reserve fund adequacy
+- Budget accuracy
+- Deferred maintenance revealed
+
+### Questions to Ask
+1. What are projected HOA fees at buildout?
+2. What's the reserve fund plan?
+3. When does board transition to owners?
+4. Any pending litigation with builder?
+
+## Due Diligence
+
+### Before Phase 1 Purchase
+- Builder reputation/history
+- Financial stability
+- Quality at other projects
+- Timeline accuracy history
+- Warranty reputation
+
+### Mid-Development Purchase
+- Existing homeowner feedback
+- Construction quality visible
+- HOA management
+- Amenity completion status
+- Community vibe forming
+
+### Final Phase Purchase
+- Full community assessment
+- HOA financials
+- All amenities operational
+- Resale values in community
+- Builder departure terms
+
+## Exit Strategies
+
+### Resale Timing
+- Competing with builder if too soon
+- Appreciation takes time
+- Market conditions matter
+- Community completion helps
+
+### Rental Possibility
+- Check HOA rental restrictions
+- New community may limit
+- Builder may prohibit
+- Affects resale pool
+
+## Red Flags
+
+### Concerning Signs
+- Multiple phase delays
+- Builder financial news
+- Amenity scope reductions
+- HOA assessment increases
+- Many spec homes unsold
+- Sales office closing early
+
+### When to Walk Away
+- Builder credibility issues
+- Significant plan changes
+- Market turning down
+- Better value elsewhere
+
+---
+
+*Evaluating a new development? [Perchspot analysis](/chat) helps you assess any property's value proposition.*
+    `,
+  },
 ];
 
 // Update categories to include Local
