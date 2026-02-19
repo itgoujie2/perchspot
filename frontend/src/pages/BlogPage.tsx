@@ -40229,6 +40229,772 @@ Bad neighbors can make homeownership miserable. Here's how to assess the situati
 *Researching a property thoroughly? [Perchspot analysis](/chat) provides comprehensive neighborhood insights.*
     `,
   },
+  {
+    id: 'buying-in-retirement',
+    title: 'Buying a Home in Retirement: Financial Considerations',
+    category: 'Guide',
+    date: '2024-12-27',
+    readTime: '9 min read',
+    metaDescription: 'Guide to buying a home during retirement. Learn about mortgage options, downsizing decisions, cash purchases, and financial planning for retired buyers.',
+    content: `
+# Buying a Home in Retirement: Financial Considerations
+
+Retirement homebuying requires different calculations. Here's how to approach the decision.
+
+## Unique Retirement Considerations
+
+### Key Differences
+| Factor | Working Years | Retirement |
+|--------|--------------|------------|
+| Income type | Employment | Fixed/portfolio |
+| Mortgage approach | 30-year typical | Various options |
+| Home needs | May change | Often established |
+| Timeline | Long | Often 10-20 years |
+| Cash position | Building | Drawdown phase |
+
+### Questions to Answer
+1. How long will you live here?
+2. What's your income situation?
+3. How much liquid wealth?
+4. What are your care needs?
+5. What features matter most?
+
+## Mortgage vs Cash
+
+### Cash Purchase Advantages
+- No monthly payment
+- Simplified finances
+- No income documentation
+- Lower stress
+- No interest cost
+
+### Cash Purchase Disadvantages
+- Ties up capital
+- Opportunity cost
+- Less portfolio diversification
+- May affect other plans
+- Hard to reverse
+
+### Mortgage Advantages
+- Keep investments invested
+- Maintain liquidity
+- Tax deduction (if itemizing)
+- Inflation works in your favor
+- Flexibility
+
+### Mortgage Disadvantages
+- Monthly obligation
+- Interest costs
+- Qualification challenges
+- Stress of debt
+
+## Mortgage Qualification
+
+### Income Counting
+| Source | Countability |
+|--------|-------------|
+| Social Security | Yes, usually full amount |
+| Pension | Yes, if ongoing |
+| Investment income | Often 70% |
+| IRA distributions | If sustainable |
+| 401(k) distributions | If sustainable |
+| Rental income | Usually 75% |
+
+### Asset Depletion Qualification
+- Use assets to qualify
+- Divide liquid assets by loan term
+- Result counts as income
+- Not all lenders offer this
+
+### Best Options for Retirees
+- Conventional loans
+- Credit unions (often flexible)
+- Asset depletion programs
+- Local banks (portfolio loans)
+
+## Loan Term Decisions
+
+### 30-Year Mortgage
+- Lowest payment
+- Maximum flexibility
+- Most interest over time
+- Can pay extra
+
+### 15-Year Mortgage
+- Higher payment
+- Less total interest
+- Builds equity faster
+- Matches retirement timeline better
+
+### 10-Year Mortgage
+- Highest payment
+- Least interest
+- Quick payoff
+- Aggressive approach
+
+## Downsizing Analysis
+
+### True Savings Calculation
+| Category | Current | New |
+|----------|---------|-----|
+| Mortgage/taxes | $X | $Y |
+| Insurance | $X | $Y |
+| Utilities | $X | $Y |
+| Maintenance | $X | $Y |
+| Total monthly | $Sum | $Sum |
+
+### Equity Release
+- Sell current home
+- Net after costs
+- Apply to new purchase
+- Remaining = liquid wealth
+
+### Don't Forget
+- Moving costs ($5,000-15,000)
+- New furniture/items
+- Closing costs (both sales)
+- Capital gains (if applicable)
+- Emotional cost of change
+
+## Right-Sizing Considerations
+
+### What You Really Need
+- Bedrooms: Guest room necessary?
+- Bathrooms: Enough for daily needs?
+- Stairs: Ability to navigate?
+- Yard: Want the maintenance?
+- Space: How much is enough?
+
+### Features for Aging
+- Main floor bedroom
+- Full bath on main level
+- Wide doorways
+- Minimal stairs
+- Walk-in showers
+- Good lighting
+
+## Location Priorities
+
+### Retirement-Specific
+- Healthcare access
+- Climate preferences
+- Near family
+- Social opportunities
+- Safety
+- Walkability
+
+### Financial Impact
+| Location Factor | Cost Impact |
+|-----------------|-------------|
+| State taxes | Significant |
+| Property taxes | Significant |
+| Cost of living | Major |
+| Healthcare costs | Varies greatly |
+| Home insurance | Location-dependent |
+
+## Tax Considerations
+
+### State Income Tax
+| Tax Situation | Examples |
+|---------------|----------|
+| No state income tax | FL, TX, WA, NV |
+| Social Security exempt | Many states |
+| Retirement income exempt | Some states |
+| Full taxation | CA, many others |
+
+### Property Tax
+- Varies dramatically
+- Senior exemptions available
+- Some states cap increases
+- Research specific areas
+
+### Capital Gains Exclusion
+- $250K single / $500K married
+- On primary residence sale
+- Must live 2 of last 5 years
+- May shield most gains
+
+## Renting vs Buying in Retirement
+
+### When Renting Makes Sense
+- Uncertain location plans
+- Limited timeline (under 5 years)
+- Want zero maintenance
+- Flexibility priority
+- Don't want to tie up capital
+
+### When Buying Makes Sense
+- Long-term plan (10+ years)
+- Want stability
+- Want equity/asset
+- Can afford comfortably
+- Know desired location
+
+## Reverse Mortgage Option
+
+### What It Is
+- Loan against home equity
+- No monthly payments required
+- Repaid at death or sale
+- Must be 62+
+- Must be primary residence
+
+### Types
+| Type | Description |
+|------|-------------|
+| HECM (FHA) | Government-insured, most common |
+| Proprietary | Jumbo properties |
+| Single-purpose | Specific use only |
+
+### Considerations
+- Reduces inheritance
+- Fees can be significant
+- Must maintain property
+- Must pay taxes/insurance
+- Complexity
+
+## Financial Planning Integration
+
+### Questions for Advisor
+1. How does home purchase affect portfolio?
+2. What's the optimal mortgage strategy?
+3. Tax implications of location choice?
+4. Impact on estate plan?
+5. How does this affect retirement income?
+
+### Cash Flow Analysis
+- Project income sources
+- Include all housing costs
+- Factor inflation
+- Plan for healthcare
+- Allow for unexpected
+
+## Common Mistakes
+
+### Retiree Errors
+- Buying too much house
+- Underestimating costs
+- Not considering aging needs
+- Moving too far from healthcare
+- Not planning for changes
+
+### How to Avoid
+- Be realistic about needs
+- Plan for 10-20 year horizon
+- Consider health trajectory
+- Stay near medical care
+- Build in flexibility
+
+## Timeline Decisions
+
+### When to Buy
+- After establishing retirement income
+- When location is certain
+- When health allows
+- When market is appropriate
+- When you're ready
+
+### When to Wait
+- First year of retirement
+- Major health uncertainty
+- Unsure of location
+- Market overheated
+- Not emotionally ready
+
+---
+
+*Evaluating retirement properties? [Perchspot analysis](/chat) helps assess any property's suitability.*
+    `,
+  },
+  {
+    id: 'hoa-board-participation',
+    title: 'HOA Board Participation: What Homeowners Should Know',
+    category: 'Education',
+    date: '2024-12-26',
+    readTime: '7 min read',
+    metaDescription: 'Guide to HOA board participation for homeowners. Learn about board roles, getting involved, meetings, and how to be an effective community member.',
+    content: `
+# HOA Board Participation: What Homeowners Should Know
+
+Your HOA board makes decisions affecting your property and community. Here's how to understand and participate.
+
+## HOA Board Structure
+
+### Typical Positions
+| Position | Responsibilities |
+|----------|-----------------|
+| President | Leads board, meetings |
+| Vice President | Supports president |
+| Secretary | Records, communications |
+| Treasurer | Finances, budget |
+| Directors | Various duties |
+
+### How Boards Work
+- Elected by homeowners
+- Serve volunteer (usually)
+- Make policy decisions
+- Hire management
+- Enforce rules
+- Control budget
+
+## Understanding Your Rights
+
+### As an Owner
+- Vote in elections
+- Run for board
+- Attend open meetings
+- Access certain records
+- Request information
+- Challenge decisions
+
+### Record Access
+| Typically Available | May Be Restricted |
+|--------------------|-------------------|
+| Financial statements | Legal correspondence |
+| Meeting minutes | Personnel files |
+| Governing documents | Settlement details |
+| Budget | Disciplinary actions |
+| Reserve study | Individual accounts |
+
+## Getting Involved
+
+### Levels of Participation
+1. **Attend meetings** - Stay informed
+2. **Join committees** - Contribute without board role
+3. **Run for board** - Direct influence
+4. **Request changes** - Formal proposals
+
+### Common Committees
+- Architectural review
+- Landscaping
+- Finance/budget
+- Social events
+- Communications
+- Rules enforcement
+
+### Why Participate
+- Influence decisions
+- Protect property value
+- Understand operations
+- Meet neighbors
+- Solve problems
+
+## Attending Meetings
+
+### Open vs Closed Sessions
+| Open Session | Closed (Executive) Session |
+|--------------|---------------------------|
+| General business | Legal matters |
+| Budget discussion | Personnel issues |
+| Rule changes | Individual violations |
+| Community updates | Litigation |
+| Most topics | Sensitive matters |
+
+### How to Participate
+- Review agenda in advance
+- Sign up for homeowner forum
+- Be respectful
+- Keep comments brief
+- Follow procedures
+- Follow up in writing
+
+### Effective Communication
+- Be specific
+- Propose solutions
+- Stay calm
+- Document concerns
+- Know when to escalate
+
+## Running for the Board
+
+### Requirements
+| Typical Requirement | Purpose |
+|--------------------|---------|
+| Ownership verified | Must be owner |
+| Good standing | Dues current |
+| Not conflicted | No legal disputes |
+| Eligible term | First-time or re-election |
+
+### What to Expect
+- Time commitment (5-10+ hours/month)
+- Difficult decisions
+- Neighbor complaints
+- Volunteer frustration
+- Fiduciary responsibility
+
+### Skills Needed
+- Communication
+- Conflict resolution
+- Financial understanding
+- Time management
+- Thick skin
+
+## Board Meetings
+
+### Typical Agenda
+1. Call to order
+2. Approval of minutes
+3. Financial report
+4. Management report
+5. Committee reports
+6. Old business
+7. New business
+8. Homeowner forum
+9. Adjournment
+
+### Making Motions
+- Board members make motions
+- Second required
+- Discussion follows
+- Vote called
+- Majority passes (usually)
+
+## Common Issues
+
+### What Boards Deal With
+- Budget and assessments
+- Reserve funding
+- Rule enforcement
+- Maintenance decisions
+- Vendor contracts
+- Disputes
+- Insurance
+- Legal matters
+
+### Contentious Topics
+- Assessment increases
+- Special assessments
+- Rule changes
+- Enforcement consistency
+- Landscaping decisions
+- Pet policies
+
+## Challenging Decisions
+
+### When You Disagree
+1. Attend meeting, ask questions
+2. Put concerns in writing
+3. Request formal response
+4. Review governing documents
+5. Consider legal counsel
+
+### Appeal Processes
+- Varies by HOA
+- Check CC&Rs
+- Request hearing
+- Document everything
+- Be professional
+
+### Legal Options
+- Last resort
+- Expensive for all
+- May damage community
+- Sometimes necessary
+- Consult attorney first
+
+## HOA Dysfunction
+
+### Warning Signs
+- No regular meetings
+- Poor communication
+- Financial confusion
+- Selective enforcement
+- Conflict of interest
+- No reserve funding
+
+### What to Do
+- Attend meetings
+- Ask questions
+- Request records
+- Run for board
+- Organize with neighbors
+- Consider mediation
+
+## Being Effective
+
+### As a Participant
+- Know the rules
+- Be prepared
+- Stay constructive
+- Follow up
+- Build relationships
+
+### As a Board Member
+- Read all materials
+- Attend all meetings
+- Avoid conflicts
+- Communicate clearly
+- Listen to owners
+- Follow fiduciary duty
+
+## Fiduciary Responsibility
+
+### What It Means
+| Duty | Description |
+|------|-------------|
+| Care | Act reasonably, diligently |
+| Loyalty | Put HOA first, not self |
+| Good faith | Honest intentions |
+| Prudence | Sound financial management |
+
+### Board Member Protection
+- Directors & Officers insurance
+- Acting in good faith
+- Within authority
+- Following governing documents
+
+---
+
+*Living in an HOA community? [Perchspot analysis](/chat) includes HOA assessment in property evaluation.*
+    `,
+  },
+  {
+    id: 'property-management-hiring',
+    title: 'Hiring a Property Manager: What Landlords Should Know',
+    category: 'Investment',
+    date: '2024-12-25',
+    readTime: '8 min read',
+    metaDescription: 'Guide to hiring a property management company. Learn about fees, services, contracts, and what to look for in professional property management.',
+    content: `
+# Hiring a Property Manager: What Landlords Should Know
+
+Property management can make investing passive, but choosing the right manager is crucial.
+
+## What Property Managers Do
+
+### Core Services
+| Service | Description |
+|---------|-------------|
+| Tenant placement | Marketing, screening, leasing |
+| Rent collection | Collecting, accounting |
+| Maintenance | Coordinating repairs |
+| Tenant relations | Communication, issues |
+| Legal compliance | Following landlord-tenant law |
+| Inspections | Regular property checks |
+| Reporting | Financial statements |
+
+### Additional Services
+- Evictions
+- Bill payment
+- Renovation oversight
+- Tax documentation
+- Insurance claims
+- Lease renewals
+
+## Fee Structures
+
+### Management Fees
+| Type | Typical Range |
+|------|---------------|
+| Percentage of rent | 8-12% |
+| Flat fee | $100-250/month |
+| Hybrid | Base + percentage |
+
+### Additional Fees
+| Fee | Typical Amount |
+|-----|----------------|
+| Leasing fee | 50-100% of first month |
+| Lease renewal | $150-300 |
+| Eviction coordination | $250-500+ |
+| Maintenance markup | 10-20% |
+| Inspection fee | $75-150 |
+| Setup fee | $0-300 |
+| Early termination | 1-3 months fee |
+
+### Total Cost Example
+- Monthly rent: $2,000
+- Management fee (10%): $200/month
+- Annual: $2,400
+- Plus leasing fee: $2,000 (once)
+- Plus renewals: $200/year
+
+## When to Hire a Manager
+
+### Good Situations
+| Situation | Why Management Helps |
+|-----------|---------------------|
+| Remote property | Can't be there |
+| Multiple units | Efficiency |
+| No time | Full-time job |
+| No expertise | Learning curve |
+| Tenant issues | Professional handling |
+
+### Self-Management Works If
+- Nearby property
+- Comfortable with tenants
+- Know landlord-tenant law
+- Have time
+- Good systems
+
+## What to Look For
+
+### Company Qualifications
+- Licensed (if required in state)
+- Insured (E&O, liability)
+- Experience in market
+- Good online reviews
+- Transparent pricing
+- Clear communication
+
+### Questions to Ask
+1. How many properties do you manage?
+2. What's your average vacancy time?
+3. How do you screen tenants?
+4. How do you handle maintenance?
+5. How often do you inspect?
+6. What reports will I receive?
+7. Who handles emergencies?
+8. What's your eviction experience?
+
+## The Contract
+
+### Key Terms to Review
+| Term | What to Check |
+|------|---------------|
+| Duration | Month-to-month vs multi-year |
+| Termination | Notice period, fees |
+| Fees | All fees clearly listed |
+| Services | What's included |
+| Authority | What they can do without approval |
+| Reserves | How much you provide |
+| Reporting | Frequency and detail |
+
+### Watch Out For
+- Hidden fees
+- Long lock-in periods
+- Large termination fees
+- Vague service descriptions
+- Unlimited spending authority
+- No communication requirements
+
+## Maintenance Handling
+
+### Typical Approaches
+| Level | Manager Authority |
+|-------|------------------|
+| Minor repairs | Under $200-500 |
+| Medium repairs | Notify owner, proceed |
+| Major repairs | Owner approval required |
+| Emergency | Unlimited, notify after |
+
+### Markup Reality
+- Managers add 10-20% markup
+- Or use preferred vendors
+- May not get cheapest price
+- Trade-off for convenience
+- Review invoices
+
+## Communication Expectations
+
+### What to Expect
+- Monthly financial statements
+- Maintenance notifications
+- Tenant issues reported
+- Inspection reports
+- Annual summaries
+- Tax documents
+
+### Red Flags
+- Hard to reach
+- Delayed responses
+- No regular reporting
+- Surprise expenses
+- Tenant complaints reach you
+
+## Tenant Screening Process
+
+### What They Should Do
+1. Application and fee
+2. Credit check
+3. Background check
+4. Income verification
+5. Rental history
+6. References
+7. Consistent criteria
+
+### What to Ask
+- What are your screening criteria?
+- Who makes final decision?
+- Do you follow fair housing?
+- What's the approval process?
+- How long does it take?
+
+## Monitoring Your Manager
+
+### Regular Reviews
+- Monthly statement review
+- Quarterly performance check
+- Annual meeting
+- Market comparison
+- Tenant feedback
+
+### Warning Signs
+- Increasing vacancy
+- Frequent turnover
+- Rising expenses
+- Poor communication
+- Tenant complaints
+- Deferred maintenance
+
+## Transitioning Managers
+
+### When to Change
+- Consistent problems
+- Communication breakdown
+- Fee increases unreasonable
+- Better option available
+- Services not delivered
+
+### Transition Process
+1. Review contract termination
+2. Give proper notice
+3. New manager secured
+4. Document handoff
+5. Tenant notification
+6. Security deposit transfer
+7. Record transfer
+
+## Self-Management Hybrid
+
+### What You Can Do
+- Find your own tenants
+- Coordinate major repairs
+- Handle communications
+
+### What Manager Does
+- Rent collection
+- Accounting
+- Emergency maintenance
+- Legal compliance
+
+*Negotiate for reduced fees*
+
+## Interview Questions
+
+### For Managers
+1. How long in business?
+2. How many properties managed?
+3. What's your fee structure (all fees)?
+4. Who's my point of contact?
+5. Response time commitment?
+6. Tenant screening process?
+7. Maintenance protocol?
+8. Financial reporting schedule?
+9. Termination requirements?
+10. References from other owners?
+
+### For References
+1. How long have they managed for you?
+2. How's communication?
+3. How do they handle problems?
+4. Any issues to mention?
+5. Would you recommend them?
+
+---
+
+*Managing rental property? [Perchspot analysis](/chat) helps evaluate investment potential before you buy.*
+    `,
+  },
 ];
 
 // Update categories to include Local
