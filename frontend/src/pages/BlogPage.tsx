@@ -28523,6 +28523,4449 @@ Bathrooms are the second most impactful rooms for home value, after kitchens. Bu
 *Evaluating bathroom condition? [Analyze properties with Perchspot](/chat) to understand renovation needs in context.*
     `,
   },
+  {
+    id: 'smart-home-features',
+    title: 'Smart Home Features: What Buyers Should Know in 2026',
+    category: 'Guide',
+    date: '2025-02-12',
+    readTime: '8 min read',
+    metaDescription: 'Navigate smart home technology when buying a house. Learn which smart features add value, what to check, and how to evaluate smart home systems.',
+    content: `
+# Smart Home Features: What Buyers Should Know in 2026
+
+Smart home technology is increasingly common in home listings. Understanding what you're getting—and what you're inheriting—matters more than ever.
+
+## Smart Features That Add Value
+
+### High-Value Features
+- **Smart thermostats**: Nest, Ecobee save 10-15% on energy
+- **Video doorbells**: Ring, Nest security features
+- **Smart locks**: Keyless entry convenience
+- **Integrated security systems**: Professional monitoring
+
+### Moderate-Value Features
+- Smart lighting systems
+- Smart garage door openers
+- Automated blinds/shades
+- Smart irrigation systems
+
+### Limited-Value Features
+- Smart refrigerators
+- Smart mirrors
+- Voice assistant speakers
+- Smart coffee makers
+
+## Questions to Ask
+
+### Ownership
+1. Are smart devices included in sale?
+2. What requires ongoing subscriptions?
+3. Can accounts be transferred?
+4. Is professional monitoring required?
+
+### Functionality
+1. What hub/ecosystem is used?
+2. Are devices still supported?
+3. What's the WiFi requirement?
+4. Any hardwired vs wireless devices?
+
+### Privacy Concerns
+1. Where is data stored?
+2. Can previous recordings be accessed?
+3. How to fully reset devices?
+
+## Red Flags
+
+### Outdated Systems
+- Discontinued product lines
+- No longer receiving updates
+- Proprietary systems (vendor lock-in)
+- Incompatible with modern standards
+
+### Security Risks
+- Default passwords still active
+- No encryption
+- Cloud-dependent (company might shut down)
+- Cameras in unexpected locations
+
+### Hidden Costs
+- Required subscriptions ($10-50/month)
+- Hub replacement needed
+- Professional installation for changes
+- Proprietary bulbs/components
+
+## Evaluating Existing Systems
+
+### Smart Thermostat
+- Check compatibility with HVAC
+- Review energy usage data
+- Verify zone control if present
+
+### Security System
+- Professional vs self-monitored
+- Contract transfer requirements
+- Equipment ownership vs lease
+
+### Lighting
+- Count controlled fixtures
+- Identify hub/app required
+- Check dimmer compatibility
+
+### Locks
+- Battery replacement frequency
+- Backup key option
+- Integration with security system
+
+## What to Request at Closing
+
+### Essential Items
+- All device passwords/access
+- Account transfer instructions
+- Hub/controller hardware
+- System documentation
+- Subscription info and costs
+
+### Nice to Have
+- Original remotes
+- Setup guides
+- Warranty information
+- Vendor contact info
+
+## Cost Considerations
+
+### Monthly Subscriptions
+| Service | Typical Cost |
+|---------|--------------|
+| Security monitoring | $15-50/month |
+| Video storage (Ring) | $4-10/month |
+| Thermostat premium | $3-5/month |
+| Smart hub services | $5-15/month |
+
+### Replacement Costs
+| Device | Replacement |
+|--------|-------------|
+| Smart thermostat | $150-300 |
+| Video doorbell | $100-250 |
+| Smart lock | $150-350 |
+| Hub/controller | $100-400 |
+
+## Ecosystems to Know
+
+### Major Platforms
+- **Google Home**: Nest devices, wide compatibility
+- **Amazon Alexa**: Ring, vast device support
+- **Apple HomeKit**: Secure, Apple-focused
+- **Samsung SmartThings**: Versatile hub
+- **Matter**: New universal standard (2024+)
+
+### Compatibility
+Matter-compatible devices work across ecosystems. Prioritize Matter support for flexibility.
+
+## When Smart Features Are Problems
+
+### Seller Taking Devices
+- Clarify what's included in contract
+- Get it in writing
+- Verify before closing
+
+### Abandoned Systems
+- Partially installed
+- Missing components
+- Requires gut-and-replace
+
+### Security Concerns
+- Previous owner may have access
+- Factory reset everything
+- Change all passwords immediately
+
+## New Construction Smart Homes
+
+### Pre-Wired Advantages
+- Cat6/ethernet throughout
+- Centralized equipment closet
+- Proper electrical capacity
+- Integrated speaker wiring
+
+### Builder Package Concerns
+- Often basic tier
+- Proprietary systems
+- Upgrade costs inflated
+- Consider DIY alternatives
+
+## Making It Your Own
+
+### Day 1 Tasks
+1. Factory reset all devices
+2. Create new accounts
+3. Change WiFi password
+4. Update device firmware
+5. Remove previous user access
+
+### First Week
+1. Test all systems thoroughly
+2. Set up automation rules
+3. Configure security settings
+4. Add family members to accounts
+
+---
+
+*Looking at a smart home listing? [Get a Perchspot analysis](/chat) to understand the full picture including tech infrastructure.*
+    `,
+  },
+  {
+    id: 'solar-panels-buying',
+    title: 'Buying a Home with Solar Panels: Complete Guide',
+    category: 'Guide',
+    date: '2025-02-11',
+    readTime: '10 min read',
+    metaDescription: 'Everything you need to know about buying a home with solar panels. Understand ownership vs leases, transfer processes, costs, and what to verify.',
+    content: `
+# Buying a Home with Solar Panels: Complete Guide
+
+Solar panels can be a significant benefit or complication depending on ownership structure and system condition. Here's what every buyer needs to know.
+
+## Ownership Models
+
+### Owned Systems
+- Seller owns panels outright
+- Convey with property at sale
+- No monthly payments to solar company
+- All energy savings go to homeowner
+- **Best scenario for buyers**
+
+### Leased Systems
+- Third party owns panels
+- Monthly lease payment ($100-200+)
+- Lease transfers to buyer
+- Contract terms (15-25 years) apply
+- May require credit approval
+
+### PPA (Power Purchase Agreement)
+- Company owns system
+- You buy power at agreed rate
+- Rate may escalate annually
+- Similar to lease for buyer
+
+### PACE Financing
+- Property-assessed loan
+- Attached to property taxes
+- Can complicate mortgages
+- Fannie Mae restrictions
+
+## Questions to Ask
+
+### Ownership Status
+1. Are panels owned, leased, or PPA?
+2. If owned, are they fully paid off?
+3. If financed, what's remaining balance?
+4. Can loan be paid off at closing?
+
+### Lease/PPA Details
+1. What are monthly payments?
+2. What year does contract end?
+3. What are escalation rates?
+4. What happens at contract end?
+5. What are buyout terms?
+6. What's required to transfer?
+
+### System Details
+1. How old is the system?
+2. What's the warranty status?
+3. Who installed it?
+4. What's the system size (kW)?
+5. What's annual production?
+
+## Financial Analysis
+
+### Owned System Value
+| Factor | Impact |
+|--------|--------|
+| System age | Newer = more value |
+| Production | Higher output = more value |
+| Warranty | Remaining years matter |
+| Condition | Well-maintained preferred |
+
+**Typical value**: $3-4 per watt for newer systems
+**Example**: 6kW system = $18,000-24,000 value
+
+### Leased System Impact
+- May add $0 to home value
+- Some appraisers ignore leased panels
+- Monthly cost is liability
+- Contract terms may deter buyers
+
+## Lease Transfer Process
+
+### Requirements
+1. Buyer credit check
+2. Income verification
+3. Transfer fee ($0-500)
+4. Signed assumption agreement
+5. Homeowner insurance update
+
+### Timeline
+- Application: 1-2 weeks
+- Approval: 3-5 days
+- Document signing: Same day
+- System transfer: At closing
+
+### What Can Go Wrong
+- Buyer credit denial
+- Seller must pay buyout
+- Delays closing
+- Added costs
+
+## Appraisal Considerations
+
+### Owned Systems
+- Should add value to appraisal
+- Request solar-certified appraiser
+- Provide production documentation
+- Show utility bill savings
+
+### Leased Systems
+- Typically $0 value added
+- Liability not asset
+- May require lease payoff
+
+## Due Diligence Checklist
+
+### Documents to Request
+- [ ] Ownership documentation
+- [ ] Lease/PPA contract (if applicable)
+- [ ] Installation permit
+- [ ] Electrical inspection
+- [ ] Net metering agreement
+- [ ] Warranty certificates
+- [ ] Production history (12+ months)
+- [ ] Recent utility bills
+
+### Physical Inspection
+- [ ] Panel condition (cracks, discoloration)
+- [ ] Roof condition under panels
+- [ ] Electrical connections
+- [ ] Inverter condition
+- [ ] Mounting hardware
+
+## Net Metering
+
+### How It Works
+- Excess power goes to grid
+- You get credit from utility
+- Credits offset nighttime usage
+- Rules vary by utility
+
+### What to Verify
+1. Is net metering available?
+2. What's the credit rate?
+3. Does grandfathered rate transfer?
+4. Annual true-up process?
+
+## System Performance
+
+### Key Metrics
+- **System size**: kW (capacity)
+- **Annual production**: kWh (output)
+- **Capacity factor**: Actual vs theoretical
+
+### Red Flags
+- Declining production over time
+- Output far below estimates
+- Frequent inverter issues
+- No production monitoring
+
+## Roof Considerations
+
+### Age and Condition
+- Roof should outlast panels (25+ years)
+- Panel removal for reroof = $2,000-5,000
+- Factor into negotiations
+
+### Warranty Impact
+- Some roof warranties voided by panels
+- Verify roof warranty status
+- Check for leaked penetrations
+
+## Insurance Requirements
+
+### Policy Updates
+- Notify insurance of solar
+- Coverage for panels needed
+- Typically minimal premium increase
+- Verify liability coverage
+
+### Disaster Scenarios
+- Panels damaged = roof exposed
+- Both repairs needed
+- Deductible applies to both
+
+## Negotiation Strategies
+
+### Owned Systems
+- Request production documentation
+- Factor age and condition into value
+- Ask for warranty transfer
+
+### Leased Systems
+- Request lease payoff at seller cost
+- Negotiate purchase price reduction
+- Or walk away if terms unfavorable
+
+### PACE Financing
+- Must be paid off at closing (usually)
+- Factor into net proceeds
+- Verify lender requirements
+
+## Red Flags
+
+### Deal Breakers
+- Seller won't provide documentation
+- Lease company won't approve transfer
+- System significantly underperforming
+- Roof needs replacement soon
+- PACE loan with underwater home
+
+### Yellow Flags
+- System older than 10 years
+- Inverter near end of life
+- No production monitoring
+- High lease escalation rate
+
+## Tax Credits and Incentives
+
+### What Transfers
+- State rebates usually don't
+- Federal tax credit: Original owner
+- Net metering agreement: Usually yes
+- Utility incentives: Varies
+
+### What You Get
+- Ongoing utility savings
+- Potential future resale value
+- Environmental benefits
+
+---
+
+*Evaluating a home with solar? [Perchspot analysis](/chat) helps you understand the full financial picture.*
+    `,
+  },
+  {
+    id: 'earthquake-preparedness-buyers',
+    title: 'Earthquake Preparedness for Home Buyers: Risk Assessment Guide',
+    category: 'Guide',
+    date: '2025-02-10',
+    readTime: '9 min read',
+    metaDescription: 'How to assess earthquake risk when buying a home. Learn about soil types, building codes, retrofitting costs, and earthquake insurance in seismic zones.',
+    content: `
+# Earthquake Preparedness for Home Buyers: Risk Assessment Guide
+
+In seismically active regions like the Pacific Northwest and California, understanding earthquake risk is essential for informed home buying.
+
+## Know Your Risk Zone
+
+### Seismic Hazard Factors
+1. **Proximity to fault lines**
+2. **Soil type** (liquefaction risk)
+3. **Building age and construction**
+4. **Hillside location** (landslide risk)
+
+### High-Risk Areas (Pacific Northwest)
+- Seattle waterfront (fill/liquefaction)
+- SoDo and Georgetown
+- Parts of Ballard
+- Duwamish Valley
+- Some Eastside areas near lakes
+
+### Resources to Check
+- USGS earthquake hazard maps
+- Local hazard maps (city websites)
+- State geological surveys
+- Homeowner's disclosure
+
+## Building Construction Era
+
+### Pre-1940
+- Unreinforced masonry (URM)
+- Brick buildings high risk
+- Limited foundation anchoring
+- Chimney collapse common
+- **Highest risk category**
+
+### 1940-1970
+- Better construction
+- Still limited seismic codes
+- May need retrofitting
+- Cripple wall concerns
+
+### 1970-1990
+- Improved building codes
+- Better foundation connections
+- Soft-story concerns (apartments)
+- Generally moderate risk
+
+### 1990-Present
+- Modern seismic codes
+- Engineered shear walls
+- Proper foundation bolting
+- **Lowest risk (if built to code)**
+
+## Foundation Types
+
+### Crawl Space
+- **Cripple walls**: Short wood walls prone to collapse
+- Retrofitting: $3,000-10,000
+- Check for existing bolting
+- Common in PNW homes
+
+### Slab-on-Grade
+- Generally more stable
+- Still needs anchor bolts
+- Less common retrofit needs
+
+### Basement
+- Can be vulnerable
+- Look for reinforcement
+- Waterproofing complications
+
+### Hillside/Pier
+- Higher risk category
+- Engineering assessment needed
+- Expensive to retrofit
+
+## Retrofitting Basics
+
+### Essential Retrofits
+| Type | Cost | Purpose |
+|------|------|---------|
+| Foundation bolting | $1,500-3,500 | Anchor house to foundation |
+| Cripple wall bracing | $3,000-7,000 | Strengthen short walls |
+| Water heater strapping | $50-200 | Prevent tipping |
+| Chimney bracing | $500-2,000 | Prevent collapse |
+
+### Soft-Story Retrofit
+- Ground floor parking structures
+- $50,000-150,000+ for apartments
+- Mandatory in some cities
+- Affects condos, too
+
+## Inspection Checklist
+
+### Foundation
+- [ ] Visible cracks (vertical vs diagonal)
+- [ ] Foundation bolts present
+- [ ] Cripple wall condition
+- [ ] Sill plate anchoring
+
+### Structure
+- [ ] Chimney condition
+- [ ] Shear wall presence
+- [ ] Garage door framing
+- [ ] Large openings properly supported
+
+### Non-Structural
+- [ ] Water heater strapped
+- [ ] Gas line flexibility
+- [ ] Heavy items secured
+- [ ] Masonry veneer condition
+
+## Earthquake Insurance
+
+### Standard Homeowner's Doesn't Cover
+- Earthquake damage
+- Must purchase separately
+- Washington: CEA equivalent emerging
+- California: CEA available
+
+### Coverage Basics
+- **Dwelling coverage**: Structure repair
+- **Personal property**: Contents
+- **Additional living expenses**: If displaced
+
+### Cost Factors
+| Factor | Impact on Premium |
+|--------|-------------------|
+| Home age | Older = higher |
+| Construction type | Wood frame = lower |
+| Seismic zone | Higher risk = higher |
+| Deductible | Higher deductible = lower premium |
+
+### Typical Deductibles
+- 10-15% of dwelling coverage
+- $500K home = $50K-75K deductible
+- Plan for this out of pocket
+
+### Should You Get It?
+**Consider if**:
+- In high seismic zone
+- Home is older/unreinforced
+- Couldn't afford repairs out of pocket
+- Have significant equity
+
+**May skip if**:
+- Modern construction
+- Low risk zone
+- Comfortable self-insuring
+- Already retrofitted
+
+## Soil and Liquefaction
+
+### What Is Liquefaction?
+- Saturated soil acts like liquid during quake
+- Structures sink or tilt
+- Very expensive damage
+- Some areas at high risk
+
+### High-Risk Soil Types
+- Fill (reclaimed land)
+- Sandy soils near water
+- River valleys
+- Old lake beds
+
+### How to Check
+1. USGS liquefaction maps
+2. City hazard maps
+3. Geotechnical inspection
+4. Previous permits/reports
+
+## Hillside Homes
+
+### Additional Risks
+- Landslides
+- Foundation undermining
+- Retaining wall failure
+- Access road damage
+
+### Due Diligence
+- Geological survey required
+- Check retaining wall condition
+- Review drainage systems
+- Verify slope stability
+
+### Insurance Complications
+- Landslide coverage separate
+- Often excluded or expensive
+- May be uninsurable
+
+## Condo Considerations
+
+### Building-Wide Issues
+- Soft-story first floor
+- Parking garage construction
+- Building age and codes
+- HOA reserve for retrofit
+
+### What to Ask HOA
+1. Any seismic retrofitting done?
+2. What's the building age and construction?
+3. Earthquake insurance on building?
+4. Reserve fund for structural repairs?
+
+## Negotiating with Earthquake Risk
+
+### Leverage Points
+- Needed retrofits = cost reduction
+- Insurance difficulty = price factor
+- Recent seismic reports = disclosure
+
+### What to Request
+- Existing geological reports
+- Permit history for retrofits
+- Previous structural repairs
+- Engineering assessments
+
+## After Purchase: Preparation
+
+### Immediate Steps
+1. Complete any needed retrofits
+2. Secure water heater
+3. Install gas shut-off valve
+4. Create emergency kit
+5. Know shut-off locations
+
+### Emergency Supplies
+- 72-hour kit minimum
+- Water (1 gallon/person/day)
+- Food, first aid
+- Important documents
+
+---
+
+*Considering a home in a seismic zone? [Get comprehensive analysis with Perchspot](/chat) including natural hazard assessment.*
+    `,
+  },
+  {
+    id: 'wildfire-risk-zones',
+    title: 'Buying in Wildfire Risk Zones: What You Need to Know',
+    category: 'Guide',
+    date: '2025-02-09',
+    readTime: '9 min read',
+    metaDescription: 'Essential guide to buying property in wildfire-prone areas. Understand risk assessment, defensible space, insurance challenges, and property protections.',
+    content: `
+# Buying in Wildfire Risk Zones: What You Need to Know
+
+With increasing wildfire frequency across the Western US, understanding fire risk is crucial for buyers in affected regions.
+
+## Understanding Fire Risk Zones
+
+### WUI (Wildland-Urban Interface)
+- Where development meets wildland
+- Highest fire risk category
+- Insurance challenges
+- Stricter building codes
+
+### Risk Categories
+| Category | Description |
+|----------|-------------|
+| High | Direct wildland interface |
+| Moderate | Near interface areas |
+| Low | Urban, limited vegetation |
+
+### How to Check
+- CAL FIRE hazard maps
+- Local fire department maps
+- Insurance company assessments
+- Disclosure statements
+
+## Property Assessment
+
+### Vegetation Zones
+**Zone 1 (0-30 feet)**: Defensible space
+- Minimal combustible plants
+- No wood chips/bark mulch against structure
+- Trimmed trees, removed dead vegetation
+
+**Zone 2 (30-100 feet)**: Reduced fuel
+- Spacing between trees/shrubs
+- Trimmed lower branches
+- Reduced ground fuel
+
+### Structure Features
+| Feature | Fire-Resistant | Higher Risk |
+|---------|----------------|-------------|
+| Roof | Metal, tile, Class A shingles | Wood shake |
+| Siding | Stucco, brick, fiber cement | Wood, vinyl |
+| Windows | Multi-pane, tempered | Single pane |
+| Eaves | Boxed, enclosed | Open |
+| Deck | Composite, concrete | Wood |
+| Vents | Ember-resistant mesh | Standard |
+
+### Red Flags
+- Wood shake roof
+- Overgrown vegetation to structure
+- Wood fence attached to home
+- Dead trees/brush nearby
+- Propane tank near house
+- Open vents and eaves
+
+## Insurance Challenges
+
+### The Problem
+- Insurers leaving high-risk areas
+- Non-renewals increasing
+- Premiums skyrocketing
+- FAIR Plan as last resort
+
+### California FAIR Plan
+- State-mandated coverage
+- Basic fire coverage
+- Expensive
+- Limited coverage
+- Need wrap-around policy
+
+### What to Verify Before Buying
+1. **Current policy**: Can it transfer?
+2. **Quotes**: Get 3+ before closing
+3. **Availability**: Will insurers cover?
+4. **Cost**: Factor into budget
+
+### Premium Expectations
+| Risk Level | Annual Premium (per $100K) |
+|------------|----------------------------|
+| Low | $50-150 |
+| Moderate | $150-300 |
+| High | $300-600+ |
+| FAIR Plan | $500-1,000+ |
+
+## Building Codes in Fire Zones
+
+### Chapter 7A (California)
+Requires fire-resistant:
+- Roofing
+- Exterior walls
+- Eaves and soffits
+- Decks
+- Windows
+- Vents
+
+### Newer Homes (2008+)
+- Built to fire codes
+- Generally more insurable
+- Lower risk
+
+### Older Homes
+- May not meet codes
+- Retrofit costs significant
+- Insurance harder to obtain
+
+## Retrofit Costs
+
+### Priority Upgrades
+| Upgrade | Cost |
+|---------|------|
+| Metal/tile roof | $15,000-40,000 |
+| Ember-resistant vents | $500-2,000 |
+| Fire-resistant siding | $10,000-30,000 |
+| Enclosed eaves | $1,000-3,000 |
+| Tempered windows | $300-600 each |
+
+### Defensible Space
+- Professional clearing: $500-5,000+
+- Ongoing maintenance: $200-1,000/year
+- Tree trimming/removal: $300-3,000+ per tree
+
+## Evacuation Considerations
+
+### Access Routes
+- Multiple escape routes?
+- Road width adequate?
+- Dead-end concerns?
+- Bridge/narrow passage bottlenecks?
+
+### Community Factors
+- Local fire department response time
+- Nearest fire station
+- Water supply for firefighting
+- Community alert systems
+
+### Infrastructure
+- Underground power (no fallen line ignition)
+- Fire hydrant proximity
+- Water pressure adequate
+- Cell service for alerts
+
+## Due Diligence Steps
+
+### Before Making Offer
+1. Check fire hazard maps
+2. Get insurance quotes
+3. Research area fire history
+4. Drive evacuation routes
+5. Talk to neighbors about experience
+
+### During Inspection Period
+1. Evaluate defensible space
+2. Assess structure fire resistance
+3. Check for code compliance
+4. Get quotes for needed upgrades
+5. Confirm insurance availability
+
+### Request from Seller
+- Fire-related improvements made
+- Insurance history (any non-renewals)
+- Defensible space maintenance records
+- Previous fire damage (if any)
+
+## Community Programs
+
+### Firewise USA
+- Community recognition program
+- Collaborative fire planning
+- May help insurance rates
+- Good indicator of community effort
+
+### Utility Programs
+- PG&E vegetation management
+- Public Safety Power Shutoffs (PSPS)
+- Understand power reliability
+
+## Ongoing Responsibilities
+
+### Annual Maintenance
+- Clear Zone 1 vegetation by June 1
+- Maintain Zone 2 spacing
+- Clean gutters and roof
+- Clear debris from deck
+- Inspect vents and screens
+
+### When to Hire Professionals
+- Large tree work
+- Hazardous removal
+- Initial defensible space creation
+- Annual inspection
+
+## Negotiation Strategies
+
+### Price Reduction Requests
+- Needed fire hardening upgrades
+- Insurance premium difference
+- Defensible space work needed
+
+### Seller Concessions
+- Complete vegetation clearing
+- Install ember-resistant vents
+- Replace wood fence section at house
+
+### Walk-Away Situations
+- Can't get insurance at reasonable cost
+- Evacuation route concerns
+- Extensive retrofits needed
+- Recent nearby fire damage
+
+## Long-Term Considerations
+
+### Climate Change Impact
+- Fire seasons lengthening
+- Risk zones expanding
+- Insurance uncertainty
+- Property values affected
+
+### Resale Implications
+- Fire-hardened homes sell better
+- Insurance transfers important
+- Fire history matters
+- Documentation helps
+
+---
+
+*Evaluating property in fire country? [Perchspot analysis](/chat) includes climate risk assessment for informed decisions.*
+    `,
+  },
+  {
+    id: 'modular-manufactured-homes',
+    title: 'Modular vs Manufactured Homes: A Buyer\'s Complete Guide',
+    category: 'Guide',
+    date: '2025-02-08',
+    readTime: '10 min read',
+    metaDescription: 'Understand the differences between modular, manufactured, and mobile homes. Learn about financing, appreciation, quality, and what buyers should know.',
+    content: `
+# Modular vs Manufactured Homes: A Buyer's Complete Guide
+
+Factory-built homes offer affordability but come with unique considerations. Understanding the distinctions is crucial for informed buying.
+
+## Definitions Matter
+
+### Manufactured Homes (Post-1976)
+- Built to HUD code (federal)
+- Constructed entirely in factory
+- Transported on permanent chassis
+- Must display HUD certification label
+- Formerly called "mobile homes"
+
+### Mobile Homes (Pre-1976)
+- Built before HUD standards
+- Lower construction standards
+- Difficult to finance
+- Often not mortgageable
+- **Generally avoid for purchase**
+
+### Modular Homes
+- Built to local/state building codes
+- Assembled in factory, joined on site
+- Permanent foundation required
+- Legally same as site-built
+- **Best appreciation potential**
+
+## Key Differences
+
+| Factor | Manufactured | Modular |
+|--------|--------------|---------|
+| Building code | HUD federal | State/local |
+| Foundation | Various | Permanent required |
+| Financing | Specialized | Conventional OK |
+| Appreciation | Historically lower | Similar to site-built |
+| Classification | Personal property or real | Real property |
+| Quality range | Variable | Typically higher |
+
+## Financing Challenges
+
+### Manufactured Homes
+**Chattel loans** (personal property):
+- Higher interest rates (+2-4%)
+- Shorter terms (15-20 years)
+- Larger down payments
+
+**Traditional mortgages** (if titled as real property):
+- Home must be on owned land
+- Permanent foundation required
+- Certain age requirements
+- Limited lender options
+
+### Modular Homes
+- Conventional financing available
+- Same rates as site-built
+- Standard mortgage terms
+- More lender options
+
+### FHA Requirements for Manufactured
+- Must be primary residence
+- Post-1976 (HUD code)
+- Permanent foundation
+- 400+ square feet
+- Minimum width requirements
+
+## Foundation Types
+
+### Manufactured Home Foundations
+| Type | Permanence | Financing Impact |
+|------|------------|------------------|
+| Pier and beam | Non-permanent | Chattel only |
+| Runners/blocks | Non-permanent | Chattel only |
+| Concrete slab | Permanent | Mortgage possible |
+| Basement | Permanent | Mortgage possible |
+
+### Why Foundation Matters
+- Real property vs personal property
+- Tax implications
+- Financing options
+- Resale value
+- Insurance costs
+
+## Land Ownership
+
+### Home on Owned Land
+- Better financing options
+- Property taxes on land + home
+- More control
+- Better appreciation
+
+### Home in Community/Park
+- Lot rent ($300-800+/month)
+- Less control
+- Community rules
+- Risk of rent increases
+- Harder to finance
+- Exit challenges
+
+### Community Questions
+1. What is lot rent?
+2. Rent increase history?
+3. What's included in rent?
+4. Can you sell home in place?
+5. Who owns the land?
+6. Any purchase options?
+
+## Quality Assessment
+
+### Manufactured Home Inspection
+- HUD labels present?
+- Transportation damage?
+- Foundation condition?
+- Marriage line (multi-section)?
+- Weatherization adequate?
+
+### Modular Home Inspection
+- Foundation connection?
+- Module joining quality?
+- Same as site-built inspection
+- Check building permits
+
+### Red Flags
+- Missing HUD labels
+- Pre-1976 construction
+- Severe transportation damage
+- Foundation settling
+- Water damage history
+- Non-permitted modifications
+
+## Appreciation Realities
+
+### Manufactured Homes
+- **On rented land**: Often depreciate like cars
+- **On owned land, permanent foundation**: May appreciate slowly
+- **Location dependent**: Market matters more than home type
+
+### Modular Homes
+- Generally appreciate like site-built
+- Location is primary factor
+- Quality builds hold value
+
+### What Affects Value
+1. Land ownership
+2. Foundation type
+3. Location/market
+4. Home condition
+5. Age and quality
+6. Improvements made
+
+## Insurance Considerations
+
+### Manufactured Home Insurance
+- Specialized policies needed
+- Mobile home insurance
+- May cost more than stick-built
+- Coverage may be limited
+
+### What to Verify
+- Replacement cost coverage
+- Wind/storm coverage
+- Foundation coverage
+- Additional structures
+- Personal property
+
+## Title and Taxes
+
+### Personal Property Title
+- Certificate of title (like car)
+- Personal property taxes
+- Limited financing
+- Easy to lose
+
+### Real Property Title
+- Recorded deed
+- Property taxes
+- Standard mortgage
+- Preferred status
+
+### Converting Title
+**To make manufactured home real property**:
+1. Permanent foundation
+2. Land ownership
+3. Retire vehicle title
+4. Record deed
+5. State-specific process
+
+## Buying in a Community
+
+### Pros
+- Lower entry cost (no land)
+- Amenities often included
+- Community atmosphere
+- Maintenance sometimes included
+
+### Cons
+- No land equity
+- Lot rent increases
+- Rules and restrictions
+- Resale challenges
+- Moving costs if you must leave
+
+### Critical Questions
+1. Who owns the community?
+2. Rent control in area?
+3. Community sale risk?
+4. What happens if you can't sell?
+
+## Inspection Priorities
+
+### Manufactured-Specific
+- [ ] HUD certification labels (2 required)
+- [ ] Foundation type and condition
+- [ ] Marriage line seal (double-wide)
+- [ ] Axles removed or in place?
+- [ ] Skirting condition
+- [ ] Tie-down system
+
+### General Quality
+- [ ] Roof condition
+- [ ] HVAC system
+- [ ] Plumbing
+- [ ] Electrical
+- [ ] Windows and doors
+- [ ] Floor condition
+
+## Negotiation Tips
+
+### Leverage Points
+- Foundation issues
+- Age considerations
+- Park vs owned land
+- Financing limitations
+- Comparable sales
+
+### What to Request
+- All HUD documentation
+- Title/deed records
+- Foundation engineering report
+- Repair history
+- Lot rent history (if applicable)
+
+## Exit Strategy
+
+### On Owned Land
+- Sell home and land together
+- Standard real estate transaction
+- Reasonable resale potential
+
+### In Community
+- Sell home in place (buyer must be approved)
+- Move home (expensive: $5,000-15,000+)
+- Abandon (worst case)
+- Limited buyer pool
+
+---
+
+*Considering factory-built housing? [Get Perchspot analysis](/chat) to understand the full value proposition of any property.*
+    `,
+  },
+  {
+    id: 'co-buying-home-guide',
+    title: 'Co-Buying a Home: Guide to Buying with Friends or Family',
+    category: 'Guide',
+    date: '2025-02-07',
+    readTime: '9 min read',
+    metaDescription: 'How to successfully buy a home with friends, family, or partners. Legal structures, financing, agreements, and exit strategies for co-buyers.',
+    content: `
+# Co-Buying a Home: Guide to Buying with Friends or Family
+
+With rising home prices, co-buying has become increasingly common. Done right, it can be a path to homeownership. Done wrong, it can damage relationships and finances.
+
+## Who Co-Buys?
+
+### Common Arrangements
+- Unmarried romantic partners
+- Friends pooling resources
+- Adult children with parents
+- Siblings together
+- Investment partners
+
+### Motivations
+- Afford better location
+- Share housing costs
+- Build equity together
+- Investment strategy
+
+## Legal Ownership Structures
+
+### Joint Tenancy
+- Equal ownership shares
+- Right of survivorship
+- All parties on title equally
+- If one dies, share goes to other(s)
+- **Common for couples**
+
+### Tenants in Common
+- Unequal shares possible
+- No right of survivorship
+- Can sell/will your share independently
+- Each owns specified percentage
+- **Best for friends/investors**
+
+### LLC Ownership
+- Property in LLC name
+- Operating agreement governs
+- Liability protection
+- More complex setup
+- **Best for investment focus**
+
+## Financing Considerations
+
+### All Borrowers on Mortgage
+- All credit scores matter
+- All incomes counted
+- All debts counted
+- Loan in all names
+
+### One Person as Borrower
+- Only their credit/income
+- Others as title holders only
+- Contribution documented separately
+- Simpler qualification
+
+### Credit Score Impact
+| Scenario | Effect |
+|----------|--------|
+| All high scores | Best rates |
+| One low score | Affects rate |
+| All low scores | May not qualify |
+
+### Debt-to-Income
+- Combined for all borrowers
+- Each person's debts count
+- Student loans matter
+- Can help or hurt
+
+## The Co-Ownership Agreement
+
+### Essential Elements
+1. **Ownership percentages**
+2. **Financial contributions**
+   - Down payment shares
+   - Monthly payment allocation
+   - Maintenance/repairs split
+   - Major expense thresholds
+
+3. **Decision making**
+   - What requires unanimous consent
+   - Day-to-day decisions
+   - Improvement decisions
+   - Dispute resolution
+
+4. **Exit terms**
+   - Buy-out process
+   - Right of first refusal
+   - Valuation method
+   - Timeline requirements
+   - What triggers exit rights
+
+5. **Occupancy rules**
+   - Who lives there
+   - Guest policies
+   - Rental rights
+   - Moving out process
+
+### Get It In Writing
+- Hire attorney experienced in co-ownership
+- Cost: $1,000-3,000
+- Worth every penny
+- Sign before closing
+
+## Money Management
+
+### Joint Account Approach
+- Shared account for housing costs
+- Each contributes monthly
+- Pays mortgage, insurance, taxes
+- Transparent for all
+
+### Contribution Tracking
+Document everything:
+- Down payment amounts
+- Monthly contributions
+- Capital improvements
+- Maintenance costs
+
+### Unequal Contributions
+If one pays more:
+- Ownership percentage reflects this
+- Or loan arrangement between parties
+- Or equity adjustment at sale
+
+## Common Scenarios
+
+### Scenario 1: Friends Buying Together
+**Setup**: 50/50 ownership, equal contributions
+**Agreement focuses on**: Exit timing, guest policies, maintenance
+**Risk**: Lifestyle changes, relationship strain
+
+### Scenario 2: Parent Helping Child
+**Setup**: Parent provides down payment, child pays mortgage
+**Agreement focuses on**: Equity split, parent exit, inheritance
+**Risk**: Family dynamics, tax implications
+
+### Scenario 3: Unmarried Partners
+**Setup**: Joint tenancy or tenants in common
+**Agreement focuses on**: Breakup scenario, buyout terms
+**Risk**: Relationship ending without protection
+
+### Scenario 4: Siblings Inheriting/Buying
+**Setup**: Often unequal shares based on contribution
+**Agreement focuses on**: One sibling occupying, others investing
+**Risk**: Family conflict, unequal use
+
+## Exit Strategies
+
+### Amicable Sale
+1. List property together
+2. Split proceeds per agreement
+3. Pay off mortgage
+4. Divide remainder
+
+### Buyout
+1. Agree on valuation method
+2. Departing party sets price or gets appraisal
+3. Remaining party pays out equity
+4. Refinance to remove from mortgage
+
+### Forced Sale
+- Last resort
+- Partition action (court-ordered sale)
+- Expensive and contentious
+- Avoid if possible
+
+### Valuation Methods
+| Method | Description |
+|--------|-------------|
+| Appraisal | Professional third-party |
+| CMA | Agent comparative analysis |
+| Agreed formula | Based on purchase price + appreciation |
+| Multiple appraisals | Average of 2-3 |
+
+## Common Problems
+
+### Financial Disputes
+- One can't pay their share
+- Disagreement on expenses
+- Unequal contribution to improvements
+- **Solution**: Clear agreement, reserves
+
+### Lifestyle Conflicts
+- Cleanliness standards
+- Noise/guests
+- Pet issues
+- **Solution**: House rules in agreement
+
+### Life Changes
+- Job relocation
+- Marriage
+- Children
+- Financial changes
+- **Solution**: Exit provisions
+
+### One Wants Out
+- Other can't afford buyout
+- Can't agree on timing
+- Market conditions unfavorable
+- **Solution**: Pre-agreed timeline, ROFR
+
+## Tax Considerations
+
+### Mortgage Interest Deduction
+- Split based on payment (if itemizing)
+- Only mortgage holder can deduct
+- Consult tax professional
+
+### Property Tax Deduction
+- Split proportionally
+- SALT cap affects this
+
+### Capital Gains Exclusion
+- $250K single, $500K married
+- Must be primary residence
+- Each owner calculates separately
+- Co-owners each get $250K if qualifying
+
+### Gift Tax (Unequal Contributions)
+- Large gifts may trigger reporting
+- Annual exclusion: $18K/person (2025)
+- Document loans vs gifts
+
+## Before You Commit
+
+### Questions to Discuss
+1. What's your timeline for ownership?
+2. What if one of us gets married/has kids?
+3. How do we handle disagreements?
+4. What if someone loses their job?
+5. What's our exit strategy?
+
+### Red Flags
+- Can't discuss money openly
+- Different timelines
+- Unequal financial stability
+- Avoiding written agreements
+- History of conflict
+
+### Professional Help
+- Real estate attorney (required)
+- CPA for tax planning
+- Financial advisor
+- Real estate agent familiar with co-buying
+
+---
+
+*Exploring co-buying options? [Perchspot analysis](/chat) helps evaluate properties for any ownership arrangement.*
+    `,
+  },
+  {
+    id: 'curb-appeal-matters',
+    title: 'Curb Appeal: Why First Impressions Matter When Buying',
+    category: 'Tips',
+    date: '2025-02-06',
+    readTime: '7 min read',
+    metaDescription: 'How to evaluate curb appeal when buying a home. What exterior conditions reveal about property maintenance and what updates add value.',
+    content: `
+# Curb Appeal: Why First Impressions Matter When Buying
+
+What you see from the street tells you a lot about a property's history and maintenance. Here's how to read curb appeal as a buyer.
+
+## What Curb Appeal Reveals
+
+### Well-Maintained Exterior Suggests
+- Pride of ownership
+- Regular maintenance schedule
+- Likely better interior condition
+- Systems probably serviced
+- Fewer deferred maintenance surprises
+
+### Neglected Exterior Warns
+- Deferred maintenance throughout
+- Potential hidden problems
+- Seller may have financial constraints
+- Expect more inspection issues
+- Budget for updates
+
+## Exterior Elements to Evaluate
+
+### Roof Visible Condition
+| Sign | Indication |
+|------|------------|
+| Missing/damaged shingles | Age or storm damage |
+| Sagging | Structural concern |
+| Moss/algae | Moisture, age |
+| Multiple layers visible | Previous cover-over |
+| Clean, uniform | Well-maintained |
+
+### Siding Assessment
+- Paint peeling: Water intrusion, age
+- Cracks: Settlement, impact damage
+- Gaps: Sealing issues, pests
+- Stains: Water problems, mold
+- Fading: Age, but cosmetic only
+
+### Windows
+- Fogging between panes: Seal failure
+- Rotted frames: Water damage
+- Painted shut: May not function
+- Mismatched: Partial replacement
+
+### Landscaping Condition
+- Overgrown: Neglect, maintenance burden
+- Dead plants: Water issues, neglect
+- Trees touching house: Damage risk
+- Drainage problems visible: Foundation concerns
+
+## Red Flags from the Street
+
+### Immediate Concerns
+- Foundation cracks visible
+- Leaning structures (chimney, porch)
+- Roof sagging or damage
+- Standing water/drainage issues
+- Heavily patched/mismatched repairs
+
+### Deferred Maintenance Signs
+- Peeling paint everywhere
+- Overgrown landscaping
+- Broken fixtures
+- Driveway/walkway deterioration
+- Fence in poor condition
+
+### DIY Repairs Gone Wrong
+- Mismatched materials
+- Uneven work
+- Obvious patches
+- Non-standard solutions
+
+## What Updates Cost
+
+### High-Impact, Lower Cost
+| Update | Cost | Impact |
+|--------|------|--------|
+| Fresh exterior paint | $3,000-8,000 | Dramatic |
+| New front door | $500-2,000 | Notable |
+| Updated house numbers | $50-200 | Small but noticeable |
+| New mailbox | $50-300 | Detail |
+| Landscape refresh | $500-2,000 | Significant |
+| Power washing | $200-500 | Instant refresh |
+
+### Moderate Investment
+| Update | Cost | Impact |
+|--------|------|--------|
+| New garage door | $1,500-4,000 | Excellent ROI |
+| New shutters | $500-1,500 | Character |
+| Exterior lighting | $500-1,500 | Safety + appeal |
+| Walkway repair | $500-2,000 | First steps matter |
+| New gutters | $1,000-3,000 | Function + looks |
+
+### Major Improvements
+| Update | Cost | Impact |
+|--------|------|--------|
+| New roof | $8,000-25,000 | Complete transformation |
+| New siding | $10,000-30,000 | Total update |
+| New windows | $500-1,000 each | Modern look |
+| New driveway | $3,000-10,000 | Major refresh |
+
+## Garage Door: Hidden Value
+
+### Why It Matters
+- Large visual element
+- First thing you see
+- Dated door ages home
+- New door: 93%+ ROI
+
+### Upgrade Signs
+- Outdated style
+- Rust/damage
+- Difficult operation
+- Poor insulation
+
+## Landscaping Assessment
+
+### Low Maintenance Indicators
+- Native plants
+- Drip irrigation
+- Mulched beds
+- Appropriate plant size
+- Hardscape elements
+
+### High Maintenance Signs
+- Large lawn areas
+- Exotic plants
+- Complex irrigation
+- Mature trees near house
+- Steep slopes
+
+### Cost Expectations
+| Landscaping Type | Typical Annual Maintenance |
+|------------------|---------------------------|
+| Low maintenance | $500-1,500 |
+| Medium | $1,500-4,000 |
+| High maintenance | $4,000-10,000+ |
+
+## Driveway and Walkways
+
+### Condition Indicators
+| Material | Lifespan | Signs of Wear |
+|----------|----------|---------------|
+| Concrete | 30-50 years | Cracks, staining |
+| Asphalt | 15-25 years | Cracks, soft spots |
+| Pavers | 25-50 years | Shifting, weeds |
+| Gravel | Ongoing | Bare spots, spreading |
+
+### Repair vs. Replace
+- Small cracks: Seal and maintain
+- Large cracks: May need replacement
+- Significant damage: Full replacement
+- Grading issues: Drainage fix first
+
+## Fencing
+
+### What to Check
+- Structural integrity
+- Leaning or rot
+- Gate function
+- Shared fence responsibility
+- HOA compliance
+
+### Replacement Costs
+| Type | Per Linear Foot |
+|------|-----------------|
+| Wood privacy | $15-35 |
+| Chain link | $10-20 |
+| Vinyl | $20-40 |
+| Iron/aluminum | $25-60 |
+
+## Using Curb Appeal in Negotiations
+
+### Poor Curb Appeal = Opportunity
+- Negotiate price reduction
+- Request repairs before closing
+- Credit for updates
+- May deter other buyers
+
+### Don't Overpay for Curb Appeal
+- Landscaping can be changed
+- Paint is affordable
+- Cosmetics shouldn't justify premium
+- Focus on structure, not flowers
+
+## Seasonal Considerations
+
+### Spring/Summer Viewing
+- Landscaping at best
+- Roof issues may hide
+- Everything looks better
+- HVAC not fully tested
+
+### Fall/Winter Viewing
+- Deciduous trees bare
+- See structure clearly
+- Drainage issues visible
+- Heating system tested
+
+---
+
+*Looking beyond curb appeal? [Perchspot analysis](/chat) evaluates property condition, not just first impressions.*
+    `,
+  },
+  {
+    id: 'building-permits-guide',
+    title: 'Building Permits: What Home Buyers Should Know',
+    category: 'Education',
+    date: '2025-02-05',
+    readTime: '8 min read',
+    metaDescription: 'Understanding building permits when buying a home. What to check, red flags for unpermitted work, and how permit history affects your purchase.',
+    content: `
+# Building Permits: What Home Buyers Should Know
+
+Permit history can reveal a lot about a property—and unpermitted work can create major problems for buyers. Here's what you need to know.
+
+## Why Permits Matter
+
+### Purpose of Permits
+- Ensure code compliance
+- Safety verification
+- Inspected by professionals
+- Legal documentation
+- Insurance requirements
+
+### What Requires Permits
+| Work Type | Permit Required? |
+|-----------|-----------------|
+| New construction | Yes |
+| Additions | Yes |
+| Electrical (major) | Yes |
+| Plumbing (major) | Yes |
+| HVAC systems | Yes |
+| Water heater | Usually yes |
+| Structural changes | Yes |
+| New windows/doors | Often yes |
+| Roofing | Often yes |
+| Decks/patios | Usually yes |
+| Fencing | Sometimes |
+| Painting | No |
+| Flooring | No |
+| Minor repairs | No |
+
+## Finding Permit History
+
+### Where to Look
+1. **City/county building department**
+2. **Online permit portals**
+3. **Title company**
+4. **Seller disclosures**
+5. **Home inspection notes**
+
+### What Records Show
+- Permit type and scope
+- Approval date
+- Inspection status
+- Final sign-off (or lack thereof)
+- Contractor information
+
+## Red Flags: Unpermitted Work
+
+### Warning Signs
+- Square footage doesn't match records
+- Extra bathroom not in records
+- Converted garage living space
+- Basement finished with no permit
+- ADU with no documentation
+- Recent remodel, no permits pulled
+- Seller says "previous owner did it"
+
+### Why It's a Problem
+1. **Safety risk**: Work may not be code-compliant
+2. **Insurance issues**: Claims may be denied
+3. **Resale problems**: Future buyers will ask
+4. **Legal liability**: You inherit the problem
+5. **Financing issues**: Lenders may balk
+6. **Tax implications**: Unpermitted space may not count
+
+## Common Unpermitted Work
+
+### Most Frequently Skipped
+1. Bathroom additions
+2. Garage conversions
+3. Kitchen remodels (electrical/plumbing)
+4. Deck additions
+5. Basement finishing
+6. ADU/guest houses
+7. Hot tub electrical
+8. Major electrical upgrades
+
+### Lower Risk (But Still Matters)
+- Minor electrical (outlet addition)
+- Water heater replacement
+- Fence installation
+- Minor plumbing
+
+## What to Do About Unpermitted Work
+
+### Option 1: Require Seller to Permit
+- Before closing
+- Seller's responsibility
+- May delay closing
+- Ensures compliance
+
+### Option 2: Negotiate Price
+- Get reduction for:
+  - Cost to permit retroactively
+  - Cost to bring to code
+  - Risk premium
+- Document the adjustment
+
+### Option 3: Permit After Purchase
+- File for permit yourself
+- Risk: May fail inspection
+- Risk: Required to remove work
+- Risk: Expensive to remedy
+
+### Option 4: Accept As-Is
+- Lowest protection
+- Assume all risk
+- May be appropriate for minor work
+- Document in writing
+
+## Retroactive Permitting
+
+### The Process
+1. Apply for permit
+2. Inspector visits
+3. Work evaluated against code
+4. Pass: Permit issued
+5. Fail: Remediation required
+
+### Cost Factors
+| Factor | Impact |
+|--------|--------|
+| Scope of work | Larger = more cost |
+| Code violations | Must fix |
+| Hidden components | May need to expose |
+| Penalties | Some jurisdictions charge extra |
+
+### Typical Costs
+| Scenario | Estimated Cost |
+|----------|----------------|
+| Simple electrical permit | $100-300 |
+| Bathroom retrofit permit | $500-2,000 |
+| Full unpermitted addition | $5,000-20,000+ |
+| Major remediation | $10,000-50,000+ |
+
+## Impact on Financing
+
+### Lender Concerns
+- Appraisal may not count unpermitted space
+- Safety issues may flag
+- Insurance requirements
+- Some loans (FHA/VA) more strict
+
+### Appraisal Issues
+- Unpermitted additions often excluded
+- Affects loan-to-value ratio
+- May need price adjustment
+- "As-is" condition noted
+
+## Insurance Implications
+
+### Potential Problems
+- Claims for unpermitted work denied
+- Fire in unpermitted electrical: No coverage
+- Injury in unpermitted space: Liability unclear
+- Must disclose to insurer
+
+### What to Do
+- Disclose unpermitted work to insurer
+- Ask about coverage implications
+- Get written confirmation
+- Consider retroactive permitting
+
+## Due Diligence Steps
+
+### Before Making Offer
+1. Pull permit records online
+2. Compare to listing description
+3. Note any discrepancies
+4. Check public records for square footage
+
+### During Inspection
+1. Ask inspector about apparent work
+2. Note work quality
+3. Identify potential unpermitted areas
+4. Request seller explanation
+
+### In Negotiations
+1. Request permit documentation
+2. Ask for seller disclosure
+3. Negotiate based on findings
+4. Include contingencies if needed
+
+## Questions to Ask Seller
+
+1. What work has been done on the property?
+2. Was all work permitted and inspected?
+3. Do you have permit documentation?
+4. Who performed the work?
+5. Any DIY projects?
+6. Has square footage changed?
+
+## When to Walk Away
+
+### Serious Concerns
+- Major structural unpermitted work
+- Electrical with obvious hazards
+- ADU with no legal standing
+- Seller refuses to address
+- Lender won't finance
+- Insurance unavailable
+
+### Manageable Situations
+- Minor unpermitted updates
+- Seller willing to retroactively permit
+- Price adjusted appropriately
+- Easy path to compliance
+
+---
+
+*Researching a property's history? [Perchspot analysis](/chat) helps you understand what you're really buying.*
+    `,
+  },
+  {
+    id: 'moving-logistics-planning',
+    title: 'Moving Day Planning: Logistics Guide for New Homeowners',
+    category: 'Tips',
+    date: '2025-02-04',
+    readTime: '8 min read',
+    metaDescription: 'Complete guide to planning your move into a new home. Timelines, cost estimates, packing strategies, and moving day logistics.',
+    content: `
+# Moving Day Planning: Logistics Guide for New Homeowners
+
+You've closed on your home—now you need to actually move in. Here's how to plan a smooth transition.
+
+## Moving Timeline
+
+### 8 Weeks Before
+- [ ] Get moving quotes (3+ companies)
+- [ ] Book movers or reserve truck
+- [ ] Start decluttering
+- [ ] Use up freezer food
+- [ ] Research schools (if applicable)
+
+### 6 Weeks Before
+- [ ] Begin packing non-essentials
+- [ ] Gather supplies (boxes, tape, bubble wrap)
+- [ ] Notify employer if needed
+- [ ] Research new service providers
+
+### 4 Weeks Before
+- [ ] Notify current landlord (if renting)
+- [ ] Schedule utility transfers
+- [ ] File change of address (USPS)
+- [ ] Update important accounts
+
+### 2 Weeks Before
+- [ ] Confirm moving company
+- [ ] Pack room by room
+- [ ] Deep clean current home
+- [ ] Arrange pet/child care for moving day
+
+### 1 Week Before
+- [ ] Pack essentials bag
+- [ ] Defrost freezer
+- [ ] Finalize utility setup at new home
+- [ ] Confirm all reservations
+
+### Moving Day
+- [ ] Final walkthrough old home
+- [ ] Meet movers
+- [ ] Document any damage
+- [ ] Hand over old keys
+
+## Cost Estimates
+
+### Full-Service Movers
+| Distance | 2BR Estimate | 4BR Estimate |
+|----------|--------------|--------------|
+| Local (under 100 mi) | $800-2,000 | $1,500-4,000 |
+| Regional (100-500 mi) | $2,000-4,000 | $4,000-7,000 |
+| Cross-country | $4,000-8,000 | $8,000-15,000+ |
+
+### DIY Moving
+| Item | Cost |
+|------|------|
+| Truck rental (local) | $50-200/day |
+| Truck rental (long-distance) | $500-2,000 |
+| Moving container | $200-500/month |
+| Fuel | $50-500+ |
+| Moving help (hourly) | $50-80/hour per mover |
+
+### Additional Costs
+- Packing supplies: $50-300
+- Insurance: $50-200
+- Storage (if needed): $100-300/month
+- Specialty items (piano, etc.): $150-500+
+
+## Choosing a Moving Company
+
+### What to Look For
+- Licensed and insured
+- Good online reviews
+- In-home estimates offered
+- Clear pricing (no surprises)
+- Years in business
+
+### Red Flags
+- No physical address
+- Cash-only payment
+- No written estimate
+- Much cheaper than others
+- Demands large deposit
+
+### Questions to Ask
+1. What's included in the quote?
+2. What's your insurance coverage?
+3. How do you handle damage claims?
+4. What's your cancellation policy?
+5. Will the same crew load and unload?
+
+## Packing Strategies
+
+### Room-by-Room Method
+1. Start with least-used rooms
+2. Label every box with room + contents
+3. Number boxes for inventory
+4. Pack heavy items in small boxes
+5. Books: Horizontal, not vertical
+
+### What to Pack Last
+- Daily-use kitchen items
+- Toiletries and medications
+- Phone chargers
+- Cleaning supplies
+- Essential documents
+- First-night bedding
+
+### Essential Moving Day Box
+Keep accessible:
+- Toilet paper
+- Paper towels
+- Trash bags
+- Basic tools
+- Snacks and water
+- Phone chargers
+- Medications
+- Important documents
+- Cash for tips
+
+## Utility Transfers
+
+### Disconnect at Old Address
+Schedule disconnection for day AFTER move (need lights, water).
+
+### Connect at New Address
+Set up 1-2 days BEFORE closing if allowed.
+
+### Services to Transfer
+| Service | Lead Time |
+|---------|-----------|
+| Electricity | 3-5 days |
+| Gas | 3-5 days |
+| Water | 3-5 days |
+| Internet | 1-2 weeks |
+| Trash/recycling | Automatic (often) |
+| Security system | 2 weeks |
+
+### Keep Records
+- Account numbers
+- Final readings
+- Confirmation numbers
+- Service dates
+
+## Change of Address Checklist
+
+### Official
+- [ ] USPS (forward mail)
+- [ ] Voter registration
+- [ ] DMV (driver's license, registration)
+- [ ] IRS (update when filing)
+- [ ] Passport (no update needed)
+
+### Financial
+- [ ] Banks and credit unions
+- [ ] Credit cards
+- [ ] Investment accounts
+- [ ] Insurance (all types)
+- [ ] Employer payroll
+
+### Services
+- [ ] Healthcare providers
+- [ ] Prescriptions/pharmacy
+- [ ] Subscriptions/deliveries
+- [ ] Gym/memberships
+- [ ] Professional licenses
+
+### Personal
+- [ ] Family and friends
+- [ ] Schools
+- [ ] Veterans Affairs
+- [ ] Social Security
+- [ ] Attorneys/accountants
+
+## Moving Day Tips
+
+### For Movers
+- Clear pathways
+- Reserve parking/elevator
+- Protect floors
+- Stay accessible for questions
+- Provide refreshments
+- Tip: $20-50 per mover
+
+### If DIY
+- Start early
+- Load heavy items first (floor of truck)
+- Strap furniture securely
+- Keep loading even pace
+- Take breaks
+- Have helpers ready at both ends
+
+### Protecting Your Home
+- Lay cardboard on floors
+- Pad door frames
+- Remove door stops (wider opening)
+- Cover carpeted areas
+
+## First Night Essentials
+
+### Bedroom Kit
+- Bedding
+- Pillows
+- Pajamas
+- Alarm clock
+- Phone charger
+
+### Bathroom Kit
+- Toilet paper
+- Towels
+- Soap
+- Toothbrush/toothpaste
+- Shower curtain
+
+### Kitchen Kit
+- Paper plates/cups
+- Plastic utensils
+- Paper towels
+- Trash bags
+- Coffee/tea essentials
+- Snacks
+
+### Tools
+- Screwdriver set
+- Hammer
+- Tape measure
+- Box cutter
+- Flashlight
+
+## Post-Move Tasks
+
+### Day 1-3
+- Test all utilities
+- Check all windows/doors lock
+- Locate main water shutoff
+- Find electrical panel
+- Meet neighbors
+
+### Week 1
+- Unpack essentials
+- Set up internet
+- Update driver's license
+- Register to vote
+- Find new doctors/dentists
+
+### Month 1
+- Complete unpacking
+- Handle any move damage claims
+- Home maintenance intro
+- Emergency contact list
+- Get to know neighborhood
+
+---
+
+*Just bought a home? [Use Perchspot](/chat) to understand your new property and what to prioritize after move-in.*
+    `,
+  },
+  {
+    id: 'homeowners-insurance-guide',
+    title: 'Homeowners Insurance Deep Dive: Coverage You Need',
+    category: 'Education',
+    date: '2025-02-03',
+    readTime: '10 min read',
+    metaDescription: 'Complete guide to homeowners insurance. Understand coverage types, policy limits, what\'s excluded, and how to choose the right protection for your home.',
+    content: `
+# Homeowners Insurance Deep Dive: Coverage You Need
+
+Homeowners insurance is required for mortgages, but understanding your coverage goes beyond checking a box.
+
+## Coverage Types (HO-3 Policy)
+
+### Coverage A: Dwelling
+- Structure of your home
+- Attached structures (garage)
+- Built-in appliances
+- Permanent fixtures
+
+**Coverage amount**: Replacement cost, NOT market value
+
+### Coverage B: Other Structures
+- Detached garage
+- Shed
+- Fence
+- Pool
+- Guest house (if not for rent)
+
+**Typical limit**: 10% of dwelling coverage
+
+### Coverage C: Personal Property
+- Furniture
+- Clothing
+- Electronics
+- Appliances (not built-in)
+
+**Typical limit**: 50-70% of dwelling coverage
+
+### Coverage D: Loss of Use
+- Hotel costs if displaced
+- Restaurant meals
+- Additional expenses
+- Temporary housing
+
+**Typical limit**: 20-30% of dwelling coverage
+
+### Coverage E: Personal Liability
+- If someone is injured on property
+- Legal defense costs
+- Medical payments
+- Damage you cause to others
+
+**Common limits**: $100,000-500,000
+
+### Coverage F: Medical Payments
+- Minor injuries to guests
+- No lawsuit needed
+- Quick resolution
+
+**Typical limit**: $1,000-5,000
+
+## What's NOT Covered
+
+### Common Exclusions
+| Hazard | Covered? |
+|--------|----------|
+| Fire | Yes |
+| Wind/hail | Yes |
+| Theft | Yes |
+| Water damage (sudden) | Usually |
+| Flood | No - separate policy |
+| Earthquake | No - separate policy |
+| Mold (some situations) | Often excluded |
+| Sewer backup | Optional add-on |
+| Normal wear and tear | No |
+| Neglect | No |
+| Intentional damage | No |
+| Business activities | No |
+
+### Personal Property Limits
+| Item Category | Typical Limit |
+|---------------|---------------|
+| Jewelry | $1,500-2,000 |
+| Silverware | $2,500 |
+| Guns | $2,500 |
+| Cash | $200 |
+| Electronics | $1,500 |
+| Art/antiques | $2,500 |
+
+**Solution**: Schedule valuable items separately
+
+## Actual Cash Value vs. Replacement Cost
+
+### Actual Cash Value (ACV)
+- Depreciation included
+- 10-year-old roof = 10 years of depreciation
+- Lower premiums
+- Less payout
+
+### Replacement Cost
+- Costs to replace at today's prices
+- No depreciation
+- Higher premiums
+- Better protection
+
+### Extended Replacement Cost
+- 20-50% above dwelling limit
+- Covers construction cost spikes
+- Best protection
+- Worth the extra premium
+
+## Choosing Coverage Limits
+
+### Dwelling (Coverage A)
+**Calculate replacement cost**:
+- Local construction costs per square foot
+- NOT based on purchase price
+- NOT based on market value
+- Consider upgrades and features
+
+**Example**:
+- 2,000 sq ft × $200/sq ft = $400,000 replacement
+- Market value might be $800,000 (includes land)
+
+### Personal Property
+1. Create home inventory
+2. Estimate replacement costs
+3. Standard 50-70% usually sufficient
+4. High-value items need scheduling
+
+### Liability
+- $100,000 is minimum
+- $300,000 is better
+- $500,000+ if high net worth
+- Consider umbrella policy for more
+
+## Deductibles
+
+### Standard Options
+| Deductible | Premium Impact |
+|------------|----------------|
+| $500 | Highest premium |
+| $1,000 | Standard |
+| $2,500 | Lower premium |
+| $5,000 | Lowest premium |
+
+### Percentage Deductibles
+- Common for wind/hail
+- 1-5% of dwelling coverage
+- Example: 2% on $400K = $8,000 deductible
+
+### What to Choose
+- Higher if you can afford out-of-pocket
+- Lower if you want more claims protection
+- Consider claim frequency risk
+
+## Shopping for Insurance
+
+### Get Multiple Quotes
+- At least 3 companies
+- Same coverage levels for comparison
+- Check independent agents
+
+### Discount Opportunities
+| Discount | Typical Savings |
+|----------|-----------------|
+| Bundling (auto + home) | 10-25% |
+| Security system | 5-15% |
+| Smoke/CO detectors | 2-5% |
+| New home | 5-15% |
+| Loyal customer | 5-10% |
+| Claims-free | 5-15% |
+| Impact-resistant roof | 5-15% |
+
+### Questions to Ask
+1. What's the claims process?
+2. What's your AM Best rating?
+3. What endorsements are available?
+4. How do rate increases work?
+5. What causes non-renewal?
+
+## Claims Process
+
+### When to File
+**File for**:
+- Significant damage
+- Well above deductible
+- Theft or liability events
+
+**Think twice for**:
+- Minor damage near deductible
+- Small claims can raise rates
+- May affect insurability
+
+### Filing Steps
+1. Document damage immediately
+2. Prevent further damage
+3. Call insurance company
+4. Meet with adjuster
+5. Get repair estimates
+6. Negotiate settlement
+
+### Protect Yourself
+- Take photos/video before cleanup
+- Keep damaged items
+- Get multiple repair estimates
+- Keep all receipts
+- Know your policy details
+
+## Endorsements to Consider
+
+### Valuable Add-Ons
+| Endorsement | What It Covers |
+|-------------|----------------|
+| Scheduled property | Jewelry, art, collectibles |
+| Water backup | Sewer/drain backup |
+| Replacement cost contents | Personal property at replacement |
+| Ordinance/law | Code upgrade costs |
+| Home business | Business equipment/liability |
+| Identity theft | Recovery costs |
+| Equipment breakdown | HVAC, appliances |
+
+### Typical Costs
+- Water backup: $30-70/year
+- Scheduled jewelry: $15-25 per $1,000
+- Identity theft: $25-50/year
+- Equipment breakdown: $30-60/year
+
+## Annual Review
+
+### When to Update
+- After renovations
+- Large purchases
+- Lifestyle changes
+- Policy renewal
+- Every 2-3 years minimum
+
+### What to Check
+- Dwelling coverage adequate?
+- Deductible still appropriate?
+- Personal property limits correct?
+- Liability sufficient?
+- New endorsements needed?
+- Better rates available?
+
+## Red Flags: Dropping Coverage
+
+### Warning Signs You're Underinsured
+- Coverage hasn't increased in years
+- Minimum limits everywhere
+- No endorsements
+- Very low premium
+- Haven't reviewed in 5+ years
+
+---
+
+*Just bought a home? [Perchspot analysis](/chat) helps you understand what you're insuring.*
+    `,
+  },
+  {
+    id: 'bellingham-housing-2026',
+    title: 'Bellingham Housing Market 2026: Pacific Northwest College Town',
+    category: 'Local',
+    date: '2025-02-02',
+    readTime: '7 min read',
+    metaDescription: 'Bellingham WA housing market guide for 2026. Explore neighborhoods, home prices, Western Washington University impact, and outdoor lifestyle.',
+    content: `
+# Bellingham Housing Market 2026: Pacific Northwest College Town
+
+Located 90 miles north of Seattle near the Canadian border, Bellingham offers mountain access, coastal living, and college-town culture at more accessible prices.
+
+## Market Overview
+
+### Price Points (2026)
+| Home Type | Median Price |
+|-----------|--------------|
+| Single-family | $625,000 |
+| Condo | $425,000 |
+| Townhouse | $525,000 |
+
+### Market Dynamics
+- Moderate competition
+- Growing remote worker population
+- University influence
+- Limited inventory in desirable areas
+- More affordable than Seattle
+
+## Neighborhoods
+
+### Downtown Bellingham
+**Profile**: Urban core, walkable
+- Condos and historic homes
+- Restaurants and shops
+- Transit access
+- Younger demographic
+- Prices: $400K-800K
+
+### Fairhaven
+**Profile**: Historic village charm
+- Walkable to water
+- Boutiques and restaurants
+- Ferry to San Juan Islands
+- Higher price point
+- Prices: $600K-1.2M
+
+### South Hill
+**Profile**: Established family area
+- Good schools
+- Larger lots
+- Traditional homes
+- Tree-lined streets
+- Prices: $550K-900K
+
+### Sunnyland
+**Profile**: Artsy, near university
+- Older craftsman homes
+- Student-influenced
+- Community gardens
+- Walkable
+- Prices: $500K-750K
+
+### Samish
+**Profile**: Quiet residential
+- Near university
+- Mix of housing types
+- More affordable
+- Some view properties
+- Prices: $450K-700K
+
+### Sudden Valley
+**Profile**: Gated mountain community
+- Lake and golf access
+- Resort amenities
+- HOA required
+- Further from town (15 min)
+- Prices: $400K-800K
+
+## Lifestyle Factors
+
+### Outdoor Recreation
+- Mt. Baker (1 hour to skiing)
+- San Juan Island ferries
+- Whatcom Falls Park
+- Lake Whatcom
+- Pacific coast beaches
+- Hiking/biking trails
+
+### University Influence
+- Western Washington University (16,000 students)
+- Cultural events and arts
+- Student rental market
+- Employment base
+- Young demographic influence
+
+### Climate
+- Mild, wet winters
+- Warm summers
+- Less rain than Seattle
+- Snow in mountains
+- Outdoor lifestyle year-round
+
+## Employment and Economy
+
+### Major Employers
+- Western Washington University
+- PeaceHealth St. Joseph Medical Center
+- Bellingham School District
+- City/county government
+- Tech remote workers
+
+### Remote Work Impact
+- Growing significantly
+- Seattle refugees
+- Attracted to lifestyle
+- Driving price increases
+- More competition for homes
+
+## Commute Considerations
+
+### To Seattle
+- 90 miles south
+- 1.5-2 hours driving
+- Amtrak available (2.5 hours)
+- Not practical daily
+- Remote work essential
+
+### To Vancouver BC
+- 55 miles north
+- 1-1.5 hours (border time varies)
+- International considerations
+- Some cross-border work
+
+### Within Bellingham
+- 15-20 min anywhere in city
+- Bike-friendly
+- Transit available
+- Easy navigation
+
+## What Your Budget Gets
+
+### Under $450K
+- Condos downtown
+- Older homes needing work
+- Sudden Valley options
+- Outside city limits
+
+### $450K-600K
+- Starter single-family
+- Townhouses
+- Older homes in good condition
+- Some Samish/Sunnyland
+
+### $600K-800K
+- Nicer family homes
+- South Hill areas
+- Some waterfront access
+- Updated properties
+
+### $800K+
+- Fairhaven area
+- View properties
+- Waterfront
+- Large lots
+- Newer construction
+
+## Schools
+
+### Public Schools (Bellingham SD)
+- Generally well-rated
+- Smaller class sizes
+- Community focus
+- Good extracurriculars
+
+### Notable Schools
+- Sehome High School
+- Options High School
+- Various elementary choices
+
+### Private Options
+- Whatcom Day Academy
+- Assumption Catholic School
+- Various alternatives
+
+## Investment Potential
+
+### Rental Market
+- Strong student demand
+- Growing tourism
+- Airbnb active (with regulations)
+- Long-term rental shortage
+
+### Appreciation Outlook
+- Steady growth expected
+- Limited land supply
+- Remote work trend favorable
+- Quality of life drives demand
+
+### Considerations
+- University enrollment dependent
+- Remote work sustainability
+- Border dynamics
+- Climate migration factor
+
+## Challenges
+
+### Limited Inventory
+- Not much new construction
+- Geographic constraints
+- High demand
+- Competitive market
+
+### Weather
+- Darker winters
+- Rain frequent
+- Not for everyone
+- SAD common
+
+### Distance
+- Far from major city
+- Limited air service
+- Remote feel
+- Cultural limitations vs Seattle
+
+## Buying Tips
+
+### Best Strategy
+- Be prepared to act quickly
+- Flexible on neighborhoods
+- Consider fixer potential
+- Understand seasonal patterns
+
+### Good Times to Buy
+- Fall/winter: Less competition
+- After university year ends
+- When new listings post
+
+### Red Flags
+- Flooding history (Nooksack River)
+- Older homes: Inspect carefully
+- HOA fees in communities
+- Rental restrictions
+
+---
+
+*Exploring Bellingham? [Analyze properties with Perchspot](/chat) for data-driven insights on any listing.*
+    `,
+  },
+  {
+    id: 'spokane-housing-2026',
+    title: 'Spokane Housing Market 2026: Eastern Washington\'s Largest City',
+    category: 'Local',
+    date: '2025-02-01',
+    readTime: '7 min read',
+    metaDescription: 'Spokane WA housing market guide for 2026. Discover neighborhoods, pricing, outdoor recreation, and what Seattle transplants should know.',
+    content: `
+# Spokane Housing Market 2026: Eastern Washington's Largest City
+
+Spokane offers urban amenities at a fraction of Seattle prices, with four seasons, outdoor recreation, and a growing economy.
+
+## Market Overview
+
+### Price Points (2026)
+| Home Type | Median Price |
+|-----------|--------------|
+| Single-family | $425,000 |
+| Condo | $275,000 |
+| Townhouse | $350,000 |
+
+### Market Context
+- Significantly below Seattle prices
+- Growing from California/Seattle migration
+- Four distinct seasons
+- Lower cost of living overall
+- Expanding job market
+
+## Neighborhoods
+
+### South Hill
+**Profile**: Premier established area
+- Best schools in city
+- Larger homes, mature trees
+- Shopping and dining
+- Higher price point
+- Prices: $500K-1M+
+
+### Browne's Addition
+**Profile**: Historic walkable
+- Victorian architecture
+- Near downtown
+- Urban professionals
+- Renovation opportunities
+- Prices: $300K-600K
+
+### Perry District
+**Profile**: Hip, revitalized
+- Local restaurants/shops
+- Younger demographic
+- Craftsman homes
+- Growing popularity
+- Prices: $350K-550K
+
+### Spokane Valley
+**Profile**: Suburban, affordable
+- Lower prices
+- More space
+- Good schools
+- Newer construction
+- Prices: $350K-500K
+
+### Five Mile
+**Profile**: Northwest family area
+- Newer development
+- Good schools
+- Mountain views
+- Family-oriented
+- Prices: $400K-700K
+
+### Downtown
+**Profile**: Urban core
+- Condos and lofts
+- Walkable
+- Entertainment district
+- Renovation ongoing
+- Prices: $200K-500K
+
+### Kendall Yards
+**Profile**: New urbanism
+- Modern development
+- Walkable neighborhood
+- River access
+- Higher-end new construction
+- Prices: $450K-800K
+
+## Climate Reality
+
+### Four Seasons
+- Hot summers (90°F+)
+- Cold winters (below freezing)
+- Snow (annual average 45 inches)
+- Dry climate overall
+- 260+ sunny days
+
+### Weather Considerations
+- Snow tires essential
+- Heating costs significant
+- Air conditioning needed
+- Wildfires/smoke in summer
+- Very different from Seattle
+
+## Employment Landscape
+
+### Major Employers
+- Providence Health
+- Spokane Public Schools
+- Gonzaga University
+- Washington State University Spokane
+- Amazon (fulfillment)
+- Various tech companies
+
+### Growing Sectors
+- Healthcare
+- Education
+- Tech (remote and local)
+- Manufacturing
+- Distribution/logistics
+
+### Remote Work
+- Significant Seattle transplants
+- Lower cost of living appeal
+- Growing tech community
+- Coworking spaces available
+
+## Outdoor Recreation
+
+### Year-Round
+- Mt. Spokane (30 min) - skiing
+- Schweitzer (90 min) - skiing
+- Lake access (multiple)
+- Hiking/biking trails
+- Golf courses
+
+### Urban Outdoors
+- Riverfront Park
+- Centennial Trail (40+ miles)
+- Bowl and Pitcher
+- Liberty Lake
+- Fish Lake
+
+## What Your Budget Gets
+
+### Under $300K
+- Condos
+- Older homes needing updates
+- Further from city center
+- Fixer opportunities
+
+### $300K-450K
+- Solid starter homes
+- Spokane Valley
+- North Spokane
+- Some renovation
+
+### $450K-600K
+- South Hill entry
+- Updated family homes
+- Better school districts
+- More space
+
+### $600K+
+- South Hill premium
+- Newer construction
+- Large lots
+- Views and upgrades
+
+## Schools
+
+### Top Public Districts
+- Mead School District
+- Central Valley SD
+- South Hill (Spokane SD)
+
+### Private Options
+- Gonzaga Prep
+- St. George's
+- Spokane area Christian schools
+
+### Higher Education
+- Gonzaga University
+- Eastern Washington
+- Whitworth University
+- WSU Spokane
+
+## Seattle Transplant Considerations
+
+### The Good
+- 40-50% lower home prices
+- Lower cost of living
+- More space for money
+- Less traffic
+- Outdoor access
+- Strong community feel
+
+### The Adjustment
+- Different climate (extreme seasons)
+- More conservative culture
+- Less diversity
+- Fewer urban amenities
+- Smaller restaurant/entertainment scene
+- You'll miss some Seattle conveniences
+
+### Practical Matters
+- 280 miles from Seattle (4.5 hours)
+- Spokane International Airport
+- Not practical for Seattle commute
+- Remote work essential
+
+## Investment Potential
+
+### Appreciation Outlook
+- Steady growth expected
+- Migration trend continuing
+- Limited by local wages
+- Remote work dependent
+
+### Rental Market
+- University demand (Gonzaga)
+- Growing population
+- More affordable than Seattle
+- Good cash flow potential
+
+## Challenges
+
+### Climate Adjustment
+- Snow/ice management
+- Summer heat/smoke
+- Seasonal affect
+- Higher utility costs
+
+### Cultural Differences
+- More conservative politically
+- Less diversity
+- Smaller arts scene
+- Different vibe than Seattle
+
+### Economic Factors
+- Lower wages locally
+- Remote work dependent growth
+- Healthcare access varies
+- Limited certain industries
+
+## Buying Tips
+
+### Best Value
+- Spokane Valley for affordability
+- North Spokane for families
+- Perry District for character
+- South Hill for schools
+
+### What to Check
+- Heating system condition
+- Foundation (freeze/thaw cycles)
+- Roof for snow load
+- Basement waterproofing
+- Air conditioning present
+
+---
+
+*Considering Spokane? [Analyze any property with Perchspot](/chat) for comprehensive insights before making an offer.*
+    `,
+  },
+  {
+    id: 'vancouver-wa-housing-2026',
+    title: 'Vancouver WA Housing Market 2026: Portland\'s Tax-Free Neighbor',
+    category: 'Local',
+    date: '2025-01-31',
+    readTime: '8 min read',
+    metaDescription: 'Vancouver WA housing market guide for 2026. Learn about neighborhoods, no income tax benefits, Portland commute, and home prices across Clark County.',
+    content: `
+# Vancouver WA Housing Market 2026: Portland's Tax-Free Neighbor
+
+Vancouver offers Oregon amenities with Washington's no-income-tax advantage, making it increasingly attractive for Portland-area buyers.
+
+## The Tax Advantage
+
+### Washington Benefits
+- No state income tax
+- Shopping in Oregon (no sales tax)
+- Best of both worlds
+- Significant savings potential
+
+### Real Savings Example
+| Income | OR Tax | WA Savings |
+|--------|--------|------------|
+| $100,000 | ~$7,000 | $7,000/year |
+| $150,000 | ~$11,000 | $11,000/year |
+| $200,000 | ~$15,000 | $15,000/year |
+
+*Note: Portland-area Oregon residents pay city/county taxes too*
+
+## Market Overview
+
+### Price Points (2026)
+| Home Type | Median Price |
+|-----------|--------------|
+| Single-family | $525,000 |
+| Condo | $350,000 |
+| Townhouse | $425,000 |
+
+### Market Context
+- Growing from Portland migration
+- Tax advantage driving demand
+- More affordable than Seattle
+- Expanding employment base
+- New construction active
+
+## Neighborhoods
+
+### Downtown Vancouver
+**Profile**: Urban revitalization
+- Waterfront development
+- Walkable core
+- Condos and townhomes
+- Restaurant scene growing
+- Prices: $400K-700K
+
+### Felida
+**Profile**: Established family area
+- Good schools
+- Larger lots
+- North Vancouver location
+- Quiet residential
+- Prices: $550K-900K
+
+### Fisher's Landing
+**Profile**: East Vancouver suburban
+- Newer development
+- Good schools
+- Shopping access
+- Family-oriented
+- Prices: $500K-750K
+
+### Salmon Creek
+**Profile**: North Clark County
+- WSU Vancouver nearby
+- Mixed housing types
+- Growing area
+- More affordable
+- Prices: $450K-650K
+
+### Camas
+**Profile**: Premium east county
+- Excellent schools
+- Small-town feel
+- Higher prices
+- Paper mill history
+- Prices: $650K-1.2M
+
+### Washougal
+**Profile**: Gorge adjacent
+- Outdoor access
+- More affordable
+- Growing community
+- Scenic setting
+- Prices: $500K-700K
+
+### Battle Ground
+**Profile**: North county affordable
+- Rural feel
+- Newer development
+- Good value
+- Growing fast
+- Prices: $450K-600K
+
+## Portland Commute
+
+### To Downtown Portland
+| From | Distance | Time |
+|------|----------|------|
+| Downtown Vancouver | 8 miles | 15-45 min |
+| Salmon Creek | 12 miles | 20-50 min |
+| Camas | 20 miles | 30-60 min |
+| Battle Ground | 18 miles | 30-60 min |
+
+### Commute Realities
+- I-5 bridge congestion
+- I-205 alternate
+- C-TRAN bus service
+- MAX light rail (Portland side)
+- Tolling coming (may worsen)
+
+### Best Commute Areas
+- Downtown Vancouver (shortest)
+- Fisher's Landing (I-205)
+- Anywhere with flexible hours
+
+## Employment Landscape
+
+### Major Employers
+- PeaceHealth Southwest Medical
+- Vancouver School District
+- Clark County government
+- Vancouver Clinic
+- Columbia Machine
+
+### Portland Jobs
+- Many residents work in Portland
+- Remote work growing
+- Healthcare sector strong
+- Tech opportunities
+
+### Local Growth
+- Warehouse/distribution
+- Healthcare expansion
+- Tech satellite offices
+- Construction ongoing
+
+## What Your Budget Gets
+
+### Under $400K
+- Condos
+- Older homes
+- Further north (Battle Ground)
+- Fixer opportunities
+
+### $400K-550K
+- Entry-level single-family
+- Salmon Creek area
+- Battle Ground
+- Townhouses in better areas
+
+### $550K-700K
+- Family homes
+- Felida area
+- Fisher's Landing
+- Updated properties
+
+### $700K+
+- Camas
+- Premium Felida
+- Waterfront
+- Custom homes
+
+## Schools
+
+### Top Districts
+- **Camas SD**: Highest rated, most expensive
+- **Evergreen SD**: Large, varied quality
+- **Vancouver SD**: Urban, improving
+- **Battle Ground SD**: Growing, good value
+
+### School Strategy
+- Research specific schools
+- District boundaries matter
+- Private options limited
+- Consider Camas if schools priority
+
+## Climate and Lifestyle
+
+### Portland Climate
+- Mild, wet winters
+- Warm summers
+- Similar to Portland
+- Columbia Gorge wind
+
+### Outdoor Access
+- Gorge hiking/wind sports
+- Mt. Hood (1 hour)
+- Coast (2 hours)
+- Rivers and lakes
+- Urban parks
+
+### Culture
+- Suburban feel
+- Portland access for entertainment
+- Growing restaurant scene
+- Less progressive than Portland
+- Family-oriented
+
+## Investment Considerations
+
+### Appreciation Drivers
+- Tax advantage migration
+- Portland spillover
+- Job growth
+- Limited land (river/gorge)
+
+### Rental Market
+- Strong demand
+- Portland commuters
+- University students (WSU)
+- Good cash flow potential
+
+### Risks
+- Interest rate sensitivity
+- Portland economic ties
+- Bridge congestion worsening
+- Political differences
+
+## Challenges
+
+### The Commute
+- Bridge traffic significant
+- Can add 30+ min to commute
+- Weather impacts
+- Tolling uncertainty
+
+### Cultural Differences
+- More conservative than Portland
+- Less diversity
+- Different political climate
+- Urban/suburban divide
+
+### Infrastructure
+- Traffic growth outpacing roads
+- Public transit limited
+- Car-dependent lifestyle
+- School capacity challenges
+
+## Buying Strategy
+
+### For Portland Commuters
+- Downtown Vancouver (shortest commute)
+- Fisher's Landing (I-205 access)
+- Consider remote work potential
+
+### For Best Value
+- Battle Ground (affordability)
+- Salmon Creek (balance)
+- Washougal (if Gorge lifestyle)
+
+### For Schools
+- Camas (best but expensive)
+- Felida (good Vancouver option)
+- Fisher's Landing (solid choice)
+
+### What to Check
+- Commute time at your work hours
+- School boundaries (verify)
+- HOA details
+- Flood zone near rivers
+
+---
+
+*Exploring Vancouver WA? [Perchspot analysis](/chat) helps you compare properties across Clark County.*
+    `,
+  },
+  {
+    id: 'environmental-hazards-guide',
+    title: 'Environmental Hazards in Homes: Lead, Asbestos, Radon Guide',
+    category: 'Education',
+    date: '2025-01-30',
+    readTime: '10 min read',
+    metaDescription: 'Essential guide to environmental hazards when buying a home. Learn about lead paint, asbestos, radon, mold, and how to protect yourself as a buyer.',
+    content: `
+# Environmental Hazards in Homes: Lead, Asbestos, Radon Guide
+
+Older homes and even newer construction can harbor environmental hazards. Understanding these risks is essential for informed buying.
+
+## Lead Paint
+
+### The Risk
+- Homes built before 1978 may contain lead paint
+- Lead exposure causes serious health issues
+- Children most vulnerable
+- Still present in millions of homes
+
+### Federal Requirements (Pre-1978 Homes)
+- Seller must provide lead disclosure
+- EPA pamphlet must be provided
+- 10-day inspection period
+- Cannot waive disclosure
+
+### Where Lead Hides
+- Window frames and sills
+- Doors and door frames
+- Stairs and railings
+- Porches and exterior paint
+- Under layers of newer paint
+
+### Testing Options
+| Test Type | Cost | Accuracy |
+|-----------|------|----------|
+| DIY swab test | $10-30 | Low |
+| XRF testing | $200-400 | High |
+| Lab sample test | $25-50/sample | High |
+
+### If Lead is Found
+**Intact paint**: Generally safe if undisturbed
+**Peeling/chipping**: Risk present, remediation needed
+**Renovation plans**: Special precautions required
+
+### Remediation Costs
+| Approach | Cost Range |
+|----------|------------|
+| Encapsulation | $8-15/sq ft |
+| Full removal | $8-25/sq ft |
+| Whole house | $5,000-30,000+ |
+
+## Asbestos
+
+### The Risk
+- Fireproofing/insulation material
+- Common in homes built 1940-1980
+- Dangerous when disturbed (airborne)
+- Causes lung cancer, mesothelioma
+
+### Common Locations
+- Pipe insulation
+- Floor tiles (9x9 inch often suspect)
+- Ceiling tiles
+- Roof shingles
+- Siding
+- Insulation
+- Ductwork
+- Boiler insulation
+
+### When to Test
+- Before any renovation
+- Suspicious materials visible
+- Home built before 1980
+- Damaged insulation visible
+
+### Testing Process
+1. Hire certified inspector
+2. Samples sent to lab
+3. Results in 1-2 weeks
+4. Cost: $300-700
+
+### If Asbestos is Found
+**Intact, undisturbed**: Often left in place, monitored
+**Damaged or renovation planned**: Professional abatement required
+
+### Abatement Costs
+| Location | Cost Range |
+|----------|------------|
+| Pipe wrap | $1,000-3,000 |
+| Floor tiles | $5-15/sq ft |
+| Popcorn ceiling | $3-7/sq ft |
+| Whole house | $15,000-75,000+ |
+
+## Radon
+
+### The Risk
+- Radioactive gas from soil
+- Enters through foundation
+- Second leading cause of lung cancer
+- No smell, color, or taste
+- Found in all states
+
+### Testing
+**Short-term test** (2-7 days):
+- DIY kits: $15-30
+- Professional: $150-300
+- Quick results
+
+**Long-term test** (90+ days):
+- More accurate
+- $25-50 for kit
+- Best for baseline
+
+### EPA Action Level
+- 4 pCi/L or higher: Mitigation recommended
+- Consider mitigation at 2-4 pCi/L
+- Below 2 pCi/L: Generally acceptable
+
+### Mitigation System
+- Sub-slab depressurization (most common)
+- Radon vent pipe through roof
+- Fan draws radon out
+- Very effective (90%+ reduction)
+
+### Mitigation Costs
+| Situation | Cost Range |
+|-----------|------------|
+| Standard installation | $800-1,500 |
+| Complex installation | $1,500-3,000 |
+| Annual electricity | $20-50 |
+| Re-testing | $15-50 |
+
+## Mold
+
+### The Risk
+- Respiratory issues
+- Allergic reactions
+- Some molds toxic
+- Indicates moisture problem
+
+### Warning Signs
+- Musty odor
+- Visible growth
+- Water stains
+- Condensation
+- Recent water damage
+
+### Common Locations
+- Basements
+- Bathrooms
+- Attics (poor ventilation)
+- Behind walls (leak history)
+- HVAC systems
+
+### Testing
+**When to test**:
+- Visible growth
+- Smell present
+- Health symptoms
+- Water damage history
+
+**Testing options**:
+- Air sampling: $200-500
+- Surface samples: $150-300
+- Full inspection: $300-700
+
+### Remediation
+| Area Size | DIY Possible? | Cost |
+|-----------|---------------|------|
+| Under 10 sq ft | Yes | $50-100 |
+| 10-100 sq ft | Maybe | $500-3,000 |
+| Over 100 sq ft | No - professional | $3,000-15,000+ |
+
+### Key Point
+Mold remediation without fixing moisture source is futile. Address water intrusion first.
+
+## Carbon Monoxide
+
+### The Risk
+- Colorless, odorless gas
+- From combustion appliances
+- Can be fatal
+- Preventable with detectors
+
+### Sources
+- Gas furnaces
+- Water heaters
+- Gas stoves
+- Attached garage
+- Fireplaces
+
+### Protection
+- CO detectors (required in most states)
+- Annual HVAC inspection
+- Proper ventilation
+- Don't idle car in garage
+
+## Underground Storage Tanks
+
+### The Risk
+- Old oil tanks may leak
+- Soil contamination
+- Groundwater contamination
+- Expensive cleanup
+
+### Where They're Found
+- Homes heated with oil (pre-natural gas)
+- Older rural properties
+- Northeast and Pacific Northwest common
+
+### Due Diligence
+1. Check property records
+2. Ask seller directly
+3. Look for evidence (fill/vent pipes)
+4. Tank sweep ($200-500)
+
+### If Found
+- Test for leaks
+- Removal: $1,000-3,000
+- With contamination: $10,000-50,000+
+- Get seller to handle
+
+## Other Concerns
+
+### Well Water
+- Test for bacteria, nitrates
+- Test for lead, arsenic
+- Cost: $100-500
+- Annual testing recommended
+
+### Septic System
+- Inspection required
+- Pumping history
+- Age and condition
+- Replacement: $5,000-30,000
+
+### Electromagnetic Fields (EMFs)
+- Near power lines
+- Unproven health concerns
+- May affect resale
+- Difficult to mitigate
+
+## Due Diligence Checklist
+
+### For All Homes
+- [ ] Check age of home
+- [ ] Review seller disclosures
+- [ ] Note renovation history
+- [ ] Ask about known issues
+
+### Pre-1978 Homes
+- [ ] Lead disclosure received
+- [ ] Lead testing if concerned
+- [ ] Asbestos inspection if renovating
+
+### All Homes
+- [ ] Radon test
+- [ ] Mold inspection if signs present
+- [ ] CO detectors present
+
+### Rural Properties
+- [ ] Well water testing
+- [ ] Septic inspection
+- [ ] Tank sweep (if oil heat history)
+
+## Negotiating with Environmental Issues
+
+### Leverage Points
+- Testing results
+- Remediation estimates
+- Disclosure requirements
+- Financing concerns
+
+### Possible Outcomes
+- Price reduction
+- Seller remediation before closing
+- Escrow holdback
+- Walk away (if severe)
+
+---
+
+*Concerned about property hazards? [Perchspot analysis](/chat) flags potential issues based on property age and characteristics.*
+    `,
+  },
+  {
+    id: 'home-energy-efficiency',
+    title: 'Home Energy Efficiency: What Buyers Should Evaluate',
+    category: 'Guide',
+    date: '2025-01-29',
+    readTime: '9 min read',
+    metaDescription: 'How to evaluate home energy efficiency when buying. Learn about insulation, windows, HVAC systems, and how efficiency impacts your costs and comfort.',
+    content: `
+# Home Energy Efficiency: What Buyers Should Evaluate
+
+Energy efficiency affects both ongoing costs and comfort. Here's how to assess a home's energy performance.
+
+## Why Energy Efficiency Matters
+
+### Cost Impact
+| Home Type | Annual Energy Cost |
+|-----------|-------------------|
+| Older, inefficient | $3,000-5,000+ |
+| Average | $2,000-3,000 |
+| Efficient | $1,000-2,000 |
+| Very efficient | Under $1,000 |
+
+### Beyond Cost
+- Comfort (even temperatures)
+- Air quality
+- Noise reduction
+- Environmental impact
+- Resale value
+
+## Request Utility History
+
+### What to Ask For
+- 12 months of utility bills
+- Gas AND electric
+- Average monthly costs
+- Peak month costs
+
+### Red Flags
+- Unusually high bills
+- Large seasonal swings
+- Seller won't provide
+- "Don't know" responses
+
+### Context Matters
+- Consider occupancy (family size)
+- Temperature preferences
+- Work-from-home usage
+- Compare to similar homes
+
+## Insulation
+
+### Key Areas
+| Location | Recommended R-Value* |
+|----------|---------------------|
+| Attic | R-49 to R-60 |
+| Walls | R-13 to R-21 |
+| Floors | R-25 to R-30 |
+| Basement | R-11 to R-19 |
+
+*Pacific Northwest recommendations
+
+### What to Check
+**Attic**:
+- Visible insulation depth
+- Even coverage
+- No gaps or voids
+- Type (fiberglass, blown-in, etc.)
+
+**Walls**:
+- Thermal imaging reveals gaps
+- Exterior walls feel cold
+- Ice dams in winter (poor insulation)
+
+### Upgrade Costs
+| Area | Cost to Upgrade |
+|------|-----------------|
+| Attic insulation | $1,500-3,000 |
+| Wall insulation | $3,000-8,000 |
+| Crawl space | $1,500-5,000 |
+
+## Windows
+
+### Window Efficiency Factors
+- Number of panes
+- Gas fill (argon, krypton)
+- Low-E coating
+- Frame material
+- Age and condition
+
+### Quality Indicators
+| Feature | Good Sign | Warning Sign |
+|---------|-----------|--------------|
+| Panes | Double or triple | Single |
+| Condensation | None | Between panes |
+| Frames | Vinyl, fiberglass | Aluminum |
+| Seals | Intact | Failed |
+| Age | Under 15 years | Over 25 years |
+
+### Replacement Costs
+- Per window: $400-1,200 installed
+- Whole house (15 windows): $6,000-18,000
+- ROI: 10-15 year payback
+
+## HVAC System
+
+### Age and Efficiency
+| System Age | Typical Efficiency | Status |
+|------------|-------------------|--------|
+| 0-10 years | Modern standards | Good |
+| 10-15 years | Adequate | Monitor |
+| 15-20 years | Declining | Plan replacement |
+| 20+ years | Poor | Budget now |
+
+### What to Check
+- System age (look for stickers)
+- SEER rating (AC) - higher is better
+- AFUE rating (furnace) - higher is better
+- Last service date
+- Filter condition
+
+### Replacement Costs
+| System | Cost Range |
+|--------|------------|
+| Furnace | $3,000-6,000 |
+| AC | $3,000-7,000 |
+| Heat pump | $4,000-8,000 |
+| Ductwork | $2,000-6,000 |
+
+## Water Heater
+
+### Types and Efficiency
+| Type | Lifespan | Efficiency |
+|------|----------|------------|
+| Tank (gas) | 10-15 years | Moderate |
+| Tank (electric) | 10-15 years | Low-Moderate |
+| Tankless | 20+ years | High |
+| Heat pump | 10-15 years | Very high |
+
+### What to Check
+- Age (check data plate)
+- Capacity (adequate for household)
+- Energy factor rating
+- Condition/rust
+
+## Air Sealing
+
+### Common Leak Points
+- Around windows/doors
+- Electrical outlets
+- Plumbing penetrations
+- Attic access
+- Recessed lights
+- Foundation/sill plate
+
+### Indicators of Poor Sealing
+- Drafts felt
+- Cold floors in winter
+- Dust accumulation
+- Pest entry points
+- High energy bills
+
+### Fixing Air Leaks
+- DIY weatherstripping: $50-200
+- Professional sealing: $500-2,000
+- Blower door test: $150-300
+
+## Ductwork
+
+### Efficiency Issues
+- Leaky ducts waste 20-30% of energy
+- Often in unconditioned spaces
+- Improper sizing causes problems
+
+### What to Look For
+- Visible damage or gaps
+- Disconnected sections
+- Crushed flex duct
+- Poor insulation
+- Dirty registers
+
+### Duct Improvements
+- Sealing: $500-1,500
+- Insulating: $500-2,000
+- Replacement: $3,000-7,000+
+
+## Energy Audit
+
+### When to Get One
+- Considering older home
+- High utility bills reported
+- Want baseline data
+- Planning upgrades
+
+### What's Included
+- Blower door test
+- Thermal imaging
+- HVAC evaluation
+- Insulation assessment
+- Recommendations
+
+### Cost
+- Basic audit: $150-400
+- Comprehensive: $400-800
+- Often rebated by utilities
+
+## Solar Readiness
+
+### Considerations
+- Roof orientation (south ideal)
+- Shading from trees
+- Roof condition/age
+- Electrical panel capacity
+- Net metering availability
+
+### If Solar Present
+See our dedicated solar guide for details.
+
+## Smart Home Energy Features
+
+### Beneficial Features
+- Smart thermostat
+- LED lighting throughout
+- Energy monitoring
+- Smart power strips
+- Timer-controlled water heater
+
+### Impact
+- Smart thermostat: 10-15% savings
+- LED conversion: 50-75% lighting savings
+- Combined: $200-500/year potential
+
+## Energy Certifications
+
+### What They Mean
+| Certification | Meaning |
+|--------------|---------|
+| ENERGY STAR | Meets EPA standards |
+| LEED | Green building certified |
+| Net Zero Ready | Can achieve net zero energy |
+| Passive House | Ultra-efficient design |
+
+### Value Addition
+- Energy-efficient homes command 2-8% premium
+- Faster sale times
+- Lower operating costs
+- Future-proofed
+
+## Buyer Strategy
+
+### Prioritize
+1. Insulation (biggest impact)
+2. Air sealing (low cost, high return)
+3. Windows (if single-pane or failed)
+4. HVAC (if near end of life)
+
+### Negotiate
+- Use utility bills in negotiations
+- Get quotes for needed upgrades
+- Request energy improvements
+- Factor into offer price
+
+### Post-Purchase Plan
+- Address air sealing first
+- Add insulation where needed
+- Schedule HVAC maintenance
+- Consider energy audit
+
+---
+
+*Evaluating a property's efficiency? [Perchspot analysis](/chat) includes condition assessment for informed decisions.*
+    `,
+  },
+  {
+    id: 'roof-inspection-buyers',
+    title: 'Roof Inspection Guide: What Home Buyers Need to Know',
+    category: 'Education',
+    date: '2025-01-28',
+    readTime: '8 min read',
+    metaDescription: 'Complete guide to roof inspection when buying a home. Learn about roof types, lifespan, warning signs, and what inspection findings mean for buyers.',
+    content: `
+# Roof Inspection Guide: What Home Buyers Need to Know
+
+The roof is one of the most expensive systems in a home. Understanding roof condition is essential for informed buying.
+
+## Roof Lifespan by Type
+
+| Roof Type | Expected Lifespan | Cost to Replace |
+|-----------|------------------|-----------------|
+| 3-tab asphalt | 15-20 years | $6,000-12,000 |
+| Architectural asphalt | 25-30 years | $8,000-15,000 |
+| Wood shake | 20-25 years | $15,000-25,000 |
+| Metal (standing seam) | 40-70 years | $15,000-35,000 |
+| Tile (clay/concrete) | 50-100 years | $20,000-50,000 |
+| Slate | 75-150 years | $30,000-75,000 |
+| Flat (TPO/EPDM) | 15-25 years | $5,000-15,000 |
+
+## Visible Warning Signs
+
+### From the Ground
+- Missing or damaged shingles
+- Curling or buckling
+- Sagging roof line
+- Damaged flashing
+- Moss or algae growth
+- Visible patches or repairs
+
+### From the Attic
+- Daylight through roof boards
+- Water stains on decking
+- Wet insulation
+- Mold or mildew
+- Sagging or rotted decking
+
+### Inside the House
+- Water stains on ceilings
+- Peeling paint (moisture)
+- Bubbling wallpaper
+- Musty odors upper floors
+
+## Age Assessment
+
+### How to Determine Age
+1. Ask seller directly
+2. Check permit records
+3. Look for date stamps (some shingles)
+4. Compare to neighborhood (built same time)
+5. Inspect condition
+
+### Age vs. Condition
+- Well-maintained roof may outlast warranty
+- Poorly maintained may fail early
+- Climate impacts lifespan
+- Quality of installation matters
+
+## Inspection Process
+
+### Standard Home Inspection
+- Visual exterior inspection
+- Attic inspection
+- Identifies obvious issues
+- Not specialized roof inspection
+
+### Specialized Roof Inspection
+- Roofing contractor performs
+- May walk on roof
+- More detailed assessment
+- Repair estimates included
+- Cost: $150-300
+
+### When to Get Specialized
+- Roof appears older
+- Home inspector flags concerns
+- Seller unsure of age
+- Visible damage noted
+
+## Understanding Inspection Findings
+
+### Minor Issues
+- Few missing shingles
+- Minor flashing repairs
+- Moss treatment needed
+- Gutter repairs
+**Cost**: Under $500
+
+### Moderate Issues
+- Multiple shingle repairs
+- Some flashing replacement
+- Ventilation improvements
+- Minor leak repairs
+**Cost**: $500-3,000
+
+### Major Issues
+- Widespread damage
+- Multiple leaks
+- Structural concerns
+- Near end of life
+**Cost**: $3,000-10,000+ or replacement
+
+### Roof Replacement Needed
+- Layers beyond limit
+- Widespread deterioration
+- Failed underlayment
+- Structural damage
+**Cost**: Full replacement cost
+
+## Roof Layers
+
+### Layer Limitations
+- Most codes: 2 layers maximum
+- Some areas: 3 layers allowed
+- Each layer adds weight
+- Tear-off required after limit
+
+### Inspection Note
+Ask inspector how many layers present. If at limit, next repair = full replacement.
+
+## Flashing and Penetrations
+
+### Critical Areas
+- Chimney flashing
+- Pipe boots
+- Skylight seals
+- Vent flashing
+- Valley flashing
+- Wall-to-roof transitions
+
+### What to Look For
+- Rust or corrosion
+- Lifted or separated
+- Missing sealant
+- Improper installation
+
+### Repair Costs
+| Item | Cost |
+|------|------|
+| Pipe boot | $75-150 |
+| Chimney flashing | $200-500 |
+| Valley repair | $300-1,000 |
+| General flashing | $100-300 |
+
+## Ventilation
+
+### Why It Matters
+- Extends roof life
+- Prevents ice dams
+- Reduces attic heat
+- Prevents moisture issues
+
+### Adequate Ventilation Signs
+- Ridge vents present
+- Soffit vents clear
+- Attic not excessively hot
+- No moisture in attic
+
+### Problems from Poor Ventilation
+- Shortened shingle life
+- Ice dam formation
+- Mold in attic
+- Higher cooling costs
+
+## Gutters and Drainage
+
+### What to Check
+- Gutters attached properly
+- Downspouts directing water away
+- No standing water
+- Clean and functional
+- Appropriate size
+
+### Impact on Roof
+Poor drainage can cause:
+- Fascia damage
+- Water intrusion
+- Foundation issues
+- Ice dams
+
+## Negotiation Strategies
+
+### Roof Issues Leverage
+- Remaining life matters
+- Replacement cost is significant
+- Insurance may require updates
+- Financing may be affected
+
+### Negotiation Options
+1. **Price reduction**: Equal to repair/replacement cost
+2. **Seller repairs**: Before closing
+3. **Escrow holdback**: Funds held for work
+4. **As-is with credit**: Documented adjustment
+
+### What to Request
+- Roof age documentation
+- Any repair records
+- Transferable warranty info
+- Multiple quotes if replacing
+
+## Insurance Considerations
+
+### Age Limitations
+- Some insurers won't cover 20+ year roofs
+- May require inspection
+- Higher deductibles for older roofs
+- Full replacement coverage may be limited
+
+### Before Closing
+- Contact insurance company
+- Verify coverage available
+- Understand any requirements
+- Factor into budget
+
+## Red Flags: Walk Away
+
+### Concerning Situations
+- Multiple layers at limit
+- Active leaks seller won't address
+- Structural sagging
+- Evidence of cover-up (fresh shingles over damage)
+- Seller unwilling to allow inspection
+
+### When It Might Be Okay
+- Known replacement needed + price adjusted
+- Minor issues with clear path to repair
+- Transferable warranty in place
+- Budget allows for replacement
+
+---
+
+*Evaluating a property's condition? [Perchspot analysis](/chat) assesses roof and other systems to inform your decision.*
+    `,
+  },
+  {
+    id: 'foundation-issues-guide',
+    title: 'Foundation Problems: Warning Signs and Costs for Buyers',
+    category: 'Education',
+    date: '2025-01-27',
+    readTime: '9 min read',
+    metaDescription: 'How to identify foundation problems when buying a home. Learn about crack types, repair costs, when to worry, and how foundation issues affect your purchase.',
+    content: `
+# Foundation Problems: Warning Signs and Costs for Buyers
+
+Foundation issues can range from cosmetic to catastrophic. Understanding the difference is crucial for buyers.
+
+## Foundation Types
+
+### Common Foundation Types
+| Type | Description | Where Found |
+|------|-------------|-------------|
+| Slab-on-grade | Concrete pad | Warmer climates, newer homes |
+| Crawl space | Raised with access | Pacific Northwest common |
+| Basement | Full below-grade space | Colder climates |
+| Pier and beam | Elevated on piers | Older homes, soft soil |
+
+### Each Type's Vulnerabilities
+- **Slab**: Cracking, heaving, plumbing access issues
+- **Crawl space**: Moisture, pier settlement, wood rot
+- **Basement**: Water intrusion, wall bowing, cracks
+- **Pier**: Settlement, wood decay, animal intrusion
+
+## Warning Signs
+
+### Interior Signs
+| Sign | Severity | What It Might Mean |
+|------|----------|-------------------|
+| Sticking doors/windows | Moderate | Settlement, shifting |
+| Diagonal wall cracks | Moderate-High | Foundation movement |
+| Cracks at window corners | Low-Moderate | Normal settling or movement |
+| Uneven floors | Moderate-High | Foundation settlement |
+| Gaps at wall/ceiling | Moderate | Structural movement |
+| Cracked tile/flooring | Low-Moderate | Slab movement |
+
+### Exterior Signs
+- Stair-step cracks in brick
+- Horizontal cracks in foundation
+- Separation at corners
+- Bulging walls
+- Gaps around doors/windows
+- Cracked concrete
+
+### Crawl Space/Basement Signs
+- Standing water
+- Efflorescence (white residue)
+- Bowing walls
+- Cracked walls
+- Musty odors
+- Pier deterioration
+
+## Crack Interpretation
+
+### Vertical Cracks
+- Usually settling
+- Often not structural
+- Common in poured concrete
+- Monitor for growth
+- **Concern level**: Low to moderate
+
+### Horizontal Cracks
+- Pressure from soil
+- More serious
+- May indicate bowing
+- Often needs repair
+- **Concern level**: High
+
+### Diagonal Cracks
+- Settlement or heaving
+- One corner settling faster
+- Can be significant
+- Professional evaluation needed
+- **Concern level**: Moderate to high
+
+### Stair-Step Cracks (Brick/Block)
+- Foundation movement
+- Following mortar joints
+- Width indicates severity
+- Common in block foundations
+- **Concern level**: Moderate to high
+
+## Crack Width Guide
+
+| Width | Typical Meaning |
+|-------|----------------|
+| Hairline (<1/16") | Usually cosmetic |
+| 1/16" - 1/4" | Monitor, may need repair |
+| 1/4" - 1/2" | Significant, repair needed |
+| Over 1/2" | Serious, structural evaluation |
+
+## Professional Evaluation
+
+### When to Get One
+- Visible cracks beyond hairline
+- Uneven floors
+- Sticking doors/windows
+- Seller disclosure mentions issues
+- Inspector recommends
+
+### Who to Call
+- Structural engineer (independent, $300-800)
+- Foundation repair company (free, but selling services)
+- Best: Engineer first, then repair quotes
+
+### What Engineers Provide
+- Assessment of severity
+- Cause identification
+- Repair recommendations
+- Written report for negotiations
+
+## Repair Methods and Costs
+
+### Crack Repair
+| Type | Method | Cost |
+|------|--------|------|
+| Hairline | Epoxy injection | $300-600 |
+| Small cracks | Urethane injection | $500-1,000 |
+| Larger cracks | Carbon fiber + epoxy | $1,000-2,500 |
+
+### Underpinning/Piering
+For settling foundations:
+- Push piers: $1,000-3,000 per pier
+- Helical piers: $1,500-3,500 per pier
+- Average project: $8,000-25,000+
+
+### Wall Stabilization
+For bowing basement walls:
+- Carbon fiber straps: $500-1,000 each
+- Steel I-beams: $1,000-2,000 each
+- Full wall: $5,000-15,000
+
+### Slab Repair
+- Mudjacking: $500-2,000
+- Poly foam injection: $1,000-3,000
+- Slab replacement: $5,000-20,000+
+
+### Drainage Solutions
+- French drain (interior): $3,000-8,000
+- Exterior waterproofing: $5,000-15,000+
+- Sump pump: $500-1,500
+
+## Impact on Purchase
+
+### Financing Implications
+- FHA/VA may not approve with major issues
+- Conventional may require repair first
+- Cash buyers have more flexibility
+- Repair escrow possible sometimes
+
+### Insurance Considerations
+- Pre-existing damage not covered
+- May affect insurability
+- Document condition at purchase
+
+### Resale Impact
+- Must disclose known issues
+- Repairs should be documented
+- Warranty from repair company helps
+- Some buyers will avoid
+
+## Negotiation Strategies
+
+### With Foundation Issues
+1. Get engineering report
+2. Get repair estimates (2-3)
+3. Request price reduction OR
+4. Request repairs before closing
+5. Escrow funds for repairs
+
+### Realistic Expectations
+- Seller may know about issues
+- Some buyers walk away (leverage)
+- Documentation helps everyone
+- Consider future resale
+
+### Red Lines
+- Active ongoing movement
+- Structural engineer says serious
+- Repair costs approach value impact
+- Financing won't approve
+
+## When to Walk Away
+
+### Serious Concerns
+- Major structural compromise
+- Repair costs excessive relative to price
+- Multiple foundation systems failing
+- Evidence of cover-up/poor previous repair
+- Engineer recommends against purchase
+
+### Manageable Situations
+- Minor cracks with clear cause
+- Previous professional repairs (documented)
+- Clear path to resolution
+- Price reflects condition
+- Engineer approves with specific repairs
+
+## Monitoring Existing Cracks
+
+### How to Track
+1. Mark crack ends with date
+2. Measure width monthly
+3. Photo document
+4. Track after weather changes
+5. Keep records
+
+### What Movement Indicates
+- Seasonal: May be normal
+- Continuous: Ongoing problem
+- Accelerating: Immediate attention needed
+
+---
+
+*Concerned about a property's foundation? [Perchspot analysis](/chat) helps identify potential structural concerns to investigate further.*
+    `,
+  },
+  {
+    id: 'plumbing-systems-buyers',
+    title: 'Plumbing Systems: What Home Buyers Should Know',
+    category: 'Education',
+    date: '2025-01-26',
+    readTime: '8 min read',
+    metaDescription: 'Guide to evaluating plumbing when buying a home. Learn about pipe materials, warning signs, sewer lines, and what plumbing issues cost to fix.',
+    content: `
+# Plumbing Systems: What Home Buyers Should Know
+
+Plumbing problems can be expensive and disruptive. Here's what buyers need to understand about a home's plumbing systems.
+
+## Pipe Materials by Era
+
+### Supply Lines (Water In)
+| Material | Era | Lifespan | Concerns |
+|----------|-----|----------|----------|
+| Galvanized steel | Pre-1960 | 40-50 years | Corrosion, low pressure |
+| Copper | 1960-present | 50-70 years | Generally good |
+| CPVC | 1980-present | 20-25 years | Brittleness with age |
+| PEX | 1990-present | 40-50+ years | Best current option |
+| Polybutylene | 1978-1995 | 10-15 years | Known failure issues |
+
+### Drain Lines (Water Out)
+| Material | Era | Lifespan | Concerns |
+|----------|-----|----------|----------|
+| Cast iron | Pre-1970 | 80-100 years | Corrosion eventually |
+| Clay | Pre-1950 | Variable | Root intrusion, cracks |
+| Orangeburg | 1940-1970 | 30-50 years | Failure prone |
+| ABS/PVC | 1970-present | 50+ years | Best current option |
+
+## Problem Pipe Materials
+
+### Polybutylene (Poly-B)
+- Gray flexible plastic
+- Used 1978-1995
+- Known to fail suddenly
+- Chlorine causes deterioration
+- **Recommendation**: Plan for replacement
+
+### Galvanized Steel
+- Common in pre-1960 homes
+- Corrodes from inside
+- Low water pressure symptom
+- **Recommendation**: Replace when accessible
+
+### Orangeburg (Sewer)
+- Tar paper/wood pulp
+- Collapses over time
+- Root penetration
+- **Recommendation**: Camera inspect, likely replace
+
+### Lead Pipes
+- Pre-1930 in some areas
+- Health hazard
+- Water testing recommended
+- **Recommendation**: Replace
+
+## Warning Signs
+
+### Low Water Pressure
+**Causes**:
+- Galvanized pipe corrosion
+- Mineral buildup
+- Partially closed valve
+- Main line issue
+
+**Questions to ask**:
+- Is it whole house or localized?
+- Recent change or always like this?
+- All fixtures affected?
+
+### Slow Drains
+**Causes**:
+- Partial blockage
+- Venting issues
+- Main line problems
+- Tree roots
+
+**Concern level**:
+- One fixture: Low
+- Multiple fixtures: Moderate
+- Whole house: High
+
+### Water Stains
+**What they indicate**:
+- Active or past leak
+- Pipe failure possible
+- Water damage extent unknown
+
+**Action**: Investigate source before buying
+
+### Sewer Odors
+**Causes**:
+- Dry P-traps
+- Venting problems
+- Sewer line issues
+- Cracked pipes
+
+**Action**: Professional inspection
+
+## Sewer Line Inspection
+
+### When to Get One
+- Older home (30+ years)
+- Large trees near line
+- Previous sewer issues reported
+- Inspector recommends
+- As standard due diligence
+
+### What Camera Inspection Shows
+- Root intrusion
+- Pipe material and condition
+- Bellies (low spots)
+- Offsets or breaks
+- Blockages
+
+### Cost
+- Camera inspection: $150-400
+- Worth it to avoid $15,000+ surprises
+
+## Water Heater Evaluation
+
+### Lifespan
+| Type | Lifespan |
+|------|----------|
+| Tank (gas) | 10-15 years |
+| Tank (electric) | 10-15 years |
+| Tankless | 20+ years |
+
+### Warning Signs
+- Age over 10 years
+- Rust at base
+- Strange noises
+- Inconsistent temperature
+- Visible leaking
+
+### Replacement Cost
+- Tank: $1,000-2,500 installed
+- Tankless: $2,500-5,000 installed
+
+## Repair Cost Estimates
+
+### Common Repairs
+| Issue | Cost Range |
+|-------|------------|
+| Fix leaky faucet | $75-200 |
+| Unclog drain | $100-300 |
+| Replace toilet | $250-500 |
+| Fix running toilet | $75-200 |
+| Replace water heater | $1,000-5,000 |
+
+### Moderate Repairs
+| Issue | Cost Range |
+|-------|------------|
+| Replace section of pipe | $300-1,000 |
+| Water line repair | $500-2,000 |
+| Fixture replacement | $200-800 |
+| Garbage disposal | $200-500 |
+
+### Major Repairs
+| Issue | Cost Range |
+|-------|------------|
+| Repipe house (water) | $4,000-15,000 |
+| Sewer line repair | $2,000-5,000 |
+| Sewer line replace | $5,000-20,000 |
+| Main line repair | $1,000-4,000 |
+
+## Inspection Focus Areas
+
+### Ask Inspector to Check
+- [ ] Water pressure at fixtures
+- [ ] Drain flow rate
+- [ ] Pipe materials visible
+- [ ] Water heater age and condition
+- [ ] Under-sink connections
+- [ ] Visible supply lines
+- [ ] Toilets for proper function
+- [ ] Signs of leaks
+
+### Attic/Crawl Space
+- Visible pipe materials
+- Signs of past leaks
+- Corrosion
+- Proper support
+
+### Basement/Mechanical Room
+- Main shutoff location
+- Water heater condition
+- Visible drain lines
+- Sump pump if present
+
+## Well Water Specifics
+
+### Additional Concerns
+- Well pump age and condition
+- Pressure tank function
+- Water quality testing
+- Flow rate (gallons per minute)
+
+### Testing Recommended
+- Bacteria (coliform)
+- Nitrates
+- Lead
+- Arsenic (some areas)
+- Iron/hardness
+
+## Septic System
+
+### Inspection Elements
+- Tank pumping history
+- Drainfield condition
+- Capacity for home size
+- Age of system
+
+### Red Flags
+- Wet spots in yard
+- Sewage odors
+- Slow drains house-wide
+- No pumping records
+
+### Replacement Cost
+- Septic system: $5,000-30,000
+- Depends on type and size
+
+## Negotiation Tips
+
+### With Plumbing Issues
+1. Get professional plumber estimate
+2. Request specialist inspections
+3. Factor replacement timeline
+4. Consider financing impact
+
+### What to Request
+- Sewer camera results
+- Plumber's assessment
+- Well test results (if applicable)
+- Septic inspection (if applicable)
+
+### Price Adjustments
+- Immediate repair needs: Full cost
+- Future replacement: Partial/prorated
+- Unknown scope: Inspection contingency
+
+---
+
+*Evaluating a property's condition? [Perchspot analysis](/chat) helps identify potential issues to investigate with professionals.*
+    `,
+  },
 ];
 
 // Update categories to include Local
