@@ -37210,6 +37210,1769 @@ When a property appraises below your offer price, you face a gap. Here's how to 
 *Concerned about property values? [Perchspot analysis](/chat) helps you understand what a property is really worth.*
     `,
   },
+  {
+    id: 'fsbo-buying-guide',
+    title: 'Buying FSBO: For Sale By Owner Properties Guide',
+    category: 'Guide',
+    date: '2025-01-08',
+    readTime: '8 min read',
+    metaDescription: 'Complete guide to buying FSBO (For Sale By Owner) homes. Learn the process, potential savings, risks, and how to navigate purchases without listing agents.',
+    content: `
+# Buying FSBO: For Sale By Owner Properties Guide
+
+FSBO (For Sale By Owner) properties can offer opportunities, but require more buyer diligence since there's no listing agent involved.
+
+## Why Sellers Choose FSBO
+
+### Common Motivations
+- Save listing commission (2.5-3%)
+- Control over process
+- Already have buyer in mind
+- Believe home will sell easily
+- Privacy concerns
+- Past negative agent experience
+
+### FSBO Statistics
+- About 7-10% of home sales
+- Often sell for less than agent-listed
+- Take longer on average
+- More common in hot markets
+
+## Advantages for Buyers
+
+### Potential Benefits
+| Benefit | Explanation |
+|---------|-------------|
+| Price negotiation | No agent commission built in |
+| Direct communication | Talk to decision-maker |
+| Motivated seller | Usually ready to deal |
+| Less competition | Some buyers avoid FSBO |
+| Flexible terms | Seller may be creative |
+
+### Commission Dynamics
+- Typical sale: 5-6% total commission
+- FSBO saves listing side (2.5-3%)
+- May negotiate lower price
+- Buyer agent commission still owed typically
+
+## Challenges
+
+### Common Issues
+| Challenge | Impact |
+|-----------|--------|
+| Overpriced | Sellers often overvalue |
+| Paperwork gaps | Missing disclosures |
+| Emotional sellers | Personal attachment |
+| Limited marketing | Fewer buyers = negotiating power |
+| Inexperience | Process confusion |
+
+### Without Listing Agent
+- No professional pricing guidance
+- Less market knowledge
+- Paperwork burden on parties
+- Negotiation directly with owner
+- Scheduling challenges
+
+## Finding FSBO Properties
+
+### Where to Look
+- FSBO websites (ForSaleByOwner.com, FSBO.com)
+- Zillow/Realtor.com "by owner" filter
+- Craigslist
+- Facebook Marketplace
+- Yard signs
+- Word of mouth
+- Local classifieds
+
+### Expanding Your Search
+- Drive target neighborhoods
+- Network with friends/family
+- Check bulletin boards
+- Local Facebook groups
+- Nextdoor app
+
+## Using a Buyer's Agent
+
+### Should You?
+| With Agent | Without Agent |
+|------------|---------------|
+| Representation | Self-represent |
+| Professional guidance | Research yourself |
+| Negotiation expertise | Direct negotiation |
+| Paperwork handled | Handle paperwork |
+| Agent commission owed | No agent cost |
+
+### FSBO Sellers and Buyer's Agents
+- Some FSBO sellers refuse to pay buyer's agent
+- Some will pay reduced commission
+- Negotiate this upfront
+- May affect your search
+
+### Going Without Agent
+- More work for you
+- Must understand process
+- Need attorney at minimum
+- Can work but requires effort
+
+## Negotiation Strategies
+
+### Price Negotiation
+- Research comparable sales
+- Calculate fair value
+- Account for condition
+- Note days on market
+- Make reasonable offer
+
+### Commission Negotiation
+If using buyer's agent:
+- Who pays commission?
+- What percentage?
+- Negotiate as part of deal
+- Get in writing
+
+### Direct with Seller Tips
+- Be respectful
+- Stay unemotional
+- Focus on facts
+- Document agreements
+- Keep communication records
+
+## Due Diligence
+
+### What's Often Missing
+- Seller disclosures
+- Lead paint disclosure
+- HOA documents
+- Professional staging/photos
+- Pre-inspection repairs
+
+### What You Must Do
+1. Get all required disclosures
+2. Order title search
+3. Complete home inspection
+4. Verify permits for work
+5. Review HOA if applicable
+6. Get everything in writing
+
+### Professional Help
+| Professional | Why Needed |
+|--------------|------------|
+| Real estate attorney | Contracts, legal protection |
+| Home inspector | Property condition |
+| Title company | Clear title, insurance |
+| Appraiser | If financing |
+
+## The Purchase Process
+
+### Without Agents
+1. Find property
+2. Research value
+3. Make offer (written)
+4. Negotiate terms
+5. Sign purchase agreement
+6. Complete inspections
+7. Resolve issues
+8. Clear contingencies
+9. Close transaction
+
+### Key Documents
+- Purchase agreement
+- Seller disclosures
+- Lead paint disclosure
+- Contingency addendums
+- Title report
+- Closing documents
+
+## Contract Considerations
+
+### Must Have
+- Full legal description
+- Purchase price
+- Earnest money terms
+- Contingencies (inspection, financing)
+- Closing timeline
+- What's included
+- Dispute resolution
+
+### Protect Yourself
+- Use attorney-reviewed contract
+- Include all standard contingencies
+- Set clear deadlines
+- Document everything
+- Don't skip disclosures
+
+## Common Mistakes
+
+### Buyers Make
+- Not getting inspection
+- Skipping title search
+- Informal agreements
+- Paying too much (no comps)
+- Missing disclosures
+- Trusting too much
+
+### Avoid By
+- Always get inspection
+- Always get title insurance
+- Everything in writing
+- Research comparable sales
+- Require all disclosures
+- Verify everything
+
+## Red Flags
+
+### Warning Signs
+- Won't provide disclosures
+- Refuses inspection
+- Unclear on title
+- Pressure to close fast
+- Won't use escrow
+- Verbal-only agreements
+
+### Walk Away If
+- Can't verify ownership
+- Major title issues
+- Seller hiding something
+- Unreasonable terms
+- Bad feeling
+
+## Price Reality
+
+### FSBO Pricing
+- Often overpriced initially
+- Sellers emotional about value
+- No professional pricing advice
+- May reduce after time
+
+### Your Approach
+- Research market thoroughly
+- Know comparable sales
+- Make fair offer
+- Support with data
+- Be patient
+
+## After Agreement
+
+### Next Steps
+1. Open escrow
+2. Deposit earnest money
+3. Order title search
+4. Schedule inspection
+5. Apply for financing
+6. Complete contingencies
+7. Final walkthrough
+8. Close
+
+### Stay Organized
+- Track all deadlines
+- Keep all documents
+- Communicate clearly
+- Follow up regularly
+
+---
+
+*Evaluating a FSBO property? [Perchspot analysis](/chat) provides data-driven insights regardless of how the home is listed.*
+    `,
+  },
+  {
+    id: 'train-tracks-proximity',
+    title: 'Buying Near Train Tracks: Noise, Value, and Considerations',
+    category: 'Tips',
+    date: '2025-01-07',
+    readTime: '7 min read',
+    metaDescription: 'Guide to buying a home near train tracks. Understand noise impact, property values, safety, and how to evaluate trackside properties.',
+    content: `
+# Buying Near Train Tracks: Noise, Value, and Considerations
+
+Homes near train tracks often sell for less, but is the discount worth the tradeoffs? Here's what to consider.
+
+## Proximity Impact
+
+### Distance Matters
+| Distance | Impact Level |
+|----------|--------------|
+| Under 500 ft | Significant noise/vibration |
+| 500-1000 ft | Moderate noise |
+| 1000-2500 ft | Some noise |
+| Over 2500 ft | Minimal impact |
+
+### Type of Tracks
+| Track Type | Considerations |
+|------------|----------------|
+| Freight | Louder, longer, less frequent |
+| Commuter | Lighter, more frequent |
+| Light rail | Quieter, very frequent |
+| High-speed | Infrequent but very loud |
+
+## Noise Reality
+
+### What to Expect
+- Horn at crossings
+- Wheel noise on tracks
+- Engine/motor sounds
+- Coupling sounds (freight)
+- Vibration through ground
+
+### When Trains Run
+- Check schedule
+- Freight often at night
+- Commuter has regular schedule
+- Some tracks 24/7
+- Frequency varies greatly
+
+### Measuring Impact
+- Visit at different times
+- Ask neighbors
+- Research train schedules
+- Note crossing proximity
+- Consider topography (hills block sound)
+
+## Value Impact
+
+### Typical Discounts
+| Proximity | Price Impact |
+|-----------|--------------|
+| Adjacent | 10-15% lower |
+| Very close | 5-10% lower |
+| Nearby | 2-5% lower |
+| Not audible | Minimal |
+
+### Factors Affecting Impact
+- Frequency of trains
+- Type of rail (freight vs commuter)
+- Time of operation
+- Neighborhood desirability
+- Sound barriers present
+- Property orientation
+
+## Safety Considerations
+
+### Crossing Safety
+- At-grade crossings have accidents
+- Gates and signals help
+- Still requires caution
+- Consider if you have children/pets
+
+### Hazardous Materials
+- Freight trains carry hazmat
+- Derailment risk exists
+- Emergency response zones
+- Check local regulations
+
+### Fencing and Access
+- Is track fenced?
+- Children's safety
+- Trespassing concerns
+- Property security
+
+## Living With Trains
+
+### Adaptation
+- Most people adjust over time
+- Background noise becomes normal
+- Sleep patterns adapt
+- Some find it soothing
+
+### Mitigation Options
+| Solution | Effectiveness | Cost |
+|----------|---------------|------|
+| Sound-reducing windows | Moderate-High | $$$$ |
+| Bedroom placement | Moderate | Free |
+| White noise machines | Moderate | $ |
+| Landscaping/berms | Low-Moderate | $$ |
+| Sound walls (if allowed) | High | $$$$ |
+
+### What Works Best
+- Triple-pane windows
+- Bedroom away from tracks
+- Quality insulation
+- Solid construction
+- Combination approach
+
+## Questions to Research
+
+### About the Tracks
+1. What type of trains?
+2. How often do they run?
+3. What times?
+4. Horns at crossings nearby?
+5. Any planned changes?
+
+### About the Property
+1. When was it built (sound proofing)?
+2. Window quality?
+3. Bedroom locations?
+4. Any previous complaints?
+5. What do neighbors say?
+
+## Inspection Considerations
+
+### Check For
+- Vibration damage
+- Foundation cracks (from vibration)
+- Window seal condition
+- Interior wall cracks
+- Sound insulation present
+
+### Ask About
+- Any claims related to trains
+- Noise complaints history
+- Mitigation already done
+- Previous owner experience
+
+## Investment Perspective
+
+### Considerations
+| Factor | Impact on Investment |
+|--------|---------------------|
+| Resale pool | Smaller buyer pool |
+| Appreciation | May lag market |
+| Rental potential | Tenants may not care |
+| Purchase price | Often lower |
+
+### May Be Good Investment If
+- Deep discount
+- Rental property (tenants tolerate more)
+- Low-frequency/quiet line
+- Area gentrifying
+- Personal tolerance high
+
+## Who Should Consider
+
+### Good Fit
+- Sound sleepers
+- Not noise-sensitive
+- Budget-conscious
+- Work from home (daytime quiet)
+- Previously lived near tracks
+
+### Poor Fit
+- Light sleepers
+- Work night shifts
+- Noise-sensitive
+- Young children
+- Home all day
+
+## Due Diligence Steps
+
+### Before Offering
+1. Multiple visits at different times
+2. Weekend AND weekday
+3. Day AND night
+4. Talk to neighbors
+5. Research train schedule
+
+### During Inspection
+1. Note window quality
+2. Check foundation
+3. Ask about vibration
+4. Test sound levels
+5. Review any disclosures
+
+## Resale Reality
+
+### Challenges
+- Smaller buyer pool
+- Must price competitively
+- Disclose fully
+- May take longer to sell
+- Some buyers immediate reject
+
+### Advantages
+- Right buyer loves the discount
+- Price already reflects issue
+- Commuter rail = transit advantage
+- Consistent demand at right price
+
+## Future Developments
+
+### What Could Change
+- Quiet zones (no horns)
+- Sound walls installed
+- Track upgrades (quieter)
+- Increased frequency
+- New stations nearby
+
+### Research
+- Local transit plans
+- Rail company plans
+- City development plans
+- Quiet zone applications
+
+---
+
+*Considering a trackside property? [Perchspot analysis](/chat) evaluates all factors including location considerations.*
+    `,
+  },
+  {
+    id: 'power-line-proximity',
+    title: 'Homes Near Power Lines: What Buyers Should Know',
+    category: 'Tips',
+    date: '2025-01-06',
+    readTime: '7 min read',
+    metaDescription: 'Guide to buying a home near power lines. Understand EMF concerns, property values, insurance, and how to evaluate proximity to electrical infrastructure.',
+    content: `
+# Homes Near Power Lines: What Buyers Should Know
+
+High-voltage power lines near homes raise questions about health, value, and insurability. Here's what buyers should understand.
+
+## Types of Power Lines
+
+### Transmission Lines
+- High voltage (69kV-765kV)
+- Large metal towers
+- Serve entire regions
+- Biggest concern
+- Require wide easements
+
+### Distribution Lines
+- Lower voltage (4kV-35kV)
+- Wood poles typical
+- Serve neighborhoods
+- Less concerning
+- Common everywhere
+
+### The Difference Matters
+| Type | Voltage | Tower Type | EMF Concern |
+|------|---------|------------|-------------|
+| Transmission | 69kV-765kV | Large metal | Higher |
+| Sub-transmission | 35kV-69kV | Smaller metal | Moderate |
+| Distribution | 4kV-35kV | Wood poles | Lower |
+| Service | 120V-240V | To your home | Minimal |
+
+## Health Considerations
+
+### EMF (Electromagnetic Fields)
+- Power lines create EMF
+- Strength decreases with distance
+- Scientific debate ongoing
+- No proven health effects
+- Some studies show associations
+
+### Scientific Consensus
+- WHO: No proven health risks
+- Some studies suggest childhood leukemia association
+- Correlation, not causation established
+- Research ongoing
+- Precautionary approach reasonable
+
+### Personal Decision
+- Weigh uncertainty
+- Consider your comfort level
+- Some avoid completely
+- Others unconcerned
+- No right answer
+
+## Distance and EMF
+
+### EMF Strength by Distance
+| Distance from Line | Relative EMF |
+|--------------------|--------------|
+| Under line | 100% |
+| 50 feet | ~40% |
+| 100 feet | ~20% |
+| 200 feet | ~5% |
+| 300 feet | ~2% |
+
+*Varies by line voltage and configuration*
+
+### Practical Guidance
+- Major transmission: 300+ feet preferable
+- Distribution lines: Less concern
+- Measure if worried
+- EMF meters available
+
+## Property Value Impact
+
+### Typical Discounts
+| Proximity | Price Impact |
+|-----------|--------------|
+| Adjacent/under | 15-30% |
+| Very close (<100ft) | 10-15% |
+| Visible but distant | 5-10% |
+| Not visible | Minimal |
+
+### Factors Affecting Value
+- Line size (bigger = worse)
+- Visual impact
+- Easement restrictions
+- Neighborhood desirability
+- Local market conditions
+
+## Easement Considerations
+
+### What Easements Mean
+- Utility has access rights
+- Restrictions on building
+- Landscaping limits
+- Maintenance access
+- Future expansion possible
+
+### Common Restrictions
+- No structures in easement
+- Height limits for vegetation
+- Access at any time
+- No permanent improvements
+- Potential view issues
+
+### Questions to Ask
+1. Where exactly is the easement?
+2. What restrictions apply?
+3. Can you plant trees?
+4. Any future expansion planned?
+5. Who maintains the area?
+
+## Visual Impact
+
+### What to Consider
+- View from home
+- View from yard
+- Tower height
+- Line visibility
+- Aesthetic impact
+
+### Mitigation Options
+| Strategy | Effectiveness |
+|----------|---------------|
+| Landscaping | Limited |
+| Home positioning | If building |
+| Accepting it | Free |
+| Avoiding | 100% |
+
+## Insurance Considerations
+
+### Generally
+- Standard insurance covers
+- No premium increase typically
+- Fire risk from fallen lines
+- Claim if line damages property
+
+### What to Ask
+- Any coverage limitations?
+- Fallen line damage covered?
+- EMF not typically excluded
+
+## Due Diligence
+
+### Before Buying
+1. Identify line type (transmission vs distribution)
+2. Measure actual distance
+3. Research easement
+4. Check future expansion plans
+5. Evaluate personal comfort
+
+### How to Research
+- County GIS maps
+- Title report for easements
+- Utility company inquiry
+- Visual inspection
+- Neighborhood feedback
+
+## Living Near Power Lines
+
+### Daily Reality
+- Visual presence constant
+- Some hum/buzz noise
+- Maintenance trucks occasionally
+- Lightning can cause outages
+- EMF if you believe it matters
+
+### Who Adapts Well
+- Not health-concerned
+- Values the discount
+- Enjoys yard without obstruction
+- Less visually sensitive
+- Practical mindset
+
+## Investment Perspective
+
+### Considerations
+| Factor | Impact |
+|--------|--------|
+| Purchase price | Lower |
+| Resale pool | Smaller |
+| Appreciation | May lag |
+| Rental potential | Less affected |
+
+### May Make Sense If
+- Significant discount
+- Rental property
+- Personal tolerance high
+- Great location otherwise
+- Not planning long-term
+
+## Questions for Sellers
+
+### Ask About
+1. Any issues with utilities?
+2. Easement maintenance frequency?
+3. Power outage history?
+4. Any planned upgrades?
+5. Why selling? (health concerns?)
+
+### Request
+- Easement documentation
+- Utility company contact
+- Any correspondence about lines
+- Previous survey
+
+## Red Flags
+
+### Concerning Situations
+- New line construction planned
+- Voltage increase planned
+- Towers very close to home
+- Easement larger than expected
+- Seller evasive about lines
+
+### Walk Away If
+- Comfort level not there
+- Resale concerns significant
+- Lines closer than expected
+- Future expansion planned
+- Price doesn't reflect proximity
+
+## Future Considerations
+
+### What Could Change
+- Undergrounding (rare for transmission)
+- Upgraded lines (bigger)
+- New substations
+- Additional lines
+- Decommissioning (rare)
+
+### Research
+- Utility company plans
+- Regional infrastructure plans
+- Local development permits
+
+---
+
+*Evaluating a property near power lines? [Perchspot analysis](/chat) factors location considerations into property assessment.*
+    `,
+  },
+  {
+    id: 'being-landlord-101',
+    title: 'Becoming a Landlord: What First-Time Investors Must Know',
+    category: 'Investment',
+    date: '2025-01-05',
+    readTime: '10 min read',
+    metaDescription: 'Complete guide for first-time landlords. Learn about tenant screening, landlord-tenant law, property management basics, and what it really takes.',
+    content: `
+# Becoming a Landlord: What First-Time Investors Must Know
+
+Owning rental property can build wealth, but being a landlord involves more than collecting rent. Here's the reality.
+
+## Landlord Responsibilities
+
+### Legal Obligations
+- Provide habitable housing
+- Make necessary repairs
+- Follow fair housing laws
+- Maintain safety features
+- Return security deposits properly
+- Respect tenant privacy
+
+### Day-to-Day Reality
+| Task | Frequency |
+|------|-----------|
+| Collecting rent | Monthly |
+| Maintenance requests | Ongoing |
+| Property inspections | Quarterly |
+| Lease renewals | Annually |
+| Tenant communication | As needed |
+| Bookkeeping | Ongoing |
+
+## Fair Housing Laws
+
+### Protected Classes (Federal)
+- Race
+- Color
+- National origin
+- Religion
+- Sex
+- Familial status
+- Disability
+
+### State/Local Additions
+- Sexual orientation
+- Gender identity
+- Source of income
+- Veteran status
+- Others vary by location
+
+### What You Cannot Do
+- Discriminate in advertising
+- Screen inconsistently
+- Refuse reasonable accommodations
+- Different terms based on protected class
+- Retaliate against tenants
+
+## Tenant Screening
+
+### Legal Screening Criteria
+| Criteria | Generally OK |
+|----------|--------------|
+| Income (3x rent) | Yes |
+| Credit score | Yes |
+| Rental history | Yes |
+| Criminal history | Varies by state |
+| Employment | Yes |
+| References | Yes |
+
+### Red Flags
+- Previous evictions
+- Poor rental references
+- Income insufficient
+- False information on application
+- Reluctance to provide information
+
+### Application Process
+1. Written application
+2. Application fee (where legal)
+3. Credit check
+4. Background check
+5. Income verification
+6. Rental references
+7. Decision (applied consistently)
+
+## The Lease Agreement
+
+### Essential Terms
+- Rent amount and due date
+- Lease term
+- Security deposit
+- Late fee policy
+- Maintenance responsibilities
+- Pet policy
+- Occupancy limits
+- Rules and restrictions
+
+### Lease Types
+| Type | Duration | Flexibility |
+|------|----------|-------------|
+| Fixed-term | 6-12 months | Lower |
+| Month-to-month | Ongoing | Higher |
+| Sublease | Variable | Depends |
+
+### State Law Requirements
+- Varies significantly
+- Some disclosures mandatory
+- Certain clauses unenforceable
+- Know your state's rules
+- Use attorney-reviewed lease
+
+## Security Deposits
+
+### Typical Rules (Vary by State)
+- Maximum amount limits
+- Separate bank account
+- Interest requirements
+- Itemized deductions
+- Return timeline (14-30 days)
+- Walk-through requirements
+
+### Common Violations
+- Exceeding maximum
+- Not returning on time
+- Improper deductions
+- No itemization
+- Using for normal wear and tear
+
+## Rent Collection
+
+### Best Practices
+- Due date clearly stated
+- Grace period defined
+- Late fee enforced
+- Multiple payment options
+- Consistent enforcement
+
+### Payment Methods
+| Method | Pros | Cons |
+|--------|------|------|
+| Online portal | Convenient, recorded | Setup needed |
+| Bank transfer | Direct, fast | Tenant setup |
+| Check | Traditional | Delays, bouncing |
+| Cash | Never recommended | No record |
+
+### When Rent Is Late
+1. Send reminder on due date
+2. Apply late fee after grace period
+3. Contact tenant
+4. Send pay or quit notice
+5. Begin eviction if necessary
+
+## Maintenance Obligations
+
+### Landlord Must Provide
+- Functioning plumbing
+- Working heat
+- Electrical systems
+- Structural integrity
+- Safe conditions
+- Water (hot and cold)
+- Smoke/CO detectors
+
+### Response Timeframes
+| Issue Type | Response Time |
+|------------|---------------|
+| Emergency (no heat, flood) | Immediately |
+| Urgent (broken appliance) | 24-48 hours |
+| Routine | Within reasonable time |
+| Cosmetic | Lease renewal |
+
+### Documentation
+- Written requests preferred
+- Keep all records
+- Before/after photos
+- Receipts for repairs
+- Communication logs
+
+## Eviction Process
+
+### Legal Process Only
+- Never self-help eviction
+- No changing locks
+- No shutting off utilities
+- No removing belongings
+- No harassment
+
+### Typical Process
+1. Valid legal reason
+2. Proper notice (state-specific)
+3. Wait notice period
+4. File unlawful detainer
+5. Court hearing
+6. Judgment
+7. Sheriff enforcement
+
+### Eviction Reasons
+- Non-payment of rent
+- Lease violations
+- Lease expiration (with proper notice)
+- Illegal activity
+- Health/safety violations
+
+## Financial Management
+
+### Track Everything
+- All rental income
+- All expenses
+- Maintenance costs
+- Improvements
+- Mileage
+- Professional fees
+
+### Tax Deductions
+| Deductible | Not Deductible |
+|------------|----------------|
+| Mortgage interest | Principal payments |
+| Property taxes | Personal time |
+| Insurance | Improvements (depreciated) |
+| Repairs | Your labor |
+| Depreciation | Home office (usually) |
+| Management fees | |
+| Travel to property | |
+
+### Profit Calculation
+**Gross rent** - (mortgage + taxes + insurance + maintenance + vacancy + management) = **Cash flow**
+
+## Property Management Option
+
+### Costs
+- Typically 8-12% of rent
+- Leasing fee (50-100% of first month)
+- Maintenance markup (10-20%)
+- Other fees possible
+
+### When to Hire Manager
+- Multiple properties
+- Remote location
+- No time available
+- Don't want to be hands-on
+- Value exceeds cost
+
+### Self-Management
+- Save money
+- More control
+- Time commitment
+- Legal knowledge needed
+- Emergency availability
+
+## Common Mistakes
+
+### New Landlord Errors
+| Mistake | Consequence |
+|---------|-------------|
+| Poor screening | Bad tenants |
+| Verbal agreements | No enforcement |
+| Inconsistent rules | Discrimination claims |
+| Delayed repairs | Habitability issues |
+| Personal relationship | Boundary problems |
+| No emergency fund | Stress |
+
+### How to Avoid
+- Screen consistently
+- Everything in writing
+- Treat as business
+- Respond promptly
+- Maintain boundaries
+- Keep reserves
+
+## Before You Start
+
+### Prepare For
+- Middle of night calls
+- Difficult conversations
+- Legal complexity
+- Financial ups and downs
+- Time commitment
+- Learning curve
+
+### Questions to Ask Yourself
+1. Do I have time for this?
+2. Can I handle conflict?
+3. Do I have reserves?
+4. Am I willing to learn the laws?
+5. Can I treat this as a business?
+
+---
+
+*Evaluating investment property? [Perchspot analysis](/chat) helps assess rental potential and property condition.*
+    `,
+  },
+  {
+    id: 'hidden-homeownership-costs',
+    title: 'Hidden Homeownership Costs: The Complete List',
+    category: 'Education',
+    date: '2025-01-04',
+    readTime: '9 min read',
+    metaDescription: 'Comprehensive guide to hidden homeownership costs beyond mortgage payment. Learn about maintenance, repairs, taxes, and expenses that surprise new owners.',
+    content: `
+# Hidden Homeownership Costs: The Complete List
+
+The mortgage payment is just the beginning. Here's everything else that comes with owning a home.
+
+## Regular Ongoing Costs
+
+### Monthly Expenses
+| Expense | Typical Range |
+|---------|---------------|
+| Property taxes | 0.5-2.5% of value/year |
+| Homeowners insurance | $100-300/month |
+| PMI (if applicable) | 0.5-1% of loan/year |
+| HOA fees | $200-800/month |
+| Utilities | $200-500/month |
+| Lawn/landscape | $100-400/month |
+
+### Annual Expenses
+| Expense | Typical Range |
+|---------|---------------|
+| HVAC maintenance | $150-300 |
+| Gutter cleaning | $100-250 |
+| Chimney cleaning | $150-300 |
+| Pest control | $300-600 |
+| Septic pumping | $300-500 (every 3-5 years) |
+| Tree trimming | $200-1,000 |
+
+## The 1% Rule
+
+### Annual Maintenance Budget
+- Plan for 1-3% of home value annually
+- $500,000 home = $5,000-15,000/year
+- Older homes: Higher end
+- Newer homes: Lower end
+- **Average: 1.5%**
+
+### What This Covers
+- Routine maintenance
+- Minor repairs
+- System servicing
+- Seasonal tasks
+- Small improvements
+
+## Major System Replacements
+
+### What Wears Out
+| System | Lifespan | Replacement Cost |
+|--------|----------|------------------|
+| Roof (asphalt) | 20-25 years | $8,000-25,000 |
+| HVAC | 15-20 years | $5,000-15,000 |
+| Water heater | 10-15 years | $1,000-3,500 |
+| Appliances | 10-15 years | $500-3,000 each |
+| Windows | 20-30 years | $300-1,000 each |
+| Siding | 20-40 years | $8,000-20,000 |
+| Deck | 15-25 years | $5,000-15,000 |
+
+### Reserve Planning
+- Add up remaining life of systems
+- Divide by years remaining
+- Save monthly for future
+- Example: Roof needs replacing in 10 years, costs $15,000 = save $125/month
+
+## Surprise Expenses
+
+### Common Surprises
+| Surprise | Typical Cost |
+|----------|--------------|
+| Plumbing emergency | $200-1,500 |
+| Electrical issues | $150-1,000 |
+| Pest infestation | $200-2,000 |
+| Storm damage | $500-10,000+ |
+| Foundation issues | $5,000-50,000+ |
+| Sewer line | $3,000-15,000 |
+
+### Why They Happen
+- Hidden problems
+- Deferred maintenance
+- Age-related failures
+- Weather events
+- Unlucky timing
+
+## Property Tax Reality
+
+### What to Know
+- Not fixed, changes annually
+- Reassessment happens
+- Purchase triggers reassessment often
+- Exemptions may apply
+- Appeals possible
+
+### Budget For Increases
+- Plan for 2-5% annual increase
+- New assessments after purchase
+- Local budget changes
+- School levies
+- Infrastructure bonds
+
+## Insurance Costs
+
+### What Affects Premiums
+| Factor | Impact |
+|--------|--------|
+| Location (weather risk) | Major |
+| Home age | Moderate |
+| Claims history | Major |
+| Coverage level | Major |
+| Deductible choice | Moderate |
+| Credit score | Moderate |
+
+### What You Need Beyond Basic
+- Flood insurance (often separate)
+- Earthquake insurance (often separate)
+- Umbrella policy
+- Scheduled valuables
+- Sewer backup coverage
+
+### Rate Increases
+- Expect annual increases
+- After claims: significant increase
+- Market conditions
+- Natural disaster patterns
+
+## Utilities
+
+### Higher Than Renting
+- Larger space = more cost
+- All utilities your responsibility
+- Old systems less efficient
+- Seasonal variation
+
+### Typical Monthly
+| Utility | Range |
+|---------|-------|
+| Electricity | $100-300 |
+| Gas | $50-200 |
+| Water/sewer | $50-150 |
+| Trash | $25-75 |
+| Internet | $50-100 |
+
+### Ways to Reduce
+- Energy efficiency improvements
+- Smart thermostat
+- LED lighting
+- Efficient appliances
+- Water conservation
+
+## Yard and Landscaping
+
+### Maintenance Costs
+| Service | Cost |
+|---------|------|
+| Lawn mowing | $30-80/week |
+| Fertilization | $50-100/treatment |
+| Irrigation repair | $50-150/fix |
+| Tree service | $200-2,000/job |
+| Mulching | $100-400/year |
+| Snow removal | $50-200/event |
+
+### DIY Equipment
+- Lawn mower: $200-1,500
+- Trimmer: $100-300
+- Blower: $100-400
+- Sprinkler system repairs
+- Ongoing fuel and maintenance
+
+## HOA Fees
+
+### What They Cover
+- Common area maintenance
+- Insurance (exterior often)
+- Reserves
+- Amenities
+- Management
+
+### What They Don't Tell You
+- Special assessments possible
+- Fees typically increase
+- Reserve may be inadequate
+- Rules may be restrictive
+- Board decisions affect you
+
+## First-Year Extras
+
+### Move-In Costs
+| Item | Cost Range |
+|------|------------|
+| Moving company | $1,000-5,000 |
+| New furniture | $2,000-10,000+ |
+| Window treatments | $500-5,000 |
+| New locks/security | $200-1,000 |
+| Immediate repairs | $500-5,000 |
+| Appliances | $2,000-8,000 |
+| Tools/equipment | $500-2,000 |
+
+### Often Forgotten
+- Address change costs
+- Utility deposits
+- HOA initiation fees
+- Home warranty
+- Initial landscaping
+- Cleaning supplies
+
+## Long-Term Value Adds
+
+### Maintenance That Pays
+- Roof care (extends life)
+- HVAC maintenance (efficiency)
+- Exterior painting (prevents damage)
+- Gutter maintenance (prevents water damage)
+- Pest prevention (prevents damage)
+
+### Capital Improvements
+- Increase value
+- Improve efficiency
+- Prevent bigger problems
+- Plan and budget
+
+## Budgeting Strategy
+
+### Monthly Reserve
+| Home Value | Monthly Reserve |
+|------------|-----------------|
+| $300,000 | $375-750 |
+| $500,000 | $625-1,250 |
+| $750,000 | $938-1,875 |
+| $1,000,000 | $1,250-2,500 |
+
+*Based on 1.5-3% annually*
+
+### Separate Accounts
+- Emergency repairs: 3-6 months expenses
+- Major systems: Ongoing savings
+- Improvements: Optional savings
+- Regular maintenance: Monthly budget
+
+## True Cost of Ownership
+
+### Calculate Total Monthly
+- Mortgage payment
+- Property taxes
+- Insurance
+- HOA
+- Utilities
+- Maintenance reserve
+- **= True monthly cost**
+
+### Example ($500K Home)
+| Item | Monthly |
+|------|---------|
+| Mortgage | $2,800 |
+| Taxes | $400 |
+| Insurance | $150 |
+| HOA | $0 |
+| Utilities | $300 |
+| Maintenance | $625 |
+| **Total** | **$4,275** |
+
+*Mortgage alone was only 65% of true cost*
+
+---
+
+*Understanding true ownership costs? [Perchspot analysis](/chat) helps evaluate property condition before you buy.*
+    `,
+  },
+  {
+    id: 'buying-near-schools-churches',
+    title: 'Buying Near Schools or Churches: Pros, Cons, and Considerations',
+    category: 'Tips',
+    date: '2025-01-03',
+    readTime: '7 min read',
+    metaDescription: 'Guide to buying a home near schools or churches. Learn about traffic, noise, property values, and what to consider when evaluating these locations.',
+    content: `
+# Buying Near Schools or Churches: Pros, Cons, and Considerations
+
+Properties near schools and churches have unique characteristics. Here's what buyers should understand.
+
+## Near Schools
+
+### Advantages
+| Benefit | Explanation |
+|---------|-------------|
+| Walkability | Kids walk to school |
+| Property values | Good schools = higher values |
+| Community | Family-friendly area |
+| Safety | Crossing guards, patrols |
+| Activities | Sports, events nearby |
+
+### Disadvantages
+| Challenge | Impact |
+|-----------|--------|
+| Traffic | Drop-off/pickup rush |
+| Parking | Limited during events |
+| Noise | Bells, recess, sports |
+| Bus routes | Early morning noise |
+| Crowds | Events, games |
+
+### Traffic Realities
+- 30-45 minutes of chaos, twice daily
+- School days only (summers quiet)
+- Special events worse
+- May affect your commute
+- Street parking restricted often
+
+### Noise Considerations
+- School bells: Regular schedule
+- Recess: Yelling, playing
+- Sports: After school, evenings, weekends
+- Band practice: Can be loud
+- PA announcements: Audible nearby
+
+## Distance Matters
+
+### Optimal Distance from Schools
+| Distance | Experience |
+|----------|------------|
+| Adjacent | Most traffic/noise |
+| 1-2 blocks | Moderate impact |
+| 3-5 blocks | Walking distance, minimal issues |
+| 5+ blocks | Limited impact |
+
+### Sweet Spot
+- Close enough to walk
+- Far enough to avoid direct impact
+- 2-4 blocks often ideal
+- Depends on street configuration
+
+## Near Churches
+
+### Advantages
+| Benefit | Explanation |
+|---------|-------------|
+| Community | Established neighborhood |
+| Quiet | Most days |
+| Parking | Can share overflow |
+| Maintained | Churches maintain property |
+| Historic | May be architecturally notable |
+
+### Disadvantages
+| Challenge | Impact |
+|-----------|--------|
+| Sunday traffic | Services create congestion |
+| Parking overflow | May use your street |
+| Bells | Some ring regularly |
+| Events | Weddings, funerals, festivals |
+| Expansion | May grow/add buildings |
+
+### Activity Patterns
+- Sunday mornings: Primary services
+- Wednesday evenings: Often activities
+- Holidays: Special services
+- Weddings: Year-round, weekends
+- Other events: Variable
+
+## Property Value Impact
+
+### Near Good Schools
+- Generally positive
+- "School district premium" real
+- 2-3% higher values in top districts
+- Consistent demand
+- Resale advantage
+
+### Near Churches
+- Generally neutral
+- Historic churches: Positive
+- Large/growing churches: May be negative
+- Depends on neighborhood
+- Less studied than schools
+
+## Due Diligence
+
+### For Schools
+1. Visit during drop-off/pickup
+2. Check sports schedule
+3. Ask neighbors about impact
+4. Research school quality
+5. Note parking restrictions
+
+### For Churches
+1. Determine service times
+2. Check event frequency
+3. Ask about expansion plans
+4. Note parking arrangements
+5. Understand zoning
+
+## Questions to Ask
+
+### About Schools
+- What are traffic patterns?
+- Where do parents park?
+- What's the sports schedule?
+- Any planned expansion?
+- How does it affect daily life?
+
+### About Churches
+- How many weekly services?
+- What major events occur?
+- Any construction planned?
+- How is parking managed?
+- Bell schedule?
+
+## Mitigation Strategies
+
+### Traffic
+- Adjust your schedule
+- Know alternative routes
+- Avoid prime impact times
+- Accept the tradeoff
+
+### Parking
+- Ensure your parking is clear
+- Consider driveway location
+- Know street restrictions
+- May need permits
+
+### Noise
+- Sound-reducing windows
+- Bedroom placement
+- Background noise habits
+- Acceptance over time
+
+## Who Should Avoid
+
+### School Proximity
+- Remote workers needing quiet
+- Night shift workers
+- No-children households (some)
+- Highly traffic-sensitive
+
+### Church Proximity
+- Sunday morning plans important
+- Parking-sensitive
+- Noise-intolerant
+- Privacy-focused
+
+## Who Benefits
+
+### School Proximity
+- Families with school-age kids
+- Buyers wanting strong resale
+- Community-oriented buyers
+- Working families (convenient)
+
+### Church Proximity
+- Members of that congregation
+- Those valuing established neighborhoods
+- Buyers okay with occasional disruption
+- Not noise-sensitive
+
+## Zoning Considerations
+
+### School Properties
+- Typically public zoning
+- Unlikely to change dramatically
+- May expand within campus
+- Traffic patterns established
+
+### Church Properties
+- Often special zoning
+- Can request changes
+- May add buildings
+- Parking lot expansion possible
+
+## Long-Term View
+
+### Schools
+- Demographics change
+- School quality can shift
+- Enrollment affects activity
+- Consolidation possible
+- Stable overall
+
+### Churches
+- Congregations grow and shrink
+- Property sales possible
+- Conversion to other uses
+- Historic protection may apply
+- Less predictable than schools
+
+---
+
+*Evaluating a property near institutions? [Perchspot analysis](/chat) provides comprehensive location assessment.*
+    `,
+  },
+  {
+    id: 'waterfront-pond-creek-homes',
+    title: 'Homes with Water Features: Ponds, Creeks, and Lakefront Living',
+    category: 'Tips',
+    date: '2025-01-02',
+    readTime: '8 min read',
+    metaDescription: 'Guide to buying property with water features. Learn about maintenance, insurance, flood risks, and considerations for ponds, creeks, and waterfront homes.',
+    content: `
+# Homes with Water Features: Ponds, Creeks, and Lakefront Living
+
+Water features add beauty but bring unique responsibilities and risks. Here's what buyers need to know.
+
+## Types of Water Features
+
+### On-Property Features
+| Type | Maintenance Level |
+|------|------------------|
+| Koi pond | High |
+| Natural pond | Moderate |
+| Stream/creek | Low-Moderate |
+| Fountain | Moderate |
+| Pool | High |
+
+### Adjacent Features
+| Type | Considerations |
+|------|----------------|
+| Lake/riverfront | Flooding, erosion |
+| Creek/stream | Flooding, erosion |
+| Wetlands | Regulations, pests |
+| Ocean | Storms, salt, erosion |
+
+## Natural Ponds
+
+### Maintenance Requirements
+- Algae control
+- Vegetation management
+- Aeration systems
+- Dam/liner maintenance
+- Debris removal
+- Water level management
+
+### Annual Costs
+| Task | Estimated Cost |
+|------|----------------|
+| Basic maintenance | $500-2,000 |
+| Algae treatment | $200-1,000 |
+| Aeration system | $500-3,000 |
+| Professional cleaning | $1,000-3,000 |
+| Fish stocking | $200-500 |
+
+### Questions to Ask
+1. Is it spring-fed or runoff-fed?
+2. Any dam permits required?
+3. Fish population (stocked)?
+4. Any algae issues?
+5. Maintenance history?
+
+## Creeks and Streams
+
+### Advantages
+- Scenic beauty
+- Sound of water
+- Wildlife habitat
+- Cooling effect
+- Property distinction
+
+### Challenges
+| Issue | Impact |
+|-------|--------|
+| Flooding | Periodic risk |
+| Erosion | Bank damage |
+| Access restrictions | May limit use |
+| Pollution | Upstream sources |
+| Regulations | Riparian buffers |
+
+### Regulatory Considerations
+- Setback requirements
+- Building restrictions
+- Tree clearing limits
+- Erosion control requirements
+- Environmental permits
+
+## Lakefront/Waterfront
+
+### Premium Costs
+- Purchase price: 20-50%+ premium
+- Insurance: Higher
+- Maintenance: More extensive
+- Association fees: Often apply
+- Taxes: Higher assessment
+
+### Ownership Types
+| Type | Rights |
+|------|--------|
+| Fee simple to water | Own to water's edge |
+| Water rights included | Use of water |
+| Easement access | Access only |
+| Association ownership | Shared lakefront |
+
+### Questions to Ask
+1. Where exactly is the property line?
+2. What water rights are included?
+3. Dock/pier rights?
+4. Boat launch access?
+5. Any lake association rules?
+
+## Flood Risk
+
+### FEMA Flood Zones
+| Zone | Risk Level | Insurance |
+|------|------------|-----------|
+| A, AE | High risk | Required* |
+| X (shaded) | Moderate | Recommended |
+| X (unshaded) | Minimal | Optional |
+
+*If federally-backed mortgage
+
+### Flood Insurance Costs
+- Varies dramatically by zone
+- $500-5,000+ annually
+- Higher for structures in flood plain
+- NFIP or private options
+- Separate from homeowners insurance
+
+### What to Research
+- FEMA flood maps
+- Historical flooding
+- 100-year floodplain
+- Elevation certificate
+- Community flood history
+
+## Insurance Considerations
+
+### Additional Coverage Needed
+| Coverage | Purpose |
+|----------|---------|
+| Flood insurance | Flooding damage |
+| Water damage riders | Water intrusion |
+| Liability umbrella | Drowning risk |
+| Dock/boat coverage | Watercraft |
+
+### Liability Concerns
+- Attractive nuisance doctrine
+- Drowning risk
+- Guest injuries
+- Neighbor access
+- Higher umbrella recommended
+
+## Erosion Issues
+
+### Signs of Erosion
+- Exposed tree roots
+- Leaning trees toward water
+- Crumbling banks
+- Sediment in water
+- Structures closer to water than before
+
+### Prevention and Repair
+| Method | Cost |
+|--------|------|
+| Riprap (rock armor) | $500-2,000/linear ft |
+| Retaining wall | $200-500/linear ft |
+| Vegetation buffers | $100-300/linear ft |
+| Seawall | $500-1,500/linear ft |
+
+## Wildlife Considerations
+
+### Potential Visitors
+- Mosquitoes (standing water)
+- Geese/ducks
+- Snakes
+- Muskrats/beavers
+- Herons/egrets
+- Deer (drink source)
+
+### Management
+- Mosquito control needed
+- Wildlife can damage property
+- Some are protected species
+- Coexistence required
+- Natural setting = natural wildlife
+
+## Due Diligence
+
+### Before Purchase
+1. Review flood zone maps
+2. Get elevation certificate
+3. Research insurance costs
+4. Check water rights
+5. Understand regulations
+6. Inspect banks/shoreline
+7. Review HOA water rules
+8. Talk to neighbors
+
+### Professional Inspections
+- Standard home inspection
+- Septic (if applicable, often near water)
+- Well (if applicable)
+- Dock/seawall condition
+- Environmental assessment (sometimes)
+
+## Maintenance Costs
+
+### Budget Higher
+- Water features add 10-20% to maintenance
+- Emergency repairs more expensive
+- Specialized contractors needed
+- Seasonal work required
+- Can't defer maintenance
+
+### Annual Budget
+| Item | Estimate |
+|------|----------|
+| Basic waterfront upkeep | $1,000-3,000 |
+| Bank/erosion monitoring | $500-1,500 |
+| Dock maintenance | $500-2,000 |
+| Water feature care | $1,000-5,000 |
+| Landscaping (water-adjacent) | $500-2,000 |
+
+## Resale Considerations
+
+### Advantages
+- Premium pricing
+- Distinctive property
+- Emotional appeal
+- Limited supply
+- Strong demand (usually)
+
+### Disadvantages
+- Smaller buyer pool
+- Insurance concerns for buyers
+- Flood zone stigma
+- Maintenance concerns
+- Seasonal markets (some areas)
+
+---
+
+*Evaluating waterfront property? [Perchspot analysis](/chat) includes flood risk and location assessment.*
+    `,
+  },
 ];
 
 // Update categories to include Local
