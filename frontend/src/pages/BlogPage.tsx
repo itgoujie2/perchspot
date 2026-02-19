@@ -38973,6 +38973,1262 @@ Water features add beauty but bring unique responsibilities and risks. Here's wh
 *Evaluating waterfront property? [Perchspot analysis](/chat) includes flood risk and location assessment.*
     `,
   },
+  {
+    id: 'deed-types-explained',
+    title: 'Property Deed Types: What Home Buyers Need to Know',
+    category: 'Education',
+    date: '2025-01-01',
+    readTime: '8 min read',
+    metaDescription: 'Guide to property deed types for home buyers. Learn about warranty deeds, quitclaim deeds, grant deeds, and what protections each provides.',
+    content: `
+# Property Deed Types: What Home Buyers Need to Know
+
+The deed you receive determines your legal protections. Understanding deed types is essential for buyers.
+
+## What Is a Deed?
+
+### Definition
+- Legal document transferring property ownership
+- Recorded with county
+- Provides proof of ownership
+- Contains property description
+- Names grantor (seller) and grantee (buyer)
+
+### Key Elements
+- Property legal description
+- Parties involved
+- Consideration (usually price)
+- Grantor signature
+- Notarization
+- Recording information
+
+## Types of Deeds
+
+### General Warranty Deed
+**Strongest protection for buyers**
+
+Guarantees:
+- Seller owns the property
+- No undisclosed encumbrances
+- Seller will defend title
+- Coverage for entire property history
+- Seller liable for title defects
+
+Best for:
+- Standard home purchases
+- Maximum buyer protection
+- Typical residential transactions
+
+### Special Warranty Deed
+**Limited protection**
+
+Guarantees:
+- Seller owns the property
+- No encumbrances during seller's ownership
+- Only covers seller's ownership period
+- Not responsible for previous issues
+
+Common in:
+- Bank/foreclosure sales
+- Commercial transactions
+- Some state-specific transactions
+
+### Grant Deed
+**Moderate protection (common in some states)**
+
+Guarantees:
+- Seller owns the property
+- No undisclosed encumbrances
+- Property hasn't been sold to others
+
+Used in:
+- California primarily
+- Similar to special warranty
+
+### Quitclaim Deed
+**Minimal to no protection**
+
+Provides:
+- Only what seller actually owns
+- No warranties at all
+- No guarantee of ownership
+- Buyer takes all risks
+
+Common in:
+- Transfers between family
+- Divorce property transfers
+- Adding/removing names
+- Clearing title issues
+- Gift transfers
+
+### Bargain and Sale Deed
+**Limited protection**
+
+Implies:
+- Seller owns the property
+- No warranty against encumbrances
+- No defense of title promised
+
+Used in:
+- Tax sales
+- Foreclosures
+- Some estate sales
+
+## Comparison Table
+
+| Deed Type | Warranty Level | Best For |
+|-----------|---------------|----------|
+| General Warranty | Full | Standard purchases |
+| Special Warranty | Limited | REO/bank sales |
+| Grant | Moderate | CA transactions |
+| Quitclaim | None | Family transfers |
+| Bargain and Sale | Minimal | Tax/foreclosure sales |
+
+## Why Deed Type Matters
+
+### Buyer Protections
+- Warranty = seller liable for defects
+- Recourse if title issues arise
+- Financial protection
+- Peace of mind
+
+### When Issues Arise
+| Situation | General Warranty | Quitclaim |
+|-----------|-----------------|-----------|
+| Unknown lien found | Seller liable | Buyer's problem |
+| Ownership challenge | Seller defends | Buyer's problem |
+| Encumbrance discovered | Seller fixes | Buyer's problem |
+
+## Title Insurance vs Deed
+
+### Different Protections
+| Protection | Deed Warranty | Title Insurance |
+|------------|---------------|-----------------|
+| Source | Seller | Insurance company |
+| Coverage period | Permanent | Permanent |
+| Payout limit | Unlimited | Policy amount |
+| Company backing | Individual | Insurance company |
+| Defenses | Seller must defend | Insurer defends |
+
+### Why Both Matter
+- Deed warranty: Legal right against seller
+- Title insurance: Financial protection if seller can't pay
+- Different layers of protection
+- Title insurance essential regardless of deed type
+
+## Red Flags
+
+### Deed Concerns
+- Quitclaim when purchasing
+- Special warranty when expecting general
+- Missing signatures
+- Incorrect legal description
+- Recording issues
+
+### When to Investigate
+- Any non-warranty deed in standard sale
+- Seller reluctance to warrant title
+- Complex ownership history
+- Unusual transaction structure
+
+## State Variations
+
+### Common Practices
+| State | Typical Deed |
+|-------|--------------|
+| California | Grant deed |
+| Most states | General warranty |
+| Texas | General warranty |
+| Florida | Warranty deed |
+
+*Check local practice*
+
+## What to Request
+
+### Standard Purchase
+- General warranty deed
+- Full title insurance
+- Clear title commitment
+- Recorded deed copy
+
+### If Offered Less
+- Understand why
+- Negotiate for more protection
+- Ensure title insurance
+- Consider risk tolerance
+
+## Recording the Deed
+
+### Process
+1. Deed signed at closing
+2. Notarized
+3. Sent to county recorder
+4. Recorded in public records
+5. Copy returned to buyer
+
+### Why Recording Matters
+- Establishes public notice
+- Protects against later claims
+- Creates permanent record
+- Enables title searches
+
+### If Not Recorded
+- Ownership less clear
+- Future issues possible
+- Must record to protect interests
+- Typically handled by title company
+
+## Special Situations
+
+### Estate Sales
+- Often special warranty
+- Executor signs
+- May have limitations
+- Title insurance important
+
+### Foreclosure Sales
+- Often bargain and sale
+- Less warranty
+- Title insurance essential
+- Know what you're getting
+
+### Family Transfers
+- Often quitclaim
+- No sale involved
+- Appropriate for purpose
+- Gift tax considerations
+
+## Questions to Ask
+
+### Before Closing
+1. What type of deed will I receive?
+2. What warranties are included?
+3. Is this standard for this transaction type?
+4. What does title insurance cover?
+5. What if there's a title defect?
+
+---
+
+*Understanding your property rights? [Perchspot analysis](/chat) provides comprehensive property insights.*
+    `,
+  },
+  {
+    id: 'living-trusts-real-estate',
+    title: 'Real Estate and Living Trusts: What Buyers Should Know',
+    category: 'Education',
+    date: '2024-12-31',
+    readTime: '8 min read',
+    metaDescription: 'Guide to buying and holding real estate in living trusts. Learn about benefits, process, and considerations for trust-owned property.',
+    content: `
+# Real Estate and Living Trusts: What Buyers Should Know
+
+Many properties are held in living trusts. Understanding how this affects buying is important.
+
+## What Is a Living Trust?
+
+### Definition
+- Legal entity that holds assets
+- Created by grantor (property owner)
+- Managed by trustee
+- Benefits beneficiaries
+- Avoids probate
+
+### Key Participants
+| Role | Description |
+|------|-------------|
+| Grantor | Creates the trust, often initial owner |
+| Trustee | Manages trust assets |
+| Beneficiary | Receives benefits from trust |
+| Successor trustee | Takes over when trustee can't serve |
+
+## Why Sellers Use Trusts
+
+### Benefits
+- Avoids probate
+- Privacy (not public record like will)
+- Easier transfer at death
+- Can be revocable (changed)
+- Estate planning tool
+
+### What It Means for Buyers
+- Different signer on deed
+- Trust capacity must be verified
+- Standard transaction otherwise
+- Title insurance handles most concerns
+
+## Buying Trust-Owned Property
+
+### Process Differences
+| Standard Sale | Trust Sale |
+|---------------|------------|
+| Owner signs deed | Trustee signs |
+| Verify ownership | Verify trust authority |
+| Standard title | Trust reviewed by title |
+| Normal closing | May need trust documents |
+
+### Documentation Needed
+- Certificate of Trust (typical)
+- Trust agreement (sometimes)
+- Trustee identification
+- Trustee authority verification
+
+### What Title Companies Check
+- Trust exists and is valid
+- Trustee has authority to sell
+- No restrictions on sale
+- Trust properly holds title
+
+## Living Person Trustee vs Estate
+
+### Living Grantor/Trustee
+- Can modify trust
+- Full authority typical
+- Straightforward transaction
+- Normal process
+
+### Deceased Grantor
+- Trust may become irrevocable
+- Successor trustee manages
+- Beneficiaries may be involved
+- Can be more complex
+
+## Seller Considerations
+
+### As Trustee
+- Fiduciary duty to beneficiaries
+- Must follow trust terms
+- Proper authorization needed
+- Document everything
+
+### What Buyers Should Verify
+- Trustee actually authorized
+- No beneficiary objections
+- Trust terms allow sale
+- Proceeds handled properly
+
+## Putting Your Home in Trust
+
+### After Purchase
+- Common estate planning
+- Transfer deed to trust
+- Update insurance
+- Mortgage considerations
+
+### Benefits
+- Probate avoidance
+- Privacy
+- Easy transfer at death
+- Continued control (revocable)
+
+### Process
+1. Create trust with attorney
+2. Sign transfer deed
+3. Record new deed
+4. Update insurance
+5. Notify mortgage company
+
+## Mortgage Implications
+
+### Due-on-Sale Clause
+- Transfers can trigger
+- Exemption for living trusts
+- Garn-St. Germain Act protection
+- If you're the beneficiary/grantor
+
+### Best Practice
+- Notify lender of trust transfer
+- Keep mortgage in your name
+- Trust holds title only
+- Maintain insurance
+
+## Buying Property in Trust Name
+
+### Initial Purchase in Trust
+- Possible but less common
+- May complicate financing
+- Title taken in trust name
+- Trustee acts throughout
+
+### Why People Do It
+- Estate planning from start
+- Privacy
+- Investment property management
+- Asset protection (limited)
+
+### Financing Challenges
+- Some lenders unfamiliar
+- May need personal guarantee
+- Additional documentation
+- Can slow process
+
+## Tax Considerations
+
+### Revocable Living Trusts
+- No different tax treatment
+- Same as personal ownership
+- No separate tax return (usually)
+- Property taxes unchanged
+
+### Irrevocable Trusts
+- Different tax entity
+- Complex rules
+- Professional advice essential
+- Beyond this guide's scope
+
+## Title Insurance
+
+### Standard Protection
+- Covers trust issues
+- Verifies trustee authority
+- Protects against defects
+- Essential for buyers
+
+### Trust-Specific Issues Covered
+- Invalid trust
+- Trustee without authority
+- Beneficiary claims
+- Recording errors
+
+## Red Flags
+
+### When Buying
+- Trustee won't provide certificate
+- No trust documentation
+- Multiple trustees disagree
+- Beneficiary disputes
+- Recent trust amendments
+
+### Walk Away If
+- Can't verify trust exists
+- Trustee authority unclear
+- Obvious disputes
+- Title company won't insure
+
+## Questions to Ask
+
+### Before Making Offer
+1. Is property in a trust?
+2. Who is the trustee?
+3. Does trustee have authority to sell?
+4. Any beneficiary issues?
+5. Is title company comfortable?
+
+### At Closing
+1. Certificate of Trust provided?
+2. Trustee properly signing?
+3. Title insurance covers trust issues?
+4. All documents in order?
+
+## After Purchase (If Using Trust)
+
+### Maintaining Trust Ownership
+- Keep trust current
+- Update with life changes
+- Annual review
+- Proper records
+
+### Common Mistakes
+- Not funding the trust (transferring assets)
+- Forgetting to transfer property
+- Trust becomes invalid
+- Not updating beneficiaries
+
+---
+
+*Purchasing trust-owned property? [Perchspot analysis](/chat) helps evaluate any property regardless of ownership structure.*
+    `,
+  },
+  {
+    id: 'buying-for-aging-parents',
+    title: 'Buying a Home for Aging Parents: Options and Considerations',
+    category: 'Guide',
+    date: '2024-12-30',
+    readTime: '9 min read',
+    metaDescription: 'Guide to buying a home for aging parents. Learn about ownership structures, financing options, tax implications, and family considerations.',
+    content: `
+# Buying a Home for Aging Parents: Options and Considerations
+
+Helping aging parents with housing requires careful planning. Here's how to navigate the options.
+
+## Why Families Do This
+
+### Common Reasons
+- Parents can't afford current home
+- Need to be closer for care
+- Current home not suitable (stairs, maintenance)
+- Downsizing makes sense
+- Combined living benefits both
+- Investment opportunity
+
+### Situations to Consider
+| Situation | Primary Consideration |
+|-----------|----------------------|
+| Parents rent from you | Tax and relationship |
+| Parents live free | Gift implications |
+| Multigenerational home | Living arrangement |
+| Nearby separate home | Independence balance |
+| ADU addition | Zoning and cost |
+
+## Ownership Structures
+
+### You Own, Parents Rent
+**Advantages**:
+- Investment property benefits
+- Clear ownership
+- Control retained
+- Rental income (if charged)
+
+**Disadvantages**:
+- Landlord-tenant relationship
+- Tax complexity
+- Must charge fair market rent for tax benefits
+- Family dynamics
+
+### Joint Ownership
+**Advantages**:
+- Shared investment
+- Both have stake
+- Can combine income for loan
+
+**Disadvantages**:
+- Exit complications
+- Death creates issues
+- Medicaid lookback concerns
+- Credit of both matters
+
+### Parents Own (You Help)
+**Advantages**:
+- Their home, their rules
+- Simpler relationship
+- May qualify for senior programs
+
+**Disadvantages**:
+- Estate becomes asset
+- May affect benefits
+- Future care planning issues
+
+## Financing Options
+
+### Conventional Mortgage
+| Scenario | Considerations |
+|----------|----------------|
+| You buy as investment | Higher rate, 15-25% down |
+| Co-sign with parents | Both credit scores matter |
+| Parents qualify alone | Best if possible |
+| Gift down payment | Gift letter needed |
+
+### FHA Loans
+- Parents may qualify
+- 3.5% down
+- Age not a barrier
+- Fixed income consideration
+
+### Reverse Mortgage (If Parents Own)
+- Parents tap existing equity
+- No monthly payments
+- Must be 62+
+- Remains their home
+
+### Cash Purchase
+- Simplest
+- No financing complications
+- Large capital required
+- Consider opportunity cost
+
+## Tax Implications
+
+### Rental Property (Market Rate Rent)
+- Rental income taxable
+- Expenses deductible
+- Depreciation benefit
+- Must be true rental arrangement
+
+### Below-Market Rent or Free
+- Can't take rental deductions
+- May be gift implications
+- Personal use property rules
+- Consult tax professional
+
+### Gift Tax Considerations
+| Gift | 2025 Threshold |
+|------|----------------|
+| Annual exclusion | $18,000 per person |
+| Lifetime exemption | ~$13 million |
+| Married couple | Double amounts |
+
+*Large down payments or property gifts should be planned*
+
+## Medicaid Considerations
+
+### Lookback Period
+- 5 years for most states
+- Transfers scrutinized
+- May affect eligibility
+- Penalties for gifting
+
+### Asset Protection
+- Home may be exempt if occupied
+- Complex rules vary by state
+- Elder law attorney essential
+- Plan ahead
+
+### Best Practices
+- Consult elder law attorney
+- Understand state rules
+- Plan well in advance
+- Document everything
+
+## Living Arrangements
+
+### ADU (Accessory Dwelling Unit)
+**Pros**:
+- Proximity for care
+- Independence maintained
+- Property value increase
+- Flexible future use
+
+**Cons**:
+- Construction costs
+- Zoning restrictions
+- Permitting complexity
+- Timeline
+
+**Costs**: $100,000-300,000+ for new construction
+
+### Separate Nearby Home
+**Pros**:
+- Full independence
+- Clear boundaries
+- Investment property potential
+
+**Cons**:
+- Less convenient for care
+- Two properties to maintain
+- Higher total cost
+
+### Multigenerational Home
+**Pros**:
+- One property cost
+- Shared expenses
+- Daily support easy
+
+**Cons**:
+- Privacy concerns
+- Lifestyle conflicts
+- Future inflexibility
+
+## Property Considerations
+
+### Aging-Friendly Features
+- Single story or bedroom on main
+- Wide doorways (wheelchair)
+- Walk-in showers
+- Minimal stairs
+- Good lighting
+- Accessible location
+
+### Location Priorities
+- Near medical facilities
+- Accessible services
+- Safe neighborhood
+- Near family
+- Transportation access
+
+### Future Planning
+- Will needs change?
+- Stair lift possibility?
+- Caregiver access?
+- Eventual sale?
+
+## Family Dynamics
+
+### Conversations to Have
+1. What do parents actually want?
+2. Who's contributing what?
+3. What happens if circumstances change?
+4. How are decisions made?
+5. What about other siblings?
+
+### Potential Conflicts
+- Sibling contributions unequal
+- Different expectations
+- Independence vs safety
+- Financial disagreements
+- Care responsibilities
+
+### Documentation
+- Written agreements
+- Clear ownership records
+- Financial contribution records
+- Decision-making authority
+- Exit plan
+
+## Financial Planning
+
+### Monthly Costs to Consider
+- Mortgage/rent
+- Property taxes
+- Insurance
+- Utilities
+- Maintenance
+- Medical accessibility modifications
+
+### Who Pays What
+| Expense | Common Arrangements |
+|---------|-------------------|
+| Down payment | Adult child or joint |
+| Mortgage | Varies |
+| Taxes/insurance | Often adult child |
+| Utilities | Often parents |
+| Maintenance | Joint or adult child |
+
+## Long-Term Care Transition
+
+### Planning Ahead
+- What if parent needs more care?
+- In-home care costs
+- Assisted living transition
+- Property disposition
+
+### Exit Strategies
+- Sell property
+- Rent to others
+- Other family member use
+- Hold as investment
+
+## Legal Documents
+
+### Essential
+- Ownership documentation
+- Will updates
+- Power of attorney
+- Healthcare directive
+- Family agreement (informal)
+
+### Professional Help
+- Elder law attorney
+- Estate planning attorney
+- Tax professional
+- Financial advisor
+
+## Questions to Answer First
+
+### Before Proceeding
+1. What's the budget?
+2. Who's contributing?
+3. What's the ownership structure?
+4. What are the tax implications?
+5. What if plans change?
+6. What do parents actually want?
+7. How will this affect Medicaid?
+8. Is this the right timing?
+
+---
+
+*Evaluating property options for family? [Perchspot analysis](/chat) helps assess any property's suitability.*
+    `,
+  },
+  {
+    id: 'short-term-rental-regulations',
+    title: 'Short-Term Rental Regulations: What Buyers Must Know',
+    category: 'Investment',
+    date: '2024-12-29',
+    readTime: '8 min read',
+    metaDescription: 'Guide to short-term rental regulations for home buyers. Learn about Airbnb rules, zoning restrictions, HOA policies, and STR investing considerations.',
+    content: `
+# Short-Term Rental Regulations: What Buyers Must Know
+
+Planning to buy property for short-term rentals? Regulations vary dramatically and can make or break your investment.
+
+## The Regulatory Landscape
+
+### Who Regulates STRs
+| Authority | What They Control |
+|-----------|-------------------|
+| City/county | Zoning, permits, taxes |
+| HOA | Community rules, restrictions |
+| State | Some licensing, tax collection |
+| Platform | Airbnb/VRBO policies |
+
+### Regulation Types
+- Complete bans
+- Permit requirements
+- Owner-occupancy rules
+- Unit caps
+- Zone restrictions
+- Duration limits
+- Tax requirements
+
+## Common Restrictions
+
+### Owner-Occupancy Requirements
+- Must be your primary residence
+- Can only rent when away
+- Or live on-site while renting rooms
+- Often 270+ days residence required
+
+### Unit Caps
+- City limits total STR permits
+- Neighborhood quotas
+- Waitlists for permits
+- First-come, first-served
+
+### Duration Limits
+| Type | Common Limits |
+|------|---------------|
+| Per rental | 14-30 days max stay |
+| Annual total | 90-120 nights max |
+| Consecutive days | Must rent full days |
+
+### Zone Restrictions
+- Only certain zones allow
+- Residential may prohibit
+- Tourist zones may allow
+- Commercial different rules
+
+## Permit Requirements
+
+### Common Requirements
+- Business license
+- STR-specific permit
+- Safety inspection
+- Insurance documentation
+- Local agent/manager
+- Tax registration
+
+### Costs
+| Item | Typical Cost |
+|------|--------------|
+| Permit fee | $100-1,500/year |
+| Business license | $50-500/year |
+| Inspections | $100-500 |
+| Insurance addition | $500-2,000/year |
+| Transient occupancy tax | 10-15% of rent |
+
+## HOA Restrictions
+
+### What HOAs Can Do
+- Ban all short-term rentals
+- Limit rental frequency
+- Require minimum stays (30 days)
+- Impose fines
+- Add to CC&Rs
+
+### What to Check
+- Current CC&Rs language
+- Rental policies specifically
+- Recent amendments
+- Enforcement history
+- Community sentiment
+
+### Red Flags
+- Recent STR complaints
+- Pending rule changes
+- Hostile to rentals
+- Heavy enforcement
+
+## Research Before Buying
+
+### Local Government
+1. Check municipal code online
+2. Call planning department
+3. Request STR permit info
+4. Understand application process
+5. Verify current rules
+
+### HOA
+1. Request CC&Rs
+2. Ask specifically about rentals
+3. Review recent meeting minutes
+4. Ask about enforcement
+5. Talk to residents
+
+### Existing STR History
+1. Is property currently permitted?
+2. Can permit transfer?
+3. Any complaints on record?
+4. Neighborhood reputation?
+
+## Tax Obligations
+
+### Transient Occupancy Tax (TOT)
+- Most cities charge 8-15%
+- You collect from guests
+- Remit to city regularly
+- Platforms may collect/remit
+
+### Income Tax
+- STR income is taxable
+- Expenses deductible
+- Self-employment considerations
+- Keep detailed records
+
+### Property Tax
+- May be reassessed if use changes
+- Some areas have STR tax
+- Check local rules
+
+## Insurance Requirements
+
+### What You Need
+- Liability coverage ($1M+ recommended)
+- Property damage coverage
+- Loss of income coverage
+- Host liability coverage
+
+### Homeowner's Policy
+- Typically excludes business use
+- Must notify or add rider
+- Or separate policy
+- Don't ignore this
+
+### Platform Insurance
+- Airbnb Host Protection
+- VRBO coverage
+- NOT sufficient alone
+- Gap coverage needed
+
+## Markets with Strict Rules
+
+### Cities with Significant Restrictions
+- New York City (very strict)
+- San Francisco (owner-occupancy)
+- Los Angeles (permit, limits)
+- Seattle (permit required)
+- Denver (primary residence only)
+- Austin (limits and permits)
+- Many more
+
+### Cities with STR Bans
+- Some prohibit entirely
+- Check before assuming
+- Rules change frequently
+- Enforcement varies
+
+## Financial Reality
+
+### Revenue Expectations
+- Not always better than long-term
+- Seasonal variation huge
+- Regulatory risk
+- Management intensity
+- Competition growing
+
+### Expense Reality
+| Expense | Percentage of Revenue |
+|---------|----------------------|
+| Platform fees | 3-15% |
+| Cleaning | 10-20% |
+| Supplies | 2-5% |
+| Insurance | 3-5% |
+| Taxes | 8-15% (TOT) |
+| Management | 15-30% (if using) |
+| Maintenance | 5-10% |
+
+### Cash Flow Example
+- Gross rental: $40,000/year
+- After all expenses: $15,000-25,000
+- Often not dramatically better than long-term
+
+## Exit Strategy
+
+### If Regulations Change
+- Convert to long-term rental
+- Sell property
+- Primary residence
+- Accept reduced income
+
+### Protecting Your Investment
+- Don't overpay for STR premium
+- Value property as long-term rental
+- Diversify investments
+- Have backup plan
+
+## Red Flags
+
+### Property Purchase
+- Seller touts STR income
+- No permit verification
+- HOA unclear on rules
+- Area has pending restrictions
+- Too good to be true numbers
+
+### Market Concerns
+- Oversaturated market
+- Pending regulation
+- Community opposition
+- Platform policy changes
+
+## Questions to Answer
+
+### Before Buying
+1. Are STRs currently allowed here?
+2. What permits/licenses required?
+3. What does HOA say?
+4. Any pending regulation changes?
+5. What's the realistic income?
+6. What if STRs get banned?
+7. Does this work as long-term rental?
+8. What are total costs including taxes?
+
+---
+
+*Evaluating STR investment potential? [Perchspot analysis](/chat) provides comprehensive property assessment.*
+    `,
+  },
+  {
+    id: 'neighbor-disputes-prevention',
+    title: 'Avoiding Neighbor Disputes: What to Check Before Buying',
+    category: 'Tips',
+    date: '2024-12-28',
+    readTime: '7 min read',
+    metaDescription: 'How to spot potential neighbor problems before buying. Learn about boundary issues, trees, noise, and preventing disputes through due diligence.',
+    content: `
+# Avoiding Neighbor Disputes: What to Check Before Buying
+
+Bad neighbors can make homeownership miserable. Here's how to assess the situation before you buy.
+
+## Common Neighbor Disputes
+
+### Types of Conflicts
+| Issue | Frequency |
+|-------|-----------|
+| Property boundaries | Very common |
+| Trees and landscaping | Very common |
+| Noise | Common |
+| Parking | Common |
+| Pets | Moderate |
+| Property maintenance | Moderate |
+| Fencing | Moderate |
+
+### Why Disputes Matter
+- Quality of life impact
+- Property value effect
+- Legal costs
+- Stress and frustration
+- May be ongoing
+
+## Property Boundary Issues
+
+### Red Flags to Spot
+- Fences not on boundary
+- Neighbor structures near line
+- Driveways crossing lines
+- Unclear where property ends
+- Survey markers missing
+
+### What to Check
+1. Get a survey
+2. Compare to existing fences
+3. Note any encroachments
+4. Check for boundary agreements
+5. Review title for easements
+
+### Questions to Ask
+- Any boundary disputes?
+- Was there a recent survey?
+- Any agreements with neighbors?
+- Are fences on the property line?
+
+## Tree Disputes
+
+### Common Issues
+- Trees on boundary
+- Overhanging branches
+- Root damage
+- Falling leaves
+- Blocked views
+- Tree ownership unclear
+
+### Your Rights (Generally)
+- Can trim branches to property line
+- Can cut roots to property line
+- Must not kill tree
+- Must not trespass
+
+### Before Buying
+- Note significant boundary trees
+- Check for root damage
+- Ask about tree agreements
+- Identify potential conflicts
+
+## Noise Considerations
+
+### What to Listen For
+- Traffic patterns
+- Neighbor activities
+- Dogs barking
+- HVAC equipment
+- Home businesses
+- Parties/gatherings
+
+### Due Diligence
+1. Visit at different times
+2. Visit on weekends
+3. Talk to potential neighbors
+4. Check noise complaints (city)
+5. Note sound sources
+
+### Ask About
+- Any noise issues?
+- What's typical weekend?
+- Any problem houses nearby?
+- How are disputes handled?
+
+## Parking Conflicts
+
+### Potential Issues
+- Street parking competition
+- Blocking driveways
+- Too many vehicles
+- Commercial vehicles
+- RV/boat storage
+
+### What to Check
+- Available parking
+- Neighborhood parking
+- Any assigned spots
+- HOA parking rules
+- Street restrictions
+
+## Assessing Neighbors
+
+### How to Research
+- Drive by multiple times
+- Different days/times
+- Talk to people outside
+- Ask the seller directly
+- Check online reviews (apartments)
+
+### Observation Checklist
+- [ ] Property maintenance standards
+- [ ] Number of vehicles
+- [ ] Noise levels
+- [ ] Pet presence
+- [ ] General activity level
+
+### Questions for Neighbors
+(If opportunity arises)
+1. How long have you lived here?
+2. How's the neighborhood?
+3. Any issues I should know about?
+4. What's parking like?
+
+## Disclosure Requirements
+
+### What Sellers Must Disclose
+- Known disputes
+- Litigation history
+- Boundary issues
+- Significant neighbor problems
+- (Varies by state)
+
+### What to Ask Seller
+1. Any disputes with neighbors?
+2. Any boundary disagreements?
+3. Any litigation involving neighbors?
+4. Any tree disputes?
+5. Any noise complaints?
+
+## HOA-Related Conflicts
+
+### Common Issues
+- Rule interpretation disputes
+- Selective enforcement claims
+- Architectural decisions
+- Assessment disagreements
+- Board conflicts
+
+### What to Research
+- HOA complaint history
+- Board meeting minutes
+- Recent litigation
+- Neighbor relations
+- Enforcement patterns
+
+## Signs of Problems
+
+### Visual Red Flags
+| Sign | Potential Issue |
+|------|-----------------|
+| Multiple "No Trespassing" signs | Disputes |
+| Unusual fencing | Boundary conflict |
+| Very different maintenance | Tension |
+| Security cameras everywhere | Conflict |
+| Angry notes visible | Active dispute |
+
+### Conversation Red Flags
+- Seller evasive about neighbors
+- Neighbors seem hostile
+- Multiple people mention same issue
+- History of police calls
+
+## Legal Considerations
+
+### Types of Actions
+- Mediation (less expensive)
+- Small claims court
+- Civil litigation (expensive)
+- Code enforcement
+- HOA enforcement
+
+### Prevention Better Than Cure
+- Know before you buy
+- Avoid problem properties
+- Document everything
+- Maintain good relations
+
+## Strategies for Success
+
+### Before Buying
+1. Thorough neighborhood research
+2. Multiple property visits
+3. Talk to people
+4. Review disclosures carefully
+5. Check for red flags
+
+### After Buying
+1. Introduce yourself to neighbors
+2. Be considerate
+3. Address issues early
+4. Know property lines
+5. Document important items
+
+## Dealbreakers
+
+### When to Walk Away
+- Active litigation
+- Violent or unstable neighbor
+- Ongoing significant dispute
+- Seller won't disclose
+- Multiple red flags
+
+### Manageable Issues
+- Minor past disagreement
+- Resolved disputes
+- Personality conflicts (not property)
+- Issues you can live with
+
+## Questions Before Closing
+
+### Ask Your Agent
+1. Know anything about neighbors?
+2. Any reputation for this property?
+3. Any complaints on record?
+4. What would concern you?
+
+### Ask the Seller
+1. How are relations with neighbors?
+2. Any current disputes?
+3. Any past disputes?
+4. Any boundary issues?
+5. Would you buy here again?
+
+---
+
+*Researching a property thoroughly? [Perchspot analysis](/chat) provides comprehensive neighborhood insights.*
+    `,
+  },
 ];
 
 // Update categories to include Local
