@@ -43020,6 +43020,1384 @@ BRRRR is a popular strategy for building a rental portfolio by recycling your in
 *Analyzing potential BRRRR properties? [Perchspot analysis](/chat) helps evaluate investment potential.*
     `,
   },
+  {
+    id: 'mid-century-modern-homes',
+    title: 'Mid-Century Modern Homes: Buying Guide for MCM Architecture',
+    category: 'Guide',
+    date: '2024-12-16',
+    readTime: '8 min read',
+    metaDescription: 'Guide to buying mid-century modern homes. Learn about MCM features, common issues, renovation considerations, and preserving architectural integrity.',
+    content: `
+# Mid-Century Modern Homes: Buying Guide for MCM Architecture
+
+Mid-century modern homes (1945-1969) are highly sought after. Here's what buyers need to know.
+
+## Identifying Mid-Century Modern
+
+### Exterior Features
+- Flat or low-pitched roofs
+- Large windows (floor-to-ceiling)
+- Integration with landscape
+- Minimal ornamentation
+- Mixed materials (wood, glass, stone)
+- Carports or integrated garages
+- Post-and-beam construction
+
+### Interior Features
+| Feature | Description |
+|---------|-------------|
+| Open floor plans | Flowing spaces |
+| Indoor-outdoor connection | Sliding glass doors |
+| Built-in furniture | Shelving, seating |
+| Natural materials | Wood, stone |
+| Clerestory windows | High natural light |
+| Exposed beams | Structural as design |
+
+### Notable Architects
+- Richard Neutra
+- Eichler (developer)
+- Cliff May
+- A. Quincy Jones
+- Craig Ellwood
+- Rodney Walker
+
+## Why Buyers Love MCM
+
+### Design Appeal
+- Timeless aesthetic
+- Light-filled spaces
+- Connection to outdoors
+- Functional layouts
+- Artistic significance
+
+### Practical Benefits
+- Often single-story
+- Open floor plans (modern preference)
+- Large lots often
+- Quality construction
+- Strong resale
+
+## Common Issues
+
+### Structural Concerns
+| Issue | Typical Cost |
+|-------|--------------|
+| Flat roof leaks | $5,000-25,000 |
+| Foundation settling | $3,000-20,000 |
+| Post-and-beam issues | $5,000-30,000 |
+| Window seal failures | $500-1,500/window |
+
+### Systems
+| System | Concern |
+|--------|---------|
+| Electrical | Often undersized |
+| Plumbing | Galvanized pipes |
+| HVAC | May be inadequate |
+| Insulation | Minimal originally |
+
+### Specific MCM Issues
+- Radiant floor heating failures
+- Cork/parquet flooring damage
+- Aluminum windows (poorly insulated)
+- Cantilevered sections
+- Large glass areas (energy loss)
+
+## Flat Roof Reality
+
+### Challenges
+- Requires more maintenance
+- Ponding water problems
+- More leak-prone
+- Shorter lifespan
+- Drainage critical
+
+### Maintenance
+| Task | Frequency |
+|------|-----------|
+| Inspection | Twice yearly |
+| Drain cleaning | Quarterly |
+| Minor repairs | As needed |
+| Re-coating | 5-10 years |
+| Full replacement | 15-25 years |
+
+### Replacement Costs
+- TPO/EPDM: $5-10/sq ft
+- Built-up: $6-12/sq ft
+- Modified bitumen: $4-8/sq ft
+
+## Energy Efficiency
+
+### Original Challenges
+- Minimal insulation
+- Single-pane glass
+- No weather sealing
+- Radiant heat only
+- No air conditioning
+
+### Improvement Options
+| Improvement | Preserves Character? |
+|-------------|---------------------|
+| Dual-pane inserts | Yes |
+| Window films | Yes |
+| Attic insulation | Yes |
+| Wall insulation | Varies |
+| Mini-splits | Mostly yes |
+| Weather stripping | Yes |
+
+### Balance Efficiency and Character
+- Avoid visible changes
+- Match original glazing
+- Period-appropriate HVAC
+- Don't cover exposed beams
+- Maintain original proportions
+
+## Renovation Considerations
+
+### Preserve These
+| Feature | Value |
+|---------|-------|
+| Original windows | Character defining |
+| Built-ins | Irreplaceable |
+| Flooring | Patina matters |
+| Hardware | Period pieces |
+| Kitchen cabinets | Often restorable |
+| Beams | Essential character |
+
+### Sensitive Updates
+- Kitchen: Keep cabinet lines
+- Bathroom: Period fixtures available
+- Lighting: Many reproductions
+- Hardware: Match era
+- Paint: Research original colors
+
+### Finding Specialists
+- MCM restoration specialists
+- Preservation architects
+- Period-appropriate contractors
+- Vintage fixture dealers
+
+## Market Considerations
+
+### Premium Markets
+| Location | MCM Presence |
+|----------|--------------|
+| Palm Springs | Iconic destination |
+| Los Angeles | Abundant |
+| Phoenix | Growing market |
+| Seattle | Many examples |
+| Portland | Strong market |
+
+### Price Factors
+- Original integrity
+- Architect pedigree
+- Location quality
+- Condition
+- Lot size and views
+
+## Inspection Priorities
+
+### Must Check
+1. Roof condition thoroughly
+2. Structural integrity (posts, beams)
+3. Foundation (settling, cracks)
+4. Window condition
+5. Radiant heating (if present)
+6. Electrical capacity
+7. Plumbing condition
+8. Termite history
+
+### MCM-Specific
+- Clerestory window seals
+- Cantilever conditions
+- Large glass panel integrity
+- Post base rot
+- Flat roof drainage
+
+## Buying Strategy
+
+### Before Offer
+1. Research the architect
+2. Find original plans if possible
+3. Note modifications made
+4. Assess original features
+5. Understand restoration costs
+
+### Offer Considerations
+- Premium for integrity
+- Discount for poor modifications
+- Renovation costs significant
+- Market for style strong
+
+### Due Diligence
+- Historical research
+- Permit history
+- HOA if applicable (may restrict)
+- Comparable MCM sales
+
+## Living in an MCM Home
+
+### Lifestyle Fit
+- Appreciate the aesthetic
+- Accept maintenance needs
+- Value character over convenience
+- Enjoy indoor-outdoor living
+- Comfortable with visibility
+
+### Ongoing Costs
+| Category | Expect |
+|----------|--------|
+| Roof maintenance | Higher than typical |
+| Heating/cooling | Higher |
+| Window maintenance | Moderate |
+| Landscape | Part of design |
+
+---
+
+*Evaluating a mid-century modern home? [Perchspot analysis](/chat) helps assess condition and value.*
+    `,
+  },
+  {
+    id: 'new-construction-warranty',
+    title: 'New Construction Home Warranty: What Builders Cover',
+    category: 'Education',
+    date: '2024-12-15',
+    readTime: '8 min read',
+    metaDescription: 'Guide to new construction home warranties. Learn what builders cover, warranty periods, how to make claims, and protecting your new home investment.',
+    content: `
+# New Construction Home Warranty: What Builders Cover
+
+New homes come with warranties, but understanding coverage is crucial for new home buyers.
+
+## Standard Warranty Structure
+
+### Typical Coverage Periods
+| Category | Duration |
+|----------|----------|
+| Workmanship/materials | 1 year |
+| Systems (HVAC, plumbing, electrical) | 2 years |
+| Structural | 10 years |
+
+### What Each Covers
+
+**1-Year (Workmanship)**
+- Paint defects
+- Drywall cracks
+- Floor squeaks
+- Cabinet issues
+- Door adjustments
+- Cosmetic items
+
+**2-Year (Systems)**
+- HVAC failures
+- Plumbing leaks
+- Electrical problems
+- Ductwork issues
+- Water heater
+- Wiring defects
+
+**10-Year (Structural)**
+- Foundation defects
+- Load-bearing walls
+- Roof structure
+- Floor systems
+- Beams and columns
+
+## Builder vs Third-Party Warranty
+
+### Builder Direct Warranty
+| Pros | Cons |
+|------|------|
+| Direct relationship | Builder may close |
+| Potentially flexible | Varies by builder |
+| No additional cost | Limited to builder's policy |
+
+### Third-Party Warranty (2-10, Home Buyers Warranty)
+| Pros | Cons |
+|------|------|
+| Independent | Cost may be added |
+| Transferable | Bureaucratic process |
+| Standardized | Coverage limits |
+| Builder can't disappear | Deductibles |
+
+## What's NOT Covered
+
+### Typical Exclusions
+- Normal wear and tear
+- Homeowner negligence
+- Improper maintenance
+- Cosmetic issues (after 1 year)
+- Landscaping
+- Appliances (manufacturer warranty)
+- Modifications you make
+- Acts of nature
+
+### Specific Exclusions
+| Item | Why Excluded |
+|------|-------------|
+| Cracks under 1/8" | Normal settling |
+| Nail pops | Normal lumber drying |
+| Grout/caulk | Maintenance item |
+| Driveway cracks | Settlement |
+| Wood shrinkage | Expected |
+
+## Making Warranty Claims
+
+### Best Practices
+1. Document everything in writing
+2. Take photos/videos
+3. Report promptly
+4. Keep copies of all communication
+5. Be specific about issues
+6. Follow up if no response
+7. Know your deadlines
+
+### Timing
+| Issue Type | Report By |
+|------------|-----------|
+| Emergency | Immediately |
+| Urgent | Within 24-48 hours |
+| Routine | Before warranty expires |
+| Systems | Before 2-year mark |
+| Structural | Document early |
+
+### Documentation
+- Written requests preferred
+- Email creates record
+- Photos with dates
+- Keep all responses
+- Note conversations
+
+## Walk-Through Inspections
+
+### Builder Walk-Throughs
+| Walk-Through | Timing |
+|--------------|--------|
+| Pre-drywall | Before walls closed |
+| Final | Before closing |
+| 30-day | First month |
+| 11-month | Before 1-year ends |
+
+### 11-Month Walk-Through Critical
+- Last chance for workmanship items
+- Create comprehensive list
+- Consider hiring inspector
+- Document everything
+- Submit formally in writing
+
+## Common Warranty Issues
+
+### First Year Problems
+| Issue | Frequency |
+|-------|-----------|
+| Settling cracks | Very common |
+| Paint touch-ups needed | Common |
+| Door adjustments | Common |
+| Grout/caulk failures | Common |
+| HVAC balancing | Moderate |
+| Minor plumbing | Moderate |
+
+### What Builders Often Resist
+- Cosmetic preferences
+- Minor imperfections
+- Items within "tolerance"
+- Anything ambiguous
+- Post-warranty claims
+
+## Protecting Yourself
+
+### Before Closing
+1. Read warranty completely
+2. Understand exclusions
+3. Know claim process
+4. Get contact information
+5. Verify warranty registration
+
+### After Closing
+1. Create maintenance schedule
+2. Document everything
+3. Report issues promptly
+4. Follow maintenance requirements
+5. Calendar key warranty dates
+
+### Before Warranty Expires
+- 11-month inspection
+- Written list of all issues
+- Formal submission
+- Request written response
+- Follow up in writing
+
+## Warranty Disputes
+
+### If Builder Won't Honor
+1. Document the denial
+2. Review warranty language
+3. Get independent assessment
+4. Escalate to management
+5. Contact warranty company
+6. File complaint (license board)
+7. Consider mediation
+8. Legal action (last resort)
+
+### Helpful Resources
+- State contractor licensing board
+- Better Business Bureau
+- State attorney general
+- Consumer protection office
+
+## Transferring Warranty
+
+### When You Sell
+- Most warranties transfer
+- Notify warranty company
+- Provide documentation to buyer
+- Transfer may have fee
+- Coverage may reduce
+
+### When Buying Used New Construction
+- Verify warranty status
+- Request transfer documents
+- Note remaining coverage
+- Contact warranty company
+
+## Builder Reputation
+
+### Research Before Buying
+- Warranty claim reputation
+- Online reviews
+- Better Business Bureau
+- License board complaints
+- Ask current owners
+
+### Questions to Ask
+1. Who handles warranty claims?
+2. What's average response time?
+3. Who performs repairs?
+4. What's the escalation process?
+5. Third-party warranty included?
+
+## Maintenance Requirements
+
+### Your Obligations
+| Task | Frequency |
+|------|-----------|
+| HVAC filter change | Monthly-quarterly |
+| Caulk/grout maintenance | As needed |
+| Gutter cleaning | Twice yearly |
+| Grading maintenance | Ongoing |
+| Interior caulking | As needed |
+
+### If You Don't Maintain
+- Warranty may be void
+- Claims can be denied
+- Document your maintenance
+- Keep receipts
+
+---
+
+*Buying new construction? [Perchspot analysis](/chat) helps evaluate any property's condition and value.*
+    `,
+  },
+  {
+    id: 'wire-fraud-protection',
+    title: 'Real Estate Wire Fraud: How to Protect Your Closing Funds',
+    category: 'Education',
+    date: '2024-12-14',
+    readTime: '7 min read',
+    metaDescription: 'Protect yourself from real estate wire fraud. Learn how scams work, warning signs, verification steps, and what to do if you become a victim.',
+    content: `
+# Real Estate Wire Fraud: How to Protect Your Closing Funds
+
+Wire fraud in real estate closings has grown dramatically. Protecting your funds is critical.
+
+## The Threat
+
+### How It Works
+1. Criminals hack email accounts
+2. Monitor for real estate transactions
+3. Send fake wire instructions
+4. Impersonate title/escrow company
+5. Victim wires to criminal account
+6. Funds disappear immediately
+
+### Statistics
+| Fact | Data |
+|------|------|
+| Annual losses | $1+ billion |
+| Average loss | $150,000+ |
+| Recovery rate | Very low |
+| Attempts increasing | 50%+ annually |
+
+## Common Tactics
+
+### Email Compromise
+- Hack real estate agent email
+- Hack title company email
+- Hack attorney email
+- Monitor communications
+- Wait for right moment
+
+### Warning Signs
+| Red Flag | What It Looks Like |
+|----------|-------------------|
+| Last-minute changes | "New wire instructions" |
+| Urgency | "Must wire today" |
+| Different email | Slight address change |
+| Threats | "Deal will fall through" |
+| Foreign banks | Routing overseas |
+
+### Fake Emails
+- Domain misspellings (titIe vs title)
+- Extra characters (title-company)
+- Different domain (.net vs .com)
+- Very similar names
+- Professional-looking
+
+## Protection Steps
+
+### Before Closing
+
+**Establish Procedures**
+1. Get wire instructions in person or by phone
+2. Verify phone numbers independently
+3. Establish code word with title company
+4. Know who you're calling (not from email)
+
+**Verification Questions**
+- What phone number should I use?
+- How will you send wire instructions?
+- What's our verification process?
+- Who specifically will I work with?
+
+### When You Receive Wire Instructions
+
+**Always Verify**
+| Step | Action |
+|------|--------|
+| 1 | Don't use contact info from email |
+| 2 | Look up company phone independently |
+| 3 | Call and verify instructions |
+| 4 | Confirm account name matches |
+| 5 | Ask about any changes |
+
+**Never**
+- Trust email instructions alone
+- Wire without calling
+- Use phone number in suspicious email
+- Rush due to pressure
+- Ignore red flags
+
+### Red Flag Checklist
+- [ ] Instructions came only by email
+- [ ] Last-minute changes to instructions
+- [ ] Unusual urgency
+- [ ] Different from established process
+- [ ] Foreign account or unfamiliar bank
+- [ ] Email address slightly different
+- [ ] Pressure to wire immediately
+- [ ] No ability to verify by phone
+
+## Day of Closing
+
+### Verification Process
+1. Call title company (known number)
+2. Speak with your contact
+3. Verify wire instructions verbally
+4. Confirm account name and number
+5. Use code word if established
+6. Send small test wire first (if allowed)
+
+### After Wiring
+- Confirm receipt with title company
+- Call immediately if no confirmation
+- Don't rely on email confirmation
+- Keep wire confirmation
+
+## If You Suspect Fraud
+
+### Immediate Actions
+| Timeframe | Action |
+|-----------|--------|
+| Immediately | Call your bank to halt/recall wire |
+| Same day | Contact receiving bank |
+| Same day | File FBI IC3 complaint (ic3.gov) |
+| Same day | Contact local police |
+| Same day | Notify title company |
+
+### Recovery Chances
+| Timing | Recovery Odds |
+|--------|---------------|
+| Same day | Moderate |
+| 24-48 hours | Low |
+| After 48 hours | Very low |
+| International transfer | Very low |
+
+### Why Speed Matters
+- Funds move quickly
+- Criminals withdraw fast
+- Banks need time to freeze
+- International transfers harder
+- Every hour matters
+
+## Who's Responsible
+
+### Liability Questions
+- Banks: Limited liability (you authorized)
+- Title company: If their security failed
+- Agents: If their email compromised
+- You: If you didn't verify
+
+### Insurance Coverage
+- Wire fraud often excluded
+- Title insurance doesn't cover
+- Check your coverage
+- May need cyber liability
+
+## Prevention Best Practices
+
+### For Buyers
+1. Establish verification early
+2. Don't trust email alone
+3. Verify independently
+4. Know your contacts
+5. Watch for red flags
+6. Confirm before wiring
+
+### For Your Team
+- Ask about security practices
+- Confirm encrypted email
+- Know their verification process
+- Get direct phone numbers
+- Establish protocols
+
+## Alternative Payment Methods
+
+### Safer Options
+| Method | Security Level |
+|--------|---------------|
+| Cashier's check (in person) | High |
+| In-person wire (at bank branch) | Moderate-High |
+| Escrow-initiated wire | Depends |
+| Standard wire | Requires verification |
+
+### Not Recommended
+- Cryptocurrency
+- Money orders
+- Multiple smaller wires
+- Unverified instructions
+
+## Educate Yourself
+
+### Resources
+- FBI IC3 (ic3.gov)
+- American Land Title Association
+- Your title company's materials
+- State attorney general
+
+### Questions for Title Company
+1. What's your fraud prevention process?
+2. How do you send wire instructions?
+3. What verification do you use?
+4. Who should I call to verify?
+5. What's your policy on instruction changes?
+
+---
+
+*Preparing for closing? [Perchspot analysis](/chat) helps with property evaluation while you protect your transaction.*
+    `,
+  },
+  {
+    id: 'buyers-remorse-guide',
+    title: 'Buyer\'s Remorse: What to Do When You Have Second Thoughts',
+    category: 'Tips',
+    date: '2024-12-13',
+    readTime: '7 min read',
+    metaDescription: 'Guide to handling buyer\'s remorse in real estate. Learn what\'s normal, when to act, your options for backing out, and how to move forward.',
+    content: `
+# Buyer's Remorse: What to Do When You Have Second Thoughts
+
+Second-guessing your home purchase is common. Here's how to handle it.
+
+## Is It Normal?
+
+### Very Common Feelings
+| Feeling | Frequency |
+|---------|-----------|
+| "Is this the right house?" | Very common |
+| "Did I pay too much?" | Very common |
+| "Can I afford this?" | Common |
+| "What if something's wrong?" | Common |
+| "Should I have waited?" | Common |
+
+### Why It Happens
+- Largest purchase most make
+- Commitment anxiety
+- Fear of unknown
+- Financial stress
+- Overwhelm from process
+- Sleep deprivation
+
+## Timing Matters
+
+### Before Contingencies Expire
+- You can likely exit
+- Earnest money typically protected
+- Inspection contingency: Easy exit
+- Financing contingency: Legitimate out
+- Appraisal contingency: Another option
+
+### After Contingencies
+- Much harder to exit
+- Earnest money at risk
+- May face legal action
+- Breach of contract possible
+- Significant consequences
+
+### After Closing
+- No backing out
+- It's your home
+- Selling is the only exit
+- Significant costs to sell
+
+## Legitimate Concerns vs Anxiety
+
+### Legitimate Issues
+| Issue | What to Do |
+|-------|-----------|
+| Inspection reveals major problems | Use contingency |
+| Financing falls through | Financing contingency |
+| Appraisal gap you can't cover | Appraisal contingency |
+| Life change (job loss, divorce) | May need to exit |
+| Fraud or material misrepresentation | Legal options |
+
+### Normal Anxiety
+- General nervousness
+- What-if thinking
+- Price comparison worry
+- Fear of commitment
+- Overwhelm
+- Cold feet
+
+## Backing Out Options
+
+### During Contingency Period
+| Contingency | Exit Ease |
+|-------------|-----------|
+| Inspection | Easiest |
+| Financing | Legitimate |
+| Appraisal | Legitimate |
+| Sale contingency | If you can't sell |
+| Title | If issues found |
+
+### Without Contingency
+- Earnest money forfeited
+- Seller may sue
+- Legal costs
+- Reputation impact
+- Not recommended without cause
+
+### After Closing
+- Sell the home
+- No return to seller
+- All costs yours
+- Time to adjust
+
+## Making the Decision
+
+### Questions to Ask Yourself
+1. Is my concern specific or general?
+2. What exactly am I worried about?
+3. Is this fixable or fundamental?
+4. Am I responding to facts or fears?
+5. What would I advise a friend?
+
+### Red Flags to Act On
+- Major inspection issues
+- Neighborhood safety concerns
+- Can't actually afford it
+- Seller dishonesty discovered
+- Significant hidden problems
+
+### Not Reasons to Back Out
+- Found another house you like more
+- Just nervous
+- Friends/family disapprove
+- General anxiety
+- Minor issues
+
+## If You Want Out
+
+### Step 1: Talk to Your Agent
+- Understand your options
+- Review contingencies
+- Know the timeline
+- Understand consequences
+
+### Step 2: Review Contract
+- What contingencies remain?
+- What's the deadline?
+- What's at stake (earnest money)?
+- Any exit clauses?
+
+### Step 3: Consider Consequences
+| Action | Potential Cost |
+|--------|---------------|
+| Exit via contingency | Inspection/appraisal costs |
+| Exit without contingency | Earnest money lost |
+| Breach of contract | Lawsuit possible |
+| Just closing | Deal with feelings later |
+
+### Step 4: Decide
+- Is the concern legitimate?
+- Can you afford the exit?
+- Can you live with the decision?
+- Get professional advice
+
+## Coping With Anxiety
+
+### Normal Processing
+1. Acknowledge the feelings
+2. Identify specific concerns
+3. Address what's addressable
+4. Accept uncertainty
+5. Focus on the positives
+6. Talk to trusted people
+
+### Perspective Helpers
+- Millions buy homes successfully
+- Concerns often fade post-close
+- Most "regrets" resolve
+- You can always sell later
+- Homes aren't forever
+
+### Practical Steps
+| Action | Benefit |
+|--------|---------|
+| Re-read inspection | Ground in facts |
+| Talk to agent | Professional perspective |
+| Walk neighborhood | Reconnect with why |
+| Plan for home | Get excited |
+| Budget review | Financial confidence |
+
+## After Closing
+
+### If Remorse Continues
+- Give it time (3-6 months minimum)
+- Focus on making it yours
+- Address specific issues
+- Connect with neighbors
+- Don't rush to sell
+
+### When Remorse Fades
+- Usually within months
+- As home becomes yours
+- After personalization
+- When routine establishes
+- When fears don't materialize
+
+### If It Doesn't Fade
+- Consider selling after 6-12 months
+- Understand market implications
+- Talk to therapist if needed
+- Don't panic sell
+
+## Prevention for Next Time
+
+### Before Offering
+- Take your time
+- Multiple visits
+- Neighborhood research
+- Financial comfort
+- No rushing
+
+### During Process
+- Stay engaged
+- Ask questions
+- Voice concerns early
+- Trust your team
+- Maintain perspective
+
+---
+
+*Working through a home purchase? [Perchspot analysis](/chat) provides objective property assessment to inform your decision.*
+    `,
+  },
+  {
+    id: 'closing-day-problems',
+    title: 'Closing Day Problems: How to Handle Last-Minute Issues',
+    category: 'Guide',
+    date: '2024-12-12',
+    readTime: '8 min read',
+    metaDescription: 'Guide to handling closing day problems. Learn about common last-minute issues, how to resolve them, and when to delay or walk away.',
+    content: `
+# Closing Day Problems: How to Handle Last-Minute Issues
+
+Closing day should be smooth, but problems can arise. Here's how to handle them.
+
+## Common Closing Day Issues
+
+### Document Problems
+| Issue | Frequency |
+|-------|-----------|
+| Missing signatures | Common |
+| Incorrect names | Moderate |
+| Document errors | Moderate |
+| Missing documents | Occasional |
+| Notary issues | Occasional |
+
+### Financial Issues
+| Issue | Frequency |
+|-------|-----------|
+| Wire delays | Common |
+| Funding problems | Occasional |
+| Last-minute charges | Occasional |
+| Lender conditions | Moderate |
+| Cash to close different | Common |
+
+### Property Issues
+| Issue | Frequency |
+|-------|-----------|
+| Walkthrough concerns | Moderate |
+| Possession issues | Occasional |
+| Repairs not completed | Moderate |
+| Condition changes | Occasional |
+
+## Final Walkthrough Disasters
+
+### What to Check
+- Agreed repairs completed
+- Systems working
+- No new damage
+- Included items present
+- Property clean and empty
+- Same condition as contract
+
+### If Problems Found
+| Issue | Action |
+|-------|--------|
+| Minor damage | Document, credit at closing |
+| Major damage | Delay closing |
+| Repairs not done | Escrow funds or delay |
+| Items missing | Credit or delay |
+| Property not vacant | Delay closing |
+
+### Negotiating Solutions
+1. Document everything with photos
+2. Calculate repair costs
+3. Request closing credit
+4. Request escrow holdback
+5. Delay if necessary
+
+## Wire Transfer Problems
+
+### Common Issues
+| Problem | Solution |
+|---------|----------|
+| Wire delayed | Call bank immediately |
+| Incorrect amount | Amend or wire difference |
+| Wrong account | Contact banks urgently |
+| Not received | Trace through banks |
+
+### Prevention
+- Wire day before if possible
+- Verify instructions by phone
+- Keep confirmation numbers
+- Call to confirm receipt
+- Have backup funds available
+
+### If Wire Doesn't Arrive
+1. Don't panic
+2. Contact your bank
+3. Get trace/confirmation number
+4. Title company contacts receiving bank
+5. May need to delay
+6. Have backup plan
+
+## Lender Funding Issues
+
+### Last-Minute Conditions
+| Condition | Common Cause |
+|-----------|--------------|
+| Additional docs needed | Overlooked items |
+| Explanation letters | Credit activity |
+| Updated payoffs | Balance changes |
+| Employment re-verify | Large purchases |
+| Additional info | Underwriting review |
+
+### What You Can Do
+- Respond immediately
+- Don't argue, just provide
+- Have documents accessible
+- Stay in phone contact
+- Escalate if needed
+
+### Preventing Issues
+- Don't change jobs
+- Don't open new credit
+- Don't make large purchases
+- Don't deposit cash
+- Don't co-sign anything
+
+## Title Issues at Closing
+
+### Last-Minute Discoveries
+| Issue | Impact |
+|-------|--------|
+| Lien found | Must be cleared |
+| Judgment | Must be paid |
+| Name discrepancy | May need affidavit |
+| Survey issue | May need resolution |
+
+### Resolution Options
+- Pay off liens at closing
+- Escrow for resolution
+- Seller provides funds
+- Delay closing
+- Title insurance exception
+
+## Document Errors
+
+### Common Errors
+- Name misspellings
+- Wrong address
+- Incorrect amounts
+- Wrong legal description
+- Missing pages
+- Wrong dates
+
+### Solutions
+| Error Type | Fix |
+|------------|-----|
+| Minor typo | Correction affidavit |
+| Amount wrong | Reprint document |
+| Legal description | Must correct before closing |
+| Significant error | Delay to correct |
+
+## Seller Problems
+
+### Non-Cooperative Seller
+- Won't sign documents
+- Wants to renegotiate
+- Missing from closing
+- Refuses possession
+
+### Your Options
+| Situation | Option |
+|-----------|--------|
+| Won't sign | Delay, mediation |
+| Renegotiates | Refuse or negotiate |
+| Not present | Closing via POA |
+| Won't leave | Holdover damages |
+
+## When to Delay Closing
+
+### Delay If
+- Major walkthrough issues
+- Wire can't be completed
+- Lender can't fund
+- Title issues unresolved
+- Documents significantly wrong
+- Property condition changed
+
+### Delay Implications
+- Extension may need agreement
+- Rate lock concerns
+- Scheduling issues
+- Cost implications
+- Stress
+
+### Don't Delay For
+- Minor fixable issues
+- Normal closing jitters
+- Small cosmetic items
+- Easily resolved problems
+
+## When to Walk Away
+
+### Consider Walking If
+- Major undisclosed defects found
+- Seller fraud discovered
+- Property condition significantly changed
+- Fundamental problems revealed
+- Can't resolve within contingencies
+
+### Know Your Rights
+- Review contract terms
+- Consult attorney
+- Understand consequences
+- Document everything
+
+## Who Can Help
+
+### At Closing Table
+| Person | Can Help With |
+|--------|---------------|
+| Title agent | Documents, process |
+| Your agent | Negotiation, coordination |
+| Attorney | Legal issues |
+| Lender | Loan documents, funding |
+
+### If Serious Problems
+- Real estate attorney
+- Your agent's broker
+- Lender management
+- State licensing board
+
+## Day-Of Checklist
+
+### Bring
+- [ ] Government ID (two forms)
+- [ ] Cashier's check (if needed)
+- [ ] Wire confirmation
+- [ ] Personal checkbook
+- [ ] Document copies
+- [ ] Phone charger
+
+### Verify Before
+- [ ] Final walkthrough completed
+- [ ] Wire sent and confirmed
+- [ ] All conditions cleared
+- [ ] Correct closing time/location
+- [ ] Know what you're signing
+
+---
+
+*Preparing for closing? [Perchspot analysis](/chat) helps ensure you know what you're buying.*
+    `,
+  },
+  {
+    id: 'seattle-coffee-neighborhoods',
+    title: 'Seattle Neighborhoods for Coffee Lovers: Where to Buy in 2026',
+    category: 'Local',
+    date: '2024-12-11',
+    readTime: '7 min read',
+    metaDescription: 'Guide to Seattle neighborhoods with the best coffee scenes. Where to buy if coffee culture matters: Capitol Hill, Fremont, Ballard, and more.',
+    content: `
+# Seattle Neighborhoods for Coffee Lovers: Where to Buy in 2026
+
+Seattle's coffee culture is legendary. Here's where to live if proximity to great coffee matters.
+
+## Top Coffee Neighborhoods
+
+### Capitol Hill
+**Coffee Density**: Exceptional
+
+| Feature | Rating |
+|---------|--------|
+| Coffee shops per block | 5+ stars |
+| Roaster presence | Multiple local |
+| Walkability | Excellent |
+| Housing cost | High |
+
+**Notable Spots**
+- Victrola Coffee Roasters
+- Stumptown Coffee
+- Espresso Vivace
+- Analog Coffee
+- Caffe Vita
+
+**Housing Reality**
+- Condos: $400K-800K
+- Rentals dominate
+- Limited single-family
+- Very walkable
+- Young demographic
+
+### Fremont
+**Coffee Density**: Very High
+
+| Feature | Rating |
+|---------|--------|
+| Coffee shops | Many excellent |
+| Character | Quirky, unique |
+| Walkability | Good |
+| Housing options | Mixed |
+
+**Notable Spots**
+- Fremont Coffee Company
+- Milstead & Co.
+- Lighthouse Roasters
+- Various neighborhood cafes
+
+**Housing Reality**
+- Mix of condos/houses
+- Houses: $700K-1.2M
+- Character neighborhood
+- More family-friendly
+- Still urban
+
+### Ballard
+**Coffee Density**: High
+
+| Feature | Rating |
+|---------|--------|
+| Coffee quality | Excellent |
+| Growth | Still growing |
+| Community feel | Strong |
+| Housing variety | Good |
+
+**Notable Spots**
+- Caffe Fiore
+- Ballard Coffee Works
+- Slate Coffee
+- Multiple specialty shops
+
+**Housing Reality**
+- Condos: $400K-700K
+- Houses: $800K-1.5M
+- Growing density
+- Old Ballard walkable
+- Mix of old and new
+
+### Central District
+**Coffee Density**: Growing
+
+| Feature | Rating |
+|---------|--------|
+| Value | Better than Capitol Hill |
+| Emerging scene | Strong |
+| Diversity | High |
+| Access | Good |
+
+**Notable Spots**
+- Tougo Coffee
+- Cafe Selam
+- Various neighborhood spots
+- Growing options
+
+**Housing Reality**
+- Houses: $600K-1M
+- More affordable than neighbors
+- Gentrification concerns
+- Historic character
+- Changing rapidly
+
+### Columbia City
+**Coffee Density**: Moderate-High
+
+| Feature | Rating |
+|---------|--------|
+| Neighborhood vibe | Excellent |
+| Diversity | Very high |
+| Growth | Significant |
+| Light rail | Yes |
+
+**Notable Spots**
+- Empire Espresso
+- Cafe Ibex
+- Island Soul
+- Local favorites
+
+**Housing Reality**
+- Houses: $600K-900K
+- Good value for Seattle
+- Growing rapidly
+- Transit accessible
+- Family-friendly
+
+## Coffee Culture Factors
+
+### What to Consider
+| Factor | Why It Matters |
+|--------|---------------|
+| Walking distance | Daily convenience |
+| Shop diversity | Variety |
+| Roaster presence | Quality |
+| Community feel | Neighborhood connection |
+| Hours | Match your schedule |
+
+### Lifestyle Integration
+- Morning walk ritual
+- Remote work spots
+- Weekend exploration
+- Community connection
+- Neighborhood identity
+
+## Secondary Coffee Neighborhoods
+
+### Wallingford
+- Solid coffee options
+- Residential feel
+- More affordable
+- Family neighborhood
+
+### West Seattle
+- Growing scene
+- Alaska Junction walkable
+- More space for money
+- Bridge considerations
+
+### Georgetown
+- Industrial-artistic
+- Fewer shops, high quality
+- Very affordable
+- Up and coming
+
+### Beacon Hill
+- Diverse scene
+- Light rail access
+- More affordable
+- Growing rapidly
+
+## Price Comparison
+
+### Housing by Coffee Neighborhood
+| Neighborhood | Median House | Median Condo |
+|--------------|--------------|--------------|
+| Capitol Hill | N/A | $550,000 |
+| Fremont | $950,000 | $550,000 |
+| Ballard | $900,000 | $500,000 |
+| Central District | $750,000 | $450,000 |
+| Columbia City | $700,000 | $400,000 |
+
+## Buying Strategy
+
+### For Coffee Prioritizers
+1. Walk the neighborhood at coffee time
+2. Count quality shops in walking distance
+3. Note hours and vibe
+4. Check for roasters
+5. Consider commute trade-offs
+
+### Questions to Ask
+- How far to nearest quality shop?
+- Multiple options within walking distance?
+- Weekend vs weekday hours?
+- Community gathering spot?
+- Trend direction?
+
+## Remote Work Considerations
+
+### Best for Working from Coffee Shops
+| Neighborhood | Work-Friendly Shops |
+|--------------|---------------------|
+| Capitol Hill | Many options |
+| Fremont | Several good |
+| Ballard | Growing options |
+| Columbia City | Fewer, good ones |
+
+### What to Look For
+- WiFi quality
+- Outlet availability
+- Comfortable seating
+- Noise level
+- Food options
+
+## Beyond Coffee
+
+### Related Amenities
+| Neighborhood | Restaurants | Bars | Walkability |
+|--------------|-------------|------|-------------|
+| Capitol Hill | Excellent | Excellent | Excellent |
+| Fremont | Very good | Good | Good |
+| Ballard | Excellent | Very good | Good |
+| Central District | Good | Growing | Good |
+| Columbia City | Very good | Good | Good |
+
+---
+
+*Finding your perfect Seattle neighborhood? [Perchspot analysis](/chat) evaluates properties across all local markets.*
+    `,
+  },
 ];
 
 // Update categories to include Local
