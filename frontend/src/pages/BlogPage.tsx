@@ -44398,6 +44398,1187 @@ Seattle's coffee culture is legendary. Here's where to live if proximity to grea
 *Finding your perfect Seattle neighborhood? [Perchspot analysis](/chat) evaluates properties across all local markets.*
     `,
   },
+  {
+    id: 'seattle-dog-friendly-neighborhoods',
+    title: 'Seattle\'s Most Dog-Friendly Neighborhoods for Home Buyers',
+    category: 'Local',
+    date: '2024-12-10',
+    readTime: '7 min read',
+    metaDescription: 'Guide to dog-friendly Seattle neighborhoods for home buyers. Parks, trails, pet services, and housing options for dog owners.',
+    content: `
+# Seattle's Most Dog-Friendly Neighborhoods for Home Buyers
+
+Seattle loves dogs. Here's where to buy if your four-legged friend is a priority.
+
+## Top Dog-Friendly Neighborhoods
+
+### Magnolia
+**Dog Score**: Excellent
+
+| Feature | Rating |
+|---------|--------|
+| Off-leash areas | Excellent |
+| Parks/trails | Exceptional |
+| Yard space | Good |
+| Pet services | Good |
+
+**Key Features**
+- Magnolia Park trails
+- Discovery Park (500+ acres)
+- Magnolia Boulevard walks
+- Residential feel
+- Larger yards typical
+
+**Housing Reality**
+- Houses: $800K-1.5M+
+- More single-family
+- Larger lots
+- Quieter neighborhood
+- Limited transit
+
+### Ravenna/Bryant
+**Dog Score**: Excellent
+
+| Feature | Rating |
+|---------|--------|
+| Off-leash areas | Very good |
+| Parks | Excellent |
+| Trails | Good |
+| Yard availability | Very good |
+
+**Key Features**
+- Ravenna Park (off-leash area)
+- Burke-Gilman Trail access
+- Cowen Park
+- Family-friendly
+- Residential
+
+**Housing Reality**
+- Houses: $900K-1.3M
+- Mostly single-family
+- Good-sized yards
+- Excellent schools
+- Quiet streets
+
+### Ballard
+**Dog Score**: Very Good
+
+| Feature | Rating |
+|---------|--------|
+| Off-leash areas | Good |
+- Parks | Good |
+| Dog services | Excellent |
+| Walkability | Excellent |
+
+**Key Features**
+- Golden Gardens off-leash beach
+- Ballard Commons Park
+- Many dog-friendly businesses
+- Urban with green spaces
+
+**Housing Reality**
+- Mix of condos/houses
+- Houses: $800K-1.2M
+- Some yards
+- Very walkable
+- Active neighborhood
+
+### West Seattle
+**Dog Score**: Very Good
+
+| Feature | Rating |
+|---------|--------|
+| Off-leash areas | Very good |
+| Beaches | Excellent |
+| Parks | Very good |
+| Space | Good |
+
+**Key Features**
+- Westcrest off-leash park
+- Lincoln Park
+- Beach access
+- More space for dogs
+- Neighborhood feel
+
+**Housing Reality**
+- Houses: $650K-1M
+- More affordable
+- Larger lots
+- Bridge access (consider)
+- Suburban feel
+
+### Green Lake
+**Dog Score**: Good to Very Good
+
+| Feature | Rating |
+|---------|--------|
+| Walking paths | Excellent |
+| Off-leash | Moderate |
+| Community | Very good |
+| Services | Very good |
+
+**Key Features**
+- Green Lake loop (2.8 miles)
+- Woodland Park off-leash
+- Dog-watching culture
+- Active community
+
+**Housing Reality**
+- Houses: $900K-1.4M
+- Competitive market
+- Mix of housing
+- Popular with families
+- Premium pricing
+
+## Off-Leash Parks by Area
+
+### North Seattle
+| Park | Acres | Features |
+|------|-------|----------|
+| Magnuson Park | 9 acres | Lake access, fenced |
+| Northacres Park | 4 acres | Fenced, hilly |
+| Woodland Park | 1 acre | Lower level |
+
+### Central Seattle
+| Park | Acres | Features |
+|------|-------|----------|
+| Volunteer Park | Small | Capitol Hill |
+| Cal Anderson | Small | Capitol Hill |
+
+### South Seattle
+| Park | Acres | Features |
+|------|-------|----------|
+| Westcrest Park | 4 acres | Large, forested |
+| Genesee Park | 2 acres | Rainier Valley |
+| Jefferson Park | 2 acres | Views |
+
+## Housing Considerations
+
+### Yard Requirements
+| Dog Size | Minimum Yard |
+|----------|--------------|
+| Small | Patio/small OK |
+| Medium | Small-medium yard |
+| Large | Medium-large yard |
+| Active breed | Large yard or near park |
+
+### Condo Living with Dogs
+- Check pet policies
+- Weight restrictions common
+- Number limits
+- Breed restrictions (some)
+- Pet deposit/rent
+
+### What to Look For
+- Fenced yard
+- Dog door possibility
+- Easy outdoor access
+- Near walking routes
+- Off-leash proximity
+
+## Price Comparison
+
+### Dog-Friendly Neighborhoods
+| Neighborhood | Median House | Yard Typical |
+|--------------|--------------|--------------|
+| Magnolia | $1,100,000 | Yes |
+| Ravenna | $1,000,000 | Yes |
+| Ballard | $900,000 | Some |
+| West Seattle | $750,000 | Yes |
+| Green Lake | $1,100,000 | Some |
+
+## Pet Services by Neighborhood
+
+### Veterinary Access
+| Area | Vet Options |
+|------|-------------|
+| Ballard | Many |
+| Capitol Hill | Many |
+| Green Lake | Several |
+| West Seattle | Several |
+| Magnolia | Few (drive needed) |
+
+### Dog Daycares
+| Area | Options |
+|------|---------|
+| Ballard | Several |
+| SODO | Many |
+| Capitol Hill | Several |
+| Fremont | Several |
+
+## Practical Tips
+
+### Evaluating for Dogs
+1. Walk the neighborhood
+2. Count dogs you see
+3. Note off-leash areas
+4. Check sidewalk conditions
+5. Observe traffic levels
+6. Find nearest vet
+
+### Questions to Ask
+- Closest off-leash park?
+- Yard fully fenced?
+- Neighbor dogs?
+- HOA pet rules?
+- Previous pet damage?
+
+## Weather Considerations
+
+### Seattle Dog Reality
+- Rainy months (a lot of them)
+- Need good rain gear (you AND dog)
+- Covered areas helpful
+- Muddy yard seasons
+- Indoor exercise backup needed
+
+### Solutions
+- Covered patios
+- Boot/paw cleaning stations
+- Near covered walking
+- Dog daycare backup
+
+---
+
+*Finding a dog-friendly home? [Perchspot analysis](/chat) helps evaluate any Seattle area property.*
+    `,
+  },
+  {
+    id: 'first-time-vs-second-time-buyers',
+    title: 'First-Time vs Second-Time Buyers: How the Process Differs',
+    category: 'Education',
+    date: '2024-12-09',
+    readTime: '8 min read',
+    metaDescription: 'Key differences between first-time and repeat home buyers. Learn how financing, priorities, and strategy change the second time around.',
+    content: `
+# First-Time vs Second-Time Buyers: How the Process Differs
+
+Buying your second home is different from your first. Here's what changes and how to adjust.
+
+## Key Differences
+
+### Financial Situation
+| Factor | First-Time | Second-Time |
+|--------|------------|-------------|
+| Down payment | Savings | Equity + savings |
+| Credit history | Building | Established |
+| Income | Early career | Mid-career |
+| Debt | Student loans, etc. | Mortgage + others |
+| Assets | Limited | Home equity |
+
+### Knowledge Level
+| Area | First-Time | Second-Time |
+|------|------------|-------------|
+| Process | Learning | Know it |
+| Paperwork | Overwhelming | Familiar |
+| Negotiation | Tentative | Confident |
+| Inspection | Unsure what to look for | Know priorities |
+| Pricing | Trust others | Own judgment |
+
+## Financing Differences
+
+### First-Time Buyer Programs
+Programs you may no longer qualify for:
+- FHA with 3.5% down (still available but restrictions)
+- First-time buyer grants
+- Down payment assistance
+- Lower PMI rates
+- State housing programs
+
+### Second-Time Advantages
+- Home equity for down payment
+- Stronger credit history
+- Higher income typically
+- Investment property options
+- More lender options
+
+### Bridge Financing
+| Option | How It Works |
+|--------|-------------|
+| HELOC | Borrow against current home |
+| Bridge loan | Short-term, buy before sell |
+| Sale contingency | Sell first, then buy |
+| Simultaneous close | Coordinate both closings |
+
+## Selling and Buying
+
+### Timing Options
+| Strategy | Pros | Cons |
+|----------|------|------|
+| Sell first | Know proceeds, no double payment | Temporary housing, rush to buy |
+| Buy first | No housing gap, no rush | Two mortgages, must qualify |
+| Simultaneous | Smooth transition | Complex, stressful |
+| Rent back | Flexibility | Extra negotiation |
+
+### Contingent Offers
+- Less competitive
+- May lose to non-contingent
+- Consider alternatives
+- Some markets accept more
+- Timing is everything
+
+## What You Know Now
+
+### From First Purchase
+- Home maintenance reality
+- True cost of ownership
+- What you actually use
+- Neighborhood matters
+- Compromise trade-offs
+
+### Apply to Second Purchase
+| Lesson | Application |
+|--------|-------------|
+| Room sizes | Know what's needed |
+| Storage | Prioritize differently |
+| Layout | Know what works |
+| Location | Refined priorities |
+| Features | Less swayed by staging |
+
+## Different Priorities
+
+### First-Time Priorities
+- Qualifying
+- Affording payments
+- Getting in somewhere
+- Learning process
+- Building equity
+
+### Second-Time Priorities
+| Priority | Why |
+|----------|-----|
+| Right home, not just any home | Know what you want |
+| Location upgrade | Move up |
+| Space for life changes | Growing family, work from home |
+| Investment value | Understand equity |
+| Less compromise | Can wait for right one |
+
+## Common Second-Time Mistakes
+
+### Avoiding These
+| Mistake | Prevention |
+|---------|------------|
+| Over-leveraging | Calculate true costs |
+| Selling too fast | Market timing |
+| Overimproving to sell | ROI analysis |
+| Buying for resale not life | Live there first |
+| Assuming same process | Market changes |
+
+### New Challenges
+- Two transactions to manage
+- More at stake
+- Coordination stress
+- Market timing pressure
+- Emotional attachment to current home
+
+## Tax Considerations
+
+### Capital Gains
+| Situation | Treatment |
+|-----------|-----------|
+| Lived 2 of 5 years | $250K/$500K exclusion |
+| Rented it out | Different rules |
+| Second home | No exclusion |
+| Big gain | May exceed exclusion |
+
+### Timing Implications
+- Must live in 2 of last 5 years
+- Exclusion resets each primary residence
+- Plan for taxes if applicable
+
+## Moving Up vs Downsizing
+
+### Moving Up
+- More space needed
+- Better neighborhood
+- Lifestyle upgrade
+- Higher payments
+- More equity needed
+
+### Downsizing
+- Less maintenance
+- Lower costs
+- Different lifestyle
+- Equity release
+- New priorities
+
+### Lateral Move
+- Different needs, similar price
+- Location change
+- Different home type
+- Life stage change
+
+## Strategy Differences
+
+### First-Time Strategy
+1. Save for down payment
+2. Get pre-approved
+3. Search in budget
+4. Make competitive offer
+5. Learn as you go
+
+### Second-Time Strategy
+1. Assess current home value
+2. Determine equity available
+3. Decide timing strategy
+4. Prepare current home for sale
+5. Search with refined criteria
+6. Coordinate transactions
+
+## Working with Agents
+
+### What's Different
+| First-Time | Second-Time |
+|------------|-------------|
+| Need more education | Know the process |
+| Follow agent lead | Partner with agent |
+| Trust advice more | Form own opinions |
+| New relationship | May use same agent |
+| Ask basic questions | Ask strategic questions |
+
+### Finding Second-Time Agent
+- May use previous agent
+- Need dual transaction expertise
+- Coordination skills matter
+- Negotiation focus
+- Market timing knowledge
+
+## Timeline Reality
+
+### First-Time
+- Whenever ready
+- No coordination
+- Learn as you go
+- More flexibility
+
+### Second-Time
+| Phase | Duration |
+|-------|----------|
+| Prepare current home | 1-3 months |
+| List and sell | 1-3 months |
+| Search and buy | 1-3 months |
+| Transition | 1-2 months |
+| **Total** | **4-11 months** |
+
+---
+
+*Ready for your next home? [Perchspot analysis](/chat) helps evaluate properties with experienced buyer insight.*
+    `,
+  },
+  {
+    id: 'home-buying-with-student-debt',
+    title: 'Buying a Home with Student Loan Debt: Complete Strategy',
+    category: 'Guide',
+    date: '2024-12-08',
+    readTime: '9 min read',
+    metaDescription: 'How to buy a home while managing student loans. Learn about DTI calculations, loan programs, and strategies for buyers with education debt.',
+    content: `
+# Buying a Home with Student Loan Debt: Complete Strategy
+
+Student loans don't disqualify you from homeownership. Here's how to navigate both.
+
+## The Reality
+
+### You're Not Alone
+| Statistic | Number |
+|-----------|--------|
+| Americans with student debt | 45+ million |
+| Average balance | ~$37,000 |
+| Millennials with debt | 30%+ |
+| Homeownership rate with debt | Growing |
+
+### It's Possible
+- Millions buy homes with student debt
+- Lenders have adjusted
+- Programs specifically help
+- Strategy matters
+
+## How Lenders View Student Loans
+
+### Debt-to-Income (DTI) Calculation
+| Loan Type | How Payment Counted |
+|-----------|-------------------|
+| Standard repayment | Actual payment |
+| Income-driven (IBR, PAYE) | 0.5-1% of balance (some lenders) |
+| Deferred | 0.5-1% of balance |
+| Forgiven | May need documentation |
+
+### Conventional Loans
+- Use actual payment if available
+- Or 0.5-1% of balance if deferred/IBR
+- DTI limits: 43-50%
+- Credit score requirements
+
+### FHA Loans
+- More flexible DTI (up to 56.99%)
+- Use actual payment OR
+- 0.5% of balance if no payment
+- Lower credit requirements
+
+### VA Loans
+- Residual income calculation
+- More holistic view
+- Can be more flexible
+- For veterans/military
+
+## Calculating Your DTI
+
+### Formula
+**DTI = Monthly Debt Payments ÷ Gross Monthly Income**
+
+### Example
+| Income/Debt | Monthly Amount |
+|-------------|----------------|
+| Gross income | $7,000 |
+| Student loan | $400 |
+| Car payment | $350 |
+| Credit cards | $100 |
+| New mortgage | $2,000 |
+| **Total debt** | **$2,850** |
+| **DTI** | **40.7%** |
+
+### DTI Limits
+| Loan Type | Max DTI |
+|-----------|---------|
+| Conventional | 43-50% |
+| FHA | 43-56.99% |
+| VA | Flexible |
+| USDA | 41% |
+
+## Strategies to Improve Qualification
+
+### Reduce DTI
+| Strategy | Impact |
+|----------|--------|
+| Pay down student loans | Lower payment |
+| Pay off credit cards | Remove payment |
+| Increase income | Lower ratio |
+| Larger down payment | Lower mortgage |
+| Buy less house | Lower mortgage |
+
+### Student Loan Strategies
+| Strategy | When It Helps |
+|----------|---------------|
+| Refinance to lower payment | Lower DTI |
+| Consolidate | Simplify, potentially lower |
+| Income-driven plan | Lower payment now |
+| Pay aggressively pre-application | Reduce balance |
+
+## Repayment Plan Considerations
+
+### Impact on Home Buying
+| Plan Type | Payment | DTI Impact |
+|-----------|---------|------------|
+| Standard (10-year) | Highest | Highest DTI |
+| Extended (25-year) | Lower | Better DTI |
+| Income-driven | Lowest | Best DTI |
+| Graduated | Varies | Varies |
+
+### Caution
+- Lower payments = more interest paid
+- Balance grows on some IBR plans
+- Plan beyond just home buying
+- Long-term strategy matters
+
+## Saving for Down Payment
+
+### Challenge
+| Competing Goals | Priority |
+|-----------------|----------|
+| Student loan payments | Required |
+| Down payment savings | Goal |
+| Emergency fund | Essential |
+| Retirement | Important |
+
+### Strategies
+- Balance, don't eliminate loan payments
+- Automate savings
+- Employer match first (retirement)
+- Down payment assistance programs
+- Gift funds from family
+
+## Down Payment Assistance
+
+### Programs That May Help
+| Program Type | Typical Benefit |
+|--------------|-----------------|
+| State housing agency | Down payment grants |
+| City programs | Forgivable loans |
+| Employer programs | Matching funds |
+| Non-profits | Grants, education |
+
+### Requirements Often Include
+- Income limits
+- First-time buyer status
+- Homebuyer education
+- Primary residence
+- Minimum credit score
+
+## Timeline Planning
+
+### Steps to Home-Readiness
+| Timeframe | Actions |
+|-----------|---------|
+| 12+ months | Check credit, pay down debt |
+| 9-12 months | Stabilize income, increase savings |
+| 6-9 months | Get pre-approved, shop programs |
+| 3-6 months | Active house search |
+| 0-3 months | Contract to close |
+
+### Parallel Paths
+- Don't pause student payments
+- Continue saving
+- Keep credit clean
+- Document income carefully
+
+## Credit Score Management
+
+### Impact of Student Loans
+| Factor | How Loans Affect |
+|--------|-----------------|
+| Payment history | Positive if on-time |
+| Credit utilization | Not directly |
+| Credit mix | Adds to mix |
+| Length of history | Adds history |
+| New credit | Refinance = new inquiry |
+
+### Improvement Strategies
+- Never miss payments
+- Keep old accounts open
+- Pay down credit cards
+- Avoid new debt
+- Check for errors
+
+## Common Mistakes
+
+### Avoid These
+| Mistake | Consequence |
+|---------|-------------|
+| Waiting until debt-free | Delays years |
+| Ignoring DTI | Can't qualify |
+| No emergency fund | Financial stress |
+| Buying too much house | Overextended |
+| Stopping loan payments | Credit damage |
+
+### Better Approaches
+- Buy within comfort zone
+- Keep emergency fund
+- Continue loan payments
+- Build gradually
+- Plan for both goals
+
+## The Numbers You Need
+
+### Before Applying
+| Document | Why Needed |
+|----------|-----------|
+| Loan balance | DTI calculation |
+| Monthly payment | DTI calculation |
+| Payment history | Credit verification |
+| Repayment plan | Payment verification |
+| Forgiveness timeline | Planning |
+
+### Calculate Realistically
+- True monthly payment
+- All other debts
+- What you can actually afford
+- Not just what you qualify for
+
+## After Purchase
+
+### Managing Both
+| Priority | Approach |
+|----------|----------|
+| Mortgage | Always pay first |
+| Student loans | Continue payments |
+| Emergency fund | Rebuild if depleted |
+| Maintenance | Budget for home costs |
+
+### Refinancing Later
+- Student loans: May refinance for better rate
+- Mortgage: Refinance when rates drop
+- Review periodically
+- Life changes = strategy changes
+
+---
+
+*Ready to explore homeownership? [Perchspot analysis](/chat) helps evaluate properties within your budget.*
+    `,
+  },
+  {
+    id: 'seasonal-home-buying',
+    title: 'Seasonal Home Buying: Best and Worst Times to Purchase',
+    category: 'Tips',
+    date: '2024-12-07',
+    readTime: '7 min read',
+    metaDescription: 'When is the best time to buy a house? Month-by-month guide to seasonal home buying advantages, competition levels, and strategy.',
+    content: `
+# Seasonal Home Buying: Best and Worst Times to Purchase
+
+Timing your purchase can affect selection, competition, and price. Here's the seasonal breakdown.
+
+## The Annual Cycle
+
+### Market Activity by Season
+| Season | Inventory | Competition | Prices |
+|--------|-----------|-------------|--------|
+| Spring | High | Highest | Rising |
+| Summer | High | High | Peak |
+| Fall | Declining | Moderate | Stable |
+| Winter | Lowest | Lowest | Lowest |
+
+### Why Seasons Matter
+- School schedules drive families
+- Weather affects showing and moving
+- Seller motivation varies
+- Inventory fluctuates significantly
+
+## Spring (March-May)
+
+### What to Expect
+| Factor | Level |
+|--------|-------|
+| Inventory | Highest of year |
+| Competition | Intense |
+| Bidding wars | Common |
+| Prices | Rising |
+
+### Advantages
+- Most selection
+- Best condition (curb appeal)
+- Time to move before school
+- Motivated sellers
+
+### Disadvantages
+- Highest competition
+- May overpay
+- Fast decisions required
+- Stressful
+
+### Strategy
+- Get pre-approved early
+- Be ready to act fast
+- Offer competitively
+- Have backup options
+
+## Summer (June-August)
+
+### What to Expect
+| Factor | Level |
+|--------|-------|
+| Inventory | Still high |
+| Competition | High but declining |
+| Family buyers | Peak |
+| Prices | Peak |
+
+### Advantages
+- Good selection remains
+- Easier moving weather
+- School transition timing
+- Longer days for viewings
+
+### Disadvantages
+- Prices at peak
+- Family competition
+- Vacation interruptions
+- Heat during moving
+
+### Strategy
+- Act early summer
+- Late summer = less competition
+- August can be opportune
+- Don't overpay at peak
+
+## Fall (September-November)
+
+### What to Expect
+| Factor | Level |
+|--------|-------|
+| Inventory | Declining |
+| Competition | Lower |
+| Seller motivation | Increasing |
+| Prices | Stabilizing |
+
+### Advantages
+- Less competition
+- Motivated sellers
+- More negotiating power
+- Prices may soften
+
+### Disadvantages
+- Less selection
+- Weather changes
+- Holiday disruptions (late fall)
+- Moving in cold
+
+### Strategy
+- Best negotiating season
+- Sellers want to close before holidays
+- Take your time
+- Make reasonable offers
+
+## Winter (December-February)
+
+### What to Expect
+| Factor | Level |
+|--------|-------|
+| Inventory | Lowest |
+| Competition | Minimal |
+| Seller motivation | High |
+| Prices | Lowest |
+
+### Advantages
+- Least competition
+- Most motivated sellers
+- Best prices possible
+- Serious sellers only
+
+### Disadvantages
+- Fewest options
+- Weather challenges
+- Holiday complications
+- Harder to assess property
+
+### Strategy
+- If you find the right home, act
+- Leverage seller motivation
+- Negotiate strongly
+- Don't rush into wrong home
+
+## Month-by-Month Guide
+
+### January
+- **Inventory**: Very low
+- **Competition**: Minimal
+- **Best for**: Deals, motivated sellers
+- **Watch for**: Post-holiday listings
+
+### February
+- **Inventory**: Starting to increase
+- **Competition**: Still low
+- **Best for**: Getting ahead of spring
+- **Watch for**: New listings appearing
+
+### March
+- **Inventory**: Increasing rapidly
+- **Competition**: Building
+- **Best for**: Early selection
+- **Watch for**: Spring rush beginning
+
+### April
+- **Inventory**: High
+- **Competition**: High
+- **Best for**: Selection
+- **Watch for**: Bidding wars
+
+### May
+- **Inventory**: Peak approaching
+- **Competition**: Intense
+- **Best for**: Family movers
+- **Watch for**: Overpriced listings
+
+### June
+- **Inventory**: Peak
+- **Competition**: High
+- **Best for**: Summer move-in
+- **Watch for**: School-timed closings
+
+### July
+- **Inventory**: Still high
+- **Competition**: Starting to ease
+- **Best for**: Slightly less competition
+- **Watch for**: Vacation delays
+
+### August
+- **Inventory**: Declining
+- **Competition**: Moderating
+- **Best for**: End of summer deals
+- **Watch for**: Price reductions
+
+### September
+- **Inventory**: Lower
+- **Competition**: Reduced
+- **Best for**: Fall negotiating
+- **Watch for**: Motivated sellers
+
+### October
+- **Inventory**: Lower
+- **Competition**: Low
+- **Best for**: Deals
+- **Watch for**: Pre-holiday motivation
+
+### November
+- **Inventory**: Low
+- **Competition**: Very low
+- **Best for**: Serious buyers
+- **Watch for**: Holiday closings
+
+### December
+- **Inventory**: Lowest
+- **Competition**: Minimal
+- **Best for**: Best deals
+- **Watch for**: Tax-motivated sellers
+
+## Regional Variations
+
+### Warm Climates
+- Less seasonal variation
+- More consistent market
+- Different peak seasons
+- Snowbird patterns
+
+### Cold Climates
+- Extreme seasonality
+- Winter showing challenges
+- Spring surge pronounced
+- Weather matters more
+
+### School District Driven
+- Spring/summer dominates
+- Family buyer concentration
+- September deadline pressure
+- Less winter activity
+
+## Your Best Season
+
+### If You Need Selection
+- **Buy**: Spring/early summer
+- **Accept**: More competition
+- **Strategy**: Be prepared
+
+### If You Need Value
+- **Buy**: Late fall/winter
+- **Accept**: Less selection
+- **Strategy**: Be patient
+
+### If You're Flexible
+- **Buy**: Fall
+- **Accept**: Moderate selection
+- **Strategy**: Balance both
+
+---
+
+*Ready to buy in any season? [Perchspot analysis](/chat) helps evaluate properties year-round.*
+    `,
+  },
+  {
+    id: 'homebuyers-insurance-guide',
+    title: 'Insurance Shopping for Home Buyers: What to Know Before Closing',
+    category: 'Education',
+    date: '2024-12-06',
+    readTime: '8 min read',
+    metaDescription: 'Guide to homeowners insurance shopping for buyers. Learn what coverage you need, how to compare quotes, and what to have ready before closing.',
+    content: `
+# Insurance Shopping for Home Buyers: What to Know Before Closing
+
+Homeowners insurance is required for closing. Here's how to shop smart.
+
+## When to Start Shopping
+
+### Timeline
+| Phase | Action |
+|-------|--------|
+| Offer accepted | Start getting quotes |
+| Week 1-2 | Compare 3-5 quotes |
+| Week 2-3 | Select and bind policy |
+| Before closing | Proof to lender |
+
+### Why Start Early
+- Required for closing
+- Rate shopping takes time
+- Some properties harder to insure
+- Binding takes time
+
+## Coverage You Need
+
+### Standard Coverage Types
+| Coverage | What It Protects |
+|----------|-----------------|
+| Dwelling (A) | House structure |
+| Other structures (B) | Detached garage, fence |
+| Personal property (C) | Belongings inside |
+| Loss of use (D) | Living expenses if displaced |
+| Liability (E) | Injuries on property |
+| Medical (F) | Guest injuries |
+
+### Minimum Requirements
+| Coverage | Lender Requirement |
+|----------|-------------------|
+| Dwelling | Replacement cost |
+| Liability | Typically $100K+ |
+| Deductible | Reasonable |
+
+### Recommended Levels
+| Coverage | Good Level |
+|----------|-----------|
+| Dwelling | Full replacement cost |
+| Personal property | 50-70% of dwelling |
+| Liability | $300K-500K |
+| Loss of use | 20% of dwelling |
+| Deductible | $1,000-2,500 |
+
+## Getting Quotes
+
+### Information Needed
+| Item | Why Needed |
+|------|-----------|
+| Property address | Rating |
+| Year built | Age factors |
+| Square footage | Replacement cost |
+| Construction type | Building materials |
+| Roof age/type | Major factor |
+| Heating type | Fire risk |
+| Prior claims | At this address |
+
+### Where to Get Quotes
+| Source | Pros | Cons |
+|--------|------|------|
+| Independent agent | Multiple companies | One person |
+| Direct insurer | May be cheapest | Limited options |
+| Comparison sites | Quick | Not always accurate |
+| Current insurer | Bundle discount | May not be best |
+
+### How Many Quotes
+- Get at least 3
+- Include different types
+- Compare apples to apples
+- Same coverage levels
+
+## Comparing Quotes
+
+### What to Compare
+| Factor | Check |
+|--------|-------|
+| Coverage amounts | Match exactly |
+| Deductibles | Same for comparison |
+| Premium | Annual cost |
+| Coverage exclusions | What's NOT covered |
+| Claim process | Reputation |
+| Financial rating | A.M. Best rating |
+
+### Quote Comparison Template
+| Item | Quote 1 | Quote 2 | Quote 3 |
+|------|---------|---------|---------|
+| Company | | | |
+| Dwelling | | | |
+| Personal property | | | |
+| Liability | | | |
+| Deductible | | | |
+| Annual premium | | | |
+| Monthly escrow | | | |
+
+## Factors Affecting Price
+
+### Property Factors
+| Factor | Impact |
+|--------|--------|
+| Location | Major |
+| Age of home | Moderate-Major |
+| Roof condition | Major |
+| Construction type | Moderate |
+| Claims history | Major |
+| Fire protection | Moderate |
+
+### Discount Opportunities
+| Discount | Typical Savings |
+|----------|-----------------|
+| Bundle (auto) | 10-25% |
+| Security system | 5-15% |
+| New home | 5-15% |
+| Claims-free | 5-10% |
+| Loyalty | 5-10% |
+| Paid in full | 2-5% |
+
+## Special Situations
+
+### High-Risk Areas
+| Risk | Coverage Issue |
+|------|----------------|
+| Flood zone | Need separate policy |
+| Wildfire | May be hard to insure |
+| Hurricane | Higher deductibles |
+| Earthquake | Separate policy |
+
+### Older Homes
+- May need specialized insurer
+- Replacement cost concerns
+- Updated systems help
+- May have limitations
+
+### High-Value Homes
+- Standard limits may be insufficient
+- Need high-value home policy
+- Additional liability
+- Scheduled valuables
+
+## What's NOT Covered
+
+### Standard Exclusions
+| Exclusion | Need Separate |
+|-----------|---------------|
+| Flood | Flood insurance |
+| Earthquake | Earthquake insurance |
+| Sewer backup | Rider available |
+| Home business | Business policy |
+| Expensive jewelry | Scheduled item |
+
+### Add These If Needed
+- Flood insurance
+- Earthquake insurance
+- Sewer/water backup
+- Home business
+- Jewelry/art floater
+
+## Binding the Policy
+
+### Process
+1. Select insurer
+2. Provide required info
+3. Pay initial premium
+4. Receive binder
+5. Send binder to lender
+6. Policy effective at closing
+
+### What Lender Needs
+- Insurance binder
+- Proof of coverage
+- Mortgagee clause
+- Effective date on or before closing
+- Premium payment confirmation
+
+## After Closing
+
+### Policy Management
+| Task | When |
+|------|------|
+| Review policy | Immediately |
+| Set up payment | First month |
+| Update if improvements | As needed |
+| Annual review | Each renewal |
+| Compare quotes | Every 2-3 years |
+
+### If Claims Needed
+- Document damage
+- Contact insurer promptly
+- Take photos/video
+- Get repair estimates
+- Keep receipts
+
+## Questions for Insurers
+
+### Before Choosing
+1. What's the claims process?
+2. How quickly are claims paid?
+3. What discounts am I missing?
+4. What's not covered?
+5. What's the deductible for different perils?
+6. How will my premium change?
+
+---
+
+*Ready to insure your new home? [Perchspot analysis](/chat) helps you understand what you're protecting.*
+    `,
+  },
 ];
 
 // Update categories to include Local
