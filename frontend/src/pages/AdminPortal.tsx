@@ -172,7 +172,8 @@ export default function AdminPortal() {
   const [promosLoading, setPromosLoading] = useState(false);
   const [promosError, setPromosError] = useState('');
   const [newPromoAmount, setNewPromoAmount] = useState('5.00');
-  const [newPromoMaxUses, setNewPromoMaxUses] = useState('1');
+  const [newPromoMaxUses, setNewPromoMaxUses] = useState('');
+  const [newPromoExpiresDays, setNewPromoExpiresDays] = useState('');
   const [newPromoNote, setNewPromoNote] = useState('');
   const [newPromoCustomCode, setNewPromoCustomCode] = useState('');
   const [creatingPromo, setCreatingPromo] = useState(false);
@@ -424,6 +425,7 @@ export default function AdminPortal() {
         body: JSON.stringify({
           credit_amount: parseFloat(newPromoAmount),
           max_uses: newPromoMaxUses ? parseInt(newPromoMaxUses) : null,
+          expires_days: newPromoExpiresDays ? parseInt(newPromoExpiresDays) : null,
           note: newPromoNote || null,
           custom_code: newPromoCustomCode.trim() || null,
         }),
@@ -431,6 +433,7 @@ export default function AdminPortal() {
       if (res.ok) {
         setNewPromoNote('');
         setNewPromoCustomCode('');
+        setNewPromoExpiresDays('');
         fetchPromoCodes();
       } else {
         const err = await res.json();
@@ -1557,6 +1560,16 @@ export default function AdminPortal() {
                   size="small"
                   sx={{ width: 100 }}
                   helperText="Empty = unlimited"
+                />
+                <TextField
+                  label="Expires (days)"
+                  type="number"
+                  value={newPromoExpiresDays}
+                  onChange={(e) => setNewPromoExpiresDays(e.target.value)}
+                  size="small"
+                  sx={{ width: 120 }}
+                  helperText="Empty = never"
+                  placeholder="e.g., 7"
                 />
                 <TextField
                   label="Note (optional)"
