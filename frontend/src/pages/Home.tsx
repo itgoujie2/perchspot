@@ -86,6 +86,8 @@ export default function Home() {
 
       <footer className="landing-footer">
         <Link to="/blog">Home Buying Guides</Link>
+        <span className="footer-divider">·</span>
+        <a href="mailto:hello@perchspot.com">hello@perchspot.com</a>
       </footer>
     </div>
   )
