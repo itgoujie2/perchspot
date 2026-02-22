@@ -174,6 +174,7 @@ export default function AdminPortal() {
   const [newPromoAmount, setNewPromoAmount] = useState('5.00');
   const [newPromoMaxUses, setNewPromoMaxUses] = useState('1');
   const [newPromoNote, setNewPromoNote] = useState('');
+  const [newPromoCustomCode, setNewPromoCustomCode] = useState('');
   const [creatingPromo, setCreatingPromo] = useState(false);
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
 
@@ -424,10 +425,12 @@ export default function AdminPortal() {
           credit_amount: parseFloat(newPromoAmount),
           max_uses: newPromoMaxUses ? parseInt(newPromoMaxUses) : null,
           note: newPromoNote || null,
+          custom_code: newPromoCustomCode.trim() || null,
         }),
       });
       if (res.ok) {
         setNewPromoNote('');
+        setNewPromoCustomCode('');
         fetchPromoCodes();
       } else {
         const err = await res.json();
@@ -957,7 +960,7 @@ export default function AdminPortal() {
               <ListItemIcon sx={{ color: 'inherit' }}>
                 <ContentPaste />
               </ListItemIcon>
-              <ListItemText primary="Promo Links" />
+              <ListItemText primary="Promo Codes" />
             </ListItemButton>
           </ListItem>
 
@@ -1507,10 +1510,10 @@ export default function AdminPortal() {
         {activeSection === 'promos' && (
           <Box sx={{ p: 3 }}>
             <Typography variant="h5" gutterBottom sx={{ mb: 3 }}>
-              Promo Links
+              Promo Codes
             </Typography>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-              Generate registration links with bonus credits for friends.
+              Create promo codes with bonus credits. Users can enter codes during registration or use the direct link.
             </Typography>
 
             {promosError && (
@@ -1522,9 +1525,19 @@ export default function AdminPortal() {
             {/* Create New Promo */}
             <Paper sx={{ p: 3, mb: 3 }}>
               <Typography variant="h6" gutterBottom>
-                Create New Promo Link
+                Create New Promo Code
               </Typography>
               <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'flex-start' }}>
+                <TextField
+                  label="Custom Code"
+                  value={newPromoCustomCode}
+                  onChange={(e) => setNewPromoCustomCode(e.target.value.toUpperCase())}
+                  size="small"
+                  sx={{ width: 140 }}
+                  placeholder="e.g., PH10OFF"
+                  helperText="Empty = auto-generate"
+                  inputProps={{ style: { textTransform: 'uppercase' } }}
+                />
                 <TextField
                   label="Credit Amount ($)"
                   type="number"
@@ -1551,7 +1564,7 @@ export default function AdminPortal() {
                   onChange={(e) => setNewPromoNote(e.target.value)}
                   size="small"
                   sx={{ width: 200 }}
-                  placeholder="e.g., For John"
+                  placeholder="e.g., Product Hunt launch"
                 />
                 <Button
                   variant="contained"
@@ -1559,7 +1572,7 @@ export default function AdminPortal() {
                   disabled={creatingPromo || !newPromoAmount}
                   sx={{ height: 40 }}
                 >
-                  {creatingPromo ? 'Creating...' : 'Generate Link'}
+                  {creatingPromo ? 'Creating...' : 'Create Code'}
                 </Button>
               </Box>
             </Paper>

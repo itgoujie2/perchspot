@@ -196,6 +196,7 @@ class CreatePromoRequest(BaseModel):
     max_uses: Optional[int] = 1
     note: Optional[str] = None
     expires_days: Optional[int] = None  # Days until expiration
+    custom_code: Optional[str] = None  # Optional custom code (e.g., "PH10OFF")
 
 
 class PromoCodeResponse(BaseModel):
@@ -235,6 +236,7 @@ async def create_promo(
             max_uses=request.max_uses,
             note=request.note,
             expires_at=expires_at,
+            custom_code=request.custom_code,
         )
 
         # Build registration URL

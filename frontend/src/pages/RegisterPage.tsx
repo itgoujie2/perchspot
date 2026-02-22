@@ -12,7 +12,8 @@ export default function RegisterPage() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [referralCode, setReferralCode] = useState<string | null>(null);
-  const [promoCode, setPromoCode] = useState<string | null>(null);
+  const [promoCode, setPromoCode] = useState<string>('');
+  const [promoFromUrl, setPromoFromUrl] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const { register } = useAuth();
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ export default function RegisterPage() {
     const promo = searchParams.get('promo');
     if (promo) {
       setPromoCode(promo);
+      setPromoFromUrl(true);
     }
   }, [searchParams]);
 
@@ -46,7 +48,7 @@ export default function RegisterPage() {
 
     setLoading(true);
     try {
-      const result = await register(email, password, referralCode || undefined, promoCode || undefined);
+      const result = await register(email, password, referralCode || undefined, promoCode.trim() || undefined);
       if (result.promoMessage) {
         // Show success message briefly, then navigate
         setSuccessMessage(result.promoMessage);
@@ -75,7 +77,7 @@ export default function RegisterPage() {
         <h2>Create Account</h2>
         <p className="tagline">Sign up to analyze properties with Perchspot</p>
 
-        {promoCode && (
+        {promoFromUrl && promoCode && (
           <div style={{
             background: 'rgba(76, 175, 80, 0.15)',
             border: '1px solid rgba(76, 175, 80, 0.3)',
@@ -156,6 +158,17 @@ export default function RegisterPage() {
             disabled={loading}
             className="auth-input"
           />
+          {!promoFromUrl && (
+            <input
+              type="text"
+              value={promoCode}
+              onChange={(e) => setPromoCode(e.target.value.toUpperCase())}
+              placeholder="Promo code (optional)"
+              disabled={loading}
+              className="auth-input"
+              style={{ textTransform: 'uppercase' }}
+            />
+          )}
           <button type="submit" disabled={loading} className="auth-submit">
             {loading ? 'Creating account...' : 'Create Account'}
           </button>

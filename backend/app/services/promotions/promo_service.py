@@ -28,15 +28,32 @@ def create_promo_code(
     max_uses: Optional[int] = 1,
     note: Optional[str] = None,
     expires_at: Optional[datetime] = None,
+    custom_code: Optional[str] = None,
 ) -> PromoCode:
-    """Create a new promo code with specified credit amount."""
-    # Generate unique code
-    for _ in range(10):
-        code = generate_promo_code()
-        if not db.query(PromoCode).filter(PromoCode.code == code).first():
-            break
+    """Create a new promo code with specified credit amount.
+
+    Args:
+        custom_code: Optional custom code (e.g., "PH10OFF"). If not provided,
+                     a random 8-character code is generated.
+    """
+    if custom_code:
+        # Use custom code (uppercase, alphanumeric only)
+        code = ''.join(c for c in custom_code.upper() if c.isalnum())
+        if len(code) < 3:
+            raise ValueError("Custom code must be at least 3 characters")
+        if len(code) > 20:
+            raise ValueError("Custom code must be 20 characters or less")
+        # Check uniqueness
+        if db.query(PromoCode).filter(PromoCode.code == code).first():
+            raise ValueError(f"Promo code '{code}' already exists")
     else:
-        raise RuntimeError("Failed to generate unique promo code")
+        # Generate unique random code
+        for _ in range(10):
+            code = generate_promo_code()
+            if not db.query(PromoCode).filter(PromoCode.code == code).first():
+                break
+        else:
+            raise RuntimeError("Failed to generate unique promo code")
 
     promo = PromoCode(
         code=code,
