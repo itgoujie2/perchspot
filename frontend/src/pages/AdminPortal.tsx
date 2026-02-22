@@ -173,7 +173,7 @@ export default function AdminPortal() {
   const [promosError, setPromosError] = useState('');
   const [newPromoAmount, setNewPromoAmount] = useState('5.00');
   const [newPromoMaxUses, setNewPromoMaxUses] = useState('');
-  const [newPromoExpiresDays, setNewPromoExpiresDays] = useState('');
+  const [newPromoExpiresDate, setNewPromoExpiresDate] = useState('');
   const [newPromoNote, setNewPromoNote] = useState('');
   const [newPromoCustomCode, setNewPromoCustomCode] = useState('');
   const [creatingPromo, setCreatingPromo] = useState(false);
@@ -425,7 +425,7 @@ export default function AdminPortal() {
         body: JSON.stringify({
           credit_amount: parseFloat(newPromoAmount),
           max_uses: newPromoMaxUses ? parseInt(newPromoMaxUses) : null,
-          expires_days: newPromoExpiresDays ? parseInt(newPromoExpiresDays) : null,
+          expires_date: newPromoExpiresDate || null,
           note: newPromoNote || null,
           custom_code: newPromoCustomCode.trim() || null,
         }),
@@ -433,7 +433,7 @@ export default function AdminPortal() {
       if (res.ok) {
         setNewPromoNote('');
         setNewPromoCustomCode('');
-        setNewPromoExpiresDays('');
+        setNewPromoExpiresDate('');
         fetchPromoCodes();
       } else {
         const err = await res.json();
@@ -1562,14 +1562,14 @@ export default function AdminPortal() {
                   helperText="Empty = unlimited"
                 />
                 <TextField
-                  label="Expires (days)"
-                  type="number"
-                  value={newPromoExpiresDays}
-                  onChange={(e) => setNewPromoExpiresDays(e.target.value)}
+                  label="Expires On"
+                  type="date"
+                  value={newPromoExpiresDate}
+                  onChange={(e) => setNewPromoExpiresDate(e.target.value)}
                   size="small"
-                  sx={{ width: 120 }}
+                  sx={{ width: 160 }}
                   helperText="Empty = never"
-                  placeholder="e.g., 7"
+                  InputLabelProps={{ shrink: true }}
                 />
                 <TextField
                   label="Note (optional)"

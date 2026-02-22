@@ -195,7 +195,8 @@ class CreatePromoRequest(BaseModel):
     credit_amount: float
     max_uses: Optional[int] = 1
     note: Optional[str] = None
-    expires_days: Optional[int] = None  # Days until expiration
+    expires_days: Optional[int] = None  # Days until expiration (legacy)
+    expires_date: Optional[str] = None  # Expiration date as ISO string (YYYY-MM-DD)
     custom_code: Optional[str] = None  # Optional custom code (e.g., "PH10OFF")
 
 
@@ -227,7 +228,12 @@ async def create_promo(
         from datetime import timedelta
 
         expires_at = None
-        if request.expires_days:
+        if request.expires_date:
+            # Parse date string (YYYY-MM-DD) and set to end of day
+            expires_at = datetime.strptime(request.expires_date, "%Y-%m-%d").replace(
+                hour=23, minute=59, second=59
+            )
+        elif request.expires_days:
             expires_at = datetime.utcnow() + timedelta(days=request.expires_days)
 
         promo = create_promo_code(
