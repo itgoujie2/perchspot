@@ -11,7 +11,7 @@ from app.models.user import User
 from app.services.auth.auth_service import hash_password, verify_password, create_access_token
 from app.api.v1.deps import get_current_user
 from app.services.promotions.referral_service import register_referral
-from app.services.promotions.promo_service import redeem_promo_code
+from app.services.promotions.promo_service import redeem_promo_code, validate_promo_code
 
 logger = logging.getLogger(__name__)
 
@@ -53,6 +53,12 @@ def register(req: RegisterRequest, db: Session = Depends(get_db)):
     if len(req.password) < 6:
         raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Password must be at least 6 characters")
 
+    # Validate promo code BEFORE creating user (so we can reject with error)
+    if req.promo_code:
+        is_valid, error_msg, _ = validate_promo_code(db, req.promo_code)
+        if not is_valid:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=error_msg)
+
     user = User(
         email=req.email,
         password_hash=hash_password(req.password),
@@ -63,15 +69,13 @@ def register(req: RegisterRequest, db: Session = Depends(get_db)):
 
     promo_message = None
 
-    # Process promo code if provided (admin-generated)
+    # Apply promo code (already validated above)
     if req.promo_code:
         success, message, credit_amount = redeem_promo_code(db, req.promo_code, user.id)
         if success:
             promo_message = message
             logger.info(f"User {user.email} registered with promo code {req.promo_code}, ${credit_amount} credited")
             db.refresh(user)  # Refresh to get updated credit balance
-        else:
-            logger.warning(f"Promo code issue for {user.email}: {message}")
 
     # Process referral code if provided (user referrals)
     if req.referral_code:
