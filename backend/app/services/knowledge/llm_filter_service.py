@@ -40,6 +40,13 @@ Prioritize knowledge that:
 2. Would help the buyer ask better questions or make informed decisions
 3. Covers potential issues or considerations the buyer might overlook
 
+IMPORTANT - EXCLUDE knowledge that does NOT apply to this property type:
+- For condos/apartments: SKIP foundation, roof, exterior siding, flood zone elevation, septic, well water, lot/yard maintenance tips — these are building-level concerns managed by HOA, not the unit buyer
+- For single-family homes: SKIP HOA-specific condo rules (unless the home has an HOA)
+- For new construction (<5 years): SKIP aging system replacement tips (roof replacement, pipe deterioration, etc.)
+- Do NOT include flood zone or natural disaster knowledge UNLESS the property's climate risk data specifically indicates that risk
+- Do NOT include knowledge about features the property does NOT have (e.g., pool maintenance for homes without pools)
+
 Return ONLY the numbers of relevant points, comma-separated, with no explanation.
 Example: 1, 5, 8, 12, 15, 23, 31"""
 

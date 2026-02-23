@@ -276,4 +276,19 @@ def build_property_summary(property_data: Dict[str, Any]) -> str:
         else:
             lines.append("Has HOA")
 
+    # Climate risks (helps LLM filter exclude irrelevant disaster knowledge)
+    climate = property_data.get("climate_risks", {})
+    if climate:
+        risk_parts = []
+        for risk_type in ["flood", "fire", "wind", "heat", "drought"]:
+            level = climate.get(risk_type)
+            if isinstance(level, dict):
+                level = level.get("level") or level.get("risk")
+            if level and str(level).lower() not in ("none", "minimal", "n/a", ""):
+                risk_parts.append(f"{risk_type}: {level}")
+        if risk_parts:
+            lines.append(f"Climate risks: {', '.join(risk_parts)}")
+        else:
+            lines.append("Climate risks: minimal/none reported")
+
     return "\n".join(lines)
