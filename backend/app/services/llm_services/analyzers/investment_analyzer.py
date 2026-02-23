@@ -150,28 +150,34 @@ Distance: {comp.get('distance_miles', 'N/A')} miles
             avg_comp_price_per_sqft = price_per_sqft
 
         # Calculate price value score (0-100)
-        # 100 = 20% below market, 50 = at market, 0 = 20% above market
+        # More generous scoring: 75 = at market (fair value), 90+ = below market (great deal)
+        # 60 = 10% above market, 40 = 20% above market
         if avg_comp_price_per_sqft > 0:
             price_ratio = price_per_sqft / avg_comp_price_per_sqft
-            price_value_score = max(0, min(100, (1.2 - price_ratio) / 0.4 * 100))
+            # At market (ratio=1.0) = 75, below market = higher, above = lower
+            price_value_score = max(30, min(95, 75 + (1.0 - price_ratio) * 100))
         else:
-            price_value_score = 50  # Unknown
+            price_value_score = 70  # Unknown defaults to reasonable
 
-        # Appreciation potential (simple heuristic)
+        # Appreciation potential (more generous scoring)
         year_built = property_data.get('year_built', 2000)
-        age = 2024 - year_built
-        if age < 10:
-            appreciation_score = 80
+        age = 2026 - year_built
+        if age < 5:
+            appreciation_score = 85  # New construction
+        elif age < 15:
+            appreciation_score = 80  # Modern home
         elif age < 30:
-            appreciation_score = 70
+            appreciation_score = 75  # Established home
+        elif age < 50:
+            appreciation_score = 70  # Older but solid
         else:
-            appreciation_score = 60
+            appreciation_score = 65  # Vintage/historic
 
-        # Overall score (weighted average)
+        # Overall score (weighted average) - more balanced
         overall_score = (
-            price_value_score * 0.4 +
-            appreciation_score * 0.3 +
-            65 * 0.3  # Default rental/quality score
+            price_value_score * 0.35 +
+            appreciation_score * 0.35 +
+            75 * 0.30  # Base market/rental score (most areas have decent fundamentals)
         )
 
         # Determine market comparison

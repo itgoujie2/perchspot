@@ -229,19 +229,20 @@ Provide an investment analysis covering:
    - Price per square foot vs comparables
    - Position in market (below/at/above market)
    - Negotiation potential
-   Score: 100 = significantly below market, 50 = fair market value, 0 = overpriced
+   Score: 90+ = below market (great deal), 75 = fair market value, 60 = slightly above market, <50 = overpriced
 
 2. **Appreciation Potential** (0-100):
    - Historical price trends in area
    - Development and growth indicators
    - Market momentum
    - Future value prospects
+   Score: Most stable markets score 70-80, high-growth areas 80-90
 
 3. **Rental Income Potential** (0-100):
    - Estimated rental yield
    - Rental demand in area
    - Cash flow potential
-   - Landlord-friendliness
+   Score: Average rental markets score 70-75, strong rental markets 80+
 
 4. **Overall Investment Quality** (0-100):
    - Risk-adjusted returns
@@ -249,12 +250,14 @@ Provide an investment analysis covering:
    - Exit strategy potential
    - Market timing
 
-SCORING GUIDELINES:
-- 90-100: Excellent investment, strong upside, low risk
-- 75-89: Very good investment, good returns expected
-- 60-74: Fair investment, moderate returns
-- 45-59: Below average investment, limited upside
-- 0-44: Poor investment, high risk or overpriced
+SCORING GUIDELINES (be realistic but not overly harsh):
+- 85-100: Excellent investment opportunity, clear value or upside
+- 75-84: Good investment, solid fundamentals, reasonable price
+- 65-74: Fair investment, typical market conditions
+- 55-64: Below average, some concerns about value or market
+- 0-54: Poor investment, overpriced or high risk
+
+NOTE: Most properties in stable markets should score 65-80. Only truly exceptional deals score 85+ and only clearly overpriced properties score below 60.
 
 Respond in this exact JSON format:
 {{
