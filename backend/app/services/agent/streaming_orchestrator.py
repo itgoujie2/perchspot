@@ -723,95 +723,76 @@ class StreamingAnalysisOrchestrator:
         # Launch all skills in parallel
         tasks = [asyncio.create_task(run_skill_with_key(config)) for config in skill_configs]
 
-        # Track completed results and next index to yield
-        completed_results = {}
-        next_to_yield_idx = 0
-
-        # Process results as they complete
+        # Process and yield results immediately as each skill completes
         for completed_task in asyncio.as_completed(tasks):
             key, skill_result, error = await completed_task
-            completed_results[key] = (skill_result, error)
-
-            # Status update
             config = next(c for c in skill_configs if c["key"] == key)
-            status = f"{config['step_name']} complete" if not error else f"{config['step_name']} failed"
-            yield {"type": "status", "message": status}
+            step_log_id = step_log_ids[key]
 
-            # Yield all consecutive ready results in order
-            while next_to_yield_idx < len(skill_configs):
-                current_config = skill_configs[next_to_yield_idx]
-                current_key = current_config["key"]
+            if error:
+                self._fail_step_logging(step_log_id, str(error))
+                yield {"type": "status", "message": f"{config['step_name']} failed: {error}"}
+            else:
+                results[key] = skill_result
+                step_cost = skill_result.get('cost_summary', {}).get('total_cost', 0)
+                total_cost += step_cost
 
-                if current_key not in completed_results:
-                    break  # Still waiting for this skill
+                self._complete_step_logging(
+                    step_log_id,
+                    cost=step_cost,
+                    input_tokens=skill_result.get('cost_summary', {}).get('input_tokens', 0),
+                    output_tokens=skill_result.get('cost_summary', {}).get('output_tokens', 0),
+                    model=skill_result.get('cost_summary', {}).get('model'),
+                    metadata={"score": skill_result.get('score')}
+                )
 
-                skill_result, skill_error = completed_results[current_key]
-                step_log_id = step_log_ids[current_key]
+                yield {"type": "status", "message": f"{config['step_name']} complete"}
 
-                if skill_error:
-                    self._fail_step_logging(step_log_id, str(skill_error))
-                    yield {"type": "status", "message": f"{current_config['step_name']} failed: {skill_error}"}
-                else:
-                    results[current_key] = skill_result
-                    step_cost = skill_result.get('cost_summary', {}).get('total_cost', 0)
-                    total_cost += step_cost
+                yield {
+                    "type": "analysis",
+                    "step": config["step"],
+                    "step_name": config["step_name"],
+                    "skill": key,
+                    "analysis": self._format_analysis_markdown(skill_result, config["step_name"]),
+                    "data": skill_result,
+                }
 
-                    self._complete_step_logging(
-                        step_log_id,
-                        cost=step_cost,
-                        input_tokens=skill_result.get('cost_summary', {}).get('input_tokens', 0),
-                        output_tokens=skill_result.get('cost_summary', {}).get('output_tokens', 0),
-                        model=skill_result.get('cost_summary', {}).get('model'),
-                        metadata={"score": skill_result.get('score')}
-                    )
-
-                    yield {
-                        "type": "analysis",
-                        "step": current_config["step"],
-                        "step_name": current_config["step_name"],
-                        "skill": current_key,
-                        "analysis": self._format_analysis_markdown(skill_result, current_config["step_name"]),
-                        "data": skill_result,
+                # Save to notes
+                self.notes_manager.append_section(
+                    address=address,
+                    section_title=config["notes_title"],
+                    content="```json\n" + json.dumps(skill_result, indent=2, default=str) + "\n```",
+                    metadata={
+                        "Score": f"{skill_result.get('score', 'N/A')}/100",
+                        "Confidence": skill_result.get('confidence', 'N/A')
                     }
+                )
 
-                    # Save to notes
-                    self.notes_manager.append_section(
-                        address=address,
-                        section_title=current_config["notes_title"],
-                        content="```json\n" + json.dumps(skill_result, indent=2, default=str) + "\n```",
-                        metadata={
-                            "Score": f"{skill_result.get('score', 'N/A')}/100",
-                            "Confidence": skill_result.get('confidence', 'N/A')
-                        }
-                    )
+                # Save knowledge debug to notes
+                if skill_result.get('knowledge_debug'):
+                    self._write_knowledge_debug_to_notes(address, config["step_name"], skill_result)
 
-                    # Save knowledge debug to notes
-                    if skill_result.get('knowledge_debug'):
-                        self._write_knowledge_debug_to_notes(address, current_config["step_name"], skill_result)
-
-                    # Special: GreatSchools enrichment for schools skill
-                    if current_key == "schools":
-                        raw_schools = skill_result.get('raw_data', {}).get('schools', [])
-                        gs_schools = [s for s in raw_schools if any(k.startswith('gs_') for k in s)]
-                        if gs_schools:
-                            gs_lines = []
-                            for s in gs_schools:
-                                gs_lines.append(f"### {s.get('name', 'Unknown')}")
-                                for k, v in s.items():
-                                    if k.startswith('gs_'):
-                                        if isinstance(v, dict):
-                                            gs_lines.append(f"- **{k}**: {json.dumps(v, default=str)}")
-                                        else:
-                                            gs_lines.append(f"- **{k}**: {v}")
-                                gs_lines.append("")
-                            self.notes_manager.append_section(
-                                address=address,
-                                section_title="GreatSchools Enrichment Data",
-                                content="\n".join(gs_lines),
-                                metadata={"Schools Enriched": len(gs_schools)}
-                            )
-
-                next_to_yield_idx += 1
+                # Special: GreatSchools enrichment for schools skill
+                if key == "schools":
+                    raw_schools = skill_result.get('raw_data', {}).get('schools', [])
+                    gs_schools = [s for s in raw_schools if any(k.startswith('gs_') for k in s)]
+                    if gs_schools:
+                        gs_lines = []
+                        for s in gs_schools:
+                            gs_lines.append(f"### {s.get('name', 'Unknown')}")
+                            for k, v in s.items():
+                                if k.startswith('gs_'):
+                                    if isinstance(v, dict):
+                                        gs_lines.append(f"- **{k}**: {json.dumps(v, default=str)}")
+                                    else:
+                                        gs_lines.append(f"- **{k}**: {v}")
+                            gs_lines.append("")
+                        self.notes_manager.append_section(
+                            address=address,
+                            section_title="GreatSchools Enrichment Data",
+                            content="\n".join(gs_lines),
+                            metadata={"Schools Enriched": len(gs_schools)}
+                        )
 
         yield {
             "type": "analysis_complete",
