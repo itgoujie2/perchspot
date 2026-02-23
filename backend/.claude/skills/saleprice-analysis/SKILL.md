@@ -114,6 +114,7 @@ Luxury properties behave DIFFERENTLY from mid-market. Do NOT apply mid-market as
    - Over $3M: +0% to +1%
 3. **Cap individual positive factors:** Max +3% per factor for >$2M, max +2% for >$3M
 4. **Luxury-specific negatives to consider:** Smaller buyer pool (-1% to -2%), longer marketing time
+5. **Market type caveat:** City-wide "seller's market" classification may not apply to luxury. The luxury segment often behaves as balanced or buyer's market even when the overall market is hot.
 
 ## Scoring Guidelines (Confidence Score)
 

@@ -230,6 +230,11 @@ const SalePricePrediction: React.FC<{ data: Record<string, any> }> = ({ data }) 
       {/* Adjustment factors */}
       {adjustmentFactors.length > 0 && (
         <div className="adjustment-factors">
+          {data.details?.baseline_value && (
+            <div className="baseline-label">
+              Starting from {formatPriceK(data.details.baseline_value)} (asking price):
+            </div>
+          )}
           <strong>Adjustment Factors:</strong>
           <div className="factors-list">
             {adjustmentFactors.map((f: any, i: number) => (

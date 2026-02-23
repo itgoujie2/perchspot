@@ -382,32 +382,12 @@ class SalePriceSkill(BaseSkill):
         hot_zip_info = get_hot_zip_info(zip_code) if zip_code else None
 
         # Determine baseline
-        # Key insight: For new listings (low DOM), list price is the market test.
-        # Redfin estimates are often conservative, especially for luxury properties.
+        # Use list/asking price as baseline when available - it's what users see
+        # and what factors should adjust from. Redfin estimate is passed as context.
         baseline = None
         baseline_source = None
 
-        if list_price and redfin_estimate:
-            spread_pct = (list_price - redfin_estimate) / list_price * 100
-
-            # For new listings (DOM < 14), trust list price more - market hasn't rejected it
-            if dom is not None and dom < 14:
-                # Use weighted average favoring list price for new listings
-                baseline = list_price * 0.7 + redfin_estimate * 0.3
-                baseline_source = 'weighted_new_listing'
-            # For luxury properties - use neutral weighting (Redfin can be high or low)
-            elif list_price > 1_500_000 and spread_pct > 5:
-                baseline = list_price * 0.5 + redfin_estimate * 0.5
-                baseline_source = 'weighted_luxury'
-            # If list price is much higher than Redfin (>10%), likely overpriced
-            elif spread_pct > 10:
-                baseline = redfin_estimate
-                baseline_source = 'redfin_estimate'
-            # Normal case: prices are close, use Redfin
-            else:
-                baseline = redfin_estimate
-                baseline_source = 'redfin_estimate'
-        elif list_price:
+        if list_price:
             baseline = list_price
             baseline_source = 'list_price'
         elif redfin_estimate:
@@ -423,9 +403,10 @@ class SalePriceSkill(BaseSkill):
                 baseline = median_price
             baseline_source = 'derived_from_median'
 
-        # Apply hot zip code premium to baseline
+        # Apply hot zip code premium to baseline (only when not using list price,
+        # since list price already reflects the local market)
         hot_zip_premium_applied = None
-        if baseline and hot_zip_info:
+        if baseline and hot_zip_info and baseline_source != 'list_price':
             tier = hot_zip_info['tier']
             premium_info = hot_zip_info.get('premium', {})
             # Use midpoint of premium range
@@ -787,7 +768,7 @@ PROPERTY: {address}
 Using the guidelines above, predict the likely final sale price for this property.
 
 Your job is to:
-1. Start from the baseline value (may be weighted between list price and Redfin estimate)
+1. Start from the BASELINE (the list/asking price). All adjustments are relative to this.
 2. Apply adjustments based on DOM, market conditions, property features
 3. If inspection/HOA documents were analyzed, incorporate those findings:
    - Subtract estimated repair costs from predicted price
@@ -796,18 +777,19 @@ Your job is to:
    - Standard properties: +/- 3-5%
    - Luxury properties (>$1.5M): +/- 5-8% (more price variability)
 5. List the key adjustment factors (3-6 most impactful)
-   - For each factor, estimate the percentage and dollar impact on the baseline price
+   - For each factor, estimate the percentage and dollar impact on the baseline (list price)
    - Use guideline ranges (e.g., DOM < 7 = +2% to +5%, seller's market = +3% to +5%, stale listing = -5% to -10%)
-   - The sum of all factor impacts should approximately equal the gap between baseline and your predicted price
+   - CRITICAL: The sum of all factor dollar impacts MUST approximately equal (predicted_sale_price - baseline). The math must add up.
 6. Explain your reasoning in 2-3 sentences
 7. Assign a confidence score (0-100) based on data quality
 
 CRITICAL PRICING INSIGHTS:
+- The BASELINE is the list/asking price. Your predicted price = baseline + sum of all factor impacts.
+- Use the Redfin estimate as a REFERENCE SIGNAL, not the baseline. If Redfin estimate differs significantly from list price, mention it but don't anchor to it.
 - For NEW listings (DOM < 14), the list price hasn't been rejected by the market yet - respect it more
-- Redfin estimates can be less accurate for luxury properties (>$1.5M) — they may be high OR low, so use wider confidence ranges rather than assuming a direction
-- Low DOM + list price > Redfin estimate = sellers know something, don't undervalue
 - High DOM (>45) = market HAS spoken, price likely needs to come down
 - For luxury properties ($1.5M+): Do NOT add a "Luxury Property Premium" factor. Apply luxury adjustment rules from the guidelines above.
+- Market type is based on city-wide data. For luxury properties ($1.5M+), the luxury segment often behaves more like a balanced/buyer's market even when the overall market is classified as "seller's".
 
 IMPORTANT - MISSING DATA HANDLING:
 - Missing DOM or other data should LOWER YOUR CONFIDENCE SCORE, NOT the predicted price

@@ -1792,6 +1792,12 @@
   margin-bottom: 1rem;
 }
 
+.baseline-label {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 0.4rem;
+}
+
 .adjustment-factors > strong {
   display: block;
   font-size: 0.75rem;
