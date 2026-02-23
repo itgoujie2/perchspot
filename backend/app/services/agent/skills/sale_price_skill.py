@@ -464,28 +464,32 @@ class SalePriceSkill(BaseSkill):
 
     async def _fetch_market_conditions(self, data: Dict[str, Any]) -> Dict[str, Any]:
         """
-        Fetch real-time market conditions using Claude.
+        Fetch real-time market conditions from web scrapers.
 
-        Returns market snapshot with mortgage rate, market type, season.
+        Uses redfin_market_service for real local market data instead of
+        Claude Haiku inference. Falls back to extracted data, then Claude.
+
+        Returns market snapshot with mortgage rate, market type, season,
+        and detailed metrics (DOM, sale-to-list, YoY change, inventory).
         """
+        from app.services.data_collectors.redfin_market_service import get_local_market_data
+
         market = data.get('market_trends', {}) or {}
-        location = data.get('location', {}) or {}
         region_info = data.get('region_info', {}) or {}
 
         # Extract city/region for context
         city = region_info.get('city', '')
         state = region_info.get('state', '')
-        region = region_info.get('region', '')
 
-        if not city and not region:
+        if not city:
             # Try to extract from address
             prop = data.get('property', {}) or {}
             addr = prop.get('address', {}) or {}
             city = addr.get('city', '')
             state = addr.get('state', '')
 
-        # Get market type from extracted data if available
-        market_type = market.get('market_type', '')
+        # Get market type from extracted data if available (fallback)
+        extracted_market_type = market.get('market_type', '')
 
         # Get current season
         month = _get_current_month()
@@ -495,8 +499,48 @@ class SalePriceSkill(BaseSkill):
         mortgage_rate, rate_source = await get_current_mortgage_rate()
         logger.info(f"Mortgage rate: {mortgage_rate}% (source: {rate_source})")
 
-        # Use Claude only for local market conditions (not mortgage rate)
+        # Try real-time web-scraped market data first
+        local_market = None
+        if city:
+            try:
+                local_market = await get_local_market_data(city, state)
+            except Exception as e:
+                logger.warning(f"SalePriceSkill: Real-time market fetch failed: {e}")
+
+        if local_market:
+            logger.info(f"SalePriceSkill: Using real-time market data from {local_market.get('source')}")
+            return {
+                'mortgage_rate': mortgage_rate,
+                'mortgage_rate_source': rate_source,
+                'market_type': local_market.get('market_type', 'balanced'),
+                'season': season,
+                'local_trend': local_market.get('local_trend', 'unknown'),
+                'rate_direction': 'stable',
+                'median_dom': local_market.get('median_dom'),
+                'sale_to_list_ratio': local_market.get('sale_to_list_ratio'),
+                'yoy_price_change_pct': local_market.get('yoy_price_change_pct'),
+                'inventory_months': local_market.get('inventory_months'),
+                'median_sale_price': local_market.get('median_sale_price'),
+                'homes_sold_last_30d': local_market.get('homes_sold_last_30d'),
+                'source': f"web_realtime_{local_market.get('source', 'unknown')}",
+            }
+
+        # Fallback: use extracted data from Redfin listing if available
+        if extracted_market_type:
+            logger.info(f"SalePriceSkill: Using extracted market data (market_type={extracted_market_type})")
+            return {
+                'mortgage_rate': mortgage_rate,
+                'mortgage_rate_source': rate_source,
+                'market_type': extracted_market_type,
+                'season': season,
+                'local_trend': 'unknown',
+                'rate_direction': 'stable',
+                'source': 'extracted_data',
+            }
+
+        # Final fallback: use Claude Haiku inference
         try:
+            region = region_info.get('region', '')
             prompt = f"""Based on your knowledge of current real estate market conditions (as of early 2026), provide market data for {city}, {state if state else region}.
 
 Return ONLY a JSON object with these fields:
@@ -509,10 +553,9 @@ Return ONLY valid JSON, no explanation."""
             response = await self._call_claude(
                 prompt=prompt,
                 max_tokens=150,
-                model="claude-3-haiku-20240307"  # Use Haiku for speed/cost
+                model="claude-3-haiku-20240307"
             )
 
-            # Parse response
             response_text = response.strip()
             if response_text.startswith('```'):
                 response_text = response_text.split('```')[1]
@@ -525,24 +568,23 @@ Return ONLY valid JSON, no explanation."""
             return {
                 'mortgage_rate': mortgage_rate,
                 'mortgage_rate_source': rate_source,
-                'market_type': market_data.get('market_type', market_type or 'balanced'),
+                'market_type': market_data.get('market_type', 'balanced'),
                 'season': season,
                 'local_trend': market_data.get('local_yoy_trend', 'unknown'),
                 'rate_direction': market_data.get('rate_direction', 'stable'),
-                'source': 'web_and_claude'
+                'source': 'claude_fallback',
             }
 
         except Exception as e:
-            logger.warning(f"SalePriceSkill: Market conditions fetch failed: {e}")
-            # Return with web-fetched rate
+            logger.warning(f"SalePriceSkill: All market condition sources failed: {e}")
             return {
                 'mortgage_rate': mortgage_rate,
                 'mortgage_rate_source': rate_source,
-                'market_type': market_type or 'balanced',
+                'market_type': 'balanced',
                 'season': season,
                 'local_trend': 'unknown',
                 'rate_direction': 'stable',
-                'source': 'web_only'
+                'source': 'fallback_default',
             }
 
     async def _predict_sale_price(
@@ -613,6 +655,18 @@ Return ONLY valid JSON, no explanation."""
         market_section += f"- Season: {market_snapshot.get('season', 'N/A')}\n"
         market_section += f"- Local Trend: {market_snapshot.get('local_trend', 'N/A')}\n"
         market_section += f"- Rate Direction: {market_snapshot.get('rate_direction', 'N/A')}\n"
+        # Add detailed market metrics when available (from real-time scraping)
+        if market_snapshot.get('median_dom') is not None:
+            market_section += f"- Area Median DOM: {market_snapshot['median_dom']} days\n"
+        if market_snapshot.get('sale_to_list_ratio') is not None:
+            market_section += f"- Area Sale-to-List Ratio: {market_snapshot['sale_to_list_ratio']:.3f} ({market_snapshot['sale_to_list_ratio']*100:.1f}%)\n"
+        if market_snapshot.get('yoy_price_change_pct') is not None:
+            market_section += f"- Area YoY Price Change: {market_snapshot['yoy_price_change_pct']:+.1f}%\n"
+        if market_snapshot.get('inventory_months') is not None:
+            market_section += f"- Months of Supply: {market_snapshot['inventory_months']:.1f}\n"
+        if market_snapshot.get('median_sale_price') is not None:
+            market_section += f"- Area Median Sale Price: ${market_snapshot['median_sale_price']:,.0f}\n"
+        market_section += f"- Data Source: {market_snapshot.get('source', 'N/A')}\n"
 
         # DOM analysis
         dom = baseline_metrics.get('dom')
@@ -743,6 +797,9 @@ Your job is to:
    - Standard properties: +/- 3-5%
    - Luxury properties (>$1.5M): +/- 5-8% (more price variability)
 5. List the key adjustment factors (3-6 most impactful)
+   - For each factor, estimate the percentage and dollar impact on the baseline price
+   - Use guideline ranges (e.g., DOM < 7 = +2% to +5%, seller's market = +3% to +5%, stale listing = -5% to -10%)
+   - The sum of all factor impacts should approximately equal the gap between baseline and your predicted price
 6. Explain your reasoning in 2-3 sentences
 7. Assign a confidence score (0-100) based on data quality
 
@@ -771,7 +828,7 @@ Provide your analysis in this JSON format:
     "vs_redfin_estimate_pct": <number or null - predicted vs redfin estimate %>,
     "reasoning": "<2-3 sentences explaining the prediction>",
     "adjustment_factors": [
-        {{"factor": "<description>", "direction": "<up|down>", "impact": "<significant|moderate|slight>"}},
+        {{"factor": "<description>", "direction": "<up|down>", "impact": "<significant|moderate|slight>", "estimated_impact_pct": <number - estimated % impact on baseline>, "estimated_impact_dollars": <number - estimated $ impact on price>}},
         ...
     ],
     "strengths": ["<positive pricing factors>", ...],

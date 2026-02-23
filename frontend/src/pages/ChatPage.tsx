@@ -236,6 +236,11 @@ const SalePricePrediction: React.FC<{ data: Record<string, any> }> = ({ data }) 
               <div key={i} className={`factor-item ${getDirectionClass(f.direction)} ${getImpactClass(f.impact)}`}>
                 <span className="factor-icon">{getDirectionIcon(f.direction)}</span>
                 <span className="factor-text">{f.factor}</span>
+                {f.estimated_impact_dollars != null && f.estimated_impact_dollars !== 0 && (
+                  <span className={`factor-dollars ${f.direction === 'up' ? 'dollars-up' : 'dollars-down'}`}>
+                    {f.estimated_impact_dollars > 0 ? '+' : ''}{formatPriceK(f.estimated_impact_dollars)}
+                  </span>
+                )}
                 <span className="factor-impact">({f.impact})</span>
               </div>
             ))}
@@ -249,6 +254,18 @@ const SalePricePrediction: React.FC<{ data: Record<string, any> }> = ({ data }) 
           <span>{marketSnapshot.market_type || 'Balanced'} market</span>
           <span className="snapshot-divider">•</span>
           <span>Rates {marketSnapshot.mortgage_rate}%</span>
+          {marketSnapshot.median_dom != null && (
+            <>
+              <span className="snapshot-divider">•</span>
+              <span>{marketSnapshot.median_dom} DOM</span>
+            </>
+          )}
+          {marketSnapshot.sale_to_list_ratio != null && (
+            <>
+              <span className="snapshot-divider">•</span>
+              <span>{(marketSnapshot.sale_to_list_ratio * 100).toFixed(1)}% S/L</span>
+            </>
+          )}
           {marketSnapshot.local_trend && marketSnapshot.local_trend !== 'unknown' && (
             <>
               <span className="snapshot-divider">•</span>
