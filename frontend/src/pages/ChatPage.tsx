@@ -94,6 +94,14 @@ const getGrade = (score: number | null): string | null => {
   return 'F';
 };
 
+const getScoreLabel = (score: number): { text: string; color: string } => {
+  if (score >= 85) return { text: 'Excellent', color: '#4caf50' };
+  if (score >= 75) return { text: 'Good', color: '#8bc34a' };
+  if (score >= 65) return { text: 'Fair', color: '#ff9800' };
+  if (score >= 55) return { text: 'Below Avg', color: '#ff5722' };
+  return { text: 'Poor', color: '#f44336' };
+};
+
 const getRiskColor = (level: string) => {
   const l = (level || '').toLowerCase();
   if (l.includes('low') || l.includes('minimal') || l.includes('none')) return '#4caf50';
@@ -107,14 +115,16 @@ const ScoreCircle: React.FC<{ value: number; label: string; max?: number }> = ({
   const r = 30;
   const circ = 2 * Math.PI * r;
   const offset = circ - (pct / 100) * circ;
+  const scoreLabel = getScoreLabel(value);
   return (
     <div className="score-circle">
       <svg width="76" height="76" viewBox="0 0 76 76">
         <circle cx="38" cy="38" r={r} fill="none" stroke="#e0e0e0" strokeWidth="6" />
-        <circle cx="38" cy="38" r={r} fill="none" stroke="#667eea" strokeWidth="6"
+        <circle cx="38" cy="38" r={r} fill="none" stroke={scoreLabel.color} strokeWidth="6"
           strokeDasharray={circ} strokeDashoffset={offset}
           strokeLinecap="round" transform="rotate(-90 38 38)" />
-        <text x="38" y="42" textAnchor="middle" fontSize="14" fontWeight="600" fill="#333">{value}</text>
+        <text x="38" y="38" textAnchor="middle" fontSize="14" fontWeight="600" fill="#333">{value}</text>
+        <text x="38" y="52" textAnchor="middle" fontSize="9" fill={scoreLabel.color}>{scoreLabel.text}</text>
       </svg>
       <span className="score-label">{label}</span>
     </div>
@@ -1091,6 +1101,12 @@ const ChatPage: React.FC = () => {
                   {locScore !== null && <ScoreCircle value={locScore} label="Location" />}
                   {schoolScore !== null && <ScoreCircle value={schoolScore} label="Schools" />}
                   {investmentScore !== null && <ScoreCircle value={investmentScore} label="Investment" />}
+                </div>
+                <div className="score-legend">
+                  <span><span className="legend-dot" style={{background: '#4caf50'}}></span>85+ Excellent</span>
+                  <span><span className="legend-dot" style={{background: '#8bc34a'}}></span>75-84 Good</span>
+                  <span><span className="legend-dot" style={{background: '#ff9800'}}></span>65-74 Fair</span>
+                  <span><span className="legend-dot" style={{background: '#ff5722'}}></span>55-64 Below Avg</span>
                 </div>
               </div>
             )}
