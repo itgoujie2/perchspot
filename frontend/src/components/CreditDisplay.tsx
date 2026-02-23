@@ -5,8 +5,8 @@ export default function CreditDisplay() {
   const { user, isAuthenticated, logout } = useAuth();
   const location = useLocation();
 
-  // Hide on chat page — it has its own header with credits
-  if (!isAuthenticated || !user || location.pathname === '/chat') return null;
+  // Hide on chat page (has its own header) and admin page (overlaps with UI)
+  if (!isAuthenticated || !user || location.pathname === '/chat' || location.pathname.startsWith('/admin')) return null;
 
   return (
     <div style={{
