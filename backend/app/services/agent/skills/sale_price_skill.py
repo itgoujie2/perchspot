@@ -395,10 +395,9 @@ class SalePriceSkill(BaseSkill):
                 # Use weighted average favoring list price for new listings
                 baseline = list_price * 0.7 + redfin_estimate * 0.3
                 baseline_source = 'weighted_new_listing'
-            # For luxury properties where Redfin often underestimates
+            # For luxury properties - use neutral weighting (Redfin can be high or low)
             elif list_price > 1_500_000 and spread_pct > 5:
-                # Redfin tends to undervalue luxury - use weighted average
-                baseline = list_price * 0.6 + redfin_estimate * 0.4
+                baseline = list_price * 0.5 + redfin_estimate * 0.5
                 baseline_source = 'weighted_luxury'
             # If list price is much higher than Redfin (>10%), likely overpriced
             elif spread_pct > 10:
@@ -805,9 +804,10 @@ Your job is to:
 
 CRITICAL PRICING INSIGHTS:
 - For NEW listings (DOM < 14), the list price hasn't been rejected by the market yet - respect it more
-- Redfin estimates tend to be CONSERVATIVE, especially for luxury properties (often 5-10% low)
+- Redfin estimates can be less accurate for luxury properties (>$1.5M) — they may be high OR low, so use wider confidence ranges rather than assuming a direction
 - Low DOM + list price > Redfin estimate = sellers know something, don't undervalue
 - High DOM (>45) = market HAS spoken, price likely needs to come down
+- For luxury properties ($1.5M+): Do NOT add a "Luxury Property Premium" factor. Apply luxury adjustment rules from the guidelines above.
 
 IMPORTANT - MISSING DATA HANDLING:
 - Missing DOM or other data should LOWER YOUR CONFIDENCE SCORE, NOT the predicted price

@@ -95,6 +95,26 @@ Consider these relative to neighborhood averages:
 - High HOA ($300-$500/mo): -1% to -2%
 - Very high HOA (> $500/mo): -2% to -4%
 
+## Luxury Property Adjustments ($1.5M+)
+
+Luxury properties behave DIFFERENTLY from mid-market. Do NOT apply mid-market assumptions.
+
+### Key Realities
+- **Smaller buyer pool** → less competition, not more
+- **Longer time to sell** → higher DOM is normal for luxury
+- **More negotiation** → sophisticated buyers, lower sale-to-list ratios
+- **New construction less differentiating** → luxury buyers value location, views, uniqueness over "newness"
+
+### Rules
+1. **NEVER create a "Luxury Property Premium" factor.** Being expensive is not a premium — the baseline already reflects value.
+2. **Scale down new construction premium:**
+   - Under $1M: +3% to +5% (full range)
+   - $1M-$2M: +2% to +3%
+   - $2M-$3M: +1% to +2%
+   - Over $3M: +0% to +1%
+3. **Cap individual positive factors:** Max +3% per factor for >$2M, max +2% for >$3M
+4. **Luxury-specific negatives to consider:** Smaller buyer pool (-1% to -2%), longer marketing time
+
 ## Scoring Guidelines (Confidence Score)
 
 The confidence score reflects prediction reliability:
@@ -145,3 +165,8 @@ Return predictions with:
 4. **Key factors** - the 3-6 most impactful adjustments
 5. **Reasoning** - 2-3 sentence explanation
 6. **Confidence** - high/medium/low with score
+
+## Supporting Documentation
+
+- [adjustment_factors.md](adjustment_factors.md) - Detailed adjustment factor tables and ranges
+- [market_timing.md](market_timing.md) - DOM analysis and market timing guidance

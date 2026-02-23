@@ -42,6 +42,15 @@ Days on market is the market's real-time verdict on pricing:
 | 61-90 days | Needs price cut | -7% to -12% below list |
 | > 90 days | Overpriced or issues | -12%+ below list |
 
+#### Luxury Properties ($1.5M+) — DOM Interpretation
+| DOM | Interpretation | Price Prediction |
+|-----|----------------|------------------|
+| 0-14 days | Exceptional | At list or slightly above |
+| 15-30 days | Strong for luxury | At or near list |
+| 31-60 days | Normal pace | At list to -3% |
+| 61-90 days | Starting to stale | -3% to -6% |
+| > 90 days | Serious issues | -5% to -10%+ |
+
 ### Price Reduction History
 
 Look for signals in DOM context:

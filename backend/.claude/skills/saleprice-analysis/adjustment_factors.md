@@ -24,6 +24,12 @@
 | Original/dated | -2% to -4% | 80s kitchens, brass fixtures |
 | Deferred maintenance | -3% to -6% | Visible issues, roof age, etc. |
 
+#### Luxury Scaling (Age & Condition)
+For properties over $1.5M, reduce new construction/renovation premiums:
+- $1.5M-$2.5M: Use 60-75% of listed percentages
+- $2.5M-$4M: Use 40-60%
+- Over $4M: Use 25-40%
+
 ### Location Quality
 
 | Factor | Premium | Neutral | Discount |
@@ -73,6 +79,11 @@
 - Cap positive adjustments at +15% above baseline
 - Cap negative adjustments at -20% below baseline
 - Beyond these ranges, question the baseline
+
+### Luxury Property Caps ($1.5M+)
+- Cap positive adjustments at +8% (vs +15% for mid-market)
+- No single factor should exceed +3% for >$2M properties
+- **NEVER** generate "Luxury Property Premium", "High-End Premium", or similar factors — these are segment descriptions, not adjustments
 
 ### Priority of Factors
 1. **Days on market** - strongest signal for current pricing reality
