@@ -19,8 +19,8 @@ export default function UserMenu() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Hide on chat page (has its own header) and auth pages (redundant)
-  if (location.pathname === '/chat' || location.pathname === '/login' || location.pathname === '/register') {
+  // Hide on chat page (has its own header), auth pages (redundant), and admin page (has its own UI)
+  if (location.pathname === '/chat' || location.pathname === '/login' || location.pathname === '/register' || location.pathname.startsWith('/admin')) {
     return null;
   }
 
