@@ -153,6 +153,13 @@ Use actual Google Maps commute data when available:
 - Parks within 0.5 miles: +3 points
 - Transit stops within 0.25 miles: +5 points
 
+### Power Line & Electrical Infrastructure
+- High voltage lines (≥115kV) within 0.1 miles: -15 to -20 points
+- High voltage lines within 0.25 miles: -8 to -12 points
+- Substation within 0.25 miles: -5 to -10 points
+- Power infrastructure 0.25-0.5 miles: Minor note (-3 to -5 points)
+- No power infrastructure within 0.5 miles: No impact
+
 ## Additional Resources
 
 For commute evaluation methodology, see [commute_evaluation.md](commute_evaluation.md).

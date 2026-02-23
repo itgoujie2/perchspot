@@ -1,6 +1,7 @@
 """
 Location Skill - Analyzes location quality, commute, neighborhood, and region
 """
+import asyncio
 import os
 import re
 from typing import Dict, Any, List, Optional
@@ -8,6 +9,7 @@ import logging
 
 from app.services.agent.skills.base_skill import BaseSkill
 from app.services.data_collectors.google_maps_service import google_maps_service
+from app.services.data_collectors.power_lines_service import power_lines_service
 
 logger = logging.getLogger(__name__)
 
@@ -135,11 +137,16 @@ class LocationSkill(BaseSkill):
 
             if all_destinations:
                 logger.info(f"LocationSkill: Detected region '{region}', fetching commute times to {len(all_destinations)} hot areas")
-                commute_data = await google_maps_service.get_commute_times(address, all_destinations)
+                commute_data, power_line_data = await asyncio.gather(
+                    google_maps_service.get_commute_times(address, all_destinations),
+                    power_lines_service.check_power_infrastructure(address),
+                )
                 for i, c in enumerate(commute_data):
                     c["sub_region"] = all_destinations[i]["_region"]
+            else:
+                power_line_data = await power_lines_service.check_power_infrastructure(address)
 
-            analysis = await self._analyze_location(address, work_location, region, commute_data)
+            analysis = await self._analyze_location(address, work_location, region, commute_data, power_line_data)
 
             return analysis
 
@@ -153,6 +160,7 @@ class LocationSkill(BaseSkill):
         work_location: Optional[str],
         region: Optional[str],
         commute_data: List[Dict[str, Any]],
+        power_line_data: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, Any]:
         """Analyze location characteristics with region and commute context."""
 
@@ -165,11 +173,23 @@ class LocationSkill(BaseSkill):
                 lines.append(f"  - {c['name']}: drive {drive}, transit {transit}")
             commute_section = f"\nCOMMUTE TO HOT AREAS ({region}):\n" + "\n".join(lines)
 
+        power_line_section = ""
+        if power_line_data and power_line_data.get("risk_level") not in (None, "unknown"):
+            power_line_section = f"\nPOWER LINE PROXIMITY:\n  Risk Level: {power_line_data['risk_level']}"
+            if power_line_data.get("nearest_distance_miles") is not None:
+                power_line_section += f"\n  Nearest: {power_line_data['nearest_type']} at {power_line_data['nearest_distance_miles']:.2f} miles"
+            if power_line_data.get("features_found"):
+                for f in power_line_data["features_found"][:5]:
+                    v = f" ({f['voltage']})" if f.get("voltage") else ""
+                    power_line_section += f"\n  - {f['type'].replace('_', ' ')}{v}: {f['distance_miles']:.2f} miles"
+            power_line_section += f"\n  Summary: {power_line_data.get('summary', '')}"
+
         # Build location summary for knowledge filtering
         location_summary = f"""ADDRESS: {address}
 REGION: {region or 'Unknown'}
 WORK LOCATION: {work_location or 'Not provided'}
-{commute_section}"""
+{commute_section}
+{power_line_section}"""
 
         # Query knowledge base with targeted location queries
         knowledge_queries = self._extract_location_queries_preliminary(address, region, commute_data)
@@ -198,6 +218,7 @@ PROPERTY ADDRESS: {address}
 WORK LOCATION: {work_location or 'Not provided'}
 DETECTED REGION: {region or 'Unknown'}
 {commute_section}
+{power_line_section}
 {knowledge_section}
 ---
 
@@ -209,6 +230,7 @@ Consider:
 3. Commute considerations (use the commute data above if available)
 4. General location desirability
 5. Region context and proximity to employment centers
+6. High voltage power lines and electrical infrastructure proximity (use power line data above if available)
 
 CRITICAL FORMATTING RULES:
 - Strengths and concerns do NOT need to be equal in count. If location is excellent, you might have 4 strengths and 0-1 concerns. If location has issues, you might have 1 strength and 4 concerns. Be honest.
@@ -229,6 +251,11 @@ Provide your analysis in this JSON format:
         "walkability_assessment": "<description>",
         "commute_assessment": "<description>",
         "commute_to_hot_areas": {self._format_commute_json_template(commute_data)},
+        "power_line_proximity": {{
+            "risk_level": "<none|low|moderate|high>",
+            "nearest_distance_miles": <float or null>,
+            "summary": "<description>"
+        }},
         "amenities_nearby": ["<amenity 1>", "<amenity 2>"]
     }}
 }}
@@ -244,12 +271,19 @@ Return ONLY valid JSON, no other text.
         details.setdefault('region', region or 'Unknown')
         if commute_data and 'commute_to_hot_areas' not in details:
             details['commute_to_hot_areas'] = commute_data
+        if power_line_data and 'power_line_proximity' not in details:
+            details['power_line_proximity'] = {
+                "risk_level": power_line_data.get("risk_level", "unknown"),
+                "nearest_distance_miles": power_line_data.get("nearest_distance_miles"),
+                "summary": power_line_data.get("summary", ""),
+            }
 
         analysis['raw_data'] = {
             'address': address,
             'work_location': work_location,
             'region': region,
             'commute_data': commute_data,
+            'power_line_data': power_line_data,
         }
         analysis['knowledge_debug'] = {
             "queries": knowledge_debug,
