@@ -133,6 +133,8 @@ def build_knowledge_query(property_data: Dict[str, Any]) -> str:
             parts.append(f"HOA community (${hoa_fee}/month)")
         else:
             parts.append("HOA community")
+    else:
+        parts.append("No HOA")
 
     # Features from description or features list
     features = []
@@ -275,6 +277,8 @@ def build_property_summary(property_data: Dict[str, Any]) -> str:
             lines.append(f"HOA ${hoa['fee']}/mo")
         else:
             lines.append("Has HOA")
+    else:
+        lines.append("No HOA")
 
     # Climate risks (helps LLM filter exclude irrelevant disaster knowledge)
     climate = property_data.get("climate_risks", {})

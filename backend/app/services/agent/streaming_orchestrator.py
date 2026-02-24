@@ -857,6 +857,14 @@ class StreamingAnalysisOrchestrator:
                 logger.info("No broad candidates found, falling back to attribute search")
                 return self._fallback_attribute_search(property_data)
 
+            # Pre-filter: Remove obviously irrelevant candidates deterministically
+            candidates = self._pre_filter_candidates(candidates, property_data)
+            debug_info["candidates_after_prefilter"] = len(candidates)
+
+            if not candidates:
+                logger.info("All candidates removed by pre-filter, falling back to attribute search")
+                return self._fallback_attribute_search(property_data)
+
             # Stage 2: LLM filter to select most relevant
             from app.services.knowledge.llm_filter_service import get_filter_service
             filter_service = get_filter_service()
@@ -901,6 +909,70 @@ class StreamingAnalysisOrchestrator:
             logger.warning(f"Failed to prepare generic knowledge via LLM: {e}")
             debug_info["error"] = str(e)
             return self._fallback_attribute_search(property_data)
+
+    def _pre_filter_candidates(self, candidates, property_data: Dict[str, Any]):
+        """
+        Deterministic pre-filter to remove obviously irrelevant candidates
+        before sending to the LLM filter. More reliable than LLM for
+        clear-cut mismatches like HOA tips on non-HOA properties.
+        """
+        import re as _re
+
+        hoa = property_data.get("hoa", {})
+        has_hoa = hoa.get("has_hoa", False)
+
+        # Determine if climate risks are minimal
+        climate = property_data.get("climate_risks", {})
+        flood_risk_minimal = True
+        if climate:
+            flood_level = climate.get("flood")
+            if isinstance(flood_level, dict):
+                flood_level = flood_level.get("level") or flood_level.get("risk")
+            if flood_level and str(flood_level).lower() not in ("none", "minimal", "n/a", ""):
+                flood_risk_minimal = False
+
+        # HOA-related keywords to filter out when property has no HOA
+        hoa_keywords = _re.compile(
+            r'\b(hoa|homeowners?\s+association|special\s+assessment|reserve\s+fund|'
+            r'reserve\s+study|hoa\s+fee|hoa\s+due|hoa\s+budget|hoa\s+board|'
+            r'common\s+area\s+maintenance|association\s+fee)\b',
+            _re.IGNORECASE,
+        )
+
+        # Flood-related keywords
+        flood_keywords = _re.compile(
+            r'\b(flood\s+zone|flood\s+insurance|flood\s+risk|flood\s+plain|'
+            r'floodplain|fema\s+flood|flood\s+map|flood\s+elevation)\b',
+            _re.IGNORECASE,
+        )
+
+        filtered = []
+        removed_count = 0
+
+        for c in candidates:
+            text = c.text
+            category = c.category or ""
+            combined = f"{text} {category}"
+
+            # Remove HOA candidates when property has no HOA
+            if not has_hoa and hoa_keywords.search(combined):
+                removed_count += 1
+                continue
+
+            # Remove flood candidates when flood risk is minimal
+            if flood_risk_minimal and flood_keywords.search(combined):
+                removed_count += 1
+                continue
+
+            filtered.append(c)
+
+        if removed_count > 0:
+            logger.info(
+                f"Pre-filter removed {removed_count} irrelevant candidates "
+                f"({len(filtered)} remaining)"
+            )
+
+        return filtered
 
     def _fallback_attribute_search(
         self, property_data: Dict[str, Any]

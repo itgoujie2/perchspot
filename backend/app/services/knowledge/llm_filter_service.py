@@ -47,6 +47,13 @@ IMPORTANT - EXCLUDE knowledge that does NOT apply to this property type:
 - Do NOT include flood zone or natural disaster knowledge UNLESS the property's climate risk data specifically indicates that risk
 - Do NOT include knowledge about features the property does NOT have (e.g., pool maintenance for homes without pools)
 
+CRITICAL EXCLUSION RULES — apply these strictly:
+- If the property shows "No HOA": EXCLUDE ALL HOA-related knowledge (reserve funds, special assessments, HOA fees, HOA rules, HOA transfer fees, HOA budgets, small community HOAs)
+- If climate risks show "minimal/none reported": EXCLUDE flood zone, wildfire, earthquake, and natural disaster knowledge
+- EXCLUDE knowledge about specific neighborhoods, developments, or builders UNLESS they are in the SAME CITY as this property
+- EXCLUDE knowledge about construction eras that don't match this property's year built (e.g., don't show "2000s construction" tips for a 1979 home, don't show "1960s homes" tips for a 2020 home)
+- When in doubt about relevance, EXCLUDE rather than include
+
 Return ONLY the numbers of relevant points, comma-separated, with no explanation.
 Example: 1, 5, 8, 12, 15, 23, 31"""
 
