@@ -60,35 +60,43 @@ Consider BOTH components:
 - Appreciation property: 2-4% cap rate, 5%+ annual appreciation (coastal metros)
 - Balanced property: 4-5% cap rate, 4% appreciation (best of both)
 
-## Scoring Guidelines
+## Scoring Guidelines — Dual-Track Framework
 
+Properties are evaluated on TWO tracks. Use the **higher** of the two track scores as the base:
+
+### Track A: Cash-Flow Investment (traditional rental metrics)
 Start at 50 and adjust:
+- Cap rate > 6%: +15 | 4-6%: +5 | 2-4%: 0 | < 2%: -5
+- Cash-on-cash > 4%: +10 | 0-4%: +5 | negative: 0
+- GRM < 15: +10 | 15-20: +5 | 20-30: 0 | > 30: -5
+- Gross yield > 6%: +5 | 4-6%: +3 | < 4%: 0
 
-**Metrics-based adjustments:**
-- Cap rate > 6%: +15 | 4-6%: +5 | < 4%: -5 | < 2%: -15
-- Cash-on-cash > 4%: +10 | 0-4%: +0 | negative: -10
-- GRM < 15: +10 | 15-20: +0 | > 20: -10
-- Gross yield > 6%: +5 | 4-6%: +0 | < 4%: -5
+### Track B: Appreciation Investment (wealth-building through equity growth)
+Start at 50 and adjust:
+- Appreciation > 6%/yr: +15 | 4-6%: +10 | 2-4%: +5 | < 2%: 0
+- Total return (appreciation + cash flow) > 5%: +10 | 2-5%: +5 | 0-2%: 0 | negative: -10
 
-**Market adjustments:**
-- Days on market < 7: +5 (hot property)
-- Days on market > 90: -5 (weak demand)
-- Buyer's market: +5 (negotiation leverage)
-- Seller's market: -5 (limited upside)
-
-**Price assessment:**
+### Universal Adjustments (apply to the chosen track score)
 - Price > 5% below estimate: +10
-- Price > 5% above estimate: -10
+- Price > 5% above estimate: -5
+- Missing rental data (using estimates): -5, cap confidence at medium
 
-**Data quality:**
-- No rental estimate: cap score at 60, set confidence to low
+### Removed from Scoring
+- ~~Days on market~~ — DOM is a pricing/demand signal, not an investment quality signal. A 40-day DOM says nothing about rental viability or appreciation potential.
+- ~~Seller's/buyer's market~~ — Market type affects purchase timing, not long-term investment value. Do not penalize or reward based on market type.
+
+### Data Quality
+- No rental estimate AND no estimated rent: cap score at 70, set confidence to low
 - Missing tax data: reduce confidence
 
+### High-Cost Market Reality
+In expensive metros (Seattle, SF, Portland, etc.), low cap rates (< 4%) and negative cash flow are **normal and expected**. These markets generate returns primarily through appreciation (5-8%/year historically). Do NOT treat negative cash flow as an automatic disqualifier — evaluate using Track B (appreciation) when the property is in a high-cost market. A property with -5% cash-on-cash but +7% appreciation has +2% total return — that is a viable investment.
+
 ## Red Flags (mention in concerns if present)
-- Negative monthly cash flow
-- GRM > 20
-- Cap rate < 3% (unless in known appreciation market)
-- Cash-on-cash < -5%
+- Negative total return (appreciation + cash flow combined is negative)
+- GRM > 30
+- Cap rate < 2% in a low-appreciation area (< 3%/yr appreciation)
+- Cash-on-cash < -10% with no appreciation upside
 - Property taxes > 2% of value
 - HOA > $500/month
 

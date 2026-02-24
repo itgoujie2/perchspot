@@ -108,6 +108,12 @@ class InvestmentSkill(BaseSkill):
                 metrics['appreciation_5yr'] = appreciation_data.get('five_year_growth_pct')
                 metrics['appreciation_source'] = appreciation_data.get('source', 'estimate')
 
+            # Compute total return = appreciation + cash-on-cash
+            appreciation_pct = metrics.get('appreciation_pct') or 0
+            cash_on_cash_pct = metrics.get('cash_on_cash_pct') or 0
+            total_return = appreciation_pct + cash_on_cash_pct
+            metrics['total_return_pct'] = round(total_return, 2)
+
             # Search knowledge base
             knowledge_queries = self._extract_investment_queries(property_data)
             knowledge_context, knowledge_debug = self._run_multi_query_search(knowledge_queries, limit_per_query=3)
@@ -268,6 +274,22 @@ Return ONLY valid JSON."""
                 (redfin_estimate - purchase_price) / purchase_price * 100, 2
             )
 
+        # Rental estimation fallback when rental data is missing
+        rental_source = 'actual'
+        if not monthly_rent and purchase_price:
+            if purchase_price < 500000:
+                monthly_rent = purchase_price * 0.007
+            elif purchase_price <= 1500000:
+                monthly_rent = purchase_price * 0.005
+            else:
+                monthly_rent = purchase_price * 0.003
+            monthly_rent = round(monthly_rent, 0)
+            rental_source = 'estimated'
+            metrics['monthly_rent'] = monthly_rent
+            metrics['rental_source'] = 'estimated'
+            metrics['data_completeness'] = 'medium'
+            logger.info(f"InvestmentSkill: No rental data — estimated rent at ${monthly_rent:,.0f}/mo for ${purchase_price:,.0f} property")
+
         if not monthly_rent:
             return metrics
 
@@ -318,6 +340,9 @@ Return ONLY valid JSON."""
         metrics['annual_cash_flow'] = round(annual_cash_flow, 2)
         metrics['cash_on_cash_pct'] = round(cash_on_cash, 2)
         metrics['monthly_cash_flow'] = round(annual_cash_flow / 12, 2)
+
+        if rental_source == 'estimated':
+            metrics['rental_source'] = 'estimated'
 
         return metrics
 
@@ -374,10 +399,17 @@ Return ONLY valid JSON."""
             source = metrics.get('appreciation_source', 'estimate')
             metrics_section += f"- Data Source: {source}\n"
 
-        if metrics.get('data_completeness') == 'low':
-            metrics_section += "\nNOTE: No rental estimate available — metrics requiring rent data could not be computed. Provide analysis with lower confidence based on available data.\n"
+        # Total return
+        if metrics.get('total_return_pct') is not None:
+            metrics_section += f"\nTOTAL RETURN:\n"
+            metrics_section += f"- Total Return (appreciation + cash flow): {metrics['total_return_pct']:.1f}%\n"
+
+        if metrics.get('rental_source') == 'estimated':
+            metrics_section += "\nNOTE: Rental data was not available from listing. Rent has been estimated using conservative rent-to-price ratios. Metrics based on estimated rent have lower confidence.\n"
+        elif metrics.get('data_completeness') == 'low':
+            metrics_section += "\nNOTE: No rental estimate available — metrics requiring rent data could not be computed. Score on appreciation-only track with lower confidence.\n"
         elif metrics.get('data_completeness') == 'medium':
-            metrics_section += "\nNOTE: Rental estimate available but some data missing. Metrics are estimates.\n"
+            metrics_section += "\nNOTE: Some data missing. Metrics are estimates.\n"
 
         knowledge_section = ""
         if knowledge_context:
@@ -407,21 +439,27 @@ RAW DATA:
 {knowledge_section}
 ---
 
-Using the scoring rubric and benchmarks above, interpret these computed metrics and provide an investment analysis.
+Using the DUAL-TRACK scoring rubric and benchmarks above, interpret these computed metrics and provide an investment analysis.
 
-Your job is to INTERPRET the numbers — they are already computed. Assess:
-1. Overall investment quality based on the metrics
+Your job is to INTERPRET the numbers — they are already computed. Use the dual-track framework:
+- Compute a score using Track A (Cash Flow) and Track B (Appreciation) separately
+- Use the HIGHER of the two track scores as the base
+- Apply universal adjustments (price vs estimate, data quality)
+
+Assess:
+1. Overall investment quality using the better track
 2. Risk level and risk factors
 3. Cash flow viability (is it cash-flow positive or an appreciation play?)
-4. Appreciation potential (historical area appreciation, market trends)
-5. Total return potential (cash flow + appreciation combined)
-6. Market timing considerations (days on market, market type)
-7. Price vs estimate spread significance
+4. Appreciation potential (historical area appreciation, total return)
+5. Total return potential (cash flow + appreciation combined) — THIS IS THE KEY METRIC
+6. Price vs estimate spread significance
 
-IMPORTANT: Consider BOTH cash flow AND appreciation. A property with negative cash flow but strong appreciation potential (5%+/year in a growing market) can still be a good investment. Conversely, a high cash-flow property in a flat market may have lower total returns.
+CRITICAL: For properties in expensive markets (>$1M), evaluate on TOTAL RETURN (appreciation + cash flow), not just cash flow alone. A property with -5% cash-on-cash but +7% appreciation has +2% total return — that is a viable investment. Do NOT penalize expensive-market properties for having low cap rates or negative cash flow when appreciation compensates.
+
+Do NOT use days on market (DOM) or seller's/buyer's market type as investment scoring factors. DOM is a pricing signal, not an investment quality signal. Market type affects purchase timing, not long-term investment value.
 
 Do NOT re-compute the metrics. Use the pre-computed values above.
-If rental estimate is unavailable, still analyze based on price, market, and other available data but note lower confidence.
+If rental data was estimated (not from listing), note lower confidence but still score normally using both tracks.
 
 CRITICAL FORMATTING RULES:
 - Strengths and concerns do NOT need to be equal in count. If investment is excellent, you might have 4 strengths and 1 concern. If it's risky, you might have 1 strength and 4 concerns. Be honest.
