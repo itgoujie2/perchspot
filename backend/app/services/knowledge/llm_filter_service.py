@@ -17,10 +17,10 @@ from app.config import settings
 
 logger = logging.getLogger(__name__)
 
-# Haiku is cost-effective for filtering tasks
-DEFAULT_MODEL = "claude-3-5-haiku-20241022"
+# Haiku 4.5 — much better at following complex instructions, still cheap
+DEFAULT_MODEL = "claude-haiku-4-5-20251001"
 
-FILTER_PROMPT_TEMPLATE = """You are selecting relevant knowledge points for a home buyer evaluating a specific property.
+FILTER_PROMPT_TEMPLATE = """You are a strict quality filter selecting the BEST knowledge points for a home buyer evaluating a specific property.
 
 PROPERTY:
 {property_summary}
@@ -28,34 +28,25 @@ PROPERTY:
 KNOWLEDGE CANDIDATES:
 {numbered_candidates}
 
-Select the 10-15 most relevant knowledge points that would help a buyer evaluate THIS SPECIFIC property. Consider:
-- Property age and condition implications (e.g., if it's an older home, include relevant maintenance/inspection tips)
-- Location-specific insights if applicable
-- Financial considerations for this price point
-- Features that need special attention (HOA, specific systems, etc.)
-- General home-buying wisdom that applies to this type of purchase
+YOUR TASK: Select EXACTLY 5 to 8 knowledge points — no more, no fewer. Quality over quantity.
 
-Prioritize knowledge that:
-1. Directly relates to a characteristic of this property (age, type, HOA, price range)
-2. Would help the buyer ask better questions or make informed decisions
-3. Covers potential issues or considerations the buyer might overlook
+SELECTION CRITERIA (include points that):
+- Directly relate to THIS property's specific characteristics (age, type, price, features)
+- Would help the buyer ask better questions or avoid costly mistakes
+- Cover maintenance, inspection, or financial considerations specific to this property
 
-IMPORTANT - EXCLUDE knowledge that does NOT apply to this property type:
-- For condos/apartments: SKIP foundation, roof, exterior siding, flood zone elevation, septic, well water, lot/yard maintenance tips — these are building-level concerns managed by HOA, not the unit buyer
-- For single-family homes: SKIP HOA-specific condo rules (unless the home has an HOA)
-- For new construction (<5 years): SKIP aging system replacement tips (roof replacement, pipe deterioration, etc.)
-- Do NOT include flood zone or natural disaster knowledge UNLESS the property's climate risk data specifically indicates that risk
-- Do NOT include knowledge about features the property does NOT have (e.g., pool maintenance for homes without pools)
+MANDATORY EXCLUSION RULES — violating any of these is an error:
+1. NO HOA: If property shows "No HOA" or "Does NOT have: HOA" → EXCLUDE ALL HOA knowledge (reserve funds, special assessments, fees, boards, budgets, transfer fees)
+2. NO FLOOD: If climate risks show "minimal/none" → EXCLUDE all flood zone, flood insurance, floodplain knowledge
+3. WRONG ERA: If a candidate mentions a specific decade (e.g., "1940s-1950s") and the property's year built is more than 15 years outside that range → EXCLUDE
+4. WRONG CITY: If a candidate is about a specific city/neighborhood NOT in the same metro area as this property → EXCLUDE
+5. MISSING FEATURES: If the property lists features it does NOT have (e.g., "Does NOT have: pool") → EXCLUDE knowledge about those features
+6. WRONG PROPERTY TYPE: Condo tips for single-family homes (and vice versa) → EXCLUDE
+7. ENVIRONMENTAL: Generic landfill/superfund/contamination tips with no connection to this property → EXCLUDE
+8. DUPLICATES: If two candidates say essentially the same thing in different words → select only ONE
 
-CRITICAL EXCLUSION RULES — apply these strictly:
-- If the property shows "No HOA": EXCLUDE ALL HOA-related knowledge (reserve funds, special assessments, HOA fees, HOA rules, HOA transfer fees, HOA budgets, small community HOAs)
-- If climate risks show "minimal/none reported": EXCLUDE flood zone, wildfire, earthquake, and natural disaster knowledge
-- EXCLUDE knowledge about specific neighborhoods, developments, or builders UNLESS they are in the SAME CITY as this property
-- EXCLUDE knowledge about construction eras that don't match this property's year built (e.g., don't show "2000s construction" tips for a 1979 home, don't show "1960s homes" tips for a 2020 home)
-- When in doubt about relevance, EXCLUDE rather than include
-
-Return ONLY the numbers of relevant points, comma-separated, with no explanation.
-Example: 1, 5, 8, 12, 15, 23, 31"""
+Return ONLY the numbers of selected points, comma-separated. No explanation.
+Example: 3, 7, 12, 18, 25"""
 
 
 class KnowledgeFilterService:
@@ -68,7 +59,7 @@ class KnowledgeFilterService:
         self,
         property_summary: str,
         candidates: List[Dict[str, Any]],
-        max_results: int = 15,
+        max_results: int = 8,
         model: str = DEFAULT_MODEL,
     ) -> List[int]:
         """

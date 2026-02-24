@@ -164,9 +164,11 @@ class IngestionService:
 
         logger.info(f"Parsed {len(points)} knowledge points from: {source_id}")
 
-        # Upsert per knowledge point — deterministic IDs based on text content
-        # so re-uploading the same point (from any file) overwrites it,
-        # and new points are simply added.
+        # Delete all existing points from this source first to prevent
+        # stale/orphan data. When text is edited, MD5-based IDs change,
+        # leaving old points behind. This ensures a clean re-ingestion.
+        self.storage_service.delete_by_source(source_id)
+
         self._batch_embed_and_upsert(points, source_id)
 
         return {

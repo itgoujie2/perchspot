@@ -295,4 +295,23 @@ def build_property_summary(property_data: Dict[str, Any]) -> str:
         else:
             lines.append("Climate risks: minimal/none reported")
 
+    # Feature presence/absence — helps LLM exclude irrelevant knowledge
+    description = property_data.get("description", "")
+    features_list = property_data.get("features", [])
+    all_text = (description + " " + " ".join(features_list)).lower()
+
+    has_features = []
+    missing_features = []
+    for feature in ["pool", "solar panels", "septic", "well water", "fireplace",
+                     "basement", "crawl space", "ADU", "hot tub", "spa"]:
+        if feature.lower() in all_text:
+            has_features.append(feature)
+        else:
+            missing_features.append(feature)
+
+    if has_features:
+        lines.append(f"Has: {', '.join(has_features)}")
+    if missing_features:
+        lines.append(f"Does NOT have: {', '.join(missing_features)}")
+
     return "\n".join(lines)
