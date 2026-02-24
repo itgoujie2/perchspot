@@ -45587,9 +45587,24 @@ const categories = ['All', 'Local', 'Guide', 'Tips', 'Education', 'Industry', 'I
 const BlogPage: React.FC = () => {
   const { postId } = useParams<{ postId: string }>();
   const [selectedCategory, setSelectedCategory] = React.useState('All');
+  const [showBackToTop, setShowBackToTop] = React.useState(false);
 
   // Find specific post if postId is provided
   const currentPost = postId ? blogPosts.find(p => p.id === postId) : null;
+
+  // Scroll to top when navigating to a post or back to listing
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [postId]);
+
+  // Show back-to-top button after scrolling down
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const filteredPosts = selectedCategory === 'All'
     ? blogPosts
@@ -45677,6 +45692,14 @@ const BlogPage: React.FC = () => {
             <p className="copyright">© 2026 Perchspot. All rights reserved.</p>
           </div>
         </footer>
+
+        {showBackToTop && (
+          <button className="back-to-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Back to top">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="22" height="22">
+              <polyline points="18,15 12,9 6,15"/>
+            </svg>
+          </button>
+        )}
       </div>
     );
   }
@@ -45775,6 +45798,14 @@ const BlogPage: React.FC = () => {
           <p className="copyright">© 2026 Perchspot. All rights reserved.</p>
         </div>
       </footer>
+
+      {showBackToTop && (
+        <button className="back-to-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Back to top">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="22" height="22">
+            <polyline points="18,15 12,9 6,15"/>
+          </svg>
+        </button>
+      )}
     </div>
   );
 };
