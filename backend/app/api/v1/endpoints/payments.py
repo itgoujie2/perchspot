@@ -77,8 +77,8 @@ def create_checkout(
                 },
                 "quantity": 1,
             }],
-            success_url=f"{origin}/chat?purchase=success",
-            cancel_url=f"{origin}/chat?purchase=cancel",
+            success_url=f"{origin}/?purchase=success",
+            cancel_url=f"{origin}/?purchase=cancel",
             client_reference_id=user.id,
             metadata={
                 "user_id": user.id,

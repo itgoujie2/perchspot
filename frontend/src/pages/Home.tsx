@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useNavigate, useSearchParams, Link } from 'react-router-dom'
 import Logo from '../assets/logo.svg'
 import SEOHead from '../components/SEOHead'
 import StructuredData from '../components/StructuredData'
@@ -9,7 +9,19 @@ export default function Home() {
   const [address, setAddress] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [purchaseSuccess, setPurchaseSuccess] = useState(false)
   const navigate = useNavigate()
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  useEffect(() => {
+    if (searchParams.get('purchase') === 'success') {
+      setPurchaseSuccess(true)
+      searchParams.delete('purchase')
+      setSearchParams(searchParams, { replace: true })
+      const timer = setTimeout(() => setPurchaseSuccess(false), 5000)
+      return () => clearTimeout(timer)
+    }
+  }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -34,6 +46,12 @@ export default function Home() {
         "applicationCategory": "RealEstateApplication",
         "operatingSystem": "Web Browser"
       }} />
+
+      {purchaseSuccess && (
+        <div className="purchase-success-banner">
+          Credits added successfully! Enter an address below to start your analysis.
+        </div>
+      )}
 
       <div className="landing-card">
         <img src={Logo} alt="Perchspot" className="logo" />
