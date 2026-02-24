@@ -44,6 +44,7 @@ def get_presets():
 @router.post("/create-checkout")
 def create_checkout(
     req: CheckoutRequest,
+    request: Request,
     user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
@@ -56,6 +57,9 @@ def create_checkout(
 
     credits = req.amount
     price_cents = req.amount * 100
+
+    # Use request origin so redirect works on both localhost and production
+    origin = request.headers.get("origin", "http://localhost:5173")
 
     stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -73,8 +77,8 @@ def create_checkout(
                 },
                 "quantity": 1,
             }],
-            success_url="http://localhost:5173/chat?purchase=success",
-            cancel_url="http://localhost:5173/chat?purchase=cancel",
+            success_url=f"{origin}/chat?purchase=success",
+            cancel_url=f"{origin}/chat?purchase=cancel",
             client_reference_id=user.id,
             metadata={
                 "user_id": user.id,
