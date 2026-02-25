@@ -61,7 +61,7 @@ class Settings(BaseSettings):
 
     # Rate Limiting
     RATE_LIMIT_PER_MINUTE: int = 10
-    MAX_CONCURRENT_ANALYSES: int = 5
+    MAX_CONCURRENT_ANALYSES: int = 2
 
     # Caching
     CACHE_TTL_HOURS: int = 24

@@ -72,6 +72,25 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         logger.warning(f"Qdrant not available (knowledge search disabled): {e}")
 
+    # Clean up stuck in_progress analysis jobs from previous crash/restart
+    try:
+        from sqlalchemy import text
+        from app.database.connection import engine
+        with engine.connect() as conn:
+            result = conn.execute(
+                text(
+                    "UPDATE analysis_jobs "
+                    "SET status = 'failed', error_message = 'server_restart', "
+                    "    completed_at = NOW() "
+                    "WHERE status = 'in_progress'"
+                )
+            )
+            conn.commit()
+            if result.rowcount > 0:
+                logger.warning(f"Marked {result.rowcount} stuck in_progress jobs as failed (server_restart)")
+    except Exception as e:
+        logger.warning(f"Failed to clean up stuck jobs: {e}")
+
     # Pre-warm embedding models (takes ~60s but speeds up all subsequent analyses)
     try:
         logger.info("Pre-warming embedding models (this may take ~60s on first startup)...")
@@ -171,12 +190,12 @@ async def root():
 async def health_check():
     """Health check endpoint"""
     from datetime import datetime
-    from app.utils.health import check_services
+    from app.utils.health import check_services, is_healthy
 
     services = await check_services()
 
     return {
-        "status": "healthy" if all(s == "ok" for s in services.values()) else "degraded",
+        "status": "healthy" if is_healthy(services) else "degraded",
         "timestamp": datetime.now().isoformat(),
         "services": services
     }
