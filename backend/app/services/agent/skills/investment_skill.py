@@ -114,9 +114,9 @@ class InvestmentSkill(BaseSkill):
             total_return = appreciation_pct + cash_on_cash_pct
             metrics['total_return_pct'] = round(total_return, 2)
 
-            # Search knowledge base
-            knowledge_queries = self._extract_investment_queries(property_data)
-            knowledge_context, knowledge_debug = self._run_multi_query_search(knowledge_queries, limit_per_query=3)
+            # Load relevant market knowledge files
+            file_keys = self._select_investment_files(property_data)
+            knowledge_context = self._load_knowledge_files(file_keys)
 
             # Send to Claude for interpretation
             analysis = await self._analyze_investment(address, property_data, metrics, knowledge_context)
@@ -130,8 +130,8 @@ class InvestmentSkill(BaseSkill):
                 'property_data_keys': list(property_data.keys()),
                 'knowledge_context_used': bool(knowledge_context),
             }
-            analysis['knowledge_debug'] = knowledge_debug
-            analysis['knowledge_queries'] = knowledge_queries
+            analysis['knowledge_debug'] = {"file_keys": file_keys}
+            analysis['knowledge_queries'] = file_keys
             analysis['cost_summary'] = self.get_cost_summary()
 
             logger.info(f"InvestmentSkill: Analysis complete. Score: {analysis.get('score')}, Confidence: {analysis.get('confidence')}, Cost: ${self.total_cost:.6f}")
@@ -492,34 +492,25 @@ Return ONLY valid JSON, no other text.
         return analysis
 
     @staticmethod
-    def _extract_investment_queries(data: Dict[str, Any]) -> list[str]:
-        """Extract targeted knowledge queries for investment context."""
-        queries = []
-        details = data.get('details', {}) or {}
-        market = data.get('market_trends', {}) or {}
+    def _select_investment_files(data: Dict[str, Any]) -> list[str]:
+        """Select relevant knowledge file keys for investment analysis."""
+        from app.services.knowledge.skill_knowledge_service import get_market_file_key
+
         region_info = data.get('region_info', {}) or {}
+        prop = data.get('property', {}) or {}
+        addr = prop.get('address', {}) or {}
 
-        prop_type = details.get('property_type', '')
+        file_keys = ["hot_zip_codes"]
+
+        # Resolve market file from region or address
         region = region_info.get('region', '')
+        address_str = addr.get('full', '') or addr.get('street', '')
+        market_key = get_market_file_key(region=region, address=address_str)
+        if market_key:
+            file_keys.append(market_key)
 
-        if region:
-            queries.append(f"{region} rental market")
-            queries.append(f"{region} investment property")
-        if prop_type:
-            queries.append(f"{prop_type} investment")
-        market_type = market.get('market_type', '')
-        if market_type:
-            queries.append(f"{market_type} market investment strategy")
-
-        # Deduplicate
-        seen = set()
-        unique = []
-        for q in queries:
-            ql = q.lower().strip()
-            if ql and ql not in seen:
-                seen.add(ql)
-                unique.append(q.strip())
-        return unique
+        logger.info(f"InvestmentSkill: Selected knowledge files: {file_keys}")
+        return file_keys
 
     def _error_result(self, error_message: str) -> Dict[str, Any]:
         return {

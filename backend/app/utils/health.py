@@ -42,14 +42,6 @@ async def _check_s3() -> str:
     return "ok"
 
 
-async def _check_qdrant() -> str:
-    from qdrant_client import QdrantClient
-    from app.config import settings
-    qclient = QdrantClient(url=settings.QDRANT_URL, timeout=SERVICE_CHECK_TIMEOUT)
-    qclient.get_collections()
-    return "ok"
-
-
 async def _run_check(name: str, coro) -> tuple[str, str]:
     """Run a single service check with a timeout."""
     try:
@@ -74,7 +66,6 @@ async def check_services() -> Dict[str, str]:
         _run_check("mysql", _check_mysql),
         _run_check("redis", _check_redis),
         _run_check("s3", _check_s3),
-        _run_check("qdrant", _check_qdrant),
     ]
 
     results = await asyncio.gather(*checks)

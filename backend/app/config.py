@@ -61,7 +61,7 @@ class Settings(BaseSettings):
 
     # Rate Limiting
     RATE_LIMIT_PER_MINUTE: int = 10
-    MAX_CONCURRENT_ANALYSES: int = 1
+    MAX_CONCURRENT_ANALYSES: int = 3
 
     # Caching
     CACHE_TTL_HOURS: int = 24
@@ -79,12 +79,6 @@ class Settings(BaseSettings):
             if len(v) < 16:
                 raise ValueError("ADMIN_PASSWORD must be at least 16 characters in production")
         return v or "admin"  # Default for development only
-
-    # Qdrant
-    QDRANT_URL: str = "http://localhost:6333"
-    QDRANT_COLLECTION: str = "knowledge"
-    EMBEDDING_MODEL: str = "Qwen/Qwen3-Embedding-0.6B"
-    EMBEDDING_DIM: int = 1024
 
     # Celery
     CELERY_BROKER_URL: str = "redis://localhost:6379/0"

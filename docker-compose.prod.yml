@@ -117,24 +117,6 @@ services:
       timeout: 20s
       retries: 3
 
-  qdrant:
-    image: qdrant/qdrant:latest
-    container_name: perchspot_qdrant
-    restart: unless-stopped
-    volumes:
-      - qdrant_data:/qdrant/storage
-    deploy:
-      resources:
-        limits:
-          memory: 96M
-        reservations:
-          memory: 48M
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:6333/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-
   # ===================
   # Application Services
   # ===================
@@ -162,8 +144,6 @@ services:
       GEMINI_API_KEY: ${GEMINI_API_KEY}
       GREATSCHOOLS_API_KEY: ${GREATSCHOOLS_API_KEY:-}
       GOOGLE_MAPS_API_KEY: ${GOOGLE_MAPS_API_KEY:-}
-      # Qdrant
-      QDRANT_URL: http://qdrant:6333
       # Production Settings
       DEBUG: "False"
       LOG_LEVEL: ${LOG_LEVEL:-WARNING}
@@ -185,20 +165,18 @@ services:
         condition: service_healthy
       minio:
         condition: service_healthy
-      qdrant:
-        condition: service_started
     deploy:
       resources:
         limits:
-          memory: 2200M
+          memory: 768M
         reservations:
-          memory: 1100M
+          memory: 384M
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 60s
+      start_period: 15s
 
   celery_worker:
     build:
@@ -221,7 +199,6 @@ services:
       GEMINI_API_KEY: ${GEMINI_API_KEY}
       GREATSCHOOLS_API_KEY: ${GREATSCHOOLS_API_KEY:-}
       ENABLE_PROPERTY_LLM_ANALYSIS: ${ENABLE_PROPERTY_LLM_ANALYSIS:-false}
-      QDRANT_URL: http://qdrant:6333
     depends_on:
       mysql:
         condition: service_healthy
@@ -257,7 +234,6 @@ services:
       GEMINI_API_KEY: ${GEMINI_API_KEY}
       GREATSCHOOLS_API_KEY: ${GREATSCHOOLS_API_KEY:-}
       ENABLE_PROPERTY_LLM_ANALYSIS: ${ENABLE_PROPERTY_LLM_ANALYSIS:-false}
-      QDRANT_URL: http://qdrant:6333
     depends_on:
       mysql:
         condition: service_healthy
@@ -287,5 +263,4 @@ volumes:
   mysql_data:
   redis_data:
   minio_data:
-  qdrant_data:
   frontend_build:

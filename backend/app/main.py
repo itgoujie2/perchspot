@@ -63,14 +63,13 @@ async def lifespan(app: FastAPI):
         logger.error(f"Failed to initialize database: {e}")
         raise
 
-    # Initialize Qdrant knowledge collection (non-fatal)
+    # Pre-load knowledge files into memory (~170KB, instant)
     try:
-        from app.services.knowledge.storage_service import get_storage_service
-        storage = get_storage_service()
-        storage.ensure_collection()
-        logger.info("Qdrant knowledge collection ready")
+        from app.services.knowledge.skill_knowledge_service import preload_all_files
+        loaded = preload_all_files()
+        logger.info(f"Knowledge files pre-loaded: {loaded} files")
     except Exception as e:
-        logger.warning(f"Qdrant not available (knowledge search disabled): {e}")
+        logger.warning(f"Failed to pre-load knowledge files: {e}")
 
     # Clean up stuck in_progress analysis jobs from previous crash/restart
     try:
@@ -90,21 +89,6 @@ async def lifespan(app: FastAPI):
                 logger.warning(f"Marked {result.rowcount} stuck in_progress jobs as failed (server_restart)")
     except Exception as e:
         logger.warning(f"Failed to clean up stuck jobs: {e}")
-
-    # Pre-warm embedding models (takes ~60s but speeds up all subsequent analyses)
-    try:
-        logger.info("Pre-warming embedding models (this may take ~60s on first startup)...")
-        import time
-        start = time.time()
-        from app.services.knowledge.embedding_service import get_embedding_service
-        embedding_service = get_embedding_service()
-        # Trigger lazy loading of both models with a simple test query
-        embedding_service.embed_query_dense("test query for pre-warming")
-        embedding_service.embed_query_sparse("test query for pre-warming")
-        elapsed = time.time() - start
-        logger.info(f"Embedding models pre-warmed in {elapsed:.1f}s")
-    except Exception as e:
-        logger.warning(f"Failed to pre-warm embedding models (knowledge search may be slow): {e}")
 
     yield
 

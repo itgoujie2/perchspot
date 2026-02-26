@@ -174,169 +174,39 @@ class BaseSkill(ABC):
             logger.error(f"Claude API error in {self.skill_name} skill: {e}")
             raise
 
-    def _get_knowledge_context(self, query: str, limit: int = 5) -> str:
+    def _load_knowledge_files(self, file_keys: list[str]) -> str:
         """
-        Retrieve relevant knowledge context for LLM augmentation.
-
-        Returns formatted context string, or empty string on error.
-        Errors are logged but never block analysis.
-        """
-        try:
-            from app.services.knowledge.search_service import get_search_service
-            service = get_search_service()
-            return service.search_for_context(query, limit=limit)
-        except Exception as e:
-            logger.warning(f"Knowledge search unavailable: {e}")
-            return ""
-
-    def _get_knowledge_results(self, query: str, limit: int = 5):
-        """
-        Retrieve raw search results for debugging/display.
-
-        Returns (formatted_context, list of {query, text, category, score, source_file}).
-        """
-        try:
-            from app.services.knowledge.search_service import get_search_service
-            service = get_search_service()
-            results = service.search(query, limit=limit)
-            context = service.search_for_context(query, limit=limit)
-            hits = [
-                {
-                    "text": r.text,
-                    "category": r.category,
-                    "score": round(r.score, 4),
-                    "source_file": r.source_file,
-                }
-                for r in results
-            ]
-            return context, {"query": query, "results": hits}
-        except Exception as e:
-            logger.warning(f"Knowledge search unavailable: {e}")
-            return "", {"query": query, "results": []}
-
-    def _run_multi_query_search(
-        self,
-        queries: list[str],
-        limit_per_query: int = 5,
-        min_score: float = 0.3,
-    ):
-        """
-        Run multiple targeted knowledge queries, deduplicate results.
-
-        Note: This is synchronous but fast (local vector search).
+        Load knowledge files by key and return concatenated content.
 
         Args:
-            queries: List of search queries
-            limit_per_query: Max results per query (default 5)
-            min_score: Minimum relevance score threshold (default 0.3)
+            file_keys: List of file keys (e.g. ["foundation", "roof", "hot_zip_codes"])
 
-        Returns (combined_context_str, debug_list) where debug_list is a list of
-        {query, results: [{text, category, score, source_file}]}.
+        Returns:
+            Combined file content as a single string.
         """
         try:
-            from app.services.knowledge.search_service import get_search_service
-            from collections import defaultdict
-            service = get_search_service()
+            from app.services.knowledge.skill_knowledge_service import load_files
+            return load_files(file_keys)
         except Exception as e:
-            logger.warning(f"Knowledge search unavailable: {e}")
-            return "", [{"query": q, "results": []} for q in queries]
-
-        all_debug = []
-        seen_texts = set()
-        by_category = defaultdict(list)
-
-        for query in queries:
-            try:
-                results = service.search(query, limit=limit_per_query)
-                hits = []
-                for r in results:
-                    hits.append({
-                        "text": r.text,
-                        "category": r.category,
-                        "score": round(r.score, 4),
-                        "source_file": r.source_file,
-                    })
-                    # Only include results above score threshold
-                    if r.score >= min_score and r.text not in seen_texts:
-                        seen_texts.add(r.text)
-                        by_category[r.category].append(r.text)
-                all_debug.append({"query": query, "results": hits})
-            except Exception as e:
-                logger.warning(f"Knowledge query failed for '{query}': {e}")
-                all_debug.append({"query": query, "results": []})
-
-        # Skip relevance filtering here - it adds latency and blocks parallel execution
-        # The knowledge search already uses semantic similarity, so results are usually relevant
-
-        # Build combined context string grouped by category
-        sections = []
-        for category, texts in by_category.items():
-            lines = [f"### {category}"]
-            for text in texts:
-                lines.append(f"- {text}")
-            sections.append("\n".join(lines))
-
-        combined = "\n\n".join(sections)
-        return combined, all_debug
+            logger.warning(f"Knowledge file loading failed: {e}")
+            return ""
 
     def _get_attribute_knowledge(self, property_data: Dict[str, Any], limit: int = 10):
         """
         Retrieve knowledge points that match property attributes via @applies_when tags.
 
-        This finds generic knowledge that applies based on property attributes like:
-        - Age-based: "Pre-1990 homes may have galvanized pipes"
-        - HOA-based: "Small community HOAs can have high fees"
-        - Type-based: "Townhomes share walls - noise considerations"
+        Parses files directly — no Qdrant needed.
 
         Args:
             property_data: Property data dict with 'details', 'hoa', etc.
             limit: Maximum results to return
 
         Returns:
-            (formatted_context_str, debug_list) where debug_list contains
-            matched knowledge points with their attributes.
+            (formatted_context_str, debug_list)
         """
         try:
-            from app.services.knowledge.search_service import get_search_service
-            from collections import defaultdict
-            service = get_search_service()
-        except Exception as e:
-            logger.warning(f"Attribute knowledge search unavailable: {e}")
-            return "", []
-
-        try:
-            results = service.search_by_attributes(property_data, limit=limit)
-            if not results:
-                logger.info("No attribute-matched knowledge found for property")
-                return "", []
-
-            # Build debug info
-            debug_list = [
-                {
-                    "text": r.text,
-                    "category": r.category,
-                    "priority": r.priority,
-                    "source_file": r.source_file,
-                }
-                for r in results
-            ]
-
-            # Group by category for context string
-            by_category = defaultdict(list)
-            for r in results:
-                by_category[r.category].append(r.text)
-
-            sections = []
-            for category, texts in by_category.items():
-                lines = [f"### {category}"]
-                for text in texts:
-                    lines.append(f"- {text}")
-                sections.append("\n".join(lines))
-
-            combined = "\n\n".join(sections)
-            logger.info(f"Attribute knowledge: found {len(results)} matching points")
-            return combined, debug_list
-
+            from app.services.knowledge.skill_knowledge_service import get_attribute_knowledge
+            return get_attribute_knowledge(property_data, limit=limit)
         except Exception as e:
             logger.warning(f"Attribute knowledge search failed: {e}")
             return "", []

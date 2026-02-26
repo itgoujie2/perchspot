@@ -45,11 +45,6 @@ reportlab==4.0.7
 matplotlib==3.8.2
 Pillow>=10.3.0
 
-# Vector Search & Embeddings
-qdrant-client>=1.7.0
-sentence-transformers>=3.0.0
-fastembed>=0.3.0
-
 # Templating
 Jinja2>=3.1.0
 

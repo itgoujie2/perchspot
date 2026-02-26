@@ -1,17 +1,21 @@
 """
-Knowledge Store — Hybrid Semantic Search (KNN + BM25)
+Knowledge Store — File-based knowledge retrieval
 
-Provides ingestion and retrieval of categorized knowledge points
-using Qdrant vector database with dual-vector (dense + sparse) search.
+Loads markdown knowledge files directly from disk, cached in memory.
+Provides attribute matching via @applies_when tags parsed from files.
 """
-from app.services.knowledge.embedding_service import EmbeddingService, get_embedding_service
-from app.services.knowledge.storage_service import StorageService, get_storage_service
-from app.services.knowledge.ingestion_service import IngestionService, get_ingestion_service
-from app.services.knowledge.search_service import SearchService, get_search_service
+from app.services.knowledge.skill_knowledge_service import (
+    load_files,
+    preload_all_files,
+    get_attribute_knowledge,
+    get_attribute_knowledge_with_details,
+    get_market_file_key,
+)
 
 __all__ = [
-    "EmbeddingService", "get_embedding_service",
-    "StorageService", "get_storage_service",
-    "IngestionService", "get_ingestion_service",
-    "SearchService", "get_search_service",
+    "load_files",
+    "preload_all_files",
+    "get_attribute_knowledge",
+    "get_attribute_knowledge_with_details",
+    "get_market_file_key",
 ]

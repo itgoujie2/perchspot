@@ -152,17 +152,15 @@ PHOTOS: {images.get('photo_count', 'N/A')} photos
 REGION: {region_info.get('region', 'N/A')}
 """
 
-        # 1. Extract meaningful search terms from property data using LLM (semantic search)
-        knowledge_queries = await self._extract_property_queries(prop, details, features, region_info)
-        semantic_context, semantic_debug = self._run_multi_query_search(
-            knowledge_queries, limit_per_query=6, min_score=0.25
-        )
+        # 1. Load relevant property knowledge files based on property data
+        file_keys = self._select_property_files(prop, details, features, hoa)
+        file_context = self._load_knowledge_files(file_keys)
 
         # 2. Get attribute-based knowledge (matches @applies_when tags)
         attribute_context, attribute_debug = self._get_attribute_knowledge(data, limit=15)
 
-        # 3. Merge knowledge contexts, avoiding duplicates
-        merged_context = self._merge_knowledge_contexts(semantic_context, attribute_context)
+        # 3. Merge file content + attribute context
+        merged_context = self._merge_knowledge_contexts(file_context, attribute_context)
 
         # 4. Filter combined knowledge using LLM to select most relevant points
         knowledge_context, filter_debug = await self._filter_knowledge_with_llm(
@@ -171,7 +169,7 @@ REGION: {region_info.get('region', 'N/A')}
 
         # Combined debug info
         knowledge_debug = {
-            "semantic_queries": semantic_debug,
+            "file_keys": file_keys,
             "attribute_matches": attribute_debug,
             "filter_result": filter_debug,
         }
@@ -244,108 +242,81 @@ Return ONLY valid JSON, no other text.
             'knowledge_context_used': bool(knowledge_context),
         }
         analysis['knowledge_debug'] = knowledge_debug
-        analysis['knowledge_queries'] = knowledge_queries
+        analysis['knowledge_queries'] = file_keys
         analysis['cost_summary'] = self.get_cost_summary()
 
         logger.info(f"PropertySkill: Analysis complete. Score: {analysis.get('score')}, Confidence: {analysis.get('confidence')}, Cost: ${self.total_cost:.6f}")
         return analysis
 
-    async def _extract_property_queries(
-        self,
+    @staticmethod
+    def _select_property_files(
         prop: Dict[str, Any],
         details: Dict[str, Any],
         features: Dict[str, Any],
-        region_info: Dict[str, Any],
+        hoa: Dict[str, Any],
     ) -> list[str]:
         """
-        Extract meaningful search terms from property data using LLM.
+        Select relevant knowledge file keys based on property data.
 
-        Uses Claude Haiku to intelligently identify searchable entities:
-        - Builder/developer names
-        - Neighborhood/community names
-        - Architectural styles
-        - Premium brands (appliances, fixtures)
-        - Notable features worth researching
+        Always loads property_types. Conditionally loads others based on
+        description keywords and property attributes.
         """
-        description = (prop.get('description') or '').strip()
-        address_info = prop.get('address', {})
-        city = address_info.get('city', '')
-        region = region_info.get('region', '')
-        prop_type = details.get('property_type', '')
+        file_keys = ["property_types"]
 
-        # Build context for LLM
-        features_text = []
-        for key in ['interior', 'exterior', 'appliances']:
-            if features.get(key):
-                features_text.extend(features[key])
-        features_str = ', '.join(features_text) if features_text else 'None listed'
+        # Always include home_age for any property with year_built
+        year_built = details.get("year_built")
+        if year_built:
+            file_keys.append("home_age")
 
-        prompt = f"""Extract ONLY high-value search terms from this property listing for a knowledge base lookup.
+        # HOA
+        if hoa.get("has_hoa"):
+            file_keys.append("hoa")
 
-PROPERTY DESCRIPTION:
-{description}
+        # Check description and features for specific topics
+        description = (prop.get("description") or "").lower()
+        feature_text = " ".join(
+            f for key in ("interior", "exterior", "appliances")
+            for f in (features.get(key) or [])
+        ).lower()
+        combined = f"{description} {feature_text}"
 
-Extract terms in these categories ONLY if they are proper nouns or truly unique:
+        # Roof keywords
+        if any(kw in combined for kw in (
+            "roof", "shingle", "asphalt", "metal roof", "tile roof",
+            "slate", "gutters", "flashing", "soffit", "fascia",
+        )):
+            file_keys.append("roof")
 
-1. **Builder/Developer name** (e.g., "Murray Franklyn", "Toll Brothers") - MUST be a company/person name
-2. **Neighborhood/Community name** (e.g., "Bridle Trails", "Somerset") - MUST be a specific place name
-3. **Architectural style** (e.g., "craftsman", "mid-century modern") - only if explicitly stated
-4. **Luxury brand names** (e.g., "Sub-Zero", "Wolf", "Miele") - only premium appliance/fixture brands
-5. **Rare features** (e.g., "ADU", "solar panels", "geothermal", "EV charger") - only truly unusual features
+        # Foundation keywords
+        if any(kw in combined for kw in (
+            "foundation", "slab", "crawl space", "crawlspace", "basement",
+            "pier", "beam", "footing", "structural",
+        )):
+            file_keys.append("foundation")
 
-DO NOT include:
-- Generic rooms: den, bonus room, guest suite, walk-in closet, en suite bath
-- Standard features: stainless steel appliances, hardwood floors, granite counters, fireplace
-- Generic descriptors: spacious, luxurious, modern, updated
-- City names or regions (I will add those separately)
+        # Siding/exterior keywords
+        if any(kw in combined for kw in (
+            "siding", "vinyl", "fiber cement", "hardie", "stucco",
+            "brick", "cladding", "wood siding",
+        )):
+            file_keys.append("siding")
 
-Return a JSON array with 0-5 terms MAX. If nothing special, return empty array [].
+        # HVAC keywords
+        if any(kw in combined for kw in (
+            "hvac", "furnace", "heat pump", "ductwork", "boiler",
+            "radiant", "forced air", "mini split", "central air",
+            "air conditioning", "cooling",
+        )):
+            file_keys.append("hvac")
 
-Example: ["Murray Franklyn", "Bridle Trails", "Sub-Zero"]
+        # For older homes, always include roof + foundation even if not mentioned
+        if year_built and year_built < 1990:
+            for key in ("roof", "foundation"):
+                if key not in file_keys:
+                    file_keys.append(key)
 
-Return ONLY the JSON array."""
-
-        try:
-            response = await self._call_claude(
-                prompt=prompt,
-                max_tokens=256,
-                model="claude-3-haiku-20240307"
-            )
-
-            # Parse JSON response
-            response = response.strip()
-            if response.startswith("```"):
-                response = response.split("```")[1]
-                if response.startswith("json"):
-                    response = response[4:]
-            response = response.strip()
-
-            queries = json.loads(response)
-            if not isinstance(queries, list):
-                queries = []
-
-            # Always add city + neighborhood as a fallback query
-            if city and f"{city} neighborhood" not in [q.lower() for q in queries]:
-                queries.append(f"{city} neighborhood")
-
-            # Add property type + region if available
-            if prop_type and region:
-                combo = f"{prop_type} in {region}"
-                if combo.lower() not in [q.lower() for q in queries]:
-                    queries.append(combo)
-
-            logger.info(f"PropertySkill: LLM extracted {len(queries)} knowledge queries: {queries}")
-            return queries
-
-        except Exception as e:
-            logger.warning(f"PropertySkill: LLM query extraction failed: {e}, using fallback")
-            # Fallback: return basic queries
-            fallback = []
-            if city:
-                fallback.append(f"{city} neighborhood")
-            if prop_type and region:
-                fallback.append(f"{prop_type} in {region}")
-            return fallback
+        logger.info(f"PropertySkill: Selected {len(file_keys)} knowledge files: {file_keys}")
+        return file_keys
 
     def _merge_knowledge_contexts(self, semantic_context: str, attribute_context: str) -> str:
         """

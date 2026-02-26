@@ -52,16 +52,16 @@ class SchoolSkill(BaseSkill):
                 except Exception as e:
                     logger.warning(f"SchoolSkill: GreatSchools enrichment failed, using Redfin data only: {e}")
 
-            # Knowledge base search for school district context
-            knowledge_queries = self._extract_school_queries(schools, city, state)
-            knowledge_context, knowledge_debug = self._run_multi_query_search(knowledge_queries, limit_per_query=3)
+            # Load school knowledge directly (single file, ~16KB)
+            file_keys = ["schools"]
+            knowledge_context = self._load_knowledge_files(file_keys)
 
             # Analyze
             analysis = await self._analyze_schools(address, schools, knowledge_context)
 
             analysis['raw_data'] = {'schools': schools, 'city': city, 'state': state}
-            analysis['knowledge_debug'] = knowledge_debug
-            analysis['knowledge_queries'] = knowledge_queries
+            analysis['knowledge_debug'] = {"file_keys": file_keys}
+            analysis['knowledge_queries'] = file_keys
             analysis['cost_summary'] = self.get_cost_summary()
 
             logger.info(f"SchoolSkill: Analysis complete. Score: {analysis.get('score')}, Confidence: {analysis.get('confidence')}, Cost: ${self.total_cost:.6f}")
@@ -86,31 +86,6 @@ class SchoolSkill(BaseSkill):
             if state_match:
                 state = state_match.group(1).strip()
         return city, state
-
-    @staticmethod
-    def _extract_school_queries(schools: List[Dict], city: str, state: str) -> List[str]:
-        """Extract knowledge base queries from school data."""
-        queries = []
-
-        if city:
-            queries.append(f"{city} school district")
-
-        for s in schools[:5]:
-            name = s.get('name', '')
-            if name:
-                queries.append(name)
-
-        # Deduplicate
-        seen = set()
-        unique = []
-        for q in queries:
-            ql = q.lower().strip()
-            if ql and ql not in seen:
-                seen.add(ql)
-                unique.append(q.strip())
-
-        logger.info(f"SchoolSkill: Extracted {len(unique)} knowledge queries: {unique}")
-        return unique
 
     async def _analyze_schools(self, address: str, schools: List[Dict], knowledge_context: str) -> Dict[str, Any]:
         """Use Claude to analyze schools with enriched data."""

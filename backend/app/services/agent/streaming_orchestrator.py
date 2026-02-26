@@ -30,7 +30,6 @@ from app.services.agent.skills.school_skill import SchoolSkill
 from app.services.agent.skills.investment_skill import InvestmentSkill
 from app.services.agent.skills.sale_price_skill import SalePriceSkill
 from app.services.analysis_logging_service import AnalysisLoggingService
-from app.services.knowledge.search_service import get_search_service
 from app.models.analysis_log import ANALYSIS_STEPS
 from app.config import settings
 
@@ -820,360 +819,33 @@ class StreamingAnalysisOrchestrator:
         self, property_data: Dict[str, Any]
     ) -> tuple[List[Dict[str, Any]], Dict[str, Any]]:
         """
-        Find generic knowledge using two-stage LLM filtering.
+        Find generic knowledge points relevant to this property.
 
-        Stage 1: Build rich property query and get 50-100 candidates via broad semantic search
-        Stage 2: Use LLM (Haiku) to filter to 10-15 most relevant knowledge points
-
-        Falls back to attribute-based search if LLM filtering fails.
+        Uses attribute matching (@applies_when tags) from knowledge files.
+        No embedding models or Qdrant needed.
 
         Returns:
-            Tuple of (knowledge_points, debug_info) where debug_info contains
-            the search query, candidate counts, and selection details.
+            Tuple of (knowledge_points, debug_info)
         """
         debug_info = {
-            "method": "llm_filtered",
-            "query": "",
-            "property_summary": "",
-            "candidates_count": 0,
-            "selected_count": 0,
-            "candidates_sample": [],
+            "method": "attribute_match",
         }
 
         try:
-            # Stage 1: Build rich query from property attributes
-            from app.services.knowledge.context_builder import (
-                build_knowledge_query,
-                build_property_summary,
-            )
-            query = build_knowledge_query(property_data)
-            property_summary = build_property_summary(property_data)
-
-            debug_info["query"] = query
-            debug_info["property_summary"] = property_summary
-
-            logger.info(f"Built knowledge query:\n{query[:200]}...")
-
-            # Get broad candidates via hybrid search
-            search_service = get_search_service()
-            candidates = search_service.get_broad_candidates(query, limit=60, min_score=0.35)
-
-            debug_info["candidates_count"] = len(candidates)
-            # Include sample of top candidates for debugging
-            debug_info["candidates_sample"] = [
-                {
-                    "text": c.text[:100] + "..." if len(c.text) > 100 else c.text,
-                    "category": c.category,
-                    "score": round(c.score, 4),
-                }
-                for c in candidates[:10]
-            ]
-
-            if not candidates:
-                logger.info("No broad candidates found, falling back to attribute search")
-                return self._fallback_attribute_search(property_data)
-
-            # Pre-filter: Remove obviously irrelevant candidates deterministically
-            candidates = self._pre_filter_candidates(candidates, property_data)
-            debug_info["candidates_after_prefilter"] = len(candidates)
-
-            if not candidates:
-                logger.info("All candidates removed by pre-filter, falling back to attribute search")
-                return self._fallback_attribute_search(property_data)
-
-            # Deduplicate near-identical candidates
-            candidates = self._deduplicate_candidates(candidates)
-            debug_info["candidates_after_dedup"] = len(candidates)
-
-            if not candidates:
-                logger.info("All candidates removed by dedup, falling back to attribute search")
-                return self._fallback_attribute_search(property_data)
-
-            # Stage 2: LLM filter to select most relevant
-            from app.services.knowledge.llm_filter_service import get_filter_service
-            filter_service = get_filter_service()
-
-            candidate_dicts = [
-                {"text": c.text, "category": c.category}
-                for c in candidates
-            ]
-
-            selected_indices = await filter_service.filter_relevant_knowledge(
-                property_summary=property_summary,
-                candidates=candidate_dicts,
-                max_results=8,
+            from app.services.knowledge.skill_knowledge_service import (
+                get_attribute_knowledge_with_details,
             )
 
-            debug_info["selected_indices"] = selected_indices
-            debug_info["selected_count"] = len(selected_indices)
-
-            if not selected_indices:
-                logger.info("LLM filter returned no results, falling back to attribute search")
-                return self._fallback_attribute_search(property_data)
-
-            # Build result list from selected candidates
-            knowledge_points = []
-            for idx in selected_indices:
-                if idx < len(candidates):
-                    c = candidates[idx]
-                    knowledge_points.append({
-                        "text": c.text,
-                        "category": c.category,
-                        "priority": c.priority,
-                        "source": "llm_filtered",
-                    })
-
-            logger.info(
-                f"LLM filtered {len(knowledge_points)} knowledge points "
-                f"from {len(candidates)} candidates"
-            )
-            return knowledge_points, debug_info
-
-        except Exception as e:
-            logger.warning(f"Failed to prepare generic knowledge via LLM: {e}")
-            debug_info["error"] = str(e)
-            return self._fallback_attribute_search(property_data)
-
-    @staticmethod
-    def _deduplicate_candidates(candidates, similarity_threshold: float = 0.55):
-        """
-        Remove near-duplicate candidates using word-level Jaccard similarity.
-
-        Iterates in score order (highest first). For each candidate, checks
-        Jaccard similarity against all already-kept candidates. If similarity
-        >= threshold, the lower-scoring duplicate is discarded.
-        """
-        def _tokenize(text: str) -> set:
-            return {w.lower() for w in text.split() if len(w) >= 3}
-
-        kept = []
-        kept_token_sets = []
-
-        for candidate in candidates:
-            tokens = _tokenize(candidate.text)
-            if not tokens:
-                kept.append(candidate)
-                kept_token_sets.append(tokens)
-                continue
-
-            is_dup = False
-            for existing_tokens in kept_token_sets:
-                if not existing_tokens:
-                    continue
-                intersection = len(tokens & existing_tokens)
-                union = len(tokens | existing_tokens)
-                if union > 0 and intersection / union >= similarity_threshold:
-                    is_dup = True
-                    break
-
-            if not is_dup:
-                kept.append(candidate)
-                kept_token_sets.append(tokens)
-
-        removed = len(candidates) - len(kept)
-        if removed > 0:
-            logger.info(f"Dedup removed {removed} near-duplicate candidates ({len(kept)} remaining)")
-
-        return kept
-
-    def _pre_filter_candidates(self, candidates, property_data: Dict[str, Any]):
-        """
-        Deterministic pre-filter to remove obviously irrelevant candidates
-        before sending to the LLM filter. Covers 6 filter rules:
-        1. HOA — remove HOA content when has_hoa=false
-        2. Flood — remove flood content when flood risk is minimal
-        3. Construction era — remove wrong-decade content (15-year buffer)
-        4. Location — remove content about cities from other metros
-        5. Property type — remove condo tips for SFH and vice versa
-        6. Landfill/environmental — remove generic landfill/superfund content
-        """
-        import re as _re
-
-        # --- Extract property attributes ---
-        hoa = property_data.get("hoa", {})
-        has_hoa = hoa.get("has_hoa", False)
-        details = property_data.get("details", {})
-        year_built = details.get("year_built")
-        property_type = (details.get("property_type") or "").lower()
-        location = property_data.get("location", {})
-        prop_city = (location.get("city") or "").lower().strip()
-
-        # Determine if climate risks are minimal
-        climate = property_data.get("climate_risks", {})
-        flood_risk_minimal = True
-        if climate:
-            flood_level = climate.get("flood")
-            if isinstance(flood_level, dict):
-                flood_level = flood_level.get("level") or flood_level.get("risk")
-            if flood_level and str(flood_level).lower() not in ("none", "minimal", "n/a", ""):
-                flood_risk_minimal = False
-
-        # Is SFH vs condo/townhome?
-        is_sfh = any(kw in property_type for kw in ("single", "sfh", "house", "residential"))
-        is_condo = any(kw in property_type for kw in ("condo", "apartment", "co-op"))
-
-        # --- Regex patterns ---
-        hoa_keywords = _re.compile(
-            r'\b(hoa|homeowners?\s+association|special\s+assessment|reserve\s+fund|'
-            r'reserve\s+study|hoa\s+fee|hoa\s+due|hoa\s+budget|hoa\s+board|'
-            r'common\s+area\s+maintenance|association\s+fee)\b',
-            _re.IGNORECASE,
-        )
-
-        flood_keywords = _re.compile(
-            r'\b(flood\s+zone|flood\s+insurance|flood\s+risk|flood\s+plain|'
-            r'floodplain|fema\s+flood|flood\s+map|flood\s+elevation)\b',
-            _re.IGNORECASE,
-        )
-
-        # Matches explicit decade ranges like "1940s-1950s", "1960s homes", "1970s-era"
-        era_pattern = _re.compile(
-            r'\b(\d{4})s[\s\-]*(to|through|and|\-)?\s*(\d{4})?s?\b',
-            _re.IGNORECASE,
-        )
-
-        landfill_keywords = _re.compile(
-            r'\b(landfill|superfund|brownfield|contaminated\s+soil|'
-            r'toxic\s+waste|hazardous\s+waste\s+site|environmental\s+contamination)\b',
-            _re.IGNORECASE,
-        )
-
-        condo_keywords = _re.compile(
-            r'\b(condo\s+association|condo\s+board|condo\s+fee|condo\s+rules|'
-            r'unit\s+owner|strata\s+council|common\s+elements)\b',
-            _re.IGNORECASE,
-        )
-
-        sfh_keywords = _re.compile(
-            r'\b(single[\s\-]family|detached\s+home|yard\s+maintenance|'
-            r'lot\s+line|property\s+line|septic\s+system|well\s+water)\b',
-            _re.IGNORECASE,
-        )
-
-        # Metro area groups — cities in the same metro won't trigger location filter
-        METRO_GROUPS = [
-            {"seattle", "bellevue", "redmond", "kirkland", "renton", "tacoma",
-             "bothell", "everett", "issaquah", "sammamish", "woodinville", "kent",
-             "federal way", "lynnwood", "burien", "shoreline", "mercer island"},
-            {"san francisco", "san jose", "oakland", "palo alto", "sunnyvale",
-             "mountain view", "cupertino", "fremont", "santa clara", "berkeley",
-             "redwood city", "menlo park", "san mateo", "hayward", "milpitas"},
-            {"los angeles", "long beach", "pasadena", "glendale", "burbank",
-             "santa monica", "torrance", "inglewood", "pomona", "irvine",
-             "anaheim", "costa mesa", "huntington beach"},
-            {"new york", "nyc", "brooklyn", "manhattan", "queens", "bronx",
-             "staten island", "jersey city", "hoboken", "yonkers"},
-            {"austin", "round rock", "cedar park", "pflugerville", "georgetown",
-             "san marcos", "kyle", "leander", "lakeway"},
-            {"portland", "beaverton", "hillsboro", "tigard", "lake oswego",
-             "gresham", "milwaukie", "oregon city"},
-        ]
-
-        # Find which metro the property belongs to
-        prop_metro = None
-        for metro in METRO_GROUPS:
-            if prop_city in metro:
-                prop_metro = metro
-                break
-
-        # Pattern to find city names in text
-        all_metro_cities = set()
-        for metro in METRO_GROUPS:
-            all_metro_cities.update(metro)
-
-        filtered = []
-        removed_reasons = {}
-
-        for c in candidates:
-            text = c.text
-            category = c.category or ""
-            combined = f"{text} {category}"
-            reason = None
-
-            # 1. Remove HOA candidates when property has no HOA
-            if not has_hoa and hoa_keywords.search(combined):
-                reason = "hoa"
-
-            # 2. Remove flood candidates when flood risk is minimal
-            elif flood_risk_minimal and flood_keywords.search(combined):
-                reason = "flood"
-
-            # 3. Construction era filter — remove wrong-decade tips
-            elif year_built and not reason:
-                for match in era_pattern.finditer(combined):
-                    era_start = int(match.group(1))
-                    era_end_str = match.group(3)
-                    era_end = int(era_end_str) if era_end_str else era_start
-                    # The range covers era_start to era_end+9 (e.g., "1940s" = 1940-1949)
-                    range_start = era_start
-                    range_end = era_end + 9
-                    # 15-year buffer: only exclude if year_built is well outside
-                    if year_built < range_start - 15 or year_built > range_end + 15:
-                        reason = "era"
-                        break
-
-            # 4. Location filter — remove content about other metros
-            if not reason and prop_city:
-                text_lower = combined.lower()
-                for metro in METRO_GROUPS:
-                    if metro == prop_metro:
-                        continue  # Skip our own metro
-                    for city in metro:
-                        if city in text_lower:
-                            reason = "location"
-                            break
-                    if reason:
-                        break
-
-            # 5. Property type filter
-            if not reason:
-                if is_sfh and condo_keywords.search(combined):
-                    reason = "property_type"
-                elif is_condo and sfh_keywords.search(combined):
-                    reason = "property_type"
-
-            # 6. Landfill/environmental filter
-            if not reason and landfill_keywords.search(combined):
-                reason = "landfill"
-
-            if reason:
-                removed_reasons[reason] = removed_reasons.get(reason, 0) + 1
-            else:
-                filtered.append(c)
-
-        total_removed = sum(removed_reasons.values())
-        if total_removed > 0:
-            logger.info(
-                f"Pre-filter removed {total_removed} irrelevant candidates "
-                f"({len(filtered)} remaining) — reasons: {removed_reasons}"
-            )
-
-        return filtered
-
-    def _fallback_attribute_search(
-        self, property_data: Dict[str, Any]
-    ) -> tuple[List[Dict[str, Any]], Dict[str, Any]]:
-        """
-        Fallback to attribute-based search when LLM filtering fails.
-
-        Uses @applies_when tags to match knowledge points to property attributes.
-        """
-        debug_info = {
-            "method": "attribute_fallback",
-            "query": "N/A (attribute-based)",
-        }
-
-        try:
-            search_service = get_search_service()
-            knowledge_points = search_service.search_by_attributes_with_details(
+            knowledge_points = get_attribute_knowledge_with_details(
                 property_data=property_data,
-                limit=15,
+                limit=8,
             )
             debug_info["results_count"] = len(knowledge_points)
-            logger.info(f"Fallback attribute search found {len(knowledge_points)} points")
+            logger.info(f"Property insights: {len(knowledge_points)} attribute-matched points")
             return knowledge_points, debug_info
+
         except Exception as e:
-            logger.warning(f"Fallback attribute search also failed: {e}")
+            logger.warning(f"Failed to prepare generic knowledge: {e}")
             debug_info["error"] = str(e)
             return [], debug_info
 

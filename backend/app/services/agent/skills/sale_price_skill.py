@@ -297,11 +297,9 @@ class SalePriceSkill(BaseSkill):
             # Compute baseline and metrics
             baseline_metrics = self._compute_baseline_metrics(property_data)
 
-            # Get market context from knowledge base
-            knowledge_queries = self._extract_market_queries(property_data)
-            knowledge_context, knowledge_debug = self._run_multi_query_search(
-                knowledge_queries, limit_per_query=3
-            )
+            # Load relevant market knowledge files
+            file_keys = self._select_market_files(property_data)
+            knowledge_context = self._load_knowledge_files(file_keys)
 
             # Fetch real-time market conditions (mortgage rates, market type)
             market_snapshot = await self._fetch_market_conditions(property_data)
@@ -333,8 +331,8 @@ class SalePriceSkill(BaseSkill):
                 'property_data_keys': list(property_data.keys()),
                 'knowledge_context_used': bool(knowledge_context),
             }
-            analysis['knowledge_debug'] = knowledge_debug
-            analysis['knowledge_queries'] = knowledge_queries
+            analysis['knowledge_debug'] = {"file_keys": file_keys}
+            analysis['knowledge_queries'] = file_keys
             analysis['cost_summary'] = self.get_cost_summary()
 
             logger.info(
@@ -828,37 +826,24 @@ Return ONLY valid JSON, no other text.
         return analysis
 
     @staticmethod
-    def _extract_market_queries(data: Dict[str, Any]) -> List[str]:
-        """Extract targeted knowledge queries for market context."""
-        queries = []
+    def _select_market_files(data: Dict[str, Any]) -> List[str]:
+        """Select relevant knowledge file keys for sale price analysis."""
+        from app.services.knowledge.skill_knowledge_service import get_market_file_key
+
         region_info = data.get('region_info', {}) or {}
-        market = data.get('market_trends', {}) or {}
-        details = data.get('details', {}) or {}
+        prop = data.get('property', {}) or {}
+        addr = prop.get('address', {}) or {}
+
+        file_keys = ["hot_zip_codes"]
 
         region = region_info.get('region', '')
-        city = region_info.get('city', '')
-        prop_type = details.get('property_type', '')
+        address_str = addr.get('full', '') or addr.get('street', '')
+        market_key = get_market_file_key(region=region, address=address_str)
+        if market_key:
+            file_keys.append(market_key)
 
-        if region:
-            queries.append(f"{region} real estate market")
-        if city:
-            queries.append(f"{city} home prices")
-        if prop_type:
-            queries.append(f"{prop_type} pricing trends")
-
-        market_type = market.get('market_type', '')
-        if market_type:
-            queries.append(f"{market_type} market negotiation")
-
-        # Deduplicate
-        seen = set()
-        unique = []
-        for q in queries:
-            ql = q.lower().strip()
-            if ql and ql not in seen:
-                seen.add(ql)
-                unique.append(q.strip())
-        return unique
+        logger.info(f"SalePriceSkill: Selected knowledge files: {file_keys}")
+        return file_keys
 
     def _error_result(self, error_message: str) -> Dict[str, Any]:
         return {

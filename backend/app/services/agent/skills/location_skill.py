@@ -191,11 +191,9 @@ WORK LOCATION: {work_location or 'Not provided'}
 {commute_section}
 {power_line_section}"""
 
-        # Query knowledge base with targeted location queries
-        knowledge_queries = self._extract_location_queries_preliminary(address, region, commute_data)
-        knowledge_context, knowledge_debug = self._run_multi_query_search(
-            knowledge_queries, limit_per_query=6, min_score=0.25
-        )
+        # Load relevant knowledge files directly
+        file_keys = self._select_location_files(address, region)
+        knowledge_context = self._load_knowledge_files(file_keys)
 
         # Filter knowledge using LLM
         filtered_context, filter_debug = await self._filter_location_knowledge(
@@ -286,61 +284,29 @@ Return ONLY valid JSON, no other text.
             'power_line_data': power_line_data,
         }
         analysis['knowledge_debug'] = {
-            "queries": knowledge_debug,
+            "file_keys": file_keys,
             "filter_result": filter_debug,
         }
-        analysis['knowledge_queries'] = knowledge_queries
+        analysis['knowledge_queries'] = file_keys
         analysis['cost_summary'] = self.get_cost_summary()
 
         logger.info(f"LocationSkill: Analysis complete. Score: {analysis.get('score')}, Confidence: {analysis.get('confidence')}, Cost: ${self.total_cost:.6f}")
 
         return analysis
 
-    def _extract_location_queries_preliminary(
-        self,
-        address: str,
-        region: str | None,
-        commute_data: list,
-    ) -> list[str]:
-        """
-        Extract location queries before main analysis (can't use analysis results yet).
-        """
-        queries = []
+    @staticmethod
+    def _select_location_files(address: str, region: Optional[str]) -> list[str]:
+        """Select knowledge file keys for location analysis."""
+        from app.services.knowledge.skill_knowledge_service import get_market_file_key
 
-        # Region
-        if region:
-            queries.append(f"{region} housing market")
-            queries.append(f"{region} neighborhoods")
+        file_keys = ["hot_zip_codes"]
 
-        # City from address
-        parts = [p.strip() for p in address.split(',')]
-        if len(parts) >= 2:
-            city = parts[1].strip()
-            if city:
-                queries.append(f"{city} neighborhood quality")
-                queries.append(f"{city} location considerations")
+        market_key = get_market_file_key(region=region, address=address)
+        if market_key:
+            file_keys.append(market_key)
 
-        # Nearby hot areas from commute data (sorted by drive time)
-        sorted_commute = sorted(
-            [c for c in commute_data if c.get('drive_minutes') is not None],
-            key=lambda c: c.get('drive_minutes', 999)
-        )
-        for c in sorted_commute[:3]:
-            name = c.get('name', '')
-            if name:
-                queries.append(name)
-
-        # Deduplicate
-        seen = set()
-        unique = []
-        for q in queries:
-            ql = q.lower().strip()
-            if ql and ql not in seen:
-                seen.add(ql)
-                unique.append(q.strip())
-
-        logger.info(f"LocationSkill: Extracted {len(unique)} preliminary knowledge queries: {unique}")
-        return unique
+        logger.info(f"LocationSkill: Selected knowledge files: {file_keys}")
+        return file_keys
 
     async def _filter_location_knowledge(
         self,
@@ -469,66 +435,6 @@ No explanation needed."""
             {"name": c["name"], "drive_minutes": c.get("drive_minutes"), "transit_minutes": c.get("transit_minutes")}
             for c in commute_data
         ])
-
-    @staticmethod
-    def _extract_location_queries(
-        address: str,
-        region: str | None,
-        commute_data: list,
-        analysis_result: Dict[str, Any],
-    ) -> list[str]:
-        """
-        Extract meaningful search terms for location knowledge queries.
-
-        Looks for: neighborhood name, region, nearby employers/hot areas,
-        school districts, transit corridors, etc.
-        """
-        queries = []
-
-        # 1. Neighborhood name (from analysis result if Claude identified it)
-        details = analysis_result.get('details', {})
-        neighborhood = details.get('neighborhood', '')
-        if neighborhood and neighborhood.lower() not in ('unknown', 'n/a', ''):
-            queries.append(neighborhood)
-
-        # 2. Region
-        if region:
-            queries.append(f"{region} housing market")
-
-        # 3. City from address
-        #    Simple extraction: split by comma, second part is usually city
-        parts = [p.strip() for p in address.split(',')]
-        if len(parts) >= 2:
-            city = parts[1].strip()
-            if city:
-                queries.append(f"{city} neighborhood quality")
-
-        # 4. Nearby hot areas / employers from commute data (sorted by drive time)
-        sorted_commute = sorted(
-            [c for c in commute_data if c.get('drive_minutes') is not None],
-            key=lambda c: c.get('drive_minutes', 999)
-        )
-        for c in sorted_commute[:3]:  # top 3 closest
-            name = c.get('name', '')
-            if name:
-                queries.append(name)
-
-        # 5. Walkability / transit context if notable
-        neighborhood_type = details.get('neighborhood_type', '')
-        if neighborhood_type:
-            queries.append(f"{neighborhood_type} neighborhood walkability")
-
-        # Deduplicate
-        seen = set()
-        unique = []
-        for q in queries:
-            ql = q.lower().strip()
-            if ql and ql not in seen:
-                seen.add(ql)
-                unique.append(q.strip())
-
-        logger.info(f"LocationSkill: Extracted {len(unique)} knowledge queries: {unique}")
-        return unique
 
     def _error_result(self, error_message: str) -> Dict[str, Any]:
         """Return error result structure."""
