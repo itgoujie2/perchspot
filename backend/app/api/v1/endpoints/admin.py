@@ -160,7 +160,7 @@ async def get_cached_report(filename: str):
 @router.delete("/cached-reports/{filename}",
                dependencies=[Depends(verify_admin)])
 async def delete_cached_report(filename: str):
-    """Delete a specific cached report."""
+    """Delete a specific cached report (local file and S3)."""
     try:
         notes_manager = get_notes_manager()
 
@@ -168,18 +168,32 @@ async def delete_cached_report(filename: str):
         if not filename.endswith('.md'):
             filename = f"{filename}.md"
 
-        # Get the full path
-        notes_path = notes_manager.notes_dir / filename
+        deleted_local = False
+        deleted_s3 = False
 
-        if not notes_path.exists():
+        # Delete local file
+        notes_path = notes_manager.notes_dir / filename
+        if notes_path.exists():
+            notes_path.unlink()
+            deleted_local = True
+
+        # Delete from S3
+        if notes_manager.use_s3 and notes_manager.s3_client:
+            s3_key = f"{notes_manager.s3_prefix}/{filename}"
+            try:
+                notes_manager.s3_client.delete_object(
+                    Bucket=notes_manager.s3_bucket, Key=s3_key
+                )
+                deleted_s3 = True
+            except Exception as e:
+                logger.warning(f"Failed to delete S3 object {s3_key}: {e}")
+
+        if not deleted_local and not deleted_s3:
             raise HTTPException(status_code=404, detail=f"Report not found: {filename}")
 
-        # Delete the file
-        notes_path.unlink()
+        logger.info(f"Deleted cached report: {filename} (local={deleted_local}, s3={deleted_s3})")
 
-        logger.info(f"Deleted cached report: {filename}")
-
-        return {"status": "ok", "deleted": filename}
+        return {"status": "ok", "deleted": filename, "local": deleted_local, "s3": deleted_s3}
     except HTTPException:
         raise
     except Exception as e:
