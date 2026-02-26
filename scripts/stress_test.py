@@ -445,6 +445,8 @@ async def main():
                         help="Account password")
     parser.add_argument("--skip-analysis", action="store_true",
                         help="Skip the heavy SSE analysis phase (saves credits)")
+    parser.add_argument("--only-analysis", action="store_true",
+                        help="Only run the analysis phase (skip health, auth, presets)")
     parser.add_argument("--admin-password", default=None,
                         help="Admin password to clean up cached test reports (enables repeatable runs)")
     args = parser.parse_args()
@@ -455,7 +457,8 @@ async def main():
     print(f"\nPerchspot Stress Test")
     print(f"  Target:   {base_url}")
     print(f"  Mode:     {'External (nginx rate limits apply)' if is_external else 'Internal (raw backend)'}")
-    print(f"  Analysis: {'Skipped' if args.skip_analysis else 'Enabled (costs credits!)'}")
+    analysis_mode = "Only analysis" if args.only_analysis else ("Skipped" if args.skip_analysis else "Enabled (costs credits!)")
+    print(f"  Analysis: {analysis_mode}")
 
     if is_external:
         print(f"\n  NOTE: Nginx rate limits will throttle results:")
@@ -486,14 +489,15 @@ async def main():
 
         all_results = []
 
-        # Phase 1: Health
-        all_results.extend(await phase_health(session, base_url))
+        if not args.only_analysis:
+            # Phase 1: Health
+            all_results.extend(await phase_health(session, base_url))
 
-        # Phase 2: Auth
-        all_results.extend(await phase_auth(session, base_url, args.email, args.password))
+            # Phase 2: Auth
+            all_results.extend(await phase_auth(session, base_url, args.email, args.password))
 
-        # Phase 3: Presets
-        all_results.extend(await phase_presets(session, base_url, token))
+            # Phase 3: Presets
+            all_results.extend(await phase_presets(session, base_url, token))
 
         # Phase 4: Analysis (optional)
         if not args.skip_analysis:
