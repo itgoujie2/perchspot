@@ -166,7 +166,7 @@ async def run_sse_request(session, url, timeout_s=120):
                 text = line.decode("utf-8", errors="replace").strip()
                 if text.startswith("event:"):
                     event_type = text[6:].strip()
-                    if event_type in ("complete", "error"):
+                    if event_type in ("summary", "complete", "error"):
                         break
             return resp.status, time.monotonic() - t0
     except asyncio.TimeoutError:
@@ -264,17 +264,20 @@ async def phase_presets(session, base_url, token):
 
 async def phase_analysis(session, base_url, token):
     """Phase 4: SSE analysis — memory ceiling, Chromium concurrency."""
-    # Use a benign test address
-    test_address = "1600 Pennsylvania Ave NW Washington DC"
-    encoded = quote(test_address)
-    base_stream_url = f"{base_url}/api/v1/streaming/analyze/stream/{encoded}?token={quote(token)}"
+    # Use distinct addresses so each request avoids the notes cache
+    test_addresses = [
+        "1600 Pennsylvania Ave NW Washington DC",
+        "350 Fifth Avenue New York NY",
+        "233 S Wacker Dr Chicago IL",
+        "1 Infinite Loop Cupertino CA",
+    ]
     levels = [1, 2, 3, 4]
     results = []
 
     print(f"\n{'='*60}")
     print(f"PHASE 4: Analysis Stream  (GET /api/v1/streaming/analyze/stream/...)")
     print(f"  Concurrency ramp: {levels},  wait for completion each level")
-    print(f"  Address: {test_address}")
+    print(f"  Addresses: {len(test_addresses)} distinct (no cache hits)")
     print(f"  WARNING: Each request costs credits!")
     print(f"{'='*60}")
 
@@ -290,8 +293,12 @@ async def phase_analysis(session, base_url, token):
         t0 = time.monotonic()
 
         tasks = [
-            asyncio.create_task(run_sse_request(session, base_stream_url, timeout_s=180))
-            for _ in range(c)
+            asyncio.create_task(run_sse_request(
+                session,
+                f"{base_url}/api/v1/streaming/analyze/stream/{quote(test_addresses[i % len(test_addresses)])}?token={quote(token)}",
+                timeout_s=300,
+            ))
+            for i in range(c)
         ]
         sse_results = await asyncio.gather(*tasks)
         elapsed = time.monotonic() - t0
@@ -308,7 +315,7 @@ async def phase_analysis(session, base_url, token):
         if r.successes == c:
             r.bottleneck = "Memory (OK)"
         elif r.status_counts.get(503, 0) > 0:
-            r.bottleneck = "503 (semaphore full)"
+            r.bottleneck = "503 (rejected)"
         elif r.status_counts.get(429, 0) > 0:
             r.bottleneck = "Rate limit (429)"
         elif r.status_counts.get(0, 0) > 0:
