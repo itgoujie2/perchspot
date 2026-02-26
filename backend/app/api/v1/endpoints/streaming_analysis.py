@@ -31,6 +31,7 @@ router = APIRouter()
 # Concurrency guard: limits simultaneous analyses to prevent OOM from Chromium browsers.
 # Per-process semaphore — with N uvicorn workers, total max = N × MAX_CONCURRENT_ANALYSES.
 _analysis_semaphore = asyncio.Semaphore(settings.MAX_CONCURRENT_ANALYSES)
+MAX_QUEUE_WAIT_SECONDS = 300  # 5 minutes max wait in queue
 
 
 @router.get("/analyze/stream/{address:path}")
@@ -76,16 +77,6 @@ async def stream_property_analysis(
                 },
             )
 
-    # Reject immediately if all analysis slots are busy (no queuing)
-    if _analysis_semaphore._value <= 0:
-        raise HTTPException(
-            status_code=503,
-            detail={
-                "message": "Server busy — too many analyses running. Please try again in a minute.",
-                "retry_after": 60,
-            },
-        )
-
     # Create orchestrator with logging context
     orchestrator = StreamingAnalysisOrchestrator(
         db=db,
@@ -96,10 +87,62 @@ async def stream_property_analysis(
     async def event_generator():
         """
         Generate SSE events from the analysis stream.
+        If all analysis slots are busy, queues the request and sends periodic
+        'queued' SSE events until a slot opens (up to MAX_QUEUE_WAIT_SECONDS).
         Includes heartbeat events to keep the connection alive when browser tab is backgrounded.
         Holds a semaphore slot for the entire duration to cap concurrent Chromium processes.
         """
-        async with _analysis_semaphore:
+        # --- Queue phase: wait for a semaphore slot ---
+        acquired = False
+        try:
+            if _analysis_semaphore._value <= 0:
+                logger.info(f"Analysis queued for {address} — waiting for slot")
+                yield {
+                    "event": "queued",
+                    "data": json.dumps({"type": "queued", "message": "Server busy — you're in the queue. Please wait..."})
+                }
+                acquire_task = asyncio.create_task(_analysis_semaphore.acquire())
+                waited = 0.0
+                queue_heartbeat = 3  # send queued updates every 3s
+                while waited < MAX_QUEUE_WAIT_SECONDS:
+                    done, _ = await asyncio.wait([acquire_task], timeout=queue_heartbeat)
+                    if acquire_task in done:
+                        acquired = True
+                        break
+                    waited += queue_heartbeat
+                    remaining = int(MAX_QUEUE_WAIT_SECONDS - waited)
+                    yield {
+                        "event": "queued",
+                        "data": json.dumps({
+                            "type": "queued",
+                            "message": f"Still waiting for a slot... ({remaining}s remaining)",
+                        })
+                    }
+                if not acquired:
+                    # Timed out waiting
+                    acquire_task.cancel()
+                    try:
+                        await acquire_task
+                    except asyncio.CancelledError:
+                        pass
+                    yield {
+                        "event": "error",
+                        "data": json.dumps({
+                            "type": "error",
+                            "error": "Queue wait timed out. Please try again later.",
+                        })
+                    }
+                    return
+            else:
+                await _analysis_semaphore.acquire()
+                acquired = True
+
+            # --- Analysis phase: slot acquired ---
+            yield {
+                "event": "status",
+                "data": json.dumps({"type": "status", "message": "Your turn! Starting analysis..."})
+            }
+
             last_heartbeat = time.time()
             heartbeat_interval = 15  # Send heartbeat every 15 seconds
             analysis_complete = False
@@ -241,8 +284,10 @@ async def stream_property_analysis(
                     })
                 }
 
-            finally:
-                logger.info(f"SSE connection closed for address: {address}")
+        finally:
+            if acquired:
+                _analysis_semaphore.release()
+            logger.info(f"SSE connection closed for address: {address}")
 
     return EventSourceResponse(
         event_generator(),

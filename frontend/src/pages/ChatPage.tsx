@@ -588,6 +588,11 @@ const ChatPage: React.FC = () => {
       console.debug('SSE heartbeat received');
     });
 
+    es.addEventListener('queued', (e) => {
+      const data = JSON.parse(e.data);
+      setCurrentStep(data.message);
+    });
+
     es.addEventListener('status', (e) => {
       const data = JSON.parse(e.data);
       setCurrentStep(data.message);
