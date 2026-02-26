@@ -85,6 +85,7 @@ class StreamingAnalysisOrchestrator:
         self.client_ip = client_ip
         self.logging_service: Optional[AnalysisLoggingService] = None
         self.current_job = None
+        self.current_job_id: Optional[str] = None  # Store ID as string to avoid DetachedInstanceError
         self.current_step_log = None
 
         if db:
@@ -211,7 +212,7 @@ class StreamingAnalysisOrchestrator:
 
     def _start_step_logging(self, step_number: int) -> Optional[str]:
         """Start logging a step and return the step log ID."""
-        if not self.logging_service or not self.current_job:
+        if not self.logging_service or not self.current_job_id:
             return None
 
         step_def = None
@@ -224,7 +225,7 @@ class StreamingAnalysisOrchestrator:
             return None
 
         step_log = self.logging_service.start_step(
-            job_id=str(self.current_job.id),
+            job_id=self.current_job_id,
             step_number=step_number,
             step_name=step_def["name"],
             step_type=step_def["type"],
@@ -378,8 +379,15 @@ class StreamingAnalysisOrchestrator:
                     analysis_cost = analysis_event.get("analysis_cost", 0)
                 yield analysis_event
 
-        # Step 11: Generic Knowledge / Property Insights
-        generic_knowledge, insights_debug = await self._prepare_generic_knowledge(cached_data)
+        # Step 11: Generic Knowledge / Property Insights (with timeout to avoid blocking SSE)
+        try:
+            generic_knowledge, insights_debug = await asyncio.wait_for(
+                self._prepare_generic_knowledge(cached_data),
+                timeout=45.0,
+            )
+        except asyncio.TimeoutError:
+            logger.warning("Property insights timed out after 45s, skipping")
+            generic_knowledge, insights_debug = [], {"error": "timeout"}
         if generic_knowledge:
             yield {
                 "type": "generic_knowledge",
@@ -394,8 +402,8 @@ class StreamingAnalysisOrchestrator:
         elapsed = (datetime.utcnow() - start_time).total_seconds()
 
         # Complete job logging
-        if self.logging_service and self.current_job:
-            self.logging_service.complete_job(str(self.current_job.id), is_cached=True)
+        if self.logging_service and self.current_job_id:
+            self.logging_service.complete_job(self.current_job_id, is_cached=True)
 
         # Cached replay: cost is 0 here. Per-user billing is handled by the endpoint.
         yield {
@@ -428,7 +436,8 @@ class StreamingAnalysisOrchestrator:
                 user_id=self.user_id,
                 client_ip=self.client_ip,
             )
-            logger.info(f"Created analysis job: {self.current_job.id}")
+            self.current_job_id = str(self.current_job.id)
+            logger.info(f"Created analysis job: {self.current_job_id}")
 
         try:
             # Check for cached data in existing notes
@@ -530,8 +539,15 @@ class StreamingAnalysisOrchestrator:
                             analysis_cost = analysis_event.get("analysis_cost", 0)
                         yield analysis_event
 
-                    # Step 11: Generic Knowledge / Property Insights
-                    generic_knowledge, insights_debug = await self._prepare_generic_knowledge(all_data)
+                    # Step 11: Generic Knowledge / Property Insights (with timeout to avoid blocking SSE)
+                    try:
+                        generic_knowledge, insights_debug = await asyncio.wait_for(
+                            self._prepare_generic_knowledge(all_data),
+                            timeout=45.0,
+                        )
+                    except asyncio.TimeoutError:
+                        logger.warning("Property insights timed out after 45s, skipping")
+                        generic_knowledge, insights_debug = [], {"error": "timeout"}
                     if generic_knowledge:
                         yield {
                             "type": "generic_knowledge",
@@ -549,8 +565,8 @@ class StreamingAnalysisOrchestrator:
                     total_elapsed = (datetime.utcnow() - start_time).total_seconds()
 
                     # Complete job logging
-                    if self.logging_service and self.current_job:
-                        self.logging_service.complete_job(str(self.current_job.id), is_cached=False)
+                    if self.logging_service and self.current_job_id:
+                        self.logging_service.complete_job(self.current_job_id, is_cached=False)
 
                     yield {
                         "type": "summary",
@@ -568,9 +584,9 @@ class StreamingAnalysisOrchestrator:
                 elif scrape_event["type"] == "error":
                     logger.error(f"Scraping error: {scrape_event['error']}")
                     # Fail job logging
-                    if self.logging_service and self.current_job:
+                    if self.logging_service and self.current_job_id:
                         self.logging_service.fail_job(
-                            str(self.current_job.id),
+                            self.current_job_id,
                             error_message=scrape_event.get('error', 'Unknown error'),
                             error_step='extraction'
                         )
@@ -579,9 +595,9 @@ class StreamingAnalysisOrchestrator:
         except Exception as e:
             logger.error(f"Error in streaming analysis: {e}", exc_info=True)
             # Fail job logging
-            if self.logging_service and self.current_job:
+            if self.logging_service and self.current_job_id:
                 self.logging_service.fail_job(
-                    str(self.current_job.id),
+                    self.current_job_id,
                     error_message=str(e),
                     error_step='unknown'
                 )
