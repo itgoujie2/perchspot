@@ -15,6 +15,9 @@ Usage:
     # Skip heavy analysis phase
     python scripts/stress_test.py --target https://perchspot.com --email user@test.com --password xxx --skip-analysis
 
+    # With cache cleanup (repeatable analysis runs)
+    python scripts/stress_test.py --target http://localhost:8000 --email user@test.com --password xxx --admin-password xxx
+
 Dependencies:
     pip install aiohttp
 """
@@ -23,6 +26,7 @@ import argparse
 import asyncio
 import json
 import os
+import re
 import statistics
 import subprocess
 import sys
@@ -262,6 +266,49 @@ async def phase_presets(session, base_url, token):
     return results
 
 
+def normalize_address(address: str) -> str:
+    """Replicate backend's normalize_address to compute notes filenames."""
+    normalized = address.lower()
+    normalized = re.sub(r'\b([a-z]{2})(\d{5})\b', r'\1 \2', normalized)
+    for abbrev, full in {
+        r'\bpl\b': 'place', r'\bst\b': 'street', r'\bave\b': 'avenue',
+        r'\bblvd\b': 'boulevard', r'\bdr\b': 'drive', r'\bln\b': 'lane',
+        r'\brd\b': 'road', r'\bct\b': 'court',
+    }.items():
+        normalized = re.sub(abbrev, full, normalized)
+    for full, abbrev in {
+        r'\bnortheast\b': 'ne', r'\bnorthwest\b': 'nw',
+        r'\bsoutheast\b': 'se', r'\bsouthwest\b': 'sw',
+        r'\bnorth\b': 'n', r'\bsouth\b': 's',
+        r'\beast\b': 'e', r'\bwest\b': 'w',
+    }.items():
+        normalized = re.sub(full, abbrev, normalized)
+    normalized = re.sub(r'[^\w\s]', '', normalized)
+    normalized = re.sub(r'\s+', '_', normalized)
+    normalized = re.sub(r'_+', '_', normalized).strip('_')
+    return normalized
+
+
+async def cleanup_test_reports(session, base_url, admin_password, addresses):
+    """Delete cached reports for test addresses so next run isn't cached."""
+    print(f"\n  Cleaning up {len(addresses)} cached test reports...")
+    for addr in addresses:
+        filename = normalize_address(addr)
+        url = f"{base_url}/api/v1/admin/cached-reports/{quote(filename)}"
+        try:
+            async with session.delete(
+                url, headers={"X-Admin-Password": admin_password}
+            ) as resp:
+                if resp.status == 200:
+                    print(f"    Deleted: {filename}.md")
+                elif resp.status == 404:
+                    pass  # Not cached, nothing to clean
+                else:
+                    print(f"    Failed to delete {filename}: HTTP {resp.status}")
+        except Exception as e:
+            print(f"    Error deleting {filename}: {e}")
+
+
 async def phase_analysis(session, base_url, token):
     """Phase 4: SSE analysis — memory ceiling, Chromium concurrency."""
     # Use distinct addresses so each request avoids the notes cache
@@ -398,6 +445,8 @@ async def main():
                         help="Account password")
     parser.add_argument("--skip-analysis", action="store_true",
                         help="Skip the heavy SSE analysis phase (saves credits)")
+    parser.add_argument("--admin-password", default=None,
+                        help="Admin password to clean up cached test reports (enables repeatable runs)")
     args = parser.parse_args()
 
     base_url = args.target.rstrip("/")
@@ -448,7 +497,20 @@ async def main():
 
         # Phase 4: Analysis (optional)
         if not args.skip_analysis:
+            # Test addresses used by phase_analysis
+            test_addresses = [
+                "1600 Pennsylvania Ave NW Washington DC",
+                "350 Fifth Avenue New York NY",
+                "233 S Wacker Dr Chicago IL",
+                "1 Infinite Loop Cupertino CA",
+            ]
+            # Clean up cached reports before running so we get real Chromium runs
+            if args.admin_password:
+                await cleanup_test_reports(session, base_url, args.admin_password, test_addresses)
             all_results.extend(await phase_analysis(session, base_url, token))
+            # Clean up after so cached test data doesn't pollute the system
+            if args.admin_password:
+                await cleanup_test_reports(session, base_url, args.admin_password, test_addresses)
         else:
             print(f"\n{'='*60}")
             print(f"PHASE 4: Analysis Stream — SKIPPED (--skip-analysis)")
