@@ -190,9 +190,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: 1800M
+          memory: 2200M
         reservations:
-          memory: 900M
+          memory: 1100M
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
       interval: 30s
