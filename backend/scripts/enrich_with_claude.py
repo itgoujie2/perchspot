@@ -275,10 +275,29 @@ def find_md_file(filename: str) -> str | None:
     return None
 
 
+def _dedup_points(pts: list[dict]) -> list[dict]:
+    """Remove near-duplicate points by comparing first 80 chars of text."""
+    seen = set()
+    unique = []
+    for pt in pts:
+        key = pt["text"][:80].strip().lower()
+        if key not in seen:
+            seen.add(key)
+            unique.append(pt)
+    return unique
+
+
 def apply_enriched(dry_run: bool = True):
-    """Apply enriched points to knowledge markdown files."""
+    """Apply enriched points to knowledge markdown files.
+
+    Two strategies:
+    1. If the point's text already exists in the target file, add @applies_when
+       tags to its section heading (tag-only injection).
+    2. If the point is new content, append it as a new tagged section at the
+       end of the file.
+    """
     if not os.path.exists(ENRICHED_OUTPUT):
-        print(f"No enriched output found at {ENRICHED_OUTPUT}")
+        print("No enriched output found at", ENRICHED_OUTPUT)
         print("Run without --apply first to generate enrichment.")
         sys.exit(1)
 
@@ -286,125 +305,158 @@ def apply_enriched(dry_run: bool = True):
         data = json.load(f)
 
     points = data["points"]
-    print(f"Enriched points: {len(points)}")
+    # Only process points with applies_when tags
+    points = [p for p in points if p.get("applies_when")]
+    points = _dedup_points(points)
+    print("Enriched points with tags (deduped):", len(points))
 
-    # Group by target file, only those with applies_when
+    # Group by target file
     by_target: dict[str, list[dict]] = {}
     for pt in points:
         target = pt.get("target_file", "")
-        if target and pt.get("applies_when"):
+        if target:
             by_target.setdefault(target, []).append(pt)
 
-    total_injected = 0
+    total_tagged = 0
+    total_appended = 0
     files_modified = 0
 
     for target_file, pts in sorted(by_target.items()):
         md_path = find_md_file(target_file)
         if not md_path:
-            print(f"  SKIP {target_file}: not found")
+            print("  SKIP", target_file, "- not found")
             continue
 
         with open(md_path) as f:
-            lines = f.readlines()
+            content = f.read()
+            lines = content.split("\n")
 
-        injections = []
+        content_lower = content.lower()
+        tag_injections = []  # (heading_line, tag_lines) for existing content
+        new_sections = []    # new content to append at end
+
         for pt in pts:
             text = pt["text"]
-            category = pt["category"]
             aw_tags = pt["applies_when"]
             priority = pt.get("priority", "medium")
-
-            # Find matching section: first try text match, then category heading
-            heading_line = None
-
-            # Try to find the text content in the file
-            text_start = text[:60].strip().lower()
-            if text_start:
-                for i, line in enumerate(lines):
-                    if text_start in line.strip().lower():
-                        # Walk back to heading
-                        for j in range(i - 1, max(i - 15, -1), -1):
-                            if re.match(r'^#{2,3}\s+', lines[j].strip()):
-                                heading_line = j
-                                break
-                        break
-
-            # Fallback: find by category heading
-            if heading_line is None:
-                for i, line in enumerate(lines):
-                    m = re.match(r'^#{2,3}\s+(.+)$', line.strip())
-                    if m and m.group(1).strip().lower() == category.lower():
-                        heading_line = i
-                        break
-
-            if heading_line is None:
-                continue
-
-            # Check if heading already has @applies_when tags
-            has_tags = False
-            for j in range(heading_line + 1, min(heading_line + 10, len(lines))):
-                s = lines[j].strip()
-                if s.startswith("@applies_when:"):
-                    has_tags = True
-                    break
-                if s and not s.startswith("@") and s != "":
-                    break
-
-            if has_tags:
-                continue
 
             # Build tag lines
             tag_lines = []
             for aw in aw_tags:
                 if isinstance(aw, str):
-                    tag_lines.append(f"@applies_when: {aw}")
+                    tag_lines.append("@applies_when: " + aw)
                 elif isinstance(aw, dict):
                     tag_lines.append(
-                        f"@applies_when: {aw['attribute']}{aw['operator']}{aw['value']}"
+                        "@applies_when: " + aw["attribute"] + aw["operator"] + str(aw["value"])
                     )
             if priority != "medium":
-                tag_lines.append(f"@priority: {priority}")
+                tag_lines.append("@priority: " + priority)
+            if not tag_lines:
+                continue
 
-            if tag_lines:
-                injections.append({
-                    "line": heading_line + 1,
+            # Strategy 1: Check if text already exists in the file
+            text_start = text[:80].strip().lower()
+            found_in_file = text_start and text_start in content_lower
+
+            if found_in_file:
+                # Find the line, walk back to heading, inject tags
+                for i, line in enumerate(lines):
+                    if text_start in line.lower():
+                        heading_line = None
+                        for j in range(i - 1, max(i - 15, -1), -1):
+                            if re.match(r'^#{2,3}\s+', lines[j]):
+                                heading_line = j
+                                break
+                        if heading_line is not None:
+                            # Check heading doesn't already have tags
+                            already_tagged = False
+                            for k in range(heading_line + 1, min(heading_line + 10, len(lines))):
+                                s = lines[k].strip()
+                                if s.startswith("@applies_when:"):
+                                    already_tagged = True
+                                    break
+                                if s and not s.startswith("@"):
+                                    break
+                            if not already_tagged:
+                                tag_injections.append({
+                                    "line": heading_line + 1,
+                                    "tags": tag_lines,
+                                    "preview": text[:60],
+                                })
+                        break
+            else:
+                # Strategy 2: New content — append as new section
+                new_sections.append({
                     "tags": tag_lines,
-                    "category": category,
-                    "text_preview": text[:80],
+                    "text": text,
+                    "preview": text[:60],
                 })
 
-        # Deduplicate by line number
+        # Deduplicate tag injections by line
         seen_lines = set()
-        unique_inj = []
-        for inj in injections:
+        unique_tags = []
+        for inj in tag_injections:
             if inj["line"] not in seen_lines:
                 seen_lines.add(inj["line"])
-                unique_inj.append(inj)
-        injections = unique_inj
+                unique_tags.append(inj)
 
-        if not injections:
+        if not unique_tags and not new_sections:
             continue
 
         files_modified += 1
-        total_injected += len(injections)
-        print(f"  {target_file}: injecting {len(injections)} tag blocks")
-        for inj in injections:
+        file_tagged = len(unique_tags)
+        file_appended = len(new_sections)
+        total_tagged += file_tagged
+        total_appended += file_appended
+
+        print("  " + target_file + ": " + str(file_tagged) + " tagged, "
+              + str(file_appended) + " new sections")
+
+        for inj in unique_tags:
             for t in inj["tags"]:
-                print(f"    L{inj['line']+1} [{inj['category']}]: {t}")
+                print("    TAG L" + str(inj["line"] + 1) + ": " + t)
+
+        for sec in new_sections[:5]:  # show first 5
+            tags_str = ", ".join(sec["tags"])
+            print("    NEW: " + tags_str + " | " + sec["preview"])
+        if len(new_sections) > 5:
+            print("    ... and " + str(len(new_sections) - 5) + " more")
 
         if not dry_run:
             result = list(lines)
-            for inj in sorted(injections, key=lambda x: x["line"], reverse=True):
+
+            # Apply tag injections in reverse order
+            for inj in sorted(unique_tags, key=lambda x: x["line"], reverse=True):
                 insert_at = inj["line"]
                 for k, tag in enumerate(inj["tags"]):
-                    result.insert(insert_at + k, tag + "\n")
-            with open(md_path, "w") as f:
-                f.writelines(result)
-            print(f"    -> Written")
+                    result.insert(insert_at + k, tag)
 
-    print(f"\n{'DRY RUN ' if dry_run else ''}Summary:")
-    print(f"  Files modified: {files_modified}")
-    print(f"  Tag blocks injected: {total_injected}")
+            # Append new sections at the end
+            if new_sections:
+                # Ensure file ends with a newline
+                if result and result[-1].strip():
+                    result.append("")
+                result.append("")
+                result.append("## Additional Insights")
+                result.append("")
+                for sec in new_sections:
+                    for tag in sec["tags"]:
+                        result.append(tag)
+                    result.append("")
+                    result.append(sec["text"])
+                    result.append("")
+                    result.append("---")
+                    result.append("")
+
+            with open(md_path, "w") as f:
+                f.write("\n".join(result))
+            print("    -> Written")
+
+    prefix = "DRY RUN " if dry_run else ""
+    print("\n" + prefix + "Summary:")
+    print("  Files modified:", files_modified)
+    print("  Existing sections tagged:", total_tagged)
+    print("  New sections appended:", total_appended)
     if dry_run:
         print("\nRe-run with --apply (without --dry-run) to write files.")
 
