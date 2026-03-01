@@ -65,44 +65,45 @@ def load_knowledge_sections() -> dict[str, list[str]]:
     return sections
 
 
-def build_system_prompt(knowledge_sections: dict[str, list[str]]) -> str:
-    """Build the system prompt with available knowledge files."""
+def build_system_prompt(knowledge_sections: dict[str, list[str]]) -> tuple[str, list[str]]:
+    """Build the system prompt with numbered file list to prevent hallucination.
+    Returns (prompt_text, ordered_file_names) so caller can map numbers back.
+    """
+    file_names = sorted(knowledge_sections.keys())
     file_list = ""
-    for fname, headings in sorted(knowledge_sections.items()):
-        file_list += f"\n{fname}:\n"
-        for h in headings:
-            file_list += f"  - {h}\n"
+    for i, fname in enumerate(file_names):
+        headings = knowledge_sections[fname]
+        heading_str = ", ".join(headings[:10])
+        file_list += f"  {i}: {fname} (sections: {heading_str})\n"
 
-    return f"""You analyze home-buying knowledge points and decide which are useful for a property analysis tool.
+    prompt = f"""You analyze home-buying knowledge points for a property analysis tool.
 
 For each point, decide:
-1. Is it USEFUL? Skip generic advice anyone would know. Keep specific, actionable knowledge with concrete details (costs, timelines, conditions, thresholds).
-2. Which knowledge file should it go in?
-3. What @applies_when conditions apply? Only add when the text clearly references specific property characteristics.
+1. Is it USEFUL? Skip generic/obvious advice. Keep specific, actionable knowledge with concrete details (costs, timelines, conditions, thresholds).
+2. Which file number (0-{len(file_names)-1}) should it go in? You MUST use a number from the list below.
+3. What @applies_when conditions apply? Only add when text clearly references specific property characteristics.
 
-Available @applies_when attributes:
-- year_built: integer (year_built<1970, year_built>=2000)
-- has_hoa: boolean (has_hoa=true)
-- hoa_fee: number (hoa_fee>500)
-- property_type: string (property_type=condo, property_type contains single)
-- lot_size_sqft, living_area_sqft: number
-- bedrooms, bathrooms, stories: number
-- has_pool, has_garage: boolean
+@applies_when attributes and operators (<, >, <=, >=, =, contains):
+  year_built (int), has_hoa (bool), hoa_fee (num), property_type (str),
+  lot_size_sqft (num), living_area_sqft (num), bedrooms (num), bathrooms (num),
+  stories (num), has_pool (bool), has_garage (bool)
 
-Operators: <, >, <=, >=, =, contains
+Priority: high (safety/structural/major $), medium (important), low (minor)
 
-Priority: high (safety/structural/major financial), medium (important), low (minor)
+FILE LIST — use the number, NOT the filename:
+{file_list}
+RULES:
+- Only output USEFUL entries. Skip the rest entirely.
+- The "f" field MUST be an integer from 0-{len(file_names)-1}. Do NOT invent filenames.
+- Many points won't need @applies_when — only add when text specifically mentions property characteristics.
 
-Available knowledge files:{file_list}
+Output format — JSON array, one object per useful point:
+[{{"idx":0,"f":3,"aw":["year_built<1970"],"p":"high"}},{{"idx":5,"f":7,"aw":[],"p":"medium"}}]
 
-IMPORTANT: Only output entries you judge as USEFUL. Skip the rest entirely — do NOT output not-useful entries. Many points won't need @applies_when — only add conditions when the text specifically mentions property characteristics.
+Keys: idx (point index), f (file number as integer), aw (applies_when strings), p (priority).
+Return ONLY the JSON array."""
 
-Output a JSON array with ONLY the useful entries:
-{{"idx": 0, "file": "01_Foundation_Structure.md", "aw": ["year_built<1970"], "p": "high"}}
-{{"idx": 5, "file": "04_HVAC_Systems.md", "aw": [], "p": "medium"}}
-
-Use short keys: idx, file, aw (applies_when array of strings), p (priority).
-Return ONLY the JSON array, no other text."""
+    return prompt, file_names
 
 
 def call_claude(system: str, user_msg: str, max_tokens: int = 8192) -> str | None:
@@ -189,7 +190,7 @@ def enrich_points(export_path: str) -> dict:
     print(f"Total points to analyze: {len(all_points)}")
 
     knowledge_sections = load_knowledge_sections()
-    system_prompt = build_system_prompt(knowledge_sections)
+    system_prompt, file_names = build_system_prompt(knowledge_sections)
     total_batches = (len(all_points) + BATCH_SIZE - 1) // BATCH_SIZE
     print(f"Sending in {total_batches} batch(es) of ~{BATCH_SIZE} points\n")
 
@@ -216,19 +217,31 @@ def enrich_points(export_path: str) -> dict:
 
     # Map results back to source points and build enriched output
     enriched = []
+    skipped_bad_file = 0
     for result in all_results:
         idx = result.get("idx", -1)
         if idx < 0 or idx >= len(all_points):
             continue
         pt = all_points[idx]
+
+        # Map file number back to filename
+        file_num = result.get("f", -1)
+        if not isinstance(file_num, int) or file_num < 0 or file_num >= len(file_names):
+            skipped_bad_file += 1
+            continue
+        target_file = file_names[file_num]
+
         enriched.append({
             "text": pt.get("full_text", pt.get("text", "")),
             "category": pt.get("category", ""),
             "source_file": pt.get("source_file", ""),
-            "target_file": result.get("file", ""),
+            "target_file": target_file,
             "applies_when": result.get("aw", []),
             "priority": result.get("p", "medium"),
         })
+
+    if skipped_bad_file:
+        print(f"  Skipped {skipped_bad_file} results with invalid file numbers")
 
     with_tags = sum(1 for e in enriched if e["applies_when"])
 
