@@ -171,12 +171,14 @@ services:
           memory: 2048M
         reservations:
           memory: 768M
+    labels:
+      - "autoheal=true"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
-      interval: 30s
-      timeout: 10s
+      interval: 15s
+      timeout: 5s
       retries: 3
-      start_period: 15s
+      start_period: 30s
 
   celery_worker:
     build:
@@ -199,6 +201,12 @@ services:
       GEMINI_API_KEY: ${GEMINI_API_KEY}
       GREATSCHOOLS_API_KEY: ${GREATSCHOOLS_API_KEY:-}
       ENABLE_PROPERTY_LLM_ANALYSIS: ${ENABLE_PROPERTY_LLM_ANALYSIS:-false}
+      # SES for monitoring alerts
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      SES_FROM_EMAIL: ${SES_FROM_EMAIL:-Perchspot <hello@perchspot.com>}
+      ALERT_EMAIL: ${ALERT_EMAIL:-}
     depends_on:
       mysql:
         condition: service_healthy
@@ -234,6 +242,12 @@ services:
       GEMINI_API_KEY: ${GEMINI_API_KEY}
       GREATSCHOOLS_API_KEY: ${GREATSCHOOLS_API_KEY:-}
       ENABLE_PROPERTY_LLM_ANALYSIS: ${ENABLE_PROPERTY_LLM_ANALYSIS:-false}
+      # SES for monitoring alerts
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      SES_FROM_EMAIL: ${SES_FROM_EMAIL:-Perchspot <hello@perchspot.com>}
+      ALERT_EMAIL: ${ALERT_EMAIL:-}
     depends_on:
       mysql:
         condition: service_healthy
@@ -247,6 +261,26 @@ services:
           memory: 192M
         reservations:
           memory: 96M
+
+  # ===================
+  # Auto-Heal (restarts unhealthy containers)
+  # ===================
+  autoheal:
+    image: willfarrell/autoheal:latest
+    container_name: perchspot_autoheal
+    restart: unless-stopped
+    environment:
+      AUTOHEAL_CONTAINER_LABEL: autoheal
+      AUTOHEAL_INTERVAL: 30
+      AUTOHEAL_START_PERIOD: 60
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    deploy:
+      resources:
+        limits:
+          memory: 32M
+        reservations:
+          memory: 16M
 
   # Frontend build stage - builds static files and exits
   frontend:

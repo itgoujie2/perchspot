@@ -14,6 +14,7 @@ celery_app = Celery(
         "app.tasks.analysis_tasks",
         "app.tasks.data_collection_tasks",
         "app.tasks.email_tasks",
+        "app.tasks.monitoring_tasks",
     ]
 )
 
@@ -46,6 +47,20 @@ celery_app.conf.beat_schedule = {
         'schedule': crontab(day_of_week='sunday', hour='9', minute='0'),  # Every Sunday at 9:00 AM UTC
         'options': {
             'expires': 7200,  # Task expires if not run within 2 hours
+        }
+    },
+    'check-qps-threshold': {
+        'task': 'check_qps_threshold',
+        'schedule': 60.0,  # Every 60 seconds
+        'options': {
+            'expires': 55,
+        }
+    },
+    'check-backend-health': {
+        'task': 'check_backend_health',
+        'schedule': 60.0,  # Every 60 seconds
+        'options': {
+            'expires': 55,
         }
     },
 }

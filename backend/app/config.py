@@ -110,6 +110,7 @@ class Settings(BaseSettings):
     AWS_SECRET_ACCESS_KEY: str = ""
     AWS_REGION: str = "us-east-1"
     SES_FROM_EMAIL: str = "Perchspot <hello@perchspot.com>"
+    ALERT_EMAIL: str = ""  # Operational alert recipient (falls back to SES_FROM_EMAIL)
 
     # JWT / Auth - no default in production
     JWT_SECRET_KEY: str = ""

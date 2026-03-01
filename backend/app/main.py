@@ -6,7 +6,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from starlette.middleware.base import BaseHTTPMiddleware
 from contextlib import asynccontextmanager
-import time
 import logging
 
 from slowapi import Limiter, _rate_limit_exceeded_handler
@@ -114,6 +113,10 @@ app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 # Add security headers middleware
 app.add_middleware(SecurityHeadersMiddleware)
 
+# Add Prometheus metrics middleware (also handles X-Process-Time header)
+from app.middleware.metrics import MetricsMiddleware
+app.add_middleware(MetricsMiddleware, redis_url=settings.REDIS_URL)
+
 
 # CORS Middleware - specific methods and headers for security
 app.add_middleware(
@@ -125,17 +128,6 @@ app.add_middleware(
     expose_headers=["X-Process-Time"],
     max_age=600,  # Cache preflight for 10 minutes
 )
-
-
-# Request timing middleware
-@app.middleware("http")
-async def add_process_time_header(request: Request, call_next):
-    """Add X-Process-Time header to all responses"""
-    start_time = time.time()
-    response = await call_next(request)
-    process_time = time.time() - start_time
-    response.headers["X-Process-Time"] = str(process_time)
-    return response
 
 
 # Global exception handler
@@ -183,6 +175,18 @@ async def health_check():
         "timestamp": datetime.now().isoformat(),
         "services": services
     }
+
+
+# Prometheus metrics endpoint (admin-only)
+from fastapi import Depends
+from app.api.v1.endpoints.admin import verify_admin
+from app.middleware.metrics import metrics_endpoint as _metrics_ep
+
+
+@app.get("/metrics", dependencies=[Depends(verify_admin)])
+async def metrics():
+    """Prometheus-format metrics. Protected by admin password."""
+    return _metrics_ep()
 
 
 if __name__ == "__main__":
