@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from __future__ import annotations
+
 """
 Merge enriched Qdrant tags back into markdown knowledge files.
 
