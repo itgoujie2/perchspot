@@ -576,9 +576,18 @@ const ChatPage: React.FC = () => {
     const tokenParam = token ? `?token=${encodeURIComponent(token)}` : '';
     const url = `${apiUrl}/api/v1/streaming/analyze/stream/${encodedAddress}${tokenParam}`;
 
+    const MAX_RETRIES = 3;
+    const retryCount = { current: 0 };
+
+    const connectSSE = () => {
     const es = new EventSource(url);
 
+    // Track if we received any real events (beyond just connecting)
+    let receivedData = false;
+
     es.addEventListener('init', (_e) => {
+      receivedData = true;
+      retryCount.current = 0; // reset retries once connected successfully
       setCurrentStep('Initializing analysis...');
     });
 
@@ -589,6 +598,8 @@ const ChatPage: React.FC = () => {
     });
 
     es.addEventListener('queued', (e) => {
+      receivedData = true;
+      retryCount.current = 0;
       const data = JSON.parse(e.data);
       setCurrentStep(data.message);
     });
@@ -741,34 +752,56 @@ const ChatPage: React.FC = () => {
         // Server-sent error event with data payload
         const data = JSON.parse(e.data);
         addMessage('assistant', `Error: ${data.error}`, 'error');
-      } else {
-        // Connection-level error (e.g. HTTP 402) — re-fetch to detect the status
-        try {
-          const checkResponse = await fetch(url);
-          if (checkResponse.status === 402) {
-            const errData = await checkResponse.json();
-            const detail = errData.detail || {};
-            if (detail.action === 'signup') {
-              setSignupPrompt(true);
-              addMessage('assistant', 'You\'ve used your free analysis. Sign up for an account to analyze more properties.', 'error');
-            } else {
-              setSignupPrompt(true);
-              addMessage('assistant', `Insufficient credits (balance: $${(detail.balance || 0).toFixed(2)}). Purchase more credits to continue analyzing properties.`, 'error');
-            }
-          } else {
-            checkResponse.body?.cancel();
-            addMessage('assistant', 'Connection lost. Please refresh and try again.', 'error');
-          }
-        } catch {
-          addMessage('assistant', 'Connection lost. Please refresh and try again.', 'error');
-        }
+        setAnalyzing(false);
+        setCurrentStep('');
+        return;
       }
 
+      // Connection-level error — check if it's a payment issue first
+      try {
+        const checkResponse = await fetch(url);
+        if (checkResponse.status === 402) {
+          const errData = await checkResponse.json();
+          const detail = errData.detail || {};
+          if (detail.action === 'signup') {
+            setSignupPrompt(true);
+            addMessage('assistant', 'You\'ve used your free analysis. Sign up for an account to analyze more properties.', 'error');
+          } else {
+            setSignupPrompt(true);
+            addMessage('assistant', `Insufficient credits (balance: $${(detail.balance || 0).toFixed(2)}). Purchase more credits to continue analyzing properties.`, 'error');
+          }
+          setAnalyzing(false);
+          setCurrentStep('');
+          return;
+        }
+        checkResponse.body?.cancel();
+      } catch {
+        // Network error on check — fall through to retry logic
+      }
+
+      // Retry if we haven't received data yet (connection failed to establish)
+      if (!receivedData && retryCount.current < MAX_RETRIES) {
+        retryCount.current += 1;
+        const delay = retryCount.current * 2; // 2s, 4s, 6s
+        setCurrentStep(`Server busy — retrying in ${delay}s (attempt ${retryCount.current}/${MAX_RETRIES})...`);
+        setTimeout(() => {
+          if (!analysisCompleted.current) {
+            connectSSE();
+          }
+        }, delay * 1000);
+        return;
+      }
+
+      // All retries exhausted or failed mid-analysis
+      addMessage('assistant', 'Connection lost. Please refresh and try again.', 'error');
       setAnalyzing(false);
       setCurrentStep('');
     });
 
     setEventSource(es);
+    }; // end connectSSE
+
+    connectSSE();
   };
 
   const addMessage = (
