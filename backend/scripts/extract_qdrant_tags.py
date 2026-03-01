@@ -15,6 +15,7 @@ Usage (on EC2):
 Output: backend/scripts/qdrant_export.json
 """
 
+import argparse
 import json
 import os
 import sys
@@ -24,7 +25,7 @@ import requests
 
 QDRANT_URL = os.getenv("QDRANT_URL", "http://localhost:6333")
 COLLECTION = "knowledge"
-OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "qdrant_export.json")
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 SCROLL_LIMIT = 100  # points per scroll request
 
 
@@ -68,6 +69,18 @@ def format_condition(cond: dict) -> str:
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Extract points from Qdrant")
+    parser.add_argument(
+        "--all", action="store_true",
+        help="Export ALL points, not just tagged ones"
+    )
+    args = parser.parse_args()
+
+    output_path = os.path.join(
+        SCRIPT_DIR,
+        "qdrant_export_all.json" if args.all else "qdrant_export.json",
+    )
+
     # Check collection exists
     print(f"Connecting to Qdrant at {QDRANT_URL}...")
     try:
@@ -88,7 +101,7 @@ def main():
     points = scroll_all_points()
     print(f"Total points retrieved: {len(points)}")
 
-    # Group by source file and filter for those with tags
+    # Group by source file
     by_source: dict[str, list[dict]] = {}
     points_with_tags = 0
 
@@ -99,19 +112,22 @@ def main():
         priority = payload.get("priority", "medium")
 
         has_enrichment = bool(applies_when) or priority != "medium"
-
         if has_enrichment:
             points_with_tags += 1
-            entry = {
-                "text": payload.get("text", "")[:150],
-                "full_text": payload.get("text", ""),
-                "category": payload.get("category", ""),
-                "heading": payload.get("heading", ""),
-                "applies_when": applies_when,
-                "priority": priority,
-                "point_index": payload.get("point_index", -1),
-            }
-            by_source.setdefault(source_file, []).append(entry)
+
+        if not args.all and not has_enrichment:
+            continue
+
+        entry = {
+            "text": payload.get("text", "")[:150],
+            "full_text": payload.get("text", ""),
+            "category": payload.get("category", ""),
+            "heading": payload.get("heading", ""),
+            "applies_when": applies_when,
+            "priority": priority,
+            "point_index": payload.get("point_index", -1),
+        }
+        by_source.setdefault(source_file, []).append(entry)
 
     # Sort entries within each file by point_index
     for source_file in by_source:
@@ -123,21 +139,23 @@ def main():
         "qdrant_url": QDRANT_URL,
         "total_points": len(points),
         "points_with_tags": points_with_tags,
+        "points_exported": sum(len(v) for v in by_source.values()),
         "source_files_count": len(by_source),
         "by_source_file": by_source,
     }
 
     # Write JSON
-    with open(OUTPUT_PATH, "w") as f:
+    with open(output_path, "w") as f:
         json.dump(export, f, indent=2, default=str)
 
     print(f"\nExport summary:")
     print(f"  Total points: {len(points)}")
     print(f"  Points with tags: {points_with_tags}")
+    print(f"  Points exported: {export['points_exported']}")
     print(f"  Source files: {len(by_source)}")
     for src, entries in sorted(by_source.items()):
-        print(f"    {src}: {len(entries)} tagged points")
-    print(f"\nWritten to: {OUTPUT_PATH}")
+        print(f"    {src}: {len(entries)} points")
+    print(f"\nWritten to: {output_path}")
 
 
 if __name__ == "__main__":
