@@ -195,6 +195,7 @@ export default function AdminPortal() {
   const [surveysSummary, setSurveysSummary] = useState<any>(null);
   const [surveysLoading, setSurveysLoading] = useState(false);
   const [surveysError, setSurveysError] = useState('');
+  const [selectedSurvey, setSelectedSurvey] = useState<any>(null);
 
   // Analytics state
   const [analyses, setAnalyses] = useState<any[]>([]);
@@ -1959,7 +1960,12 @@ export default function AdminPortal() {
                     </TableHead>
                     <TableBody>
                       {surveys.map((survey) => (
-                        <TableRow key={survey.id} hover>
+                        <TableRow
+                          key={survey.id}
+                          hover
+                          onClick={() => setSelectedSurvey(survey)}
+                          sx={{ cursor: 'pointer' }}
+                        >
                           <TableCell>
                             <Typography variant="body2" sx={{ fontWeight: 500 }}>
                               {survey.user_email}
@@ -2027,6 +2033,47 @@ export default function AdminPortal() {
             </Paper>
           </Box>
         )}
+
+        {/* Survey Detail Dialog */}
+        <Dialog open={!!selectedSurvey} onClose={() => setSelectedSurvey(null)} maxWidth="sm" fullWidth>
+          <DialogTitle sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            Survey Response
+            <IconButton onClick={() => setSelectedSurvey(null)} size="small"><Close /></IconButton>
+          </DialogTitle>
+          <DialogContent dividers>
+            {selectedSurvey && (
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                <Box>
+                  <Typography variant="caption" color="text.secondary">User</Typography>
+                  <Typography variant="body1">{selectedSurvey.user_email}</Typography>
+                </Box>
+                <Box>
+                  <Typography variant="caption" color="text.secondary">How did they find us</Typography>
+                  <Typography variant="body1">{selectedSurvey.how_did_you_hear || '—'}</Typography>
+                </Box>
+                <Box>
+                  <Typography variant="caption" color="text.secondary">Satisfaction</Typography>
+                  <Typography variant="body1">
+                    {selectedSurvey.satisfaction ? `${selectedSurvey.satisfaction} / 5` : '—'}
+                  </Typography>
+                </Box>
+                <Box>
+                  <Typography variant="caption" color="text.secondary">Feedback / Improvements</Typography>
+                  <Typography variant="body1" sx={{ whiteSpace: 'pre-wrap', mt: 0.5 }}>
+                    {selectedSurvey.improvements || '—'}
+                  </Typography>
+                </Box>
+                <Box>
+                  <Typography variant="caption" color="text.secondary">Submitted</Typography>
+                  <Typography variant="body1">{formatDate(selectedSurvey.created_at)}</Typography>
+                </Box>
+              </Box>
+            )}
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => setSelectedSurvey(null)}>Close</Button>
+          </DialogActions>
+        </Dialog>
 
         {/* Analytics Section */}
         {activeSection === 'analytics' && (
